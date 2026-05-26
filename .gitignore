@@ -1,11 +1,86 @@
-.htaccess
-css.php
-rpc/
-sites/site*/admin/
-sites/site*/private/
-sites/site*/public/admin/
-sites/site*/public/setup/
-sites/site*/public/theme/
-textpattern/
-HISTORY.txt
-README.txt
+# ==========================================
+# Python
+# ==========================================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+co2rr_agent/
+
+# Build / packaging
+build/
+dist/
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# macOS
+.DS_Store
+
+# ==========================================
+# Secrets / authentication
+# ==========================================
+.env
+.env.*
+*.token
+*.tokens
+*access_token*
+*refresh_token*
+auth_cache*
+.globus/
+inference_token*
+token_cache*
+
+# ALCF helper: download locally, do not commit
+inference_auth_token.py
+
+# ==========================================
+# Generated agent outputs
+# ==========================================
+generated_outputs/
+co2rr_xas_output/
+output/
+examples/output/
+
+# Optional zip outputs
+*.zip
+
+# ==========================================
+# Heavy VASP / simulation output files
+# Keep input files, ignore expensive outputs
+# ==========================================
+WAVECAR
+WAVEDER
+CHGCAR
+CHG
+AECCAR*
+LOCPOT
+ELFCAR
+vasprun.xml
+XDATCAR
+REPORT
+EIGENVAL
+IBZKPT
+DOSCAR
+PROCAR
+OSZICAR
+PCDAT
+CONTCAR
+
+# ==========================================
+# Large spectroscopy outputs
+# ==========================================
+ldos*.dat
+paths.dat

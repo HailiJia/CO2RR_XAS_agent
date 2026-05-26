@@ -1,0 +1,199 @@
+# skills/skill_xas_input_generation.yaml
+
+skill_id: xas_input_generation
+version: "2.0"
+name: XAS Input Generation
+category: spectroscopy
+
+description: |
+  Generate input files for X-ray Absorption Spectroscopy (XAS) simulations.
+  Creates VASP relaxation as a prerequisite step, then generates inputs for
+  multiple XAS calculation methods: FDMNES (FDM and Green's function), FEFF,
+  and VASP (GW and PBE for K-edges only).
+
+natural_language_triggers:
+  - "prepare XAS inputs for *"
+  - "generate XAS calculation for *"
+  - "set up * edge calculation"
+  - "create FEFF input for *"
+  - "create FDMNES input for *"
+  - "XAS workflow for *"
+  - "relax and prepare XAS for *"
+
+prerequisites:
+  - skill_id: co2rr_structure_generation
+    description: Structure must be available (generated or provided)
+
+workflow_steps:
+  relaxation:
+    description: VASP structure relaxation
+    required: true
+    outputs:
+      - relax/POSCAR
+      - relax/INCAR
+      - relax/KPOINTS
+      - relax/POTCAR.spec
+      - relax/submit_relax.sh
+      
+  xas_generation:
+    description: Generate XAS inputs after relaxation
+    trigger: CONTCAR available
+    outputs_per_edge:
+      - FDMNES_fdm/
+      - FDMNES_green/
+      - FEFF/
+      - VASP_GW/ (K-edge only)
+      - VASP_PBE/ (K-edge only)
+
+edge_rules:
+  3d_metals:
+    elements: [Sc, Ti, V, Cr, Mn, Fe, Co, Ni, Cu, Zn]
+    edge: K
+    edge_energies:
+      Sc: 4492
+      Ti: 4966
+      V: 5465
+      Cr: 5989
+      Mn: 6539
+      Fe: 7112
+      Co: 7709
+      Ni: 8333
+      Cu: 8979
+      Zn: 9659
+    vasp_allowed: true
+    
+  4d_metals:
+    elements: [Y, Zr, Nb, Mo, Tc, Ru, Rh, Pd, Ag, Cd]
+    edge: L23
+    edge_energies:
+      Pd: 3173  # L3
+      Ag: 3351  # L3
+    vasp_allowed: false
+    
+  5d_metals:
+    elements: [Hf, Ta, W, Re, Os, Ir, Pt, Au, Hg]
+    edge: L23
+    edge_energies:
+      Pt: 11564  # L3
+      Au: 11919  # L3
+    vasp_allowed: false
+    
+  light_elements:
+    elements: [C, N, O]
+    edge: K
+    edge_energies:
+      C: 284
+      N: 410
+      O: 543
+    vasp_allowed: true
+
+calculation_methods:
+  FDMNES_fdm:
+    name: FDMNES Finite Difference Method
+    software: FDMNES
+    applicable_edges: [K, L23]
+    input_file: fdmfile.txt
+    key_parameters:
+      - Radius
+      - Green: false
+      - SCF
+      - Quadrupole
+      
+  FDMNES_green:
+    name: FDMNES Multiple Scattering
+    software: FDMNES
+    applicable_edges: [K, L23]
+    input_file: fdmfile.txt
+    key_parameters:
+      - Radius
+      - Green: true
+      - SCF
+      
+  FEFF:
+    name: FEFF Real-space Multiple Scattering
+    software: FEFF9/FEFF10
+    applicable_edges: [K, L23]
+    input_file: feff.inp
+    key_parameters:
+      - EDGE
+      - S02
+      - SCF
+      - FMS
+      - XANES
+      
+  VASP_GW:
+    name: VASP GW Approximation
+    software: VASP
+    applicable_edges: [K]
+    input_files: [POSCAR, INCAR, KPOINTS]
+    key_parameters:
+      - ALGO: GW
+      - NBANDS
+      - NOMEGA
+      - LOPTICS
+      
+  VASP_PBE:
+    name: VASP PBE Core-hole
+    software: VASP
+    applicable_edges: [K]
+    input_files: [POSCAR, INCAR, KPOINTS]
+    key_parameters:
+      - ICORELEVEL: 2
+      - CLNT
+      - CLN
+      - CLL
+
+parameters:
+  structure_file:
+    type: file_path
+    required: true
+    formats: [POSCAR, CONTCAR, CIF]
+  cluster_radius:
+    type: number
+    default: 6.0
+    unit: angstrom
+  energy_range:
+    type: object
+    default:
+      min: -10
+      max: 50
+      step: 0.5
+    unit: eV
+  nersc_account:
+    type: string
+    default: mxxxx
+  nersc_queue:
+    type: string
+    default: regular
+    enum: [debug, regular, premium]
+  nersc_nodes:
+    type: integer
+    default: 2
+  nersc_walltime:
+    type: string
+    default: "8:00:00"
+  email:
+    type: string
+    required: false
+
+outputs:
+  folder_structure: |
+    {base_dir}/
+    ├── relax/
+    │   ├── POSCAR
+    │   ├── INCAR
+    │   ├── KPOINTS
+    │   ├── POTCAR.spec
+    │   └── submit_relax.sh
+    └── xas/
+        ├── {Element1}_{Edge}_edge/
+        │   ├── FDMNES_fdm/
+        │   ├── FDMNES_green/
+        │   ├── FEFF/
+        │   ├── VASP_GW/
+        │   └── VASP_PBE/
+        └── {Element2}_{Edge}_edge/
+            └── ...
+
+references:
+  - https://github.com/HailiJia/Lightshow/tree/master

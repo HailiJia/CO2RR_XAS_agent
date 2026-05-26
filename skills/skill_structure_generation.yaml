@@ -1,0 +1,170 @@
+# skills/skill_structure_generation.yaml
+
+skill_id: co2rr_structure_generation
+version: "2.0"
+name: CO2RR Structure Generation
+category: materials_science
+
+description: |
+  Generate atomic structures for CO2 reduction reaction (CO2RR) simulations 
+  on metal catalyst surfaces. Supports reading existing structure files or 
+  generating new structures for metal surfaces, interfaces, and adsorbate systems.
+
+natural_language_triggers:
+  - "create * surface"
+  - "generate * structure"
+  - "build * slab"
+  - "* on * surface"
+  - "* on * interface"
+  - "full CO2RR pathway on *"
+  - "read structure from *"
+  - "parse * file"
+
+capabilities:
+  input_formats:
+    - name: CIF
+      extension: .cif
+      description: Crystallographic Information File
+    - name: POSCAR
+      extension: POSCAR
+      description: VASP structure format
+    - name: CONTCAR
+      extension: CONTCAR
+      description: VASP relaxed structure
+
+  metals:
+    fcc:
+      elements: [Cu, Ag, Au, Pt, Pd, Ni, Al, Rh, Ir]
+      facets: ["111", "100", "110"]
+      lattice_constants:
+        Cu: 3.615
+        Ag: 4.085
+        Au: 4.078
+        Pt: 3.924
+        Pd: 3.891
+        Ni: 3.524
+        Al: 4.050
+        Rh: 3.803
+        Ir: 3.839
+    bcc:
+      elements: [Fe, Cr, Mo, W, V, Nb, Ta]
+      facets: ["110", "100", "111"]
+      lattice_constants:
+        Fe: 2.867
+        Cr: 2.910
+        Mo: 3.147
+        W: 3.165
+    hcp:
+      elements: [Co, Zn, Ti, Zr, Ru, Os]
+      facets: ["0001", "10-10"]
+      lattice_constants:
+        Co: 2.507
+        Zn: 2.665
+
+  adsorbates:
+    CO:
+      atoms: [C, O]
+      positions: [[0.0, 0.0, 0.0], [0.0, 0.0, 1.13]]
+      binding_atom: 0
+      description: Carbon monoxide
+    CH:
+      atoms: [C, H]
+      positions: [[0.0, 0.0, 0.0], [0.0, 0.0, 1.09]]
+      binding_atom: 0
+      description: Methylidyne
+    CH2:
+      atoms: [C, H, H]
+      positions: [[0.0, 0.0, 0.0], [0.0, 0.94, 0.54], [0.0, -0.94, 0.54]]
+      binding_atom: 0
+      description: Methylene
+    CHO:
+      atoms: [C, H, O]
+      positions: [[0.0, 0.0, 0.0], [1.09, 0.0, 0.0], [-0.6, 0.0, 1.1]]
+      binding_atom: 0
+      description: Formyl
+    CHOH:
+      atoms: [C, H, O, H]
+      positions: [[0.0, 0.0, 0.0], [1.09, 0.0, 0.0], [-0.6, 0.0, 1.2], [-0.6, 0.8, 1.6]]
+      binding_atom: 0
+      description: Hydroxymethylidene
+    CH3:
+      atoms: [C, H, H, H]
+      positions: [[0.0, 0.0, 0.0], [0.0, 1.02, 0.36], [0.88, -0.51, 0.36], [-0.88, -0.51, 0.36]]
+      binding_atom: 0
+      description: Methyl
+    CH4:
+      atoms: [C, H, H, H, H]
+      positions: [[0.0, 0.0, 0.0], [0.63, 0.63, 0.63], [-0.63, -0.63, 0.63], [-0.63, 0.63, -0.63], [0.63, -0.63, -0.63]]
+      binding_atom: 0
+      description: Methane (physisorbed)
+    COCO:
+      atoms: [C, O, C, O]
+      positions: [[0.0, 0.0, 0.0], [0.0, 0.0, 1.2], [1.5, 0.0, 0.0], [1.5, 0.0, 1.2]]
+      binding_atom: 0
+      description: CO dimer
+    OCCO:
+      atoms: [O, C, C, O]
+      positions: [[-1.2, 0.0, 0.6], [0.0, 0.0, 0.0], [1.4, 0.0, 0.0], [2.6, 0.0, 0.6]]
+      binding_atom: 1
+      description: Glyoxal-like intermediate
+
+  adsorption_sites:
+    top:
+      offset: [0.0, 0.0]
+      description: Directly above surface atom
+    bridge:
+      offset: [0.5, 0.0]
+      description: Between two surface atoms
+    fcc:
+      offset: [0.333, 0.333]
+      description: FCC hollow site
+    hcp:
+      offset: [0.667, 0.667]
+      description: HCP hollow site
+
+parameters:
+  metal1:
+    type: string
+    required: true
+    description: Primary metal element
+  metal2:
+    type: string
+    required: false
+    description: Secondary metal for interfaces
+  facet1:
+    type: string
+    default: "111"
+    description: Miller index for primary metal
+  facet2:
+    type: string
+    required: false
+    description: Miller index for secondary metal
+  adsorbate:
+    type: string
+    required: false
+    enum: [CO, CH, CH2, CHO, CHOH, CH3, CH4, COCO, OCCO]
+  site:
+    type: string
+    default: top
+    enum: [top, bridge, fcc, hcp]
+  supercell:
+    type: array
+    default: [3, 3]
+  layers:
+    type: integer
+    default: 4
+  vacuum:
+    type: number
+    default: 15.0
+    unit: angstrom
+
+outputs:
+  - name: POSCAR
+    path: "{output_dir}/structure/POSCAR"
+    format: VASP5
+  - name: structure_info.json
+    path: "{output_dir}/structure/structure_info.json"
+    format: JSON
+
+references:
+  - https://github.com/ISAAC-DOE/hackathon_april2026/blob/main/VASP_skill/vasp_skill.json

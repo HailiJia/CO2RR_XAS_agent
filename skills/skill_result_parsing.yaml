@@ -1,0 +1,147 @@
+# skills/skill_result_parsing.yaml
+
+skill_id: xas_result_parsing
+version: "2.0"
+name: XAS Result Parsing and ISAAC Record Generation
+category: data_processing
+
+description: |
+  Parse XAS simulation outputs from FEFF, FDMNES, and VASP, then generate
+  standardized ISAAC AI-ready records following the official schema.
+
+natural_language_triggers:
+  - "parse XAS results from *"
+  - "read FEFF output"
+  - "read FDMNES output"
+  - "read VASP XAS output"
+  - "create ISAAC record for *"
+  - "convert results to ISAAC format"
+  - "extract spectrum from *"
+
+parsing_specifications:
+  FEFF:
+    primary_output: xmu.dat
+    format: |
+      # Header lines starting with #
+      # Columns: energy  k  mu  mu0  chi
+    columns:
+      energy: 0
+      mu: 2
+    energy_unit: eV
+    
+  FDMNES:
+    primary_output: "*_conv.txt"
+    format: |
+      # Convoluted spectrum
+      # energy  intensity
+    columns:
+      energy: 0
+      intensity: 1
+    energy_unit: eV
+    
+  VASP:
+    primary_output: OUTCAR
+    processing_script: extract_vasp_xas.sh
+    output_file: CORE_DIELECTRIC_IMAG.dat
+    modes:
+      trace:
+        description: "xx + yy + zz components"
+        flag: "-trace"
+      parallel:
+        description: "xx + yy components"
+        flag: "-parallel"
+      normal:
+        description: "zz component only"
+        flag: "-normal"
+      tauc:
+        description: "Tauc plot format"
+        flag: "-tauc"
+    default_mode: trace
+
+isaac_record_schema:
+  required_fields:
+    record_id:
+      type: string
+      format: uuid
+      auto_generate: true
+    record_type:
+      type: string
+      value: simulation
+    created_at:
+      type: string
+      format: ISO8601
+      auto_generate: true
+    simulation_type:
+      type: string
+      value: xas
+    software:
+      type: string
+      enum: [FEFF, FDMNES_fdm, FDMNES_green, VASP_GW, VASP_PBE]
+    structure:
+      type: object
+      properties:
+        format: string
+        atoms: array
+        positions: array
+        cell: array
+        pbc: array
+        metadata: object
+    results:
+      type: object
+      properties:
+        spectra:
+          type: array
+          items:
+            type: string
+            edge: string
+            absorber: string
+            data:
+              energy: array
+              intensity: array
+              energy_unit: string
+              intensity_unit: string
+    provenance:
+      type: object
+      properties:
+        generator: string
+        generator_version: string
+        generation_date: string
+        workflow: string
+        
+  optional_fields:
+    parameters: object
+    tags: array
+    description: string
+
+parameters:
+  output_directory:
+    type: directory_path
+    required: true
+  software:
+    type: string
+    required: true
+    enum: [FEFF, FDMNES, VASP]
+  vasp_mode:
+    type: string
+    default: trace
+    enum: [trace, parallel, normal, tauc]
+  structure_file:
+    type: file_path
+    required: true
+  calculation_parameters:
+    type: object
+    required: false
+
+outputs:
+  - name: parsed_spectrum
+    format: JSON
+    contents:
+      energy: array
+      intensity: array
+      metadata: object
+  - name: isaac_record
+    format: JSON
+    path: "{output_dir}/isaac_record.json"
+
+references:
+  - https://github.com/ISAAC-DOE/isaac-ai-ready-record/blob/main/examples/simulation_xas_record.json
