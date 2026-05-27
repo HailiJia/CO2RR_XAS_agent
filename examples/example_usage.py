@@ -1,165 +1,115 @@
 """
-Example usage of CO2RR XAS Agent
+Example usage of the CO2RR XAS Agent.
+
+The local parser works offline but is regex based. For flexible natural language,
+use the LLM planner by setting environment variables and passing use_llm=True.
 """
 
 import os
 import sys
 
-# Add parent directory to path
+# Add project root to path when running this file directly.
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from agent.co2rr_xas_agent import create_agent, process_request
+from agent.planner import create_llm_planner_from_env
 
 
-def example_natural_language():
-    """Examples using natural language interface."""
-    print("=" * 60)
-    print("CO2RR XAS Agent - Natural Language Examples")
-    print("=" * 60)
-    
-    # Example 1: Simple surface with adsorbate
-    print("\n1. Generate Cu(111) surface with CO adsorbate")
+def example_local_parser():
+    """Examples using the offline regex parser."""
+    print("=" * 70)
+    print("CO2RR XAS Agent - Local parser examples")
+    print("=" * 70)
+
     result = process_request(
         "Generate Cu(111) surface with CO adsorbate",
-        output_dir="examples/output/example1"
+        output_dir="examples/output/local_cu_co",
     )
-    print(f"   Status: {result['status']}")
-    print(f"   Structures: {len(result.get('structures', []))}")
-    
-    # Example 2: Interface structure
-    print("\n2. Create Cu-Au interface with CHO")
+    print("Local structure status:", result["status"])
+
     result = process_request(
-        "Create Cu-Au interface with CHO adsorbate",
-        output_dir="examples/output/example2"
+        "Generate FDMNES Green XAS inputs without SCF, with Quadrupole and Spinorbit "
+        "for CO on Cu(111), radius 7 Angstrom, energy range -5 0.2 50, K edge, "
+        "NERSC account m5268",
+        output_dir="examples/output/local_fdmnes_green",
     )
-    print(f"   Status: {result['status']}")
-    
-    # Example 3: Full CO2RR pathway
-    print("\n3. Full CO2RR pathway on Ag(111)")
+    print("Local XAS status:", result["status"])
+
+
+def example_llm_planner():
+    """Examples using the LLM planner for flexible natural language."""
+    print("=" * 70)
+    print("CO2RR XAS Agent - LLM planner example")
+    print("=" * 70)
+
+    # Required environment variables:
+    #   CO2RR_LLM_MODEL or OPENAI_MODEL or ALCF_MODEL
+    #   CO2RR_LLM_API_KEY or OPENAI_API_KEY or ALCF_API_KEY or ALCF_TOKEN
+    # Optional for ALCF/AskSage/OpenAI-compatible gateways:
+    #   CO2RR_LLM_BASE_URL or OPENAI_BASE_URL or ALCF_BASE_URL
+    planner = create_llm_planner_from_env()
+
+    request = (
+        "Generate FDMNES Green multiple scattering XAS inputs without SCF, "
+        "with Quadrupole and Spinorbit for CO on Cu(111), radius 7 Angstrom, "
+        "energy range start from -5 eV to 50 eV with step size 0.2 eV, "
+        "K edge, NERSC account m5268"
+    )
+
     result = process_request(
-        "Full CO2RR pathway on Ag catalyst",
-        output_dir="examples/output/example3"
+        request,
+        output_dir="examples/output/llm_fdmnes_green",
+        planner=planner,
+        use_llm=True,
     )
-    print(f"   Status: {result['status']}")
-    print(f"   Structures: {len(result.get('structures', []))}")
-    
-    # Example 4: XAS inputs for specific structure
-    print("\n4. XAS inputs for OCCO on Pt(100)")
-    result = process_request(
-        "Generate XAS inputs for OCCO on Pt(100) surface",
-        output_dir="examples/output/example4"
-    )
-    print(f"   Status: {result['status']}")
-    
-    # Example 5: Full workflow with interface
-    print("\n5. Full XAS workflow for Cu-Au interface")
-    result = process_request(
-        "Complete XAS workflow for CO2RR on Cu-Au interface",
-        output_dir="examples/output/example5",
-        nersc_account="m1234",
-        email="user@example.com"
-    )
-    print(f"   Status: {result['status']}")
+    print("LLM XAS status:", result["status"])
 
 
 def example_direct_api():
-    """Examples using direct API."""
-    print("\n" + "=" * 60)
-    print("CO2RR XAS Agent - Direct API Examples")
-    print("=" * 60)
-    
+    """Examples using direct Python API, with no natural-language parsing."""
+    print("=" * 70)
+    print("CO2RR XAS Agent - Direct API examples")
+    print("=" * 70)
+
     agent = create_agent("examples/output/api_examples")
-    
-    # Example 1: Generate single structure
-    print("\n1. Generate Ni(110) surface with CH2")
+
     result = agent.generate_structure(
         metal1="Ni",
         facet1="110",
         adsorbate="CH2",
         site="bridge",
         supercell=(4, 4),
-        layers=5
+        layers=5,
     )
-    print(f"   Status: {result['status']}")
-    
-    # Example 2: Generate interface
-    print("\n2. Generate Pd-Ag interface with COCO")
-    result = agent.generate_structure(
-        metal1="Pd",
-        metal2="Ag",
-        facet1="111",
-        adsorbate="COCO",
-        output_dir="examples/output/api_examples/pd_ag_coco"
-    )
-    print(f"   Status: {result['status']}")
-    
-    # Example 3: Full pathway
-    print("\n3. Full CO2RR pathway on Au(111)")
-    result = agent.generate_structure(
-        metal1="Au",
-        facet1="111",
-        full_pathway=True,
-        output_dir="examples/output/api_examples/au_pathway"
-    )
-    print(f"   Status: {result['status']}")
-    print(f"   Structures: {len(result.get('structures', []))}")
+    print("Direct structure status:", result["status"])
 
-
-def show_folder_structure():
-    """Show expected folder structure."""
-    print("\n" + "=" * 60)
-    print("Expected Folder Structure")
-    print("=" * 60)
-    
-    structure = """
-    output/
-    ├── CO/
-    │   ├── structure/
-    │   │   ├── POSCAR
-    │   │   └── structure_info.json
-    │   ├── relax/
-    │   │   ├── POSCAR
-    │   │   ├── INCAR
-    │   │   ├── KPOINTS
-    │   │   ├── POTCAR.spec
-    │   │   └── submit_relax.sh
-    │   └── xas/
-    │       ├── Cu_K_edge/
-    │       │   ├── FDMNES_fdm/
-    │       │   │   ├── fdmfile.txt
-    │       │   │   └── submit.sh
-    │       │   ├── FDMNES_green/
-    │       │   │   ├── fdmfile.txt
-    │       │   │   └── submit.sh
-    │       │   ├── FEFF/
-    │       │   │   ├── feff.inp
-    │       │   │   └── submit.sh
-    │       │   ├── VASP_GW/
-    │       │   │   ├── POSCAR
-    │       │   │   ├── INCAR
-    │       │   │   ├── KPOINTS
-    │       │   │   ├── POTCAR.spec
-    │       │   │   └── submit.sh
-    │       │   └── VASP_PBE/
-    │       │       └── ...
-    │       └── C_K_edge/
-    │           ├── FDMNES_fdm/
-    │           ├── FDMNES_green/
-    │           ├── FEFF/
-    │           ├── VASP_GW/
-    │           └── VASP_PBE/
-    ├── CHO/
-    │   └── ...
-    └── ...
-    """
-    print(structure)
+    result = agent.generate_xas_inputs(
+        structure_file="examples/output/api_examples/CH2/structure/POSCAR",
+        output_dir="examples/output/api_examples/CH2",
+        nersc_account="m5268",
+        cluster_radius=7.0,
+        fdmnes_options={
+            "Green": True,
+            "SCF": False,
+            "Quadrupole": True,
+            "Spinorbit": True,
+            "Relativism": False,
+            "SCFexc": False,
+            "Screening": False,
+            "Full_atom": False,
+            "TDDFT": False,
+        },
+        fdmnes_energy_range=(-5.0, 50.0, 0.2),  # semantic order also accepted
+        edge_override="K",
+    )
+    print("Direct XAS status:", result["status"])
 
 
 if __name__ == "__main__":
-    example_natural_language()
-    example_direct_api()
-    show_folder_structure()
-    
-    print("\n" + "=" * 60)
-    print("Examples complete! Check 'examples/output/' for generated files.")
-    print("=" * 60)
+    example_local_parser()
+
+    # Uncomment after setting LLM environment variables.
+    # example_llm_planner()
+
+    # Uncomment when the structure path exists.
+    # example_direct_api()

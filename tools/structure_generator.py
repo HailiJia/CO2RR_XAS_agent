@@ -9,7 +9,7 @@ import numpy as np
 from typing import Dict, List, Tuple, Optional, Union
 from .utils import (
     METAL_DATA, ADSORBATES, ADSORPTION_SITES, CO2RR_PATHWAY,
-    write_poscar, read_poscar, ensure_dir, generate_uuid, get_timestamp
+    write_poscar, read_poscar, read_structure_file, ensure_dir, generate_uuid, get_timestamp
 )
 
 
@@ -471,7 +471,7 @@ class StructureGenerator:
         all_positions[:, 2] -= all_positions[:, 2].min()
         slab_height = all_positions[:, 2].max()
         cell_height = slab_height + vacuum
-        all_# One-sided vacuum: slab starts at z = 0; vacuum is above the slab
+        # One-sided vacuum: slab starts at z = 0; vacuum is above the slab
         
         # Use cell from surf1 (assuming compatible)
         cell = surf1['cell'].copy()
@@ -747,7 +747,7 @@ def execute_structure_generation(
         if not structure_file or not os.path.exists(structure_file):
             return {'status': 'error', 'message': f'Structure file not found: {structure_file}'}
         
-        structure = read_poscar(structure_file)
+        structure = read_structure_file(structure_file)
         structure['metadata'] = {'source_file': structure_file}
         
         struct_dir = os.path.join(output_dir, "structure")

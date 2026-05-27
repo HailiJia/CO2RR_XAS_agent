@@ -385,10 +385,68 @@ def write_poscar(
 
 
 def read_cif(filepath: str) -> Dict:
+    """Read CIF using read_structure_file. Requires pymatgen or ase."""
+    return read_structure_file(filepath)
+
+def read_structure_file(filepath: str) -> Dict:
     """
-    Simple CIF file reader.
-    Note: For complex CIF files, consider using pymatgen or ase.
+    Read a structure file and return the internal structure dictionary.
+
+    Supported directly:
+    - POSCAR / CONTCAR / VASP-format files via read_poscar
+    - CIF via pymatgen first, then ASE fallback if installed
+
+    The returned positions are Cartesian coordinates and cell vectors are rows,
+    consistent with the rest of this codebase.
     """
-    # This is a simplified implementation
-    # For production, use a proper CIF parser
-    raise NotImplementedError("CIF reading requires pymatgen or ase. Please convert to POSCAR first.")
+    path = os.path.expanduser(os.path.expandvars(filepath))
+    lower = path.lower()
+    name = os.path.basename(path).lower()
+
+    if lower.endswith('.cif'):
+        # Prefer pymatgen because it robustly handles symmetry-expanded CIFs.
+        try:
+            from pymatgen.core import Structure as PMGStructure
+
+            pmg = PMGStructure.from_file(path)
+            atoms = [str(site.specie.symbol) for site in pmg.sites]
+            positions = np.array([site.coords for site in pmg.sites], dtype=float)
+            cell = np.array(pmg.lattice.matrix, dtype=float)
+            return {
+                'comment': os.path.basename(path),
+                'atoms': atoms,
+                'positions': positions,
+                'cell': cell,
+                'metadata': {'source_file': filepath, 'source_format': 'cif'},
+            }
+        except ImportError:
+            pass
+
+        try:
+            from ase.io import read as ase_read
+
+            atoms_obj = ase_read(path)
+            atoms = atoms_obj.get_chemical_symbols()
+            positions = np.array(atoms_obj.get_positions(), dtype=float)
+            cell = np.array(atoms_obj.get_cell().array, dtype=float)
+            return {
+                'comment': os.path.basename(path),
+                'atoms': atoms,
+                'positions': positions,
+                'cell': cell,
+                'metadata': {'source_file': filepath, 'source_format': 'cif'},
+            }
+        except ImportError as exc:
+            raise ImportError(
+                'CIF input requires pymatgen or ase. Install one of them, e.g. '
+                '`pip install pymatgen` or `pip install ase`.'
+            ) from exc
+
+    # CONTCAR has the same format as POSCAR. Other VASP-like filenames are also accepted.
+    if name in {'poscar', 'contcar'} or 'poscar' in name or 'contcar' in name or not lower.endswith('.cif'):
+        structure = read_poscar(path)
+        structure.setdefault('metadata', {})
+        structure['metadata'].update({'source_file': filepath, 'source_format': 'vasp'})
+        return structure
+
+    raise ValueError(f'Unsupported structure file format: {filepath}')

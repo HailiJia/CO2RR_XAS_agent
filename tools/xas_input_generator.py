@@ -11,7 +11,7 @@ from .utils import (
     ATOMIC_NUMBERS, METALS_3D, METALS_4D, METALS_5D,
     EDGE_ENERGIES, METAL_DATA,
     get_edge_for_element, get_edge_energy, contains_carbon,
-    read_poscar, write_poscar, ensure_dir
+    read_poscar, read_structure_file, write_poscar, ensure_dir
 )
 
 def get_dipol_direct(structure: Dict) -> str:
@@ -147,8 +147,196 @@ class RelaxationInputGenerator:
 
 
 class FEFFInputGenerator:
-    """Generate FEFF input files."""
-    
+    """Generate FEFF input files.
+
+    The FEFF calculation is written as one absorber-centered ``feff.inp`` file.
+    The absorber atom is always assigned ``ipot = 0``. Other scattering
+    potentials, including atoms of the same element as the absorber, are assigned
+    positive ``ipot`` values. The cluster is generated from periodic images of
+    the input cell so surface supercells and small primitive cells both produce
+    a physically meaningful local cluster.
+    """
+
+    DEFAULT_TAGS = {
+        "CONTROL": "1 1 1 1 1 1",
+        "COREHOLE": "RPA",
+        "S02": "0",
+        "EXCHANGE": "0 0.0 0.0 2",
+        "XANES": "4 0.04 0.1",
+        "RPATH": "-1",
+    }
+
+    def _fmt_float(self, value: float) -> str:
+        """Compact FEFF-style floating point formatting."""
+        value = float(value)
+        if abs(value) < 5e-13:
+            value = 0.0
+        return f"{value:.8g}"
+
+    def _cell_translation_limits(self, cell: np.ndarray, radius: float) -> Tuple[int, int, int]:
+        """Return conservative image repeat limits for a cluster radius."""
+        lengths = [np.linalg.norm(cell[i]) for i in range(3)]
+        limits = []
+        for length in lengths:
+            if length <= 1e-8:
+                limits.append(0)
+            else:
+                limits.append(int(np.ceil(radius / length)) + 1)
+        return tuple(limits)
+
+    def _build_periodic_cluster(
+        self,
+        structure: Dict,
+        absorber: str,
+        absorber_index: int,
+        radius: float,
+    ) -> Tuple[List[Dict], int]:
+        """Build an absorber-centered periodic cluster.
+
+        Returns:
+            cluster: list of dictionaries with element, relative position,
+                distance, original atom index, and is_absorber flag.
+            abs_idx: absolute atom index of the selected absorber in the input cell.
+        """
+        atoms = list(structure["atoms"])
+        positions = np.array(structure["positions"], dtype=float)
+        cell = np.array(structure["cell"], dtype=float)
+
+        abs_indices = [i for i, atom in enumerate(atoms) if atom == absorber]
+        if not abs_indices:
+            raise ValueError(f"No absorber atom {absorber!r} found in structure")
+        if absorber_index >= len(abs_indices):
+            absorber_index = 0
+        abs_idx = abs_indices[absorber_index]
+        abs_pos = positions[abs_idx]
+
+        n1, n2, n3 = self._cell_translation_limits(cell, radius)
+        cluster = []
+        seen = set()
+
+        for ia in range(-n1, n1 + 1):
+            for ib in range(-n2, n2 + 1):
+                for ic in range(-n3, n3 + 1):
+                    translation = ia * cell[0] + ib * cell[1] + ic * cell[2]
+                    image = (ia, ib, ic)
+
+                    for atom_index, (atom, pos) in enumerate(zip(atoms, positions)):
+                        rel = pos + translation - abs_pos
+                        dist = float(np.linalg.norm(rel))
+
+                        if dist > radius + 1e-8:
+                            continue
+
+                        is_absorber = atom_index == abs_idx and image == (0, 0, 0)
+
+                        # Deduplicate atoms sitting on periodic boundaries. Round the
+                        # relative coordinate so numerically identical images collapse.
+                        key = (
+                            atom,
+                            round(float(rel[0]), 8),
+                            round(float(rel[1]), 8),
+                            round(float(rel[2]), 8),
+                            is_absorber,
+                        )
+                        if key in seen:
+                            continue
+                        seen.add(key)
+
+                        cluster.append({
+                            "element": atom,
+                            "rel": rel,
+                            "distance": dist,
+                            "atom_index": atom_index,
+                            "image": image,
+                            "is_absorber": is_absorber,
+                        })
+
+        # The true absorber must be first, then neighbors sorted by distance.
+        cluster.sort(key=lambda item: (not item["is_absorber"], item["distance"], item["element"], item["atom_index"]))
+        return cluster, abs_idx
+
+    def _build_potentials(self, cluster: List[Dict], absorber: str) -> Tuple[List[Dict], Dict[str, int]]:
+        """Build FEFF potentials and element-to-ipot mapping.
+
+        FEFF convention:
+            ipot 0 = absorbing atom
+            ipot > 0 = scattering potentials
+
+        If the same element appears as both absorber and scatterer, it gets two
+        rows in POTENTIALS: ipot 0 for the absorber and another positive ipot for
+        the non-absorbing atoms of that same element.
+        """
+        scatterer_elements = []
+        for item in cluster:
+            if item["is_absorber"]:
+                continue
+            elem = item["element"]
+            if elem not in scatterer_elements:
+                scatterer_elements.append(elem)
+
+        # Put same-element scatterer first, matching common pymatgen/FEFF style.
+        scatterer_elements.sort(key=lambda elem: (elem != absorber, elem))
+
+        potentials = [{
+            "ipot": 0,
+            "element": absorber,
+            "z": ATOMIC_NUMBERS.get(absorber),
+            "xnatph": 0.0001,
+        }]
+
+        scatterer_ipot = {}
+        for ipot, elem in enumerate(scatterer_elements, start=1):
+            count = sum(1 for item in cluster if (not item["is_absorber"] and item["element"] == elem))
+            scatterer_ipot[elem] = ipot
+            potentials.append({
+                "ipot": ipot,
+                "element": elem,
+                "z": ATOMIC_NUMBERS.get(elem),
+                "xnatph": count,
+            })
+
+        for pot in potentials:
+            if pot["z"] is None:
+                raise ValueError(f"Unknown atomic number for element: {pot['element']}")
+
+        return potentials, scatterer_ipot
+
+    def _header_lines(self, structure: Dict, absorber: str, edge: str, radius: float) -> List[str]:
+        atoms = structure.get("atoms", [])
+        cell = np.array(structure.get("cell", np.eye(3)), dtype=float)
+        metadata = structure.get("metadata", {})
+
+        lengths = [np.linalg.norm(cell[i]) for i in range(3)]
+        def angle(v1, v2):
+            n1 = np.linalg.norm(v1)
+            n2 = np.linalg.norm(v2)
+            if n1 < 1e-12 or n2 < 1e-12:
+                return 90.0
+            return float(np.degrees(np.arccos(np.clip(np.dot(v1, v2) / (n1 * n2), -1.0, 1.0))))
+
+        alpha = angle(cell[1], cell[2])
+        beta = angle(cell[0], cell[2])
+        gamma = angle(cell[0], cell[1])
+
+        formula_parts = []
+        for elem in dict.fromkeys(atoms):
+            formula_parts.append(f"{elem}{atoms.count(elem)}")
+        formula = " ".join(formula_parts)
+
+        lines = [
+            "* This FEFF.inp file generated by CO2RR-XAS Agent",
+            f"TITLE comment: absorber={absorber}, edge={edge}, radius={radius:.2f} Angstrom",
+            f"TITLE Source: {metadata.get('source', 'CO2RR_XAS_agent')}",
+            f"TITLE Structure Summary: {formula}",
+            f"TITLE abc:  {lengths[0]:.6f}   {lengths[1]:.6f}   {lengths[2]:.6f}",
+            f"TITLE angles: {alpha:.6f}  {beta:.6f}  {gamma:.6f}",
+            f"TITLE sites: {len(atoms)}",
+        ]
+        for i, (atom, pos) in enumerate(zip(atoms, np.array(structure.get("positions", []), dtype=float))):
+            lines.append(f"* {i + 1:4d} {atom:<2s} {pos[0]:12.6f} {pos[1]:12.6f} {pos[2]:12.6f}")
+        lines.append("")
+        return lines
+
     def generate_input(
         self,
         structure: Dict,
@@ -157,89 +345,99 @@ class FEFFInputGenerator:
         edge: str = "K",
         radius: float = 6.0,
         scf: bool = True,
-        fms: bool = True
+        fms: bool = True,
+        corehole: str = "RPA",
+        s02: float = 0,
+        exchange: str = "0 0.0 0.0 2",
+        xanes: str = "4 0.04 0.1",
+        rpath: str = "-1",
+        scf_radius: Optional[float] = None,
+        fms_radius: Optional[float] = None,
     ) -> str:
-        """Generate feff.inp content."""
-        atoms = structure['atoms']
-        positions = np.array(structure['positions'])
-        
-        # Find absorber atoms
-        abs_indices = [i for i, a in enumerate(atoms) if a == absorber]
-        if absorber_index >= len(abs_indices):
-            absorber_index = 0
-        abs_idx = abs_indices[absorber_index]
-        abs_pos = positions[abs_idx]
-        
-        # Build cluster
-        cluster_atoms = []
-        cluster_positions = []
-        
-        for i, (atom, pos) in enumerate(zip(atoms, positions)):
-            dist = np.linalg.norm(pos - abs_pos)
-            if dist <= radius:
-                cluster_atoms.append(atom)
-                cluster_positions.append(pos - abs_pos)
-        
-        cluster_positions = np.array(cluster_positions)
-        
-        # Generate input
-        lines = [
-            "* FEFF input file",
-            f"* Absorber: {absorber}, Edge: {edge}",
-            f"* Generated by CO2RR-XAS Agent",
-            "",
-            f"TITLE {absorber} {edge}-edge XAS",
-            "",
-            f"EDGE    {edge}",
-            "S02     1.0",
-            "",
-            "CONTROL 1 1 1 1 1 1",
-            "PRINT   0 0 0 0 0 0",
-            "",
-        ]
-        
-        if scf:
-            lines.extend(["SCF     5.0  0  30  0.2  3", ""])
-        
-        if fms:
-            lines.extend([f"FMS     {radius:.1f}", ""])
-        
+        """Generate complete ``feff.inp`` content.
+
+        Args:
+            structure: Structure dictionary with atoms, positions, and cell.
+            absorber: Absorber element symbol.
+            absorber_index: Which absorber atom of that element to center on.
+            edge: Absorption edge, e.g. K, L2, L3, L23.
+            radius: Cluster radius in Angstrom.
+            scf: Whether to include the SCF card.
+            fms: Whether to include the FMS card.
+            corehole: FEFF COREHOLE model.
+            s02: FEFF S02 value.
+            exchange: FEFF EXCHANGE card values.
+            xanes: FEFF XANES card values.
+            rpath: FEFF RPATH card value.
+            scf_radius: Optional SCF radius. Defaults to radius.
+            fms_radius: Optional FMS radius. Defaults to radius.
+        """
+        radius = float(radius)
+        scf_radius = radius if scf_radius is None else float(scf_radius)
+        fms_radius = radius if fms_radius is None else float(fms_radius)
+
+        cluster, abs_idx = self._build_periodic_cluster(
+            structure=structure,
+            absorber=absorber,
+            absorber_index=absorber_index,
+            radius=radius,
+        )
+        potentials, scatterer_ipot = self._build_potentials(cluster, absorber)
+
+        lines = self._header_lines(structure, absorber, edge, radius)
         lines.extend([
-            "XANES   4.0  0.05  0.1",
-            "",
-            "EXCHANGE 0 0.0 0.0 2",
+            "CONTROL 1 1 1 1 1 1",
+            f"COREHOLE {corehole}",
+            f"S02 {self._fmt_float(s02)}",
+            f"EXCHANGE {exchange}",
+        ])
+
+        if scf:
+            lines.append(f"SCF {self._fmt_float(scf_radius)} 0 100 0.2 3")
+        if fms:
+            lines.append(f"FMS {self._fmt_float(fms_radius)} 0")
+
+        lines.extend([
+            f"XANES {xanes}",
+            f"EDGE {edge}",
+            f"RPATH {rpath}",
             "",
             "POTENTIALS",
-            "*    ipot   Z   element"
+            "  *ipot    Z  tag      lmax1    lmax2    xnatph(stoichometry)    spinph",
+            "******-  **-  ****-  ******-  ******-  **********************  ********",
         ])
-        
-        # Unique elements (absorber first)
-        unique_elements = [absorber]
-        for atom in cluster_atoms:
-            if atom not in unique_elements:
-                unique_elements.append(atom)
-        
-        for ipot, elem in enumerate(unique_elements):
-            z = ATOMIC_NUMBERS.get(elem, 1)
-            lines.append(f"     {ipot}      {z}    {elem}")
-        
-        lines.extend(["", "ATOMS", "*    x          y          z       ipot  tag  distance"])
-        
-        # Sort by distance
-        distances = np.linalg.norm(cluster_positions, axis=1)
-        sorted_indices = np.argsort(distances)
-        
-        for idx in sorted_indices:
-            atom = cluster_atoms[idx]
-            pos = cluster_positions[idx]
-            dist = distances[idx]
-            ipot = unique_elements.index(atom)
-            lines.append(f"     {pos[0]:10.5f} {pos[1]:10.5f} {pos[2]:10.5f}  {ipot}  {atom}  {dist:.4f}")
-        
-        lines.extend(["", "END"])
-        
+
+        for pot in potentials:
+            xnatph = pot["xnatph"]
+            if pot["ipot"] == 0:
+                xnatph_str = f"{float(xnatph):.4f}"
+            else:
+                xnatph_str = f"{int(xnatph)}"
+            lines.append(
+                f"{pot['ipot']:7d} {pot['z']:4d}  {pot['element']:<4s}"
+                f"{ -1:10d}{ -1:9d}{xnatph_str:>23s}{0:10d}"
+            )
+
+        lines.extend([
+            "",
+            "ATOMS",
+            "   *       x         y         z    ipot  Atom      Distance    Number",
+            "************  ********  ********  ******  ******  **********  ********",
+        ])
+
+        for number, item in enumerate(cluster):
+            elem = item["element"]
+            rel = item["rel"]
+            dist = item["distance"]
+            ipot = 0 if item["is_absorber"] else scatterer_ipot[elem]
+            lines.append(
+                f"{self._fmt_float(rel[0]):>12s} {self._fmt_float(rel[1]):>9s} {self._fmt_float(rel[2]):>9s}"
+                f" {ipot:7d}  {elem:<4s} {self._fmt_float(dist):>11s} {number:8d}"
+            )
+
+        lines.extend(["", "END", ""])
         return "\n".join(lines)
-    
+
     def write_input(
         self,
         structure: Dict,
@@ -248,15 +446,15 @@ class FEFFInputGenerator:
         edge: str = "K",
         **kwargs
     ) -> str:
-        """Write feff.inp to directory."""
+        """Write ``feff.inp`` to directory."""
         ensure_dir(output_dir)
-        
+
         content = self.generate_input(structure, absorber, edge=edge, **kwargs)
         filepath = os.path.join(output_dir, "feff.inp")
-        
-        with open(filepath, 'w') as f:
+
+        with open(filepath, "w") as f:
             f.write(content)
-        
+
         return filepath
 
 class FDMNESInputGenerator:
@@ -446,202 +644,376 @@ class FDMNESInputGenerator:
 
 
 class VASPXASInputGenerator:
-    """Generate VASP XAS input files."""
-    
-    def __init__(self):
-        self.potcar_map = {
-            'H': 'H', 'C': 'C', 'N': 'N', 'O': 'O',
-            'Fe': 'Fe_pv', 'Co': 'Co_pv', 'Ni': 'Ni_pv',
-            'Cu': 'Cu_pv', 'Zn': 'Zn', 'Pd': 'Pd_pv',
-            'Ag': 'Ag', 'Pt': 'Pt_pv', 'Au': 'Au'
-        }
-    
-    def generate_incar_gw(
-        self,
-        structure: Dict,
-        absorber: str,
-        absorber_index: int = 0,
-        nbands: int = None
-    ) -> str:
-        """Generate INCAR for GW-based XAS."""
-        n_atoms = len(structure['atoms'])
-        if nbands is None:
-            nbands = n_atoms * 8 + 100
-        
-        lines = [
-            "# VASP INCAR for GW-based XAS",
-            f"# Absorber: {absorber}",
-            "# Generated by CO2RR-XAS Agent",
-            "",
-            "# Electronic settings",
-            "ENCUT = 400",
-            "EDIFF = 1E-6",
-            "ISMEAR = 0",
-            "SIGMA = 0.05",
-            "LREAL = .FALSE.",
-            "PREC = Accurate",
-            "",
-            "# GW settings",
-            "ALGO = GW0",
-            f"NBANDS = {nbands}",
-            "NOMEGA = 100",
-            "LOPTICS = .TRUE.",
-            "CSHIFT = 0.1",
-            "",
-            "# Dipole correction for asymmetric one-sided slab",
-            "LDIPOL = .TRUE.",
-            "IDIPOL = 3",
-            get_dipol_direct(structure),
-            "AMIN = 0.01",
-            "",
-            "# Core-level",
-            "ICORELEVEL = 2",
-            f"CLNT = {absorber_index + 1}",
-            "CLN = 1",
-            "CLL = 0",
-            "CLZ = 0.5",
-            "",
-            "# Spin",
-            "ISPIN = 2",
-            "",
-            "# Output",
-            "LWAVE = .TRUE.",
-            "LCHARG = .TRUE.",
-            "NCORE = 4",
-        ]
-        return "\n".join(lines)
-    
-    def generate_incar_pbe(
-        self,
-        structure: Dict,
-        absorber: str,
-        absorber_index: int = 0,
-        nbands: int = None
-    ) -> str:
-        """Generate INCAR for PBE-based XAS."""
-        n_atoms = len(structure['atoms'])
-        if nbands is None:
-            nbands = n_atoms * 8 + 100
-        
-        lines = [
-            "# VASP INCAR for PBE-based XAS",
-            f"# Absorber: {absorber}",
-            "# Generated by CO2RR-XAS Agent",
-            "",
-            "# Electronic settings",
-            "ENCUT = 520",
-            "EDIFF = 1E-6",
-            "ISMEAR = 0",
-            "SIGMA = 0.05",
-            "LREAL = .FALSE.",
-            "PREC = Accurate",
-            f"NBANDS = {nbands}",
-            "",
-            "# Optics",
-            "LOPTICS = .TRUE.",
-            "CSHIFT = 0.1",
-            "NEDOS = 2001",
-            "",
-            "# Dipole correction for asymmetric one-sided slab",
-            "LDIPOL = .TRUE.",
-            "IDIPOL = 3",
-            get_dipol_direct(structure),
-            "AMIN = 0.01",
-            "",
-            "# Core-level",
-            "ICORELEVEL = 2",
-            f"CLNT = {absorber_index + 1}",
-            "CLN = 1",
-            "CLL = 0",
-            "CLZ = 0.5",
-            "",
-            "# Spin",
-            "ISPIN = 2",
-            "",
-            "# Output",
-            "LWAVE = .TRUE.",
-            "LCHARG = .TRUE.",
-            "NCORE = 4",
-        ]
-        return "\n".join(lines)
-    
-    def generate_kpoints(self, structure: Dict) -> str:
-        """Generate KPOINTS for XAS."""
-        cell = structure['cell']
-        lengths = [np.linalg.norm(cell[i]) for i in range(3)]
-        kpoints = [max(1, int(25 / l)) for l in lengths]
-        kpoints[2] = 1  # Slab
-        
-        lines = [
-            "Automatic mesh",
-            "0",
-            "Gamma",
-            f"  {kpoints[0]}  {kpoints[1]}  {kpoints[2]}",
-            "  0  0  0"
-        ]
-        return "\n".join(lines)
-    
-    def generate_potcar_spec(self, structure: Dict) -> str:
-        """Generate POTCAR specification."""
+    """Generate two-step VASP XAS inputs.
+
+    Layout per absorber/edge:
+
+        VASP/
+          submit.sh
+          01_scf/
+            POSCAR INCAR KPOINTS POTCAR.spec make_potcar.sh [POTCAR]
+          02_xas/
+            POSCAR INCAR KPOINTS POTCAR.spec make_potcar.sh [POTCAR]
+
+    The user still chooses one XAS method (PBE or GW/GW0). The SCF step is a
+    conventional ground-state calculation that writes WAVECAR/CHGCAR; the XAS
+    step reuses those files when running through submit.sh.
+    """
+
+    DEFAULT_POTCAR_MAP = {
+        'H': 'H', 'C': 'C', 'N': 'N', 'O': 'O',
+        'Fe': 'Fe_pv', 'Co': 'Co_pv', 'Ni': 'Ni_pv',
+        'Cu': 'Cu_pv', 'Zn': 'Zn', 'Pd': 'Pd_pv',
+        'Ag': 'Ag', 'Pt': 'Pt_pv', 'Au': 'Au',
+        'Al': 'Al', 'Rh': 'Rh_pv', 'Ir': 'Ir',
+        'Sc': 'Sc_sv', 'Ti': 'Ti_pv', 'V': 'V_pv', 'Cr': 'Cr_pv',
+        'Mn': 'Mn_pv', 'Y': 'Y_sv', 'Zr': 'Zr_sv', 'Nb': 'Nb_pv',
+        'Mo': 'Mo_pv', 'Ru': 'Ru_pv', 'Hf': 'Hf_pv', 'Ta': 'Ta_pv',
+        'W': 'W_pv', 'Re': 'Re_pv', 'Os': 'Os_pv'
+    }
+
+    def __init__(self, potcar_map: Optional[Dict[str, str]] = None):
+        self.potcar_map = dict(self.DEFAULT_POTCAR_MAP)
+        if potcar_map:
+            self.potcar_map.update(potcar_map)
+
+    def _normalize_method(self, method: str) -> str:
+        method = (method or "PBE").upper().replace("GW0", "GW")
+        if method in {"PBE", "GW"}:
+            return method
+        raise ValueError(f"Unsupported VASP XAS method: {method}. Use 'PBE', 'GW', or 'GW0'.")
+
+    def _unique_elements(self, structure: Dict) -> List[str]:
         unique_elements = []
         for atom in structure['atoms']:
             if atom not in unique_elements:
                 unique_elements.append(atom)
-        
-        lines = ["# POTCAR specification"]
-        for elem in unique_elements:
-            potcar = self.potcar_map.get(elem, elem)
-            lines.append(potcar)
-        
+        return unique_elements
+
+    def _default_nbands(self, structure: Dict, method: str) -> int:
+        n_atoms = len(structure['atoms'])
+        if method == "GW":
+            return n_atoms * 8 + 100
+        return n_atoms * 6 + 60
+
+    def generate_incar_scf(self, structure: Dict, method: str = "PBE", nbands: int = None) -> str:
+        """Generate INCAR for the first SCF step used by VASP XAS."""
+        method = self._normalize_method(method)
+        if nbands is None:
+            nbands = self._default_nbands(structure, method)
+        encut = 400 if method == "GW" else 520
+        lines = [
+            "# VASP INCAR: step 1 ground-state SCF for later XAS",
+            "# Generated by CO2RR-XAS Agent",
+            "",
+            "SYSTEM = VASP_XAS_SCF",
+            f"ENCUT = {encut}",
+            "EDIFF = 1E-6",
+            "ISMEAR = 0",
+            "SIGMA = 0.05",
+            "LREAL = .FALSE.",
+            "PREC = Accurate",
+            f"NBANDS = {nbands}",
+            "",
+            "# Static SCF; write charge and wavefunction for the XAS step",
+            "IBRION = -1",
+            "NSW = 0",
+            "NELM = 120",
+            "LWAVE = .TRUE.",
+            "LCHARG = .TRUE.",
+            "",
+            "# Dipole correction for asymmetric one-sided slab",
+            "LDIPOL = .TRUE.",
+            "IDIPOL = 3",
+            get_dipol_direct(structure),
+            "AMIN = 0.01",
+            "",
+            "# Spin",
+            "ISPIN = 2",
+            "NCORE = 4",
+        ]
         return "\n".join(lines)
-    
+
+    def generate_incar_xas(
+        self,
+        structure: Dict,
+        absorber: str,
+        method: str = "PBE",
+        absorber_index: int = 0,
+        nbands: int = None,
+    ) -> str:
+        """Generate INCAR for the second VASP XAS step."""
+        method = self._normalize_method(method)
+        if nbands is None:
+            nbands = self._default_nbands(structure, method)
+        encut = 400 if method == "GW" else 520
+        lines = [
+            f"# VASP INCAR: step 2 {method}-based XAS",
+            f"# Absorber: {absorber}",
+            "# Generated by CO2RR-XAS Agent",
+            "",
+            "SYSTEM = VASP_XAS",
+            f"ENCUT = {encut}",
+            "EDIFF = 1E-6",
+            "ISMEAR = 0",
+            "SIGMA = 0.05",
+            "LREAL = .FALSE.",
+            "PREC = Accurate",
+            f"NBANDS = {nbands}",
+            "",
+            "# Reuse the converged SCF result from 01_scf when available",
+            "ISTART = 1",
+            "ICHARG = 11",
+            "IBRION = -1",
+            "NSW = 0",
+            "",
+            "# XAS / optics",
+            "LOPTICS = .TRUE.",
+            "CSHIFT = 0.1",
+            "NEDOS = 2001",
+        ]
+        if method == "GW":
+            lines.extend([
+                "",
+                "# GW0 settings",
+                "ALGO = GW0",
+                "NOMEGA = 100",
+            ])
+        lines.extend([
+            "",
+            "# Core-level / core-hole tags",
+            "ICORELEVEL = 2",
+            f"CLNT = {absorber_index + 1}",
+            "CLN = 1",
+            "CLL = 0",
+            "CLZ = 0.5",
+            "",
+            "# Dipole correction for asymmetric one-sided slab",
+            "LDIPOL = .TRUE.",
+            "IDIPOL = 3",
+            get_dipol_direct(structure),
+            "AMIN = 0.01",
+            "",
+            "# Spin and output",
+            "ISPIN = 2",
+            "LWAVE = .TRUE.",
+            "LCHARG = .TRUE.",
+            "NCORE = 4",
+        ])
+        return "\n".join(lines)
+
+    def generate_kpoints(self, structure: Dict) -> str:
+        """Generate KPOINTS for VASP XAS steps."""
+        cell = structure['cell']
+        lengths = [np.linalg.norm(cell[i]) for i in range(3)]
+        kpoints = [max(1, int(25 / l)) for l in lengths]
+        kpoints[2] = 1
+        return "\n".join([
+            "Automatic mesh",
+            "0",
+            "Gamma",
+            f"  {kpoints[0]}  {kpoints[1]}  {kpoints[2]}",
+            "  0  0  0",
+        ])
+
+    def get_potcar_symbols(self, structure: Dict) -> List[str]:
+        """Return POTCAR symbols in POSCAR element order."""
+        return [self.potcar_map.get(elem, elem) for elem in self._unique_elements(structure)]
+
+    def generate_potcar_spec(self, structure: Dict, method: str = "PBE") -> str:
+        method = self._normalize_method(method)
+        lines = [
+            "# POTCAR specification",
+            f"# VASP XAS method: {method}",
+            "# Concatenate these POTCAR directories in this order:",
+        ]
+        for elem, potcar in zip(self._unique_elements(structure), self.get_potcar_symbols(structure)):
+            lines.append(f"{elem}: {potcar}")
+        return "\n".join(lines)
+
+    def generate_make_potcar_script(
+        self,
+        structure: Dict,
+        potcar_dir: Optional[str] = None,
+        method: str = "PBE",
+    ) -> str:
+        method = self._normalize_method(method)
+        potcar_dir = potcar_dir or "${CO2RR_POTCAR_DIR:-${VASP_POTCAR_DIR:-}}"
+        symbols = self.get_potcar_symbols(structure)
+        lines = [
+            "#!/bin/bash",
+            "set -euo pipefail",
+            "",
+            f"# Generated by CO2RR-XAS Agent for VASP {method} XAS inputs.",
+            "# Set CO2RR_POTCAR_DIR or VASP_POTCAR_DIR to the root folder containing",
+            "# subdirectories like Cu_pv/POTCAR, C/POTCAR, O/POTCAR, etc.",
+            "",
+            f"POTCAR_DIR=\"{potcar_dir}\"",
+            "if [ -z \"${POTCAR_DIR}\" ]; then",
+            "  echo 'ERROR: Set CO2RR_POTCAR_DIR or VASP_POTCAR_DIR, or pass potcar_dir to the agent.' >&2",
+            "  exit 1",
+            "fi",
+            "",
+            "rm -f POTCAR",
+        ]
+        for symbol in symbols:
+            lines.extend([
+                f"if [ ! -f \"${{POTCAR_DIR}}/{symbol}/POTCAR\" ]; then",
+                f"  echo 'ERROR: Missing POTCAR: '${{POTCAR_DIR}}'/{symbol}/POTCAR' >&2",
+                "  exit 1",
+                "fi",
+                f"cat \"${{POTCAR_DIR}}/{symbol}/POTCAR\" >> POTCAR",
+            ])
+        lines.extend(["", "echo 'Wrote POTCAR from:'", "echo \"  ${POTCAR_DIR}\""])
+        return "\n".join(lines)
+
+    def write_potcar_if_available(self, structure: Dict, output_dir: str, potcar_dir: Optional[str] = None) -> Optional[str]:
+        if not potcar_dir:
+            potcar_dir = os.environ.get("CO2RR_POTCAR_DIR") or os.environ.get("VASP_POTCAR_DIR")
+        if not potcar_dir or not os.path.isdir(os.path.expandvars(potcar_dir)):
+            return None
+        root = os.path.expandvars(potcar_dir)
+        potcar_path = os.path.join(output_dir, "POTCAR")
+        with open(potcar_path, "wb") as out:
+            for symbol in self.get_potcar_symbols(structure):
+                src = os.path.join(root, symbol, "POTCAR")
+                if not os.path.isfile(src):
+                    raise FileNotFoundError(f"Missing POTCAR file: {src}")
+                with open(src, "rb") as f:
+                    out.write(f.read())
+        return potcar_path
+
+    def _write_common_step_files(self, structure: Dict, output_dir: str, method: str, potcar_dir: Optional[str]) -> List[str]:
+        ensure_dir(output_dir)
+        files = []
+        poscar_path = os.path.join(output_dir, "POSCAR")
+        write_poscar(structure['atoms'], structure['positions'], structure['cell'], poscar_path, selective_dynamics=False)
+        files.append(poscar_path)
+        kpoints_path = os.path.join(output_dir, "KPOINTS")
+        with open(kpoints_path, 'w') as f:
+            f.write(self.generate_kpoints(structure))
+        files.append(kpoints_path)
+        potcar_spec_path = os.path.join(output_dir, "POTCAR.spec")
+        with open(potcar_spec_path, 'w') as f:
+            f.write(self.generate_potcar_spec(structure, method=method))
+        files.append(potcar_spec_path)
+        make_potcar_path = os.path.join(output_dir, "make_potcar.sh")
+        with open(make_potcar_path, 'w') as f:
+            f.write(self.generate_make_potcar_script(structure, potcar_dir=potcar_dir, method=method))
+        os.chmod(make_potcar_path, 0o755)
+        files.append(make_potcar_path)
+        real_potcar = self.write_potcar_if_available(structure, output_dir, potcar_dir=potcar_dir)
+        if real_potcar:
+            files.append(real_potcar)
+        return files
+
+    def generate_two_step_submit(
+        self,
+        job_name: str,
+        account: str = "m5268",
+        queue: str = "regular",
+        nodes: int = 2,
+        walltime: str = "8:00:00",
+        email: Optional[str] = None,
+    ) -> str:
+        lines = [
+            "#!/bin/bash",
+            f"#SBATCH -J {job_name}",
+            f"#SBATCH -q {queue}",
+            f"#SBATCH -A {account}",
+            "#SBATCH -C cpu",
+            f"#SBATCH -N {nodes}",
+            f"#SBATCH -t {walltime}",
+        ]
+        if email:
+            lines.extend(["#SBATCH --mail-type=ALL", f"#SBATCH --mail-user={email}"])
+        lines.extend([
+            "",
+            "set -euo pipefail",
+            "module load vasp/6.4.3-cpu",
+            "export OMP_NUM_THREADS=2",
+            "export OMP_PLACES=threads",
+            "export OMP_PROC_BIND=spread",
+            "",
+            "echo '== Step 1: SCF =='",
+            "cd 01_scf",
+            "if [ ! -f POTCAR ]; then ./make_potcar.sh; fi",
+            "srun vasp_std > vasp.out",
+            "cd ..",
+            "",
+            "echo '== Step 2: XAS =='",
+            "cd 02_xas",
+            "cp -f ../01_scf/WAVECAR . 2>/dev/null || true",
+            "cp -f ../01_scf/CHGCAR . 2>/dev/null || true",
+            "if [ ! -f POTCAR ]; then ./make_potcar.sh; fi",
+            "srun vasp_std > vasp.out",
+        ])
+        return "\n".join(lines)
+
     def write_inputs(
         self,
         structure: Dict,
         output_dir: str,
         absorber: str,
         method: str = "PBE",
-        **kwargs
-    ) -> List[str]:
-        """Write VASP XAS input files."""
+        potcar_dir: Optional[str] = None,
+        account: str = "m5268",
+        queue: str = "regular",
+        nodes: int = 2,
+        walltime: str = "8:00:00",
+        email: Optional[str] = None,
+        absorber_index: int = 0,
+        nbands: int = None,
+        job_name: str = "vasp_xas",
+    ) -> Dict:
+        """Write two-step VASP XAS inputs and return structured file paths."""
+        method = self._normalize_method(method)
         ensure_dir(output_dir)
-        files = []
-        
-        # POSCAR
-        poscar_path = os.path.join(output_dir, "POSCAR")
-        write_poscar(
-            structure['atoms'],
-            structure['positions'],
-            structure['cell'],
-            poscar_path,
-            selective_dynamics=False
-        )
-        files.append(poscar_path)
-        
-        # INCAR
-        incar_path = os.path.join(output_dir, "INCAR")
-        if method.upper() == "GW":
-            incar_content = self.generate_incar_gw(structure, absorber, **kwargs)
-        else:
-            incar_content = self.generate_incar_pbe(structure, absorber, **kwargs)
-        
-        with open(incar_path, 'w') as f:
-            f.write(incar_content)
-        files.append(incar_path)
-        
-        # KPOINTS
-        kpoints_path = os.path.join(output_dir, "KPOINTS")
-        with open(kpoints_path, 'w') as f:
-            f.write(self.generate_kpoints(structure))
-        files.append(kpoints_path)
-        
-        # POTCAR.spec
-        potcar_path = os.path.join(output_dir, "POTCAR.spec")
-        with open(potcar_path, 'w') as f:
-            f.write(self.generate_potcar_spec(structure))
-        files.append(potcar_path)
-        
-        return files
+        scf_dir = os.path.join(output_dir, "01_scf")
+        xas_dir = os.path.join(output_dir, "02_xas")
+
+        scf_files = self._write_common_step_files(structure, scf_dir, method, potcar_dir)
+        xas_files = self._write_common_step_files(structure, xas_dir, method, potcar_dir)
+
+        scf_incar = os.path.join(scf_dir, "INCAR")
+        with open(scf_incar, "w") as f:
+            f.write(self.generate_incar_scf(structure, method=method, nbands=nbands))
+        scf_files.append(scf_incar)
+
+        xas_incar = os.path.join(xas_dir, "INCAR")
+        with open(xas_incar, "w") as f:
+            f.write(self.generate_incar_xas(
+                structure=structure,
+                absorber=absorber,
+                method=method,
+                absorber_index=absorber_index,
+                nbands=nbands,
+            ))
+        xas_files.append(xas_incar)
+
+        submit_path = os.path.join(output_dir, "submit.sh")
+        with open(submit_path, "w") as f:
+            f.write(self.generate_two_step_submit(
+                job_name=job_name,
+                account=account,
+                queue=queue,
+                nodes=nodes,
+                walltime=walltime,
+                email=email,
+            ))
+        os.chmod(submit_path, 0o755)
+
+        return {
+            "method": method,
+            "layout": "two_step_scf_then_xas",
+            "scf_dir": scf_dir,
+            "xas_dir": xas_dir,
+            "scf_files": scf_files,
+            "xas_files": xas_files,
+            "submit": submit_path,
+            "potcar_dir": potcar_dir,
+            "potcar_generated": any(os.path.basename(path) == "POTCAR" for path in scf_files + xas_files),
+        }
 
 
 class NERSCScriptGenerator:
@@ -777,6 +1149,8 @@ class XASInputGenerator:
         fdmnes_options: Optional[Dict] = None,
         fdmnes_energy_range: Tuple[float, float, float] = (-5.0, 0.2, 50.0),
         edge_override: Optional[str] = None,
+        vasp_method: str = "PBE",
+        potcar_dir: Optional[str] = None,
     ) -> Dict:
         """
         Generate all XAS inputs for a structure.
@@ -889,37 +1263,25 @@ class XASInputGenerator:
                 'submit': feff_script
             }
             
-            # VASP (only for K-edge)
+            # VASP (only for K-edge): one selected method, but two execution steps.
+            # Step 1: SCF. Step 2: XAS using CHGCAR/WAVECAR from SCF.
             if vasp_allowed:
-                # VASP_GW
-                gw_dir = os.path.join(edge_dir, "VASP_GW")
-                gw_files = self.vasp_gen.write_inputs(
-                    structure, gw_dir, element, method="GW"
+                vasp_method_norm = (vasp_method or "PBE").upper().replace("GW0", "GW")
+                vasp_dir = os.path.join(edge_dir, "VASP")
+                vasp_result = self.vasp_gen.write_inputs(
+                    structure=structure,
+                    output_dir=vasp_dir,
+                    absorber=element,
+                    method=vasp_method_norm,
+                    potcar_dir=potcar_dir,
+                    account=nersc_account,
+                    queue=nersc_queue,
+                    nodes=nersc_nodes,
+                    walltime=nersc_walltime,
+                    email=email,
+                    job_name=f"{job_base}_{element}_{edge}_vasp_{vasp_method_norm.lower()}",
                 )
-                gw_script = self.script_gen.write_script(
-                    gw_dir, f"{job_base}_{element}_{edge}_gw", "VASP",
-                    account=nersc_account, queue=nersc_queue,
-                    nodes=nersc_nodes, walltime=nersc_walltime, email=email
-                )
-                results['xas'][edge_key]['VASP_GW'] = {
-                    'files': gw_files,
-                    'submit': gw_script
-                }
-                
-                # VASP_PBE
-                pbe_dir = os.path.join(edge_dir, "VASP_PBE")
-                pbe_files = self.vasp_gen.write_inputs(
-                    structure, pbe_dir, element, method="PBE"
-                )
-                pbe_script = self.script_gen.write_script(
-                    pbe_dir, f"{job_base}_{element}_{edge}_pbe", "VASP",
-                    account=nersc_account, queue=nersc_queue,
-                    nodes=nersc_nodes, walltime=nersc_walltime, email=email
-                )
-                results['xas'][edge_key]['VASP_PBE'] = {
-                    'files': pbe_files,
-                    'submit': pbe_script
-                }
+                results['xas'][edge_key]['VASP'] = vasp_result
         
         return results
 
@@ -940,6 +1302,8 @@ def execute_xas_input_generation(
     fdmnes_options: Optional[Dict] = None,
     fdmnes_energy_range: Tuple[float, float, float] = (-5.0, 0.2, 50.0),
     edge_override: Optional[str] = None,
+    vasp_method: str = "PBE",
+    potcar_dir: Optional[str] = None,
     structure_metadata: Optional[Dict] = None
 ) -> Dict:
     """
@@ -960,7 +1324,7 @@ def execute_xas_input_generation(
         Dictionary with results and file paths
     """
     # Read structure
-    structure = read_poscar(structure_file)
+    structure = read_structure_file(structure_file)
     
     # Add metadata if provided
     if structure_metadata:
@@ -981,7 +1345,9 @@ def execute_xas_input_generation(
         fdmnes_options=fdmnes_options,
         fdmnes_energy_range=fdmnes_energy_range,
         edge_override=edge_override,
-        cluster_radius=cluster_radius
+        cluster_radius=cluster_radius,
+        vasp_method=vasp_method,
+        potcar_dir=potcar_dir
     )
     
     results['status'] = 'success'

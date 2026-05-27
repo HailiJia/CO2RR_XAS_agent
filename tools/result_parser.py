@@ -419,7 +419,7 @@ class ResultParser:
             return results
         
         # Read structure
-        structure = read_poscar(structure_file)
+        structure = read_structure_file(structure_file)
         
         # Create ISAAC record
         record = self.record_gen.create_record(
