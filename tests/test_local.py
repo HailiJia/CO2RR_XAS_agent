@@ -279,6 +279,147 @@ def test_slab_generator_with_adsorbate():
     return True
 
 
+
+def test_slab_generator_interface_cu_au_111():
+    """Test Cu/Au(111) lateral interface slab generation."""
+    print_header("Slab Generator - Cu/Au(111) Interface")
+
+    from generators.slab_generator import SlabGenerator
+
+    generator = SlabGenerator()
+    outputs = generator.run({
+        "element": "Cu(111)/Au(111)",
+        "miller_index": [1, 1, 1],
+        "layers": 4,
+        "supercell": [2, 2],
+    })
+
+    atoms = outputs['atoms']
+    symbols = atoms.get_chemical_symbols()
+    positions = atoms.get_positions()
+    cu_count = symbols.count('Cu')
+    au_count = symbols.count('Au')
+    interface = outputs.get('interface') or {}
+
+    print(f"  Cu atoms: {cu_count}")
+    print(f"  Au atoms: {au_count}")
+    print(f"  Cell lengths: {outputs['cell_parameters']['lengths']}")
+    print(f"  Cell angles: {outputs['cell_parameters']['angles']}")
+    print(f"  Interface: {interface}")
+
+    if interface.get('type') != 'lateral':
+        print_fail(f"Expected lateral interface metadata, got {interface}")
+        return False
+
+    if cu_count > 0 and au_count > 0:
+        print_success("Cu/Au interface contains both metals")
+    else:
+        print_fail(f"Expected both Cu and Au, got Cu={cu_count}, Au={au_count}")
+        return False
+
+    split_coordinate = interface['split_coordinate']
+    if all(positions[index][0] < split_coordinate for index, symbol in enumerate(symbols) if symbol == 'Cu'):
+        print_success("Cu atoms occupy the lower-x side of the lateral interface")
+    else:
+        print_fail("Some Cu atoms are not on the lower-x side of the lateral interface")
+        return False
+
+    if all(positions[index][0] >= split_coordinate for index, symbol in enumerate(symbols) if symbol == 'Au'):
+        print_success("Au atoms occupy the upper-x side of the lateral interface")
+    else:
+        print_fail("Some Au atoms are not on the upper-x side of the lateral interface")
+        return False
+
+    return True
+
+
+def test_slab_generator_co2rr_adsorbates():
+    """Test all requested CO2RR adsorbates are created with correct composition."""
+    print_header("Slab Generator - CO2RR Adsorbates")
+
+    from generators.slab_generator import SlabGenerator
+
+    generator = SlabGenerator()
+    expected_counts = {
+        "CO": {"C": 1, "O": 1},
+        "CH": {"C": 1, "H": 1},
+        "CH2": {"C": 1, "H": 2},
+        "CHO": {"C": 1, "H": 1, "O": 1},
+        "CHOH": {"C": 1, "H": 2, "O": 1},
+        "CH3": {"C": 1, "H": 3},
+        "CH4": {"C": 1, "H": 4},
+        "COCO": {"C": 2, "O": 2},
+        "OCCO": {"C": 2, "O": 2},
+    }
+
+    for molecule, counts in expected_counts.items():
+        outputs = generator.run({
+            "element": "Cu/Au",
+            "miller_index": [1, 1, 1],
+            "layers": 4,
+            "supercell": [2, 2],
+            "adsorbate": {"molecule": molecule},
+        })
+        symbols = outputs['atoms'].get_chemical_symbols()
+        for element, expected in counts.items():
+            actual = symbols.count(element)
+            if actual != expected:
+                print_fail(f"{molecule}: expected {expected} {element}, got {actual}")
+                return False
+        print_success(f"{molecule}: composition {counts}")
+
+    return True
+
+
+
+def test_slab_generator_occo_on_cu_au_interface():
+    """Test OCCO is placed across the Cu/Au lateral interface."""
+    print_header("Slab Generator - OCCO Across Cu/Au Interface")
+
+    from generators.slab_generator import SlabGenerator
+
+    generator = SlabGenerator()
+    outputs = generator.run({
+        "element": "Cu/Au",
+        "miller_index": [1, 1, 1],
+        "layers": 4,
+        "supercell": [2, 2],
+        "adsorbate": {"molecule": "OCCO"},
+    })
+
+    atoms = outputs['atoms']
+    symbols = atoms.get_chemical_symbols()
+    positions = atoms.get_positions()
+    interface = outputs.get('interface') or {}
+    placement = outputs.get('adsorbate_placement') or {}
+
+    if placement.get('mode') == 'bidentate_across_lateral_interface':
+        print_success("OCCO uses bidentate interface placement")
+    else:
+        print_fail(f"Unexpected OCCO placement metadata: {placement}")
+        return False
+
+    carbon_indices = placement.get('carbon_indices', [])
+    if len(carbon_indices) != 2:
+        print_fail(f"Expected two interface carbon indices, got {carbon_indices}")
+        return False
+
+    split_coordinate = interface['split_coordinate']
+    carbon_x = [positions[index][0] for index in carbon_indices]
+    if min(carbon_x) < split_coordinate < max(carbon_x):
+        print_success("OCCO carbon atoms straddle the Cu/Au interface")
+    else:
+        print_fail(f"OCCO carbon x positions do not straddle interface: {carbon_x}")
+        return False
+
+    if symbols.count('C') == 2 and symbols.count('O') == 2:
+        print_success("OCCO composition is correct")
+    else:
+        print_fail(f"Unexpected OCCO composition: C={symbols.count('C')}, O={symbols.count('O')}")
+        return False
+
+    return True
+
 def test_slab_generator_different_surfaces():
     """Test different surface orientations."""
     print_header("Slab Generator - Different Surfaces")
@@ -1120,6 +1261,9 @@ def run_all_tests():
         # Generators
         ("Slab Generator - Basic", test_slab_generator_basic),
         ("Slab Generator - Adsorbate", test_slab_generator_with_adsorbate),
+        ("Slab Generator - Interface", test_slab_generator_interface_cu_au_111),
+        ("Slab Generator - CO2RR Adsorbates", test_slab_generator_co2rr_adsorbates),
+        ("Slab Generator - OCCO Interface", test_slab_generator_occo_on_cu_au_interface),
         ("Slab Generator - Surfaces", test_slab_generator_different_surfaces),
         ("VASP XAS Generator", test_vasp_xas_generator),
         ("FEFF Generator", test_feff_generator),
