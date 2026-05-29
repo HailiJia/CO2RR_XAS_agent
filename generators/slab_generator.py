@@ -175,7 +175,7 @@ class SlabGenerator(BaseGenerator):
             else:
                 elements = [element_text]
 
-        elements = [self._normalize_element_symbol(element) for element in elements if element]
+        elements = [element for element in elements if element]
         if not elements:
             raise ValueError("At least one slab element must be specified.")
         if len(elements) > 2:
