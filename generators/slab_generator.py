@@ -108,15 +108,23 @@ class SlabGenerator(BaseGenerator):
         if lattice_constant is None:
             element_label = '/'.join(elements)
             raise ValueError(f"Unknown lattice constant for {element_label}. Please provide 'lattice_constant' parameter.")
+
+        interface_match = params.get('interface_match', {})
+        max_interface_strain = interface_match.get('max_strain', params.get('max_interface_strain', 0.05))
+        max_interface_repeats = interface_match.get('max_repeats', params.get('max_interface_repeats', 12))
+        interface_match_side = interface_match.get('match_side', params.get('interface_match_side', 'balanced'))
         
-        # Generate slab using ASE
+        # Generate slab using ASE or an explicitly matched bimetal interface builder.
         slab = self._build_slab_ase(
             elements=elements,
             miller_index=miller_index,
             layers=layers,
             vacuum=vacuum,
             lattice_constant=lattice_constant,
-            supercell=supercell
+            supercell=supercell,
+            max_interface_strain=max_interface_strain,
+            max_interface_repeats=max_interface_repeats,
+            interface_match_side=interface_match_side,
         )
         
         # Add adsorbate if specified
@@ -195,7 +203,10 @@ class SlabGenerator(BaseGenerator):
         layers: int,
         vacuum: float,
         lattice_constant: float,
-        supercell: List[int]
+        supercell: List[int],
+        max_interface_strain: float = 0.05,
+        max_interface_repeats: int = 12,
+        interface_match_side: str = 'balanced',
     ) -> Atoms:
         """Build slab using ASE builders."""
         base_element = elements[0]
@@ -207,6 +218,17 @@ class SlabGenerator(BaseGenerator):
                     "Interface slabs require elements with matching crystal structures; "
                     f"got {base_element}={crystal_structure} and {elements[1]}={second_structure}."
                 )
+
+        if len(elements) == 2 and crystal_structure == 'fcc' and miller_index == (1, 1, 1):
+            return self._build_matched_fcc111_interface(
+                elements=elements,
+                layers=layers,
+                vacuum=vacuum,
+                supercell=supercell,
+                max_strain=max_interface_strain,
+                max_repeats=max_interface_repeats,
+                match_side=interface_match_side,
+            )
 
         # Map miller index to ASE builder function.  ASE's vacuum argument adds
         # the requested total vacuum around the slab when periodic z is disabled.
@@ -236,6 +258,180 @@ class SlabGenerator(BaseGenerator):
             )
 
         return slab
+
+    def _build_matched_fcc111_interface(
+        self,
+        elements: List[str],
+        layers: int,
+        vacuum: float,
+        supercell: List[int],
+        max_strain: float,
+        max_repeats: int,
+        match_side: str,
+    ) -> Atoms:
+        """Build a minimal fcc(111)/fcc(111) lateral interface within a strain limit.
+
+        A one-to-one Cu/Au(111) match strains one side by more than 10%.  This
+        builder searches for the smallest integer repeat pair along the interface
+        direction whose matched length keeps both domains within ``max_strain``.
+        For Cu/Au with a 5% limit the minimal pair is 7 Cu repeats against 6 Au
+        repeats.  The common length is balanced by default, but callers may pin
+        the cell length to either side with ``match_side``.
+        """
+        left_element, right_element = elements
+        left_lattice = LATTICE_CONSTANTS.get(left_element)
+        right_lattice = LATTICE_CONSTANTS.get(right_element)
+        if left_lattice is None or right_lattice is None:
+            raise ValueError(
+                f"Known lattice constants are required for matched interfaces: {left_element}/{right_element}."
+            )
+
+        match = self._find_minimal_interface_match(
+            left_element=left_element,
+            right_element=right_element,
+            max_strain=max_strain,
+            max_repeats=max_repeats,
+            match_side=match_side,
+        )
+        left_repeats = match['left_repeats']
+        right_repeats = match['right_repeats']
+        # The integer match already defines the minimal commensurate repeat.
+        # Do not multiply it by the ordinary slab supercell defaults, otherwise
+        # Cu/Au(111) grows from the minimal 7+6 atoms/layer to unnecessarily
+        # large cells such as 28+24 atoms/layer for a default 2x2 supercell.
+        x_columns = 1
+        y_repeats = 1
+        left_rows = left_repeats * y_repeats
+        right_rows = right_repeats * y_repeats
+        common_y = match['common_length'] * y_repeats
+        left_spacing_y = common_y / left_rows
+        right_spacing_y = common_y / right_rows
+
+        left_spacing_x = np.sqrt(3.0) * left_spacing_y / 2.0
+        right_spacing_x = np.sqrt(3.0) * right_spacing_y / 2.0
+        left_width = x_columns * left_spacing_x
+        right_width = x_columns * right_spacing_x
+        cell_x = left_width + right_width
+        interface_x = left_width
+
+        z_spacing = float(np.mean([left_lattice, right_lattice])) / np.sqrt(3.0)
+        slab_thickness = (layers - 1) * z_spacing
+        cell_z = slab_thickness + vacuum
+        z_origin = vacuum / 2.0
+
+        symbols = []
+        positions = []
+        for layer in range(layers):
+            z = z_origin + layer * z_spacing
+            left_layer_shift = (layer % 3) * left_spacing_y / 3.0
+            right_layer_shift = (layer % 3) * right_spacing_y / 3.0
+            x_layer_shift = (layer % 3) * min(left_spacing_x, right_spacing_x) / 3.0
+
+            for x_column in range(x_columns):
+                x = (x_column + 0.5) * left_spacing_x + x_layer_shift
+                if x >= interface_x:
+                    x -= left_spacing_x / 2.0
+                for row in range(left_rows):
+                    y = (row * left_spacing_y + left_layer_shift) % common_y
+                    symbols.append(left_element)
+                    positions.append([x, y, z])
+
+                x = interface_x + (x_column + 0.5) * right_spacing_x + x_layer_shift
+                if x >= cell_x:
+                    x -= right_spacing_x / 2.0
+                for row in range(right_rows):
+                    y = (row * right_spacing_y + right_layer_shift) % common_y
+                    symbols.append(right_element)
+                    positions.append([x, y, z])
+
+        atoms = Atoms(
+            symbols=symbols,
+            positions=positions,
+            cell=[cell_x, common_y, cell_z],
+            pbc=[True, True, False],
+        )
+        atoms.info['interface'] = {
+            'type': 'lateral',
+            'left_element': left_element,
+            'right_element': right_element,
+            'split_axis': 'x',
+            'split_coordinate': interface_x,
+            'interface_direction': 'y',
+            'match': match,
+            'left_atoms_per_layer': left_rows * x_columns,
+            'right_atoms_per_layer': right_rows * x_columns,
+            'requested_supercell': list(supercell),
+            'effective_supercell': [x_columns, y_repeats],
+            'description': (
+                f"{left_element}/{right_element} fcc(111) domains share a lateral interface; "
+                f"{left_repeats}:{right_repeats} repeats keep strain <= {max_strain:.1%}."
+            ),
+        }
+        return atoms
+
+    def _find_minimal_interface_match(
+        self,
+        left_element: str,
+        right_element: str,
+        max_strain: float,
+        max_repeats: int,
+        match_side: str,
+    ) -> Dict[str, Any]:
+        """Find the smallest integer surface repeat match within the strain limit."""
+        left_period = LATTICE_CONSTANTS[left_element] / np.sqrt(2.0)
+        right_period = LATTICE_CONSTANTS[right_element] / np.sqrt(2.0)
+        match_side = str(match_side or 'balanced').lower()
+        if match_side not in {'balanced', left_element.lower(), right_element.lower(), 'left', 'right'}:
+            raise ValueError(
+                "interface_match_side must be 'balanced', 'left', 'right', "
+                f"'{left_element}', or '{right_element}'."
+            )
+
+        candidates = []
+        for left_repeats in range(1, int(max_repeats) + 1):
+            left_length = left_repeats * left_period
+            for right_repeats in range(1, int(max_repeats) + 1):
+                right_length = right_repeats * right_period
+                if match_side in {'left', left_element.lower()}:
+                    common_length = left_length
+                    matched_to = left_element
+                elif match_side in {'right', right_element.lower()}:
+                    common_length = right_length
+                    matched_to = right_element
+                else:
+                    common_length = 0.5 * (left_length + right_length)
+                    matched_to = 'balanced'
+
+                left_strain = common_length / left_length - 1.0
+                right_strain = common_length / right_length - 1.0
+                max_abs_strain = max(abs(left_strain), abs(right_strain))
+                if max_abs_strain <= max_strain:
+                    candidates.append({
+                        'left_repeats': left_repeats,
+                        'right_repeats': right_repeats,
+                        'left_period': left_period,
+                        'right_period': right_period,
+                        'left_unstrained_length': left_length,
+                        'right_unstrained_length': right_length,
+                        'common_length': common_length,
+                        'left_strain': left_strain,
+                        'right_strain': right_strain,
+                        'max_abs_strain': max_abs_strain,
+                        'matched_to': matched_to,
+                    })
+
+        if not candidates:
+            raise ValueError(
+                f"No {left_element}/{right_element} interface match found within {max_strain:.1%} strain "
+                f"using repeats <= {max_repeats}. Increase max_interface_repeats or max_interface_strain."
+            )
+
+        candidates.sort(key=lambda item: (
+            item['left_repeats'] + item['right_repeats'],
+            item['max_abs_strain'],
+            abs(item['left_repeats'] - item['right_repeats']),
+        ))
+        return candidates[0]
 
     def _assign_lateral_interface_domains(self, slab: Atoms, left_element: str, right_element: str) -> Atoms:
         """Create a side-by-side bimetal surface interface in every slab layer.

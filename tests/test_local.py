@@ -311,10 +311,29 @@ def test_slab_generator_interface_cu_au_111():
         print_fail(f"Expected lateral interface metadata, got {interface}")
         return False
 
-    if cu_count > 0 and au_count > 0:
-        print_success("Cu/Au interface contains both metals")
+    if cu_count == 28 and au_count == 24:
+        print_success("Cu/Au interface uses the minimal 7:6 match over 4 layers")
     else:
-        print_fail(f"Expected both Cu and Au, got Cu={cu_count}, Au={au_count}")
+        print_fail(f"Expected 28 Cu and 24 Au for a minimal 7:6 match, got Cu={cu_count}, Au={au_count}")
+        return False
+
+    match = interface.get('match', {})
+    if match.get('left_repeats') == 7 and match.get('right_repeats') == 6:
+        print_success("Cu/Au interface match is 7 Cu repeats to 6 Au repeats")
+    else:
+        print_fail(f"Unexpected interface match: {match}")
+        return False
+
+    if match.get('max_abs_strain', 1.0) <= 0.05:
+        print_success(f"Maximum interface strain <= 5%: {match.get('max_abs_strain')}")
+    else:
+        print_fail(f"Interface strain exceeds 5%: {match}")
+        return False
+
+    if match.get('matched_to') == 'balanced':
+        print_success("Interface length is balanced between Cu and Au")
+    else:
+        print_fail(f"Expected balanced interface matching, got {match.get('matched_to')}")
         return False
 
     split_coordinate = interface['split_coordinate']
@@ -392,6 +411,12 @@ def test_slab_generator_occo_on_cu_au_interface():
     positions = atoms.get_positions()
     interface = outputs.get('interface') or {}
     placement = outputs.get('adsorbate_placement') or {}
+
+    if symbols.count('Cu') == 28 and symbols.count('Au') == 24:
+        print_success("OCCO interface substrate keeps the minimal 7:6 Cu/Au match")
+    else:
+        print_fail(f"Unexpected substrate size: Cu={symbols.count('Cu')}, Au={symbols.count('Au')}")
+        return False
 
     if placement.get('mode') == 'bidentate_across_lateral_interface':
         print_success("OCCO uses bidentate interface placement")

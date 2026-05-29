@@ -25,7 +25,7 @@
             "maxItems": 2
           }
         ],
-        "description": "Element symbol for a slab, or two element symbols for a vertical interface (for example Cu/Au).",
+        "description": "Element symbol for a slab, or two element symbols for a lateral interface (for example Cu/Au).",
         "examples": [
           "Cu",
           "Au",
@@ -167,6 +167,29 @@
       "lattice_constant": {
         "type": "number",
         "description": "Override default lattice constant in Angstroms"
+      },
+      "max_interface_strain": {
+        "type": "number",
+        "minimum": 0.0,
+        "maximum": 0.2,
+        "description": "Maximum allowed absolute strain for automatically matched two-metal fcc(111) interfaces."
+      },
+      "max_interface_repeats": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 30,
+        "description": "Maximum integer surface repeats to search when matching two-metal fcc(111) interfaces."
+      },
+      "interface_match_side": {
+        "type": "string",
+        "description": "Which side fixes the matched interface length: balanced minimizes maximum strain, left/Cu fixes the first element, right/Au fixes the second element.",
+        "examples": [
+          "balanced",
+          "left",
+          "right",
+          "Cu",
+          "Au"
+        ]
       }
     }
   },
@@ -186,7 +209,10 @@
         0,
         1
       ]
-    }
+    },
+    "max_interface_strain": 0.05,
+    "max_interface_repeats": 12,
+    "interface_match_side": "balanced"
   },
   "validation_rules": [
     {
