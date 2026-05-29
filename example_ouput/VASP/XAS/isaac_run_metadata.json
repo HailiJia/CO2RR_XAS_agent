@@ -1,0 +1,84 @@
+{
+  "timestamps": {
+    "acquired_start_utc": "2026-05-28T20:10:00Z",
+    "acquired_end_utc": "2026-05-28T22:55:00Z"
+  },
+  "sample": {
+    "material": {
+      "name": "Cu(111) slab model with CHO",
+      "formula": "Cu36C1H1O1",
+      "provenance": "theoretical",
+      "notes": "Generated Cu(111) slab with CHO adsorbate; geometry from CO2RR_XAS_agent local test."
+    },
+    "sample_form": "slab_model"
+  },
+  "context": {
+    "environment": "in_silico",
+    "temperature_K": 0,
+    "notes": "Static 0 K electronic structure unless otherwise specified."
+  },
+  "system": {
+    "domain": "computational",
+    "technique": "finite_difference_or_multiple_scattering_xas",
+    "facility": {
+      "facility_name": "NERSC",
+      "organization": "ANL",
+      "cluster": "Perlmutter"
+    },
+    "instrument": {
+      "instrument_type": "simulation_engine",
+      "instrument_name": "VASP_std",
+      "vendor_or_project": "VASP"
+    },
+    "configuration": {
+      "code_version": "VASP 6.3.2",
+      "compute_architecture": "CPU"
+    }
+  },
+  "run": {
+    "software": "VASP",
+    "command": "srun vasp_std in 01_scf; srun vasp_std in 02_xas",
+    "exit_code": 0,
+    "working_directory": "/Users/hjia/Downloads/Cu/Cu/FDMNES_fdm",
+    "hostname": "local-test",
+    "slurm_job_id": "not_specified",
+    "slurm_job_name": "not_specified",
+    "slurm_partition": "not_specified",
+    "slurm_nodelist": "not_specified",
+    "nersc_host": "not_specified"
+  },
+  "measurement": {
+    "processing": {
+      "type": "simulated_spectrum_broadened",
+      "recipe_link": {
+        "rel": "processing_recipe",
+        "target": "repo://CO2RR_XAS_agent/vasp"
+      }
+    },
+    "qc": {
+      "status": "valid"
+    }
+  },
+  "assets": [
+    {
+      "asset_id": "fdmnes_input_deck",
+      "content_role": "workflow_recipe",
+      "uri": "/Users/hjia/Downloads/Cu/Cu/FDMNES_fdm/Cu_in.txt",
+      "media_type": "text/plain",
+      "sha256": "not_computed_in_manual_test",
+      "notes": "VASP input deck used for the Cu K-edge calculation."
+    },
+    {
+      "asset_id": "xas_fullres",
+      "content_role": "reduction_product",
+      "uri": "/Users/hjia/Downloads/Cu/Cu/FDMNES_fdm/Cu_conv.txt",
+      "media_type": "text/plain",
+      "sha256": "not_computed_in_manual_test",
+      "notes": "Full-resolution VASP convolved spectrum."
+    }
+  ],
+  "links": [],
+  "descriptors": {
+    "outputs": []
+  }
+}

@@ -1,452 +1,417 @@
 """
-Utility functions for CO2RR XAS Agent
+Utility functions for CO2RR XAS Agent tools.
 """
 
 import os
-import json
-import numpy as np
-from typing import Dict, List, Tuple, Optional, Union
-from dataclasses import dataclass, field, asdict
-from datetime import datetime
 import uuid
-import re
+import hashlib
+from datetime import datetime, timezone
+from pathlib import Path
+from typing import Dict, List, Tuple, Any, Optional
+
+import numpy as np
 
 
 # =============================================================================
-# Constants
+# Atomic data
 # =============================================================================
 
-# Atomic numbers
 ATOMIC_NUMBERS = {
-    'H': 1, 'C': 6, 'N': 7, 'O': 8,
-    'Sc': 21, 'Ti': 22, 'V': 23, 'Cr': 24, 'Mn': 25,
-    'Fe': 26, 'Co': 27, 'Ni': 28, 'Cu': 29, 'Zn': 30,
-    'Y': 39, 'Zr': 40, 'Nb': 41, 'Mo': 42, 'Ru': 44,
-    'Rh': 45, 'Pd': 46, 'Ag': 47, 'Cd': 48,
-    'Hf': 72, 'Ta': 73, 'W': 74, 'Re': 75, 'Os': 76,
-    'Ir': 77, 'Pt': 78, 'Au': 79, 'Hg': 80,
-    'Al': 13
+    'H': 1, 'He': 2, 'Li': 3, 'Be': 4, 'B': 5, 'C': 6, 'N': 7, 'O': 8, 'F': 9, 'Ne': 10,
+    'Na': 11, 'Mg': 12, 'Al': 13, 'Si': 14, 'P': 15, 'S': 16, 'Cl': 17, 'Ar': 18,
+    'K': 19, 'Ca': 20, 'Sc': 21, 'Ti': 22, 'V': 23, 'Cr': 24, 'Mn': 25, 'Fe': 26,
+    'Co': 27, 'Ni': 28, 'Cu': 29, 'Zn': 30, 'Ga': 31, 'Ge': 32, 'As': 33, 'Se': 34,
+    'Br': 35, 'Kr': 36, 'Rb': 37, 'Sr': 38, 'Y': 39, 'Zr': 40, 'Nb': 41, 'Mo': 42,
+    'Tc': 43, 'Ru': 44, 'Rh': 45, 'Pd': 46, 'Ag': 47, 'Cd': 48, 'In': 49, 'Sn': 50,
+    'Sb': 51, 'Te': 52, 'I': 53, 'Xe': 54, 'Cs': 55, 'Ba': 56, 'La': 57, 'Ce': 58,
+    'Pr': 59, 'Nd': 60, 'Pm': 61, 'Sm': 62, 'Eu': 63, 'Gd': 64, 'Tb': 65, 'Dy': 66,
+    'Ho': 67, 'Er': 68, 'Tm': 69, 'Yb': 70, 'Lu': 71, 'Hf': 72, 'Ta': 73, 'W': 74,
+    'Re': 75, 'Os': 76, 'Ir': 77, 'Pt': 78, 'Au': 79, 'Hg': 80, 'Tl': 81, 'Pb': 82,
+    'Bi': 83, 'Po': 84, 'At': 85, 'Rn': 86, 'Fr': 87, 'Ra': 88, 'Ac': 89, 'Th': 90,
+    'Pa': 91, 'U': 92, 'Np': 93, 'Pu': 94, 'Am': 95, 'Cm': 96,
 }
 
-# Crystal structures and lattice constants (Angstrom)
-METAL_DATA = {
-    # FCC metals
-    'Cu': {'structure': 'fcc', 'a': 3.615, 'facets': ['111', '100', '110']},
-    'Ag': {'structure': 'fcc', 'a': 4.085, 'facets': ['111', '100', '110']},
-    'Au': {'structure': 'fcc', 'a': 4.078, 'facets': ['111', '100', '110']},
-    'Pt': {'structure': 'fcc', 'a': 3.924, 'facets': ['111', '100', '110']},
-    'Pd': {'structure': 'fcc', 'a': 3.891, 'facets': ['111', '100', '110']},
-    'Ni': {'structure': 'fcc', 'a': 3.524, 'facets': ['111', '100', '110']},
-    'Al': {'structure': 'fcc', 'a': 4.050, 'facets': ['111', '100', '110']},
-    'Rh': {'structure': 'fcc', 'a': 3.803, 'facets': ['111', '100', '110']},
-    'Ir': {'structure': 'fcc', 'a': 3.839, 'facets': ['111', '100', '110']},
-    # BCC metals
-    'Fe': {'structure': 'bcc', 'a': 2.867, 'facets': ['110', '100', '111']},
-    'Cr': {'structure': 'bcc', 'a': 2.910, 'facets': ['110', '100', '111']},
-    'Mo': {'structure': 'bcc', 'a': 3.147, 'facets': ['110', '100', '111']},
-    'W':  {'structure': 'bcc', 'a': 3.165, 'facets': ['110', '100', '111']},
-    'V':  {'structure': 'bcc', 'a': 3.030, 'facets': ['110', '100', '111']},
-    'Nb': {'structure': 'bcc', 'a': 3.301, 'facets': ['110', '100', '111']},
-    'Ta': {'structure': 'bcc', 'a': 3.303, 'facets': ['110', '100', '111']},
-    # HCP metals
-    'Co': {'structure': 'hcp', 'a': 2.507, 'c': 4.069, 'facets': ['0001', '10-10']},
-    'Zn': {'structure': 'hcp', 'a': 2.665, 'c': 4.947, 'facets': ['0001', '10-10']},
-    'Ti': {'structure': 'hcp', 'a': 2.951, 'c': 4.686, 'facets': ['0001', '10-10']},
-    'Zr': {'structure': 'hcp', 'a': 3.232, 'c': 5.147, 'facets': ['0001', '10-10']},
-    'Ru': {'structure': 'hcp', 'a': 2.706, 'c': 4.282, 'facets': ['0001', '10-10']},
-    'Os': {'structure': 'hcp', 'a': 2.735, 'c': 4.319, 'facets': ['0001', '10-10']},
+# Approximate K-edge energies (eV) for common elements
+K_EDGE_ENERGIES = {
+    'C': 284, 'N': 410, 'O': 543, 'F': 697,
+    'Na': 1071, 'Mg': 1303, 'Al': 1560, 'Si': 1839, 'P': 2146, 'S': 2472, 'Cl': 2822,
+    'K': 3608, 'Ca': 4039, 'Sc': 4493, 'Ti': 4966, 'V': 5465, 'Cr': 5989, 'Mn': 6539,
+    'Fe': 7112, 'Co': 7709, 'Ni': 8333, 'Cu': 8979, 'Zn': 9659,
+    'Ga': 10367, 'Ge': 11103, 'As': 11867, 'Se': 12658, 'Br': 13474,
 }
 
-# Edge energies (eV)
-EDGE_ENERGIES = {
-    # K-edges
-    'C_K': 284, 'N_K': 410, 'O_K': 543,
-    'Sc_K': 4492, 'Ti_K': 4966, 'V_K': 5465, 'Cr_K': 5989,
-    'Mn_K': 6539, 'Fe_K': 7112, 'Co_K': 7709, 'Ni_K': 8333,
-    'Cu_K': 8979, 'Zn_K': 9659,
-    # L3-edges (for 4d and 5d)
-    'Pd_L3': 3173, 'Ag_L3': 3351,
-    'Pt_L3': 11564, 'Au_L3': 11919,
-}
-
-# Metal classification for edge selection
-METALS_3D = ['Sc', 'Ti', 'V', 'Cr', 'Mn', 'Fe', 'Co', 'Ni', 'Cu', 'Zn']
-METALS_4D = ['Y', 'Zr', 'Nb', 'Mo', 'Tc', 'Ru', 'Rh', 'Pd', 'Ag', 'Cd']
-METALS_5D = ['Hf', 'Ta', 'W', 'Re', 'Os', 'Ir', 'Pt', 'Au', 'Hg']
-
-# CO2RR adsorbates
-ADSORBATES = {
-    'CO': {
-        'atoms': ['C', 'O'],
-        'positions': np.array([[0.0, 0.0, 0.0], [0.0, 0.0, 1.13]]),
-        'binding_atom': 0
-    },
-    'CH': {
-        'atoms': ['C', 'H'],
-        'positions': np.array([[0.0, 0.0, 0.0], [0.0, 0.0, 1.09]]),
-        'binding_atom': 0
-    },
-    'CH2': {
-        'atoms': ['C', 'H', 'H'],
-        'positions': np.array([
-            [0.0, 0.0, 0.0],
-            [0.0, 0.94, 0.54],
-            [0.0, -0.94, 0.54]
-        ]),
-        'binding_atom': 0
-    },
-    'CHO': {
-        'atoms': ['C', 'H', 'O'],
-        'positions': np.array([
-            [0.0, 0.0, 0.0],
-            [1.09, 0.0, 0.0],
-            [-0.6, 0.0, 1.1]
-        ]),
-        'binding_atom': 0
-    },
-    'CHOH': {
-        'atoms': ['C', 'H', 'O', 'H'],
-        'positions': np.array([
-            [0.0, 0.0, 0.0],
-            [1.09, 0.0, 0.0],
-            [-0.6, 0.0, 1.2],
-            [-0.6, 0.8, 1.6]
-        ]),
-        'binding_atom': 0
-    },
-    'CH3': {
-        'atoms': ['C', 'H', 'H', 'H'],
-        'positions': np.array([
-            [0.0, 0.0, 0.0],
-            [0.0, 1.02, 0.36],
-            [0.88, -0.51, 0.36],
-            [-0.88, -0.51, 0.36]
-        ]),
-        'binding_atom': 0
-    },
-    'CH4': {
-        'atoms': ['C', 'H', 'H', 'H', 'H'],
-        'positions': np.array([
-            [0.0, 0.0, 0.0],
-            [0.63, 0.63, 0.63],
-            [-0.63, -0.63, 0.63],
-            [-0.63, 0.63, -0.63],
-            [0.63, -0.63, -0.63]
-        ]),
-        'binding_atom': 0
-    },
-    'COCO': {
-        'atoms': ['C', 'O', 'C', 'O'],
-        'positions': np.array([
-            [0.0, 0.0, 0.0],
-            [0.0, 0.0, 1.2],
-            [1.5, 0.0, 0.0],
-            [1.5, 0.0, 1.2]
-        ]),
-        'binding_atom': 0
-    },
-    'OCCO': {
-        # Crude *OCCO initial guess.
-        # C-C backbone is roughly parallel to the surface.
-        # binding_atom = first C. The second C is displaced along x.
-        'atoms': ['O', 'C', 'C', 'O'],
-        'positions': np.array([
-            [-1.15, 0.0, 0.55],   # O attached to first C
-            [0.00, 0.0, 0.00],    # first C, binding atom
-            [1.45, 0.0, 0.00],    # second C
-            [2.60, 0.0, 0.55]     # O attached to second C
-        ]),
-        'binding_atom': 1
-    },
-
-}
-
-# Full CO2RR pathway
-CO2RR_PATHWAY = ['CO', 'CH', 'CH2', 'CHO', 'CHOH', 'CH3', 'CH4', 'COCO', 'OCCO']
-
-# Adsorption site offsets (fractional coordinates for FCC 111)
-ADSORPTION_SITES = {
-    'top': np.array([0.0, 0.0]),
-    'bridge': np.array([0.5, 0.0]),
-    'fcc': np.array([1/3, 1/3]),
-    'hcp': np.array([2/3, 2/3]),
+# Approximate L3-edge energies (eV) for common elements
+L3_EDGE_ENERGIES = {
+    'Fe': 707, 'Co': 778, 'Ni': 853, 'Cu': 933, 'Zn': 1022,
+    'Mo': 2520, 'Ru': 2838, 'Rh': 3004, 'Pd': 3173, 'Ag': 3351,
+    'W': 10207, 'Re': 10535, 'Os': 10871, 'Ir': 11215, 'Pt': 11564, 'Au': 11919,
 }
 
 
 # =============================================================================
-# Helper Functions
+# File and directory utilities
 # =============================================================================
 
-def get_edge_for_element(element: str) -> Tuple[str, bool]:
-    """
-    Determine the appropriate XAS edge for an element.
-    
-    Returns:
-        Tuple of (edge_name, vasp_allowed)
-        - edge_name: 'K' or 'L23'
-        - vasp_allowed: True if VASP can be used for this edge
-    """
-    if element in METALS_3D or element in ['C', 'N', 'O']:
-        return 'K', True
-    elif element in METALS_4D:
-        return 'L23', False
-    elif element in METALS_5D:
-        return 'L23', False
-    else:
-        # Default to K-edge
-        return 'K', True
-
-
-def get_edge_energy(element: str, edge: str) -> float:
-    """Get edge energy in eV for element and edge type."""
-    if edge == 'K':
-        key = f"{element}_K"
-    else:
-        key = f"{element}_L3"
-    return EDGE_ENERGIES.get(key, 0.0)
-
-
-def contains_carbon(adsorbate: str) -> bool:
-    """Check if adsorbate contains carbon."""
-    if adsorbate is None:
-        return False
-    return 'C' in ADSORBATES.get(adsorbate, {}).get('atoms', [])
+def ensure_dir(path: str) -> None:
+    """Create directory if it doesn't exist."""
+    if path:
+        Path(path).mkdir(parents=True, exist_ok=True)
 
 
 def generate_uuid() -> str:
-    """Generate a UUID string."""
-    return str(uuid.uuid4())
+    """
+    Generate a unique ID for ISAAC records.
+    Format: 01JFH8SIMXAS + 14 random hex characters
+    """
+    prefix = "01JFH8SIMXAS"
+    suffix = uuid.uuid4().hex[:14].upper()
+    return f"{prefix}{suffix}"
 
 
 def get_timestamp() -> str:
-    """Get current timestamp in ISO8601 format."""
-    return datetime.utcnow().isoformat() + "Z"
+    """Get current UTC timestamp in ISO format."""
+    return datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
 
 
-def ensure_dir(path: str) -> str:
-    """Ensure directory exists, create if not."""
-    os.makedirs(path, exist_ok=True)
-    return path
+def sha256_file(filepath: str) -> str:
+    """Calculate SHA256 hash of a file."""
+    p = Path(filepath)
+    if not p.exists() or not p.is_file():
+        return "not_available"
+    h = hashlib.sha256()
+    with p.open("rb") as f:
+        for chunk in iter(lambda: f.read(1024 * 1024), b""):
+            h.update(chunk)
+    return h.hexdigest()
 
 
-def read_poscar(filepath: str) -> Dict:
+# =============================================================================
+# Element and edge utilities
+# =============================================================================
+
+def get_edge_for_element(element: str) -> Tuple[str, float]:
+    """
+    Get default edge and approximate edge energy for an element.
+    
+    Args:
+        element: Element symbol (e.g., 'Cu', 'Fe')
+    
+    Returns:
+        Tuple of (edge_name, edge_energy_eV)
+    """
+    z = ATOMIC_NUMBERS.get(element, 0)
+    
+    # K-edge for lighter elements (Z <= 30, up to Zn)
+    if z <= 30:
+        energy = K_EDGE_ENERGIES.get(element, _approximate_k_edge_energy(z))
+        return ("K", energy)
+    
+    # L3-edge for heavier elements
+    energy = L3_EDGE_ENERGIES.get(element, _approximate_l3_edge_energy(z))
+    return ("L3", energy)
+
+
+def _approximate_k_edge_energy(z: int) -> float:
+    """Approximate K-edge energy in eV using Moseley's law."""
+    if z <= 0:
+        return 0.0
+    return 13.6 * (z - 2) ** 2
+
+
+def _approximate_l3_edge_energy(z: int) -> float:
+    """Approximate L3-edge energy in eV."""
+    if z <= 0:
+        return 0.0
+    # Rough approximation for L3 edge
+    return 13.6 * ((z - 7.4) / 2) ** 2
+
+
+def get_element_from_z(z: int) -> Optional[str]:
+    """Get element symbol from atomic number."""
+    inverse = {v: k for k, v in ATOMIC_NUMBERS.items()}
+    return inverse.get(z)
+
+
+# =============================================================================
+# Structure reading utilities
+# =============================================================================
+
+def read_structure_file(filepath: str) -> Dict[str, Any]:
+    """
+    Read structure from various file formats.
+    
+    Supports: POSCAR, CONTCAR, CIF, XYZ, and other formats via pymatgen/ASE.
+    
+    Args:
+        filepath: Path to structure file
+    
+    Returns:
+        Dictionary with:
+            - atoms: List of element symbols
+            - positions: List of [x, y, z] coordinates (Cartesian, Angstroms)
+            - cell: 3x3 lattice matrix
+            - metadata: Source file info
+    """
+    filepath = Path(filepath)
+    
+    if not filepath.exists():
+        raise FileNotFoundError(f"Structure file not found: {filepath}")
+    
+    name = filepath.name.upper()
+    suffix = filepath.suffix.lower()
+    
+    # Try pymatgen first
+    try:
+        from pymatgen.core import Structure, Lattice
+        from pymatgen.io.vasp import Poscar
+        
+        if name in ('POSCAR', 'CONTCAR') or suffix in ('.vasp', '.poscar'):
+            poscar = Poscar.from_file(str(filepath))
+            structure = poscar.structure
+        elif suffix == '.cif':
+            structure = Structure.from_file(str(filepath))
+        elif suffix == '.xyz':
+            # XYZ files are molecules, need special handling
+            from pymatgen.io.xyz import XYZ
+            mol = XYZ.from_file(str(filepath)).molecule
+            # Create a large cubic box for the molecule
+            lattice = Lattice.cubic(50.0)
+            structure = Structure(
+                lattice, 
+                mol.species, 
+                mol.cart_coords, 
+                coords_are_cartesian=True
+            )
+        else:
+            # Try generic pymatgen reader
+            structure = Structure.from_file(str(filepath))
+        
+        return {
+            'atoms': [str(site.specie) for site in structure],
+            'positions': structure.cart_coords.tolist(),
+            'cell': structure.lattice.matrix.tolist(),
+            'metadata': {
+                'source_file': str(filepath),
+                'format': 'pymatgen',
+                'num_atoms': len(structure),
+            }
+        }
+    except ImportError:
+        pass
+    except Exception as e:
+        # Try ASE as fallback
+        pass
+    
+    # Try ASE as fallback
+    try:
+        from ase.io import read as ase_read
+        atoms = ase_read(str(filepath))
+        
+        return {
+            'atoms': atoms.get_chemical_symbols(),
+            'positions': atoms.get_positions().tolist(),
+            'cell': atoms.get_cell().tolist(),
+            'metadata': {
+                'source_file': str(filepath),
+                'format': 'ase',
+                'num_atoms': len(atoms),
+            }
+        }
+    except ImportError:
+        pass
+    except Exception:
+        pass
+    
+    raise ValueError(
+        f"Could not read structure from {filepath}. "
+        "Install pymatgen or ase: pip install pymatgen ase"
+    )
+
+
+def read_poscar(filepath: str) -> Dict[str, Any]:
     """
     Read VASP POSCAR/CONTCAR file.
     
+    This is a specialized reader that doesn't require pymatgen/ASE.
+    
+    Args:
+        filepath: Path to POSCAR file
+    
     Returns:
-        Dictionary with atoms, positions, cell, etc.
+        Dictionary with atoms, positions, cell, metadata
     """
+    filepath = Path(filepath)
+    
     with open(filepath, 'r') as f:
         lines = f.readlines()
     
+    # Line 0: Comment
     comment = lines[0].strip()
+    
+    # Line 1: Scale factor
     scale = float(lines[1].strip())
     
-    # Lattice vectors
-    cell = np.zeros((3, 3))
-    for i in range(3):
-        cell[i] = [float(x) for x in lines[2 + i].split()]
-    cell *= scale
+    # Lines 2-4: Lattice vectors
+    cell = []
+    for i in range(2, 5):
+        vec = [float(x) * scale for x in lines[i].split()]
+        cell.append(vec)
     
-    # Element symbols (VASP 5 format)
-    elements_line = lines[5].split()
+    # Line 5: Element symbols (VASP 5+) or counts (VASP 4)
+    line5 = lines[5].split()
+    
+    # Check if line 5 contains element symbols or numbers
     try:
-        counts = [int(x) for x in elements_line]
-        # VASP 4 format - no element symbols
+        int(line5[0])
+        # VASP 4 format: no element symbols
         elements = None
-        counts_line_idx = 5
+        counts = [int(x) for x in line5]
+        coord_start = 7
     except ValueError:
-        # VASP 5 format - has element symbols
-        elements = elements_line
+        # VASP 5+ format: element symbols on line 5
+        elements = line5
         counts = [int(x) for x in lines[6].split()]
-        counts_line_idx = 6
+        coord_start = 8
     
     # Check for Selective dynamics
-    next_line = lines[counts_line_idx + 1].strip()
-    if next_line[0].lower() == 's':
-        selective_dynamics = True
-        coord_type = lines[counts_line_idx + 2].strip()
-        pos_start = counts_line_idx + 3
-    else:
-        selective_dynamics = False
-        coord_type = next_line
-        pos_start = counts_line_idx + 2
+    if lines[coord_start - 1].strip().lower().startswith('s'):
+        coord_start += 1
+    
+    # Check coordinate type
+    coord_line = lines[coord_start - 1].strip().lower()
+    is_cartesian = coord_line.startswith('c') or coord_line.startswith('k')
     
     # Read positions
-    n_atoms = sum(counts)
-    positions = np.zeros((n_atoms, 3))
+    positions = []
+    total_atoms = sum(counts)
     
-    for i in range(n_atoms):
-        parts = lines[pos_start + i].split()
-        positions[i] = [float(parts[j]) for j in range(3)]
+    for i in range(coord_start, coord_start + total_atoms):
+        parts = lines[i].split()
+        pos = [float(parts[j]) for j in range(3)]
+        
+        if not is_cartesian:
+            # Convert fractional to Cartesian
+            cart = [0.0, 0.0, 0.0]
+            for j in range(3):
+                for k in range(3):
+                    cart[k] += pos[j] * cell[j][k]
+            pos = cart
+        
+        positions.append(pos)
     
-    # Convert to Cartesian if Direct
-    if coord_type[0].lower() == 'd':
-        positions = np.dot(positions, cell)
-    
-    # Build atoms list
+    # Build atom list
     atoms = []
     if elements:
         for elem, count in zip(elements, counts):
             atoms.extend([elem] * count)
+    else:
+        # No element info, use placeholders
+        for i, count in enumerate(counts):
+            atoms.extend([f"X{i+1}"] * count)
     
     return {
-        'comment': comment,
         'atoms': atoms,
         'positions': positions,
         'cell': cell,
-        'counts': counts,
-        'elements': elements,
-        'selective_dynamics': selective_dynamics
+        'metadata': {
+            'source_file': str(filepath),
+            'format': 'poscar',
+            'comment': comment,
+            'num_atoms': total_atoms,
+        }
     }
 
 
+# =============================================================================
+# Structure writing utilities
+# =============================================================================
+
 def write_poscar(
     atoms: List[str],
-    positions: np.ndarray,
-    cell: np.ndarray,
-    filename: str,
-    comment: str = "Generated by CO2RR-XAS Agent",
-    selective_dynamics: bool = True,
-    fix_bottom: bool = True
-) -> str:
+    positions: List[List[float]],
+    cell: List[List[float]],
+    filepath: str,
+    comment: str = "Generated by CO2RR XAS Agent",
+    direct: bool = False,
+    selective_dynamics: Optional[List[List[bool]]] = None
+) -> None:
     """
     Write VASP POSCAR file.
     
     Args:
         atoms: List of element symbols
-        positions: Cartesian coordinates (n_atoms, 3)
-        cell: Cell matrix (3, 3)
-        filename: Output filename
+        positions: List of [x, y, z] coordinates
+        cell: 3x3 lattice matrix
+        filepath: Output file path
         comment: Comment line
-        selective_dynamics: Include selective dynamics
-        fix_bottom: Fix bottom half of atoms
-        
-    Returns:
-        Path to written file
+        direct: If True, write fractional coordinates
+        selective_dynamics: Optional list of [T/F, T/F, T/F] for each atom
     """
-    # Get unique elements and counts (preserve order)
-    unique_elements = []
-    counts = []
+    filepath = Path(filepath)
+    ensure_dir(str(filepath.parent))
+    
+    # Count elements
+    element_counts = {}
+    element_order = []
     for atom in atoms:
-        if atom not in unique_elements:
-            unique_elements.append(atom)
-            counts.append(1)
-        else:
-            counts[unique_elements.index(atom)] += 1
+        if atom not in element_counts:
+            element_counts[atom] = 0
+            element_order.append(atom)
+        element_counts[atom] += 1
     
-    # Sort atoms by element
-    sorted_indices = []
-    for elem in unique_elements:
-        for i, atom in enumerate(atoms):
-            if atom == elem:
-                sorted_indices.append(i)
+    # Convert positions if needed
+    if direct:
+        # Convert Cartesian to fractional
+        cell_inv = np.linalg.inv(np.array(cell))
+        frac_positions = []
+        for pos in positions:
+            frac = np.dot(cell_inv, pos)
+            frac_positions.append(frac.tolist())
+        write_positions = frac_positions
+    else:
+        write_positions = positions
     
-    sorted_positions = positions[sorted_indices]
-    
-    # Convert to fractional coordinates
-    # Lattice vectors are stored as rows throughout this code.
-    # read_poscar uses: cart = frac @ cell
-    # Therefore the inverse conversion is: frac = cart @ inv(cell)
-    frac_positions = np.dot(sorted_positions, np.linalg.inv(cell))
-
-    # Keep slab atoms inside the periodic surface cell in x/y.
-    # Do not wrap z, because vacuum/slab-height issues should remain visible.
-    frac_positions[:, :2] = frac_positions[:, :2] % 1.0
-    
-    # Determine which atoms to fix
-    z_coords = sorted_positions[:, 2]
-    z_mid = (z_coords.max() + z_coords.min()) / 2
-    
-    with open(filename, 'w') as f:
+    with open(filepath, 'w') as f:
+        # Comment
         f.write(f"{comment}\n")
+        
+        # Scale
         f.write("1.0\n")
         
+        # Lattice vectors
         for vec in cell:
-            f.write(f"  {vec[0]:16.10f}  {vec[1]:16.10f}  {vec[2]:16.10f}\n")
+            f.write(f"  {vec[0]:20.14f}  {vec[1]:20.14f}  {vec[2]:20.14f}\n")
         
-        f.write("  " + "  ".join(unique_elements) + "\n")
-        f.write("  " + "  ".join(map(str, counts)) + "\n")
+        # Element symbols
+        f.write("  " + "  ".join(element_order) + "\n")
         
+        # Element counts
+        f.write("  " + "  ".join(str(element_counts[e]) for e in element_order) + "\n")
+        
+        # Selective dynamics
         if selective_dynamics:
             f.write("Selective dynamics\n")
-        f.write("Direct\n")
         
-        for i, pos in enumerate(frac_positions):
-            line = f"  {pos[0]:16.10f}  {pos[1]:16.10f}  {pos[2]:16.10f}"
+        # Coordinate type
+        if direct:
+            f.write("Direct\n")
+        else:
+            f.write("Cartesian\n")
+        
+        # Positions (sorted by element)
+        atom_indices = []
+        for elem in element_order:
+            for i, atom in enumerate(atoms):
+                if atom == elem:
+                    atom_indices.append(i)
+        
+        for idx in atom_indices:
+            pos = write_positions[idx]
+            line = f"  {pos[0]:20.14f}  {pos[1]:20.14f}  {pos[2]:20.14f}"
+            
             if selective_dynamics:
-                if fix_bottom and z_coords[i] < z_mid:
-                    line += "  F F F"
-                else:
-                    line += "  T T T"
+                sd = selective_dynamics[idx]
+                flags = ["T" if x else "F" for x in sd]
+                line += f"  {flags[0]}  {flags[1]}  {flags[2]}"
+            
             f.write(line + "\n")
-    
-    return filename
-
-
-def read_cif(filepath: str) -> Dict:
-    """Read CIF using read_structure_file. Requires pymatgen or ase."""
-    return read_structure_file(filepath)
-
-def read_structure_file(filepath: str) -> Dict:
-    """
-    Read a structure file and return the internal structure dictionary.
-
-    Supported directly:
-    - POSCAR / CONTCAR / VASP-format files via read_poscar
-    - CIF via pymatgen first, then ASE fallback if installed
-
-    The returned positions are Cartesian coordinates and cell vectors are rows,
-    consistent with the rest of this codebase.
-    """
-    path = os.path.expanduser(os.path.expandvars(filepath))
-    lower = path.lower()
-    name = os.path.basename(path).lower()
-
-    if lower.endswith('.cif'):
-        # Prefer pymatgen because it robustly handles symmetry-expanded CIFs.
-        try:
-            from pymatgen.core import Structure as PMGStructure
-
-            pmg = PMGStructure.from_file(path)
-            atoms = [str(site.specie.symbol) for site in pmg.sites]
-            positions = np.array([site.coords for site in pmg.sites], dtype=float)
-            cell = np.array(pmg.lattice.matrix, dtype=float)
-            return {
-                'comment': os.path.basename(path),
-                'atoms': atoms,
-                'positions': positions,
-                'cell': cell,
-                'metadata': {'source_file': filepath, 'source_format': 'cif'},
-            }
-        except ImportError:
-            pass
-
-        try:
-            from ase.io import read as ase_read
-
-            atoms_obj = ase_read(path)
-            atoms = atoms_obj.get_chemical_symbols()
-            positions = np.array(atoms_obj.get_positions(), dtype=float)
-            cell = np.array(atoms_obj.get_cell().array, dtype=float)
-            return {
-                'comment': os.path.basename(path),
-                'atoms': atoms,
-                'positions': positions,
-                'cell': cell,
-                'metadata': {'source_file': filepath, 'source_format': 'cif'},
-            }
-        except ImportError as exc:
-            raise ImportError(
-                'CIF input requires pymatgen or ase. Install one of them, e.g. '
-                '`pip install pymatgen` or `pip install ase`.'
-            ) from exc
-
-    # CONTCAR has the same format as POSCAR. Other VASP-like filenames are also accepted.
-    if name in {'poscar', 'contcar'} or 'poscar' in name or 'contcar' in name or not lower.endswith('.cif'):
-        structure = read_poscar(path)
-        structure.setdefault('metadata', {})
-        structure['metadata'].update({'source_file': filepath, 'source_format': 'vasp'})
-        return structure
-
-    raise ValueError(f'Unsupported structure file format: {filepath}')

@@ -83,20 +83,6 @@ class LocalIntentParser:
 
         parameters["fdmnes_options"] = self._extract_fdmnes_options(request_lower)
 
-        # VASP method: one selected folder, not both PBE and GW.
-        if re.search(r"\b(gw|gw0)\b", request_lower):
-            parameters["vasp_method"] = "GW"
-        elif re.search(r"\bpbe\b", request_lower):
-            parameters["vasp_method"] = "PBE"
-
-        potcar_match = re.search(
-            r"(?:potcar\s*(?:dir|directory|path)|potpaw\s*(?:dir|directory|path))\s*(?:=|is|:)?\s*([^\s,;]+)",
-            request,
-            re.IGNORECASE,
-        )
-        if potcar_match:
-            parameters["potcar_dir"] = potcar_match.group(1)
-
         cluster_radius = self._extract_float(
             request_lower,
             r"(?:radius|cluster\s+radius)\s*(?:=|is|to|of)?\s*([0-9]+(?:\.[0-9]+)?)",
@@ -335,8 +321,6 @@ class CO2RRXASAgent:
             "fdmnes_options": intent.parameters.get("fdmnes_options"),
             "fdmnes_energy_range": fdmnes_energy_range,
             "edge_override": intent.parameters.get("edge_override"),
-            "vasp_method": intent.parameters.get("vasp_method", "PBE"),
-            "potcar_dir": intent.parameters.get("potcar_dir"),
         }
         if structure_metadata is not None:
             kwargs["structure_metadata"] = structure_metadata
@@ -394,8 +378,10 @@ class CO2RRXASAgent:
         if not structure_file:
             return {"status": "error", "message": "Structure file required for parsing"}
 
-        absorber = intent.parameters.get("absorber", intent.metals[0] if intent.metals else "Cu")
-        edge = intent.parameters.get("edge", intent.parameters.get("edge_override", "K"))
+        # Absorber/edge can be inferred by tools.result_parser from FEFF/FDMNES/VASP input files.
+        # Only pass explicit values when the user/request actually provided them.
+        absorber = intent.parameters.get("absorber", intent.metals[0] if intent.metals else None)
+        edge = intent.parameters.get("edge", intent.parameters.get("edge_override"))
 
         return execute_result_parsing(
             output_dir=output_dir,
@@ -458,8 +444,6 @@ class CO2RRXASAgent:
         fdmnes_options: Optional[Dict[str, bool]] = None,
         fdmnes_energy_range=(-5.0, 0.2, 50.0),
         edge_override: Optional[str] = None,
-        vasp_method: str = "PBE",
-        potcar_dir: Optional[str] = None,
     ) -> Dict:
         """Direct API for XAS input generation."""
         return execute_xas_input_generation(
@@ -474,8 +458,6 @@ class CO2RRXASAgent:
             fdmnes_options=fdmnes_options,
             fdmnes_energy_range=EnergyRange.from_any(fdmnes_energy_range).as_fdmnes_range(),
             edge_override=edge_override,
-            vasp_method=vasp_method,
-            potcar_dir=potcar_dir,
         )
 
     def parse_results(
@@ -483,8 +465,8 @@ class CO2RRXASAgent:
         output_dir: str,
         software: str,
         structure_file: str,
-        absorber: str,
-        edge: str,
+        absorber: Optional[str] = None,
+        edge: Optional[str] = None,
         vasp_mode: str = "trace",
     ) -> Dict:
         """Direct API for result parsing."""

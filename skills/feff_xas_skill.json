@@ -1,0 +1,104 @@
+{
+  "skill_id": "feff_xas_calculation",
+  "name": "FEFF XAS Calculation",
+  "version": "1.0.0",
+  "description": "Generate FEFF input files for X-ray absorption spectroscopy calculations",
+  "category": "spectroscopy",
+  "parameters": {
+    "type": "object",
+    "required": ["structure", "absorbing_atom", "edge"],
+    "properties": {
+      "structure": {
+        "type": "object",
+        "description": "Input structure (pymatgen Structure or file path)"
+      },
+      "absorbing_atom": {
+        "type": "object",
+        "properties": {
+          "element": {
+            "type": "string",
+            "description": "Element symbol of absorbing atom"
+          },
+          "index": {
+            "type": "integer",
+            "description": "Index of specific absorbing atom (0-based)"
+          }
+        }
+      },
+      "edge": {
+        "type": "string",
+        "enum": ["K", "L1", "L2", "L3", "M1", "M2", "M3", "M4", "M5"],
+        "description": "Absorption edge"
+      },
+      "spectroscopy_type": {
+        "type": "string",
+        "enum": ["XANES", "EXAFS"],
+        "description": "Type of XAS calculation"
+      },
+      "radius": {
+        "type": "object",
+        "properties": {
+          "scf": {
+            "type": "number",
+            "description": "SCF cluster radius in Angstroms"
+          },
+          "fms": {
+            "type": "number",
+            "description": "FMS cluster radius in Angstroms"
+          }
+        }
+      },
+      "s02": {
+        "type": "number",
+        "minimum": 0.0,
+        "maximum": 1.0,
+        "description": "Amplitude reduction factor"
+      },
+      "exchange": {
+        "type": "string",
+        "enum": ["hedin-lundqvist", "dirac-hara", "ground-state", "dhaka"],
+        "description": "Exchange correlation potential"
+      },
+      "corehole": {
+        "type": "string",
+        "enum": ["FSR", "RPA", "none"],
+        "description": "Core hole treatment"
+      },
+      "scf_iterations": {
+        "type": "integer",
+        "description": "Maximum SCF iterations"
+      },
+      "fms_order": {
+        "type": "integer",
+        "description": "Full multiple scattering order"
+      }
+    }
+  },
+  "defaults": {
+    "spectroscopy_type": "XANES",
+    "radius": {
+      "scf": 5.0,
+      "fms": 6.0
+    },
+    "s02": 1.0,
+    "exchange": "hedin-lundqvist",
+    "corehole": "FSR",
+    "scf_iterations": 100,
+    "fms_order": 0
+  },
+  "spectroscopy_specific_defaults": {
+    "XANES": {
+      "control": [1, 1, 1, 1, 1, 1],
+      "xanes": true,
+      "fms_order": 0
+    },
+    "EXAFS": {
+      "control": [1, 1, 1, 1, 1, 1],
+      "exafs": true,
+      "rpath": 10.0
+    }
+  },
+  "outputs": {
+    "feff_inp": "FEFF feff.inp file"
+  }
+}

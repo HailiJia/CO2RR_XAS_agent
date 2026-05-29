@@ -1,0 +1,130 @@
+{
+  "skill_id": "vasp_xas_calculation",
+  "name": "VASP XAS Calculation",
+  "version": "1.0.0",
+  "description": "Generate VASP input files for X-ray absorption spectroscopy calculations",
+  "category": "spectroscopy",
+  "parameters": {
+    "type": "object",
+    "required": ["structure", "absorbing_atom", "edge"],
+    "properties": {
+      "structure": {
+        "type": "object",
+        "description": "Input structure (pymatgen Structure or file path)"
+      },
+      "absorbing_atom": {
+        "type": "object",
+        "properties": {
+          "element": {
+            "type": "string",
+            "description": "Element symbol of absorbing atom"
+          },
+          "index": {
+            "type": "integer",
+            "description": "Index of specific absorbing atom (0-based)"
+          }
+        }
+      },
+      "edge": {
+        "type": "string",
+        "enum": ["K", "L1", "L2", "L3", "M1", "M2", "M3"],
+        "description": "Absorption edge"
+      },
+      "spectroscopy_type": {
+        "type": "string",
+        "enum": ["XANES", "EXAFS"],
+        "description": "Type of XAS calculation"
+      },
+      "core_hole": {
+        "type": "string",
+        "enum": ["FCH", "HCH", "XCH", "none"],
+        "description": "Core hole approximation method"
+      },
+      "functional": {
+        "type": "string",
+        "enum": ["PBE", "PBE+U", "HSE06", "SCAN"],
+        "description": "Exchange-correlation functional"
+      },
+      "kpoints": {
+        "type": "object",
+        "properties": {
+          "grid": {
+            "type": "array",
+            "items": {"type": "integer"},
+            "minItems": 3,
+            "maxItems": 3
+          },
+          "gamma_centered": {
+            "type": "boolean"
+          }
+        }
+      },
+      "encut": {
+        "type": "number",
+        "description": "Plane wave cutoff energy in eV"
+      },
+      "nbands": {
+        "type": "integer",
+        "description": "Number of bands for XAS calculation"
+      },
+      "ch_nedos": {
+        "type": "integer",
+        "description": "Number of energy points for spectrum"
+      },
+      "ismear": {
+        "type": "integer",
+        "description": "Smearing method"
+      },
+      "sigma": {
+        "type": "number",
+        "description": "Smearing width in eV"
+      }
+    }
+  },
+  "defaults": {
+    "spectroscopy_type": "XANES",
+    "core_hole": "FCH",
+    "functional": "PBE",
+    "kpoints": {
+      "grid": [2, 2, 1],
+      "gamma_centered": true
+    },
+    "encut": 520,
+    "nbands": 200,
+    "ch_nedos": 2000,
+    "ismear": 0,
+    "sigma": 0.05
+  },
+  "edge_specific_defaults": {
+    "K": {
+      "icorelevel": 1,
+      "clnt": 1,
+      "cln": 1,
+      "cll": 0
+    },
+    "L1": {
+      "icorelevel": 1,
+      "clnt": 2,
+      "cln": 2,
+      "cll": 0
+    },
+    "L2": {
+      "icorelevel": 1,
+      "clnt": 2,
+      "cln": 2,
+      "cll": 1
+    },
+    "L3": {
+      "icorelevel": 1,
+      "clnt": 2,
+      "cln": 2,
+      "cll": 1
+    }
+  },
+  "outputs": {
+    "incar": "VASP INCAR file",
+    "poscar": "VASP POSCAR file",
+    "potcar": "VASP POTCAR file",
+    "kpoints": "VASP KPOINTS file"
+  }
+}
