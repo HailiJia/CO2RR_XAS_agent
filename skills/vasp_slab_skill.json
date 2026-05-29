@@ -6,20 +6,58 @@
   "category": "structure_generation",
   "parameters": {
     "type": "object",
-    "required": ["element", "miller_index"],
+    "required": [
+      "element",
+      "miller_index"
+    ],
     "properties": {
       "element": {
-        "type": "string",
-        "description": "Element symbol for the bulk material",
-        "examples": ["Cu", "Au", "Pt", "Ag", "Pd"]
+        "oneOf": [
+          {"type": "string"},
+          {
+            "type": "array",
+            "items": {"type": "string"},
+            "minItems": 1,
+            "maxItems": 2
+          }
+        ],
+        "description": "Element symbol for a slab, or two element symbols for a vertical interface (for example Cu/Au).",
+        "examples": [
+          "Cu",
+          "Au",
+          "Cu/Au",
+          "Cu-Au",
+          [
+            "Cu",
+            "Au"
+          ]
+        ]
       },
       "miller_index": {
         "type": "array",
-        "items": {"type": "integer"},
+        "items": {
+          "type": "integer"
+        },
         "minItems": 3,
         "maxItems": 3,
         "description": "Miller indices defining the surface orientation",
-        "examples": [[1, 1, 1], [1, 0, 0], [1, 1, 0]]
+        "examples": [
+          [
+            1,
+            1,
+            1
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            1,
+            0
+          ]
+        ]
       },
       "layers": {
         "type": "integer",
@@ -40,11 +78,22 @@
       },
       "supercell": {
         "type": "array",
-        "items": {"type": "integer"},
+        "items": {
+          "type": "integer"
+        },
         "minItems": 2,
         "maxItems": 2,
         "description": "Supercell size in x and y directions",
-        "examples": [[2, 2], [3, 3]]
+        "examples": [
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            3
+          ]
+        ]
       },
       "adsorbate": {
         "type": "object",
@@ -52,11 +101,44 @@
           "molecule": {
             "type": "string",
             "description": "Adsorbate molecule formula",
-            "examples": ["CO", "CO2", "H", "OH", "H2O", "COOH", "CHO"]
+            "examples": [
+              "CO",
+              "CH",
+              "CH2",
+              "CHO",
+              "CHOH",
+              "CH3",
+              "CH4",
+              "COCO",
+              "OCCO"
+            ],
+            "enum": [
+              "CO",
+              "CH",
+              "CH2",
+              "CHO",
+              "CHOH",
+              "CH3",
+              "CH4",
+              "COCO",
+              "OCCO",
+              "CO2",
+              "H",
+              "OH",
+              "H2O",
+              "COOH",
+              "HCOO"
+            ]
           },
           "binding_site": {
             "type": "string",
-            "enum": ["ontop", "bridge", "fcc", "hcp", "hollow"],
+            "enum": [
+              "ontop",
+              "bridge",
+              "fcc",
+              "hcp",
+              "hollow"
+            ],
             "description": "Binding site type on the surface"
           },
           "distance": {
@@ -67,7 +149,9 @@
           },
           "orientation": {
             "type": "array",
-            "items": {"type": "number"},
+            "items": {
+              "type": "number"
+            },
             "minItems": 3,
             "maxItems": 3,
             "description": "Adsorbate orientation vector"
@@ -84,11 +168,18 @@
     "layers": 4,
     "vacuum": 15.0,
     "fix_layers": 2,
-    "supercell": [2, 2],
+    "supercell": [
+      2,
+      2
+    ],
     "adsorbate": {
       "distance": 2.0,
       "binding_site": "ontop",
-      "orientation": [0, 0, 1]
+      "orientation": [
+        0,
+        0,
+        1
+      ]
     }
   },
   "validation_rules": [
