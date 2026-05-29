@@ -45,15 +45,34 @@ CRYSTAL_STRUCTURES = {
     'Ti': 'hcp', 'Zn': 'hcp', 'Co': 'hcp', 'Ru': 'hcp', 'Os': 'hcp',
 }
 
-# Adsorbate molecule definitions
+# CO2RR adsorbate definitions following the ISAAC VASP skill reference.
+# Positions are built explicitly in _build_adsorbate_atoms so carbon anchors sit
+# closest to the surface and all O/H atoms point away from the slab.
+CO2RR_ADSORBATES = {
+    'CO', 'CH', 'CH2', 'CHO', 'CHOH', 'CH3', 'CH4', 'COCO', 'OCCO'
+}
+
+ADSORBATE_DEFAULTS = {
+    'CO': {'site': 'hollow', 'height': 1.30},
+    'CH': {'site': 'hollow', 'height': 1.30},
+    'CH2': {'site': 'hollow', 'height': 1.30},
+    'CHO': {'site': 'bridge', 'height': 1.50},
+    'CHOH': {'site': 'ontop', 'height': 1.85},
+    'CH3': {'site': 'ontop', 'height': 1.85},
+    'CH4': {'site': 'ontop', 'height': 1.85},
+    'COCO': {'site': 'hollow', 'height': 1.30},
+    'OCCO': {'site': 'bridge', 'height': 1.50},
+}
+
+# Legacy/free-form adsorbate molecule definitions retained for backwards compatibility.
 ADSORBATE_MOLECULES = {
-    'CO': {'atoms': ['C', 'O'], 'positions': [[0, 0, 0], [0, 0, 1.13]]},
+    'CO': {'atoms': ['C', 'O'], 'positions': [[0, 0, 0], [0, 0, 1.16]]},
     'CO2': {'atoms': ['C', 'O', 'O'], 'positions': [[0, 0, 0], [0, 0, 1.16], [0, 0, -1.16]]},
     'H': {'atoms': ['H'], 'positions': [[0, 0, 0]]},
     'OH': {'atoms': ['O', 'H'], 'positions': [[0, 0, 0], [0, 0, 0.97]]},
     'H2O': {'atoms': ['O', 'H', 'H'], 'positions': [[0, 0, 0], [0.76, 0.59, 0], [-0.76, 0.59, 0]]},
     'COOH': {'atoms': ['C', 'O', 'O', 'H'], 'positions': [[0, 0, 0], [1.21, 0, 0], [-0.36, 1.22, 0], [-0.36, 1.82, 0.76]]},
-    'CHO': {'atoms': ['C', 'H', 'O'], 'positions': [[0, 0, 0], [0.54, 0.93, 0], [0, 0, 1.21]]},
+    'CHO': {'atoms': ['C', 'O', 'H'], 'positions': [[0, 0, 0], [1.094, 0, 0.387], [-0.363, 0.943, 0.363]]},
     'HCOO': {'atoms': ['H', 'C', 'O', 'O'], 'positions': [[0, 0, 1.09], [0, 0, 0], [1.13, 0, -0.36], [-1.13, 0, -0.36]]},
 }
 
@@ -74,20 +93,24 @@ class SlabGenerator(BaseGenerator):
         Returns:
             Dictionary with 'structure' (pymatgen) and 'atoms' (ASE) objects
         """
-        element = params['element']
+        element_spec = params['element']
+        elements = self._parse_element_spec(element_spec)
         miller_index = tuple(params['miller_index'])
         layers = params.get('layers', 4)
         vacuum = params.get('vacuum', 15.0)
         fix_layers = params.get('fix_layers', 2)
         supercell = params.get('supercell', [2, 2])
-        lattice_constant = params.get('lattice_constant', LATTICE_CONSTANTS.get(element))
+        lattice_constant = params.get('lattice_constant')
+        if lattice_constant is None:
+            lattice_constant = self._default_lattice_constant(elements)
         
         if lattice_constant is None:
-            raise ValueError(f"Unknown lattice constant for {element}. Please provide 'lattice_constant' parameter.")
+            element_label = '/'.join(elements)
+            raise ValueError(f"Unknown lattice constant for {element_label}. Please provide 'lattice_constant' parameter.")
         
         # Generate slab using ASE
         slab = self._build_slab_ase(
-            element=element,
+            elements=elements,
             miller_index=miller_index,
             layers=layers,
             vacuum=vacuum,
@@ -118,9 +141,36 @@ class SlabGenerator(BaseGenerator):
             'params': params
         }
     
+    def _parse_element_spec(self, element_spec: Any) -> List[str]:
+        """Normalize single-metal and interface element specifications."""
+        if isinstance(element_spec, (list, tuple)):
+            elements = [str(element).strip() for element in element_spec]
+        else:
+            element_text = str(element_spec).strip()
+            if '/' in element_text:
+                elements = [part.strip() for part in element_text.split('/')]
+            elif '-' in element_text:
+                elements = [part.strip() for part in element_text.split('-')]
+            else:
+                elements = [element_text]
+
+        elements = [element for element in elements if element]
+        if not elements:
+            raise ValueError("At least one slab element must be specified.")
+        if len(elements) > 2:
+            raise ValueError("Only single-metal slabs and two-metal interfaces are supported.")
+        return elements
+
+    def _default_lattice_constant(self, elements: List[str]) -> Optional[float]:
+        """Return a default lattice constant, averaging for two-metal interfaces."""
+        lattice_constants = [LATTICE_CONSTANTS.get(element) for element in elements]
+        if any(value is None for value in lattice_constants):
+            return None
+        return float(np.mean(lattice_constants))
+
     def _build_slab_ase(
         self,
-        element: str,
+        elements: List[str],
         miller_index: Tuple[int, int, int],
         layers: int,
         vacuum: float,
@@ -128,31 +178,51 @@ class SlabGenerator(BaseGenerator):
         supercell: List[int]
     ) -> Atoms:
         """Build slab using ASE builders."""
-        crystal_structure = CRYSTAL_STRUCTURES.get(element, 'fcc')
-        
-        # Map miller index to ASE builder function
+        base_element = elements[0]
+        crystal_structure = CRYSTAL_STRUCTURES.get(base_element, 'fcc')
+        if len(elements) == 2:
+            second_structure = CRYSTAL_STRUCTURES.get(elements[1], 'fcc')
+            if second_structure != crystal_structure:
+                raise ValueError(
+                    "Interface slabs require elements with matching crystal structures; "
+                    f"got {base_element}={crystal_structure} and {elements[1]}={second_structure}."
+                )
+
+        # Map miller index to ASE builder function.  ASE's vacuum argument adds
+        # the requested total vacuum around the slab when periodic z is disabled.
         builder_map = {
-            ('fcc', (1, 1, 1)): lambda: fcc111(element, size=(supercell[0], supercell[1], layers), a=lattice_constant, vacuum=vacuum/2),
-            ('fcc', (1, 0, 0)): lambda: fcc100(element, size=(supercell[0], supercell[1], layers), a=lattice_constant, vacuum=vacuum/2),
-            ('fcc', (1, 1, 0)): lambda: fcc110(element, size=(supercell[0], supercell[1], layers), a=lattice_constant, vacuum=vacuum/2),
-            ('bcc', (1, 1, 1)): lambda: bcc111(element, size=(supercell[0], supercell[1], layers), a=lattice_constant, vacuum=vacuum/2),
-            ('bcc', (1, 0, 0)): lambda: bcc100(element, size=(supercell[0], supercell[1], layers), a=lattice_constant, vacuum=vacuum/2),
-            ('bcc', (1, 1, 0)): lambda: bcc110(element, size=(supercell[0], supercell[1], layers), a=lattice_constant, vacuum=vacuum/2),
-            ('hcp', (0, 0, 0, 1)): lambda: hcp0001(element, size=(supercell[0], supercell[1], layers), a=lattice_constant, vacuum=vacuum/2),
+            ('fcc', (1, 1, 1)): lambda: fcc111(base_element, size=(supercell[0], supercell[1], layers), a=lattice_constant, vacuum=vacuum),
+            ('fcc', (1, 0, 0)): lambda: fcc100(base_element, size=(supercell[0], supercell[1], layers), a=lattice_constant, vacuum=vacuum),
+            ('fcc', (1, 1, 0)): lambda: fcc110(base_element, size=(supercell[0], supercell[1], layers), a=lattice_constant, vacuum=vacuum),
+            ('bcc', (1, 1, 1)): lambda: bcc111(base_element, size=(supercell[0], supercell[1], layers), a=lattice_constant, vacuum=vacuum),
+            ('bcc', (1, 0, 0)): lambda: bcc100(base_element, size=(supercell[0], supercell[1], layers), a=lattice_constant, vacuum=vacuum),
+            ('bcc', (1, 1, 0)): lambda: bcc110(base_element, size=(supercell[0], supercell[1], layers), a=lattice_constant, vacuum=vacuum),
+            ('hcp', (0, 0, 0, 1)): lambda: hcp0001(base_element, size=(supercell[0], supercell[1], layers), a=lattice_constant, vacuum=vacuum),
         }
-        
+
         key = (crystal_structure, miller_index)
-        
+
         if key in builder_map:
             slab = builder_map[key]()
         else:
             # Fall back to pymatgen for arbitrary miller indices
             slab = self._build_slab_pymatgen(
-                element, miller_index, layers, vacuum, lattice_constant, supercell
+                base_element, miller_index, layers, vacuum, lattice_constant, supercell
             )
-        
+
+        if len(elements) == 2:
+            slab = self._assign_interface_layers(slab, bottom_element=elements[0], top_element=elements[1])
+
         return slab
-    
+
+    def _assign_interface_layers(self, slab: Atoms, bottom_element: str, top_element: str) -> Atoms:
+        """Create a vertical bimetal interface by assigning lower/upper slab layers."""
+        z_coords = slab.get_positions()[:, 2]
+        z_midpoint = 0.5 * (z_coords.min() + z_coords.max())
+        symbols = [top_element if z >= z_midpoint else bottom_element for z in z_coords]
+        slab.set_chemical_symbols(symbols)
+        return slab
+
     def _build_slab_pymatgen(
         self,
         element: str,
@@ -165,9 +235,9 @@ class SlabGenerator(BaseGenerator):
         """Build slab using pymatgen for arbitrary miller indices."""
         from pymatgen.core import Structure, Lattice
         from pymatgen.core.surface import SlabGenerator as PMGSlabGenerator
-        
+
         crystal_structure = CRYSTAL_STRUCTURES.get(element, 'fcc')
-        
+
         # Create bulk structure
         if crystal_structure == 'fcc':
             lattice = Lattice.cubic(lattice_constant)
@@ -185,7 +255,7 @@ class SlabGenerator(BaseGenerator):
             )
         else:
             raise ValueError(f"Unsupported crystal structure: {crystal_structure}")
-        
+
         # Generate slab
         slab_gen = PMGSlabGenerator(
             bulk,
@@ -194,61 +264,136 @@ class SlabGenerator(BaseGenerator):
             min_vacuum_size=vacuum,
             center_slab=True
         )
-        
+
         slabs = slab_gen.get_slabs()
         if not slabs:
             raise ValueError(f"Could not generate slab for {element}{miller_index}")
-        
+
         slab_structure = slabs[0]
-        
+
         # Make supercell
         slab_structure.make_supercell([supercell[0], supercell[1], 1])
-        
+
         # Convert to ASE
         adaptor = AseAtomsAdaptor()
         return adaptor.get_atoms(slab_structure)
-    
+
     def _add_adsorbate(self, slab: Atoms, adsorbate_params: Dict[str, Any]) -> Atoms:
         """Add adsorbate molecule to the slab."""
         mol_name = adsorbate_params['molecule']
-        binding_site = adsorbate_params.get('binding_site', 'ontop')
-        distance = adsorbate_params.get('distance', 2.0)
+        default = ADSORBATE_DEFAULTS.get(mol_name, {})
+        binding_site = adsorbate_params.get('binding_site', default.get('site', 'ontop'))
+        distance = adsorbate_params.get('distance', default.get('height', 2.0))
         orientation = adsorbate_params.get('orientation', [0, 0, 1])
-        
-        # Get or create adsorbate molecule
-        if mol_name in ADSORBATE_MOLECULES:
-            mol_def = ADSORBATE_MOLECULES[mol_name]
-            adsorbate = Atoms(
-                symbols=mol_def['atoms'],
-                positions=mol_def['positions']
-            )
-        else:
-            # Try ASE's molecule database
-            try:
-                adsorbate = molecule(mol_name)
-            except Exception:
-                raise ValueError(f"Unknown adsorbate molecule: {mol_name}")
-        
+
+        adsorbate = self._build_adsorbate_atoms(mol_name)
+
         # Rotate adsorbate to match orientation
         adsorbate = self._orient_adsorbate(adsorbate, orientation)
-        
+
         # Find binding site position
         site_position = self._find_binding_site(slab, binding_site)
-        
-        # Add adsorbate
+
+        # Add adsorbate. The first atom in every explicit CO2RR adsorbate is the
+        # surface anchor atom, so ASE places that atom at the requested height.
         add_adsorbate(slab, adsorbate, distance, position=site_position[:2])
-        
+
         return slab
-    
+
+    def _build_adsorbate_atoms(self, mol_name: str) -> Atoms:
+        """Build an adsorbate with deterministic CO2RR geometries."""
+        if mol_name in CO2RR_ADSORBATES:
+            return self._build_co2rr_adsorbate(mol_name)
+
+        # Retain support for previous examples and ASE's molecule database.
+        if mol_name in ADSORBATE_MOLECULES:
+            mol_def = ADSORBATE_MOLECULES[mol_name]
+            return Atoms(symbols=mol_def['atoms'], positions=mol_def['positions'])
+
+        try:
+            return molecule(mol_name)
+        except Exception:
+            raise ValueError(f"Unknown adsorbate molecule: {mol_name}")
+
+    def _build_co2rr_adsorbate(self, mol_name: str) -> Atoms:
+        """Return CO2RR adsorbates anchored at atom 0 and pointing upward."""
+        if mol_name == 'CO':
+            return Atoms(['C', 'O'], positions=[[0.0, 0.0, 0.0], [0.0, 0.0, 1.16]])
+        if mol_name == 'CH':
+            return Atoms(['C', 'H'], positions=[[0.0, 0.0, 0.0], [0.0, 0.0, 1.10]])
+        if mol_name == 'CH2':
+            return Atoms(
+                ['C', 'H', 'H'],
+                positions=[[0.0, 0.0, 0.0], [0.565, 0.0, 0.943], [-0.565, 0.0, 0.943]],
+            )
+        if mol_name == 'CHO':
+            return Atoms(
+                ['C', 'O', 'H'],
+                positions=[[0.0, 0.0, 0.0], [1.094, 0.0, 0.387], [-0.363, 0.943, 0.363]],
+            )
+        if mol_name == 'CHOH':
+            return Atoms(
+                ['C', 'O', 'H', 'H'],
+                positions=[
+                    [0.0, 0.0, 0.0],
+                    [1.30, 0.0, 0.25],
+                    [-0.42, 0.90, 0.38],
+                    [1.72, 0.0, 1.12],
+                ],
+            )
+        if mol_name == 'CH3':
+            return Atoms(
+                ['C', 'H', 'H', 'H'],
+                positions=[
+                    [0.0, 0.0, 0.0],
+                    [0.0, 0.0, 1.09],
+                    [1.028, 0.0, 0.363],
+                    [-0.514, 0.890, 0.363],
+                ],
+            )
+        if mol_name == 'CH4':
+            return Atoms(
+                ['C', 'H', 'H', 'H', 'H'],
+                positions=[
+                    [0.0, 0.0, 0.0],
+                    [0.0, 0.0, 1.09],
+                    [1.028, 0.0, 0.363],
+                    [-0.514, 0.890, 0.363],
+                    [-0.514, -0.890, 0.363],
+                ],
+            )
+        if mol_name == 'COCO':
+            return Atoms(
+                ['C', 'O', 'C', 'O'],
+                positions=[
+                    [0.0, 0.0, 0.0],
+                    [-1.16, 0.0, 0.10],
+                    [1.35, 0.0, 0.25],
+                    [2.51, 0.0, 0.35],
+                ],
+            )
+        if mol_name == 'OCCO':
+            return Atoms(
+                ['C', 'C', 'O', 'O'],
+                positions=[
+                    [0.0, 0.0, 0.0],
+                    [1.37, 0.0, 0.0],
+                    [-0.58, 0.0, 1.05],
+                    [1.95, 0.0, 1.05],
+                ],
+            )
+        raise ValueError(f"Unsupported CO2RR adsorbate: {mol_name}")
+
     def _orient_adsorbate(self, adsorbate: Atoms, orientation: List[float]) -> Atoms:
         """Rotate adsorbate to align with given orientation vector."""
-        from ase.build import rotate
-        
         # Default orientation is along z-axis
-        current = np.array([0, 0, 1])
-        target = np.array(orientation)
-        target = target / np.linalg.norm(target)
-        
+        current = np.array([0, 0, 1], dtype=float)
+        target = np.array(orientation, dtype=float)
+        norm = np.linalg.norm(target)
+        if norm < 1e-12:
+            raise ValueError("Adsorbate orientation vector must be non-zero.")
+        target = target / norm
+
         if not np.allclose(current, target):
             # Calculate rotation axis and angle
             axis = np.cross(current, target)
@@ -256,10 +401,12 @@ class SlabGenerator(BaseGenerator):
                 axis = axis / np.linalg.norm(axis)
                 angle = np.arccos(np.clip(np.dot(current, target), -1, 1))
                 angle_deg = np.degrees(angle)
-                adsorbate.rotate(angle_deg, axis, center='COM')
-        
+                adsorbate.rotate(angle_deg, axis, center=adsorbate.positions[0])
+            elif np.dot(current, target) < 0:
+                adsorbate.rotate(180, 'x', center=adsorbate.positions[0])
+
         return adsorbate
-    
+
     def _find_binding_site(self, slab: Atoms, site_type: str) -> np.ndarray:
         """Find the position of a binding site on the surface."""
         # Get surface atoms (top layer)
@@ -267,34 +414,36 @@ class SlabGenerator(BaseGenerator):
         z_coords = positions[:, 2]
         z_max = z_coords.max()
         z_threshold = z_max - 0.5  # Within 0.5 Å of top
-        
+
         surface_mask = z_coords > z_threshold
         surface_positions = positions[surface_mask]
-        
+
         if len(surface_positions) == 0:
             # Fallback to center of cell
             cell = slab.get_cell()
             return np.array([cell[0, 0] / 2, cell[1, 1] / 2, z_max])
-        
+
+        center_xy = np.mean(surface_positions[:, :2], axis=0)
+        ordered = sorted(surface_positions, key=lambda pos: np.linalg.norm(pos[:2] - center_xy))
+        surface_positions = np.array(ordered)
+
         if site_type == 'ontop':
-            # On top of first surface atom
             return surface_positions[0]
-        
-        elif site_type == 'bridge':
-            # Between two nearest surface atoms
+
+        if site_type == 'bridge':
             if len(surface_positions) >= 2:
-                return (surface_positions[0] + surface_positions[1]) / 2
+                distances = np.linalg.norm(surface_positions[1:, :2] - surface_positions[0, :2], axis=1)
+                nearest = surface_positions[1:][int(np.argmin(distances))]
+                return (surface_positions[0] + nearest) / 2
             return surface_positions[0]
-        
-        elif site_type in ['fcc', 'hcp', 'hollow']:
-            # Center of three nearest surface atoms
+
+        if site_type in ['fcc', 'hcp', 'hollow']:
             if len(surface_positions) >= 3:
                 return np.mean(surface_positions[:3], axis=0)
             return np.mean(surface_positions, axis=0)
-        
-        else:
-            return surface_positions[0]
-    
+
+        return surface_positions[0]
+
     def _apply_constraints(self, slab: Atoms, fix_layers: int) -> Atoms:
         """Fix bottom layers of the slab."""
         if fix_layers <= 0:
