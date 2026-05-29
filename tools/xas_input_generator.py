@@ -31,6 +31,215 @@ def get_dipol_direct(structure: Dict) -> str:
 
     return f"DIPOL = {center_direct[0]:.6f} {center_direct[1]:.6f} {center_direct[2]:.6f}"
 
+
+def _isaac_submit_metadata_setup(
+    software: str,
+    code_version: str,
+    technique: str,
+    instrument_name: str,
+    vendor_or_project: str,
+    sample_name: str = "not_specified",
+    sample_form: str = "slab_model",
+    sample_notes: str = "not_specified",
+    recipe_target: str = "not_specified",
+) -> List[str]:
+    """Shell lines placed near the top of submit.sh to start ISAAC metadata capture."""
+    return [
+        "",
+        "# =============================================================================",
+        "# ISAAC run metadata: initialized before the calculation starts",
+        "# =============================================================================",
+        f"export ISAAC_SOFTWARE=\"${{ISAAC_SOFTWARE:-{software}}}\"",
+        f"export ISAAC_CODE_VERSION=\"${{ISAAC_CODE_VERSION:-{code_version}}}\"",
+        f"export ISAAC_TECHNIQUE=\"${{ISAAC_TECHNIQUE:-{technique}}}\"",
+        f"export ISAAC_INSTRUMENT_NAME=\"${{ISAAC_INSTRUMENT_NAME:-{instrument_name}}}\"",
+        f"export ISAAC_VENDOR_OR_PROJECT=\"${{ISAAC_VENDOR_OR_PROJECT:-{vendor_or_project}}}\"",
+        "export ISAAC_FACILITY_NAME=\"${ISAAC_FACILITY_NAME:-NERSC}\"",
+        "export ISAAC_ORGANIZATION=\"${ISAAC_ORGANIZATION:-ANL}\"",
+        "export ISAAC_CLUSTER=\"${ISAAC_CLUSTER:-Perlmutter}\"",
+        "export ISAAC_COMPUTE_ARCHITECTURE=\"${ISAAC_COMPUTE_ARCHITECTURE:-CPU}\"",
+        f"export ISAAC_SAMPLE_NAME=\"${{ISAAC_SAMPLE_NAME:-{sample_name}}}\"",
+        f"export ISAAC_SAMPLE_FORM=\"${{ISAAC_SAMPLE_FORM:-{sample_form}}}\"",
+        f"export ISAAC_SAMPLE_NOTES=\"${{ISAAC_SAMPLE_NOTES:-{sample_notes}}}\"",
+        "export ISAAC_SAMPLE_FORMULA=\"${ISAAC_SAMPLE_FORMULA:-not_specified}\"",
+        "export ISAAC_MATERIAL_PROVENANCE=\"${ISAAC_MATERIAL_PROVENANCE:-theoretical}\"",
+        "export ISAAC_CONTEXT_ENVIRONMENT=\"${ISAAC_CONTEXT_ENVIRONMENT:-in_silico}\"",
+        "export ISAAC_TEMPERATURE_K=\"${ISAAC_TEMPERATURE_K:-0}\"",
+        "export ISAAC_CONTEXT_NOTES=\"${ISAAC_CONTEXT_NOTES:-Static 0 K electronic structure unless otherwise specified.}\"",
+        "export ISAAC_PROCESSING_TYPE=\"${ISAAC_PROCESSING_TYPE:-simulated_spectrum}\"",
+        f"export ISAAC_RECIPE_TARGET=\"${{ISAAC_RECIPE_TARGET:-{recipe_target}}}\"",
+        "export ISAAC_METADATA_FILE=\"${ISAAC_METADATA_FILE:-isaac_run_metadata.json}\"",
+        "isaac_utc_now() { date -u +\"%Y-%m-%dT%H:%M:%SZ\"; }",
+        "export ISAAC_START_UTC=\"$(isaac_utc_now)\"",
+        "export ISAAC_RUN_COMMAND=\"not_started\"",
+        "export ISAAC_EXIT_CODE=\"not_finished\"",
+    ]
+
+
+def _isaac_submit_metadata_finalize() -> List[str]:
+    """Shell lines placed at the end of submit.sh to write isaac_run_metadata.json."""
+    return [
+        "",
+        "# =============================================================================",
+        "# ISAAC run metadata: finalized after the calculation ends",
+        "# =============================================================================",
+        "export ISAAC_END_UTC=\"$(isaac_utc_now)\"",
+        "python - <<'PY'",
+        "import hashlib",
+        "import json",
+        "import os",
+        "from pathlib import Path",
+        "",
+        "def sha256_file(path):",
+        "    p = Path(path)",
+        "    if not p.exists() or not p.is_file():",
+        "        return 'not_available'",
+        "    h = hashlib.sha256()",
+        "    with p.open('rb') as f:",
+        "        for chunk in iter(lambda: f.read(1024 * 1024), b''):",
+        "            h.update(chunk)",
+        "    return h.hexdigest()",
+        "",
+        "def media_type_for(path):",
+        "    name = Path(path).name.lower()",
+        "    if name.endswith('.json'):",
+        "        return 'application/json'",
+        "    if name.endswith(('.tar.gz', '.tgz')):",
+        "        return 'application/gzip'",
+        "    if name.endswith('.xml'):",
+        "        return 'application/xml'",
+        "    return 'text/plain'",
+        "",
+        "def content_role_for(path):",
+        "    name = Path(path).name",
+        "    lower = name.lower()",
+        "    if name in {'POSCAR', 'CONTCAR'} or lower.endswith(('.cif', '.xyz')):",
+        "        return 'input_structure'",
+        "    if name in {'INCAR', 'KPOINTS', 'POTCAR', 'POTCAR.spec', 'make_potcar.sh', 'submit.sh', 'feff.inp', 'fdmfile.txt'} or name.endswith('_in.txt'):",
+        "        return 'workflow_recipe'",
+        "    if name == 'xmu.dat' or name.endswith('_conv.txt') or name == 'CORE_DIELECTRIC_IMAG.dat':",
+        "        return 'reduction_product'",
+        "    return 'raw_data_pointer'",
+        "",
+        "def note_for(path):",
+        "    role = content_role_for(path)",
+        "    if role == 'input_structure':",
+        "        return 'Structure used for the XAS simulation.'",
+        "    if role == 'workflow_recipe':",
+        "        return 'Input deck or run script used by the XAS simulation workflow.'",
+        "    if role == 'reduction_product':",
+        "        return 'Parsed or parseable XAS spectrum output.'",
+        "    return 'Raw code output or auxiliary file generated by the simulation.'",
+        "",
+        "def make_asset(path, idx):",
+        "    p = Path(path)",
+        "    safe = p.as_posix().replace('/', '_').replace('.', '_')[:80]",
+        "    return {",
+        "        'asset_id': f'asset_{idx:03d}_{safe}',",
+        "        'content_role': content_role_for(p),",
+        "        'uri': str(p.resolve()),",
+        "        'media_type': media_type_for(p),",
+        "        'sha256': sha256_file(p),",
+        "        'notes': note_for(p),",
+        "    }",
+        "",
+        "include_names = {",
+        "    'POSCAR', 'CONTCAR', 'INCAR', 'KPOINTS', 'POTCAR', 'POTCAR.spec', 'make_potcar.sh', 'submit.sh',",
+        "    'feff.inp', 'fdmfile.txt', 'xmu.dat', 'chi.dat', 'paths.dat', 'files.dat', 'log1.dat',",
+        "    'OUTCAR', 'vasprun.xml', 'OSZICAR', 'CONTCAR', 'WAVECAR', 'CHGCAR', 'vasp.out',",
+        "    'CORE_DIELECTRIC_IMAG.dat'",
+        "}",
+        "paths = []",
+        "for p in Path('.').rglob('*'):",
+        "    if not p.is_file():",
+        "        continue",
+        "    if p.name == os.environ.get('ISAAC_METADATA_FILE', 'isaac_run_metadata.json'):",
+        "        continue",
+        "    if p.name in include_names or p.name.endswith('_in.txt') or p.name.endswith('_conv.txt') or p.name.endswith('_bav.txt'):",
+        "        paths.append(p)",
+        "paths = sorted(set(paths), key=lambda x: x.as_posix())",
+        "assets = [make_asset(p, i) for i, p in enumerate(paths)]",
+        "",
+        "try:",
+        "    temperature = float(os.environ.get('ISAAC_TEMPERATURE_K', '0'))",
+        "except ValueError:",
+        "    temperature = 0",
+        "try:",
+        "    exit_code = int(os.environ.get('ISAAC_EXIT_CODE', '-1'))",
+        "except ValueError:",
+        "    exit_code = -1",
+        "",
+        "metadata = {",
+        "    'timestamps': {",
+        "        'acquired_start_utc': os.environ.get('ISAAC_START_UTC', 'not_specified'),",
+        "        'acquired_end_utc': os.environ.get('ISAAC_END_UTC', 'not_specified'),",
+        "    },",
+        "    'sample': {",
+        "        'material': {",
+        "            'name': os.environ.get('ISAAC_SAMPLE_NAME', 'not_specified'),",
+        "            'formula': os.environ.get('ISAAC_SAMPLE_FORMULA', 'not_specified'),",
+        "            'provenance': os.environ.get('ISAAC_MATERIAL_PROVENANCE', 'theoretical'),",
+        "            'notes': os.environ.get('ISAAC_SAMPLE_NOTES', 'not_specified'),",
+        "        },",
+        "        'sample_form': os.environ.get('ISAAC_SAMPLE_FORM', 'slab_model'),",
+        "    },",
+        "    'context': {",
+        "        'environment': os.environ.get('ISAAC_CONTEXT_ENVIRONMENT', 'in_silico'),",
+        "        'temperature_K': temperature,",
+        "        'notes': os.environ.get('ISAAC_CONTEXT_NOTES', 'Static 0 K electronic structure unless otherwise specified.'),",
+        "    },",
+        "    'system': {",
+        "        'domain': 'computational',",
+        "        'technique': os.environ.get('ISAAC_TECHNIQUE', 'not_specified'),",
+        "        'facility': {",
+        "            'facility_name': os.environ.get('ISAAC_FACILITY_NAME', 'NERSC'),",
+        "            'organization': os.environ.get('ISAAC_ORGANIZATION', 'ANL'),",
+        "            'cluster': os.environ.get('ISAAC_CLUSTER', 'Perlmutter'),",
+        "        },",
+        "        'instrument': {",
+        "            'instrument_type': 'simulation_engine',",
+        "            'instrument_name': os.environ.get('ISAAC_INSTRUMENT_NAME', 'not_specified'),",
+        "            'vendor_or_project': os.environ.get('ISAAC_VENDOR_OR_PROJECT', 'not_specified'),",
+        "        },",
+        "        'configuration': {",
+        "            'code_version': os.environ.get('ISAAC_CODE_VERSION', 'not_specified'),",
+        "            'compute_architecture': os.environ.get('ISAAC_COMPUTE_ARCHITECTURE', 'CPU'),",
+        "        },",
+        "    },",
+        "    'run': {",
+        "        'software': os.environ.get('ISAAC_SOFTWARE', 'not_specified'),",
+        "        'command': os.environ.get('ISAAC_RUN_COMMAND', 'not_specified'),",
+        "        'exit_code': exit_code,",
+        "        'working_directory': str(Path('.').resolve()),",
+        "        'hostname': os.environ.get('HOSTNAME', 'not_specified'),",
+        "        'slurm_job_id': os.environ.get('SLURM_JOB_ID', 'not_specified'),",
+        "        'slurm_job_name': os.environ.get('SLURM_JOB_NAME', 'not_specified'),",
+        "        'slurm_partition': os.environ.get('SLURM_JOB_PARTITION', 'not_specified'),",
+        "        'slurm_nodelist': os.environ.get('SLURM_NODELIST', 'not_specified'),",
+        "        'nersc_host': os.environ.get('NERSC_HOST', 'not_specified'),",
+        "    },",
+        "    'measurement': {",
+        "        'processing': {",
+        "            'type': os.environ.get('ISAAC_PROCESSING_TYPE', 'simulated_spectrum'),",
+        "            'recipe_link': {",
+        "                'rel': 'processing_recipe',",
+        "                'target': os.environ.get('ISAAC_RECIPE_TARGET', 'not_specified'),",
+        "            },",
+        "        },",
+        "        'qc': {",
+        "            'status': 'valid' if exit_code == 0 else 'failed',",
+        "        },",
+        "    },",
+        "    'assets': assets,",
+        "    'links': [],",
+        "    'descriptors': {'outputs': []},",
+        "}",
+        "Path(os.environ.get('ISAAC_METADATA_FILE', 'isaac_run_metadata.json')).write_text(json.dumps(metadata, indent=2) + '\\n')",
+        "print('Wrote', os.environ.get('ISAAC_METADATA_FILE', 'isaac_run_metadata.json'))",
+        "PY",
+        "",
+    ]
+
 class RelaxationInputGenerator:
     """Generate VASP relaxation inputs."""
     
@@ -470,6 +679,8 @@ class FDMNESInputGenerator:
         "Full_atom": False,
         "TDDFT": False,
         "Green": False,   # False = finite difference method; True = Green multiple scattering
+        "Nonexc": False,  # Non-excited absorber: no core hole and no screening
+        "Excited": False, # Force excited absorbing atom treatment
     }
 
     OPTION_ORDER = [
@@ -482,6 +693,8 @@ class FDMNESInputGenerator:
         "Full_atom",
         "TDDFT",
         "Green",
+        "Nonexc",
+        "Excited",
     ]
 
     def _fmt_fdmnes_float(self, value: float) -> str:
@@ -915,7 +1128,11 @@ class VASPXASInputGenerator:
         nodes: int = 2,
         walltime: str = "8:00:00",
         email: Optional[str] = None,
+        method: str = "PBE",
     ) -> str:
+        """Generate a two-step VASP submit script that records ISAAC metadata."""
+        method = self._normalize_method(method)
+        code_version = "VASP 6.3.2"
         lines = [
             "#!/bin/bash",
             f"#SBATCH -J {job_name}",
@@ -929,25 +1146,45 @@ class VASPXASInputGenerator:
             lines.extend(["#SBATCH --mail-type=ALL", f"#SBATCH --mail-user={email}"])
         lines.extend([
             "",
-            "set -euo pipefail",
+            "set -uo pipefail",
             "module load vasp/6.4.3-cpu",
             "export OMP_NUM_THREADS=2",
             "export OMP_PLACES=threads",
             "export OMP_PROC_BIND=spread",
+        ])
+        lines.extend(_isaac_submit_metadata_setup(
+            software="VASP",
+            code_version=code_version,
+            technique="DFT",
+            instrument_name="VASP_Standard",
+            vendor_or_project="VASP",
+            recipe_target="repo://CO2RR_XAS_agent/vasp_xas_two_step",
+        ))
+        lines.extend([
+            "EXIT_CODE=0",
+            "export ISAAC_RUN_COMMAND=\"srun vasp_std in 01_scf; srun vasp_std in 02_xas\"",
             "",
             "echo '== Step 1: SCF =='",
             "cd 01_scf",
             "if [ ! -f POTCAR ]; then ./make_potcar.sh; fi",
-            "srun vasp_std > vasp.out",
+            "srun vasp_std > vasp.out 2>&1 || EXIT_CODE=$?",
             "cd ..",
             "",
-            "echo '== Step 2: XAS =='",
-            "cd 02_xas",
-            "cp -f ../01_scf/WAVECAR . 2>/dev/null || true",
-            "cp -f ../01_scf/CHGCAR . 2>/dev/null || true",
-            "if [ ! -f POTCAR ]; then ./make_potcar.sh; fi",
-            "srun vasp_std > vasp.out",
+            "if [ \"${EXIT_CODE}\" -eq 0 ]; then",
+            "  echo '== Step 2: XAS =='",
+            "  cd 02_xas",
+            "  cp -f ../01_scf/WAVECAR . 2>/dev/null || true",
+            "  cp -f ../01_scf/CHGCAR . 2>/dev/null || true",
+            "  if [ ! -f POTCAR ]; then ./make_potcar.sh; fi",
+            "  srun vasp_std > vasp.out 2>&1 || EXIT_CODE=$?",
+            "  cd ..",
+            "else",
+            "  echo 'Skipping XAS step because SCF failed with exit code '${EXIT_CODE}",
+            "fi",
+            "export ISAAC_EXIT_CODE=\"${EXIT_CODE}\"",
         ])
+        lines.extend(_isaac_submit_metadata_finalize())
+        lines.extend(["exit \"${EXIT_CODE}\""])
         return "\n".join(lines)
 
     def write_inputs(
@@ -1000,6 +1237,7 @@ class VASPXASInputGenerator:
                 nodes=nodes,
                 walltime=walltime,
                 email=email,
+                method=method,
             ))
         os.chmod(submit_path, 0o755)
 
@@ -1029,7 +1267,41 @@ class NERSCScriptGenerator:
         walltime: str = "8:00:00",
         email: Optional[str] = None
     ) -> str:
-        """Generate SLURM submission script."""
+        """Generate SLURM submission script with ISAAC run metadata capture."""
+        software_upper = software.upper()
+        if software_upper == "VASP":
+            module_line = "module load vasp/6.4.3-cpu"
+            run_command = "srun vasp_std"
+            code_version = "VASP 6.3.2"
+            technique = "DFT"
+            instrument_name = "VASP_Standard"
+            vendor = "VASP"
+            recipe_target = "repo://CO2RR_XAS_agent/vasp"
+        elif software_upper == "FEFF":
+            module_line = "module load feff/10.0"
+            run_command = "feff"
+            code_version = "FEFF 10"
+            technique = "multiple_scattering_xas"
+            instrument_name = "FEFF10"
+            vendor = "FEFF"
+            recipe_target = "repo://CO2RR_XAS_agent/feff"
+        elif software_upper == "FDMNES":
+            module_line = "module load fdmnes/2025.11"
+            run_command = "fdmnes < fdmfile.txt"
+            code_version = "FDMNES 2025.11"
+            technique = "finite_difference_or_multiple_scattering_xas"
+            instrument_name = "FDMNES"
+            vendor = "FDMNES"
+            recipe_target = "repo://CO2RR_XAS_agent/fdmnes"
+        else:
+            module_line = ""
+            run_command = "echo 'No command defined'"
+            code_version = "not_specified"
+            technique = "not_specified"
+            instrument_name = software_upper
+            vendor = software_upper
+            recipe_target = "not_specified"
+
         lines = [
             "#!/bin/bash",
             f"#SBATCH -J {job_name}",
@@ -1039,38 +1311,33 @@ class NERSCScriptGenerator:
             f"#SBATCH -N {nodes}",
             f"#SBATCH -t {walltime}",
         ]
-        
         if email:
+            lines.extend(["#SBATCH --mail-type=ALL", f"#SBATCH --mail-user={email}"])
+        lines.extend(["", "set -uo pipefail"])
+        if module_line:
+            lines.extend([module_line])
+        if software_upper == "VASP":
             lines.extend([
-                "#SBATCH --mail-type=ALL",
-                f"#SBATCH --mail-user={email}"
-            ])
-        
-        lines.append("")
-        
-        # Software-specific commands
-        if software.upper() == "VASP":
-            lines.extend([
-                "module load vasp/6.4.3-cpu",
                 "export OMP_NUM_THREADS=2",
                 "export OMP_PLACES=threads",
                 "export OMP_PROC_BIND=spread",
-                "",
-                "srun vasp_std"
             ])
-        elif software.upper() == "FEFF":
-            lines.extend([
-                "module load feff/10.0",
-                "",
-                "feff"
-            ])
-        elif software.upper() == "FDMNES":
-            lines.extend([
-                "module load fdmnes/2023",
-                "",
-                "fdmnes < fdmfile.txt"
-            ])
-        
+        lines.extend(_isaac_submit_metadata_setup(
+            software=software_upper,
+            code_version=code_version,
+            technique=technique,
+            instrument_name=instrument_name,
+            vendor_or_project=vendor,
+            recipe_target=recipe_target,
+        ))
+        lines.extend([
+            "EXIT_CODE=0",
+            f"export ISAAC_RUN_COMMAND=\"{run_command}\"",
+            f"{run_command} > {software_upper.lower()}.out 2>&1 || EXIT_CODE=$?",
+            "export ISAAC_EXIT_CODE=\"${EXIT_CODE}\"",
+        ])
+        lines.extend(_isaac_submit_metadata_finalize())
+        lines.extend(["exit \"${EXIT_CODE}\""])
         return "\n".join(lines)
     
     def write_script(

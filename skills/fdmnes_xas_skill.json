@@ -1,0 +1,242 @@
+{
+  "skill_id": "fdmnes_xas_calculation",
+  "name": "FDMNES XAS Calculation",
+  "version": "1.0.0",
+  "description": "Generate FDMNES input files for X-ray absorption spectroscopy calculations including XANES, XMCD, and RXD",
+  "category": "spectroscopy",
+  "parameters": {
+    "type": "object",
+    "required": ["structure", "absorbing_atom", "edge"],
+    "properties": {
+      "structure": {
+        "type": "object",
+        "description": "Input structure (pymatgen Structure, ASE Atoms, or file path)"
+      },
+      "absorbing_atom": {
+        "type": "object",
+        "properties": {
+          "element": {
+            "type": "string",
+            "description": "Element symbol of absorbing atom"
+          },
+          "index": {
+            "type": "integer",
+            "description": "Index of specific absorbing atom (0-based)"
+          }
+        }
+      },
+      "edge": {
+        "type": "string",
+        "enum": ["K", "L1", "L2", "L3", "M1", "M2", "M3", "M4", "M5"],
+        "description": "Absorption edge"
+      },
+      "range": {
+        "type": "object",
+        "properties": {
+          "emin": {
+            "type": "number",
+            "description": "Minimum energy relative to edge (eV)"
+          },
+          "emax": {
+            "type": "number",
+            "description": "Maximum energy relative to edge (eV)"
+          },
+          "estep": {
+            "type": "number",
+            "description": "Energy step (eV)"
+          }
+        }
+      },
+      "radius": {
+        "type": "number",
+        "minimum": 3.0,
+        "maximum": 15.0,
+        "description": "Cluster radius in Angstroms"
+      },
+      "scf": {
+        "type": "boolean",
+        "description": "Enable self-consistent field calculation"
+      },
+      "quadrupole": {
+        "type": "boolean",
+        "description": "Include quadrupole transitions"
+      },
+      "relativistic": {
+        "type": "boolean",
+        "description": "Use relativistic calculations"
+      },
+      "spinorbit": {
+        "type": "boolean",
+        "description": "Include spin-orbit coupling"
+      },
+      "screening": {
+        "type": "boolean",
+        "description": "Include screening effects"
+      },
+      "green": {
+        "type": "boolean",
+        "description": "Use Green's function method (for extended systems)"
+      },
+      "memory_save": {
+        "type": "boolean",
+        "description": "Enable memory saving mode"
+      },
+      "convolution": {
+        "type": "object",
+        "properties": {
+          "method": {
+            "type": "string",
+            "enum": ["gaussian", "lorentzian", "arctangent"],
+            "description": "Convolution method for broadening"
+          },
+          "gamma_hole": {
+            "type": "number",
+            "description": "Core hole lifetime broadening (eV)"
+          },
+          "gamma_max": {
+            "type": "number",
+            "description": "Maximum broadening (eV)"
+          },
+          "ecent": {
+            "type": "number",
+            "description": "Energy center for arctangent broadening (eV)"
+          },
+          "elarg": {
+            "type": "number",
+            "description": "Energy width for arctangent broadening (eV)"
+          }
+        }
+      },
+      "polarization": {
+        "type": "object",
+        "properties": {
+          "linear": {
+            "type": "array",
+            "items": {"type": "number"},
+            "minItems": 3,
+            "maxItems": 3,
+            "description": "Linear polarization vector"
+          },
+          "circular": {
+            "type": "string",
+            "enum": ["left", "right"],
+            "description": "Circular polarization"
+          }
+        }
+      },
+      "magnetism": {
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "boolean",
+            "description": "Enable magnetic calculations"
+          },
+          "axis": {
+            "type": "array",
+            "items": {"type": "number"},
+            "minItems": 3,
+            "maxItems": 3,
+            "description": "Magnetization axis"
+          }
+        }
+      },
+      "calculation_type": {
+        "type": "string",
+        "enum": ["xanes", "xmcd", "rxd", "dafs"],
+        "description": "Type of calculation"
+      },
+      "density_of_states": {
+        "type": "boolean",
+        "description": "Calculate projected density of states"
+      },
+      "charge": {
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "boolean",
+            "description": "Calculate charge distribution"
+          }
+        }
+      }
+    }
+  },
+  "defaults": {
+    "range": {
+      "emin": -10.0,
+      "emax": 50.0,
+      "estep": 0.5
+    },
+    "radius": 6.0,
+    "scf": true,
+    "quadrupole": false,
+    "relativistic": true,
+    "spinorbit": false,
+    "screening": true,
+    "green": false,
+    "memory_save": false,
+    "convolution": {
+      "method": "arctangent",
+      "gamma_hole": 0.5,
+      "gamma_max": 5.0,
+      "ecent": 30.0,
+      "elarg": 30.0
+    },
+    "calculation_type": "xanes",
+    "density_of_states": false
+  },
+  "edge_specific_defaults": {
+    "K": {
+      "quadrupole": false,
+      "spinorbit": false
+    },
+    "L1": {
+      "quadrupole": false,
+      "spinorbit": false
+    },
+    "L2": {
+      "quadrupole": true,
+      "spinorbit": true
+    },
+    "L3": {
+      "quadrupole": true,
+      "spinorbit": true
+    },
+    "M4": {
+      "quadrupole": true,
+      "spinorbit": true
+    },
+    "M5": {
+      "quadrupole": true,
+      "spinorbit": true
+    }
+  },
+  "calculation_type_defaults": {
+    "xanes": {
+      "density_of_states": false
+    },
+    "xmcd": {
+      "magnetism": {
+        "enabled": true,
+        "axis": [0, 0, 1]
+      },
+      "spinorbit": true
+    },
+    "rxd": {
+      "quadrupole": true
+    }
+  },
+  "outputs": {
+    "fdmnes_inp": "FDMNES input file (fdmfile.txt)",
+    "structure_file": "Structure in FDMNES format"
+  },
+  "validation_rules": [
+    {
+      "rule": "radius >= 3.0",
+      "message": "Cluster radius should be at least 3.0 Angstroms"
+    },
+    {
+      "rule": "radius <= 15.0",
+      "message": "Cluster radius should not exceed 15.0 Angstroms for performance"
+    }
+  ]
+}

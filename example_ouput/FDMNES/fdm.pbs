@@ -1,0 +1,12 @@
+#!/bin/bash
+#PBS -A cnm83940 
+#PBS -l nodes=1:ppn=64:gen8
+#PBS -l walltime=96:00:00
+#PBS -N Cu_fdm_green
+#PBS -o job.out
+#PBS -e job.err
+#PBS -m e
+
+cd $PBS_O_WORKDIR
+
+/home/hjia/parallel_fdmnes/fdmnes_mpi_linux64 -np 64

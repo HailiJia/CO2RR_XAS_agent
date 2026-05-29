@@ -1,0 +1,108 @@
+{
+  "skill_id": "vasp_slab_generation",
+  "name": "VASP Slab Generation",
+  "version": "1.0.0",
+  "description": "Generate surface slab structures with optional adsorbates for VASP calculations",
+  "category": "structure_generation",
+  "parameters": {
+    "type": "object",
+    "required": ["element", "miller_index"],
+    "properties": {
+      "element": {
+        "type": "string",
+        "description": "Element symbol for the bulk material",
+        "examples": ["Cu", "Au", "Pt", "Ag", "Pd"]
+      },
+      "miller_index": {
+        "type": "array",
+        "items": {"type": "integer"},
+        "minItems": 3,
+        "maxItems": 3,
+        "description": "Miller indices defining the surface orientation",
+        "examples": [[1, 1, 1], [1, 0, 0], [1, 1, 0]]
+      },
+      "layers": {
+        "type": "integer",
+        "minimum": 2,
+        "maximum": 10,
+        "description": "Number of atomic layers in the slab"
+      },
+      "vacuum": {
+        "type": "number",
+        "minimum": 10.0,
+        "maximum": 30.0,
+        "description": "Vacuum thickness in Angstroms"
+      },
+      "fix_layers": {
+        "type": "integer",
+        "minimum": 0,
+        "description": "Number of bottom layers to fix during relaxation"
+      },
+      "supercell": {
+        "type": "array",
+        "items": {"type": "integer"},
+        "minItems": 2,
+        "maxItems": 2,
+        "description": "Supercell size in x and y directions",
+        "examples": [[2, 2], [3, 3]]
+      },
+      "adsorbate": {
+        "type": "object",
+        "properties": {
+          "molecule": {
+            "type": "string",
+            "description": "Adsorbate molecule formula",
+            "examples": ["CO", "CO2", "H", "OH", "H2O", "COOH", "CHO"]
+          },
+          "binding_site": {
+            "type": "string",
+            "enum": ["ontop", "bridge", "fcc", "hcp", "hollow"],
+            "description": "Binding site type on the surface"
+          },
+          "distance": {
+            "type": "number",
+            "minimum": 1.0,
+            "maximum": 4.0,
+            "description": "Initial adsorbate-surface distance in Angstroms"
+          },
+          "orientation": {
+            "type": "array",
+            "items": {"type": "number"},
+            "minItems": 3,
+            "maxItems": 3,
+            "description": "Adsorbate orientation vector"
+          }
+        }
+      },
+      "lattice_constant": {
+        "type": "number",
+        "description": "Override default lattice constant in Angstroms"
+      }
+    }
+  },
+  "defaults": {
+    "layers": 4,
+    "vacuum": 15.0,
+    "fix_layers": 2,
+    "supercell": [2, 2],
+    "adsorbate": {
+      "distance": 2.0,
+      "binding_site": "ontop",
+      "orientation": [0, 0, 1]
+    }
+  },
+  "validation_rules": [
+    {
+      "rule": "fix_layers < layers",
+      "message": "fix_layers must be less than total layers"
+    },
+    {
+      "rule": "vacuum >= 10.0",
+      "message": "Vacuum should be at least 10 Angstroms to avoid periodic interactions"
+    }
+  ],
+  "outputs": {
+    "structure": "pymatgen.Structure or ase.Atoms object",
+    "poscar": "VASP POSCAR file content"
+  }
+}
