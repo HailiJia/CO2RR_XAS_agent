@@ -5,6 +5,7 @@ Slab Generator - Generate surface slab structures with adsorbates
 from typing import Dict, Any, Optional, Tuple, List
 from pathlib import Path
 import numpy as np
+import re
 
 from pymatgen.core import Structure, Lattice, Element
 from pymatgen.core.surface import SlabGenerator
@@ -60,8 +61,8 @@ ADSORBATE_DEFAULTS = {
     'CHOH': {'site': 'ontop', 'height': 1.85},
     'CH3': {'site': 'ontop', 'height': 1.85},
     'CH4': {'site': 'ontop', 'height': 1.85},
-    'COCO': {'site': 'hollow', 'height': 1.30},
-    'OCCO': {'site': 'bridge', 'height': 1.50},
+    'COCO': {'site': 'interface', 'height': 1.30},
+    'OCCO': {'site': 'interface', 'height': 1.50},
 }
 
 # Legacy/free-form adsorbate molecule definitions retained for backwards compatibility.
@@ -107,15 +108,23 @@ class SlabGenerator(BaseGenerator):
         if lattice_constant is None:
             element_label = '/'.join(elements)
             raise ValueError(f"Unknown lattice constant for {element_label}. Please provide 'lattice_constant' parameter.")
+
+        interface_match = params.get('interface_match', {})
+        max_interface_strain = interface_match.get('max_strain', params.get('max_interface_strain', 0.05))
+        max_interface_repeats = interface_match.get('max_repeats', params.get('max_interface_repeats', 12))
+        interface_match_side = interface_match.get('match_side', params.get('interface_match_side', 'balanced'))
         
-        # Generate slab using ASE
+        # Generate slab using ASE or an explicitly matched bimetal interface builder.
         slab = self._build_slab_ase(
             elements=elements,
             miller_index=miller_index,
             layers=layers,
             vacuum=vacuum,
             lattice_constant=lattice_constant,
-            supercell=supercell
+            supercell=supercell,
+            max_interface_strain=max_interface_strain,
+            max_interface_repeats=max_interface_repeats,
+            interface_match_side=interface_match_side,
         )
         
         # Add adsorbate if specified
@@ -138,9 +147,21 @@ class SlabGenerator(BaseGenerator):
             'atoms': slab,
             'structure': structure,
             'poscar': poscar_content,
-            'params': params
+            'params': params,
+            'cell_parameters': self._cell_parameters(slab),
+            'interface': slab.info.get('interface'),
+            'adsorbate_placement': slab.info.get('adsorbate_placement'),
         }
     
+    def _cell_parameters(self, atoms: Atoms) -> Dict[str, Any]:
+        """Return cell lengths, angles, and vectors for diagnostics."""
+        cell = atoms.get_cell()
+        return {
+            'lengths': [float(value) for value in cell.lengths()],
+            'angles': [float(value) for value in cell.angles()],
+            'vectors': [[float(component) for component in vector] for vector in cell.array],
+        }
+
     def _parse_element_spec(self, element_spec: Any) -> List[str]:
         """Normalize single-metal and interface element specifications."""
         if isinstance(element_spec, (list, tuple)):
@@ -161,6 +182,13 @@ class SlabGenerator(BaseGenerator):
             raise ValueError("Only single-metal slabs and two-metal interfaces are supported.")
         return elements
 
+    def _normalize_element_symbol(self, element_text: str) -> str:
+        """Extract an element symbol from forms such as Cu, Cu(111), or Cu 111."""
+        match = re.match(r"^\s*([A-Z][a-z]?)", element_text)
+        if not match:
+            raise ValueError(f"Could not parse element symbol from {element_text!r}.")
+        return match.group(1)
+
     def _default_lattice_constant(self, elements: List[str]) -> Optional[float]:
         """Return a default lattice constant, averaging for two-metal interfaces."""
         lattice_constants = [LATTICE_CONSTANTS.get(element) for element in elements]
@@ -175,7 +203,10 @@ class SlabGenerator(BaseGenerator):
         layers: int,
         vacuum: float,
         lattice_constant: float,
-        supercell: List[int]
+        supercell: List[int],
+        max_interface_strain: float = 0.05,
+        max_interface_repeats: int = 12,
+        interface_match_side: str = 'balanced',
     ) -> Atoms:
         """Build slab using ASE builders."""
         base_element = elements[0]
@@ -187,6 +218,17 @@ class SlabGenerator(BaseGenerator):
                     "Interface slabs require elements with matching crystal structures; "
                     f"got {base_element}={crystal_structure} and {elements[1]}={second_structure}."
                 )
+
+        if len(elements) == 2 and crystal_structure == 'fcc' and miller_index == (1, 1, 1):
+            return self._build_matched_fcc111_interface(
+                elements=elements,
+                layers=layers,
+                vacuum=vacuum,
+                supercell=supercell,
+                max_strain=max_interface_strain,
+                max_repeats=max_interface_repeats,
+                match_side=interface_match_side,
+            )
 
         # Map miller index to ASE builder function.  ASE's vacuum argument adds
         # the requested total vacuum around the slab when periodic z is disabled.
@@ -211,16 +253,207 @@ class SlabGenerator(BaseGenerator):
             )
 
         if len(elements) == 2:
-            slab = self._assign_interface_layers(slab, bottom_element=elements[0], top_element=elements[1])
+            slab = self._assign_lateral_interface_domains(
+                slab, left_element=elements[0], right_element=elements[1]
+            )
 
         return slab
 
-    def _assign_interface_layers(self, slab: Atoms, bottom_element: str, top_element: str) -> Atoms:
-        """Create a vertical bimetal interface by assigning lower/upper slab layers."""
-        z_coords = slab.get_positions()[:, 2]
-        z_midpoint = 0.5 * (z_coords.min() + z_coords.max())
-        symbols = [top_element if z >= z_midpoint else bottom_element for z in z_coords]
+    def _build_matched_fcc111_interface(
+        self,
+        elements: List[str],
+        layers: int,
+        vacuum: float,
+        supercell: List[int],
+        max_strain: float,
+        max_repeats: int,
+        match_side: str,
+    ) -> Atoms:
+        """Build a minimal fcc(111)/fcc(111) lateral interface within a strain limit.
+
+        A one-to-one Cu/Au(111) match strains one side by more than 10%.  This
+        builder searches for the smallest integer repeat pair along the interface
+        direction whose matched length keeps both domains within ``max_strain``.
+        For Cu/Au with a 5% limit the minimal pair is 7 Cu repeats against 6 Au
+        repeats.  The common length is balanced by default, but callers may pin
+        the cell length to either side with ``match_side``.
+        """
+        left_element, right_element = elements
+        left_lattice = LATTICE_CONSTANTS.get(left_element)
+        right_lattice = LATTICE_CONSTANTS.get(right_element)
+        if left_lattice is None or right_lattice is None:
+            raise ValueError(
+                f"Known lattice constants are required for matched interfaces: {left_element}/{right_element}."
+            )
+
+        match = self._find_minimal_interface_match(
+            left_element=left_element,
+            right_element=right_element,
+            max_strain=max_strain,
+            max_repeats=max_repeats,
+            match_side=match_side,
+        )
+        left_repeats = match['left_repeats']
+        right_repeats = match['right_repeats']
+        # The integer match already defines the minimal commensurate repeat.
+        # Do not multiply it by the ordinary slab supercell defaults, otherwise
+        # Cu/Au(111) grows from the minimal 7+6 atoms/layer to unnecessarily
+        # large cells such as 28+24 atoms/layer for a default 2x2 supercell.
+        x_columns = 1
+        y_repeats = 1
+        left_rows = left_repeats * y_repeats
+        right_rows = right_repeats * y_repeats
+        common_y = match['common_length'] * y_repeats
+        left_spacing_y = common_y / left_rows
+        right_spacing_y = common_y / right_rows
+
+        left_spacing_x = np.sqrt(3.0) * left_spacing_y / 2.0
+        right_spacing_x = np.sqrt(3.0) * right_spacing_y / 2.0
+        left_width = x_columns * left_spacing_x
+        right_width = x_columns * right_spacing_x
+        cell_x = left_width + right_width
+        interface_x = left_width
+
+        z_spacing = float(np.mean([left_lattice, right_lattice])) / np.sqrt(3.0)
+        slab_thickness = (layers - 1) * z_spacing
+        cell_z = slab_thickness + vacuum
+        z_origin = vacuum / 2.0
+
+        symbols = []
+        positions = []
+        for layer in range(layers):
+            z = z_origin + layer * z_spacing
+            left_layer_shift = (layer % 3) * left_spacing_y / 3.0
+            right_layer_shift = (layer % 3) * right_spacing_y / 3.0
+            x_layer_shift = (layer % 3) * min(left_spacing_x, right_spacing_x) / 3.0
+
+            for x_column in range(x_columns):
+                x = (x_column + 0.5) * left_spacing_x + x_layer_shift
+                if x >= interface_x:
+                    x -= left_spacing_x / 2.0
+                for row in range(left_rows):
+                    y = (row * left_spacing_y + left_layer_shift) % common_y
+                    symbols.append(left_element)
+                    positions.append([x, y, z])
+
+                x = interface_x + (x_column + 0.5) * right_spacing_x + x_layer_shift
+                if x >= cell_x:
+                    x -= right_spacing_x / 2.0
+                for row in range(right_rows):
+                    y = (row * right_spacing_y + right_layer_shift) % common_y
+                    symbols.append(right_element)
+                    positions.append([x, y, z])
+
+        atoms = Atoms(
+            symbols=symbols,
+            positions=positions,
+            cell=[cell_x, common_y, cell_z],
+            pbc=[True, True, False],
+        )
+        atoms.info['interface'] = {
+            'type': 'lateral',
+            'left_element': left_element,
+            'right_element': right_element,
+            'split_axis': 'x',
+            'split_coordinate': interface_x,
+            'interface_direction': 'y',
+            'match': match,
+            'left_atoms_per_layer': left_rows * x_columns,
+            'right_atoms_per_layer': right_rows * x_columns,
+            'requested_supercell': list(supercell),
+            'effective_supercell': [x_columns, y_repeats],
+            'description': (
+                f"{left_element}/{right_element} fcc(111) domains share a lateral interface; "
+                f"{left_repeats}:{right_repeats} repeats keep strain <= {max_strain:.1%}."
+            ),
+        }
+        return atoms
+
+    def _find_minimal_interface_match(
+        self,
+        left_element: str,
+        right_element: str,
+        max_strain: float,
+        max_repeats: int,
+        match_side: str,
+    ) -> Dict[str, Any]:
+        """Find the smallest integer surface repeat match within the strain limit."""
+        left_period = LATTICE_CONSTANTS[left_element] / np.sqrt(2.0)
+        right_period = LATTICE_CONSTANTS[right_element] / np.sqrt(2.0)
+        match_side = str(match_side or 'balanced').lower()
+        if match_side not in {'balanced', left_element.lower(), right_element.lower(), 'left', 'right'}:
+            raise ValueError(
+                "interface_match_side must be 'balanced', 'left', 'right', "
+                f"'{left_element}', or '{right_element}'."
+            )
+
+        candidates = []
+        for left_repeats in range(1, int(max_repeats) + 1):
+            left_length = left_repeats * left_period
+            for right_repeats in range(1, int(max_repeats) + 1):
+                right_length = right_repeats * right_period
+                if match_side in {'left', left_element.lower()}:
+                    common_length = left_length
+                    matched_to = left_element
+                elif match_side in {'right', right_element.lower()}:
+                    common_length = right_length
+                    matched_to = right_element
+                else:
+                    common_length = 0.5 * (left_length + right_length)
+                    matched_to = 'balanced'
+
+                left_strain = common_length / left_length - 1.0
+                right_strain = common_length / right_length - 1.0
+                max_abs_strain = max(abs(left_strain), abs(right_strain))
+                if max_abs_strain <= max_strain:
+                    candidates.append({
+                        'left_repeats': left_repeats,
+                        'right_repeats': right_repeats,
+                        'left_period': left_period,
+                        'right_period': right_period,
+                        'left_unstrained_length': left_length,
+                        'right_unstrained_length': right_length,
+                        'common_length': common_length,
+                        'left_strain': left_strain,
+                        'right_strain': right_strain,
+                        'max_abs_strain': max_abs_strain,
+                        'matched_to': matched_to,
+                    })
+
+        if not candidates:
+            raise ValueError(
+                f"No {left_element}/{right_element} interface match found within {max_strain:.1%} strain "
+                f"using repeats <= {max_repeats}. Increase max_interface_repeats or max_interface_strain."
+            )
+
+        candidates.sort(key=lambda item: (
+            item['left_repeats'] + item['right_repeats'],
+            item['max_abs_strain'],
+            abs(item['left_repeats'] - item['right_repeats']),
+        ))
+        return candidates[0]
+
+    def _assign_lateral_interface_domains(self, slab: Atoms, left_element: str, right_element: str) -> Atoms:
+        """Create a side-by-side bimetal surface interface in every slab layer.
+
+        The first element occupies the lower-x half of the surface cell and the
+        second element occupies the upper-x half, producing a periodic line
+        interface parallel to the second in-plane cell vector. This represents
+        interfaces such as Cu(111)/Au(111) as a strained, commensurate lateral
+        Cu/Au domain boundary rather than a vertical overlayer.
+        """
+        positions = slab.get_positions()
+        x_midpoint = 0.5 * (positions[:, 0].min() + positions[:, 0].max())
+        symbols = [left_element if position[0] < x_midpoint else right_element for position in positions]
         slab.set_chemical_symbols(symbols)
+        slab.info['interface'] = {
+            'type': 'lateral',
+            'left_element': left_element,
+            'right_element': right_element,
+            'split_axis': 'x',
+            'split_coordinate': x_midpoint,
+            'description': f'{left_element}/{right_element} domains share a line interface parallel to the y direction',
+        }
         return slab
 
     def _build_slab_pymatgen(
@@ -288,6 +521,9 @@ class SlabGenerator(BaseGenerator):
 
         adsorbate = self._build_adsorbate_atoms(mol_name)
 
+        if self._should_place_across_interface(slab, mol_name, binding_site):
+            return self._add_bidentate_adsorbate_across_interface(slab, adsorbate, mol_name, distance)
+
         # Rotate adsorbate to match orientation
         adsorbate = self._orient_adsorbate(adsorbate, orientation)
 
@@ -299,6 +535,125 @@ class SlabGenerator(BaseGenerator):
         add_adsorbate(slab, adsorbate, distance, position=site_position[:2])
 
         return slab
+
+    def _should_place_across_interface(self, slab: Atoms, mol_name: str, binding_site: str) -> bool:
+        """Return True when a bidentate adsorbate should straddle a bimetal interface."""
+        return (
+            slab.info.get('interface', {}).get('type') == 'lateral'
+            and binding_site == 'interface'
+            and mol_name in {'COCO', 'OCCO'}
+        )
+
+    def _add_bidentate_adsorbate_across_interface(
+        self,
+        slab: Atoms,
+        adsorbate: Atoms,
+        mol_name: str,
+        distance: float,
+    ) -> Atoms:
+        """Place OCCO/COCO with one carbon over each side of a lateral interface."""
+        bridge = self._find_interface_bridge(slab)
+        carbon_indices = [index for index, symbol in enumerate(adsorbate.get_chemical_symbols()) if symbol == 'C']
+        if len(carbon_indices) < 2:
+            raise ValueError(f"{mol_name} requires at least two carbon atoms for interface placement.")
+
+        adsorbate = self._align_adsorbate_axis(
+            adsorbate,
+            from_index=carbon_indices[0],
+            to_index=carbon_indices[1],
+            target_vector=bridge['vector'],
+        )
+
+        positions = adsorbate.get_positions()
+        carbon_positions = positions[carbon_indices[:2]]
+        carbon_center = carbon_positions.mean(axis=0)
+        target_center = np.array([
+            bridge['midpoint'][0],
+            bridge['midpoint'][1],
+            bridge['surface_z'] + distance,
+        ])
+        adsorbate.translate(target_center - carbon_center)
+        slab.extend(adsorbate)
+        slab.info['adsorbate_placement'] = {
+            'molecule': mol_name,
+            'site': 'interface',
+            'mode': 'bidentate_across_lateral_interface',
+            'left_element': bridge['left_element'],
+            'right_element': bridge['right_element'],
+            'left_surface_index': bridge['left_index'],
+            'right_surface_index': bridge['right_index'],
+            'carbon_indices': [len(slab) - len(adsorbate) + index for index in carbon_indices[:2]],
+        }
+        return slab
+
+    def _align_adsorbate_axis(
+        self,
+        adsorbate: Atoms,
+        from_index: int,
+        to_index: int,
+        target_vector: np.ndarray,
+    ) -> Atoms:
+        """Rotate an adsorbate so one internal bond aligns with a target vector."""
+        source_vector = adsorbate.positions[to_index] - adsorbate.positions[from_index]
+        source_norm = np.linalg.norm(source_vector)
+        target_norm = np.linalg.norm(target_vector)
+        if source_norm < 1e-12 or target_norm < 1e-12:
+            return adsorbate
+
+        source = source_vector / source_norm
+        target = target_vector / target_norm
+        axis = np.cross(source, target)
+        axis_norm = np.linalg.norm(axis)
+        if axis_norm > 1e-8:
+            axis = axis / axis_norm
+            angle_deg = np.degrees(np.arccos(np.clip(np.dot(source, target), -1, 1)))
+            adsorbate.rotate(angle_deg, axis, center=adsorbate.positions[from_index])
+        elif np.dot(source, target) < 0:
+            adsorbate.rotate(180, 'z', center=adsorbate.positions[from_index])
+        return adsorbate
+
+    def _find_interface_bridge(self, slab: Atoms) -> Dict[str, Any]:
+        """Find a nearest-neighbor mixed-metal bridge on the top lateral interface."""
+        interface = slab.info.get('interface', {})
+        left_element = interface.get('left_element')
+        right_element = interface.get('right_element')
+        if not left_element or not right_element:
+            raise ValueError("Interface bridge requested for a slab without interface metadata.")
+
+        positions = slab.get_positions()
+        symbols = slab.get_chemical_symbols()
+        z_coords = positions[:, 2]
+        surface_z = z_coords.max()
+        surface_indices = [index for index, z_coord in enumerate(z_coords) if z_coord > surface_z - 0.5]
+        left_indices = [index for index in surface_indices if symbols[index] == left_element]
+        right_indices = [index for index in surface_indices if symbols[index] == right_element]
+        if not left_indices or not right_indices:
+            raise ValueError("Could not find both metals in the top surface interface layer.")
+
+        best_pair = None
+        best_distance = None
+        for left_index in left_indices:
+            for right_index in right_indices:
+                delta = positions[right_index, :2] - positions[left_index, :2]
+                distance = np.linalg.norm(delta)
+                if best_distance is None or distance < best_distance:
+                    best_distance = distance
+                    best_pair = (left_index, right_index)
+
+        left_index, right_index = best_pair
+        left_position = positions[left_index]
+        right_position = positions[right_index]
+        return {
+            'left_element': left_element,
+            'right_element': right_element,
+            'left_index': int(left_index),
+            'right_index': int(right_index),
+            'left_position': left_position,
+            'right_position': right_position,
+            'midpoint': 0.5 * (left_position + right_position),
+            'vector': right_position - left_position,
+            'surface_z': surface_z,
+        }
 
     def _build_adsorbate_atoms(self, mol_name: str) -> Atoms:
         """Build an adsorbate with deterministic CO2RR geometries."""
@@ -409,6 +764,9 @@ class SlabGenerator(BaseGenerator):
 
     def _find_binding_site(self, slab: Atoms, site_type: str) -> np.ndarray:
         """Find the position of a binding site on the surface."""
+        if site_type == 'interface' and slab.info.get('interface', {}).get('type') == 'lateral':
+            return self._find_interface_bridge(slab)['midpoint']
+
         # Get surface atoms (top layer)
         positions = slab.get_positions()
         z_coords = positions[:, 2]
