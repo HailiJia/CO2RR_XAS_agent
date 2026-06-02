@@ -73,3 +73,54 @@ The generated `submit.sh` scripts already write `isaac_run_metadata.json` with
 start/end timestamps, command, exit code, hostname, SLURM job fields, cluster,
 and assets.  The final parser combines that run metadata with the parsed FEFF,
 FDMNES, or VASP spectra to write `isaac_record.json`.
+
+## Structured catalyst/adsorbate metadata for XAS ML
+
+When the NERSC workflow starts from generated structures, `structure_info.json`
+contains nested metadata that is propagated through input generation and copied
+into the final `isaac_record.json` under `sample.catalyst` and
+`sample.adsorbate`.  This supports downstream XAS ML workflows without relying on
+path-name parsing.
+
+Example prompt fragment accepted by the local parser and LLM planner:
+
+```yaml
+catalyst:
+  elements: [Cu, Au]
+  composition: CuAu
+  surface_facet: "111"
+  site_type: interface
+  structure_id: "CuAu_111_OCCO_bridge_001"
+adsorbate:
+  identity: "OCCO"
+  formula: "C2O2"
+  intermediate_class: "C2"
+  binding_mode: "bridge"
+  adsorption_site: "Cu-Au interface"
+  binding_atom: "C"
+```
+
+## Agentic recovery behavior
+
+The workflow phases (`generate_xas_inputs`, `submit_jobs`, `monitor_jobs`, and `parse_completed_jobs`) are run as custodian jobs, so `custodian.json` records the job-management log in the workflow output directory. If a NERSC workflow is requested from a machine that does not expose `sbatch` and
+does not set `NERSC_HOST`, the high-level agent converts the request to a dry run
+instead of failing immediately.  The returned result includes generated inputs,
+`submitted_jobs` with `state="DRY_RUN"`, and `agent.warnings` /
+`agent.recovery_actions` explaining what happened.  Missing structure/catalyst
+information returns `status="needs_input"` with concrete suggestions.
+
+## Configurable defaults
+
+The direct API still accepts explicit `nersc_account`, `nersc_queue`,
+`nersc_nodes`, and `nersc_walltime` arguments.  If they are omitted, the workflow
+uses these environment variables before falling back to safe placeholders:
+
+```bash
+export CO2RR_NERSC_ACCOUNT=mXXXX
+export CO2RR_NERSC_QUEUE=regular
+export CO2RR_NERSC_NODES=2
+export CO2RR_NERSC_WALLTIME=8:00:00
+export CO2RR_NERSC_CLUSTER=Perlmutter
+export CO2RR_NERSC_FACILITY=NERSC
+export CO2RR_NERSC_ORGANIZATION=LBNL
+```

@@ -215,9 +215,10 @@ Rules:
 12. If the user requests VASP GW/GW0, set vasp_method="GW". If the user requests VASP PBE, set vasp_method="PBE".
 13. If no VASP method is specified, leave vasp_method unset; the execution layer defaults to PBE.
 14. If the user gives a POTCAR/potpaw directory path, set potcar_dir to that exact path.
-15. If the user asks to submit jobs, monitor jobs, run on NERSC, wait for completion, or write records after jobs finish, use action=nersc_workflow.
-16. For nersc_workflow, set submit_jobs=true unless the user says dry run or do not submit; set monitor_jobs=true when the user asks to monitor/wait; set parse_when_complete=true when the user asks to write ISAAC records after completion.
-17. Return only JSON.
+15. Preserve structured ML metadata when provided. For example, map `catalyst: elements: [Cu, Au] composition: CuAu surface_facet: "111" site_type: interface structure_id: ...` into the catalyst object and map `adsorbate: identity: "OCCO" formula: "C2O2" intermediate_class: "C2" binding_mode: "bridge" adsorption_site: "Cu-Au interface" binding_atom: "C"` into the adsorbate object.
+16. If the user asks to submit jobs, monitor jobs, run on NERSC, wait for completion, or write records after jobs finish, use action=nersc_workflow.
+17. For nersc_workflow, set submit_jobs=true unless the user says dry run or do not submit; set monitor_jobs=true when the user asks to monitor/wait; set parse_when_complete=true when the user asks to write ISAAC records after completion.
+18. Return only JSON.
 """.strip()
 
 

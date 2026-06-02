@@ -20,31 +20,17 @@ The current workflow supports:
 
 ```text
 CO2RR_XAS_agent/
+├── agent/                    # planner schemas, local parser, agent orchestration
+├── tools/                    # structure generation, XAS input generation, result parsing
+├── workflow/                 # NERSC submit/monitor/finalize helpers
+├── generators/               # lower-level slab/input generator utilities
+├── skills/                   # LLM planner skill context and legacy skill descriptors
+├── examples/                 # runnable examples
+├── tests/                    # regression tests for local, NERSC, ALCF, ISAAC records
 ├── README.md
+├── README_NERSC_WORKFLOW.md
 ├── README_LLM_SETUP.md
-├── FEFF_FIX_README.md
-├── VASP_FIX_README.md
-├── FILE_STRUCTURE.md
-├── agent/
-│   ├── __init__.py
-│   ├── co2rr_xas_agent.py
-│   ├── planner.py
-│   └── schemas.py
-├── tools/
-│   ├── __init__.py
-│   ├── structure_generator.py
-│   ├── xas_input_generator.py
-│   ├── result_parser.py
-│   └── utils.py
-├── examples/
-│   └── example_usage.py
-└── skills/
-    └── co2rr-xas/
-        ├── SKILL.md
-        └── references/
-            ├── skill_structure_generation.yaml
-            ├── skill_xas_input_generation.yaml
-            └── skill_result_parsing.yaml
+└── requirements.txt
 ```
 
 Notes:
@@ -64,7 +50,7 @@ From the repository root:
 python -m venv .venv
 source .venv/bin/activate
 pip install --upgrade pip
-pip install numpy pydantic openai
+pip install numpy pydantic openai custodian
 ```
 
 Optional dependencies:
@@ -443,9 +429,57 @@ spectral arrays
 provenance fields
 ```
 
+Generated structures now carry nested catalyst and adsorbate metadata in `structure_info.json`, and the result parser copies those fields into the ISAAC record under `sample.catalyst` and `sample.adsorbate`. This is intended to make later XAS ML featurization easier. For example, an OCCO bridge site on a Cu-Au interface records metadata shaped like:
+
+```yaml
+catalyst:
+  elements: [Cu, Au]
+  composition: CuAu
+  surface_facet: "111"
+  site_type: interface
+  structure_id: CuAu_111_OCCO_bridge_001
+adsorbate:
+  identity: OCCO
+  formula: C2O2
+  intermediate_class: C2
+  binding_mode: bridge
+  adsorption_site: Cu-Au interface
+  binding_atom: C
+```
+
+The local parser and LLM planner also accept this YAML-like metadata in prompts. Direct API callers can pass metadata overrides through `metadata_overrides={"catalyst": {...}, "adsorbate": {...}, "structure_id": "..."}`.
+
 ---
 
-## 10. Common issues
+## 10. Agentic recovery and missing-information handling
+
+The Python entry points now do a preflight pass before launching deterministic tools, and the NERSC orchestration layer runs through `custodian` when it is installed. If a request is missing required context, the agent returns `status="needs_input"` with `missing_information`, `suggestions`, and the parsed intent instead of a bare script/tool error. Examples include missing catalyst metals for generated structures or a missing structure file for result parsing.
+
+The agent also attempts safe recovery when enough context is available:
+
+- result parsing searches the result directory for nearby `POSCAR` or `CONTCAR` files when `structure_file` was omitted;
+- NERSC requests made off-NERSC automatically fall back to `submit=False` dry-run input generation when `sbatch`/`NERSC_HOST` is unavailable;
+- recovered choices and warnings are reported under the returned `agent.recovery_actions` and `agent.warnings` fields.
+
+---
+
+## 11. Configurable NERSC defaults
+
+Hard-coded NERSC values are minimized. If you do not pass explicit values, the workflow checks these environment variables before using safe placeholders/defaults:
+
+```bash
+export CO2RR_NERSC_ACCOUNT=mXXXX
+export CO2RR_NERSC_QUEUE=regular
+export CO2RR_NERSC_NODES=2
+export CO2RR_NERSC_WALLTIME=8:00:00
+export CO2RR_NERSC_CLUSTER=Perlmutter
+export CO2RR_NERSC_FACILITY=NERSC
+export CO2RR_NERSC_ORGANIZATION=LBNL
+```
+
+---
+
+## 12. Common issues
 
 ### Are the skills used?
 
@@ -498,7 +532,7 @@ or run the generated `make_potcar.sh` after loading the correct VASP/POTCAR envi
 
 ---
 
-## 11. Minimal Python API
+## 13. Minimal Python API
 
 ```python
 from agent.co2rr_xas_agent import process_request

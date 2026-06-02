@@ -102,10 +102,75 @@ def test_agent_exposes_nersc_dry_run_workflow():
     assert result["status"] == "success"
     assert result["submitted_jobs"]
     assert result["submitted_jobs"][0]["state"] == "DRY_RUN"
+    assert result["job_manager"]["backend"] in {"custodian", "sequential"}
+
+
+def test_generated_nersc_workflow_carries_ml_metadata_in_dry_run():
+    from agent.co2rr_xas_agent import process_request
+
+    request = (
+        'Run NERSC workflow dry run for catalyst: elements: [Cu, Au] composition: CuAu '
+        'surface_facet: "111" site_type: interface structure_id: "CuAu_111_OCCO_bridge_001" '
+        'adsorbate: identity: "OCCO" formula: "C2O2" intermediate_class: "C2" '
+        'binding_mode: "bridge" adsorption_site: "Cu-Au interface" binding_atom: "C" K edge'
+    )
+
+    with tempfile.TemporaryDirectory() as tmp:
+        result = process_request(request, output_dir=tmp, use_llm=False)
+        metadata_path = next(Path(tmp).rglob("structure_info.json"))
+        import json
+        metadata = json.loads(metadata_path.read_text())
+
+    assert result["status"] == "success"
+    assert result["submitted_jobs"]
+    assert metadata["catalyst"]["elements"] == ["Cu", "Au"]
+    assert metadata["catalyst"]["composition"] == "CuAu"
+    assert metadata["catalyst"]["structure_id"] == "CuAu_111_OCCO_bridge_001"
+    assert metadata["adsorbate_metadata"]["identity"] == "OCCO"
+    assert metadata["adsorbate_metadata"]["binding_mode"] == "bridge"
+
+
+def test_agent_returns_needs_input_for_missing_generation_context():
+    from agent.co2rr_xas_agent import process_request
+
+    with tempfile.TemporaryDirectory() as tmp:
+        result = process_request("Generate XAS inputs", output_dir=tmp, use_llm=False)
+
+    assert result["status"] == "needs_input"
+    assert result["missing_information"]
+    assert result["missing_information"][0]["field"] == "metals"
+    assert "suggestions" in result
+
+
+def test_agent_recovers_nersc_submit_to_dry_run_when_slurm_missing():
+    from agent.co2rr_xas_agent import process_request
+    import workflow.nersc_workflow as workflow_module
+
+    original = workflow_module.NERSCJobManager.is_nersc_environment
+    workflow_module.NERSCJobManager.is_nersc_environment = staticmethod(lambda: False)
+    try:
+        with tempfile.TemporaryDirectory() as tmp:
+            result = process_request(
+                "Run on NERSC for OCCO adsorbate on Cu(111), K edge, submit and monitor",
+                output_dir=tmp,
+                use_llm=False,
+            )
+    finally:
+        workflow_module.NERSCJobManager.is_nersc_environment = original
+
+    assert result["status"] == "success"
+    assert result["submitted_jobs"]
+    assert all(job["state"] == "DRY_RUN" for job in result["submitted_jobs"])
+    assert "agent" in result
+    assert result["agent"]["warnings"]
+    assert result["agent"]["recovery_actions"]
 
 
 if __name__ == "__main__":
     test_discover_submit_scripts_from_generated_inputs_shape()
     test_nersc_workflow_can_submit_and_monitor_with_fake_slurm()
     test_agent_exposes_nersc_dry_run_workflow()
+    test_generated_nersc_workflow_carries_ml_metadata_in_dry_run()
+    test_agent_returns_needs_input_for_missing_generation_context()
+    test_agent_recovers_nersc_submit_to_dry_run_when_slurm_missing()
     print("NERSC workflow tests passed")
