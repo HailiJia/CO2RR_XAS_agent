@@ -1,22 +1,25 @@
 {
   "isaac_record_version": "1.05",
-  "record_id": "01JFH8SIMXASDBEBCB7703974F",
+  "record_id": "01JFH8SIMXASFEFFEXAMPLE",
   "record_type": "evidence",
   "record_domain": "simulation",
   "source_type": "computation",
   "timestamps": {
     "acquired_start_utc": "2026-05-28T20:10:00Z",
     "acquired_end_utc": "2026-05-28T22:55:00Z",
-    "created_utc": "2026-05-29T19:43:03Z"
+    "created_utc": "2026-06-02T00:00:00Z"
   },
   "sample": {
     "material": {
-      "name": "Cu(111) slab model with CHO",
-      "formula": "Cu36C1H1O1",
+      "name": "Cu reference model for Cu K-edge XAS",
+      "formula": "Cu",
       "provenance": "theoretical",
-      "notes": "Generated Cu(111) slab with CHO adsorbate; geometry from CO2RR_XAS_agent local test."
+      "notes": "Sample metadata inferred from POSCAR and FEFF input files; contains only Cu."
     },
-    "sample_form": "slab_model"
+    "sample_form": "bulk_model",
+    "catalyst": {},
+    "adsorbate": {},
+    "structure_id": null
   },
   "context": {
     "environment": "in_silico",
@@ -25,11 +28,11 @@
   },
   "system": {
     "domain": "computational",
-    "technique": "finite_difference_or_multiple_scattering_xas",
+    "technique": "multiple_scattering_xas",
     "facility": {
-      "facility_name": "NERSC",
+      "facility_name": "ANL",
       "organization": "ANL",
-      "cluster": "Perlmutter"
+      "cluster": "gen8"
     },
     "instrument": {
       "instrument_type": "simulation_engine",
@@ -320,7 +323,39 @@
       "uri": "https://github.com/HailiJia/CO2RR_XAS_agent/blob/main/example_ouput/FEFF/feff.inp",
       "media_type": "text/plain",
       "sha256": "b472d17a504d29b4e5ef5e652989b91243121ff1103039f78e2ed20ebb25cf05",
-      "notes": "FEFF input deck."
+      "notes": "FEFF concatenated input deck."
+    },
+    {
+      "asset_id": "feff_header",
+      "content_role": "workflow_recipe",
+      "uri": "https://github.com/HailiJia/CO2RR_XAS_agent/blob/main/example_ouput/FEFF/HEADER",
+      "media_type": "text/plain",
+      "sha256": "c63010910c3959f476b902419c2ab40d6283fffbfeb509f0c9f752ec1a985e4a",
+      "notes": "FEFF HEADER section file."
+    },
+    {
+      "asset_id": "feff_parameters",
+      "content_role": "workflow_recipe",
+      "uri": "https://github.com/HailiJia/CO2RR_XAS_agent/blob/main/example_ouput/FEFF/PARAMETERS",
+      "media_type": "text/plain",
+      "sha256": "82926f934c59b1eec2764490786fc6af3ce9926f3fe40681f64d991df88c84ef",
+      "notes": "FEFF PARAMETERS section file."
+    },
+    {
+      "asset_id": "feff_potentials",
+      "content_role": "workflow_recipe",
+      "uri": "https://github.com/HailiJia/CO2RR_XAS_agent/blob/main/example_ouput/FEFF/POTENTIALS",
+      "media_type": "text/plain",
+      "sha256": "51ed2c74a8c927971cc0e8082389eb0b2bad147fd88c387305e960a9d58438c4",
+      "notes": "FEFF POTENTIALS section file."
+    },
+    {
+      "asset_id": "feff_atoms",
+      "content_role": "workflow_recipe",
+      "uri": "https://github.com/HailiJia/CO2RR_XAS_agent/blob/main/example_ouput/FEFF/ATOMS",
+      "media_type": "text/plain",
+      "sha256": "90cf59fd931b1f0423d65352cee1e8103f08bd251d9d6eafa16bd0336b1228d8",
+      "notes": "FEFF ATOMS cluster section file."
     },
     {
       "asset_id": "feff_submit_script",

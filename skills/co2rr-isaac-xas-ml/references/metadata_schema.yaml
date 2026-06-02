@@ -1,0 +1,106 @@
+skill_id: CO2RR_ISAAC_XAS_ML
+version: "1.0"
+metadata_blocks:
+  catalyst:
+    elements: [Cu, Au]
+    composition: CuAu
+    surface_facet: "111"
+    site_type: interface
+    structure_id: "CuAu_111_OCCO_bridge_001"
+  adsorbate:
+    identity: "OCCO"
+    formula: "C2O2"
+    intermediate_class: "C2"
+    binding_mode: "bridge"
+    adsorption_site: "Cu-Au interface"
+    binding_atom: "C"
+  structure_descriptors:
+    metal_coordination_number: null
+    oxidation_state_proxy: null
+    charge_descriptor: null
+    metal_C_distance_A: null
+    metal_O_distance_A: null
+    C_O_bond_length_A: null
+    C_C_bond_length_A: null
+  ml_labels:
+    adsorbate_identity: "OCCO"
+    adsorption_motif: "bridge_interface"
+    oxidation_coordination_class: null
+  experiment:
+    sample_role: unknown_target
+    measurement_type: ex_situ
+    beamline: null
+    potential_V_RHE: null
+    current_density_mA_cm2: null
+    electrolyte: null
+    gas_environment: null
+    timepoint: null
+    calibration_reference: null
+    processing_recipe: null
+spectrum_level_required_fields:
+  - record_id
+  - series_id
+  - condition_id
+  - record_domain
+  - source_type
+  - absorbing_element
+  - edge
+  - energy
+  - intensity
+  - energy_units
+  - intensity_units
+  - normalization_metadata
+  - processing_metadata
+  - labels
+  - descriptors
+condition_level_grouping_fields:
+  - condition_id
+  - structure_id
+  - sample_id
+  - catalyst_composition
+  - surface_facet
+  - adsorbate_identity
+  - adsorption_site
+  - experimental_condition
+ml_training_record:
+  record_type: ml_training
+  record_domain: machine_learning
+  input_records:
+    simulation_record_ids: []
+    experimental_record_ids: []
+  task:
+    name: adsorbate_classification
+    task_type: classification
+    target_field: ml_labels.adsorbate_identity
+    class_names: []
+  dataset:
+    sample_unit: measurement.series
+    fusion_unit: condition_or_structure
+    elements: [Cu, Au, Ir, Ni, Pt, C]
+    edges: [Cu K, Ni K, Au L3, Ir L3, Pt L3, C K]
+    group_keys: []
+ml_prediction_record:
+  record_type: ml_prediction
+  record_domain: machine_learning
+  linked_training_record: null
+  input_records:
+    experimental_record_ids: []
+    simulation_reference_record_ids: []
+  prediction_task:
+    name: adsorbate_classification
+    task_type: classification
+    target_field: ml_labels.adsorbate_identity
+  predictions:
+    - condition_id: null
+      experimental_record_id: null
+      edge_coverage: []
+      predicted_class: null
+      class_probability: null
+      top_k_classes: []
+      nearest_simulated_records: []
+      domain_of_applicability:
+        status: null
+        score: null
+        method: null
+      warning_flags: []
+      important_energy_regions: []
