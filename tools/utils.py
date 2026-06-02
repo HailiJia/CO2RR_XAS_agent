@@ -135,6 +135,28 @@ def sha256_file(filepath: str) -> str:
     return h.hexdigest()
 
 
+
+
+# =============================================================================
+# Workflow defaults
+# =============================================================================
+
+def get_env_default(name: str, default: Any) -> Any:
+    """Return a CO2RR workflow default from the environment when present."""
+    return os.environ.get(name, default)
+
+def get_nersc_defaults() -> Dict[str, Any]:
+    """Centralized NERSC defaults; callers can override with CO2RR_NERSC_* env vars."""
+    return {
+        "account": get_env_default("CO2RR_NERSC_ACCOUNT", "mXXXX"),
+        "queue": get_env_default("CO2RR_NERSC_QUEUE", "regular"),
+        "nodes": int(get_env_default("CO2RR_NERSC_NODES", "2")),
+        "walltime": get_env_default("CO2RR_NERSC_WALLTIME", "8:00:00"),
+        "cluster": get_env_default("CO2RR_NERSC_CLUSTER", "Perlmutter"),
+        "facility_name": get_env_default("CO2RR_NERSC_FACILITY", "NERSC"),
+        "organization": get_env_default("CO2RR_NERSC_ORGANIZATION", "LBNL"),
+    }
+
 # =============================================================================
 # Element and edge utilities
 # =============================================================================
@@ -225,6 +247,16 @@ def read_structure_file(filepath: str) -> Dict[str, Any]:
     
     name = filepath.name.upper()
     suffix = filepath.suffix.lower()
+
+    if name in ('POSCAR', 'CONTCAR') or suffix in ('.vasp', '.poscar'):
+        try:
+            structure = read_poscar(str(filepath))
+            structure.setdefault('metadata', {})
+            structure['metadata'].setdefault('source_file', str(filepath))
+            structure['metadata'].setdefault('format', 'poscar_builtin')
+            return structure
+        except Exception:
+            pass
     
     # Try pymatgen first
     try:

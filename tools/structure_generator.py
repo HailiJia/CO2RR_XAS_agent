@@ -6,7 +6,7 @@ Skill 1 Implementation
 import os
 import json
 import numpy as np
-from typing import Dict, List, Tuple, Optional, Union
+from typing import Any, Dict, List, Tuple, Optional, Union
 from .utils import (
     METAL_DATA, ADSORBATES, ADSORPTION_SITES, CO2RR_PATHWAY,
     write_poscar, read_poscar, read_structure_file, ensure_dir, generate_uuid, get_timestamp
@@ -28,6 +28,95 @@ class StructureGenerator:
         self.metal_data = METAL_DATA
         self.adsorbates = ADSORBATES
         self.sites = ADSORPTION_SITES
+
+    def _adsorbate_formula(self, adsorbate_name: Optional[str]) -> Optional[str]:
+        if not adsorbate_name or adsorbate_name not in self.adsorbates:
+            return None
+        counts: Dict[str, int] = {}
+        for atom in self.adsorbates[adsorbate_name]["atoms"]:
+            counts[atom] = counts.get(atom, 0) + 1
+        parts = []
+        for element in ("C", "H", "O"):
+            count = counts.pop(element, 0)
+            if count:
+                parts.append(f"{element}{count if count > 1 else ''}")
+        for element in sorted(counts):
+            count = counts[element]
+            parts.append(f"{element}{count if count > 1 else ''}")
+        return "".join(parts)
+
+    def _adsorbate_intermediate_class(self, adsorbate_name: Optional[str]) -> Optional[str]:
+        if not adsorbate_name or adsorbate_name not in self.adsorbates:
+            return None
+        carbon_count = sum(1 for atom in self.adsorbates[adsorbate_name]["atoms"] if atom == "C")
+        return f"C{carbon_count}" if carbon_count else "C0"
+
+    def _binding_atom_symbol(self, adsorbate_name: Optional[str]) -> Optional[str]:
+        if not adsorbate_name or adsorbate_name not in self.adsorbates:
+            return None
+        ads_data = self.adsorbates[adsorbate_name]
+        return ads_data["atoms"][int(ads_data["binding_atom"])]
+
+    def _with_ml_metadata(
+        self,
+        metadata: Dict[str, Any],
+        adsorbate_name: Optional[str] = None,
+        site: Optional[str] = None,
+        metadata_overrides: Optional[Dict[str, Any]] = None,
+    ) -> Dict[str, Any]:
+        """Attach catalyst/adsorbate metadata intended for downstream XAS ML records."""
+        enriched = dict(metadata)
+        overrides = metadata_overrides or {}
+
+        if "element1" in enriched:
+            elements = [enriched.get("element1"), enriched.get("element2")]
+            facet = enriched.get("facet1") if enriched.get("facet1") == enriched.get("facet2") else f"{enriched.get('facet1')}/{enriched.get('facet2')}"
+            site_type = "interface"
+        else:
+            elements = [enriched.get("element")]
+            facet = enriched.get("facet")
+            site_type = "surface"
+        elements = [element for element in elements if element]
+        composition = "".join(elements)
+        site_value = site or enriched.get("adsorption_site")
+        ads_value = adsorbate_name or enriched.get("adsorbate")
+
+        catalyst = {
+            "elements": elements,
+            "composition": composition,
+            "surface_facet": str(facet) if facet is not None else None,
+            "site_type": site_type,
+        }
+
+        if ads_value:
+            adsorbate = {
+                "identity": ads_value,
+                "formula": self._adsorbate_formula(ads_value),
+                "intermediate_class": self._adsorbate_intermediate_class(ads_value),
+                "binding_mode": site_value or "top",
+                "adsorption_site": f"{'-'.join(elements)} interface" if site_type == "interface" and len(elements) > 1 else f"{composition}({facet}) {site_value or 'top'}",
+                "binding_atom": self._binding_atom_symbol(ads_value),
+            }
+        else:
+            adsorbate = {"identity": "clean", "formula": None, "intermediate_class": None, "binding_mode": None, "adsorption_site": None, "binding_atom": None}
+
+        catalyst.update(overrides.get("catalyst", {}))
+        adsorbate.update(overrides.get("adsorbate", {}))
+        structure_id = overrides.get("structure_id") or enriched.get("structure_id")
+        if not structure_id:
+            id_parts = [composition or "structure", str(facet or "facet")]
+            if ads_value:
+                id_parts.extend([ads_value, str(site_value or "top")])
+            else:
+                id_parts.append("clean")
+            id_parts.append("001")
+            structure_id = "_".join(part.replace("/", "-").replace(" ", "_") for part in id_parts if part)
+
+        catalyst["structure_id"] = structure_id
+        enriched["structure_id"] = structure_id
+        enriched["catalyst"] = catalyst
+        enriched["adsorbate_metadata"] = adsorbate
+        return enriched
     
     def generate_fcc_surface(
         self,
@@ -501,7 +590,8 @@ class StructureGenerator:
         adsorbate_name: str,
         site: str = "top",
         height: float = 2.0,
-        site_index: int = 0
+        site_index: int = 0,
+        metadata_overrides: Optional[Dict[str, Any]] = None
     ) -> Dict:
         """
         Add adsorbate to surface structure.
@@ -563,6 +653,7 @@ class StructureGenerator:
         new_metadata['adsorbate'] = adsorbate_name
         new_metadata['adsorption_site'] = site
         new_metadata['adsorption_height'] = height
+        new_metadata = self._with_ml_metadata(new_metadata, adsorbate_name, site, metadata_overrides)
         
         return {
             'atoms': new_atoms,
@@ -679,6 +770,8 @@ class StructureGenerator:
         # Write metadata JSON
         metadata_path = os.path.join(output_dir, "structure_info.json")
         metadata = structure['metadata'].copy()
+        if 'catalyst' not in metadata:
+            metadata = self._with_ml_metadata(metadata)
         metadata['n_atoms'] = len(structure['atoms'])
         metadata['composition'] = {}
         for atom in structure['atoms']:
@@ -710,7 +803,8 @@ def execute_structure_generation(
     layers: int = 4,
     vacuum: float = 15.0,
     output_dir: str = "output",
-    full_pathway: bool = False
+    full_pathway: bool = False,
+    metadata_overrides: Optional[Dict[str, Any]] = None
 ) -> Dict:
     """
     Execute Skill 1: Structure Generation
@@ -796,13 +890,14 @@ def execute_structure_generation(
                     adsorbate = [adsorbate]
                 
                 for ads in adsorbate:
-                    struct = generator.add_adsorbate(structure.copy(), ads, site=site)
+                    struct = generator.add_adsorbate(structure.copy(), ads, site=site, metadata_overrides=metadata_overrides)
                     struct_dir = os.path.join(output_dir, ads, "structure")
                     files = generator.save_structure(struct, struct_dir)
                     results['structures'].append(struct['metadata'])
                     results['files'].append(files)
             else:
                 # Clean surface
+                structure['metadata'] = generator._with_ml_metadata(structure['metadata'], metadata_overrides=metadata_overrides)
                 struct_dir = os.path.join(output_dir, "clean", "structure")
                 files = generator.save_structure(structure, struct_dir)
                 results['structures'].append(structure['metadata'])

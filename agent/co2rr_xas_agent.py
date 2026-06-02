@@ -12,6 +12,7 @@ from __future__ import annotations
 import json
 import os
 import re
+from pathlib import Path
 from typing import Any, Dict, List, Optional, Union
 
 # Import tools
@@ -19,7 +20,7 @@ from tools.structure_generator import StructureGenerator, execute_structure_gene
 from tools.xas_input_generator import XASInputGenerator, execute_xas_input_generation
 from tools.result_parser import ResultParser, execute_result_parsing
 from workflow.nersc_workflow import execute_nersc_full_workflow
-from tools.utils import ADSORBATES, CO2RR_PATHWAY, METAL_DATA
+from tools.utils import ADSORBATES, CO2RR_PATHWAY, METAL_DATA, get_nersc_defaults
 
 try:
     from agent.schemas import EnergyRange, FDMNESOptions, ParsedIntent
@@ -85,6 +86,15 @@ class LocalIntentParser:
         parameters: Dict[str, Any] = {}
 
         parameters["fdmnes_options"] = self._extract_fdmnes_options(request_lower)
+        metadata_overrides = self._extract_ml_metadata(request)
+        if metadata_overrides:
+            parameters["metadata_overrides"] = metadata_overrides
+            if metadata_overrides.get("catalyst", {}).get("elements"):
+                metals = metadata_overrides["catalyst"]["elements"]
+            if metadata_overrides.get("catalyst", {}).get("surface_facet"):
+                facets = [str(metadata_overrides["catalyst"]["surface_facet"])]
+            if metadata_overrides.get("adsorbate", {}).get("identity"):
+                adsorbates = [metadata_overrides["adsorbate"]["identity"]]
 
         cluster_radius = self._extract_float(
             request_lower,
@@ -165,6 +175,45 @@ class LocalIntentParser:
             if match:
                 return match.group(1)
         return None
+
+    def _extract_ml_metadata(self, request: str) -> Dict[str, Any]:
+        """Extract catalyst/adsorbate ML metadata from compact YAML-like prompts."""
+        metadata: Dict[str, Any] = {}
+
+        elements_match = re.search(r"elements\s*:\s*\[([^\]]+)\]", request, re.IGNORECASE)
+        catalyst: Dict[str, Any] = {}
+        if elements_match:
+            catalyst["elements"] = [item.strip().strip("'\"") for item in elements_match.group(1).split(",") if item.strip()]
+        for key, pattern in {
+            "composition": r"composition\s*:\s*([A-Za-z0-9_\-]+)",
+            "surface_facet": r"surface_facet\s*:\s*[\"']?([^\"'\s]+)[\"']?",
+            "site_type": r"site_type\s*:\s*[\"']?([^\"'\s]+)[\"']?",
+            "structure_id": r"structure_id\s*:\s*[\"']?([^\"'\s]+)[\"']?",
+        }.items():
+            match = re.search(pattern, request, re.IGNORECASE)
+            if match:
+                catalyst[key] = match.group(1)
+        if catalyst:
+            metadata["catalyst"] = {k: v for k, v in catalyst.items() if k != "structure_id"}
+            if catalyst.get("structure_id"):
+                metadata["structure_id"] = catalyst["structure_id"]
+
+        adsorbate: Dict[str, Any] = {}
+        ads_block = request[request.lower().find("adsorbate:"):] if "adsorbate:" in request.lower() else request
+        for key, pattern in {
+            "identity": r"identity\s*:\s*[\"']?([A-Za-z0-9_\-]+)[\"']?",
+            "formula": r"formula\s*:\s*[\"']?([A-Za-z0-9_\-]+)[\"']?",
+            "intermediate_class": r"intermediate_class\s*:\s*[\"']?([A-Za-z0-9_\-]+)[\"']?",
+            "binding_mode": r"binding_mode\s*:\s*[\"']?([A-Za-z0-9_\-]+)[\"']?",
+            "adsorption_site": r"adsorption_site\s*:\s*[\"']?([^\"'\n]+?)(?=\s+binding_atom\s*:|$)",
+            "binding_atom": r"binding_atom\s*:\s*[\"']?([A-Za-z]+)[\"']?",
+        }.items():
+            match = re.search(pattern, ads_block, re.IGNORECASE)
+            if match:
+                adsorbate[key] = match.group(1).strip()
+        if adsorbate:
+            metadata["adsorbate"] = adsorbate
+        return metadata
 
     def _extract_fdmnes_options(self, request_lower: str) -> Dict[str, bool]:
         options = FDMNESOptions().to_fdmnes_dict()
@@ -270,6 +319,113 @@ class CO2RRXASAgent:
 
         return self.local_intent_parser.parse(request, output_dir)
 
+
+    def _needs_input(
+        self,
+        message: str,
+        missing: List[Dict[str, Any]],
+        intent: ParsedIntent,
+        suggestions: Optional[List[str]] = None,
+        recoveries: Optional[List[str]] = None,
+    ) -> Dict[str, Any]:
+        """Return a structured clarification request instead of a bare error."""
+        return {
+            "status": "needs_input",
+            "message": message,
+            "missing_information": missing,
+            "suggestions": suggestions or [],
+            "recovery_actions": recoveries or [],
+            "parsed_intent": {
+                "action": intent.action,
+                "metals": intent.metals,
+                "facets": intent.facets,
+                "adsorbates": intent.adsorbates,
+                "structure_file": intent.structure_file,
+                "output_dir": intent.output_dir,
+                "parameters": intent.parameters,
+            },
+        }
+
+    def _attach_agent_context(
+        self,
+        result: Dict[str, Any],
+        warnings: Optional[List[str]] = None,
+        recoveries: Optional[List[str]] = None,
+    ) -> Dict[str, Any]:
+        """Attach warnings/recovery metadata to normal tool results."""
+        if not isinstance(result, dict):
+            return result
+        agent_context = result.setdefault("agent", {})
+        if warnings:
+            agent_context.setdefault("warnings", []).extend(warnings)
+        if recoveries:
+            agent_context.setdefault("recovery_actions", []).extend(recoveries)
+        return result
+
+    def _discover_structure_file(self, output_dir: str) -> Optional[str]:
+        """Find a nearby POSCAR/CONTCAR when the user omitted structure_file."""
+        root = Path(output_dir)
+        candidates: List[Path] = []
+        if root.exists():
+            for name in ("POSCAR", "CONTCAR"):
+                candidate = root / name
+                if candidate.is_file():
+                    candidates.append(candidate)
+            candidates.extend(root.rglob("POSCAR"))
+            candidates.extend(root.rglob("CONTCAR"))
+        for base in root.parents[:2]:
+            for name in ("POSCAR", "CONTCAR"):
+                candidate = base / name
+                if candidate.is_file():
+                    candidates.append(candidate)
+        if not candidates:
+            return None
+        candidates = sorted(set(candidates), key=lambda p: (len(p.parts), p.as_posix()))
+        return str(candidates[0])
+
+    def _validate_generation_inputs(self, intent: ParsedIntent) -> Optional[Dict[str, Any]]:
+        if intent.structure_file:
+            if not Path(intent.structure_file).exists():
+                return self._needs_input(
+                    f"Structure file not found: {intent.structure_file}",
+                    [{"field": "structure_file", "reason": "Path does not exist."}],
+                    intent,
+                    suggestions=["Provide a valid POSCAR, CONTCAR, or CIF path.", "Or provide catalyst metals so the agent can generate a structure."],
+                )
+            return None
+        if not intent.metals:
+            return self._needs_input(
+                "I need either a structure file or catalyst metal(s) before I can generate structures/XAS inputs.",
+                [{"field": "metals", "reason": "No catalyst metal was parsed."}],
+                intent,
+                suggestions=[
+                    "Add a catalyst such as `Cu(111)` or `elements: [Cu, Au]`.",
+                    "Or add `from /path/to/POSCAR` to use an existing structure.",
+                ],
+            )
+        return None
+
+    def _validate_parse_inputs(self, intent: ParsedIntent) -> Optional[Dict[str, Any]]:
+        structure_file = intent.structure_file or intent.parameters.get("structure_file")
+        if structure_file and Path(structure_file).exists():
+            return None
+        recovered = self._discover_structure_file(intent.parameters.get("results_dir", intent.output_dir))
+        if recovered:
+            intent.structure_file = recovered
+            intent.parameters["structure_file"] = recovered
+            intent.parameters.setdefault("agent_recoveries", []).append(f"Recovered missing structure_file from {recovered}")
+            return None
+        missing_reason = "No structure_file was provided." if not structure_file else f"Structure file not found: {structure_file}"
+        return self._needs_input(
+            "I can parse spectra only after I know which structure produced them.",
+            [{"field": "structure_file", "reason": missing_reason}],
+            intent,
+            suggestions=[
+                "Pass `structure_file=/path/to/POSCAR` or include `from /path/to/POSCAR` in the request.",
+                "Put POSCAR or CONTCAR in the result directory so the agent can auto-recover it.",
+            ],
+        )
+
     def process_request(self, request: str, output_dir: Optional[str] = None, **kwargs) -> Dict:
         """Process a natural-language request."""
         output_dir = output_dir or self.default_output_dir
@@ -281,6 +437,15 @@ class CO2RRXASAgent:
             else:
                 intent.parameters[key] = value
 
+        if intent.action in {"generate_structure", "generate_xas", "full_workflow", "nersc_workflow"}:
+            validation = self._validate_generation_inputs(intent)
+            if validation is not None:
+                return validation
+        if intent.action == "parse_results":
+            validation = self._validate_parse_inputs(intent)
+            if validation is not None:
+                return validation
+
         if intent.action == "generate_structure":
             return self._execute_structure_generation(intent)
         if intent.action == "generate_xas":
@@ -291,7 +456,12 @@ class CO2RRXASAgent:
             return self._execute_full_workflow(intent)
         if intent.action == "nersc_workflow":
             return self._execute_nersc_workflow(intent)
-        return {"status": "error", "message": f"Unknown action: {intent.action}"}
+        return self._needs_input(
+            f"Unknown action: {intent.action}",
+            [{"field": "action", "reason": "The request did not map to a supported workflow action."}],
+            intent,
+            suggestions=["Ask to generate a structure, generate XAS inputs, run a NERSC workflow, or parse results."],
+        )
 
     def _execute_structure_generation(self, intent: ParsedIntent) -> Dict:
         """Execute structure generation."""
@@ -303,7 +473,12 @@ class CO2RRXASAgent:
             )
 
         if not intent.metals:
-            return {"status": "error", "message": "No metal element specified"}
+            return self._needs_input(
+                "No metal element specified.",
+                [{"field": "metals", "reason": "No catalyst metal was parsed."}],
+                intent,
+                suggestions=["Add a metal such as Cu, Ag, Au, Pt, Pd, Ni, Fe, or Co."],
+            )
 
         metal1 = intent.metals[0]
         metal2 = intent.metals[1] if len(intent.metals) > 1 else None
@@ -322,6 +497,7 @@ class CO2RRXASAgent:
             layers=intent.parameters.get("layers", 4),
             output_dir=intent.output_dir,
             full_pathway=intent.full_pathway,
+            metadata_overrides=intent.parameters.get("metadata_overrides"),
         )
 
     def _common_xas_kwargs(self, intent: ParsedIntent, structure_metadata: Optional[Dict] = None) -> Dict[str, Any]:
@@ -330,11 +506,12 @@ class CO2RRXASAgent:
             intent.parameters.get("fdmnes_energy_range", (-5.0, 0.2, 50.0))
         ).as_fdmnes_range()
 
+        defaults = get_nersc_defaults()
         kwargs = {
-            "nersc_account": intent.parameters.get("nersc_account", "m5268"),
-            "nersc_queue": intent.parameters.get("nersc_queue", "regular"),
-            "nersc_nodes": intent.parameters.get("nersc_nodes", 2),
-            "nersc_walltime": intent.parameters.get("nersc_walltime", "8:00:00"),
+            "nersc_account": intent.parameters.get("nersc_account", defaults["account"]),
+            "nersc_queue": intent.parameters.get("nersc_queue", defaults["queue"]),
+            "nersc_nodes": intent.parameters.get("nersc_nodes", defaults["nodes"]),
+            "nersc_walltime": intent.parameters.get("nersc_walltime", defaults["walltime"]),
             "email": intent.parameters.get("email"),
             "cluster_radius": intent.parameters.get("cluster_radius", 6.0),
             "fdmnes_options": intent.parameters.get("fdmnes_options"),
@@ -393,16 +570,22 @@ class CO2RRXASAgent:
         output_dir = intent.parameters.get("results_dir", intent.output_dir)
         software = intent.parameters.get("software", "FEFF")
         structure_file = intent.structure_file or intent.parameters.get("structure_file")
+        structure_metadata = intent.parameters.get("structure_metadata")
 
         if not structure_file:
-            return {"status": "error", "message": "Structure file required for parsing"}
+            return self._needs_input(
+                "Structure file required for parsing.",
+                [{"field": "structure_file", "reason": "No POSCAR/CONTCAR/CIF was provided or discovered."}],
+                intent,
+                suggestions=["Pass structure_file=... or place POSCAR/CONTCAR in the results directory."],
+            )
 
         # Absorber/edge can be inferred by tools.result_parser from FEFF/FDMNES/VASP input files.
         # Only pass explicit values when the user/request actually provided them.
         absorber = intent.parameters.get("absorber", intent.metals[0] if intent.metals else None)
         edge = intent.parameters.get("edge", intent.parameters.get("edge_override"))
 
-        return execute_result_parsing(
+        result = execute_result_parsing(
             output_dir=output_dir,
             software=software,
             structure_file=structure_file,
@@ -413,6 +596,7 @@ class CO2RRXASAgent:
             description=intent.parameters.get("description", ""),
             tags=intent.parameters.get("tags"),
         )
+        return self._attach_agent_context(result, recoveries=intent.parameters.get("agent_recoveries"))
 
     def _execute_full_workflow(self, intent: ParsedIntent) -> Dict:
         """Execute full workflow: structure generation -> XAS input generation."""
@@ -426,28 +610,47 @@ class CO2RRXASAgent:
     def _execute_nersc_workflow(self, intent: ParsedIntent) -> Dict:
         """Generate NERSC inputs, submit jobs, monitor them, and write ISAAC records."""
         structure_file = intent.structure_file or intent.parameters.get("structure_file")
+        structure_metadata = intent.parameters.get("structure_metadata")
         if not structure_file:
             if not intent.metals:
-                return {"status": "error", "message": "Structure file or metal is required for NERSC workflow"}
+                return self._needs_input(
+                    "Structure file or metal is required for NERSC workflow.",
+                    [{"field": "structure_file_or_metals", "reason": "No structure file and no catalyst metal were parsed."}],
+                    intent,
+                    suggestions=["Provide `from /path/to/POSCAR` or a catalyst such as `Cu(111)` / `elements: [Cu, Au]`."],
+                )
             struct_result = self._execute_structure_generation(intent)
             if struct_result.get("status") != "success":
                 return struct_result
             # Use the first generated structure for the NERSC end-to-end workflow.
             structure_file = struct_result["files"][0]["poscar"]
+            metadata_path = struct_result["files"][0].get("metadata")
+            if metadata_path:
+                with open(metadata_path, "r") as f:
+                    structure_metadata = json.load(f)
 
-        return execute_nersc_full_workflow(
+        warnings: List[str] = []
+        recoveries: List[str] = list(intent.parameters.get("agent_recoveries", []))
+        submit = bool(intent.parameters.get("submit_jobs", True))
+        monitor = bool(intent.parameters.get("monitor_jobs", True))
+        parse_when_complete = bool(intent.parameters.get("parse_when_complete", True))
+        if parse_when_complete and not monitor:
+            warnings.append("parse_when_complete=True requires monitor=True; records will not be parsed automatically.")
+
+        defaults = get_nersc_defaults()
+        result = execute_nersc_full_workflow(
             structure_file=structure_file,
             output_dir=intent.output_dir,
             software=intent.parameters.get("software", "all"),
-            submit=bool(intent.parameters.get("submit_jobs", True)),
-            monitor=bool(intent.parameters.get("monitor_jobs", True)),
-            parse_when_complete=bool(intent.parameters.get("parse_when_complete", True)),
+            submit=submit,
+            monitor=monitor,
+            parse_when_complete=parse_when_complete,
             poll_interval=int(intent.parameters.get("poll_interval", 60)),
             timeout=int(intent.parameters["monitor_timeout"]) if intent.parameters.get("monitor_timeout") is not None else None,
-            nersc_account=intent.parameters.get("nersc_account", "m5268"),
-            nersc_queue=intent.parameters.get("nersc_queue", "regular"),
-            nersc_nodes=intent.parameters.get("nersc_nodes", 2),
-            nersc_walltime=intent.parameters.get("nersc_walltime", "8:00:00"),
+            nersc_account=intent.parameters.get("nersc_account", defaults["account"]),
+            nersc_queue=intent.parameters.get("nersc_queue", defaults["queue"]),
+            nersc_nodes=intent.parameters.get("nersc_nodes", defaults["nodes"]),
+            nersc_walltime=intent.parameters.get("nersc_walltime", defaults["walltime"]),
             email=intent.parameters.get("email"),
             cluster_radius=intent.parameters.get("cluster_radius", 6.0),
             fdmnes_options=intent.parameters.get("fdmnes_options"),
@@ -459,7 +662,12 @@ class CO2RRXASAgent:
             potcar_dir=intent.parameters.get("potcar_dir"),
             vasp_mode=intent.parameters.get("vasp_mode", "trace"),
             record_parameters=intent.parameters.get("record_parameters", {}),
+            structure_metadata=structure_metadata,
         )
+        job_manager_meta = result.get("job_manager", {}) if isinstance(result, dict) else {}
+        warnings.extend(job_manager_meta.get("warnings", []))
+        recoveries.extend(job_manager_meta.get("recovery_actions", []))
+        return self._attach_agent_context(result, warnings=warnings, recoveries=recoveries)
 
     def generate_structure(
         self,
@@ -473,6 +681,7 @@ class CO2RRXASAgent:
         layers: int = 4,
         output_dir: Optional[str] = None,
         full_pathway: bool = False,
+        metadata_overrides: Optional[Dict[str, Any]] = None,
     ) -> Dict:
         """Direct API for structure generation."""
         return execute_structure_generation(
@@ -487,16 +696,17 @@ class CO2RRXASAgent:
             layers=layers,
             output_dir=output_dir or self.default_output_dir,
             full_pathway=full_pathway,
+            metadata_overrides=metadata_overrides,
         )
 
     def generate_xas_inputs(
         self,
         structure_file: str,
         output_dir: Optional[str] = None,
-        nersc_account: str = "m5268",
-        nersc_queue: str = "regular",
-        nersc_nodes: int = 2,
-        nersc_walltime: str = "8:00:00",
+        nersc_account: Optional[str] = None,
+        nersc_queue: Optional[str] = None,
+        nersc_nodes: Optional[int] = None,
+        nersc_walltime: Optional[str] = None,
         email: Optional[str] = None,
         cluster_radius: float = 6.0,
         fdmnes_options: Optional[Dict[str, bool]] = None,
@@ -549,7 +759,7 @@ class CO2RRXASAgent:
         vasp_mode: str = "trace",
     ) -> Dict:
         """Direct API for result parsing."""
-        return execute_result_parsing(
+        result = execute_result_parsing(
             output_dir=output_dir,
             software=software,
             structure_file=structure_file,

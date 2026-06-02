@@ -638,6 +638,22 @@ class VASPXASParser:
         return energy, intensity
 
 
+
+def load_structure_metadata(structure_file: str) -> Dict[str, Any]:
+    """Load generated structure_info.json next to a POSCAR/CONTCAR when available."""
+    if not structure_file:
+        return {}
+    path = Path(structure_file)
+    candidates = [path.with_name("structure_info.json"), path.parent / "metadata.json"]
+    for candidate in candidates:
+        if candidate.exists() and candidate.is_file():
+            try:
+                data = json.loads(candidate.read_text())
+                return data if isinstance(data, dict) else {}
+            except Exception:
+                return {}
+    return {}
+
 # =============================================================================
 # ISAAC record generation (UPDATED for full compliance)
 # =============================================================================
@@ -914,6 +930,9 @@ class ISAACRecordGenerator:
         parameters = dict(parameters or {})
         run_metadata = find_run_metadata(output_dir)
         inferred = parameters.get("metadata_inference", {})
+        structure_metadata = parameters.get("structure_metadata") if isinstance(parameters.get("structure_metadata"), dict) else load_structure_metadata(structure_file)
+        catalyst_meta = parameters.get("catalyst") or structure_metadata.get("catalyst", {})
+        adsorbate_meta = parameters.get("adsorbate") or structure_metadata.get("adsorbate_metadata", {})
         
         # Extract atoms and infer sample metadata from input files.
         atoms = structure.get("atoms", []) or []
@@ -960,7 +979,7 @@ class ISAACRecordGenerator:
             "timestamps": {
                 "acquired_start_utc": parameters.get("acquired_start_utc") or timestamps_meta.get("acquired_start_utc", "not_specified"),
                 "acquired_end_utc": parameters.get("acquired_end_utc") or timestamps_meta.get("acquired_end_utc", "not_specified"),
-                "created_utc": utc_now(),
+                "created_utc": parameters.get("created_utc") or utc_now(),
             },
             
             "sample": {
@@ -971,6 +990,9 @@ class ISAACRecordGenerator:
                     "notes": parameters.get("sample_notes") or input_sample.get("notes") or material_meta.get("notes") or description or "not_specified",
                 },
                 "sample_form": parameters.get("sample_form") or input_sample.get("sample_form") or sample_meta.get("sample_form", "slab_model"),
+                "catalyst": catalyst_meta,
+                "adsorbate": adsorbate_meta,
+                "structure_id": parameters.get("structure_id") or structure_metadata.get("structure_id") or catalyst_meta.get("structure_id"),
             },
             
             "context": {
@@ -1133,6 +1155,7 @@ class ResultParser:
         
         parameters = dict(parameters or {})
         parameters.setdefault("metadata_inference", inferred)
+        parameters.setdefault("structure_metadata", load_structure_metadata(structure_file))
         
         structure = read_structure_file(structure_file)
         
