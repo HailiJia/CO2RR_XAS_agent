@@ -474,7 +474,7 @@ Generated outputs include `spectrum_table.json`, `condition_table.json`, `ml_tra
 
 ## 11. Agentic recovery and missing-information handling
 
-The Python entry points now do a preflight pass before launching deterministic tools, and the NERSC orchestration layer runs through `custodian` for recoverable workflow steps. If a request is missing required context, the agent returns `status="needs_input"` with `missing_information`, `suggestions`, and the parsed intent instead of a bare script/tool error. Examples include missing catalyst metals for generated structures or a missing structure file for result parsing.
+The Python entry points now do a preflight pass before launching deterministic tools, and the NERSC orchestration layer runs through `custodian` when it is installed. If a request is missing required context, the agent returns `status="needs_input"` with `missing_information`, `suggestions`, and the parsed intent instead of a bare script/tool error. Examples include missing catalyst metals for generated structures or a missing structure file for result parsing.
 
 The agent also attempts safe recovery when enough context is available:
 
@@ -579,7 +579,7 @@ result = process_request(
 
 ---
 
-## 12. Development notes
+## 15. Development notes
 
 - `agent/schemas.py` contains shared schema and normalization logic.
 - `agent/planner.py` contains the optional LLM planner.
