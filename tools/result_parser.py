@@ -835,7 +835,11 @@ class ISAACRecordGenerator:
         
         # Workflow recipe files
         recipe_files = [
-            ("feff.inp", "feff_inputs", "FEFF input deck."),
+            ("feff.inp", "feff_inputs", "FEFF concatenated input deck."),
+            ("HEADER", "feff_header", "FEFF HEADER section file."),
+            ("PARAMETERS", "feff_parameters", "FEFF PARAMETERS section file."),
+            ("POTENTIALS", "feff_potentials", "FEFF POTENTIALS section file."),
+            ("ATOMS", "feff_atoms", "FEFF ATOMS cluster section file."),
             ("fdmfile.txt", "fdmnes_inputs", "FDMNES input file list."),
             ("INCAR", "vasp_incar", "VASP INCAR file."),
             ("KPOINTS", "vasp_kpoints", "VASP KPOINTS file."),

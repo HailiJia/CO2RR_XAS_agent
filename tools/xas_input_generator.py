@@ -117,7 +117,7 @@ def _isaac_submit_metadata_finalize() -> List[str]:
         "    lower = name.lower()",
         "    if name in {'POSCAR', 'CONTCAR'} or lower.endswith(('.cif', '.xyz')):",
         "        return 'input_structure'",
-        "    if name in {'INCAR', 'KPOINTS', 'POTCAR', 'POTCAR.spec', 'make_potcar.sh', 'submit.sh', 'feff.inp', 'fdmfile.txt'} or name.endswith('_in.txt'):",
+        "    if name in {'INCAR', 'KPOINTS', 'POTCAR', 'POTCAR.spec', 'make_potcar.sh', 'submit.sh', 'feff.inp', 'HEADER', 'PARAMETERS', 'POTENTIALS', 'ATOMS', 'fdmfile.txt'} or name.endswith('_in.txt'):",
         "        return 'workflow_recipe'",
         "    if name == 'xmu.dat' or name.endswith('_conv.txt') or name == 'CORE_DIELECTRIC_IMAG.dat':",
         "        return 'reduction_product'",
@@ -159,7 +159,7 @@ def _isaac_submit_metadata_finalize() -> List[str]:
         "",
         "include_names = {",
         "    'POSCAR', 'CONTCAR', 'INCAR', 'KPOINTS', 'POTCAR', 'POTCAR.spec', 'make_potcar.sh', 'submit.sh',",
-        "    'feff.inp', 'fdmfile.txt', 'xmu.dat', 'chi.dat', 'paths.dat', 'files.dat', 'log1.dat',",
+        "    'feff.inp', 'HEADER', 'PARAMETERS', 'POTENTIALS', 'ATOMS', 'fdmfile.txt', 'xmu.dat', 'chi.dat', 'paths.dat', 'files.dat', 'log1.dat',",
         "    'OUTCAR', 'vasprun.xml', 'OSZICAR', 'CONTCAR', 'WAVECAR', 'CHGCAR', 'vasp.out',",
         "    'CORE_DIELECTRIC_IMAG.dat'",
         "}",
@@ -374,8 +374,10 @@ class RelaxationInputGenerator:
 class FEFFInputGenerator:
     """Generate FEFF input files.
 
-    The FEFF calculation is written as one absorber-centered ``feff.inp`` file.
-    The absorber atom is always assigned ``ipot = 0``. Other scattering
+    The FEFF calculation is written in the same split-file style used by
+    Lightshow/pymatgen: ``HEADER``, ``PARAMETERS``, ``POTENTIALS``, and
+    ``ATOMS`` are written alongside the concatenated ``feff.inp``. The
+    absorber atom is always assigned ``ipot = 0``. Other scattering
     potentials, including atoms of the same element as the absorber, are assigned
     positive ``ipot`` values. The cluster is generated from periodic images of
     the input cell so surface supercells and small primitive cells both produce
@@ -562,7 +564,7 @@ class FEFFInputGenerator:
         lines.append("")
         return lines
 
-    def generate_input(
+    def generate_input_sections(
         self,
         structure: Dict,
         absorber: str,
@@ -578,8 +580,8 @@ class FEFFInputGenerator:
         rpath: str = "-1",
         scf_radius: Optional[float] = None,
         fms_radius: Optional[float] = None,
-    ) -> str:
-        """Generate complete ``feff.inp`` content.
+    ) -> Dict[str, str]:
+        """Generate Lightshow/pymatgen-style FEFF input sections.
 
         Args:
             structure: Structure dictionary with atoms, positions, and cell.
@@ -609,28 +611,30 @@ class FEFFInputGenerator:
         )
         potentials, scatterer_ipot = self._build_potentials(cluster, absorber)
 
-        lines = self._header_lines(structure, absorber, edge, radius)
-        lines.extend([
+        header_lines = self._header_lines(structure, absorber, edge, radius)
+        parameter_lines = [
             "CONTROL 1 1 1 1 1 1",
             f"COREHOLE {corehole}",
             f"S02 {self._fmt_float(s02)}",
             f"EXCHANGE {exchange}",
-        ])
+        ]
 
         if scf:
-            lines.append(f"SCF {self._fmt_float(scf_radius)} 0 100 0.2 3")
+            parameter_lines.append(f"SCF {self._fmt_float(scf_radius)} 0 100 0.2 3")
         if fms:
-            lines.append(f"FMS {self._fmt_float(fms_radius)} 0")
+            parameter_lines.append(f"FMS {self._fmt_float(fms_radius)} 0")
 
-        lines.extend([
+        parameter_lines.extend([
             f"XANES {xanes}",
             f"EDGE {edge}",
             f"RPATH {rpath}",
-            "",
+        ])
+
+        potential_lines = [
             "POTENTIALS",
             "  *ipot    Z  tag      lmax1    lmax2    xnatph(stoichometry)    spinph",
             "******-  **-  ****-  ******-  ******-  **********************  ********",
-        ])
+        ]
 
         for pot in potentials:
             xnatph = pot["xnatph"]
@@ -638,30 +642,48 @@ class FEFFInputGenerator:
                 xnatph_str = f"{float(xnatph):.4f}"
             else:
                 xnatph_str = f"{int(xnatph)}"
-            lines.append(
+            potential_lines.append(
                 f"{pot['ipot']:7d} {pot['z']:4d}  {pot['element']:<4s}"
                 f"{ -1:10d}{ -1:9d}{xnatph_str:>23s}{0:10d}"
             )
 
-        lines.extend([
-            "",
+        atom_lines = [
             "ATOMS",
             "   *       x         y         z    ipot  Atom      Distance    Number",
             "************  ********  ********  ******  ******  **********  ********",
-        ])
+        ]
 
         for number, item in enumerate(cluster):
             elem = item["element"]
             rel = item["rel"]
             dist = item["distance"]
             ipot = 0 if item["is_absorber"] else scatterer_ipot[elem]
-            lines.append(
+            atom_lines.append(
                 f"{self._fmt_float(rel[0]):>12s} {self._fmt_float(rel[1]):>9s} {self._fmt_float(rel[2]):>9s}"
                 f" {ipot:7d}  {elem:<4s} {self._fmt_float(dist):>11s} {number:8d}"
             )
 
-        lines.extend(["", "END", ""])
-        return "\n".join(lines)
+        sections = {
+            "HEADER": "\n".join(header_lines).rstrip() + "\n",
+            "PARAMETERS": "\n".join(parameter_lines).rstrip() + "\n",
+            "POTENTIALS": "\n".join(potential_lines).rstrip() + "\n",
+            "ATOMS": "\n".join(atom_lines).rstrip() + "\n",
+        }
+        sections["feff.inp"] = (
+            sections["HEADER"]
+            + "\n"
+            + sections["PARAMETERS"]
+            + "\n"
+            + sections["POTENTIALS"]
+            + "\n"
+            + sections["ATOMS"]
+            + "\nEND\n"
+        )
+        return sections
+
+    def generate_input(self, *args, **kwargs) -> str:
+        """Generate complete ``feff.inp`` content."""
+        return self.generate_input_sections(*args, **kwargs)["feff.inp"]
 
     def write_input(
         self,
@@ -671,16 +693,15 @@ class FEFFInputGenerator:
         edge: str = "K",
         **kwargs
     ) -> str:
-        """Write ``feff.inp`` to directory."""
+        """Write ``HEADER``, ``PARAMETERS``, ``POTENTIALS``, ``ATOMS``, and ``feff.inp``."""
         ensure_dir(output_dir)
 
-        content = self.generate_input(structure, absorber, edge=edge, **kwargs)
-        filepath = os.path.join(output_dir, "feff.inp")
+        sections = self.generate_input_sections(structure, absorber, edge=edge, **kwargs)
+        for filename in ["HEADER", "PARAMETERS", "POTENTIALS", "ATOMS", "feff.inp"]:
+            with open(os.path.join(output_dir, filename), "w") as f:
+                f.write(sections[filename])
 
-        with open(filepath, "w") as f:
-            f.write(content)
-
-        return filepath
+        return os.path.join(output_dir, "feff.inp")
 
 class FDMNESInputGenerator:
     """Generate FDMNES input files."""
@@ -1558,7 +1579,13 @@ class XASInputGenerator:
             )
             results['xas'][edge_key]['FEFF'] = {
                 'input': feff_file,
-                'submit': feff_script
+                'submit': feff_script,
+                'section_files': {
+                    'HEADER': os.path.join(feff_dir, 'HEADER'),
+                    'PARAMETERS': os.path.join(feff_dir, 'PARAMETERS'),
+                    'POTENTIALS': os.path.join(feff_dir, 'POTENTIALS'),
+                    'ATOMS': os.path.join(feff_dir, 'ATOMS'),
+                },
             }
             
             # VASP (only for K-edge): one selected method, but two execution steps.

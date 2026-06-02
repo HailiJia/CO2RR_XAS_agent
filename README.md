@@ -301,15 +301,19 @@ which is then converted to FDMNES order internally.
 
 ### FEFF
 
-Each FEFF calculation folder contains one required FEFF input:
+Each FEFF calculation folder contains Lightshow/pymatgen-style split FEFF inputs plus the concatenated `feff.inp`:
 
 ```text
 FEFF/
+├── HEADER
+├── PARAMETERS
+├── POTENTIALS
+├── ATOMS
 ├── feff.inp
 └── submit.sh
 ```
 
-The FEFF generator now writes an absorber-centered periodic cluster:
+`feff.inp` is assembled from the split sections so it remains runnable by FEFF, while `HEADER`, `PARAMETERS`, `POTENTIALS`, and `ATOMS` are preserved for inspection, provenance, and Lightshow-compatible downstream workflows. The FEFF generator writes an absorber-centered periodic cluster:
 
 ```text
 ipot = 0   absorber atom
@@ -474,7 +478,7 @@ Generated outputs include `spectrum_table.json`, `condition_table.json`, `ml_tra
 
 ## 11. Agentic recovery and missing-information handling
 
-The Python entry points now do a preflight pass before launching deterministic tools, and the NERSC orchestration layer runs through `custodian` when it is installed. If a request is missing required context, the agent returns `status="needs_input"` with `missing_information`, `suggestions`, and the parsed intent instead of a bare script/tool error. Examples include missing catalyst metals for generated structures or a missing structure file for result parsing.
+The Python entry points now do a preflight pass before launching deterministic tools, and the NERSC orchestration layer runs through `custodian` for recoverable workflow steps. If a request is missing required context, the agent returns `status="needs_input"` with `missing_information`, `suggestions`, and the parsed intent instead of a bare script/tool error. Examples include missing catalyst metals for generated structures or a missing structure file for result parsing.
 
 The agent also attempts safe recovery when enough context is available:
 
