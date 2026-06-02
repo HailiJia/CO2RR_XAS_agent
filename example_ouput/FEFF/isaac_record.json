@@ -1,6 +1,6 @@
 {
   "isaac_record_version": "1.05",
-  "record_id": "01JFH8SIMXAS4F84BC1DB7214F",
+  "record_id": "01JFH8SIMXASDBEBCB7703974F",
   "record_type": "evidence",
   "record_domain": "simulation",
   "source_type": "computation",
@@ -53,6 +53,22 @@
         "notes": "FEFF does not use VASP-style pseudopotentials/POTCAR files."
       },
       "notes": "FEFF real-space multiple-scattering XAS simulation."
+    },
+    "run": {
+      "software": "FEFF",
+      "scheduler": "PBS",
+      "command": "module load feff; feff feff.inp",
+      "exit_code": 0,
+      "working_directory": "$PBS_O_WORKDIR",
+      "hostname": "not_captured_by_legacy_pbs_script",
+      "pbs_job_name": "Cu_FEFF",
+      "pbs_account": "cnm83940",
+      "pbs_resource": "nodes=1:ppn=64:gen8",
+      "pbs_walltime": "48:00:00",
+      "pbs_output_file": "job.out",
+      "pbs_error_file": "job.err",
+      "cluster": "gen8",
+      "metadata_capture": "Legacy example .pbs script does not write runtime metadata automatically; fields are reconstructed from PBS directives and existing example metadata."
     }
   },
   "measurement": {
@@ -291,20 +307,36 @@
   },
   "assets": [
     {
-      "asset_id": "fdmnes_input_deck",
+      "asset_id": "structure_relaxed",
+      "content_role": "input_structure",
+      "uri": "https://github.com/HailiJia/CO2RR_XAS_agent/blob/main/example_ouput/VASP/XAS/POSCAR",
+      "media_type": "chemical/x-poscar",
+      "sha256": "ae687700cd8ec42d6c0df29b4e4e026e8246d71a326367dd085be789c2dd291a",
+      "notes": "Relaxed geometry used for XAS simulation. Contains full atomic coordinates."
+    },
+    {
+      "asset_id": "feff_inputs",
       "content_role": "workflow_recipe",
-      "uri": "/Users/hjia/Downloads/Cu/Cu/FDMNES_fdm/Cu_in.txt",
+      "uri": "https://github.com/HailiJia/CO2RR_XAS_agent/blob/main/example_ouput/FEFF/feff.inp",
       "media_type": "text/plain",
-      "sha256": "not_computed_in_manual_test",
-      "notes": "FEFF input deck used for the Cu K-edge calculation."
+      "sha256": "b472d17a504d29b4e5ef5e652989b91243121ff1103039f78e2ed20ebb25cf05",
+      "notes": "FEFF input deck."
+    },
+    {
+      "asset_id": "feff_submit_script",
+      "content_role": "workflow_recipe",
+      "uri": "https://github.com/HailiJia/CO2RR_XAS_agent/blob/main/example_ouput/FEFF/feff.pbs",
+      "media_type": "text/plain",
+      "sha256": "b64463937c792d9074286e07ca6a79746270a202b0f04d837b6682d32a74819b",
+      "notes": "PBS job submission script for the FEFF example run."
     },
     {
       "asset_id": "xas_fullres",
       "content_role": "reduction_product",
-      "uri": "/Users/hjia/Downloads/Cu/Cu/FDMNES_fdm/Cu_conv.txt",
+      "uri": "https://github.com/HailiJia/CO2RR_XAS_agent/blob/main/example_ouput/FEFF/xmu.dat",
       "media_type": "text/plain",
-      "sha256": "not_computed_in_manual_test",
-      "notes": "Full-resolution FEFF convolved spectrum."
+      "sha256": "7440caa9ed6e44a6f5d6abb6507af5949308fbbe83f7bed55271ffa938b1f76a",
+      "notes": "Full-resolution simulated spectrum (energy grid + mu)."
     }
   ],
   "links": [],

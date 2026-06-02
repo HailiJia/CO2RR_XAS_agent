@@ -5,12 +5,12 @@
   },
   "sample": {
     "material": {
-      "name": "Cu(111) slab model with CHO",
-      "formula": "Cu36C1H1O1",
+      "name": "not_specified",
+      "formula": "not_specified",
       "provenance": "theoretical",
-      "notes": "Generated Cu(111) slab with CHO adsorbate; geometry from CO2RR_XAS_agent local test."
+      "notes": "Sample name and formula are inferred by the record generator from the simulation input files."
     },
-    "sample_form": "slab_model"
+    "sample_form": "not_specified"
   },
   "context": {
     "environment": "in_silico",
@@ -21,9 +21,9 @@
     "domain": "computational",
     "technique": "finite_difference_or_multiple_scattering_xas",
     "facility": {
-      "facility_name": "NERSC",
+      "facility_name": "ANL",
       "organization": "ANL",
-      "cluster": "Perlmutter"
+      "cluster": "gen8"
     },
     "instrument": {
       "instrument_type": "simulation_engine",
@@ -37,15 +37,19 @@
   },
   "run": {
     "software": "FDMNES",
-    "command": "fdmnes < fdmfile.txt",
+    "scheduler": "PBS",
+    "command": "/home/hjia/parallel_fdmnes/fdmnes_mpi_linux64 -np 64",
     "exit_code": 0,
-    "working_directory": "/Users/hjia/Downloads/Cu/Cu/FDMNES_fdm",
-    "hostname": "local-test",
-    "slurm_job_id": "not_specified",
-    "slurm_job_name": "not_specified",
-    "slurm_partition": "not_specified",
-    "slurm_nodelist": "not_specified",
-    "nersc_host": "not_specified"
+    "working_directory": "$PBS_O_WORKDIR",
+    "hostname": "not_captured_by_legacy_pbs_script",
+    "pbs_job_name": "Cu_fdm_green",
+    "pbs_account": "cnm83940",
+    "pbs_resource": "nodes=1:ppn=64:gen8",
+    "pbs_walltime": "96:00:00",
+    "pbs_output_file": "job.out",
+    "pbs_error_file": "job.err",
+    "cluster": "gen8",
+    "metadata_capture": "Legacy example .pbs script does not write runtime metadata automatically; fields are reconstructed from PBS directives and existing example metadata."
   },
   "measurement": {
     "processing": {
@@ -61,20 +65,36 @@
   },
   "assets": [
     {
+      "asset_id": "fdmnes_inputs",
+      "content_role": "workflow_recipe",
+      "uri": "https://github.com/HailiJia/CO2RR_XAS_agent/blob/main/example_ouput/FDMNES/fdmfile.txt",
+      "media_type": "text/plain",
+      "sha256": "a5e08865ed335820d1f46005195ab88af2ca5d1f8eeb5a82273fbe4d5af92901",
+      "notes": "FDMNES input file list used for the Cu K-edge calculation."
+    },
+    {
       "asset_id": "fdmnes_input_deck",
       "content_role": "workflow_recipe",
-      "uri": "/Users/hjia/Downloads/Cu/Cu/FDMNES_fdm/Cu_in.txt",
+      "uri": "https://github.com/HailiJia/CO2RR_XAS_agent/blob/main/example_ouput/FDMNES/Cu_in.txt",
       "media_type": "text/plain",
-      "sha256": "not_computed_in_manual_test",
+      "sha256": "91b74c75a22d77b4683a646fe3aa45a8d27c33f4155d87a08f86abfe69e114e9",
       "notes": "FDMNES input deck used for the Cu K-edge calculation."
+    },
+    {
+      "asset_id": "fdmnes_submit_script",
+      "content_role": "workflow_recipe",
+      "uri": "https://github.com/HailiJia/CO2RR_XAS_agent/blob/main/example_ouput/FDMNES/fdm.pbs",
+      "media_type": "text/plain",
+      "sha256": "8b5f88f3e6a95c23b729d51072afe0fcb02b95dbeaca441fa45fd176fa974270",
+      "notes": "PBS job script for the FDMNES example calculation."
     },
     {
       "asset_id": "xas_fullres",
       "content_role": "reduction_product",
-      "uri": "/Users/hjia/Downloads/Cu/Cu/FDMNES_fdm/Cu_conv.txt",
+      "uri": "https://github.com/HailiJia/CO2RR_XAS_agent/blob/main/example_ouput/FDMNES/Cu_conv.txt",
       "media_type": "text/plain",
-      "sha256": "not_computed_in_manual_test",
-      "notes": "Full-resolution FDMNES convolved spectrum."
+      "sha256": "634f639482736a2fc5b42a8b3f6f52681bfe3747720fd808d345a8cb35a0c358",
+      "notes": "Full-resolution FDMNES convolved spectrum parsed into the ISAAC measurement series."
     }
   ],
   "links": [],

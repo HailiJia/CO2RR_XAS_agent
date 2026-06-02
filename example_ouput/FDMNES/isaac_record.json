@@ -1,6 +1,6 @@
 {
   "isaac_record_version": "1.05",
-  "record_id": "01JFH8SIMXAS649E4EF2D43449",
+  "record_id": "01JFH8SIMXASC142B32F111442",
   "record_type": "evidence",
   "record_domain": "simulation",
   "source_type": "computation",
@@ -55,6 +55,22 @@
         "notes": "FDMNES does not use VASP-style pseudopotentials/POTCAR files."
       },
       "notes": "FDMNES XAS simulation."
+    },
+    "run": {
+      "software": "FDMNES",
+      "scheduler": "PBS",
+      "command": "/home/hjia/parallel_fdmnes/fdmnes_mpi_linux64 -np 64",
+      "exit_code": 0,
+      "working_directory": "$PBS_O_WORKDIR",
+      "hostname": "not_captured_by_legacy_pbs_script",
+      "pbs_job_name": "Cu_fdm_green",
+      "pbs_account": "cnm83940",
+      "pbs_resource": "nodes=1:ppn=64:gen8",
+      "pbs_walltime": "96:00:00",
+      "pbs_output_file": "job.out",
+      "pbs_error_file": "job.err",
+      "cluster": "gen8",
+      "metadata_capture": "Legacy example .pbs script does not write runtime metadata automatically; fields are reconstructed from PBS directives and existing example metadata."
     }
   },
   "measurement": {
@@ -645,20 +661,44 @@
   },
   "assets": [
     {
-      "asset_id": "fdmnes_input_deck",
+      "asset_id": "structure_relaxed",
+      "content_role": "input_structure",
+      "uri": "https://github.com/HailiJia/CO2RR_XAS_agent/blob/main/example_ouput/VASP/XAS/POSCAR",
+      "media_type": "chemical/x-poscar",
+      "sha256": "ae687700cd8ec42d6c0df29b4e4e026e8246d71a326367dd085be789c2dd291a",
+      "notes": "Relaxed geometry used for XAS simulation. Contains full atomic coordinates."
+    },
+    {
+      "asset_id": "fdmnes_inputs",
       "content_role": "workflow_recipe",
-      "uri": "/Users/hjia/Downloads/Cu/Cu/FDMNES_fdm/Cu_in.txt",
+      "uri": "https://github.com/HailiJia/CO2RR_XAS_agent/blob/main/example_ouput/FDMNES/fdmfile.txt",
       "media_type": "text/plain",
-      "sha256": "not_computed_in_manual_test",
-      "notes": "FDMNES input deck used for the Cu K-edge calculation."
+      "sha256": "a5e08865ed335820d1f46005195ab88af2ca5d1f8eeb5a82273fbe4d5af92901",
+      "notes": "FDMNES input file list."
+    },
+    {
+      "asset_id": "fdmnes_submit_script",
+      "content_role": "workflow_recipe",
+      "uri": "https://github.com/HailiJia/CO2RR_XAS_agent/blob/main/example_ouput/FDMNES/fdm.pbs",
+      "media_type": "text/plain",
+      "sha256": "8b5f88f3e6a95c23b729d51072afe0fcb02b95dbeaca441fa45fd176fa974270",
+      "notes": "PBS job submission script for the FDMNES example run."
+    },
+    {
+      "asset_id": "fdmnes_Cu_in.txt",
+      "content_role": "workflow_recipe",
+      "uri": "https://github.com/HailiJia/CO2RR_XAS_agent/blob/main/example_ouput/FDMNES/Cu_in.txt",
+      "media_type": "text/plain",
+      "sha256": "91b74c75a22d77b4683a646fe3aa45a8d27c33f4155d87a08f86abfe69e114e9",
+      "notes": "FDMNES input file."
     },
     {
       "asset_id": "xas_fullres",
       "content_role": "reduction_product",
-      "uri": "/Users/hjia/Downloads/Cu/Cu/FDMNES_fdm/Cu_conv.txt",
+      "uri": "https://github.com/HailiJia/CO2RR_XAS_agent/blob/main/example_ouput/FDMNES/Cu_conv.txt",
       "media_type": "text/plain",
-      "sha256": "not_computed_in_manual_test",
-      "notes": "Full-resolution FDMNES convolved spectrum."
+      "sha256": "634f639482736a2fc5b42a8b3f6f52681bfe3747720fd808d345a8cb35a0c358",
+      "notes": "Full-resolution simulated spectrum (energy grid + mu)."
     }
   ],
   "links": [],

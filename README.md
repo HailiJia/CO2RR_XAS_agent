@@ -12,6 +12,7 @@ The current workflow supports:
 - ISAAC record generation
 - Local regex parsing for offline tests
 - Optional LLM planning through an OpenAI-compatible endpoint, including ALCF/AskSage-style gateways
+- NERSC submit/monitor/finalize workflow; see `README_NERSC_WORKFLOW.md`
 
 ---
 

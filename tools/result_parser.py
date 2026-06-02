@@ -7,6 +7,7 @@ import os
 import json
 import re
 import hashlib
+import math
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple, Any
 from datetime import datetime, timezone
@@ -95,18 +96,34 @@ def _media_type_for_file(path: str) -> str:
     return "text/plain"
 
 
+def _asset_uri(path: str, asset_base_uri: Optional[str] = None, repo_root: Optional[str] = None) -> str:
+    """Return either a repository URI for a local asset or its filesystem path."""
+    p = Path(path)
+    if asset_base_uri:
+        base = asset_base_uri.rstrip("/")
+        root = Path(repo_root).resolve() if repo_root else Path.cwd().resolve()
+        try:
+            rel = p.resolve().relative_to(root) if p.exists() else p.relative_to(root)
+            return f"{base}/{rel.as_posix()}"
+        except (ValueError, RuntimeError):
+            return f"{base}/{p.name}"
+    return str(p.resolve()) if p.exists() else str(p)
+
+
 def _asset(
-    path: str, 
-    asset_id: str, 
-    content_role: str, 
-    notes: str = ""
+    path: str,
+    asset_id: str,
+    content_role: str,
+    notes: str = "",
+    asset_base_uri: Optional[str] = None,
+    repo_root: Optional[str] = None,
 ) -> Dict[str, Any]:
     """Create an ISAAC-compliant asset entry."""
     p = Path(path)
     return {
         "asset_id": asset_id,
         "content_role": content_role,
-        "uri": str(p.resolve()) if p.exists() else str(p),
+        "uri": _asset_uri(str(p), asset_base_uri=asset_base_uri, repo_root=repo_root),
         "media_type": _media_type_for_file(str(p)),
         "sha256": sha256_file(str(p)),
         "notes": notes,
@@ -155,6 +172,86 @@ def _formula_from_atoms(atoms: List[str]) -> str:
             order.append(atom)
         counts[atom] += 1
     return "".join(f"{el}{counts[el] if counts[el] > 1 else ''}" for el in order)
+
+
+def _reduced_formula_from_atoms(atoms: List[str]) -> str:
+    """Return a reduced chemical formula inferred from input-file atoms."""
+    if not atoms:
+        return "not_specified"
+    counts: Dict[str, int] = {}
+    order: List[str] = []
+    for atom in atoms:
+        if atom not in counts:
+            counts[atom] = 0
+            order.append(atom)
+        counts[atom] += 1
+
+    divisor = 0
+    for count in counts.values():
+        divisor = count if divisor == 0 else math.gcd(divisor, count)
+    divisor = max(divisor, 1)
+
+    return "".join(
+        f"{el}{(counts[el] // divisor) if (counts[el] // divisor) > 1 else ''}"
+        for el in order
+    )
+
+
+def _formula_from_feff_input(output_dir: str) -> Optional[str]:
+    """Read reduced formula metadata from FEFF input titles when present."""
+    for inp in [os.path.join(output_dir, "feff.inp"), os.path.join(os.path.dirname(output_dir), "feff.inp")]:
+        text = _read_text_if_exists(inp)
+        if not text:
+            continue
+        match = re.search(r"^TITLE\s+Reduced formula:\s*(\S+)", text, re.MULTILINE | re.IGNORECASE)
+        if match:
+            return match.group(1).strip()
+        match = re.search(r"^TITLE\s+Structure Summary:\s*(\S+)", text, re.MULTILINE | re.IGNORECASE)
+        if match:
+            return match.group(1).strip()
+    return None
+
+
+def _infer_sample_from_inputs(
+    structure: Dict[str, Any],
+    output_dir: str,
+    structure_file: str,
+    software: str,
+    absorber: str,
+    edge: str,
+) -> Dict[str, str]:
+    """Infer sample metadata from simulation input files, not hardcoded labels."""
+    atoms = structure.get("atoms", []) or []
+    formula = _formula_from_feff_input(output_dir) or _reduced_formula_from_atoms(atoms)
+    if not formula or formula == "not_specified":
+        formula = _formula_from_atoms(atoms)
+
+    unique_atoms = []
+    for atom in atoms:
+        if atom not in unique_atoms:
+            unique_atoms.append(atom)
+
+    sample_form = "bulk_model"
+    cell = structure.get("cell") or []
+    try:
+        lengths = [float(np.linalg.norm(np.array(v, dtype=float))) for v in cell]
+        if len(lengths) == 3:
+            median = float(np.median(lengths))
+            if median > 0 and max(lengths) / median > 1.8:
+                sample_form = "slab_model"
+    except Exception:
+        sample_form = "model"
+
+    source_name = Path(structure_file).name if structure_file else "input structure"
+    composition_note = (
+        f"contains only {unique_atoms[0]}" if len(unique_atoms) == 1 else f"contains elements {', '.join(unique_atoms)}"
+    )
+    return {
+        "name": f"{formula} reference model for {absorber} {edge}-edge XAS",
+        "formula": formula,
+        "sample_form": sample_form,
+        "notes": f"Sample metadata inferred from {source_name} and {software} input files; {composition_note}.",
+    }
 
 
 def _default_code_version(software: str) -> str:
@@ -693,13 +790,19 @@ class ISAACRecordGenerator:
         output_dir: str,
         structure_file: str,
         parsed_source_file: Optional[str],
-        run_metadata: Dict[str, Any]
+        run_metadata: Dict[str, Any],
+        parameters: Dict[str, Any],
     ) -> List[Dict[str, Any]]:
         """Build ISAAC-compliant assets list."""
-        # Use run_metadata assets if available
+        # Prefer explicitly supplied metadata assets unless the caller asks to
+        # regenerate them from files in output_dir (useful for example records
+        # that should use repository/GitHub links rather than local run paths).
         assets = run_metadata.get("assets") if isinstance(run_metadata.get("assets"), list) else []
-        if assets:
+        if assets and not parameters.get("prefer_generated_assets", False):
             return assets
+
+        asset_base_uri = parameters.get("asset_base_uri")
+        repo_root = parameters.get("repo_root")
         
         out = []
         
@@ -709,7 +812,9 @@ class ISAACRecordGenerator:
                 structure_file,
                 "structure_relaxed",
                 "input_structure",
-                "Relaxed geometry used for XAS simulation. Contains full atomic coordinates."
+                "Relaxed geometry used for XAS simulation. Contains full atomic coordinates.",
+                asset_base_uri=asset_base_uri,
+                repo_root=repo_root,
             ))
         
         # Workflow recipe files
@@ -720,19 +825,22 @@ class ISAACRecordGenerator:
             ("KPOINTS", "vasp_kpoints", "VASP KPOINTS file."),
             ("POTCAR.spec", "vasp_potcar_spec", "VASP POTCAR specification."),
             ("submit.sh", "submit_script", "Job submission script."),
+            ("feff.pbs", "feff_submit_script", "PBS job submission script for the FEFF example run."),
+            ("fdm.pbs", "fdmnes_submit_script", "PBS job submission script for the FDMNES example run."),
+            ("vasp.pbs", "vasp_submit_script", "PBS job submission script for the VASP example run."),
         ]
         
         for filename, asset_id, notes in recipe_files:
             p = Path(output_dir) / filename
             if p.exists():
-                out.append(_asset(str(p), asset_id, "workflow_recipe", notes))
+                out.append(_asset(str(p), asset_id, "workflow_recipe", notes, asset_base_uri=asset_base_uri, repo_root=repo_root))
         
         # Also check for *_in.txt files (FDMNES)
         if os.path.isdir(output_dir):
             for name in os.listdir(output_dir):
                 if name.endswith("_in.txt"):
                     p = Path(output_dir) / name
-                    out.append(_asset(str(p), f"fdmnes_{name}", "workflow_recipe", "FDMNES input file."))
+                    out.append(_asset(str(p), f"fdmnes_{name}", "workflow_recipe", "FDMNES input file.", asset_base_uri=asset_base_uri, repo_root=repo_root))
                     break  # Only add one
         
         # Reduction product (parsed spectrum)
@@ -741,7 +849,9 @@ class ISAACRecordGenerator:
                 parsed_source_file,
                 "xas_fullres",
                 "reduction_product",
-                "Full-resolution simulated spectrum (energy grid + mu)."
+                "Full-resolution simulated spectrum (energy grid + mu).",
+                asset_base_uri=asset_base_uri,
+                repo_root=repo_root,
             ))
         
         return out
@@ -805,9 +915,17 @@ class ISAACRecordGenerator:
         run_metadata = find_run_metadata(output_dir)
         inferred = parameters.get("metadata_inference", {})
         
-        # Extract atoms and formula
+        # Extract atoms and infer sample metadata from input files.
         atoms = structure.get("atoms", []) or []
-        formula = parameters.get("formula") or _formula_from_atoms(atoms)
+        input_sample = _infer_sample_from_inputs(
+            structure=structure,
+            output_dir=output_dir,
+            structure_file=structure_file,
+            software=software,
+            absorber=absorber,
+            edge=edge,
+        )
+        formula = parameters.get("formula") or input_sample.get("formula") or _formula_from_atoms(atoms)
         
         # Extract metadata from run_metadata
         sample_meta = run_metadata.get("sample", {}) if isinstance(run_metadata.get("sample"), dict) else {}
@@ -847,12 +965,12 @@ class ISAACRecordGenerator:
             
             "sample": {
                 "material": {
-                    "name": parameters.get("sample_name") or material_meta.get("name") or f"{formula} model for {absorber} {edge}-edge XAS",
-                    "formula": material_meta.get("formula") or formula,
+                    "name": parameters.get("sample_name") or input_sample.get("name") or material_meta.get("name") or f"{formula} model for {absorber} {edge}-edge XAS",
+                    "formula": parameters.get("formula") or input_sample.get("formula") or material_meta.get("formula") or formula,
                     "provenance": material_meta.get("provenance", "theoretical"),
-                    "notes": parameters.get("sample_notes") or material_meta.get("notes") or description or "not_specified",
+                    "notes": parameters.get("sample_notes") or input_sample.get("notes") or material_meta.get("notes") or description or "not_specified",
                 },
-                "sample_form": parameters.get("sample_form") or sample_meta.get("sample_form", "slab_model"),
+                "sample_form": parameters.get("sample_form") or input_sample.get("sample_form") or sample_meta.get("sample_form", "slab_model"),
             },
             
             "context": {
@@ -881,7 +999,8 @@ class ISAACRecordGenerator:
             },
             
             "computation": {
-                "method": self._default_method(software, run_metadata, inferred, parameters)
+                "method": self._default_method(software, run_metadata, inferred, parameters),
+                "run": run_metadata.get("run", parameters.get("run", {})),
             },
             
             "measurement": {
@@ -917,7 +1036,7 @@ class ISAACRecordGenerator:
                 },
             },
             
-            "assets": self._build_assets(output_dir, structure_file, parsed_source_file, run_metadata),
+            "assets": self._build_assets(output_dir, structure_file, parsed_source_file, run_metadata, parameters),
             
             "links": self._build_links(parameters, run_metadata, absorber, edge),
             

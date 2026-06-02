@@ -5,12 +5,12 @@
   },
   "sample": {
     "material": {
-      "name": "Cu(111) slab model with CHO",
-      "formula": "Cu36C1H1O1",
+      "name": "not_specified",
+      "formula": "not_specified",
       "provenance": "theoretical",
-      "notes": "Generated Cu(111) slab with CHO adsorbate; geometry from CO2RR_XAS_agent local test."
+      "notes": "Sample name and formula are inferred by the record generator from the simulation input files."
     },
-    "sample_form": "slab_model"
+    "sample_form": "not_specified"
   },
   "context": {
     "environment": "in_silico",
@@ -19,11 +19,11 @@
   },
   "system": {
     "domain": "computational",
-    "technique": "finite_difference_or_multiple_scattering_xas",
+    "technique": "DFT",
     "facility": {
-      "facility_name": "NERSC",
+      "facility_name": "ANL",
       "organization": "ANL",
-      "cluster": "Perlmutter"
+      "cluster": "gen8"
     },
     "instrument": {
       "instrument_type": "simulation_engine",
@@ -37,15 +37,19 @@
   },
   "run": {
     "software": "VASP",
-    "command": "srun vasp_std in 01_scf; srun vasp_std in 02_xas",
+    "scheduler": "PBS",
+    "command": "module load impi/2019/2019.Update.9; module load intel/19/19.1.3; module load hdf5/1.10/intel-19/1.10.8-3; module load --auto vasp6; mpirun vasp_std",
     "exit_code": 0,
-    "working_directory": "/Users/hjia/Downloads/Cu/Cu/FDMNES_fdm",
-    "hostname": "local-test",
-    "slurm_job_id": "not_specified",
-    "slurm_job_name": "not_specified",
-    "slurm_partition": "not_specified",
-    "slurm_nodelist": "not_specified",
-    "nersc_host": "not_specified"
+    "working_directory": "$PBS_O_WORKDIR",
+    "hostname": "not_captured_by_legacy_pbs_script",
+    "pbs_job_name": "Cu_GW",
+    "pbs_account": "cnm83940",
+    "pbs_resource": "nodes=1:ppn=64:gen8",
+    "pbs_walltime": "1:00:00",
+    "pbs_output_file": "job.out",
+    "pbs_error_file": "job.err",
+    "cluster": "gen8",
+    "metadata_capture": "Legacy example .pbs script does not write runtime metadata automatically; fields are reconstructed from PBS directives and existing example metadata."
   },
   "measurement": {
     "processing": {
@@ -61,20 +65,44 @@
   },
   "assets": [
     {
-      "asset_id": "fdmnes_input_deck",
+      "asset_id": "vasp_poscar",
+      "content_role": "input_structure",
+      "uri": "https://github.com/HailiJia/CO2RR_XAS_agent/blob/main/example_ouput/VASP/XAS/POSCAR",
+      "media_type": "chemical/x-poscar",
+      "sha256": "ae687700cd8ec42d6c0df29b4e4e026e8246d71a326367dd085be789c2dd291a",
+      "notes": "POSCAR used for the VASP XAS example."
+    },
+    {
+      "asset_id": "vasp_incar",
       "content_role": "workflow_recipe",
-      "uri": "/Users/hjia/Downloads/Cu/Cu/FDMNES_fdm/Cu_in.txt",
+      "uri": "https://github.com/HailiJia/CO2RR_XAS_agent/blob/main/example_ouput/VASP/XAS/INCAR",
       "media_type": "text/plain",
-      "sha256": "not_computed_in_manual_test",
-      "notes": "VASP input deck used for the Cu K-edge calculation."
+      "sha256": "80d990d72034035bb73b696ce42220a3a3f2f971ad43af421b3bdcf4ff220979",
+      "notes": "VASP INCAR used for the XAS example."
+    },
+    {
+      "asset_id": "vasp_kpoints",
+      "content_role": "workflow_recipe",
+      "uri": "https://github.com/HailiJia/CO2RR_XAS_agent/blob/main/example_ouput/VASP/XAS/KPOINTS",
+      "media_type": "text/plain",
+      "sha256": "9f69ddd8c0a5c53c3cf2688051d9da98486d75255ee90fbe24d082c9a16ed0cc",
+      "notes": "VASP KPOINTS used for the XAS example."
+    },
+    {
+      "asset_id": "vasp_submit_script",
+      "content_role": "workflow_recipe",
+      "uri": "https://github.com/HailiJia/CO2RR_XAS_agent/blob/main/example_ouput/VASP/XAS/vasp.pbs",
+      "media_type": "text/plain",
+      "sha256": "feba600f759d1e7aea905b5652cdaf08ddd719b9a27553fdc229b340035bb18d",
+      "notes": "PBS job script for the VASP example calculation."
     },
     {
       "asset_id": "xas_fullres",
       "content_role": "reduction_product",
-      "uri": "/Users/hjia/Downloads/Cu/Cu/FDMNES_fdm/Cu_conv.txt",
+      "uri": "https://github.com/HailiJia/CO2RR_XAS_agent/blob/main/example_ouput/VASP/XAS/OUTCAR",
       "media_type": "text/plain",
-      "sha256": "not_computed_in_manual_test",
-      "notes": "Full-resolution VASP convolved spectrum."
+      "sha256": "b5344c2cf05e4e7a9cfe9ab345f718b9ccb70af076c2ade57057d61137f68cfa",
+      "notes": "VASP OUTCAR parsed into the ISAAC measurement series."
     }
   ],
   "links": [],
