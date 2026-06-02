@@ -7,16 +7,16 @@
   "timestamps": {
     "acquired_start_utc": "2026-05-28T20:10:00Z",
     "acquired_end_utc": "2026-05-28T22:55:00Z",
-    "created_utc": "2026-05-29T20:01:23Z"
+    "created_utc": "2026-05-29T19:43:03Z"
   },
   "sample": {
     "material": {
-      "name": "Cu reference model for Cu K-edge XAS",
-      "formula": "Cu",
+      "name": "Cu(111) slab model with CHO",
+      "formula": "Cu36C1H1O1",
       "provenance": "theoretical",
-      "notes": "Sample metadata inferred from POSCAR and FEFF input files; contains only Cu."
+      "notes": "Generated Cu(111) slab with CHO adsorbate; geometry from CO2RR_XAS_agent local test."
     },
-    "sample_form": "bulk_model"
+    "sample_form": "slab_model"
   },
   "context": {
     "environment": "in_silico",
@@ -25,11 +25,11 @@
   },
   "system": {
     "domain": "computational",
-    "technique": "multiple_scattering_xas",
+    "technique": "finite_difference_or_multiple_scattering_xas",
     "facility": {
-      "facility_name": "ANL",
+      "facility_name": "NERSC",
       "organization": "ANL",
-      "cluster": "gen8"
+      "cluster": "Perlmutter"
     },
     "instrument": {
       "instrument_type": "simulation_engine",
