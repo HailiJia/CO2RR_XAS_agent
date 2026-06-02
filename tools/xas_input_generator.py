@@ -10,7 +10,7 @@ from typing import Dict, List, Tuple, Optional
 from .utils import (
     ATOMIC_NUMBERS, METALS_3D, METALS_4D, METALS_5D,
     EDGE_ENERGIES, METAL_DATA,
-    get_edge_for_element, get_edge_energy, contains_carbon,
+    get_edge_for_element, get_edge_energy, contains_carbon, get_nersc_defaults,
     read_poscar, read_structure_file, write_poscar, ensure_dir
 )
 
@@ -55,7 +55,7 @@ def _isaac_submit_metadata_setup(
         f"export ISAAC_INSTRUMENT_NAME=\"${{ISAAC_INSTRUMENT_NAME:-{instrument_name}}}\"",
         f"export ISAAC_VENDOR_OR_PROJECT=\"${{ISAAC_VENDOR_OR_PROJECT:-{vendor_or_project}}}\"",
         "export ISAAC_FACILITY_NAME=\"${ISAAC_FACILITY_NAME:-NERSC}\"",
-        "export ISAAC_ORGANIZATION=\"${ISAAC_ORGANIZATION:-ANL}\"",
+        "export ISAAC_ORGANIZATION=\"${ISAAC_ORGANIZATION:-LBNL}\"",
         "export ISAAC_CLUSTER=\"${ISAAC_CLUSTER:-Perlmutter}\"",
         "export ISAAC_COMPUTE_ARCHITECTURE=\"${ISAAC_COMPUTE_ARCHITECTURE:-CPU}\"",
         f"export ISAAC_SAMPLE_NAME=\"${{ISAAC_SAMPLE_NAME:-{sample_name}}}\"",
@@ -207,7 +207,7 @@ def _isaac_submit_metadata_finalize() -> List[str]:
         "        'technique': os.environ.get('ISAAC_TECHNIQUE', 'not_specified'),",
         "        'facility': {",
         "            'facility_name': os.environ.get('ISAAC_FACILITY_NAME', 'NERSC'),",
-        "            'organization': os.environ.get('ISAAC_ORGANIZATION', 'ANL'),",
+        "            'organization': os.environ.get('ISAAC_ORGANIZATION', 'LBNL'),",
         "            'cluster': os.environ.get('ISAAC_CLUSTER', 'Perlmutter'),",
         "        },",
         "        'instrument': {",
@@ -1139,14 +1139,19 @@ class VASPXASInputGenerator:
     def generate_two_step_submit(
         self,
         job_name: str,
-        account: str = "m5268",
-        queue: str = "regular",
-        nodes: int = 2,
-        walltime: str = "8:00:00",
+        account: Optional[str] = None,
+        queue: Optional[str] = None,
+        nodes: Optional[int] = None,
+        walltime: Optional[str] = None,
         email: Optional[str] = None,
         method: str = "PBE",
     ) -> str:
         """Generate a two-step VASP submit script that records ISAAC metadata."""
+        defaults = get_nersc_defaults()
+        account = account or defaults["account"]
+        queue = queue or defaults["queue"]
+        nodes = nodes or defaults["nodes"]
+        walltime = walltime or defaults["walltime"]
         method = self._normalize_method(method)
         code_version = "VASP 6.3.2"
         lines = [
@@ -1210,16 +1215,21 @@ class VASPXASInputGenerator:
         absorber: str,
         method: str = "PBE",
         potcar_dir: Optional[str] = None,
-        account: str = "m5268",
-        queue: str = "regular",
-        nodes: int = 2,
-        walltime: str = "8:00:00",
+        account: Optional[str] = None,
+        queue: Optional[str] = None,
+        nodes: Optional[int] = None,
+        walltime: Optional[str] = None,
         email: Optional[str] = None,
         absorber_index: int = 0,
         nbands: int = None,
         job_name: str = "vasp_xas",
     ) -> Dict:
         """Write two-step VASP XAS inputs and return structured file paths."""
+        defaults = get_nersc_defaults()
+        account = account or defaults["account"]
+        queue = queue or defaults["queue"]
+        nodes = nodes or defaults["nodes"]
+        walltime = walltime or defaults["walltime"]
         method = self._normalize_method(method)
         ensure_dir(output_dir)
         scf_dir = os.path.join(output_dir, "01_scf")
@@ -1277,13 +1287,18 @@ class NERSCScriptGenerator:
         self,
         job_name: str,
         software: str,
-        account: str = "m5268",
-        queue: str = "regular",
-        nodes: int = 2,
-        walltime: str = "8:00:00",
+        account: Optional[str] = None,
+        queue: Optional[str] = None,
+        nodes: Optional[int] = None,
+        walltime: Optional[str] = None,
         email: Optional[str] = None
     ) -> str:
         """Generate SLURM submission script with ISAAC run metadata capture."""
+        defaults = get_nersc_defaults()
+        account = account or defaults["account"]
+        queue = queue or defaults["queue"]
+        nodes = nodes or defaults["nodes"]
+        walltime = walltime or defaults["walltime"]
         software_upper = software.upper()
         if software_upper == "VASP":
             module_line = "module load vasp/6.4.3-cpu"
@@ -1423,10 +1438,10 @@ class XASInputGenerator:
         self,
         structure: Dict,
         output_dir: str,
-        nersc_account: str = "m5268",
-        nersc_queue: str = "regular",
-        nersc_nodes: int = 2,
-        nersc_walltime: str = "8:00:00",
+        nersc_account: Optional[str] = None,
+        nersc_queue: Optional[str] = None,
+        nersc_nodes: Optional[int] = None,
+        nersc_walltime: Optional[str] = None,
         email: Optional[str] = None,
         cluster_radius: float = 6.0,
         fdmnes_options: Optional[Dict] = None,
@@ -1576,10 +1591,10 @@ class XASInputGenerator:
 def execute_xas_input_generation(
     structure_file: str,
     output_dir: str,
-    nersc_account: str = "m5268",
-    nersc_queue: str = "regular",
-    nersc_nodes: int = 2,
-    nersc_walltime: str = "8:00:00",
+    nersc_account: Optional[str] = None,
+    nersc_queue: Optional[str] = None,
+    nersc_nodes: Optional[int] = None,
+    nersc_walltime: Optional[str] = None,
     email: Optional[str] = None,
     cluster_radius: float = 6.0,
     fdmnes_options: Optional[Dict] = None,
@@ -1606,6 +1621,12 @@ def execute_xas_input_generation(
     Returns:
         Dictionary with results and file paths
     """
+    defaults = get_nersc_defaults()
+    nersc_account = nersc_account or defaults["account"]
+    nersc_queue = nersc_queue or defaults["queue"]
+    nersc_nodes = nersc_nodes or defaults["nodes"]
+    nersc_walltime = nersc_walltime or defaults["walltime"]
+
     # Read structure
     structure = read_structure_file(structure_file)
     
