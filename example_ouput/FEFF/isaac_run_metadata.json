@@ -5,12 +5,12 @@
   },
   "sample": {
     "material": {
-      "name": "Cu(111) slab model with CHO",
-      "formula": "Cu36C1H1O1",
+      "name": "not_specified",
+      "formula": "not_specified",
       "provenance": "theoretical",
-      "notes": "Generated Cu(111) slab with CHO adsorbate; geometry from CO2RR_XAS_agent local test."
+      "notes": "Sample name and formula are inferred by the record generator from the simulation input files."
     },
-    "sample_form": "slab_model"
+    "sample_form": "not_specified"
   },
   "context": {
     "environment": "in_silico",
@@ -19,11 +19,11 @@
   },
   "system": {
     "domain": "computational",
-    "technique": "finite_difference_or_multiple_scattering_xas",
+    "technique": "multiple_scattering_xas",
     "facility": {
-      "facility_name": "NERSC",
+      "facility_name": "ANL",
       "organization": "ANL",
-      "cluster": "Perlmutter"
+      "cluster": "gen8"
     },
     "instrument": {
       "instrument_type": "simulation_engine",
@@ -37,15 +37,19 @@
   },
   "run": {
     "software": "FEFF",
-    "command": "feff",
+    "scheduler": "PBS",
+    "command": "module load feff; feff feff.inp",
     "exit_code": 0,
-    "working_directory": "/Users/hjia/Downloads/Cu/Cu/FDMNES_fdm",
-    "hostname": "local-test",
-    "slurm_job_id": "not_specified",
-    "slurm_job_name": "not_specified",
-    "slurm_partition": "not_specified",
-    "slurm_nodelist": "not_specified",
-    "nersc_host": "not_specified"
+    "working_directory": "$PBS_O_WORKDIR",
+    "hostname": "not_captured_by_legacy_pbs_script",
+    "pbs_job_name": "Cu_FEFF",
+    "pbs_account": "cnm83940",
+    "pbs_resource": "nodes=1:ppn=64:gen8",
+    "pbs_walltime": "48:00:00",
+    "pbs_output_file": "job.out",
+    "pbs_error_file": "job.err",
+    "cluster": "gen8",
+    "metadata_capture": "Legacy example .pbs script does not write runtime metadata automatically; fields are reconstructed from PBS directives and existing example metadata."
   },
   "measurement": {
     "processing": {
@@ -61,20 +65,28 @@
   },
   "assets": [
     {
-      "asset_id": "fdmnes_input_deck",
+      "asset_id": "feff_inputs",
       "content_role": "workflow_recipe",
-      "uri": "/Users/hjia/Downloads/Cu/Cu/FDMNES_fdm/Cu_in.txt",
+      "uri": "https://github.com/HailiJia/CO2RR_XAS_agent/blob/main/example_ouput/FEFF/feff.inp",
       "media_type": "text/plain",
-      "sha256": "not_computed_in_manual_test",
+      "sha256": "b472d17a504d29b4e5ef5e652989b91243121ff1103039f78e2ed20ebb25cf05",
       "notes": "FEFF input deck used for the Cu K-edge calculation."
+    },
+    {
+      "asset_id": "feff_submit_script",
+      "content_role": "workflow_recipe",
+      "uri": "https://github.com/HailiJia/CO2RR_XAS_agent/blob/main/example_ouput/FEFF/feff.pbs",
+      "media_type": "text/plain",
+      "sha256": "b64463937c792d9074286e07ca6a79746270a202b0f04d837b6682d32a74819b",
+      "notes": "PBS job script for the FEFF example calculation."
     },
     {
       "asset_id": "xas_fullres",
       "content_role": "reduction_product",
-      "uri": "/Users/hjia/Downloads/Cu/Cu/FDMNES_fdm/Cu_conv.txt",
+      "uri": "https://github.com/HailiJia/CO2RR_XAS_agent/blob/main/example_ouput/FEFF/xmu.dat",
       "media_type": "text/plain",
-      "sha256": "not_computed_in_manual_test",
-      "notes": "Full-resolution FEFF convolved spectrum."
+      "sha256": "7440caa9ed6e44a6f5d6abb6507af5949308fbbe83f7bed55271ffa938b1f76a",
+      "notes": "Full-resolution FEFF spectrum parsed into the ISAAC measurement series."
     }
   ],
   "links": [],

@@ -18,6 +18,7 @@ from typing import Any, Dict, List, Optional, Union
 from tools.structure_generator import StructureGenerator, execute_structure_generation
 from tools.xas_input_generator import XASInputGenerator, execute_xas_input_generation
 from tools.result_parser import ResultParser, execute_result_parsing
+from workflow.nersc_workflow import execute_nersc_full_workflow
 from tools.utils import ADSORBATES, CO2RR_PATHWAY, METAL_DATA
 
 try:
@@ -51,6 +52,8 @@ class LocalIntentParser:
         # Determine action
         if any(word in request_lower for word in ["parse", "read output", "isaac record", "extract", "convert results"]):
             action = "parse_results"
+        elif any(phrase in request_lower for phrase in ["submit", "monitor", "nersc workflow", "run on nersc"]):
+            action = "nersc_workflow"
         elif any(word in request_lower for word in ["full workflow", "complete", "end-to-end"]):
             action = "full_workflow"
         elif any(word in request_lower for word in ["xas", "x-ray", "absorption", "feff", "fdmnes", "edge"]):
@@ -126,6 +129,20 @@ class LocalIntentParser:
         email_match = re.search(r"[\w\.-]+@[\w\.-]+\.\w+", request)
         if email_match:
             parameters["email"] = email_match.group(0)
+
+        if "dry run" in request_lower or "do not submit" in request_lower or "don't submit" in request_lower:
+            parameters["submit_jobs"] = False
+        elif "submit" in request_lower or "run on nersc" in request_lower:
+            parameters["submit_jobs"] = True
+
+        if "monitor" in request_lower or "when finish" in request_lower or "when finished" in request_lower:
+            parameters["monitor_jobs"] = True
+        if "write record" in request_lower or "isaac" in request_lower or "when finish" in request_lower or "when finished" in request_lower:
+            parameters["parse_when_complete"] = True
+
+        poll_match = re.search(r"poll(?:ing)?(?: interval)?\s*(?:=|is|:)?\s*(\d+)", request_lower)
+        if poll_match:
+            parameters["poll_interval"] = int(poll_match.group(1))
 
         return ParsedIntent(
             action=action,
@@ -272,6 +289,8 @@ class CO2RRXASAgent:
             return self._execute_result_parsing(intent)
         if intent.action == "full_workflow":
             return self._execute_full_workflow(intent)
+        if intent.action == "nersc_workflow":
+            return self._execute_nersc_workflow(intent)
         return {"status": "error", "message": f"Unknown action: {intent.action}"}
 
     def _execute_structure_generation(self, intent: ParsedIntent) -> Dict:
@@ -403,6 +422,45 @@ class CO2RRXASAgent:
             intent.adsorbates = CO2RR_PATHWAY
         return self._execute_xas_generation(intent)
 
+
+    def _execute_nersc_workflow(self, intent: ParsedIntent) -> Dict:
+        """Generate NERSC inputs, submit jobs, monitor them, and write ISAAC records."""
+        structure_file = intent.structure_file or intent.parameters.get("structure_file")
+        if not structure_file:
+            if not intent.metals:
+                return {"status": "error", "message": "Structure file or metal is required for NERSC workflow"}
+            struct_result = self._execute_structure_generation(intent)
+            if struct_result.get("status") != "success":
+                return struct_result
+            # Use the first generated structure for the NERSC end-to-end workflow.
+            structure_file = struct_result["files"][0]["poscar"]
+
+        return execute_nersc_full_workflow(
+            structure_file=structure_file,
+            output_dir=intent.output_dir,
+            software=intent.parameters.get("software", "all"),
+            submit=bool(intent.parameters.get("submit_jobs", True)),
+            monitor=bool(intent.parameters.get("monitor_jobs", True)),
+            parse_when_complete=bool(intent.parameters.get("parse_when_complete", True)),
+            poll_interval=int(intent.parameters.get("poll_interval", 60)),
+            timeout=int(intent.parameters["monitor_timeout"]) if intent.parameters.get("monitor_timeout") is not None else None,
+            nersc_account=intent.parameters.get("nersc_account", "m5268"),
+            nersc_queue=intent.parameters.get("nersc_queue", "regular"),
+            nersc_nodes=intent.parameters.get("nersc_nodes", 2),
+            nersc_walltime=intent.parameters.get("nersc_walltime", "8:00:00"),
+            email=intent.parameters.get("email"),
+            cluster_radius=intent.parameters.get("cluster_radius", 6.0),
+            fdmnes_options=intent.parameters.get("fdmnes_options"),
+            fdmnes_energy_range=EnergyRange.from_any(
+                intent.parameters.get("fdmnes_energy_range", (-5.0, 0.2, 50.0))
+            ).as_fdmnes_range(),
+            edge_override=intent.parameters.get("edge_override"),
+            vasp_method=intent.parameters.get("vasp_method", "PBE"),
+            potcar_dir=intent.parameters.get("potcar_dir"),
+            vasp_mode=intent.parameters.get("vasp_mode", "trace"),
+            record_parameters=intent.parameters.get("record_parameters", {}),
+        )
+
     def generate_structure(
         self,
         metal1: str,
@@ -458,6 +516,27 @@ class CO2RRXASAgent:
             fdmnes_options=fdmnes_options,
             fdmnes_energy_range=EnergyRange.from_any(fdmnes_energy_range).as_fdmnes_range(),
             edge_override=edge_override,
+        )
+
+    def run_nersc_workflow(
+        self,
+        structure_file: str,
+        output_dir: Optional[str] = None,
+        software: str = "all",
+        submit: bool = True,
+        monitor: bool = True,
+        parse_when_complete: bool = True,
+        **kwargs,
+    ) -> Dict:
+        """Direct API for NERSC generate -> submit -> monitor -> parse workflow."""
+        return execute_nersc_full_workflow(
+            structure_file=structure_file,
+            output_dir=output_dir or self.default_output_dir,
+            software=software,
+            submit=submit,
+            monitor=monitor,
+            parse_when_complete=parse_when_complete,
+            **kwargs,
         )
 
     def parse_results(

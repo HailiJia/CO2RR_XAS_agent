@@ -48,6 +48,56 @@ L3_EDGE_ENERGIES = {
 }
 
 
+
+# Common transition metals used by the agent.
+METALS_3D = ['Sc', 'Ti', 'V', 'Cr', 'Mn', 'Fe', 'Co', 'Ni', 'Cu', 'Zn']
+METALS_4D = ['Y', 'Zr', 'Nb', 'Mo', 'Tc', 'Ru', 'Rh', 'Pd', 'Ag', 'Cd']
+METALS_5D = ['Hf', 'Ta', 'W', 'Re', 'Os', 'Ir', 'Pt', 'Au', 'Hg']
+
+METAL_DATA = {
+    'Al': {'structure': 'fcc', 'a': 4.05},
+    'Fe': {'structure': 'bcc', 'a': 2.87},
+    'Co': {'structure': 'hcp', 'a': 2.51, 'c': 4.07},
+    'Ni': {'structure': 'fcc', 'a': 3.52},
+    'Cu': {'structure': 'fcc', 'a': 3.615},
+    'Zn': {'structure': 'hcp', 'a': 2.66, 'c': 4.95},
+    'Mo': {'structure': 'bcc', 'a': 3.15},
+    'Ru': {'structure': 'hcp', 'a': 2.71, 'c': 4.28},
+    'Rh': {'structure': 'fcc', 'a': 3.80},
+    'Pd': {'structure': 'fcc', 'a': 3.89},
+    'Ag': {'structure': 'fcc', 'a': 4.09},
+    'Ir': {'structure': 'fcc', 'a': 3.84},
+    'Pt': {'structure': 'fcc', 'a': 3.92},
+    'Au': {'structure': 'fcc', 'a': 4.08},
+}
+
+EDGE_ENERGIES = {'K': K_EDGE_ENERGIES, 'L3': L3_EDGE_ENERGIES}
+
+ADSORBATES = {
+    'CO': {'atoms': ['C', 'O'], 'positions': np.array([[0.0, 0.0, 0.0], [0.0, 0.0, 1.16]]), 'binding_atom': 0},
+    'CO2': {'atoms': ['C', 'O', 'O'], 'positions': np.array([[0.0, 0.0, 0.0], [0.0, 0.0, 1.16], [0.0, 0.0, -1.16]]), 'binding_atom': 0},
+    'H': {'atoms': ['H'], 'positions': np.array([[0.0, 0.0, 0.0]]), 'binding_atom': 0},
+    'OH': {'atoms': ['O', 'H'], 'positions': np.array([[0.0, 0.0, 0.0], [0.0, 0.0, 0.97]]), 'binding_atom': 0},
+    'H2O': {'atoms': ['O', 'H', 'H'], 'positions': np.array([[0.0, 0.0, 0.0], [0.76, 0.59, 0.0], [-0.76, 0.59, 0.0]]), 'binding_atom': 0},
+    'CHO': {'atoms': ['C', 'O', 'H'], 'positions': np.array([[0.0, 0.0, 0.0], [1.094, 0.0, 0.387], [-0.363, 0.943, 0.363]]), 'binding_atom': 0},
+    'CHOH': {'atoms': ['C', 'H', 'O', 'H'], 'positions': np.array([[0.0, 0.0, 0.0], [-0.6, 0.8, 0.2], [1.2, 0.0, 0.3], [1.7, 0.0, 1.1]]), 'binding_atom': 0},
+    'CH': {'atoms': ['C', 'H'], 'positions': np.array([[0.0, 0.0, 0.0], [0.0, 0.0, 1.09]]), 'binding_atom': 0},
+    'CH2': {'atoms': ['C', 'H', 'H'], 'positions': np.array([[0.0, 0.0, 0.0], [0.9, 0.0, 0.6], [-0.9, 0.0, 0.6]]), 'binding_atom': 0},
+    'CH3': {'atoms': ['C', 'H', 'H', 'H'], 'positions': np.array([[0.0, 0.0, 0.0], [0.9, 0.0, 0.6], [-0.45, 0.78, 0.6], [-0.45, -0.78, 0.6]]), 'binding_atom': 0},
+    'CH4': {'atoms': ['C', 'H', 'H', 'H', 'H'], 'positions': np.array([[0.0, 0.0, 0.0], [0.63, 0.63, 0.63], [-0.63, -0.63, 0.63], [-0.63, 0.63, -0.63], [0.63, -0.63, -0.63]]), 'binding_atom': 0},
+    'COCO': {'atoms': ['C', 'O', 'C', 'O'], 'positions': np.array([[0.0, 0.0, 0.0], [1.15, 0.0, 0.2], [-1.35, 0.0, 0.0], [-2.5, 0.0, 0.2]]), 'binding_atom': 0},
+    'OCCO': {'atoms': ['O', 'C', 'C', 'O'], 'positions': np.array([[0.0, 0.0, 0.8], [0.0, 0.0, 0.0], [1.35, 0.0, 0.0], [1.35, 0.0, 0.8]]), 'binding_atom': 1},
+}
+
+ADSORPTION_SITES = {
+    'top': np.array([0.0, 0.0]),
+    'bridge': np.array([0.5, 0.0]),
+    'fcc': np.array([1.0 / 3.0, 1.0 / 3.0]),
+    'hcp': np.array([2.0 / 3.0, 2.0 / 3.0]),
+}
+
+CO2RR_PATHWAY = ['CO', 'CHO', 'CHOH', 'CH3', 'CH4', 'COCO', 'OCCO']
+
 # =============================================================================
 # File and directory utilities
 # =============================================================================
@@ -130,6 +180,22 @@ def get_element_from_z(z: int) -> Optional[str]:
     """Get element symbol from atomic number."""
     inverse = {v: k for k, v in ATOMIC_NUMBERS.items()}
     return inverse.get(z)
+
+
+def get_edge_energy(element: str, edge: Optional[str] = None) -> float:
+    """Return an approximate edge energy for an element/edge."""
+    default_edge, default_energy = get_edge_for_element(element)
+    edge_name = (edge or default_edge).upper()
+    if edge_name == 'K':
+        return K_EDGE_ENERGIES.get(element, _approximate_k_edge_energy(ATOMIC_NUMBERS.get(element, 0)))
+    if edge_name in {'L3', 'L2', 'L23'}:
+        return L3_EDGE_ENERGIES.get(element, _approximate_l3_edge_energy(ATOMIC_NUMBERS.get(element, 0)))
+    return default_energy
+
+
+def contains_carbon(structure: Dict[str, Any]) -> bool:
+    """Return True if a structure dictionary contains carbon."""
+    return 'C' in structure.get('atoms', [])
 
 
 # =============================================================================

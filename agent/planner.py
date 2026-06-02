@@ -185,6 +185,7 @@ Supported actions:
 - generate_structure: only build POSCAR/metadata structures.
 - generate_xas: generate relaxation and XAS input folders for a structure.
 - full_workflow: generate structures and XAS inputs.
+- nersc_workflow: generate NERSC inputs, submit jobs with sbatch, monitor with squeue/sacct, and parse completed outputs into ISAAC records.
 - parse_results: parse FEFF/FDMNES/VASP outputs and create an ISAAC record.
 
 Supported metals include: {metals}
@@ -214,7 +215,9 @@ Rules:
 12. If the user requests VASP GW/GW0, set vasp_method="GW". If the user requests VASP PBE, set vasp_method="PBE".
 13. If no VASP method is specified, leave vasp_method unset; the execution layer defaults to PBE.
 14. If the user gives a POTCAR/potpaw directory path, set potcar_dir to that exact path.
-15. Return only JSON.
+15. If the user asks to submit jobs, monitor jobs, run on NERSC, wait for completion, or write records after jobs finish, use action=nersc_workflow.
+16. For nersc_workflow, set submit_jobs=true unless the user says dry run or do not submit; set monitor_jobs=true when the user asks to monitor/wait; set parse_when_complete=true when the user asks to write ISAAC records after completion.
+17. Return only JSON.
 """.strip()
 
 
