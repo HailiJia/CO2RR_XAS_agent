@@ -1,0 +1,68 @@
+skill_id: CO2RR_ISAAC_XAS_ML
+version: "1.0"
+supported_modes:
+  simulation_only_training:
+    train_records: simulation
+    validation: grouped_cv
+    outputs: [training_report, ml_training_record]
+  simulation_to_experiment:
+    train_records: simulation
+    prediction_records: experiment
+    rule: never mix experimental records into random train/test splits unless explicit
+    outputs: [prediction_report, ml_prediction_record]
+supported_edges:
+  metal_k: [Cu K, Ni K]
+  metal_l3: [Au L3, Ir L3, Pt L3]
+  adsorbate: [C K]
+tasks:
+  adsorbate_classification:
+    target_field: ml_labels.adsorbate_identity
+    primary_edges: [C K]
+    auxiliary_edges: [Cu K, Ni K, Au L3, Ir L3, Pt L3]
+    recommended_fusion: late_fusion
+  adsorption_motif_classification:
+    target_field: ml_labels.adsorption_motif
+    primary_edges: [C K, metal K/L]
+    recommended_fusion: late_fusion
+  oxidation_coordination_prediction:
+    target_fields:
+      - structure_descriptors.metal_coordination_number
+      - structure_descriptors.oxidation_state_proxy
+      - ml_labels.oxidation_coordination_class
+    primary_edges: [metal K, metal L3]
+preprocessing:
+  validate: [energy, intensity, finite_values, energy_range]
+  defaults:
+    interpolation: edge_specific_common_grid
+    normalization: minmax_or_area
+    alignment: record_energy_axis_or_reference_energy
+    derivative: true
+    cdf: true
+features:
+  common: [normalized_raw, first_derivative, cdf, peak_position, peak_intensity, window_integrals]
+  metal_k: [edge_position, white_line_intensity, white_line_area, pre_edge_intensity, post_edge_integrals, PCA, PLS]
+  metal_l3: [L3_white_line_position, L3_white_line_intensity, L3_white_line_area, near_edge_integrals, PCA, PLS]
+  c_k: [pi_star_position, pi_star_area, sigma_star_area, pi_sigma_ratio, C1_C2_window_integrals, PCA, PLS]
+fusion:
+  single_edge_models: true
+  early_fusion: true
+  late_fusion: true
+  neural_multibranch: optional_when_sufficient_data
+models:
+  mandatory: [PLS, SVM, XGBoost_or_LightGBM, MLP, 1D-CNN]
+  interpretable_baselines: [logistic_regression, ridge_or_elastic_net, PLS]
+hpo:
+  grid_search: [PCA_components, PLS_components, regularization, SVM_C_gamma_kernel, simple_MLP_grid]
+  bayesian_optimization: [XGBoost, LightGBM, CatBoost, MLP, 1D-CNN, 1D-ResNet, spectral_transformer, preprocessing_parameters]
+validation:
+  default: grouped_cv
+  grouping_keys: [condition_id, structure_id, sample_id, catalyst_composition, surface_facet, adsorbate_identity, adsorption_site, experimental_condition]
+  stress_tests: [leave_one_catalyst_out, leave_one_surface_out, leave_one_adsorbate_family_out, leave_one_composition_out]
+evaluation:
+  classification: [accuracy, balanced_accuracy, macro_f1, classwise_precision, classwise_recall, confusion_matrix, top_k_accuracy, calibration]
+  regression: [MAE, RMSE, R2, Spearman, parity_plot, residual_distribution]
+  xas_diagnostics: [feature_importance_vs_energy, important_windows, edge_ablation, robustness_energy_shift, robustness_broadening, robustness_noise, nearest_neighbor_similarity]
+domain_of_applicability:
+  methods: [nearest_feature_distance, Mahalanobis_PCA_or_PLS, ensemble_disagreement, probability_margin, reconstruction_error, one_class_SVM_or_isolation_forest]
+  statuses: [inside_domain, near_boundary, outside_domain]
+  outside_domain_warning: "This experimental condition is outside the simulated training domain. Interpret the prediction as the closest simulated candidate, not a definitive assignment."

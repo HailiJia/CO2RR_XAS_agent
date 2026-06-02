@@ -1,0 +1,64 @@
+{
+  "skill_id": "co2rr_isaac_xas_ml",
+  "name": "CO2RR ISAAC XAS ML",
+  "version": "1.0.0",
+  "description": "Build ML datasets and workflow records from CO2RR ISAAC XAS/XANES records for simulation-only training and simulation-to-experiment classification.",
+  "category": "machine_learning",
+  "parameters": {
+    "type": "object",
+    "required": ["isaac_record_paths", "output_dir"],
+    "properties": {
+      "isaac_record_paths": {
+        "type": "array",
+        "items": {"type": "string"},
+        "description": "ISAAC record JSON files or directories containing ISAAC records."
+      },
+      "output_dir": {
+        "type": "string",
+        "description": "Directory for spectrum table, condition table, and ISAAC ML records."
+      },
+      "mode": {
+        "type": "string",
+        "enum": ["simulation_only_training", "simulation_to_experiment", "sim_to_exp", "prediction"],
+        "default": "simulation_only_training"
+      },
+      "task_name": {
+        "type": "string",
+        "enum": ["adsorbate_classification", "adsorption_motif_classification", "oxidation_coordination_prediction"],
+        "default": "adsorbate_classification"
+      },
+      "supported_edges": {
+        "type": "array",
+        "items": {"type": "string"},
+        "default": ["Cu K", "Ni K", "Au L3", "Ir L3", "Pt L3", "C K"]
+      },
+      "validation_strategy": {
+        "type": "string",
+        "enum": ["grouped_cv", "leave_one_catalyst_out", "leave_one_surface_out", "external_experiment"],
+        "default": "grouped_cv"
+      }
+    }
+  },
+  "defaults": {
+    "mode": "simulation_only_training",
+    "task_name": "adsorbate_classification",
+    "validation_strategy": "grouped_cv",
+    "models_tested": ["PLS", "SVM", "XGBoost", "LightGBM", "MLP", "1D-CNN"],
+    "fusion": {
+      "single_edge_models": true,
+      "early_fusion": true,
+      "late_fusion": true,
+      "neural_multibranch": false
+    },
+    "hpo_policy": {
+      "grid_search": ["PCA", "PLS", "SVM", "simple_MLP"],
+      "bayesian_optimization": ["XGBoost", "LightGBM", "MLP", "1D-CNN"]
+    }
+  },
+  "outputs": {
+    "spectrum_table": "spectrum_table.json",
+    "condition_table": "condition_table.json",
+    "ml_training_record": "ml_training_record.json",
+    "ml_prediction_record": "ml_prediction_record.json"
+  }
+}

@@ -451,7 +451,28 @@ The local parser and LLM planner also accept this YAML-like metadata in prompts.
 
 ---
 
-## 10. Agentic recovery and missing-information handling
+## 10. CO2RR ISAAC XAS ML skill
+
+The repository now includes `skills/co2rr-isaac-xas-ml/` and a registry entry `co2rr_isaac_xas_ml` for downstream XAS ML workflows. The skill consumes ISAAC simulation/experimental XAS records, builds spectrum-level and condition-level tables, applies XAS-aware preprocessing, creates edge-specific features, and writes ISAAC-compatible ML training/prediction record scaffolds.
+
+Minimal deterministic dataset assembly:
+
+```python
+from tools.ml_xas_workflow import execute_ml_dataset_assembly
+
+result = execute_ml_dataset_assembly(
+    isaac_record_paths=["example_ouput/FEFF/isaac_record.json"],
+    output_dir="generated_outputs/ml_dataset",
+    mode="simulation_only_training",
+    task_name="adsorbate_classification",
+)
+```
+
+Generated outputs include `spectrum_table.json`, `condition_table.json`, `ml_training_record.json`, and, for simulation-to-experiment mode, `ml_prediction_record.json`.
+
+---
+
+## 11. Agentic recovery and missing-information handling
 
 The Python entry points now do a preflight pass before launching deterministic tools, and the NERSC orchestration layer runs through `custodian` when it is installed. If a request is missing required context, the agent returns `status="needs_input"` with `missing_information`, `suggestions`, and the parsed intent instead of a bare script/tool error. Examples include missing catalyst metals for generated structures or a missing structure file for result parsing.
 
@@ -463,7 +484,7 @@ The agent also attempts safe recovery when enough context is available:
 
 ---
 
-## 11. Configurable NERSC defaults
+## 12. Configurable NERSC defaults
 
 Hard-coded NERSC values are minimized. If you do not pass explicit values, the workflow checks these environment variables before using safe placeholders/defaults:
 
@@ -479,7 +500,7 @@ export CO2RR_NERSC_ORGANIZATION=LBNL
 
 ---
 
-## 12. Common issues
+## 13. Common issues
 
 ### Are the skills used?
 
@@ -532,7 +553,7 @@ or run the generated `make_potcar.sh` after loading the correct VASP/POTCAR envi
 
 ---
 
-## 13. Minimal Python API
+## 14. Minimal Python API
 
 ```python
 from agent.co2rr_xas_agent import process_request
@@ -558,7 +579,7 @@ result = process_request(
 
 ---
 
-## 12. Development notes
+## 15. Development notes
 
 - `agent/schemas.py` contains shared schema and normalization logic.
 - `agent/planner.py` contains the optional LLM planner.
