@@ -109,6 +109,34 @@ instead of failing immediately.  The returned result includes generated inputs,
 `agent.recovery_actions` explaining what happened.  Missing structure/catalyst
 information returns `status="needs_input"` with concrete suggestions.
 
+
+
+## Structure relaxation and absorber edges
+
+Generated bimetallic `Cu(111)-Au(111)`-style structures now use a lateral
+interface rather than a vertical Cu/Au stack, and OCCO is placed across the
+interface carbons for bridge-interface prompts.  Relaxation POSCARs include
+selective dynamics with the bottom two substrate layers fixed.  Production XAS
+inputs should be regenerated from `relax/CONTCAR` after relaxation; when no
+`CONTCAR` is present, dry-run input generation records that XAS files are
+provisional and based on the unrelaxed structure.  Heavy-metal absorbers keep
+their default L3 edge even if a prompt asks for a generic K-edge calculation, so
+Cu uses K while Au uses L3 in Cu/Au workflows.
+
+## Output consistency checks
+
+Completed XAS jobs are now passed through a code-level Custodian validation
+step before ISAAC parsing.  The validation job parses the candidate FEFF,
+FDMNES, or VASP output, compares the output timestamp against nearby input files
+to flag stale data, and checks energy-window coverage when an expected window is
+available.  FDMNES `Range` cards in `*_in.txt` are converted to absolute eV
+windows automatically; other workflows can pass `expected_energy_window_eV` or
+`expected_energy_range_eV`.  Validation results are returned in the workflow
+record under `validation_result` and are also copied into
+`measurement.qc.output_consistency` in the ISAAC record.  Pass
+`parameters={"strict_output_validation": True}` to stop ISAAC record creation
+when Custodian detects an output/input mismatch.
+
 ## Configurable defaults
 
 The direct API still accepts explicit `nersc_account`, `nersc_queue`,

@@ -20,6 +20,7 @@ from typing import Any, Callable, Dict, Iterable, List, Optional, Sequence, Tupl
 from custodian.custodian import Custodian, ErrorHandler, Job
 
 from tools.result_parser import execute_result_parsing
+from workflow.xas_custodian import run_xas_output_validation
 from tools.xas_input_generator import execute_xas_input_generation
 
 CommandRunner = Callable[..., subprocess.CompletedProcess]
@@ -298,13 +299,43 @@ def parse_completed_jobs(
             continue
         if job.software == "VASP" and Path(job.output_dir).name.lower() == "relax":
             continue
+        record_parameters = dict(parameters or {})
+        validation_result = run_xas_output_validation(
+            software=job.software,
+            output_dir=job.output_dir,
+            structure_file=structure_file,
+            absorber=job.absorber,
+            edge=job.edge,
+            vasp_mode=vasp_mode,
+            parameters=record_parameters,
+        )
+        if validation_result.get("output_validation"):
+            record_parameters.setdefault("output_validation", validation_result["output_validation"])
+
+        if validation_result.get("skip_parse"):
+            result = {
+                "status": "error",
+                "message": "Custodian output validation failed; ISAAC parsing skipped.",
+                "output_validation": validation_result.get("output_validation", {}),
+            }
+            job.parse_status = result["status"]
+            job.message = result["message"]
+            records.append({
+                "job_id": job.job_id,
+                "software": job.software,
+                "output_dir": job.output_dir,
+                "validation_result": validation_result,
+                "parse_result": result,
+            })
+            continue
+
         result = execute_result_parsing(
             output_dir=job.output_dir,
             software=job.software,
             structure_file=structure_file,
             absorber=job.absorber,
             edge=job.edge,
-            parameters=parameters or {},
+            parameters=record_parameters,
             vasp_mode=vasp_mode,
         )
         job.parse_status = result.get("status")
@@ -314,6 +345,7 @@ def parse_completed_jobs(
             "job_id": job.job_id,
             "software": job.software,
             "output_dir": job.output_dir,
+            "validation_result": validation_result,
             "parse_result": result,
         })
     return records

@@ -313,7 +313,7 @@ FEFF/
 └── submit.sh
 ```
 
-`feff.inp` is assembled from the split sections so it remains runnable by FEFF, while `HEADER`, `PARAMETERS`, `POTENTIALS`, and `ATOMS` are preserved for inspection, provenance, and Lightshow-compatible downstream workflows. The FEFF generator writes an absorber-centered periodic cluster:
+`feff.inp` is assembled from the split sections so it remains runnable by FEFF, while `HEADER`, `PARAMETERS`, `POTENTIALS`, and `ATOMS` are preserved for inspection, provenance, and Lightshow-compatible downstream workflows. The FEFF `ATOMS` and `POTENTIALS` sections follow the same pymatgen/Lightshow convention: absorber at the origin, distance-sorted neighbors inside the cluster radius, and alphabetically assigned scatterer potentials with `ipot = 0` reserved for the absorber. The FEFF generator writes an absorber-centered periodic cluster:
 
 ```text
 ipot = 0   absorber atom
@@ -323,6 +323,8 @@ ipot > 0   scattering potentials
 For a Cu K-edge calculation, same-element Cu scatterers are assigned a positive `ipot`, separate from the absorbing Cu atom.
 
 ### VASP
+
+Generated relaxation POSCARs use selective dynamics and fix the bottom two substrate layers. For production XAS, run relaxation first and regenerate XAS inputs from `relax/CONTCAR`; if `CONTCAR` is not present, the generator emits provisional XAS inputs from the unrelaxed structure and records a warning.
 
 VASP XAS is generated as a two-step workflow:
 

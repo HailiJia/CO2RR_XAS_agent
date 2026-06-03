@@ -20,6 +20,7 @@ from .utils import (
     generate_uuid,
     ATOMIC_NUMBERS,
     get_edge_for_element,
+    get_edge_energy,
 )
 
 
@@ -499,6 +500,193 @@ def infer_xas_metadata(
         meta["edge"] = get_edge_for_element(meta["absorber"])[0]
         meta["source"] = meta.get("source") or "default_edge_from_absorber"
     return meta
+
+
+
+
+def _input_files_for_validation(output_dir: str, software: str) -> List[str]:
+    """Return input/provenance files that should be older than parsed outputs."""
+    root = Path(output_dir)
+    software_upper = software.upper()
+    if software_upper == "FEFF":
+        names = ["feff.inp", "HEADER", "PARAMETERS", "POTENTIALS", "ATOMS"]
+        return [str(root / name) for name in names if (root / name).exists()]
+    if software_upper.startswith("FDMNES"):
+        paths = []
+        fdmfile = root / "fdmfile.txt"
+        if fdmfile.exists():
+            paths.append(str(fdmfile))
+            for line in fdmfile.read_text(errors="ignore").splitlines():
+                name = line.strip()
+                if name and not name.isdigit():
+                    candidate = root / name
+                    if candidate.exists():
+                        paths.append(str(candidate))
+        paths.extend(str(p) for p in root.glob("*_in.txt"))
+        return sorted(set(paths))
+    if software_upper.startswith("VASP"):
+        names = ["INCAR", "KPOINTS", "POTCAR", "POTCAR.spec", "POSCAR"]
+        paths = [str(root / name) for name in names if (root / name).exists()]
+        for subdir in ["01_scf", "02_xas"]:
+            sub = root / subdir
+            paths.extend(str(sub / name) for name in names if (sub / name).exists())
+        return sorted(set(paths))
+    return []
+
+
+def _find_fdmnes_input_files(output_dir: str) -> List[Path]:
+    root = Path(output_dir)
+    candidates: List[Path] = []
+    fdmfile = root / "fdmfile.txt"
+    if fdmfile.exists():
+        for line in fdmfile.read_text(errors="ignore").splitlines():
+            stripped = line.strip()
+            if stripped and not stripped.isdigit():
+                candidates.append(root / stripped)
+    candidates.extend(root.glob("*_in.txt"))
+    candidates.extend(root.glob("*.in"))
+    return [p for p in dict.fromkeys(candidates) if p.exists()]
+
+
+def _parse_fdmnes_expected_energy_window(output_dir: str, absorber: Optional[str], edge: Optional[str]) -> Optional[Dict[str, Any]]:
+    """Parse FDMNES Range and convert it to an absolute eV energy window."""
+    if not absorber or not edge:
+        return None
+    for inp in _find_fdmnes_input_files(output_dir):
+        lines = inp.read_text(errors="ignore").splitlines()
+        for i, line in enumerate(lines):
+            if not re.match(r"^\s*Range\b", line, re.IGNORECASE):
+                continue
+            token_line = None
+            for follow in lines[i + 1:]:
+                stripped = follow.strip()
+                if stripped and not stripped.startswith(("#", "!", "*")):
+                    token_line = stripped
+                    break
+            if not token_line:
+                continue
+            parts = token_line.split()
+            if len(parts) < 3:
+                continue
+            try:
+                emin_rel, step, emax_rel = [float(part) for part in parts[:3]]
+                edge_energy = float(get_edge_energy(absorber, edge))
+            except Exception:
+                continue
+            return {
+                "source": str(inp),
+                "input_range_relative_eV": [emin_rel, step, emax_rel],
+                "edge_energy_eV": edge_energy,
+                "expected_min_eV": edge_energy + emin_rel,
+                "expected_max_eV": edge_energy + emax_rel,
+                "tolerance_eV": max(abs(step) * 2.0, 1.0),
+            }
+    return None
+
+
+def _expected_energy_window_from_parameters(parameters: Dict[str, Any]) -> Optional[Dict[str, Any]]:
+    """Read an explicit expected absolute or edge-relative output window."""
+    raw = parameters.get("expected_energy_window_eV") or parameters.get("expected_energy_range_eV")
+    if raw is None:
+        return None
+    try:
+        values = list(raw)
+        if len(values) < 2:
+            return None
+        return {
+            "source": "parameters.expected_energy_window_eV",
+            "expected_min_eV": float(values[0]),
+            "expected_max_eV": float(values[1]),
+            "tolerance_eV": float(parameters.get("energy_range_tolerance_eV", 1.0)),
+        }
+    except Exception:
+        return None
+
+
+def validate_output_consistency(
+    output_dir: str,
+    software: str,
+    results: Dict[str, Any],
+    absorber: Optional[str],
+    edge: Optional[str],
+    parameters: Optional[Dict[str, Any]] = None,
+) -> Dict[str, Any]:
+    """Check parsed output freshness and energy coverage against input intent.
+
+    This public helper is intentionally usable by the Custodian execution layer
+    before ISAAC record creation and by the parser when embedding QC metadata.
+    """
+    parameters = parameters or {}
+    spectrum = results.get("spectrum", {}) if isinstance(results.get("spectrum"), dict) else {}
+    energy: List[float] = []
+    for value in spectrum.get("energy", []) or []:
+        try:
+            energy.append(float(value))
+        except (TypeError, ValueError):
+            continue
+    validation: Dict[str, Any] = {
+        "status": "valid",
+        "checks": [],
+        "warnings": [],
+        "errors": [],
+    }
+
+    source_file = results.get("source_file")
+    input_files = _input_files_for_validation(output_dir, software)
+    validation["input_files"] = input_files
+    validation["source_file"] = source_file
+
+    if source_file and os.path.exists(source_file) and input_files:
+        output_mtime = os.path.getmtime(source_file)
+        newest_input = max(os.path.getmtime(path) for path in input_files if os.path.exists(path))
+        validation["checks"].append({
+            "name": "output_newer_than_inputs",
+            "passed": output_mtime + 1.0 >= newest_input,
+            "output_mtime": output_mtime,
+            "newest_input_mtime": newest_input,
+        })
+        if output_mtime + 1.0 < newest_input:
+            validation["warnings"].append(
+                "Parsed output appears older than one or more input files; verify this is not a stale result from an earlier run."
+            )
+
+    expected = _expected_energy_window_from_parameters(parameters)
+    if expected is None and software.upper().startswith("FDMNES"):
+        expected = _parse_fdmnes_expected_energy_window(output_dir, absorber, edge)
+    if expected:
+        validation["expected_energy_window"] = expected
+        if energy:
+            actual_min = min(energy)
+            actual_max = max(energy)
+            tol = float(expected.get("tolerance_eV", 1.0))
+            covers_min = actual_min <= float(expected["expected_min_eV"]) + tol
+            covers_max = actual_max >= float(expected["expected_max_eV"]) - tol
+            validation["actual_energy_window"] = {
+                "min_eV": actual_min,
+                "max_eV": actual_max,
+                "point_count": len(energy),
+            }
+            validation["checks"].append({
+                "name": "energy_window_covers_input_range",
+                "passed": bool(covers_min and covers_max),
+                "tolerance_eV": tol,
+            })
+            if not (covers_min and covers_max):
+                validation["errors"].append(
+                    "Parsed spectrum energy range does not cover the requested input range; output may be interrupted or from an incompatible run."
+                )
+        else:
+            validation["errors"].append("Parsed spectrum has no energy values to validate against the requested range.")
+    else:
+        validation["warnings"].append(
+            "No explicit input energy window could be inferred; only freshness and parser-level output checks were applied."
+        )
+
+    if validation["errors"]:
+        validation["status"] = "error"
+    elif validation["warnings"]:
+        validation["status"] = "warning"
+    return validation
 
 
 # =============================================================================
@@ -1058,7 +1246,16 @@ class ISAACRecordGenerator:
                     }
                 ],
                 "qc": {
-                    "status": qc_meta.get("status", parameters.get("qc_status", "valid"))
+                    "status": parameters.get(
+                        "qc_status",
+                        qc_meta.get(
+                            "status",
+                            "invalid" if parameters.get("output_validation", {}).get("status") == "error"
+                            else "warning" if parameters.get("output_validation", {}).get("status") == "warning"
+                            else "valid"
+                        ),
+                    ),
+                    "output_consistency": parameters.get("output_validation", {}),
                 },
             },
             
@@ -1160,6 +1357,23 @@ class ResultParser:
         parameters = dict(parameters or {})
         parameters.setdefault("metadata_inference", inferred)
         parameters.setdefault("structure_metadata", load_structure_metadata(structure_file))
+        output_validation = validate_output_consistency(
+            output_dir=output_dir,
+            software=software,
+            results=results,
+            absorber=absorber,
+            edge=edge,
+            parameters=parameters,
+        )
+        results["output_validation"] = output_validation
+        parameters.setdefault("output_validation", output_validation)
+        if parameters.get("strict_output_validation") and output_validation.get("status") == "error":
+            return {
+                "status": "error",
+                "message": "Parsed output failed consistency checks against input files.",
+                "output_validation": output_validation,
+                "spectrum": results.get("spectrum"),
+            }
         
         structure = read_structure_file(structure_file)
         
@@ -1183,6 +1397,7 @@ class ResultParser:
         return {
             "status": "success",
             "spectrum": results["spectrum"],
+            "output_validation": output_validation,
             "isaac_record": record,
             "record_path": record_path
         }

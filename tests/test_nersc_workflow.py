@@ -9,7 +9,13 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
-from workflow.nersc_workflow import NERSCJobManager, discover_submit_scripts, execute_nersc_full_workflow
+from workflow.nersc_workflow import (
+    NERSCJob,
+    NERSCJobManager,
+    discover_submit_scripts,
+    execute_nersc_full_workflow,
+    parse_completed_jobs,
+)
 
 
 class FakeSLURMRunner:
@@ -79,7 +85,7 @@ def test_feff_generator_writes_lightshow_style_sections():
     assert generated["POTENTIALS"].startswith("POTENTIALS")
     assert "      0" in generated["POTENTIALS"]
     assert generated["ATOMS"].startswith("ATOMS")
-    assert "END" not in generated["ATOMS"]
+    assert generated["ATOMS"].endswith("END\n")
     assert generated["feff.inp"].endswith("END\n")
     for section in ["HEADER", "PARAMETERS", "POTENTIALS", "ATOMS"]:
         assert generated[section].strip() in generated["feff.inp"]
@@ -163,6 +169,75 @@ def test_generated_nersc_workflow_carries_ml_metadata_in_dry_run():
     assert metadata["adsorbate_metadata"]["binding_mode"] == "bridge"
 
 
+
+
+def test_custodian_output_validation_skips_strict_truncated_fdmnes_parse():
+    import shutil
+
+    structure_file = REPO_ROOT / "example_ouput" / "VASP" / "XAS" / "POSCAR"
+    with tempfile.TemporaryDirectory() as tmp:
+        output_dir = Path(tmp) / "FDMNES"
+        shutil.copytree(REPO_ROOT / "example_ouput" / "FDMNES", output_dir)
+        conv = next(output_dir.glob("*_conv.txt"))
+        conv.write_text("\n".join(conv.read_text().splitlines()[:25]) + "\n")
+        job = NERSCJob(
+            job_id="123",
+            script=str(output_dir / "submit.sh"),
+            output_dir=str(output_dir),
+            software="FDMNES",
+            absorber="Cu",
+            edge="K",
+            state="COMPLETED",
+        )
+        records = parse_completed_jobs(
+            [job],
+            structure_file=str(structure_file),
+            parameters={"strict_output_validation": True},
+        )
+
+    assert len(records) == 1
+    record = records[0]
+    assert record["validation_result"]["backend"] == "custodian"
+    assert record["validation_result"]["skip_parse"] is True
+    assert record["validation_result"]["output_validation"]["status"] == "error"
+    assert record["parse_result"]["status"] == "error"
+    assert job.parse_status == "error"
+
+
+
+
+def test_prompt_generates_lateral_cu_au_interface_occo_and_au_l3_only():
+    from agent.co2rr_xas_agent import process_request
+    from tools.utils import read_poscar
+    import json
+
+    request = (
+        "Generate XAS inputs for OCCO adsorbate on Cu(111)-Au(111) interface, "
+        "K edge, radius 7 Angstrom, energy range -5 0.2 50, "
+        "NERSC account m5268, do not submit"
+    )
+
+    with tempfile.TemporaryDirectory() as tmp:
+        result = process_request(request, output_dir=tmp, use_llm=False)
+        root = Path(tmp)
+        metadata = json.loads(next(root.rglob("structure_info.json")).read_text())
+        structure = read_poscar(str(next(root.rglob("OCCO/structure/POSCAR"))))
+        xas_keys = set(result["inputs"]["xas"].keys())
+        relax_poscar = next(root.rglob("relax/POSCAR")).read_text()
+
+    assert result["status"] == "success"
+    assert metadata["interface"]["type"] == "lateral"
+    assert "Au_L3_edge" in xas_keys
+    assert "Au_K_edge" not in xas_keys
+    assert "Cu_K_edge" in xas_keys
+    assert "Selective dynamics" in relax_poscar
+    assert "F  F  F" in relax_poscar
+    split = metadata["interface"]["split_coordinate"]
+    carbon_x = [pos[0] for atom, pos in zip(structure["atoms"], structure["positions"]) if atom == "C"]
+    assert len(carbon_x) == 2
+    assert min(carbon_x) < split <= max(carbon_x)
+
+
 def test_agent_returns_needs_input_for_missing_generation_context():
     from agent.co2rr_xas_agent import process_request
 
@@ -204,6 +279,8 @@ if __name__ == "__main__":
     test_nersc_workflow_can_submit_and_monitor_with_fake_slurm()
     test_agent_exposes_nersc_dry_run_workflow()
     test_generated_nersc_workflow_carries_ml_metadata_in_dry_run()
+    test_custodian_output_validation_skips_strict_truncated_fdmnes_parse()
+    test_prompt_generates_lateral_cu_au_interface_occo_and_au_l3_only()
     test_agent_returns_needs_input_for_missing_generation_context()
     test_agent_recovers_nersc_submit_to_dry_run_when_slurm_missing()
     print("NERSC workflow tests passed")

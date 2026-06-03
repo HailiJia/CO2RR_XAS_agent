@@ -512,6 +512,33 @@ class StructureGenerator:
         else:
             raise ValueError(f"Unknown structure type: {structure}")
     
+    def _match_lateral_repeats(self, element1: str, element2: str, max_repeat: int = 10) -> Dict[str, Any]:
+        """Find a small lateral repeat match for two fcc(111) surface periods."""
+        period1 = self.metal_data[element1]['a'] / np.sqrt(2)
+        period2 = self.metal_data[element2]['a'] / np.sqrt(2)
+        best = None
+        for n1 in range(1, max_repeat + 1):
+            for n2 in range(1, max_repeat + 1):
+                length1 = n1 * period1
+                length2 = n2 * period2
+                matched = 0.5 * (length1 + length2)
+                strain1 = (matched - length1) / length1
+                strain2 = (matched - length2) / length2
+                score = max(abs(strain1), abs(strain2))
+                candidate = {
+                    'element1_repeats': n1,
+                    'element2_repeats': n2,
+                    'element1_natural_length': length1,
+                    'element2_natural_length': length2,
+                    'matched_block_length': matched,
+                    'element1_strain': strain1,
+                    'element2_strain': strain2,
+                    'max_abs_strain': score,
+                }
+                if best is None or (score, n1 + n2) < (best['max_abs_strain'], best['element1_repeats'] + best['element2_repeats']):
+                    best = candidate
+        return best or {}
+
     def generate_interface(
         self,
         element1: str,
@@ -524,63 +551,79 @@ class StructureGenerator:
         vacuum: float = 15.0,
         interface_distance: float = 2.5
     ) -> Dict:
-        """
-        Generate bimetallic interface structure.
-        
-        Args:
-            element1: Bottom metal element
-            element2: Top metal element
-            facet1: Facet for bottom metal
-            facet2: Facet for top metal
-            supercell: Supercell dimensions
-            layers1: Layers of bottom metal
-            layers2: Layers of top metal
-            vacuum: Vacuum thickness
-            interface_distance: Distance between metals at interface
-            
-        Returns:
-            Interface structure dictionary
-        """
-        # Generate both surfaces without vacuum
-        surf1 = self.generate_surface(element1, facet1, supercell, layers1, vacuum=0)
-        surf2 = self.generate_surface(element2, facet2, supercell, layers2, vacuum=0)
-        
-        pos1 = np.array(surf1['positions'])
-        pos2 = np.array(surf2['positions'])
-        
-        # Stack: place surf2 above surf1
-        z_offset = pos1[:, 2].max() + interface_distance
-        pos2[:, 2] += z_offset
-        
-        # Combine
-        all_atoms = surf1['atoms'] + surf2['atoms']
-        all_positions = np.vstack([pos1, pos2])
-        
-        # Add vacuum
+        """Generate a lateral bimetallic surface interface, not a vertical stack."""
+        if facet1 != facet2:
+            raise ValueError("Lateral interfaces currently require matching facets")
+        if facet1 != "111":
+            raise ValueError("Lateral interface generation currently supports fcc(111) facets")
+
+        ny = int(supercell[1]) if supercell else 3
+        layers = max(int(layers1), int(layers2))
+        match = self._match_lateral_repeats(element1, element2)
+        n1 = int(match['element1_repeats'])
+        n2 = int(match['element2_repeats'])
+        block1 = float(match['matched_block_length'])
+        block2 = float(match['matched_block_length'])
+        total_x = block1 + block2
+
+        a1 = self.metal_data[element1]['a']
+        a2 = self.metal_data[element2]['a']
+        y_period = 0.5 * (a1 / np.sqrt(2) + a2 / np.sqrt(2)) * np.sqrt(3) / 2
+        common_y = max(1, ny) * y_period
+        layer_spacing = 0.5 * (a1 / np.sqrt(3) + a2 / np.sqrt(3))
+        stacking = [np.array([0.0, 0.0]), np.array([1/3, 1/3]), np.array([2/3, 2/3])]
+
+        atoms: List[str] = []
+        positions: List[np.ndarray] = []
+        split_x = block1
+        for layer in range(layers):
+            shift = stacking[layer % 3]
+            z = layer * layer_spacing
+            for i in range(n1):
+                for j in range(ny):
+                    x = ((i + shift[0]) / n1) * block1
+                    y = ((j + shift[1]) / ny) * common_y
+                    atoms.append(element1)
+                    positions.append(np.array([x, y, z]))
+            for i in range(n2):
+                for j in range(ny):
+                    x = split_x + ((i + shift[0]) / n2) * block2
+                    y = ((j + shift[1]) / ny) * common_y
+                    atoms.append(element2)
+                    positions.append(np.array([x, y, z]))
+
+        all_positions = np.array(positions, dtype=float)
         all_positions[:, 2] -= all_positions[:, 2].min()
         slab_height = all_positions[:, 2].max()
-        cell_height = slab_height + vacuum
-        # One-sided vacuum: slab starts at z = 0; vacuum is above the slab
-        
-        # Use cell from surf1 (assuming compatible)
-        cell = surf1['cell'].copy()
-        cell[2, 2] = cell_height
-        
+        cell = np.array([
+            [total_x, 0.0, 0.0],
+            [0.0, common_y, 0.0],
+            [0.0, 0.0, slab_height + vacuum],
+        ])
+
         return {
-            'atoms': all_atoms,
+            'atoms': atoms,
             'positions': all_positions,
             'cell': cell,
             'metadata': {
                 'element1': element1,
                 'element2': element2,
                 'structure_type': 'interface',
+                'interface_type': 'lateral',
                 'facet1': facet1,
                 'facet2': facet2,
-                'supercell': list(supercell),
-                'layers1': layers1,
-                'layers2': layers2,
+                'supercell': [n1 + n2, ny],
+                'requested_supercell': list(supercell),
+                'layers1': layers,
+                'layers2': layers,
                 'vacuum': vacuum,
-                'interface_distance': interface_distance
+                'interface_distance': interface_distance,
+                'interface': {
+                    'type': 'lateral',
+                    'split_axis': 'x',
+                    'split_coordinate': split_x,
+                    'match': match,
+                },
             }
         }
     
@@ -627,22 +670,53 @@ class StructureGenerator:
         
         # Reference position
         ref_pos = positions[top_indices[site_index]].copy()
-        
-        # Apply site offset
-        site_offset = self.sites.get(site, np.array([0.0, 0.0]))
-        
-        # Get surface vectors for offset calculation
-        supercell = structure['metadata'].get('supercell', [3, 3])
-        a1 = cell[0] / supercell[0]
-        a2 = cell[1] / supercell[1]
-        
-        base_pos = ref_pos.copy()
-        base_pos[:2] += site_offset[0] * a1[:2] + site_offset[1] * a2[:2]
-        base_pos[2] = z_max + height
-        
-        # Position adsorbate
-        ads_positions -= ads_positions[binding_idx]  # Center on binding atom
-        ads_positions += base_pos
+
+        metadata = structure.get('metadata', {})
+        interface_meta = metadata.get('interface', {}) if isinstance(metadata.get('interface'), dict) else {}
+        if adsorbate_name == 'OCCO' and interface_meta.get('type') == 'lateral':
+            split_x = float(interface_meta.get('split_coordinate', cell[0][0] / 2.0))
+            element1 = metadata.get('element1')
+            element2 = metadata.get('element2')
+            left_candidates = [idx for idx in top_indices if structure['atoms'][idx] == element1 and positions[idx][0] <= split_x + 1e-8]
+            right_candidates = [idx for idx in top_indices if structure['atoms'][idx] == element2 and positions[idx][0] >= split_x - 1e-8]
+            if not left_candidates:
+                left_candidates = [idx for idx in top_indices if positions[idx][0] <= split_x + 1e-8]
+            if not right_candidates:
+                right_candidates = [idx for idx in top_indices if positions[idx][0] >= split_x - 1e-8]
+            left_idx = min(left_candidates or list(top_indices), key=lambda idx: abs(float(positions[idx][0]) - split_x))
+            right_idx = min(right_candidates or list(top_indices), key=lambda idx: abs(float(positions[idx][0]) - split_x))
+            left_pos, right_pos = positions[left_idx].copy(), positions[right_idx].copy()
+            c_indices = [idx for idx, atom in enumerate(ads_atoms) if atom == 'C']
+            if len(c_indices) >= 2:
+                target_left = left_pos.copy()
+                target_right = right_pos.copy()
+                target_left[2] = z_max + height
+                target_right[2] = z_max + height
+                center = 0.5 * (target_left + target_right)
+                original_center = 0.5 * (ads_positions[c_indices[0]] + ads_positions[c_indices[1]])
+                ads_positions = ads_positions - original_center + center
+                ads_positions[c_indices[0]] += target_left - ads_positions[c_indices[0]]
+                ads_positions[c_indices[1]] += target_right - ads_positions[c_indices[1]]
+                site = 'bridge_interface'
+            else:
+                ads_positions -= ads_positions[binding_idx]
+                ads_positions += np.array([split_x, ref_pos[1], z_max + height])
+        else:
+            # Apply site offset
+            site_offset = self.sites.get(site, np.array([0.0, 0.0]))
+
+            # Get surface vectors for offset calculation
+            supercell = structure['metadata'].get('supercell', [3, 3])
+            a1 = cell[0] / supercell[0]
+            a2 = cell[1] / supercell[1]
+
+            base_pos = ref_pos.copy()
+            base_pos[:2] += site_offset[0] * a1[:2] + site_offset[1] * a2[:2]
+            base_pos[2] = z_max + height
+
+            # Position adsorbate
+            ads_positions -= ads_positions[binding_idx]  # Center on binding atom
+            ads_positions += base_pos
         
         # Combine
         new_atoms = structure['atoms'].copy() + ads_atoms
