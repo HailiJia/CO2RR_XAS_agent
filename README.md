@@ -585,7 +585,7 @@ result = process_request(
 
 ---
 
-## 12. Development notes
+## 15. Development notes
 
 - `agent/schemas.py` contains shared schema and normalization logic.
 - `agent/planner.py` contains the optional LLM planner.

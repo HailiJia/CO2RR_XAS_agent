@@ -689,6 +689,7 @@ class FEFFInputGenerator:
             + sections["POTENTIALS"]
             + "\n"
             + sections["ATOMS"]
+            + "\nEND\n"
         )
         return sections
 
