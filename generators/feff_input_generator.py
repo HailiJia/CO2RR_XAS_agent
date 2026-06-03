@@ -295,9 +295,48 @@ class FEFFXASGenerator(BaseGenerator):
         
         return '\n'.join(lines)
     
+    def _split_feff_sections(self, feff_inp: str) -> Dict[str, str]:
+        """Split a FEFF deck into Lightshow/pymatgen-style section files."""
+        section_names = {"POTENTIALS", "ATOMS"}
+        header_lines = []
+        parameter_lines = []
+        sections = {"POTENTIALS": [], "ATOMS": []}
+        current = "HEADER"
+
+        for line in feff_inp.splitlines():
+            key = line.strip().split(maxsplit=1)[0] if line.strip() else ""
+            if key in section_names:
+                current = key
+            elif key == "END":
+                current = "END"
+
+            if current == "HEADER":
+                if line.startswith("TITLE") or not line.strip():
+                    header_lines.append(line)
+                else:
+                    current = "PARAMETERS"
+                    parameter_lines.append(line)
+            elif current == "PARAMETERS":
+                parameter_lines.append(line)
+            elif current in sections:
+                sections[current].append(line)
+
+        return {
+            "HEADER": "\n".join(header_lines).rstrip() + "\n",
+            "PARAMETERS": "\n".join(parameter_lines).rstrip() + "\n",
+            "POTENTIALS": "\n".join(sections["POTENTIALS"]).rstrip() + "\n",
+            "ATOMS": "\n".join(sections["ATOMS"]).rstrip() + "\n",
+        }
+
     def write_files(self, outputs: Dict[str, Any], output_dir: Path) -> None:
-        """Write FEFF input file."""
+        """Write FEFF input deck plus split HEADER/PARAMETERS/POTENTIALS/ATOMS files."""
         output_dir = Path(output_dir)
-        
+        output_dir.mkdir(parents=True, exist_ok=True)
+
+        feff_inp = outputs['feff_inp']
         with open(output_dir / 'feff.inp', 'w') as f:
-            f.write(outputs['feff_inp'])
+            f.write(feff_inp)
+
+        for name, content in self._split_feff_sections(feff_inp).items():
+            with open(output_dir / name, 'w') as f:
+                f.write(content)

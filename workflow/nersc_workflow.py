@@ -17,7 +17,10 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Callable, Dict, Iterable, List, Optional, Sequence, Tuple
 
+from custodian.custodian import Custodian, ErrorHandler, Job
+
 from tools.result_parser import execute_result_parsing
+from workflow.xas_custodian import run_xas_output_validation
 from tools.xas_input_generator import execute_xas_input_generation
 
 CommandRunner = Callable[..., subprocess.CompletedProcess]
@@ -35,6 +38,85 @@ TERMINAL_STATES = {
     "REVOKED",
 }
 SUCCESS_STATES = {"COMPLETED"}
+
+
+class NERSCWorkflowStep(Job):
+    """Custodian-compatible in-process workflow step."""
+
+    def __init__(self, name: str, action: Callable[[Dict[str, Any]], None], context: Dict[str, Any]):
+        self.step_name = name
+        self.action = action
+        self.context = context
+
+    @property
+    def name(self) -> str:
+        return self.step_name
+
+    def setup(self, directory: str = "./") -> None:
+        Path(directory).mkdir(parents=True, exist_ok=True)
+
+    def run(self, directory: str = "./") -> None:
+        self.action(self.context)
+        return None
+
+    def postprocess(self, directory: str = "./") -> None:
+        return None
+
+    def as_dict(self) -> Dict[str, Any]:
+        return {
+            "@module": type(self).__module__,
+            "@class": type(self).__name__,
+            "name": self.step_name,
+        }
+
+
+class NERSCWorkflowRecoveryHandler(ErrorHandler):
+    """Custodian error handler for recoverable orchestration issues."""
+
+    raises_runtime_error = False
+
+    def __init__(self, context: Dict[str, Any]):
+        self.context = context
+
+    def check(self, directory: str = "./") -> bool:
+        return bool(self.context.get("custodian_recovery_required"))
+
+    def correct(self, directory: str = "./") -> Dict[str, Any]:
+        recovery = self.context.pop("custodian_recovery_required", None)
+        if recovery == "missing_submit_command":
+            self.context["submit"] = False
+            self.context["monitor"] = False
+            self.context["parse_when_complete"] = False
+            message = "custodian recovered missing sbatch/NERSC environment by switching to submit=False dry run."
+            self.context.setdefault("recoveries", []).append(message)
+            self.context.setdefault("warnings", []).append("submit=True requested, but sbatch/NERSC_HOST is unavailable.")
+            return {"errors": [recovery], "actions": [message]}
+        return {"errors": [str(recovery)], "actions": []}
+
+    def as_dict(self) -> Dict[str, Any]:
+        return {
+            "@module": type(self).__module__,
+            "@class": type(self).__name__,
+        }
+
+
+def run_custodian_steps(steps: List[NERSCWorkflowStep], output_dir: str, context: Dict[str, Any]) -> Dict[str, Any]:
+    """Run workflow steps with custodian job management and recovery."""
+    Path(output_dir).mkdir(parents=True, exist_ok=True)
+    custodian = Custodian(
+        handlers=[NERSCWorkflowRecoveryHandler(context)],
+        jobs=steps,
+        max_errors=int(os.environ.get("CO2RR_CUSTODIAN_MAX_ERRORS", context.get("custodian_max_errors", 5))),
+        directory=output_dir,
+        terminate_on_nonzero_returncode=False,
+    )
+    run_log = custodian.run()
+    return {
+        "backend": "custodian",
+        "run_log": run_log,
+        "warnings": context.get("warnings", []),
+        "recovery_actions": context.get("recoveries", []),
+    }
 
 
 @dataclass
@@ -217,13 +299,43 @@ def parse_completed_jobs(
             continue
         if job.software == "VASP" and Path(job.output_dir).name.lower() == "relax":
             continue
+        record_parameters = dict(parameters or {})
+        validation_result = run_xas_output_validation(
+            software=job.software,
+            output_dir=job.output_dir,
+            structure_file=structure_file,
+            absorber=job.absorber,
+            edge=job.edge,
+            vasp_mode=vasp_mode,
+            parameters=record_parameters,
+        )
+        if validation_result.get("output_validation"):
+            record_parameters.setdefault("output_validation", validation_result["output_validation"])
+
+        if validation_result.get("skip_parse"):
+            result = {
+                "status": "error",
+                "message": "Custodian output validation failed; ISAAC parsing skipped.",
+                "output_validation": validation_result.get("output_validation", {}),
+            }
+            job.parse_status = result["status"]
+            job.message = result["message"]
+            records.append({
+                "job_id": job.job_id,
+                "software": job.software,
+                "output_dir": job.output_dir,
+                "validation_result": validation_result,
+                "parse_result": result,
+            })
+            continue
+
         result = execute_result_parsing(
             output_dir=job.output_dir,
             software=job.software,
             structure_file=structure_file,
             absorber=job.absorber,
             edge=job.edge,
-            parameters=parameters or {},
+            parameters=record_parameters,
             vasp_mode=vasp_mode,
         )
         job.parse_status = result.get("status")
@@ -233,6 +345,7 @@ def parse_completed_jobs(
             "job_id": job.job_id,
             "software": job.software,
             "output_dir": job.output_dir,
+            "validation_result": validation_result,
             "parse_result": result,
         })
     return records
@@ -252,8 +365,9 @@ def execute_nersc_full_workflow(
 ) -> Dict[str, Any]:
     """Generate NERSC inputs, optionally submit/monitor, and write ISAAC records.
 
-    This is intended for NERSC login nodes.  Set ``submit=False`` to only create
-    inputs and submit scripts, which is useful on non-NERSC machines or tests.
+    The orchestration is run through custodian. Custodian provides a standard
+    job-management layer, applies recoveries through error handlers, and writes
+    ``custodian.json`` in output_dir.
     """
     input_keys = {
         "nersc_account",
@@ -270,70 +384,120 @@ def execute_nersc_full_workflow(
         "structure_metadata",
     }
     input_kwargs = {k: v for k, v in xas_kwargs.items() if k in input_keys and v is not None}
-    inputs = execute_xas_input_generation(
-        structure_file=structure_file,
-        output_dir=output_dir,
-        **input_kwargs,
-    )
-    scripts = discover_submit_scripts(inputs, software_filter=software)
-    manager = job_manager or NERSCJobManager()
+    record_parameters = dict(xas_kwargs.get("record_parameters", {}) or {})
+    if input_kwargs.get("structure_metadata") and "structure_metadata" not in record_parameters:
+        record_parameters["structure_metadata"] = input_kwargs["structure_metadata"]
 
-    if not submit:
-        jobs = [
-            NERSCJob(
-                job_id="not_submitted",
+    manager = job_manager or NERSCJobManager()
+    context: Dict[str, Any] = {
+        "inputs": {},
+        "scripts": [],
+        "submitted": [],
+        "records": [],
+        "manager": manager,
+        "submit": submit,
+        "monitor": monitor,
+        "parse_when_complete": parse_when_complete,
+        "custodian_max_errors": xas_kwargs.get("custodian_max_errors", 5),
+        "warnings": [],
+        "recoveries": [],
+        "skip_submit_environment_check": job_manager is not None,
+    }
+
+    def generate_inputs(ctx: Dict[str, Any]) -> None:
+        ctx["inputs"] = execute_xas_input_generation(
+            structure_file=structure_file,
+            output_dir=output_dir,
+            **input_kwargs,
+        )
+        ctx["scripts"] = discover_submit_scripts(ctx["inputs"], software_filter=software)
+
+    def submit_jobs(ctx: Dict[str, Any]) -> None:
+        scripts = ctx.get("scripts", [])
+        if (
+            ctx.get("submit")
+            and not ctx.get("skip_submit_environment_check")
+            and not ctx["manager"].is_nersc_environment()
+        ):
+            ctx["custodian_recovery_required"] = "missing_submit_command"
+            return
+        if not ctx.get("submit"):
+            ctx["submitted"] = [
+                NERSCJob(
+                    job_id="not_submitted",
+                    script=item["script"],
+                    output_dir=item.get("output_dir", str(Path(item["script"]).resolve().parent)),
+                    software=item.get("software"),
+                    absorber=item.get("absorber"),
+                    edge=item.get("edge"),
+                    state="DRY_RUN",
+                )
+                for item in scripts
+            ]
+            return
+
+        submitted: List[NERSCJob] = []
+        relax_ids: List[str] = []
+        for item in scripts:
+            dependency = relax_ids if item.get("stage") == "xas" else None
+            job_id = ctx["manager"].submit(item["script"], dependency_job_ids=dependency)
+            job = NERSCJob(
+                job_id=job_id,
                 script=item["script"],
                 output_dir=item.get("output_dir", str(Path(item["script"]).resolve().parent)),
-                software=item.get("software"),
-                absorber=item.get("absorber"),
-                edge=item.get("edge"),
-                state="DRY_RUN",
+                software=item.get("software") or _software_from_path(Path(item["script"])),
+                absorber=item.get("absorber") or _absorber_edge_from_path(Path(item["script"]))[0],
+                edge=item.get("edge") or _absorber_edge_from_path(Path(item["script"]))[1],
             )
-            for item in scripts
-        ]
-        return NERSCWorkflowResult(
-            status="success",
-            inputs=inputs,
-            submitted_jobs=jobs,
-            message="Inputs generated; submit=False so no jobs were submitted.",
-        ).to_dict()
+            submitted.append(job)
+            if item.get("stage") == "relax":
+                relax_ids.append(job_id)
+        ctx["submitted"] = submitted
 
-    submitted: List[NERSCJob] = []
-    relax_ids: List[str] = []
-    for item in scripts:
-        dependency = relax_ids if item.get("stage") == "xas" else None
-        job_id = manager.submit(item["script"], dependency_job_ids=dependency)
-        job = NERSCJob(
-            job_id=job_id,
-            script=item["script"],
-            output_dir=item.get("output_dir", str(Path(item["script"]).resolve().parent)),
-            software=item.get("software") or _software_from_path(Path(item["script"])),
-            absorber=item.get("absorber") or _absorber_edge_from_path(Path(item["script"]))[0],
-            edge=item.get("edge") or _absorber_edge_from_path(Path(item["script"]))[1],
-        )
-        submitted.append(job)
-        if item.get("stage") == "relax":
-            relax_ids.append(job_id)
+    def monitor_jobs(ctx: Dict[str, Any]) -> None:
+        if ctx.get("submit") and ctx.get("monitor"):
+            ctx["manager"].wait(ctx.get("submitted", []), poll_interval=poll_interval, timeout=timeout)
 
-    if monitor:
-        manager.wait(submitted, poll_interval=poll_interval, timeout=timeout)
+    def parse_records(ctx: Dict[str, Any]) -> None:
+        if ctx.get("submit") and ctx.get("monitor") and ctx.get("parse_when_complete"):
+            ctx["records"] = parse_completed_jobs(
+                ctx.get("submitted", []),
+                structure_file=structure_file,
+                vasp_mode=xas_kwargs.get("vasp_mode", "trace"),
+                parameters=record_parameters,
+            )
 
-    records: List[Dict[str, Any]] = []
-    if monitor and parse_when_complete:
-        records = parse_completed_jobs(
-            submitted,
-            structure_file=structure_file,
-            vasp_mode=xas_kwargs.get("vasp_mode", "trace"),
-            parameters=xas_kwargs.get("record_parameters", {}),
-        )
+    steps = [
+        NERSCWorkflowStep("generate_xas_inputs", generate_inputs, context),
+        NERSCWorkflowStep("submit_jobs", submit_jobs, context),
+        NERSCWorkflowStep("monitor_jobs", monitor_jobs, context),
+        NERSCWorkflowStep("parse_completed_jobs", parse_records, context),
+    ]
+    custodian_result = run_custodian_steps(steps, output_dir=output_dir, context=context)
 
+    submitted = context.get("submitted", [])
     status = "success"
-    if submitted and any(job.state not in SUCCESS_STATES and job.state != "SUBMITTED" for job in submitted):
+    if submitted and any(
+        job.state not in SUCCESS_STATES and job.state not in {"SUBMITTED", "DRY_RUN"}
+        for job in submitted
+    ):
         status = "warning"
-    return NERSCWorkflowResult(
+
+    if not context.get("submit"):
+        message = "Inputs generated; submit=False so no jobs were submitted."
+    else:
+        message = (
+            "NERSC workflow completed."
+            if context.get("monitor")
+            else "Jobs submitted; monitor=False so records were not parsed."
+        )
+
+    result = NERSCWorkflowResult(
         status=status,
-        inputs=inputs,
+        inputs=context.get("inputs", {}),
         submitted_jobs=submitted,
-        records=records,
-        message="NERSC workflow completed." if monitor else "Jobs submitted; monitor=False so records were not parsed.",
+        records=context.get("records", []),
+        message=message,
     ).to_dict()
+    result["job_manager"] = custodian_result
+    return result

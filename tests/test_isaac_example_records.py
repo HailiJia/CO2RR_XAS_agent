@@ -105,7 +105,58 @@ def test_generator_infers_example_sample_without_sample_overrides() -> None:
             _assert_portable_inferred_record(result["isaac_record"], software)
 
 
+
+
+def test_fdmnes_output_validation_checks_energy_window() -> None:
+    structure_file = REPO_ROOT / "example_ouput" / "VASP" / "XAS" / "POSCAR"
+
+    with tempfile.TemporaryDirectory() as tmp:
+        output_dir = Path(tmp) / "FDMNES"
+        shutil.copytree(REPO_ROOT / "example_ouput" / "FDMNES", output_dir)
+        result = execute_result_parsing(
+            output_dir=str(output_dir),
+            software="FDMNES",
+            structure_file=str(structure_file),
+            absorber="Cu",
+            edge="K",
+            parameters={"strict_output_validation": True},
+        )
+
+    assert result["status"] == "success"
+    validation = result["output_validation"]
+    assert validation["status"] in {"valid", "warning"}
+    energy_check = next(check for check in validation["checks"] if check["name"] == "energy_window_covers_input_range")
+    assert energy_check["passed"] is True
+    assert result["isaac_record"]["measurement"]["qc"]["output_consistency"]["expected_energy_window"]
+
+
+def test_strict_output_validation_rejects_truncated_fdmnes_output() -> None:
+    structure_file = REPO_ROOT / "example_ouput" / "VASP" / "XAS" / "POSCAR"
+
+    with tempfile.TemporaryDirectory() as tmp:
+        output_dir = Path(tmp) / "FDMNES"
+        shutil.copytree(REPO_ROOT / "example_ouput" / "FDMNES", output_dir)
+        conv = next(output_dir.glob("*_conv.txt"))
+        lines = conv.read_text().splitlines()
+        # Keep only the low-energy part so the parsed range no longer reaches
+        # the FDMNES input Range upper bound.
+        conv.write_text("\n".join(lines[:25]) + "\n")
+        result = execute_result_parsing(
+            output_dir=str(output_dir),
+            software="FDMNES",
+            structure_file=str(structure_file),
+            absorber="Cu",
+            edge="K",
+            parameters={"strict_output_validation": True},
+        )
+
+    assert result["status"] == "error"
+    assert result["output_validation"]["status"] == "error"
+    assert any("energy range" in message for message in result["output_validation"]["errors"])
+
 if __name__ == "__main__":
     test_checked_in_example_records_are_portable_and_input_inferred()
     test_generator_infers_example_sample_without_sample_overrides()
+    test_fdmnes_output_validation_checks_energy_window()
+    test_strict_output_validation_rejects_truncated_fdmnes_output()
     print("ISAAC example record regression checks passed")
