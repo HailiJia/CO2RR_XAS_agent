@@ -75,7 +75,7 @@ EDGE_ENERGIES = {'K': K_EDGE_ENERGIES, 'L3': L3_EDGE_ENERGIES}
 
 ADSORBATES = {
     'CO': {'atoms': ['C', 'O'], 'positions': np.array([[0.0, 0.0, 0.0], [0.0, 0.0, 1.16]]), 'binding_atom': 0},
-    'CO2': {'atoms': ['C', 'O', 'O'], 'positions': np.array([[0.0, 0.0, 0.0], [0.0, 0.0, 1.16], [0.0, 0.0, -1.16]]), 'binding_atom': 0},
+    'CO2': {'atoms': ['C', 'O', 'O'], 'positions': np.array([[0.0, 0.0, 0.0], [1.14,  0.0, 0.65], [-1.14, 0.0, 0.65]]),'binding_atom': 0},
     'H': {'atoms': ['H'], 'positions': np.array([[0.0, 0.0, 0.0]]), 'binding_atom': 0},
     'OH': {'atoms': ['O', 'H'], 'positions': np.array([[0.0, 0.0, 0.0], [0.0, 0.0, 0.97]]), 'binding_atom': 0},
     'H2O': {'atoms': ['O', 'H', 'H'], 'positions': np.array([[0.0, 0.0, 0.0], [0.76, 0.59, 0.0], [-0.76, 0.59, 0.0]]), 'binding_atom': 0},
@@ -86,7 +86,7 @@ ADSORBATES = {
     'CH3': {'atoms': ['C', 'H', 'H', 'H'], 'positions': np.array([[0.0, 0.0, 0.0], [0.9, 0.0, 0.6], [-0.45, 0.78, 0.6], [-0.45, -0.78, 0.6]]), 'binding_atom': 0},
     'CH4': {'atoms': ['C', 'H', 'H', 'H', 'H'], 'positions': np.array([[0.0, 0.0, 0.0], [0.63, 0.63, 0.63], [-0.63, -0.63, 0.63], [-0.63, 0.63, -0.63], [0.63, -0.63, -0.63]]), 'binding_atom': 0},
     'COCO': {'atoms': ['C', 'O', 'C', 'O'], 'positions': np.array([[0.0, 0.0, 0.0], [1.15, 0.0, 0.2], [-1.35, 0.0, 0.0], [-2.5, 0.0, 0.2]]), 'binding_atom': 0},
-    'OCCO': {'atoms': ['O', 'C', 'C', 'O'], 'positions': np.array([[0.0, 0.0, 0.8], [0.0, 0.0, 0.0], [1.35, 0.0, 0.0], [1.35, 0.0, 0.8]]), 'binding_atom': 1},
+    'OCCO': {'atoms': ['O', 'C', 'C', 'O'],'positions': np.array([[0.0, 0.0, 1.22],[0.0, 0.0, 0.0],[1.42, 0.0, 0.0],[1.42, 0.0, 1.22]]),'binding_atom': 1}
 }
 
 ADSORPTION_SITES = {
