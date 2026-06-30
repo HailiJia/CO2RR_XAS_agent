@@ -95,7 +95,18 @@ natural language
 
 ---
 
-## 4. Quick local tests
+## 4. Running the web app
+From the repository root:
+`streamlit run web_app/app.py`
+
+If using NERSC job control, launch Streamlit from a terminal where these are set:
+`export NERSC_SFAPI_CLIENT_ID="..."`
+`export NERSC_SFAPI_PRIVATE_KEY_PATH="$HOME/.nersc/sfapi_web_xas_agent/priv_key.pem"`
+
+If using the Argonne ALCF chat backend, authenticate first:
+`python inference_auth_token.py authenticate`
+
+## 5. Quick local tests
 
 Run from the repository root.
 
@@ -182,7 +193,7 @@ find generated_outputs/local_tests/occo_cu111_au111_fdmnes_green -maxdepth 6 -ty
 
 ---
 
-## 5. LLM setup
+## 6. LLM setup
 
 The LLM planner uses the `openai` Python package but can point to any OpenAI-compatible chat-completions endpoint.
 
@@ -235,7 +246,7 @@ skills/co2rr-xas/references/
 
 ---
 
-## 6. Structure-file input
+## 7. Structure-file input
 
 The agent can generate XAS inputs from an existing structure file:
 
@@ -265,7 +276,7 @@ CIF support requires `pymatgen` or `ase`.
 
 ---
 
-## 7. XAS input generation
+## 8. XAS input generation
 
 ### FDMNES
 
@@ -378,7 +389,7 @@ The method is controlled inside the generated INCAR and metadata, not by creatin
 
 ---
 
-## 8. POTCAR handling
+## 9. POTCAR handling
 
 The agent writes:
 
@@ -415,7 +426,7 @@ POTCAR path /path/to/potpaw_PBE
 
 ---
 
-## 9. Result parsing and ISAAC records
+## 10. Result parsing and ISAAC records
 
 The result parser supports:
 
@@ -457,7 +468,7 @@ The local parser and LLM planner also accept this YAML-like metadata in prompts.
 
 ---
 
-## 10. CO2RR ISAAC XAS ML skill
+## 11. CO2RR ISAAC XAS ML skill
 
 The repository now includes `skills/co2rr-isaac-xas-ml/` and a registry entry `co2rr_isaac_xas_ml` for downstream XAS ML workflows. The skill consumes ISAAC simulation/experimental XAS records, builds spectrum-level and condition-level tables, applies XAS-aware preprocessing, creates edge-specific features, and writes ISAAC-compatible ML training/prediction record scaffolds.
 
@@ -478,7 +489,7 @@ Generated outputs include `spectrum_table.json`, `condition_table.json`, `ml_tra
 
 ---
 
-## 11. Agentic recovery and missing-information handling
+## 12. Agentic recovery and missing-information handling
 
 The Python entry points now do a preflight pass before launching deterministic tools, and the NERSC orchestration layer runs through `custodian` for recoverable workflow steps. If a request is missing required context, the agent returns `status="needs_input"` with `missing_information`, `suggestions`, and the parsed intent instead of a bare script/tool error. Examples include missing catalyst metals for generated structures or a missing structure file for result parsing.
 
@@ -490,7 +501,7 @@ The agent also attempts safe recovery when enough context is available:
 
 ---
 
-## 12. Configurable NERSC defaults
+## 13. Configurable NERSC defaults
 
 Hard-coded NERSC values are minimized. If you do not pass explicit values, the workflow checks these environment variables before using safe placeholders/defaults:
 
@@ -506,7 +517,7 @@ export CO2RR_NERSC_ORGANIZATION=LBNL
 
 ---
 
-## 13. Common issues
+## 14. Common issues
 
 ### Are the skills used?
 
@@ -559,7 +570,7 @@ or run the generated `make_potcar.sh` after loading the correct VASP/POTCAR envi
 
 ---
 
-## 14. Minimal Python API
+## 15. Minimal Python API
 
 ```python
 from agent.co2rr_xas_agent import process_request
@@ -582,15 +593,3 @@ result = process_request(
     use_llm=True,
 )
 ```
-
----
-
-## 15. Development notes
-
-- `agent/schemas.py` contains shared schema and normalization logic.
-- `agent/planner.py` contains the optional LLM planner.
-- `agent/co2rr_xas_agent.py` contains orchestration and local fallback parsing.
-- `tools/structure_generator.py` writes structures.
-- `tools/xas_input_generator.py` writes FDMNES, FEFF, and VASP inputs.
-- `tools/result_parser.py` parses outputs and writes ISAAC records.
-- `tools/utils.py` contains shared constants, POSCAR/CONTCAR/CIF reading, and helper utilities.
