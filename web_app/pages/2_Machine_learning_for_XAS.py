@@ -33,7 +33,13 @@ try:
         mean_squared_error,
         r2_score,
     )
-    from sklearn.model_selection import learning_curve, train_test_split
+    from sklearn.model_selection import (
+        KFold,
+        StratifiedKFold,
+        cross_validate,
+        learning_curve,
+        train_test_split,
+    )
     from sklearn.neural_network import MLPClassifier, MLPRegressor
     from sklearn.pipeline import Pipeline
     from sklearn.preprocessing import StandardScaler
@@ -50,7 +56,7 @@ REPO_ROOT = Path(__file__).resolve().parents[2]
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
-ML_PAGE_UPDATE_TAG = "v35_2026-07-01_agentic_xas_ml_ui"
+ML_PAGE_UPDATE_TAG = "v36_2026-07-01_xas_ml_auto_advisor"
 ISAAC_PORTAL_URL = "https://isaac.slac.stanford.edu/portal/"
 
 ENERGY_AXIS_NAMES = ("energy", "incident_energy", "photon_energy", "mono_energy", "e0")
@@ -101,14 +107,12 @@ st.markdown(
 
 
 # -----------------------------
-# Generic ISAAC parsing helpers
+# ISAAC parsing helpers
 # -----------------------------
 
 
 def _safe_str(value: Any) -> str:
-    if value is None:
-        return ""
-    return str(value)
+    return "" if value is None else str(value)
 
 
 def _lower(value: Any) -> str:
@@ -146,7 +150,6 @@ def _get_path(data: Dict[str, Any], dotted_path: str) -> Any:
 
 
 def _flatten_scalar_paths(data: Any, prefix: str = "", max_depth: int = 5) -> Dict[str, Any]:
-    """Return scalar leaf values that are reasonable ML label/metadata candidates."""
     if max_depth < 0:
         return {}
     out: Dict[str, Any] = {}
@@ -157,7 +160,7 @@ def _flatten_scalar_paths(data: Any, prefix: str = "", max_depth: int = 5) -> Di
             child_prefix = f"{prefix}.{key}" if prefix else str(key)
             out.update(_flatten_scalar_paths(value, child_prefix, max_depth=max_depth - 1))
     elif isinstance(data, list):
-        # Avoid flattening long spectra. Only expose short lists of scalars.
+        # Avoid exposing long spectral arrays as labels.
         if len(data) <= 8 and all(not isinstance(v, (dict, list)) for v in data):
             out[prefix] = ", ".join(_safe_str(v) for v in data)
     elif isinstance(data, (str, int, float, bool)) or data is None:
@@ -172,10 +175,9 @@ def _descriptor_values(record: Dict[str, Any]) -> Dict[str, Any]:
         label = output.get("label") or "descriptor_output"
         for descriptor in output.get("descriptors") or []:
             name = descriptor.get("name")
-            if not name:
-                continue
-            values[f"descriptors.{name}"] = descriptor.get("value")
-            values[f"descriptors.{label}.{name}"] = descriptor.get("value")
+            if name:
+                values[f"descriptors.{name}"] = descriptor.get("value")
+                values[f"descriptors.{label}.{name}"] = descriptor.get("value")
     return values
 
 
@@ -230,16 +232,11 @@ def _resolve_absorber_edge(record: Dict[str, Any], x: Optional[np.ndarray]) -> T
     )
     absorber_s = _safe_str(absorber).strip()
     edge_s = _safe_str(edge).strip().upper()
-
     if absorber_s and edge_s:
         return absorber_s, edge_s, "metadata"
 
     inferred_abs, inferred_edge, source = _infer_absorber_edge_from_energy(x)
-    if not absorber_s:
-        absorber_s = inferred_abs
-    if not edge_s:
-        edge_s = inferred_edge
-    return absorber_s or "unknown", edge_s or "unknown", source
+    return absorber_s or inferred_abs or "unknown", edge_s or inferred_edge or "unknown", source
 
 
 def _edge_group(absorber: str, edge: str) -> str:
@@ -261,7 +258,6 @@ def _record_display_name(row: Dict[str, Any]) -> str:
 
 
 def _read_uploaded_json_records(uploaded_files: Sequence[Any]) -> List[Tuple[str, Dict[str, Any]]]:
-    """Read JSON records from uploaded .json files or .zip archives."""
     records: List[Tuple[str, Dict[str, Any]]] = []
     for uploaded in uploaded_files or []:
         name = getattr(uploaded, "name", "uploaded")
@@ -298,7 +294,6 @@ def _choose_primary_channel(channels: Sequence[Dict[str, Any]]) -> Optional[Dict
 
 
 def _classify_series(record: Dict[str, Any], x_name: str, x_unit: str, y_name: str, y_unit: str) -> Tuple[bool, str, str]:
-    """Classify from the actual data axes, not only metadata technique."""
     x_name_l = _lower(x_name)
     x_unit_l = _lower(x_unit)
     y_name_l = _lower(y_name)
@@ -323,10 +318,8 @@ def _classify_series(record: Dict[str, Any], x_name: str, x_unit: str, y_name: s
         if "xanes" in technique:
             return True, "xanes_like", "energy-axis XANES-like spectrum"
         return True, "xas_like", "energy-axis XAS/XANES-like spectrum"
-
     if has_energy_x and has_energy_unit:
         return True, "xas_like_uncertain_y", "energy-axis spectrum, but y channel name is not a standard XAS signal"
-
     return False, "not_xas_unknown_axis", "does not have an incident-energy x-axis with eV/keV units"
 
 
@@ -377,15 +370,17 @@ def _build_series_rows(records: Sequence[Tuple[str, Dict[str, Any]]]) -> List[Di
             series_id = _safe_str(series.get("series_id")) or f"series_{idx}"
             absorber, edge, edge_source = _resolve_absorber_edge(record, x)
             metadata = {**_flatten_scalar_paths(record), **_descriptor_values(record)}
-            metadata["series.series_id"] = series_id
-            metadata["series.x_name"] = x_name
-            metadata["series.x_unit"] = x_unit
-            metadata["series.y_name"] = y_name
-            metadata["series.y_unit"] = y_unit
-            metadata["derived.n_points"] = int(x.size if x is not None else 0)
-            metadata["derived.absorber"] = absorber
-            metadata["derived.edge"] = edge
-            metadata["derived.edge_group"] = _edge_group(absorber, edge)
+            metadata.update({
+                "series.series_id": series_id,
+                "series.x_name": x_name,
+                "series.x_unit": x_unit,
+                "series.y_name": y_name,
+                "series.y_unit": y_unit,
+                "derived.n_points": int(x.size if x is not None else 0),
+                "derived.absorber": absorber,
+                "derived.edge": edge,
+                "derived.edge_group": _edge_group(absorber, edge),
+            })
 
             if x is None or y is None or x.size != y.size:
                 is_xas, classification, reason = False, "not_plottable_invalid_xy", "missing/non-numeric x or y values, or length mismatch"
@@ -733,15 +728,192 @@ def _train_and_score(X: np.ndarray, y: np.ndarray, task: str, model_name: str, u
     return result
 
 
+def _make_cv(task: str, y: np.ndarray):
+    n = len(y)
+    if task == "classification":
+        labels, counts = np.unique(y.astype(str), return_counts=True)
+        if len(labels) < 2:
+            raise ValueError("Classification needs at least two label classes.")
+        min_count = int(np.min(counts))
+        if min_count < 2:
+            raise ValueError("Auto-advisor needs at least two examples in each class for cross-validation.")
+        n_splits = min(5, min_count, n)
+        return StratifiedKFold(n_splits=n_splits, shuffle=True, random_state=7)
+    n_splits = min(5, n)
+    if n_splits < 2:
+        raise ValueError("Regression needs at least two samples for cross-validation.")
+    return KFold(n_splits=n_splits, shuffle=True, random_state=7)
+
+
+def _advisor_note(task: str, valid_score: float, train_score: float, gap: float, features: Sequence[str], pca: str, model: str, n_samples: int, n_features: int) -> str:
+    notes: List[str] = []
+    uses_raw = "raw" in features
+    uses_peak = "peak_window" in features
+    uses_derivative = "derivative" in features
+    uses_cdf = "cdf" in features
+
+    if pca != "none":
+        notes.append("uses dimension reduction")
+    elif n_features > max(20, 3 * n_samples):
+        notes.append("no PCA despite high feature/sample ratio")
+    else:
+        notes.append("no dimension reduction needed by this setting")
+
+    if uses_peak and not uses_raw:
+        notes.append("compact/interpretable spectral descriptors")
+    elif uses_derivative:
+        notes.append("emphasizes edge/white-line shifts")
+    elif uses_cdf:
+        notes.append("smooths noise and baseline sensitivity")
+    elif uses_raw:
+        notes.append("keeps full line shape")
+
+    if gap > 0.20:
+        notes.append("possible overfitting")
+    if task == "classification" and valid_score < 0.6:
+        notes.append("weak validation score")
+    if task == "regression" and -valid_score > 0:
+        notes.append("ranked by lower validation RMSE")
+    if model == "MLP" and n_samples < 50:
+        notes.append("MLP may be unstable with this sample count")
+    return "; ".join(notes)
+
+
+def _run_auto_advisor(rows: Sequence[Dict[str, Any]], target_path: str, task: str, n_grid: int, max_configs: int) -> Tuple[List[Dict[str, Any]], List[str]]:
+    if not SKLEARN_AVAILABLE:
+        raise RuntimeError(f"scikit-learn is not available: {SKLEARN_IMPORT_ERROR}")
+
+    feature_sets = [
+        ["peak_window"],
+        ["derivative", "peak_window"],
+        ["cdf", "peak_window"],
+        ["raw"],
+        ["raw", "peak_window"],
+        ["raw", "derivative"],
+        ["raw", "cdf"],
+    ]
+    normalizations = ["minmax", "area", "zscore"]
+    model_names = ["Logistic regression", "SVM", "Random forest"] if task == "classification" else ["Ridge", "SVR", "Random forest"]
+    # MLP is included only when there are enough rows to make the comparison meaningful.
+    if len(rows) >= 50:
+        model_names.append("MLP")
+
+    results: List[Dict[str, Any]] = []
+    failures: List[str] = []
+
+    for feature_kinds in feature_sets:
+        for normalization in normalizations:
+            try:
+                X, y, feature_names, used_rows, _grid = _build_feature_matrix(
+                    rows,
+                    target_path=target_path,
+                    feature_kinds=feature_kinds,
+                    normalization=normalization,
+                    n_grid=n_grid,
+                )
+                if task == "regression" and not all(_is_number(v) for v in y):
+                    raise ValueError("Regression target must be numeric.")
+                y_for_model = y.astype(str) if task == "classification" else np.asarray([float(v) for v in y], dtype=float)
+                cv = _make_cv(task, y)
+            except Exception as exc:
+                failures.append(f"{'+'.join(feature_kinds)} / {normalization}: {exc}")
+                continue
+
+            pca_options: List[Optional[int]] = [None]
+            for n_comp in [2, 4, 8, 16]:
+                if n_comp < min(X.shape[0], X.shape[1]):
+                    pca_options.append(n_comp)
+
+            for model_name in model_names:
+                for n_comp in pca_options:
+                    try:
+                        model = _make_model(task, model_name, use_pca=n_comp is not None, n_components=n_comp or 0)
+                        scoring = "balanced_accuracy" if task == "classification" else "neg_root_mean_squared_error"
+                        cv_result = cross_validate(
+                            model,
+                            X,
+                            y_for_model,
+                            cv=cv,
+                            scoring=scoring,
+                            return_train_score=True,
+                            error_score=np.nan,
+                        )
+                        train_raw = float(np.nanmean(cv_result["train_score"]))
+                        valid_raw = float(np.nanmean(cv_result["test_score"]))
+                        if task == "regression":
+                            train_display = float(-train_raw)
+                            valid_display = float(-valid_raw)
+                            rank_score = valid_raw  # less RMSE -> less negative magnitude -> higher neg RMSE
+                            gap = float(valid_display - train_display)
+                            score_name = "validation_RMSE"
+                        else:
+                            train_display = train_raw
+                            valid_display = valid_raw
+                            rank_score = valid_raw
+                            gap = float(train_display - valid_display)
+                            score_name = "validation_balanced_accuracy"
+                        pca_label = "none" if n_comp is None else f"PCA({n_comp})"
+                        results.append({
+                            "feature_set": "+".join(feature_kinds),
+                            "normalization": normalization,
+                            "dimension_reduction": pca_label,
+                            "model": model_name,
+                            score_name: valid_display,
+                            "train_score_same_metric": train_display,
+                            "overfit_gap": gap,
+                            "rank_score": rank_score,
+                            "n_samples": int(X.shape[0]),
+                            "n_features": int(X.shape[1]),
+                            "advice": _advisor_note(task, valid_display, train_display, gap, feature_kinds, pca_label, model_name, X.shape[0], X.shape[1]),
+                        })
+                    except Exception as exc:
+                        failures.append(f"{'+'.join(feature_kinds)} / {normalization} / {model_name} / {n_comp}: {exc}")
+
+    results = sorted(results, key=lambda item: (item["rank_score"], -abs(item.get("overfit_gap", 0.0))), reverse=True)
+    for rank, item in enumerate(results, start=1):
+        item["rank"] = rank
+    return results[:max_configs], failures
+
+
+def _advisor_recommendation(results: Sequence[Dict[str, Any]], task: str) -> List[str]:
+    if not results:
+        return ["No valid configuration finished. Check labels, class balance, and whether enough spectra are available."]
+    best = results[0]
+    pca = best["dimension_reduction"]
+    features = best["feature_set"]
+    model = best["model"]
+    recs = [
+        f"Recommended setting: **{features}** features, **{best['normalization']}** normalization, **{pca}**, **{model}**.",
+    ]
+    if pca == "none":
+        recs.append("Dimension reduction is not recommended by the current sweep unless a simpler PCA setting appears close to the top with a smaller overfit gap.")
+    else:
+        recs.append(f"Use dimension reduction now: {pca} ranked best/near-best and helps control the feature dimension.")
+    if "peak_window" in features:
+        recs.append("Peak/window features are useful here; keep them as an interpretable baseline even if you later test raw spectra or neural models.")
+    if "derivative" in features:
+        recs.append("Derivative features appear useful, so edge-position or white-line shifts likely carry label information.")
+    if "cdf" in features:
+        recs.append("CDF features appear useful, so smoother integrated line-shape information may be more robust than pointwise intensity.")
+    if "raw" in features and best.get("n_features", 0) > max(20, 3 * best.get("n_samples", 1)):
+        recs.append("Raw spectra are high-dimensional; keep PCA or compare against compact peak/window descriptors to avoid overfitting.")
+    if best.get("overfit_gap", 0.0) > 0.20:
+        recs.append("Even the best setting shows a sizable train-validation gap. Add records or reduce feature dimension before trusting predictions.")
+    if task == "classification" and best.get("validation_balanced_accuracy", 0.0) < 0.65:
+        recs.append("Validation accuracy is still weak. Try training within one absorber/edge group, revisiting labels, or adding simulations near ambiguous spectra.")
+    if task == "regression" and len(results) >= 2:
+        recs.append("For regression, compare the recommended RMSE with the physically acceptable error for the target property; low relative rank alone is not enough.")
+    recs.append("Use the top few rows as candidates, not only the first row; prefer a slightly lower score if it has fewer features and a smaller overfit gap.")
+    return recs
+
+
 def _training_suggestions(result: Dict[str, Any], task: str, n_samples: int, n_features: int, n_classes: int) -> List[str]:
     metrics = result.get("metrics") or {}
     suggestions: List[str] = []
-
     if n_samples < 30:
         suggestions.append("Dataset is small; treat the score as a diagnostic only and add more records before using the model for scientific conclusions.")
     if n_features > max(20, 3 * n_samples):
         suggestions.append("The feature dimension is high relative to sample count; try PCA, peak/window features, or fewer grid points to reduce overfitting.")
-
     if task == "classification":
         train_ba = metrics.get("train_balanced_accuracy")
         test_ba = metrics.get("test_balanced_accuracy")
@@ -765,7 +937,6 @@ def _training_suggestions(result: Dict[str, Any], task: str, n_samples: int, n_f
             suggestions.append("Test RMSE is much larger than train RMSE; this is overfitting, so reduce feature dimension or add more labeled simulations/experiments.")
         if test_rmse is not None:
             suggestions.append("Compare test RMSE to the physical tolerance of the label; a statistically nonzero R2 is not enough if the error is chemically too large.")
-
     suggestions.append("For simulation-to-experiment use, add domain-applicability checks; if an experimental spectrum lies outside the simulated training domain, prioritize new simulations instead of reporting a forced prediction.")
     suggestions.append("An ALCF LLM connection is useful for explaining diagnostics and proposing next simulations, but model scores and train/test splits should remain deterministic Python outputs.")
     return suggestions
@@ -797,10 +968,7 @@ summary_rows = _summary_table(rows)
 plottable_rows = [row for row in rows if row.get("x") is not None and row.get("y") is not None and row.get("n_points", 0) > 0]
 xas_rows = [row for row in plottable_rows if row.get("is_xas")]
 non_xas_rows = [row for row in rows if not row.get("is_xas")]
-unit_missing_rows = [
-    row for row in plottable_rows
-    if not _safe_str(row.get("x_unit")).strip() or not _safe_str(row.get("y_unit")).strip()
-]
+unit_missing_rows = [row for row in plottable_rows if not _safe_str(row.get("x_unit")).strip() or not _safe_str(row.get("y_unit")).strip()]
 edge_groups = sorted({row.get("edge_group", "Unknown absorber/edge") for row in xas_rows})
 
 m1, m2, m3, m4, m5 = st.columns(5)
@@ -820,12 +988,7 @@ with st.expander("Series classification table", expanded=True):
         st.dataframe(pd.DataFrame(summary_rows), use_container_width=True)
     else:
         st.dataframe(summary_rows, use_container_width=True)
-    st.download_button(
-        "Download classification CSV",
-        data=_rows_to_csv(summary_rows),
-        file_name="isaac_series_classification.csv",
-        mime="text/csv",
-    )
+    st.download_button("Download classification CSV", data=_rows_to_csv(summary_rows), file_name="isaac_series_classification.csv", mime="text/csv")
 
 if non_xas_rows:
     with st.expander("Non-XAS or questionable records", expanded=True):
@@ -838,11 +1001,7 @@ if non_xas_rows:
 st.divider()
 st.header("Plot spectra by absorber and edge")
 
-plot_scope = st.radio(
-    "Records to plot",
-    ["XAS-like only", "All plottable series", "Non-XAS only"],
-    horizontal=True,
-)
+plot_scope = st.radio("Records to plot", ["XAS-like only", "All plottable series", "Non-XAS only"], horizontal=True)
 if plot_scope == "XAS-like only":
     candidate_plot_rows = xas_rows
 elif plot_scope == "Non-XAS only":
@@ -852,11 +1011,7 @@ else:
 
 plot_groups = sorted({row.get("edge_group", "Unknown absorber/edge") for row in candidate_plot_rows})
 default_plot_groups = [group for group in plot_groups if group != "Unknown absorber/edge"] or plot_groups
-selected_plot_groups = st.multiselect(
-    "Absorber/edge groups",
-    plot_groups,
-    default=default_plot_groups[: min(4, len(default_plot_groups))],
-)
+selected_plot_groups = st.multiselect("Absorber/edge groups", plot_groups, default=default_plot_groups[: min(4, len(default_plot_groups))])
 plot_mode = st.selectbox("Display mode", ["raw", "min-max normalized", "min-max normalized with vertical offset"], index=1)
 max_points = int(st.slider("Maximum points per series for display", 50, 2000, 800, step=50))
 
@@ -869,12 +1024,7 @@ else:
         group_rows = [row for row in candidate_plot_rows if row.get("edge_group", "Unknown absorber/edge") == group]
         labels = _unique_labels(group_rows)
         with st.expander(f"{group} ({len(group_rows)} series)", expanded=len(selected_plot_groups) <= 2):
-            selected_labels = st.multiselect(
-                f"Series for {group}",
-                labels,
-                default=labels[: min(len(labels), 12)],
-                key=f"plot_select_{group}",
-            )
+            selected_labels = st.multiselect(f"Series for {group}", labels, default=labels[: min(len(labels), 12)], key=f"plot_select_{group}")
             selected_set = set(selected_labels)
             selected_rows = [row for row, label in zip(group_rows, labels) if label in selected_set]
             if not selected_rows:
@@ -907,11 +1057,7 @@ st.divider()
 st.header("Train ML model")
 st.caption("For quick screening and workflow development. For publication-quality benchmarking, use grouped validation and an external held-out test set.")
 
-training_scope = st.radio(
-    "Training records",
-    ["XAS-like only", "All plottable series"],
-    horizontal=True,
-)
+training_scope = st.radio("Training records", ["XAS-like only", "All plottable series"], horizontal=True)
 training_rows = xas_rows if training_scope == "XAS-like only" else plottable_rows
 training_groups = sorted({row.get("edge_group", "Unknown absorber/edge") for row in training_rows})
 selected_training_groups = st.multiselect(
@@ -933,15 +1079,6 @@ if not label_candidates:
 default_label = "sample.material.formula" if "sample.material.formula" in label_candidates else label_candidates[0]
 target_path = st.selectbox("Target / label field", label_candidates, index=label_candidates.index(default_label))
 
-feature_kinds = st.multiselect(
-    "Input features",
-    ["raw", "derivative", "cdf", "peak_window", "descriptor_scalars"],
-    default=["raw", "peak_window"],
-    help="Raw/derivative/CDF features are interpolated onto a common grid. Descriptor scalars come from descriptors.outputs when available.",
-)
-normalization = st.selectbox("Spectrum normalization", ["minmax", "area", "zscore", "none"], index=0)
-n_grid = st.slider("Common-grid points", 32, 1024, 256, step=32)
-
 label_values = [_target_value(row, target_path) for row in training_rows]
 label_values = [value for value in label_values if value not in [None, ""]]
 can_be_regression = label_values and all(_is_number(value) for value in label_values)
@@ -953,6 +1090,63 @@ task = st.radio(
     horizontal=True,
 )
 
+if not SKLEARN_AVAILABLE:
+    st.warning(f"scikit-learn is not available, so training is disabled. Import error: {SKLEARN_IMPORT_ERROR}")
+
+st.subheader("Auto-advisor")
+st.write("Run a deterministic comparison of feature sets, normalization choices, PCA/no-PCA, and simple models. The recommendation is based on validation performance and overfitting gap, not on an LLM guess.")
+advisor_col1, advisor_col2 = st.columns([1, 1])
+with advisor_col1:
+    advisor_grid = st.slider("Auto-advisor common-grid points", 32, 512, 128, step=32)
+with advisor_col2:
+    advisor_max_rows = st.slider("Configurations to show", 5, 40, 15, step=5)
+
+if st.button("Run Auto-advisor comparison", disabled=not SKLEARN_AVAILABLE, type="secondary"):
+    try:
+        advisor_results, advisor_failures = _run_auto_advisor(training_rows, target_path, task, advisor_grid, advisor_max_rows)
+        if not advisor_results:
+            st.warning("No advisor configuration completed successfully.")
+            if advisor_failures:
+                with st.expander("Advisor failures", expanded=False):
+                    st.write(advisor_failures[:30])
+        else:
+            st.success("Auto-advisor finished. Use the recommendation as a starting point, then verify with grouped validation.")
+            st.markdown("**Recommendation**")
+            for rec in _advisor_recommendation(advisor_results, task):
+                st.write(f"- {rec}")
+            st.markdown("**Ranked configurations**")
+            if pd is not None:
+                advisor_df = pd.DataFrame(advisor_results)
+                show_cols = [c for c in [
+                    "rank", "feature_set", "normalization", "dimension_reduction", "model",
+                    "validation_balanced_accuracy", "validation_RMSE", "train_score_same_metric",
+                    "overfit_gap", "n_samples", "n_features", "advice",
+                ] if c in advisor_df.columns]
+                st.dataframe(advisor_df[show_cols], use_container_width=True)
+                st.download_button(
+                    "Download Auto-advisor CSV",
+                    data=advisor_df.to_csv(index=False),
+                    file_name="xas_ml_auto_advisor_results.csv",
+                    mime="text/csv",
+                )
+            else:
+                st.write(advisor_results)
+            if advisor_failures:
+                with st.expander("Skipped/failed configurations", expanded=False):
+                    st.write(advisor_failures[:50])
+    except Exception as exc:
+        st.exception(exc)
+
+st.subheader("Manual model run")
+feature_kinds = st.multiselect(
+    "Input features",
+    ["raw", "derivative", "cdf", "peak_window", "descriptor_scalars"],
+    default=["raw", "peak_window"],
+    help="Raw/derivative/CDF features are interpolated onto a common grid. Descriptor scalars come from descriptors.outputs when available.",
+)
+normalization = st.selectbox("Spectrum normalization", ["minmax", "area", "zscore", "none"], index=0)
+n_grid = st.slider("Common-grid points", 32, 1024, 256, step=32)
+
 if task == "classification":
     model_name = st.selectbox("Model", ["Logistic regression", "Random forest", "SVM", "MLP"], index=0)
 else:
@@ -962,9 +1156,6 @@ use_pca = st.checkbox("Use PCA before model", value=False)
 n_components = 2
 if use_pca:
     n_components = st.slider("PCA components", 1, min(32, max(1, len(training_rows) - 1)), min(4, max(1, len(training_rows) - 1)))
-
-if not SKLEARN_AVAILABLE:
-    st.warning(f"scikit-learn is not available, so training is disabled. Import error: {SKLEARN_IMPORT_ERROR}")
 
 if st.button("Train model", type="primary", disabled=not SKLEARN_AVAILABLE):
     if not feature_kinds:
