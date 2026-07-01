@@ -24,7 +24,7 @@ from typing import Any, Dict, Iterable, List, Optional, Tuple
 
 SFAPI_BASE_URL = "https://api.nersc.gov/api/v1.2"
 SFAPI_TOKEN_URL = "https://oidc.nersc.gov/c2id/token"
-NERSC_JOB_MANAGER_UPDATE_TAG = "v27_2026-06-30_safe_remote_ls_and_delete"
+NERSC_JOB_MANAGER_UPDATE_TAG = "v32_2026-07-01_vasp6_nersc_isaac_sync_remote_file_listing"
 
 
 class NERSCSFAPIError(RuntimeError):
@@ -495,6 +495,8 @@ def build_isaac_record_from_outputs(
         if path.name in include_names or path.name.endswith(("_in.txt", "_conv.txt", "_bav.txt")):
             files.append(path)
 
+    submit_env = _parse_submit_exports(files)
+
     assets = []
     spectra = []
     for idx, path in enumerate(files):
@@ -530,7 +532,7 @@ def build_isaac_record_from_outputs(
         "record_type": "ISAAC_simulation_record_draft",
         "generator": {
             "name": "CO2RR XAS Agent web_xas_agent",
-            "version": NERSC_JOB_MANAGER_UPDATE_TAG,
+            "version": submit_env.get("ISAAC_GENERATOR_VERSION", NERSC_JOB_MANAGER_UPDATE_TAG),
             "generated_utc": now,
         },
         "source": {
@@ -557,6 +559,26 @@ def build_isaac_record_from_outputs(
         },
         "links": base_record.get("links", []),
     }
+    # Synchronize local post-hoc ISAAC conversion with the submitted *.sh
+    # exports when available, so the draft record does not preserve stale
+    # versions from older metadata blocks.
+    if software == "VASP":
+        run = record.setdefault("run", {})
+        system = record.setdefault("system", {})
+        run["software"] = "VASP"
+        run["code_version"] = submit_env.get("ISAAC_CODE_VERSION", "VASP 6.4.3")
+        run["software_module"] = submit_env.get("ISAAC_SOFTWARE_MODULE", "vasp/6.4.3-cpu")
+        run["generator_version"] = submit_env.get("ISAAC_GENERATOR_VERSION", record["generator"]["version"])
+        run["vasp_layout"] = submit_env.get("ISAAC_VASP_LAYOUT", "nersc_vasp6_cpu_64mpi_per_node_2omp_c4")
+        run["run_command"] = submit_env.get("ISAAC_RUN_COMMAND", "srun -n ${SLURM_NTASKS:-64} -c 4 --cpu-bind=cores vasp_std")
+        system["software_module"] = run["software_module"]
+        system["organization"] = submit_env.get("ISAAC_ORGANIZATION", "ANL")
+        facility = system.setdefault("facility", {"facility_name": "NERSC", "cluster": "Perlmutter"})
+        if isinstance(facility, dict):
+            facility.setdefault("facility_name", "NERSC")
+            facility.setdefault("cluster", "Perlmutter")
+            facility["organization"] = submit_env.get("ISAAC_ORGANIZATION", "ANL")
+
     return record
 
 
