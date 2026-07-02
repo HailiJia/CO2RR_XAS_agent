@@ -40,8 +40,9 @@ from tools.xas_record_utils import (
     is_number,
 )
 
-ML_PAGE_UPDATE_TAG = "v40_2026-07-02_isaac_portal_retrieve"
+ML_PAGE_UPDATE_TAG = "v41_2026-07-02_isaac_portal_xas_filter_summary"
 ISAAC_PORTAL_URL = "https://isaac.slac.stanford.edu/portal/"
+SIMPLE_XAS_SUMMARY_COLUMNS = ["record_id", "record_domain", "formula", "material_name", "absorber", "edge", "technique"]
 
 st.set_page_config(page_title="CO2RR XAS Agent | Machine learning for XAS", layout="wide")
 st.title("Agentic machine learning for XAS")
@@ -62,6 +63,10 @@ def display_table(rows: Sequence[Dict[str, Any]], *, use_container_width: bool =
         st.table(rows)
 
 
+def simple_xas_summary_rows(rows: Sequence[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    return [{key: row.get(key, "") for key in SIMPLE_XAS_SUMMARY_COLUMNS} for row in rows]
+
+
 def records_from_portal_ui() -> List[Tuple[str, Dict[str, Any]]]:
     st.subheader("Retrieve XAS records from ISAAC Portal")
     env_url = os.environ.get("ISAAC_URL", "")
@@ -74,13 +79,15 @@ def records_from_portal_ui() -> List[Tuple[str, Dict[str, Any]]]:
         return st.session_state.get("isaac_portal_records", [])
 
     f1, f2, f3 = st.columns([1, 1, 2])
-    limit = f1.number_input("Record list limit", min_value=1, max_value=500, value=int(st.session_state.get("isaac_portal_limit", 50)), step=10)
+    limit = f1.number_input("Record list limit", min_value=1, max_value=500, value=int(st.session_state.get("isaac_portal_limit", 120)), step=10)
     offset = f2.number_input("Offset", min_value=0, max_value=100000, value=int(st.session_state.get("isaac_portal_offset", 0)), step=50)
-    domain = f3.selectbox("Domain filter after fetch", ["all", "characterization", "simulation"], index=0)
+    domain = f3.selectbox("Domain filter", ["all", "characterization", "simulation"], index=1)
     st.session_state["isaac_portal_limit"] = int(limit)
     st.session_state["isaac_portal_offset"] = int(offset)
 
-    if st.button("List portal records", type="secondary"):
+    st.caption("The portal `X-Total-Count` header is the total number of records visible to the API query. Domain and XAS filters below are applied client-side to the listed/fetched records.")
+
+    if st.button("List portal record stubs", type="secondary"):
         try:
             client = ISAACPortalClient()
             listed = client.list_records(limit=int(limit), offset=int(offset))
@@ -90,12 +97,19 @@ def records_from_portal_ui() -> List[Tuple[str, Dict[str, Any]]]:
 
     listed = st.session_state.get("isaac_portal_list")
     if listed:
-        st.caption(f"Portal returned {len(listed.get('records', []))} record stubs. Total count header: {listed.get('total_count')}")
-        stubs = listed.get("records", [])
-        if stubs:
-            display_table(stubs)
-            record_ids = [r.get("record_id", "") for r in stubs if r.get("record_id")]
-            selected_ids = st.multiselect("Records to fetch in full", record_ids, default=record_ids[: min(len(record_ids), 50)])
+        all_stubs = listed.get("records", [])
+        displayed_stubs = [r for r in all_stubs if domain == "all" or r.get("record_domain") == domain]
+        st.caption(
+            f"Portal returned {len(all_stubs)} record stubs from this page. "
+            f"Displaying {len(displayed_stubs)} after domain filter `{domain}`. "
+            f"Total count header: {listed.get('total_count')} (not domain/XAS-filtered)."
+        )
+        if displayed_stubs:
+            display_table(displayed_stubs)
+            record_ids = [r.get("record_id", "") for r in displayed_stubs if r.get("record_id")]
+            select_all_stubs = st.checkbox("Select all displayed stubs for full-record fetch", value=True)
+            default_ids = record_ids if select_all_stubs else record_ids[: min(len(record_ids), 50)]
+            selected_ids = st.multiselect("Records to fetch in full", record_ids, default=default_ids)
             if st.button("Fetch selected full records", type="primary", disabled=not selected_ids):
                 try:
                     client = ISAACPortalClient()
@@ -104,6 +118,8 @@ def records_from_portal_ui() -> List[Tuple[str, Dict[str, Any]]]:
                     st.success(f"Fetched {len(records)} full record(s) from ISAAC Portal.")
                 except Exception as exc:
                     st.error(f"Failed to fetch ISAAC Portal records: {exc}")
+        else:
+            st.info("No stubs on this listed page match the selected domain. Increase limit or change offset.")
 
     records = st.session_state.get("isaac_portal_records", [])
     if not records:
@@ -113,31 +129,40 @@ def records_from_portal_ui() -> List[Tuple[str, Dict[str, Any]]]:
     if domain != "all":
         record_summary = [r for r in record_summary if r.get("record_domain") == domain]
     xas_summary = [r for r in record_summary if r.get("is_xas")]
-    st.success(f"Portal cache has {len(records)} full record(s); {len(xas_summary)} are XAS-like.")
-    with st.expander("Portal XAS summary table", expanded=True):
-        display_table(xas_summary)
-        st.download_button("Download portal XAS summary CSV", data=rows_to_csv(xas_summary), file_name="isaac_portal_xas_summary.csv", mime="text/csv")
+    simple_summary = simple_xas_summary_rows(xas_summary)
+    st.success(f"Fetched-cache records after domain filter: {len(record_summary)}. XAS-like records: {len(xas_summary)}.")
+    with st.expander("Simple XAS summary table", expanded=True):
+        display_table(simple_summary)
+        st.download_button("Download simple XAS summary CSV", data=rows_to_csv(simple_summary), file_name="isaac_portal_simple_xas_summary.csv", mime="text/csv")
 
+    if not xas_summary:
+        st.warning("No XAS-like records were detected in the fetched full records. XAS detection uses technique metadata and absorber/edge plus energy-axis fallback.")
+        return []
+
+    use_all_xas = st.checkbox("Use all XAS records in the summary table", value=True)
     absorber_options = sorted({safe_str(r.get("absorber")) for r in xas_summary if safe_str(r.get("absorber"))})
     edge_options = sorted({safe_str(r.get("edge")) for r in xas_summary if safe_str(r.get("edge"))})
     c1, c2, c3 = st.columns(3)
-    sel_abs = c1.multiselect("Absorber filter", absorber_options, default=absorber_options)
-    sel_edge = c2.multiselect("Edge filter", edge_options, default=edge_options)
-    material_query = c3.text_input("Material/formula contains", value="")
+    sel_abs = c1.multiselect("Absorber filter", absorber_options, default=absorber_options, disabled=use_all_xas)
+    sel_edge = c2.multiselect("Edge filter", edge_options, default=edge_options, disabled=use_all_xas)
+    material_query = c3.text_input("Material/formula contains", value="", disabled=use_all_xas)
 
-    selected_ids = {
-        r.get("record_id")
-        for r in xas_summary
-        if (not sel_abs or r.get("absorber") in sel_abs)
-        and (not sel_edge or r.get("edge") in sel_edge)
-        and (
-            not material_query
-            or material_query.lower() in safe_str(r.get("formula")).lower()
-            or material_query.lower() in safe_str(r.get("material_name")).lower()
-        )
-    }
+    if use_all_xas:
+        selected_ids = {r.get("record_id") for r in xas_summary}
+    else:
+        selected_ids = {
+            r.get("record_id")
+            for r in xas_summary
+            if (not sel_abs or r.get("absorber") in sel_abs)
+            and (not sel_edge or r.get("edge") in sel_edge)
+            and (
+                not material_query
+                or material_query.lower() in safe_str(r.get("formula")).lower()
+                or material_query.lower() in safe_str(r.get("material_name")).lower()
+            )
+        }
     filtered = [(source, rec) for source, rec in records if rec.get("record_id") in selected_ids]
-    st.info(f"Using {len(filtered)} portal XAS record(s) after filters.")
+    st.info(f"Using {len(filtered)} XAS record(s) for plotting/training.")
     return filtered
 
 
