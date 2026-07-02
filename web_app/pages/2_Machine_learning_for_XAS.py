@@ -1,10 +1,8 @@
 # web_app/pages/2_Machine_learning_for_XAS.py
 from __future__ import annotations
 
-import json
 import math
 import os
-import re
 import sys
 from pathlib import Path
 from typing import Any, Dict, List, Sequence, Tuple
@@ -21,7 +19,7 @@ REPO_ROOT = Path(__file__).resolve().parents[2]
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
-from tools.isaac_portal_client import ISAACPortalClient, xas_summary_table
+from tools.isaac_portal_client import ISAACPortalClient
 from tools.xas_ml_utils import (
     SKLEARN_AVAILABLE,
     SKLEARN_IMPORT_ERROR,
@@ -31,6 +29,8 @@ from tools.xas_ml_utils import (
     train_manual,
 )
 from tools.xas_record_utils import (
+    get_path,
+    is_number,
     label_fields,
     minmax,
     read_records_from_uploads,
@@ -39,13 +39,11 @@ from tools.xas_record_utils import (
     safe_str,
     summary_table,
     target_value,
-    is_number,
 )
 
-ML_PAGE_UPDATE_TAG = "v44_2026-07-02_isaac_portal_paged_keyword_xas_fix"
+ML_PAGE_UPDATE_TAG = "v45_2026-07-02_strict_spectral_xas_filter"
 ISAAC_PORTAL_URL = "https://isaac.slac.stanford.edu/portal/"
 SIMPLE_XAS_SUMMARY_COLUMNS = ["record_id", "record_domain", "formula", "material_name", "absorber", "edge", "technique"]
-XAS_TEXT_RE = re.compile(r"\bxas\b|xanes|exafs|xafs|x-ray absorption|xray absorption|absorption spectroscopy", re.IGNORECASE)
 
 st.set_page_config(page_title="CO2RR XAS Agent | Machine learning for XAS", layout="wide")
 st.title("Agentic machine learning for XAS")
@@ -66,21 +64,25 @@ def display_table(rows: Sequence[Dict[str, Any]], *, use_container_width: bool =
         st.table(rows)
 
 
-def simple_xas_summary_rows(rows: Sequence[Dict[str, Any]]) -> List[Dict[str, Any]]:
-    return [{key: row.get(key, "") for key in SIMPLE_XAS_SUMMARY_COLUMNS} for row in rows]
-
-
-def record_has_xas_text(record: Dict[str, Any]) -> bool:
-    def walk(obj: Any):
-        if isinstance(obj, dict):
-            for value in obj.values():
-                yield from walk(value)
-        elif isinstance(obj, list):
-            for value in obj:
-                yield from walk(value)
-        elif isinstance(obj, str):
-            yield obj
-    return any(XAS_TEXT_RE.search(text or "") for text in walk(record))
+def simple_xas_summary_from_rows(xas_rows: Sequence[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    by_id: Dict[str, Dict[str, Any]] = {}
+    for row in xas_rows:
+        rid = safe_str(row.get("record_id"))
+        if not rid or rid in by_id:
+            continue
+        record = row.get("record") or {}
+        absorber = safe_str(row.get("absorber"))
+        edge = safe_str(row.get("edge"))
+        by_id[rid] = {
+            "record_id": rid,
+            "record_domain": record.get("record_domain", ""),
+            "formula": get_path(record, "sample.material.formula") or row.get("formula") or "",
+            "material_name": get_path(record, "sample.material.name") or "",
+            "absorber": "" if absorber == "unknown" else absorber,
+            "edge": "" if edge == "unknown" else edge,
+            "technique": row.get("technique") or get_path(record, "system.technique") or get_path(record, "measurement.technique") or "",
+        }
+    return list(by_id.values())
 
 
 def scan_portal_stubs(client: ISAACPortalClient, page_size: int, max_records: int) -> Dict[str, Any]:
@@ -126,7 +128,7 @@ def records_from_portal_ui() -> List[Tuple[str, Dict[str, Any]]]:
     st.session_state["isaac_portal_page_size"] = int(page_size)
     st.session_state["isaac_portal_max_scan"] = int(max_scan)
 
-    st.caption("Page size is capped at 500 by the portal. To scan more than 500 records, this app requests multiple pages with offsets 0, 500, 1000, ... and then applies the domain/XAS filters locally.")
+    st.caption("Page size is capped at 500 by the portal. To scan more than 500 records, this app requests multiple pages with offsets 0, 500, 1000, ... and then applies the domain filter locally.")
 
     if st.button("Scan portal record stubs", type="secondary"):
         try:
@@ -164,7 +166,7 @@ def records_from_portal_ui() -> List[Tuple[str, Dict[str, Any]]]:
         else:
             selected_ids = record_ids[: int(max_fetch)]
             st.caption(f"Will fetch {len(selected_ids)} full record(s) from the {len(record_ids)} displayed stub(s).")
-        if st.button("Fetch full records and find XAS", type="primary", disabled=not selected_ids):
+        if st.button("Fetch full records and find valid XAS spectra", type="primary", disabled=not selected_ids):
             try:
                 client = ISAACPortalClient()
                 records = client.fetch_records(selected_ids)
@@ -178,27 +180,30 @@ def records_from_portal_ui() -> List[Tuple[str, Dict[str, Any]]]:
         return []
 
     records_after_domain = [(source, rec) for source, rec in records if domain == "all" or rec.get("record_domain") == domain]
-    record_summary = xas_summary_table(records_after_domain, xas_only=False)
-    records_by_id = {rec.get("record_id"): rec for _, rec in records_after_domain}
-    for row in record_summary:
-        rec = records_by_id.get(row.get("record_id"), {})
-        row["xas_text_match"] = record_has_xas_text(rec)
-        row["is_xas"] = bool(row.get("is_xas") or row.get("xas_text_match"))
-    xas_summary = [r for r in record_summary if r.get("is_xas")]
-    xas_ids = {r.get("record_id") for r in xas_summary}
-    simple_summary = simple_xas_summary_rows(xas_summary)
-    st.success(f"Fetched-cache records after domain filter: {len(record_summary)}. XAS matches: {len(xas_summary)}.")
+    portal_rows = rows_from_records(records_after_domain)
+    strict_xas_rows = [
+        row for row in portal_rows
+        if row.get("is_xas")
+        and row.get("x") is not None
+        and row.get("y") is not None
+        and row.get("n_points", 0) > 0
+    ]
+    xas_ids = {safe_str(row.get("record_id")) for row in strict_xas_rows if safe_str(row.get("record_id"))}
+    simple_summary = simple_xas_summary_from_rows(strict_xas_rows)
+    st.success(f"Fetched-cache records after domain filter: {len(records_after_domain)}. Valid XAS spectral records: {len(simple_summary)}.")
     with st.expander("Simple XAS summary table", expanded=True):
         display_table(simple_summary)
         st.download_button("Download simple XAS summary CSV", data=rows_to_csv(simple_summary), file_name="isaac_portal_simple_xas_summary.csv", mime="text/csv")
 
-    if not xas_summary:
-        st.warning("No XAS records were detected in the fetched full records. XAS detection uses string keyword matching plus absorber/edge/energy fallback.")
+    if not simple_summary:
+        st.warning("No valid XAS spectra were detected. A record must contain a numeric energy axis with eV/keV units and must not be explicitly labeled as XRD/XPS/etc.")
+        with st.expander("Rows rejected by XAS spectral check", expanded=False):
+            display_table(summary_table(portal_rows))
         return []
 
     use_all_xas = st.checkbox("Use all XAS records in the summary table", value=True)
-    absorber_options = sorted({safe_str(r.get("absorber")) for r in xas_summary if safe_str(r.get("absorber"))})
-    edge_options = sorted({safe_str(r.get("edge")) for r in xas_summary if safe_str(r.get("edge"))})
+    absorber_options = sorted({safe_str(r.get("absorber")) for r in simple_summary if safe_str(r.get("absorber"))})
+    edge_options = sorted({safe_str(r.get("edge")) for r in simple_summary if safe_str(r.get("edge"))})
     c1, c2, c3 = st.columns(3)
     sel_abs = c1.multiselect("Absorber filter", absorber_options, default=absorber_options, disabled=use_all_xas)
     sel_edge = c2.multiselect("Edge filter", edge_options, default=edge_options, disabled=use_all_xas)
@@ -208,14 +213,14 @@ def records_from_portal_ui() -> List[Tuple[str, Dict[str, Any]]]:
         selected_ids = set(xas_ids)
     else:
         selected_ids = {
-            r.get("record_id")
-            for r in xas_summary
-            if (not sel_abs or r.get("absorber") in sel_abs)
-            and (not sel_edge or r.get("edge") in sel_edge)
+            row.get("record_id")
+            for row in simple_summary
+            if (not sel_abs or row.get("absorber") in sel_abs)
+            and (not sel_edge or row.get("edge") in sel_edge)
             and (
                 not material_query
-                or material_query.lower() in safe_str(r.get("formula")).lower()
-                or material_query.lower() in safe_str(r.get("material_name")).lower()
+                or material_query.lower() in safe_str(row.get("formula")).lower()
+                or material_query.lower() in safe_str(row.get("material_name")).lower()
             )
         }
     filtered = [(source, rec) for source, rec in records_after_domain if rec.get("record_id") in selected_ids]
@@ -246,15 +251,6 @@ try:
 except Exception as exc:
     st.error(f"Failed to parse records into spectra: {exc}")
     st.stop()
-
-if data_source == "Retrieve from ISAAC Portal":
-    for row in rows:
-        row["is_xas"] = True
-        if row.get("classification") == "not_plottable_invalid_xy":
-            continue
-        if row.get("classification", "").startswith("not_xas"):
-            row["classification"] = "xas_keyword_match"
-            row["reason"] = "record matched XAS keyword search in full ISAAC JSON"
 
 st.success(f"Loaded {len(records)} JSON record(s) and detected {len(rows)} spectral/record row(s).")
 plottable = [r for r in rows if r.get("x") is not None and r.get("y") is not None and r.get("n_points", 0) > 0]
