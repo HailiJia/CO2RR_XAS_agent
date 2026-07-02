@@ -1,48 +1,12 @@
 # CO2RR XAS Agent
 
-A lightweight Python agent for generating CO2RR surface/adsorbate structures, writing XAS simulation inputs, and converting outputs into ISAAC-style AI-ready records.
+A lightweight agent and web app for building CO2RR XAS workflows, generating FEFF/FDMNES/VASP inputs, converting completed runs into ISAAC AI-ready records, and using those records for XAS-focused machine learning.
 
-The current workflow supports:
-
-- CO2RR adsorbate/surface structure generation
-- FDMNES input generation
-- FEFF input generation
-- VASP two-step XAS input generation
-- Output parsing for FEFF, FDMNES, and VASP
-- ISAAC record generation and ISAAC Portal validate/upload/retrieve support
-- Local regex parsing for offline tests
-- Optional LLM planning through OpenAI-compatible endpoints, including ALCF/AskSage-style gateways, OpenAI, and Claude-style backends
-- NERSC submit/monitor/finalize workflow; see `README_NERSC_WORKFLOW.md`
+The most useful entry point is now the Streamlit web app.
 
 ---
 
-## 1. Repository structure
-
-```text
-CO2RR_XAS_agent/
-├── agent/                    # planner schemas, local parser, agent orchestration
-├── tools/                    # structure generation, XAS input generation, result parsing
-├── workflow/                 # NERSC submit/monitor/finalize helpers
-├── generators/               # lower-level slab/input generator utilities
-├── skills/                   # LLM planner skill context and legacy skill descriptors
-├── examples/                 # runnable examples
-├── tests/                    # regression tests for local, NERSC, ALCF, ISAAC records
-├── README.md
-├── README_NERSC_WORKFLOW.md
-├── README_LLM_SETUP.md
-└── requirements.txt
-```
-
-Notes:
-
-- `skills/co2rr-xas/` is the only skill folder used by the Python runtime.
-- The Python LLM planner loads skill instructions from `skills/co2rr-xas/SKILL.md` when `use_llm=True`.
-- The YAML files in `skills/co2rr-xas/references/` provide detailed workflow context for structure generation, XAS input generation, and result parsing.
-- Local regex mode (`use_llm=False`) does not use skill files; it only uses the deterministic parser in `agent/co2rr_xas_agent.py`.
-
----
-
-## 2. Installation
+## Quick start: web app
 
 From the repository root:
 
@@ -50,640 +14,178 @@ From the repository root:
 python -m venv .venv
 source .venv/bin/activate
 pip install --upgrade pip
-pip install numpy pydantic openai custodian streamlit pandas scikit-learn
+pip install -r requirements.txt
+pip install streamlit pandas scikit-learn
+streamlit run web_app/Home.py
 ```
 
-Optional dependencies:
-
-```bash
-pip install pymatgen ase
-```
-
-`pymatgen` or `ase` is needed for CIF input support. POSCAR and CONTCAR can be read directly by the built-in parser.
-
----
-
-## 3. Local parser versus LLM planner
-
-The agent has two parsing modes.
-
-### Local mode
-
-```python
-use_llm=False
-```
-
-This is good for quick tests and offline use. It supports common phrasing but is still regex-based, so use explicit prompts.
-
-### LLM mode
-
-```python
-use_llm=True
-```
-
-This uses `agent/planner.py` to call an OpenAI-compatible chat-completions endpoint and convert flexible natural language into a structured `XASPlan`. The deterministic Python tools still write the actual files.
-
-The intended architecture is:
-
-```text
-natural language
-→ LLM planner or LocalIntentParser
-→ ParsedIntent / XASPlan
-→ deterministic Python file generators
-→ input folders / output parsers / ISAAC records
-```
-
----
-
-## 4. API keys and credentials
-
-Do not put API keys, private keys, or tokens into the repository. Export them in the terminal before launching Streamlit or running Python workflows.
-
-### 4.1 LLM planner credentials
-
-Use one backend at a time, depending on the selected planner in the web app.
-
-For the generic OpenAI-compatible planner:
-
-```bash
-export CO2RR_LLM_MODEL="your-model-name"
-export CO2RR_LLM_API_KEY="your-token"
-export CO2RR_LLM_BASE_URL="https://your-openai-compatible-endpoint/v1"
-```
-
-ALCF/AskSage-style aliases are also supported:
-
-```bash
-export ALCF_MODEL="your-model-name"
-export ALCF_API_KEY="your-token"
-export ALCF_BASE_URL="https://your-openai-compatible-endpoint/v1"
-```
-
-For OpenAI directly, either use the generic variables above or set:
-
-```bash
-export OPENAI_API_KEY="your-openai-api-key"
-export OPENAI_MODEL="gpt-4o-mini"
-```
-
-For Claude/Anthropic-style backends, set:
-
-```bash
-export ANTHROPIC_API_KEY="your-anthropic-api-key"
-export ANTHROPIC_MODEL="claude-3-5-sonnet-latest"
-```
-
-If using the Argonne ALCF chat backend with local token authentication, authenticate first:
-
-```bash
-python inference_auth_token.py authenticate
-```
-
-### 4.2 NERSC Superfacility API credentials
-
-For NERSC upload/submit/monitor/download through the web app:
-
-```bash
-export NERSC_SFAPI_CLIENT_ID="your-client-id"
-export NERSC_SFAPI_PRIVATE_KEY_PATH="$HOME/.nersc/sfapi_web_xas_agent/priv_key.pem"
-```
-
-Optional NERSC defaults:
-
-```bash
-export CO2RR_NERSC_ACCOUNT="mXXXX"
-export CO2RR_NERSC_QUEUE="regular"
-export CO2RR_NERSC_NODES="1"
-export CO2RR_NERSC_WALLTIME="02:00:00"
-export CO2RR_NERSC_CLUSTER="Perlmutter"
-export CO2RR_NERSC_FACILITY="NERSC"
-export CO2RR_NERSC_ORGANIZATION="LBNL"
-```
-
-### 4.3 ISAAC Portal credentials
-
-For ISAAC Portal validation, upload, and ML-page retrieval:
+Optional ISAAC Portal access:
 
 ```bash
 export ISAAC_URL="https://isaac.slac.stanford.edu/portal/api"
-export ISAAC_KEY="your-isaac-bearer-token"
+export ISAAC_KEY="..."
+streamlit run web_app/Home.py
 ```
 
-The web app uses these endpoints:
-
-```text
-GET  /records?limit=...&offset=...
-GET  /records/{record_id}
-POST /validate
-POST /records
-```
-
-`ISAAC_KEY` is read from the process environment only; it is not typed into the Streamlit UI or saved in session state.
+The web app can also work only from local ISAAC JSON files or ZIP archives; portal credentials are not required for local upload mode.
 
 ---
 
-## 5. Running the web app
+## Web app capabilities
 
-From the repository root, run the polished Structure/XAS workspace:
+### 1. XAS record loading and filtering
 
-```bash
-streamlit run web_app/Structure_and_XAS_calculation.py
-```
+The ML page can load records from:
 
-The legacy direct app entrypoint is still available:
+- local ISAAC JSON files
+- ZIP archives of ISAAC records
+- the ISAAC Portal, when `ISAAC_KEY` is set
 
-```bash
-streamlit run web_app/app.py
-```
+It applies strict XAS spectral filtering before ML. A record must contain a numeric incident-energy axis with eV/keV units and an XAS-like signal channel. Records that look like XRD, XPS, PDF, Raman, STM/STS, etc. are excluded from XAS ML by default.
 
-The ML page is available from the Streamlit sidebar/pages menu. Its ISAAC Portal retrieval workflow scans `/records` in pages of at most 500, fetches selected full records, applies a strict XAS spectral check, and then builds the summary table used for plotting and ML.
+### 2. Simple XAS summary
 
----
+For valid XAS spectra, the app summarizes:
 
-## 6. Quick local tests
+- `record_id`
+- `record_domain`
+- material formula/name
+- absorber
+- edge
+- technique
+- number of spectral points
+- classification reason
 
-Run from the repository root.
+Absorber/edge metadata can be read from ISAAC fields such as `system.configuration.absorber` and `system.configuration.edge`, or inferred from the energy range when metadata are missing.
 
-### CHO on Cu(111), default XAS inputs
+### 3. Spectrum plotting
 
-```bash
-python - <<'PY'
-from agent.co2rr_xas_agent import process_request
+The app plots spectra by absorber/edge group and supports:
 
-result = process_request(
-    "Generate XAS inputs for CHO adsorbate on Cu(111)",
-    output_dir="generated_outputs/local_tests/cho_cu111_default",
-    use_llm=False,
-)
+- raw spectra
+- min-max normalized spectra
+- min-max normalized spectra with vertical offsets
+- XAS-only, all plottable, or non-XAS diagnostic views
 
-print(result["status"])
-PY
-```
+### 4. XAS ML target/label selection
 
-### CHO on Cu(111), FDMNES Green, no SCF
+The ML target selector is intentionally restricted to fields that are useful for XAS modeling:
 
-```bash
-python - <<'PY'
-from agent.co2rr_xas_agent import process_request
+- `sample.material.formula`
+- non-null `descriptors.*` values
+- optional parsed structural labels:
+  - `structure.facet`
+  - `structure.adsorption_site`
 
-result = process_request(
-    "Generate FDMNES Green multiple scattering XAS inputs without SCF, with Quadrupole and Spinorbit "
-    "for CHO adsorbate on Cu(111), radius 7 Angstrom, energy range -5 0.2 50, K edge, "
-    "NERSC account m5268",
-    output_dir="generated_outputs/local_tests/cho_cu111_fdmnes_green",
-    use_llm=False,
-)
+Other metadata such as record ID, source type, facility, instrument, timestamp, absorber, edge, technique, QC status, assets, links, and tags are not exposed as ML target labels. They can still be used for filtering or diagnosis, but they are not useful XAS ML targets and can introduce leakage/noise.
 
-print(result["status"])
-PY
-```
+Parsed facet/site labels are extracted from record text and should be manually checked before training.
 
-Check FDMNES cards:
+### 5. Auto-advisor for ML setup
 
-```bash
-grep -R -n "Range\|Radius\|Green\|SCF\|Quadrupole\|Spinorbit\|Edge" \
-  generated_outputs/local_tests/cho_cu111_fdmnes_green
-```
+The auto-advisor compares:
 
-Expected key cards:
+- feature sets: raw, derivative, CDF, peak-window features
+- normalization: min-max, area, z-score
+- dimension reduction choices, including no reduction and PCA
+- simple models and baselines
 
-```text
-Range
-  -5. 0.2 50.
-Radius
-  7.0
-Quadrupole
-Spinorbit
-Green
-Edge
-  K
-```
+It reports ranked configurations and a recommended starting point. Results should still be checked with grouped validation when enough records are available.
 
-There should be no standalone `SCF` card if the prompt says `without SCF`.
+### 6. Manual ML run
 
-### OCCO on Cu(111)-Au(111) interface
+Manual training supports:
 
-```bash
-python - <<'PY'
-from agent.co2rr_xas_agent import process_request
-
-result = process_request(
-    "Generate FDMNES Green multiple scattering XAS inputs without SCF, with Quadrupole and Spinorbit "
-    "for OCCO adsorbate on Cu(111)-Au(111) interface, radius 7 Angstrom, "
-    "energy range -5 0.2 50, K edge, NERSC account m5268",
-    output_dir="generated_outputs/local_tests/occo_cu111_au111_fdmnes_green",
-    use_llm=False,
-)
-
-print(result["status"])
-PY
-```
-
-Inspect generated files:
-
-```bash
-find generated_outputs/local_tests/occo_cu111_au111_fdmnes_green -maxdepth 6 -type f | sort
-```
+- classification or regression, depending on the target field
+- common-grid interpolation
+- spectrum normalization
+- optional dimension reduction with PCA
+- simple baselines and standard models
+- held-out prediction table
+- training curve diagnostics when enough spectra are available
 
 ---
 
-## 7. LLM setup
+## Simulation workflow capabilities
 
-The LLM planner uses the `openai` Python package but can point to any OpenAI-compatible chat-completions endpoint.
+The agent can generate and process XAS simulation workflows for CO2RR-relevant catalyst models:
 
-Set environment variables:
+- Cu/Au/Ni/Pt/Ir surfaces and interfaces
+- adsorbates such as CO, CHO, OCCO, and related intermediates
+- FEFF input generation
+- FDMNES input generation
+- VASP two-step SCF/XAS input generation
+- NERSC submit/monitor/finalize workflow
+- output parsing for FEFF, FDMNES, and VASP
+- ISAAC simulation evidence record generation
 
-```bash
-export CO2RR_LLM_MODEL="your-model-name"
-export CO2RR_LLM_API_KEY="your-token"
-export CO2RR_LLM_BASE_URL="https://your-openai-compatible-endpoint/v1"
-```
-
-Aliases also supported:
-
-```bash
-export ALCF_MODEL="your-model-name"
-export ALCF_API_KEY="your-token"
-export ALCF_BASE_URL="https://your-openai-compatible-endpoint/v1"
-```
-
-Then run:
+Completed simulation folders can be converted into ISAAC records with:
 
 ```bash
-python - <<'PY'
-from agent.co2rr_xas_agent import process_request
-
-result = process_request(
-    "Generate FDMNES Green multiple scattering XAS inputs without SCF, "
-    "with Quadrupole and Spinorbit for CO on Cu(111), radius 7 Angstrom, "
-    "energy range start from -5 eV to 50 eV with step size 0.2 eV, "
-    "K edge, NERSC account m5268",
-    output_dir="generated_outputs/llm_tests/co_cu111_green",
-    use_llm=True,
-)
-
-print(result["status"])
-PY
+bash XAS/convert_completed_simulation_xas_to_isaac.sh \
+  --input-dir . \
+  --output isaac_record_draft.json
 ```
 
-In LLM mode, the planner loads the repo skill instructions from:
+The converter reads absorber and edge from the calculation inputs when possible:
+
+- FEFF: `feff.inp`, `POTENTIALS`, `PARAMETERS`, `ATOMS`
+- FDMNES: `*_in.txt`, `fdmfile.txt`
+- VASP: `INCAR`, `POTCAR.spec`, and folder/file labels
+
+Metadata and environment variables are used only as fallback.
+
+---
+
+## ISAAC validation and upload
+
+For one record:
+
+```bash
+export ISAAC_URL="https://isaac.slac.stanford.edu/portal/api"
+export ISAAC_KEY="..."
+python tools/convert_simulation_xas_run_to_isaac.py \
+  --input-dir . \
+  --output isaac_record_draft.json \
+  --validate
+```
+
+For a batch of JSON records, use the helper generated during analysis or adapt the same pattern:
+
+```bash
+python batch_validate_upload_isaac_records.py \
+  --input records.zip \
+  --validate \
+  --upload
+```
+
+The recommended workflow is to validate all records first, inspect the report, and upload only records that pass validation.
+
+---
+
+## Repository layout
 
 ```text
-skills/co2rr-xas/SKILL.md
-```
-
-and also loads YAML reference files from:
-
-```text
-skills/co2rr-xas/references/
+CO2RR_XAS_agent/
+├── agent/                    # planner schemas, parser, and agent orchestration
+├── tools/                    # XAS record utilities, portal client, converters, ML helpers
+├── workflow/                 # NERSC submit/monitor/finalize helpers
+├── generators/               # slab/input generator utilities
+├── web_app/                  # Streamlit web app
+│   ├── Home.py
+│   └── pages/
+│       └── 2_Machine_learning_for_XAS.py
+├── XAS/                      # reusable XAS shell helpers
+├── examples/                 # runnable examples
+├── tests/                    # regression tests
+└── requirements.txt
 ```
 
 ---
 
-## 8. Structure-file input
-
-The agent can generate XAS inputs from an existing structure file:
-
-```bash
-python - <<'PY'
-from agent.co2rr_xas_agent import process_request
-
-result = process_request(
-    "Generate VASP PBE XAS inputs from /path/to/CONTCAR, K edge",
-    output_dir="generated_outputs/from_contcar",
-    use_llm=False,
-)
-
-print(result["status"])
-PY
-```
-
-Supported structure files:
-
-```text
-POSCAR
-CONTCAR
-*.cif
-```
-
-CIF support requires `pymatgen` or `ase`.
-
----
-
-## 9. XAS input generation
-
-### FDMNES
-
-Each FDMNES folder contains:
-
-```text
-FDMNES_fdm/ or FDMNES_green/
-├── fdmfile.txt
-├── <absorber>_in.txt
-└── submit.sh
-```
-
-The `Range` card uses FDMNES order:
-
-```text
-emin step emax
-```
-
-For example:
-
-```text
-Range
-  -5. 0.2 50.
-```
-
-Natural-language LLM prompts should map to the semantic form:
-
-```text
-emin = -5 eV, emax = 50 eV, step = 0.2 eV
-```
-
-which is then converted to FDMNES order internally.
-
-### FEFF
-
-Each FEFF calculation folder contains Lightshow/pymatgen-style split FEFF inputs plus the concatenated `feff.inp`:
-
-```text
-FEFF/
-├── HEADER
-├── PARAMETERS
-├── POTENTIALS
-├── ATOMS
-├── feff.inp
-└── submit.sh
-```
-
-`feff.inp` is assembled from the split sections so it remains runnable by FEFF, while `HEADER`, `PARAMETERS`, `POTENTIALS`, and `ATOMS` are preserved for inspection, provenance, and Lightshow-compatible downstream workflows. The FEFF `ATOMS` and `POTENTIALS` sections follow the same pymatgen/Lightshow convention: absorber at the origin, distance-sorted neighbors inside the cluster radius, and alphabetically assigned scatterer potentials with `ipot = 0` reserved for the absorber. The FEFF generator writes an absorber-centered periodic cluster:
-
-```text
-ipot = 0   absorber atom
-ipot > 0   scattering potentials
-```
-
-For a Cu K-edge calculation, same-element Cu scatterers are assigned a positive `ipot`, separate from the absorbing Cu atom.
-
-### VASP
-
-Generated relaxation POSCARs use selective dynamics and fix the bottom two substrate layers. For production XAS, run relaxation first and regenerate XAS inputs from `relax/CONTCAR`; if `CONTCAR` is not present, the generator emits provisional XAS inputs from the unrelaxed structure and records a warning.
-
-VASP XAS is generated as a two-step workflow:
-
-```text
-VASP/
-├── 01_scf/
-│   ├── POSCAR
-│   ├── INCAR
-│   ├── KPOINTS
-│   ├── POTCAR.spec
-│   └── make_potcar.sh
-├── 02_xas/
-│   ├── POSCAR
-│   ├── INCAR
-│   ├── KPOINTS
-│   ├── POTCAR.spec
-│   └── make_potcar.sh
-└── submit.sh
-```
-
-The first step is SCF/static:
-
-```text
-LWAVE = .TRUE.
-LCHARG = .TRUE.
-```
-
-The second step reads the converged charge/wavefunction when available:
-
-```text
-ISTART = 1
-ICHARG = 11
-LOPTICS = .TRUE.
-ICORELEVEL = 2
-```
-
-For GW/GW0 mode, the XAS step includes:
-
-```text
-ALGO = GW0
-NOMEGA = 100
-```
-
-The folder name remains simply:
-
-```text
-VASP/
-```
-
-The method is controlled inside the generated INCAR and metadata, not by creating separate `VASP_PBE` and `VASP_GW` folders.
-
----
-
-## 10. POTCAR handling
-
-The agent writes:
-
-```text
-POTCAR.spec
-make_potcar.sh
-```
-
-If a valid POTCAR root is available, it also tries to write a real `POTCAR` directly.
-
-Set one of these environment variables:
-
-```bash
-export CO2RR_POTCAR_DIR=/path/to/potpaw_PBE
-# or
-export VASP_POTCAR_DIR=/path/to/potpaw_PBE
-```
-
-Expected structure:
-
-```text
-/path/to/potpaw_PBE/
-├── Cu_pv/POTCAR
-├── C/POTCAR
-├── O/POTCAR
-└── H/POTCAR
-```
-
-You can also pass a path in the prompt:
-
-```text
-POTCAR path /path/to/potpaw_PBE
-```
-
----
-
-## 11. Result parsing and ISAAC records
-
-The result parser supports:
-
-```text
-FEFF    xmu.dat
-FDMNES  *_conv.txt
-VASP    OUTCAR dielectric-function output
-```
-
-A parsed record is converted into an ISAAC-style simulation record with:
-
-```text
-record metadata
-structure metadata
-calculation parameters
-spectral arrays
-provenance fields
-```
-
-Generated structures now carry nested catalyst and adsorbate metadata in `structure_info.json`, and the result parser copies those fields into the ISAAC record under `sample.catalyst` and `sample.adsorbate`. This is intended to make later XAS ML featurization easier. For example, an OCCO bridge site on a Cu-Au interface records metadata shaped like:
-
-```yaml
-catalyst:
-  elements: [Cu, Au]
-  composition: CuAu
-  surface_facet: "111"
-  site_type: interface
-  structure_id: CuAu_111_OCCO_bridge_001
-adsorbate:
-  identity: OCCO
-  formula: C2O2
-  intermediate_class: C2
-  binding_mode: bridge
-  adsorption_site: Cu-Au interface
-  binding_atom: C
-```
-
-The local parser and LLM planner also accept this YAML-like metadata in prompts. Direct API callers can pass metadata overrides through `metadata_overrides={"catalyst": {...}, "adsorbate": {...}, "structure_id": "..."}`.
-
----
-
-## 12. CO2RR ISAAC XAS ML skill
-
-The repository now includes `skills/co2rr-isaac-xas-ml/` and a registry entry `co2rr_isaac_xas_ml` for downstream XAS ML workflows. The skill consumes ISAAC simulation/experimental XAS records, builds spectrum-level and condition-level tables, applies XAS-aware preprocessing, creates edge-specific features, and writes ISAAC-compatible ML training/prediction record scaffolds.
-
-Minimal deterministic dataset assembly:
-
-```python
-from tools.ml_xas_workflow import execute_ml_dataset_assembly
-
-result = execute_ml_dataset_assembly(
-    isaac_record_paths=["example_ouput/FEFF/isaac_record.json"],
-    output_dir="generated_outputs/ml_dataset",
-    mode="simulation_only_training",
-    task_name="adsorbate_classification",
-)
-```
-
-Generated outputs include `spectrum_table.json`, `condition_table.json`, `ml_training_record.json`, and, for simulation-to-experiment mode, `ml_prediction_record.json`.
-
----
-
-## 13. Agentic recovery and missing-information handling
-
-The Python entry points now do a preflight pass before launching deterministic tools, and the NERSC orchestration layer runs through `custodian` for recoverable workflow steps. If a request is missing required context, the agent returns `status="needs_input"` with `missing_information`, `suggestions`, and the parsed intent instead of a bare script/tool error. Examples include missing catalyst metals for generated structures or a missing structure file for result parsing.
-
-The agent also attempts safe recovery when enough context is available:
-
-- result parsing searches the result directory for nearby `POSCAR` or `CONTCAR` files when `structure_file` was omitted;
-- NERSC requests made off-NERSC automatically fall back to `submit=False` dry-run input generation when `sbatch`/`NERSC_HOST` is unavailable;
-- recovered choices and warnings are reported under the returned `agent.recovery_actions` and `agent.warnings` fields.
-
----
-
-## 14. Configurable NERSC defaults
-
-Hard-coded NERSC values are minimized. If you do not pass explicit values, the workflow checks these environment variables before using safe placeholders/defaults:
-
-```bash
-export CO2RR_NERSC_ACCOUNT=mXXXX
-export CO2RR_NERSC_QUEUE=regular
-export CO2RR_NERSC_NODES=2
-export CO2RR_NERSC_WALLTIME=8:00:00
-export CO2RR_NERSC_CLUSTER=Perlmutter
-export CO2RR_NERSC_FACILITY=NERSC
-export CO2RR_NERSC_ORGANIZATION=LBNL
-```
-
----
-
-## 15. Common issues
-
-### Are the skills used?
-
-Yes, but only in LLM mode. When you run with:
-
-```python
-use_llm=True
-```
-
-`agent/planner.py` loads:
-
-```text
-skills/co2rr-xas/SKILL.md
-skills/co2rr-xas/references/*.yaml
-```
-
-When you run with:
-
-```python
-use_llm=False
-```
-
-the skills are not used. Local mode uses the regex parser only.
-
-### Local parser does not understand a flexible prompt
-
-Use more explicit phrasing in local mode, or switch to LLM mode:
-
-```python
-use_llm=True
-```
-
-### CIF input fails
-
-Install `pymatgen` or `ase`:
-
-```bash
-pip install pymatgen ase
-```
-
-### POTCAR is missing
-
-Set:
-
-```bash
-export CO2RR_POTCAR_DIR=/path/to/potpaw_PBE
-```
-
-or run the generated `make_potcar.sh` after loading the correct VASP/POTCAR environment.
-
----
-
-## 16. Minimal Python API
-
-```python
-from agent.co2rr_xas_agent import process_request
-
-result = process_request(
-    "Generate XAS inputs for CHO adsorbate on Cu(111)",
-    output_dir="generated_outputs/example",
-    use_llm=False,
-)
-
-print(result)
-```
-
-For LLM mode:
-
-```python
-result = process_request(
-    "Generate FDMNES Green XAS input for CHO on Cu(111), from -5 to 50 eV with 0.2 eV step",
-    output_dir="generated_outputs/example_llm",
-    use_llm=True,
-)
-```
+## Notes
+
+- Use the web app for most interactive work.
+- Use `tools/convert_simulation_xas_run_to_isaac.py` for repeated simulation-folder conversion.
+- Keep experimental/literature one-off conversions outside the repository unless they are intended to become reusable workflows.
+- For XAS ML, use metadata for filtering and descriptors/chemically meaningful labels for targets.
