@@ -53,7 +53,8 @@ def _polish_labels(source: str) -> str:
         '"ALCF cluster"': '"ALCF inference cluster"',
         '"Show planner trace"': '"Show agent debug trace"',
         '"Agent responses"': '"Conversation"',
-        'st.header("Batch processing")': 'st.header("Batch generation")',
+        'st.header("Structure generation")': 'st.subheader("Structure generation")',
+        'st.header("Batch processing")': 'st.subheader("Batch generation")',
         '"Generate inputs for multiple structures or a reaction pathway"': '"Generate input packages for multiple structures or reaction pathways"',
         '"Generate pathway from sidebar system"': '"Generate pathway from current structure setup"',
         '"Generate VASP relaxation folders"': '"Include VASP relaxation inputs"',
@@ -61,7 +62,7 @@ def _polish_labels(source: str) -> str:
         '"Batch absorber"': '"Absorber selection"',
         '"use selected absorber when present"': '"Use selected absorber if available"',
         'with st.expander("Sidebar request", expanded=False):': 'with st.expander("Current workflow parameters", expanded=False):',
-        'st.header("NERSC job control")': 'st.header("NERSC agent")',
+        'st.header("NERSC job control")': 'st.subheader("NERSC agent")',
         'I can update sidebar settings and run workflow actions. Examples:': 'I can update workspace settings and run workflow actions. Examples:',
     }
     for old, new in replacements.items():
@@ -146,6 +147,7 @@ def _split_workflow_and_agent(source: str) -> str:
     workflow_block = structure_block + "\n\n" + batch_block + "\n\n" + nersc_block
     layout_block = (
         '# Polished page layout: sidebar agent console + main workflow workspace.\n'
+        'p = st.session_state.params\n'
         'with st.sidebar:\n'
         '    st.header("Agent console")\n'
         '    st.caption("Ask the agent to update settings, generate inputs, upload to NERSC, submit jobs, check Slurm, or inspect remote files.")\n'
