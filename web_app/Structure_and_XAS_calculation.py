@@ -175,7 +175,7 @@ def _inject_structure_setup(structure_block: str, structure_setup: str) -> str:
 
 
 def _move_chat_prompt_after_conversation(chat_block: str) -> str:
-    """Place the prompt box after the visible conversation, ChatGPT-style."""
+    """Place the prompt box after the visible conversation, then refresh after send."""
     prompt_start = chat_block.find('chat_prompt = st.chat_input(')
     conversation_start = chat_block.find('with st.expander("Agent responses"', prompt_start)
     debug_start = chat_block.find('if st.session_state.params.get("chat_debug_planner"', conversation_start)
@@ -185,7 +185,16 @@ def _move_chat_prompt_after_conversation(chat_block: str) -> str:
         debug_start = len(chat_block)
 
     before_prompt = chat_block[:prompt_start].rstrip() + "\n\n"
-    prompt_block = chat_block[prompt_start:conversation_start].strip("\n") + "\n\n"
+    prompt_block = chat_block[prompt_start:conversation_start].strip("\n")
+    prompt_block = prompt_block.replace(
+        '    _chat_add("assistant", response)',
+        '    _chat_add("assistant", response)\n'
+        '    if hasattr(st, "rerun"):\n'
+        '        st.rerun()\n'
+        '    else:\n'
+        '        st.experimental_rerun()',
+        1,
+    ) + "\n\n"
     conversation_block = chat_block[conversation_start:debug_start].strip("\n") + "\n\n"
     debug_block = chat_block[debug_start:].lstrip("\n")
     return before_prompt + conversation_block + prompt_block + debug_block
@@ -246,7 +255,7 @@ def _build_runtime_app() -> str:
     source = _polish_labels(source)
     source = source.replace(
         'WEB_APP_UPDATE_TAG = "v33_2026-07-01_slurm_any_job_status"',
-        'WEB_APP_UPDATE_TAG = "v42_2026-07-02_current_jobs_only_chat"',
+        'WEB_APP_UPDATE_TAG = "v43_2026-07-02_chat_immediate_refresh"',
         1,
     )
     return source
