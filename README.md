@@ -9,9 +9,9 @@ The current workflow supports:
 - FEFF input generation
 - VASP two-step XAS input generation
 - Output parsing for FEFF, FDMNES, and VASP
-- ISAAC record generation
+- ISAAC record generation and ISAAC Portal validate/upload/retrieve support
 - Local regex parsing for offline tests
-- Optional LLM planning through an OpenAI-compatible endpoint, including ALCF/AskSage-style gateways
+- Optional LLM planning through OpenAI-compatible endpoints, including ALCF/AskSage-style gateways, OpenAI, and Claude-style backends
 - NERSC submit/monitor/finalize workflow; see `README_NERSC_WORKFLOW.md`
 
 ---
@@ -50,7 +50,7 @@ From the repository root:
 python -m venv .venv
 source .venv/bin/activate
 pip install --upgrade pip
-pip install numpy pydantic openai custodian
+pip install numpy pydantic openai custodian streamlit pandas scikit-learn
 ```
 
 Optional dependencies:
@@ -95,18 +95,112 @@ natural language
 
 ---
 
-## 4. Running the web app
-From the repository root:
-`streamlit run web_app/app.py`
+## 4. API keys and credentials
 
-If using NERSC job control, launch Streamlit from a terminal where these are set:
-`export NERSC_SFAPI_CLIENT_ID="..."`
-`export NERSC_SFAPI_PRIVATE_KEY_PATH="$HOME/.nersc/sfapi_web_xas_agent/priv_key.pem"`
+Do not put API keys, private keys, or tokens into the repository. Export them in the terminal before launching Streamlit or running Python workflows.
 
-If using the Argonne ALCF chat backend, authenticate first:
-`python inference_auth_token.py authenticate`
+### 4.1 LLM planner credentials
 
-## 5. Quick local tests
+Use one backend at a time, depending on the selected planner in the web app.
+
+For the generic OpenAI-compatible planner:
+
+```bash
+export CO2RR_LLM_MODEL="your-model-name"
+export CO2RR_LLM_API_KEY="your-token"
+export CO2RR_LLM_BASE_URL="https://your-openai-compatible-endpoint/v1"
+```
+
+ALCF/AskSage-style aliases are also supported:
+
+```bash
+export ALCF_MODEL="your-model-name"
+export ALCF_API_KEY="your-token"
+export ALCF_BASE_URL="https://your-openai-compatible-endpoint/v1"
+```
+
+For OpenAI directly, either use the generic variables above or set:
+
+```bash
+export OPENAI_API_KEY="your-openai-api-key"
+export OPENAI_MODEL="gpt-4o-mini"
+```
+
+For Claude/Anthropic-style backends, set:
+
+```bash
+export ANTHROPIC_API_KEY="your-anthropic-api-key"
+export ANTHROPIC_MODEL="claude-3-5-sonnet-latest"
+```
+
+If using the Argonne ALCF chat backend with local token authentication, authenticate first:
+
+```bash
+python inference_auth_token.py authenticate
+```
+
+### 4.2 NERSC Superfacility API credentials
+
+For NERSC upload/submit/monitor/download through the web app:
+
+```bash
+export NERSC_SFAPI_CLIENT_ID="your-client-id"
+export NERSC_SFAPI_PRIVATE_KEY_PATH="$HOME/.nersc/sfapi_web_xas_agent/priv_key.pem"
+```
+
+Optional NERSC defaults:
+
+```bash
+export CO2RR_NERSC_ACCOUNT="mXXXX"
+export CO2RR_NERSC_QUEUE="regular"
+export CO2RR_NERSC_NODES="1"
+export CO2RR_NERSC_WALLTIME="02:00:00"
+export CO2RR_NERSC_CLUSTER="Perlmutter"
+export CO2RR_NERSC_FACILITY="NERSC"
+export CO2RR_NERSC_ORGANIZATION="LBNL"
+```
+
+### 4.3 ISAAC Portal credentials
+
+For ISAAC Portal validation, upload, and ML-page retrieval:
+
+```bash
+export ISAAC_URL="https://isaac.slac.stanford.edu/portal/api"
+export ISAAC_KEY="your-isaac-bearer-token"
+```
+
+The web app uses these endpoints:
+
+```text
+GET  /records?limit=...&offset=...
+GET  /records/{record_id}
+POST /validate
+POST /records
+```
+
+`ISAAC_KEY` is read from the process environment only; it is not typed into the Streamlit UI or saved in session state.
+
+---
+
+## 5. Running the web app
+
+From the repository root, run the polished Structure/XAS workspace:
+
+```bash
+streamlit run web_app/Structure_and_XAS_calculation.py
+```
+
+The legacy direct app entrypoint is still available:
+
+```bash
+streamlit run web_app/app.py
+```
+
+The ML page is available from the Streamlit sidebar/pages menu. Its ISAAC Portal retrieval workflow scans `/records` in pages of at most 500, fetches selected full records, applies a strict XAS spectral check, and then builds the summary table used for plotting and ML.
+
+---
+
+## 6. Quick local tests
 
 Run from the repository root.
 
@@ -193,7 +287,7 @@ find generated_outputs/local_tests/occo_cu111_au111_fdmnes_green -maxdepth 6 -ty
 
 ---
 
-## 6. LLM setup
+## 7. LLM setup
 
 The LLM planner uses the `openai` Python package but can point to any OpenAI-compatible chat-completions endpoint.
 
@@ -246,7 +340,7 @@ skills/co2rr-xas/references/
 
 ---
 
-## 7. Structure-file input
+## 8. Structure-file input
 
 The agent can generate XAS inputs from an existing structure file:
 
@@ -276,7 +370,7 @@ CIF support requires `pymatgen` or `ase`.
 
 ---
 
-## 8. XAS input generation
+## 9. XAS input generation
 
 ### FDMNES
 
@@ -389,7 +483,7 @@ The method is controlled inside the generated INCAR and metadata, not by creatin
 
 ---
 
-## 9. POTCAR handling
+## 10. POTCAR handling
 
 The agent writes:
 
@@ -426,7 +520,7 @@ POTCAR path /path/to/potpaw_PBE
 
 ---
 
-## 10. Result parsing and ISAAC records
+## 11. Result parsing and ISAAC records
 
 The result parser supports:
 
@@ -468,7 +562,7 @@ The local parser and LLM planner also accept this YAML-like metadata in prompts.
 
 ---
 
-## 11. CO2RR ISAAC XAS ML skill
+## 12. CO2RR ISAAC XAS ML skill
 
 The repository now includes `skills/co2rr-isaac-xas-ml/` and a registry entry `co2rr_isaac_xas_ml` for downstream XAS ML workflows. The skill consumes ISAAC simulation/experimental XAS records, builds spectrum-level and condition-level tables, applies XAS-aware preprocessing, creates edge-specific features, and writes ISAAC-compatible ML training/prediction record scaffolds.
 
@@ -489,7 +583,7 @@ Generated outputs include `spectrum_table.json`, `condition_table.json`, `ml_tra
 
 ---
 
-## 12. Agentic recovery and missing-information handling
+## 13. Agentic recovery and missing-information handling
 
 The Python entry points now do a preflight pass before launching deterministic tools, and the NERSC orchestration layer runs through `custodian` for recoverable workflow steps. If a request is missing required context, the agent returns `status="needs_input"` with `missing_information`, `suggestions`, and the parsed intent instead of a bare script/tool error. Examples include missing catalyst metals for generated structures or a missing structure file for result parsing.
 
@@ -501,7 +595,7 @@ The agent also attempts safe recovery when enough context is available:
 
 ---
 
-## 13. Configurable NERSC defaults
+## 14. Configurable NERSC defaults
 
 Hard-coded NERSC values are minimized. If you do not pass explicit values, the workflow checks these environment variables before using safe placeholders/defaults:
 
@@ -517,7 +611,7 @@ export CO2RR_NERSC_ORGANIZATION=LBNL
 
 ---
 
-## 14. Common issues
+## 15. Common issues
 
 ### Are the skills used?
 
@@ -570,7 +664,7 @@ or run the generated `make_potcar.sh` after loading the correct VASP/POTCAR envi
 
 ---
 
-## 15. Minimal Python API
+## 16. Minimal Python API
 
 ```python
 from agent.co2rr_xas_agent import process_request
