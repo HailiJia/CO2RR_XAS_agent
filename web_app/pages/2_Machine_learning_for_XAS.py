@@ -1,8 +1,10 @@
 # web_app/pages/2_Machine_learning_for_XAS.py
 from __future__ import annotations
 
+import json
 import math
 import os
+import re
 import sys
 from pathlib import Path
 from typing import Any, Dict, List, Sequence, Tuple
@@ -40,9 +42,10 @@ from tools.xas_record_utils import (
     is_number,
 )
 
-ML_PAGE_UPDATE_TAG = "v41_2026-07-02_isaac_portal_xas_filter_summary"
+ML_PAGE_UPDATE_TAG = "v42_2026-07-02_isaac_portal_paged_xas_scan"
 ISAAC_PORTAL_URL = "https://isaac.slac.stanford.edu/portal/"
 SIMPLE_XAS_SUMMARY_COLUMNS = ["record_id", "record_domain", "formula", "material_name", "absorber", "edge", "technique"]
+XAS_TEXT_RE = re.compile(r"\bxas\b|xanes|exafs|xafs|x-ray absorption|xray absorption|absorption spectroscopy", re.IGNORECASE)
 
 st.set_page_config(page_title="CO2RR XAS Agent | Machine learning for XAS", layout="wide")
 st.title("Agentic machine learning for XAS")
@@ -67,6 +70,47 @@ def simple_xas_summary_rows(rows: Sequence[Dict[str, Any]]) -> List[Dict[str, An
     return [{key: row.get(key, "") for key in SIMPLE_XAS_SUMMARY_COLUMNS} for row in rows]
 
 
+def record_has_xas_text(record: Dict[str, Any]) -> bool:
+    """Match the same XAS text logic as the user's jq command over string values."""
+    def walk(obj: Any):
+        if isinstance(obj, dict):
+            for value in obj.values():
+                yield from walk(value)
+        elif isinstance(obj, list):
+            for value in obj:
+                yield from walk(value)
+        elif isinstance(obj, str):
+            yield obj
+
+    return any(XAS_TEXT_RE.search(text or "") for text in walk(record))
+
+
+def scan_portal_stubs(client: ISAACPortalClient, page_size: int, max_records: int) -> Dict[str, Any]:
+    """Collect multiple /records pages; page_size is capped at the portal limit of 500."""
+    page_size = max(1, min(int(page_size), 500))
+    max_records = max(1, int(max_records))
+    all_stubs: List[Dict[str, Any]] = []
+    offset = 0
+    total_count = None
+    pages = 0
+    while len(all_stubs) < max_records:
+        listed = client.list_records(limit=page_size, offset=offset)
+        stubs = listed.get("records", [])
+        if total_count is None:
+            total_count = listed.get("total_count")
+        pages += 1
+        if not stubs:
+            break
+        remaining = max_records - len(all_stubs)
+        all_stubs.extend(stubs[:remaining])
+        if total_count is not None and offset + len(stubs) >= int(total_count):
+            break
+        if len(stubs) < page_size:
+            break
+        offset += page_size
+    return {"records": all_stubs, "total_count": total_count, "pages": pages, "scanned": len(all_stubs), "page_size": page_size}
+
+
 def records_from_portal_ui() -> List[Tuple[str, Dict[str, Any]]]:
     st.subheader("Retrieve XAS records from ISAAC Portal")
     env_url = os.environ.get("ISAAC_URL", "")
@@ -79,64 +123,79 @@ def records_from_portal_ui() -> List[Tuple[str, Dict[str, Any]]]:
         return st.session_state.get("isaac_portal_records", [])
 
     f1, f2, f3 = st.columns([1, 1, 2])
-    limit = f1.number_input("Record list limit", min_value=1, max_value=500, value=int(st.session_state.get("isaac_portal_limit", 120)), step=10)
-    offset = f2.number_input("Offset", min_value=0, max_value=100000, value=int(st.session_state.get("isaac_portal_offset", 0)), step=50)
+    page_size = f1.number_input("Page size", min_value=1, max_value=500, value=int(st.session_state.get("isaac_portal_page_size", 500)), step=50)
+    max_scan = f2.number_input("Max records to scan", min_value=1, max_value=10000, value=int(st.session_state.get("isaac_portal_max_scan", 2500)), step=500)
     domain = f3.selectbox("Domain filter", ["all", "characterization", "simulation"], index=1)
-    st.session_state["isaac_portal_limit"] = int(limit)
-    st.session_state["isaac_portal_offset"] = int(offset)
+    st.session_state["isaac_portal_page_size"] = int(page_size)
+    st.session_state["isaac_portal_max_scan"] = int(max_scan)
 
-    st.caption("The portal `X-Total-Count` header is the total number of records visible to the API query. Domain and XAS filters below are applied client-side to the listed/fetched records.")
+    st.caption("Page size is capped at 500 by the portal. To scan more than 500 records, this app requests multiple pages with offsets 0, 500, 1000, ... and then applies the domain/XAS filters locally.")
 
-    if st.button("List portal record stubs", type="secondary"):
+    if st.button("Scan portal record stubs", type="secondary"):
         try:
             client = ISAACPortalClient()
-            listed = client.list_records(limit=int(limit), offset=int(offset))
-            st.session_state["isaac_portal_list"] = listed
+            scanned = scan_portal_stubs(client, page_size=int(page_size), max_records=int(max_scan))
+            st.session_state["isaac_portal_list"] = scanned
         except Exception as exc:
-            st.error(f"Failed to list ISAAC Portal records: {exc}")
+            st.error(f"Failed to scan ISAAC Portal records: {exc}")
 
     listed = st.session_state.get("isaac_portal_list")
+    displayed_stubs: List[Dict[str, Any]] = []
     if listed:
         all_stubs = listed.get("records", [])
         displayed_stubs = [r for r in all_stubs if domain == "all" or r.get("record_domain") == domain]
         st.caption(
-            f"Portal returned {len(all_stubs)} record stubs from this page. "
+            f"Scanned {len(all_stubs)} stubs across {listed.get('pages')} page(s) with page size {listed.get('page_size')}. "
             f"Displaying {len(displayed_stubs)} after domain filter `{domain}`. "
-            f"Total count header: {listed.get('total_count')} (not domain/XAS-filtered)."
+            f"Total count header: {listed.get('total_count')} (API-wide count, not domain/XAS-filtered)."
         )
         if displayed_stubs:
             display_table(displayed_stubs)
-            record_ids = [r.get("record_id", "") for r in displayed_stubs if r.get("record_id")]
-            select_all_stubs = st.checkbox("Select all displayed stubs for full-record fetch", value=True)
-            default_ids = record_ids if select_all_stubs else record_ids[: min(len(record_ids), 50)]
-            selected_ids = st.multiselect("Records to fetch in full", record_ids, default=default_ids)
-            if st.button("Fetch selected full records", type="primary", disabled=not selected_ids):
-                try:
-                    client = ISAACPortalClient()
-                    records = client.fetch_records(selected_ids)
-                    st.session_state["isaac_portal_records"] = records
-                    st.success(f"Fetched {len(records)} full record(s) from ISAAC Portal.")
-                except Exception as exc:
-                    st.error(f"Failed to fetch ISAAC Portal records: {exc}")
         else:
-            st.info("No stubs on this listed page match the selected domain. Increase limit or change offset.")
+            st.info("No scanned stubs match the selected domain. Increase max records to scan or change the domain.")
+
+    if displayed_stubs:
+        record_ids = [r.get("record_id", "") for r in displayed_stubs if r.get("record_id")]
+        c_fetch1, c_fetch2 = st.columns([1, 1])
+        fetch_mode = c_fetch1.radio("Full-record fetch mode", ["Fetch all displayed stubs", "Fetch selected stubs"], horizontal=False)
+        max_fetch_default = min(max(len(record_ids), 1), int(st.session_state.get("isaac_portal_max_fetch", min(len(record_ids), 2000))))
+        max_fetch = c_fetch2.number_input("Max full records to fetch", min_value=1, max_value=10000, value=max_fetch_default, step=100)
+        st.session_state["isaac_portal_max_fetch"] = int(max_fetch)
+        if fetch_mode == "Fetch selected stubs":
+            default_ids = record_ids[: min(len(record_ids), 100)]
+            selected_ids = st.multiselect("Records to fetch in full", record_ids, default=default_ids)
+        else:
+            selected_ids = record_ids[: int(max_fetch)]
+            st.caption(f"Will fetch {len(selected_ids)} full record(s) from the {len(record_ids)} displayed stub(s).")
+        if st.button("Fetch full records and find XAS", type="primary", disabled=not selected_ids):
+            try:
+                client = ISAACPortalClient()
+                records = client.fetch_records(selected_ids)
+                st.session_state["isaac_portal_records"] = records
+                st.success(f"Fetched {len(records)} full record(s) from ISAAC Portal.")
+            except Exception as exc:
+                st.error(f"Failed to fetch ISAAC Portal records: {exc}")
 
     records = st.session_state.get("isaac_portal_records", [])
     if not records:
         return []
 
-    record_summary = xas_summary_table(records, xas_only=False)
-    if domain != "all":
-        record_summary = [r for r in record_summary if r.get("record_domain") == domain]
+    records_after_domain = [(source, rec) for source, rec in records if domain == "all" or rec.get("record_domain") == domain]
+    record_summary = xas_summary_table(records_after_domain, xas_only=False)
+    records_by_id = {rec.get("record_id"): rec for _, rec in records_after_domain}
+    for row in record_summary:
+        rec = records_by_id.get(row.get("record_id"), {})
+        row["xas_text_match"] = record_has_xas_text(rec)
+        row["is_xas"] = bool(row.get("is_xas") or row.get("xas_text_match"))
     xas_summary = [r for r in record_summary if r.get("is_xas")]
     simple_summary = simple_xas_summary_rows(xas_summary)
-    st.success(f"Fetched-cache records after domain filter: {len(record_summary)}. XAS-like records: {len(xas_summary)}.")
+    st.success(f"Fetched-cache records after domain filter: {len(record_summary)}. XAS matches: {len(xas_summary)}.")
     with st.expander("Simple XAS summary table", expanded=True):
         display_table(simple_summary)
         st.download_button("Download simple XAS summary CSV", data=rows_to_csv(simple_summary), file_name="isaac_portal_simple_xas_summary.csv", mime="text/csv")
 
     if not xas_summary:
-        st.warning("No XAS-like records were detected in the fetched full records. XAS detection uses technique metadata and absorber/edge plus energy-axis fallback.")
+        st.warning("No XAS records were detected in the fetched full records. XAS detection uses string keyword matching plus absorber/edge/energy fallback.")
         return []
 
     use_all_xas = st.checkbox("Use all XAS records in the summary table", value=True)
@@ -161,7 +220,7 @@ def records_from_portal_ui() -> List[Tuple[str, Dict[str, Any]]]:
                 or material_query.lower() in safe_str(r.get("material_name")).lower()
             )
         }
-    filtered = [(source, rec) for source, rec in records if rec.get("record_id") in selected_ids]
+    filtered = [(source, rec) for source, rec in records_after_domain if rec.get("record_id") in selected_ids]
     st.info(f"Using {len(filtered)} XAS record(s) for plotting/training.")
     return filtered
 
@@ -181,7 +240,7 @@ if data_source == "Upload local ISAAC files":
 else:
     records = records_from_portal_ui()
     if not records:
-        st.info("List portal records, fetch selected records, and keep XAS filters broad enough to include at least one record.")
+        st.info("Scan portal stubs, fetch full records, and keep XAS filters broad enough to include at least one record.")
         st.stop()
 
 try:
