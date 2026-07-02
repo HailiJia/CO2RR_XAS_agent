@@ -105,5 +105,7 @@ def _build_runtime_app() -> str:
     return source
 
 
-_RUNTIME_PATH.write_text(_build_runtime_app(), encoding="utf-8")
+_runtime_source = _build_runtime_app()
+if not _RUNTIME_PATH.exists() or _RUNTIME_PATH.read_text(encoding="utf-8") != _runtime_source:
+    _RUNTIME_PATH.write_text(_runtime_source, encoding="utf-8")
 runpy.run_path(str(_RUNTIME_PATH), run_name="__main__")
