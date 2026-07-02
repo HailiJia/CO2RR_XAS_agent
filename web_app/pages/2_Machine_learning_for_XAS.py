@@ -42,7 +42,7 @@ from tools.xas_record_utils import (
     is_number,
 )
 
-ML_PAGE_UPDATE_TAG = "v42_2026-07-02_isaac_portal_paged_xas_scan"
+ML_PAGE_UPDATE_TAG = "v43_2026-07-02_isaac_portal_paged_keyword_xas"
 ISAAC_PORTAL_URL = "https://isaac.slac.stanford.edu/portal/"
 SIMPLE_XAS_SUMMARY_COLUMNS = ["record_id", "record_domain", "formula", "material_name", "absorber", "edge", "technique"]
 XAS_TEXT_RE = re.compile(r"\bxas\b|xanes|exafs|xafs|x-ray absorption|xray absorption|absorption spectroscopy", re.IGNORECASE)
@@ -71,7 +71,6 @@ def simple_xas_summary_rows(rows: Sequence[Dict[str, Any]]) -> List[Dict[str, An
 
 
 def record_has_xas_text(record: Dict[str, Any]) -> bool:
-    """Match the same XAS text logic as the user's jq command over string values."""
     def walk(obj: Any):
         if isinstance(obj, dict):
             for value in obj.values():
@@ -81,12 +80,10 @@ def record_has_xas_text(record: Dict[str, Any]) -> bool:
                 yield from walk(value)
         elif isinstance(obj, str):
             yield obj
-
     return any(XAS_TEXT_RE.search(text or "") for text in walk(record))
 
 
 def scan_portal_stubs(client: ISAACPortalClient, page_size: int, max_records: int) -> Dict[str, Any]:
-    """Collect multiple /records pages; page_size is capped at the portal limit of 500."""
     page_size = max(1, min(int(page_size), 500))
     max_records = max(1, int(max_records))
     all_stubs: List[Dict[str, Any]] = []
@@ -188,6 +185,7 @@ def records_from_portal_ui() -> List[Tuple[str, Dict[str, Any]]]:
         row["xas_text_match"] = record_has_xas_text(rec)
         row["is_xas"] = bool(row.get("is_xas") or row.get("xas_text_match"))
     xas_summary = [r for r in record_summary if r.get("is_xas")]
+    xas_ids = {r.get("record_id") for r in xas_summary}
     simple_summary = simple_xas_summary_rows(xas_summary)
     st.success(f"Fetched-cache records after domain filter: {len(record_summary)}. XAS matches: {len(xas_summary)}.")
     with st.expander("Simple XAS summary table", expanded=True):
@@ -207,7 +205,7 @@ def records_from_portal_ui() -> List[Tuple[str, Dict[str, Any]]]:
     material_query = c3.text_input("Material/formula contains", value="", disabled=use_all_xas)
 
     if use_all_xas:
-        selected_ids = {r.get("record_id") for r in xas_summary}
+        selected_ids = set(xas_ids)
     else:
         selected_ids = {
             r.get("record_id")
@@ -249,8 +247,17 @@ except Exception as exc:
     st.error(f"Failed to parse records into spectra: {exc}")
     st.stop()
 
+if data_source == "Retrieve from ISAAC Portal":
+    for row in rows:
+        row["is_xas"] = True
+        if row.get("classification") == "not_plottable_invalid_xy":
+            continue
+        if row.get("classification", "").startswith("not_xas"):
+            row["classification"] = "xas_keyword_match"
+            row["reason"] = "record matched XAS keyword search in full ISAAC JSON"
+
 st.success(f"Loaded {len(records)} JSON record(s) and detected {len(rows)} spectral/record row(s).")
-plottable = [r for r in rows if r.get("x") is not None and r.get("y") is not None and r.get("n_points", 0) > 0]
+plottable = [r for r in rows if r.get("x") is not None and row.get("y") is not None and r.get("n_points", 0) > 0]
 xas_rows = [r for r in plottable if r.get("is_xas")]
 non_xas = [r for r in rows if not r.get("is_xas")]
 missing_units = [r for r in plottable if not safe_str(r.get("x_unit")).strip() or not safe_str(r.get("y_unit")).strip()]
