@@ -42,7 +42,7 @@ from tools.xas_record_utils import (
     is_number,
 )
 
-ML_PAGE_UPDATE_TAG = "v43_2026-07-02_isaac_portal_paged_keyword_xas"
+ML_PAGE_UPDATE_TAG = "v44_2026-07-02_isaac_portal_paged_keyword_xas_fix"
 ISAAC_PORTAL_URL = "https://isaac.slac.stanford.edu/portal/"
 SIMPLE_XAS_SUMMARY_COLUMNS = ["record_id", "record_domain", "formula", "material_name", "absorber", "edge", "technique"]
 XAS_TEXT_RE = re.compile(r"\bxas\b|xanes|exafs|xafs|x-ray absorption|xray absorption|absorption spectroscopy", re.IGNORECASE)
@@ -257,7 +257,7 @@ if data_source == "Retrieve from ISAAC Portal":
             row["reason"] = "record matched XAS keyword search in full ISAAC JSON"
 
 st.success(f"Loaded {len(records)} JSON record(s) and detected {len(rows)} spectral/record row(s).")
-plottable = [r for r in rows if r.get("x") is not None and row.get("y") is not None and r.get("n_points", 0) > 0]
+plottable = [r for r in rows if r.get("x") is not None and r.get("y") is not None and r.get("n_points", 0) > 0]
 xas_rows = [r for r in plottable if r.get("is_xas")]
 non_xas = [r for r in rows if not r.get("is_xas")]
 missing_units = [r for r in plottable if not safe_str(r.get("x_unit")).strip() or not safe_str(r.get("y_unit")).strip()]
