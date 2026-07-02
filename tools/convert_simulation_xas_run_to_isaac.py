@@ -1,20 +1,22 @@
 #!/usr/bin/env python3
-"""Convert a completed FEFF/FDMNES/VASP XAS run folder to an ISAAC 1.05 record.
+"""Convert a completed FEFF/FDMNES/VASP XAS folder to an ISAAC 1.05 record.
 
-This is intended for repeated use from generated ``submit.sh`` scripts. It writes
-an ISAAC evidence record aligned with the official simulation XAS example:
+This script is intended for repeated use from generated ``submit.sh`` files.
+It writes a final ISAAC evidence record, not a draft-only wrapper:
 
   isaac_record_version = 1.05
   record_type          = evidence
   record_domain        = simulation
   source_type          = computation
-  measurement.series   = numeric XAS spectrum
-  assets               = input/output files with sha256
 
-The converter reads ``isaac_run_metadata.json`` when present. That file can be
-created by the run script before/after the calculation and should contain
-``timestamps``, ``sample``, ``context``, ``system``, ``run``, and ``assets`` if
-available. Missing fields are filled from environment variables and parsed files.
+Absorber and edge are inferred from the calculation inputs first:
+
+  FEFF    feff.inp / POTENTIALS / PARAMETERS / ATOMS
+  FDMNES  *_in.txt / fdmfile.txt
+  VASP    INCAR or folder/file labels when metadata is present
+
+Only if input-deck parsing fails does the converter fall back to metadata or
+environment variables such as ISAAC_ABSORBER and ISAAC_EDGE.
 """
 
 from __future__ import annotations
@@ -29,24 +31,32 @@ import urllib.request
 import uuid
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Dict, Iterable, List, Optional, Tuple
+from typing import Any, Dict, List, Optional, Tuple
 
 ISAAC_RECORD_VERSION = "1.05"
 GENERATOR_NAME = "CO2RR XAS Agent"
-GENERATOR_VERSION = "v45_2026-07-03_reusable_simulation_xas_converter"
+GENERATOR_VERSION = "v46_2026-07-03_input_deck_absorber_edge"
 CROCKFORD = "0123456789ABCDEFGHJKMNPQRSTVWXYZ"
 
+ELEMENTS = [
+    "", "H", "He", "Li", "Be", "B", "C", "N", "O", "F", "Ne", "Na", "Mg", "Al", "Si", "P", "S", "Cl", "Ar",
+    "K", "Ca", "Sc", "Ti", "V", "Cr", "Mn", "Fe", "Co", "Ni", "Cu", "Zn", "Ga", "Ge", "As", "Se", "Br", "Kr",
+    "Rb", "Sr", "Y", "Zr", "Nb", "Mo", "Tc", "Ru", "Rh", "Pd", "Ag", "Cd", "In", "Sn", "Sb", "Te", "I", "Xe",
+    "Cs", "Ba", "La", "Ce", "Pr", "Nd", "Pm", "Sm", "Eu", "Gd", "Tb", "Dy", "Ho", "Er", "Tm", "Yb", "Lu",
+    "Hf", "Ta", "W", "Re", "Os", "Ir", "Pt", "Au", "Hg", "Tl", "Pb", "Bi", "Po", "At", "Rn",
+]
+SYMBOL_TO_Z = {s.upper(): i for i, s in enumerate(ELEMENTS) if s}
 SPECTRUM_NAMES = {"xmu.dat", "CORE_DIELECTRIC_IMAG.dat"}
 INPUT_NAMES = {
-    "POSCAR", "CONTCAR", "INCAR", "KPOINTS", "POTCAR", "POTCAR.spec",
-    "make_potcar.sh", "submit.sh", "submit_relax.sh", "feff.inp", "HEADER",
-    "PARAMETERS", "POTENTIALS", "ATOMS", "fdmfile.txt",
+    "POSCAR", "CONTCAR", "INCAR", "KPOINTS", "POTCAR", "POTCAR.spec", "make_potcar.sh",
+    "submit.sh", "submit_relax.sh", "feff.inp", "HEADER", "PARAMETERS", "POTENTIALS", "ATOMS", "fdmfile.txt",
 }
 OUTPUT_NAMES = {
-    "OUTCAR", "vasprun.xml", "OSZICAR", "vasp.out", "fdmnes.out", "feff.out",
-    "chi.dat", "paths.dat", "files.dat", "log1.dat", "CORE_DIELECTRIC_IMAG.dat",
-    "xmu.dat", "isaac_run_metadata.json", "isaac_record_draft.json",
+    "OUTCAR", "vasprun.xml", "OSZICAR", "vasp.out", "fdmnes.out", "feff.out", "chi.dat", "paths.dat",
+    "files.dat", "log1.dat", "CORE_DIELECTRIC_IMAG.dat", "xmu.dat", "isaac_run_metadata.json", "isaac_record_draft.json",
 }
+ABS_EDGE_RE = re.compile(r"(?<![A-Za-z0-9])([A-Z][a-z]?)[_\-\s]*(K|L[1-3]|M[1-5])(?:[_\-\s]*edge)?(?![A-Za-z0-9])", re.I)
+EDGE_RE = re.compile(r"(?<![A-Za-z0-9])(K|L[1-3]|M[1-5])(?:[_\-\s]*edge)?(?![A-Za-z0-9])", re.I)
 
 
 def utc_now() -> str:
@@ -63,12 +73,15 @@ def generate_record_id() -> str:
     return "".join(reversed(chars))
 
 
-def read_json(path: Path) -> Dict[str, Any]:
-    try:
-        data = json.loads(path.read_text())
-        return data if isinstance(data, dict) else {}
-    except Exception:
-        return {}
+def env(name: str, default: str = "") -> str:
+    return os.environ.get(name, default)
+
+
+def first_present(*values: Any, default: Any = "not_specified") -> Any:
+    for value in values:
+        if value not in (None, "", [], {}):
+            return value
+    return default
 
 
 def read_text(path: Path) -> str:
@@ -76,6 +89,14 @@ def read_text(path: Path) -> str:
         return path.read_text(errors="ignore")
     except Exception:
         return ""
+
+
+def read_json(path: Path) -> Dict[str, Any]:
+    try:
+        data = json.loads(path.read_text())
+        return data if isinstance(data, dict) else {}
+    except Exception:
+        return {}
 
 
 def sha256_file(path: Path) -> str:
@@ -106,15 +127,41 @@ def media_type(path: Path) -> str:
     return "text/plain"
 
 
-def env(name: str, default: str = "") -> str:
-    return os.environ.get(name, default)
+def normalize_element(value: Any) -> str:
+    text = str(value or "").strip()
+    if not text:
+        return ""
+    if text.isdigit():
+        z = int(text)
+        return ELEMENTS[z] if 0 < z < len(ELEMENTS) else ""
+    match = re.search(r"[A-Z][a-z]?", text)
+    if not match:
+        return ""
+    sym = match.group(0)
+    return sym.upper() if len(sym) == 1 else sym.capitalize()
 
 
-def first_present(*values: Any, default: Any = "not_specified") -> Any:
-    for value in values:
-        if value not in (None, "", [], {}):
-            return value
-    return default
+def normalize_edge(value: Any) -> str:
+    text = str(value or "").upper().replace("_EDGE", "").replace("-EDGE", "")
+    match = EDGE_RE.search(text)
+    return match.group(1).upper() if match else ""
+
+
+def parse_abs_edge_text(text: Any) -> Tuple[str, str]:
+    match = ABS_EDGE_RE.search(str(text or ""))
+    if not match:
+        return "", ""
+    return normalize_element(match.group(1)), normalize_edge(match.group(2))
+
+
+def parse_key_value_file(path: Path) -> Dict[str, str]:
+    data: Dict[str, str] = {}
+    for line in read_text(path).splitlines():
+        line = line.split("#", 1)[0].split("!", 1)[0].strip()
+        if "=" in line:
+            key, value = line.split("=", 1)
+            data[key.strip().upper()] = value.strip()
+    return data
 
 
 def parse_numeric_table(path: Path) -> List[List[float]]:
@@ -137,13 +184,7 @@ def parse_numeric_table(path: Path) -> List[List[float]]:
 
 
 def find_spectrum_files(root: Path) -> List[Path]:
-    paths: List[Path] = []
-    for path in sorted(root.rglob("*")):
-        if not path.is_file():
-            continue
-        if path.name in SPECTRUM_NAMES or path.name.endswith("_conv.txt"):
-            paths.append(path)
-    return paths
+    return [p for p in sorted(root.rglob("*")) if p.is_file() and (p.name in SPECTRUM_NAMES or p.name.endswith("_conv.txt"))]
 
 
 def parse_spectrum(path: Path) -> Tuple[List[float], List[float], str, str, str]:
@@ -159,16 +200,6 @@ def parse_spectrum(path: Path) -> Tuple[List[float], List[float], str, str, str]
     if path.name == "CORE_DIELECTRIC_IMAG.dat":
         return [r[0] for r in rows if len(r) > 1], [r[1] for r in rows if len(r) > 1], "energy", "absorption_cross_section", "VASP"
     return [r[0] for r in rows if len(r) > 1], [r[1] for r in rows if len(r) > 1], "energy", "absorption_cross_section", "unknown"
-
-
-def parse_key_value_file(path: Path) -> Dict[str, str]:
-    data: Dict[str, str] = {}
-    for line in read_text(path).splitlines():
-        line = line.split("#", 1)[0].split("!", 1)[0].strip()
-        if "=" in line:
-            key, value = line.split("=", 1)
-            data[key.strip().upper()] = value.strip()
-    return data
 
 
 def detect_software(root: Path, parsed_software: str, metadata: Dict[str, Any]) -> str:
@@ -194,65 +225,144 @@ def detect_software(root: Path, parsed_software: str, metadata: Dict[str, Any]) 
 def code_version_for(software: str, metadata: Dict[str, Any]) -> str:
     system = metadata.get("system") if isinstance(metadata.get("system"), dict) else {}
     config = system.get("configuration") if isinstance(system.get("configuration"), dict) else {}
-    existing = config.get("code_version")
-    if existing:
-        return str(existing)
-    value = env("ISAAC_CODE_VERSION")
-    if value:
-        return value
-    defaults = {"FEFF": "FEFF 10", "FDMNES": "FDMNES", "VASP": "VASP 6.4.3"}
-    return defaults.get(software.upper(), "not_specified")
+    if config.get("code_version"):
+        return str(config["code_version"])
+    if env("ISAAC_CODE_VERSION"):
+        return env("ISAAC_CODE_VERSION")
+    return {"FEFF": "FEFF 10", "FDMNES": "FDMNES", "VASP": "VASP 6.4.3"}.get(software.upper(), "not_specified")
 
 
-def normalize_edge(edge: str) -> str:
-    text = str(edge or "").upper().replace("_EDGE", "").replace("-EDGE", "")
-    match = re.search(r"\b(K|L[1-3]|M[1-5])\b", text)
-    return match.group(1) if match else text.strip() or "not_specified"
+def parse_feff_absorber_edge(root: Path) -> Tuple[str, str]:
+    files = [p for p in [root / "feff.inp", root / "POTENTIALS", root / "PARAMETERS", root / "ATOMS"] if p.exists()]
+    text_by_name = {p.name: read_text(p) for p in files}
+    all_text = "\n".join(text_by_name.values())
+    absorber = ""
+    edge = ""
+
+    match = re.search(r"^\s*EDGE\s+([A-Za-z0-9_\-]+)", all_text, re.I | re.M)
+    if match:
+        edge = normalize_edge(match.group(1))
+
+    potentials_text = text_by_name.get("POTENTIALS", "") or all_text.split("POTENTIALS", 1)[-1]
+    for line in potentials_text.splitlines():
+        toks = line.split()
+        if len(toks) >= 2 and toks[0] == "0":
+            if toks[1].lstrip("+-").isdigit():
+                absorber = normalize_element(toks[1])
+            elif len(toks) >= 3:
+                absorber = normalize_element(toks[2])
+            if absorber:
+                break
+
+    if not absorber:
+        atoms_text = text_by_name.get("ATOMS", "")
+        for line in atoms_text.splitlines():
+            toks = line.split()
+            if len(toks) >= 5 and toks[3] == "0":
+                absorber = normalize_element(toks[4])
+                if absorber:
+                    break
+    if not absorber or not edge:
+        parsed_abs, parsed_edge = parse_abs_edge_text(root.as_posix() + "\n" + all_text)
+        absorber = absorber or parsed_abs
+        edge = edge or parsed_edge
+    return absorber, edge
 
 
-def infer_absorber_edge(root: Path, metadata: Dict[str, Any], energy: List[float]) -> Tuple[str, str]:
+def parse_fdmnes_absorber_edge(root: Path) -> Tuple[str, str]:
+    inputs = sorted(root.glob("*_in.txt")) + ([root / "fdmfile.txt"] if (root / "fdmfile.txt").exists() else [])
+    absorber = ""
+    edge = ""
+    for path in inputs:
+        lines = read_text(path).splitlines()
+        for i, line in enumerate(lines):
+            clean = line.split("!", 1)[0].split("#", 1)[0].strip()
+            if not clean:
+                continue
+            toks = clean.split()
+            key = toks[0].lower()
+            rest = toks[1:]
+            next_line = lines[i + 1].strip() if i + 1 < len(lines) else ""
+            if key in {"z_absorber", "zabsorber"}:
+                value = rest[0] if rest else (next_line.split()[0] if next_line.split() else "")
+                absorber = absorber or normalize_element(value)
+            elif key == "edge":
+                value = rest[0] if rest else (next_line.split()[0] if next_line.split() else "")
+                edge = edge or normalize_edge(value)
+        if not absorber or not edge:
+            parsed_abs, parsed_edge = parse_abs_edge_text(path.name + "\n" + read_text(path))
+            absorber = absorber or parsed_abs
+            edge = edge or parsed_edge
+    return absorber, edge
+
+
+def parse_vasp_absorber_edge(root: Path) -> Tuple[str, str]:
+    incar_text = read_text(root / "INCAR")
+    text = root.as_posix() + "\n" + incar_text + "\n" + read_text(root / "POTCAR.spec")
+    parsed_abs, parsed_edge = parse_abs_edge_text(text)
+    edge = parsed_edge or normalize_edge(env("ISAAC_EDGE"))
+    absorber = parsed_abs
+    for key in ["CLNT", "CLN", "ICORELEVEL", "XAS_ELEMENT", "ABSORBER", "ABSORBING_ELEMENT"]:
+        match = re.search(rf"^\s*{key}\s*=\s*([^\s#!]+)", incar_text, re.I | re.M)
+        if match:
+            absorber = absorber or normalize_element(match.group(1))
+    return absorber, edge
+
+
+def input_deck_absorber_edge(root: Path, software: str) -> Tuple[str, str, str]:
+    checks = []
+    if software.upper() == "FEFF":
+        checks = [("FEFF input", parse_feff_absorber_edge)]
+    elif software.upper() == "FDMNES":
+        checks = [("FDMNES input", parse_fdmnes_absorber_edge)]
+    elif software.upper() == "VASP":
+        checks = [("VASP input", parse_vasp_absorber_edge)]
+    else:
+        checks = [("FEFF input", parse_feff_absorber_edge), ("FDMNES input", parse_fdmnes_absorber_edge), ("VASP input", parse_vasp_absorber_edge)]
+    for source, func in checks:
+        absorber, edge = func(root)
+        if absorber or edge:
+            return absorber, edge, source
+    return "", "", "not_parsed"
+
+
+def metadata_absorber_edge(metadata: Dict[str, Any]) -> Tuple[str, str]:
     system = metadata.get("system") if isinstance(metadata.get("system"), dict) else {}
     config = system.get("configuration") if isinstance(system.get("configuration"), dict) else {}
-    absorber = first_present(
-        env("ISAAC_ABSORBER"),
-        system.get("absorber"),
-        config.get("absorber"),
-        metadata.get("absorber"),
-        default="",
-    )
-    edge = first_present(
-        env("ISAAC_EDGE"),
-        system.get("edge"),
-        config.get("edge"),
-        metadata.get("edge"),
-        default="",
-    )
-    text = " ".join([str(absorber), str(edge), root.as_posix()])
-    match = re.search(r"(?<![A-Za-z0-9])([A-Z][a-z]?)[_\-\s]*(K|L[1-3]|M[1-5])(?:[_\-\s]*edge)?(?![A-Za-z0-9])", text, re.I)
-    if match:
-        absorber = absorber or match.group(1).capitalize()
-        edge = edge or match.group(2).upper()
-    return str(absorber or "not_specified"), normalize_edge(str(edge or "not_specified"))
+    absorber = first_present(system.get("absorber"), config.get("absorber"), metadata.get("absorber"), default="")
+    edge = first_present(system.get("edge"), config.get("edge"), metadata.get("edge"), default="")
+    parsed_abs, parsed_edge = parse_abs_edge_text(" ".join(str(v) for v in [absorber, edge]))
+    return normalize_element(absorber) or parsed_abs, normalize_edge(edge) or parsed_edge
+
+
+def infer_absorber_edge(root: Path, metadata: Dict[str, Any], energy: List[float], software: str) -> Tuple[str, str, str]:
+    input_abs, input_edge, source = input_deck_absorber_edge(root, software)
+    meta_abs, meta_edge = metadata_absorber_edge(metadata)
+    env_abs, env_edge = normalize_element(env("ISAAC_ABSORBER")), normalize_edge(env("ISAAC_EDGE"))
+    path_abs, path_edge = parse_abs_edge_text(root.as_posix())
+    absorber = input_abs or meta_abs or env_abs or path_abs or "not_specified"
+    edge = input_edge or meta_edge or env_edge or path_edge or "not_specified"
+    source = source if input_abs or input_edge else "metadata_or_environment"
+    return absorber, edge, source
 
 
 def edge_position_first_derivative(energy: List[float], intensity: List[float]) -> Optional[float]:
     if len(energy) < 3 or len(intensity) < 3:
         return None
-    best_idx = None
-    best_val = None
+    best_i = None
+    best_d = None
     for i in range(1, min(len(energy), len(intensity))):
         dx = energy[i] - energy[i - 1]
         if dx == 0:
             continue
-        val = (intensity[i] - intensity[i - 1]) / dx
-        if best_val is None or val > best_val:
-            best_val = val
-            best_idx = i
-    return energy[best_idx] if best_idx is not None else None
+        d = (intensity[i] - intensity[i - 1]) / dx
+        if best_d is None or d > best_d:
+            best_i, best_d = i, d
+    return energy[best_i] if best_i is not None else None
 
 
 def collect_assets(root: Path) -> List[Dict[str, Any]]:
-    assets: List[Dict[str, Any]] = []
+    assets = []
     for idx, path in enumerate(p for p in sorted(root.rglob("*")) if p.is_file()):
         if path.name not in INPUT_NAMES and path.name not in OUTPUT_NAMES and not path.name.endswith(("_in.txt", "_conv.txt", "_bav.txt")):
             continue
@@ -299,29 +409,22 @@ def context_from_metadata(metadata: Dict[str, Any]) -> Dict[str, Any]:
         out.setdefault("temperature_K", float(first_present(env("ISAAC_TEMPERATURE_K"), default=0)))
     except Exception:
         out.setdefault("temperature_K", 0)
-    if env("ISAAC_CONTEXT_NOTES"):
-        out.setdefault("notes", env("ISAAC_CONTEXT_NOTES"))
     return out
 
 
-def system_from_metadata(metadata: Dict[str, Any], software: str, absorber: str, edge: str) -> Dict[str, Any]:
+def system_from_metadata(metadata: Dict[str, Any], software: str, absorber: str, edge: str, edge_source: str) -> Dict[str, Any]:
     system = metadata.get("system") if isinstance(metadata.get("system"), dict) else {}
     facility = system.get("facility") if isinstance(system.get("facility"), dict) else {}
     instrument = system.get("instrument") if isinstance(system.get("instrument"), dict) else {}
     config = system.get("configuration") if isinstance(system.get("configuration"), dict) else {}
     software_upper = software.upper()
-    instrument_name = first_present(
-        instrument.get("instrument_name"), env("ISAAC_INSTRUMENT_NAME"),
-        {"FEFF": "FEFF10", "FDMNES": "FDMNES", "VASP": "VASP_Standard"}.get(software_upper),
-        default="simulation_engine",
-    )
-    vendor = first_present(instrument.get("vendor_or_project"), env("ISAAC_VENDOR_OR_PROJECT"), software, default="not_specified")
     configuration = dict(config)
     configuration.update({
         "code_version": code_version_for(software, metadata),
         "compute_architecture": first_present(config.get("compute_architecture"), env("ISAAC_COMPUTE_ARCHITECTURE"), default="CPU"),
         "absorber": absorber,
         "edge": edge,
+        "absorber_edge_source": edge_source,
         "generator_name": GENERATOR_NAME,
         "generator_version": GENERATOR_VERSION,
     })
@@ -339,8 +442,8 @@ def system_from_metadata(metadata: Dict[str, Any], software: str, absorber: str,
         },
         "instrument": {
             "instrument_type": "simulation_engine",
-            "instrument_name": instrument_name,
-            "vendor_or_project": vendor,
+            "instrument_name": first_present(instrument.get("instrument_name"), env("ISAAC_INSTRUMENT_NAME"), {"FEFF": "FEFF10", "FDMNES": "FDMNES", "VASP": "VASP_Standard"}.get(software_upper), default="simulation_engine"),
+            "vendor_or_project": first_present(instrument.get("vendor_or_project"), env("ISAAC_VENDOR_OR_PROJECT"), software, default="not_specified"),
         },
         "configuration": configuration,
     }
@@ -348,20 +451,14 @@ def system_from_metadata(metadata: Dict[str, Any], software: str, absorber: str,
 
 def computation_block(root: Path, software: str, absorber: str, edge: str) -> Dict[str, Any]:
     incar = parse_key_value_file(root / "INCAR")
-    software_upper = software.upper()
-    family = "DFT" if software_upper == "VASP" else "multiple_scattering_xas"
+    family = "DFT" if software.upper() == "VASP" else "multiple_scattering_xas"
     method: Dict[str, Any] = {
         "family": family,
         "core_hole_treatment": "not_specified",
         "notes": f"Simulated {absorber} {edge}-edge XAS using {software}.",
     }
-    if software_upper == "VASP" or incar:
-        method.update({
-            "functional_class": "GGA",
-            "functional_name": "PBE",
-            "basis_type": "planewave",
-            "pseudopotential": "PAW",
-        })
+    if software.upper() == "VASP" or incar:
+        method.update({"functional_class": "GGA", "functional_name": "PBE", "basis_type": "planewave", "pseudopotential": "PAW"})
         if incar.get("ENCUT"):
             try:
                 method["cutoff_eV"] = float(str(incar["ENCUT"]).split()[0])
@@ -380,7 +477,7 @@ def build_record(root: Path, *, record_id: str = "") -> Dict[str, Any]:
     spec_path = spec_paths[0]
     energy, intensity, x_name, y_name, parsed_software = parse_spectrum(spec_path)
     software = detect_software(root, parsed_software, metadata)
-    absorber, edge = infer_absorber_edge(root, metadata, energy)
+    absorber, edge, edge_source = infer_absorber_edge(root, metadata, energy, software)
     record = {
         "isaac_record_version": ISAAC_RECORD_VERSION,
         "record_id": record_id or env("ISAAC_RECORD_ID") or generate_record_id(),
@@ -394,16 +491,10 @@ def build_record(root: Path, *, record_id: str = "") -> Dict[str, Any]:
         },
         "sample": sample_from_metadata(root, metadata),
         "context": context_from_metadata(metadata),
-        "system": system_from_metadata(metadata, software, absorber, edge),
+        "system": system_from_metadata(metadata, software, absorber, edge, edge_source),
         "computation": computation_block(root, software, absorber, edge),
         "measurement": {
-            "processing": {
-                "type": first_present(env("ISAAC_PROCESSING_TYPE"), default="simulated_spectrum"),
-                "recipe_link": {
-                    "rel": "processing_recipe",
-                    "target": first_present(env("ISAAC_RECIPE_TARGET"), default="repo://CO2RR_XAS_agent/xas_simulation"),
-                },
-            },
+            "processing": {"type": first_present(env("ISAAC_PROCESSING_TYPE"), default="simulated_spectrum"), "recipe_link": {"rel": "processing_recipe", "target": first_present(env("ISAAC_RECIPE_TARGET"), default="repo://CO2RR_XAS_agent/xas_simulation")}},
             "series": [{
                 "series_id": f"computed_{str(absorber).lower()}_{str(edge).lower()}_edge" if absorber != "not_specified" and edge != "not_specified" else "computed_xas_spectrum",
                 "independent_variables": [{"name": x_name or "energy", "unit": "eV", "values": energy}],
@@ -413,33 +504,10 @@ def build_record(root: Path, *, record_id: str = "") -> Dict[str, Any]:
         },
         "assets": collect_assets(root),
         "links": [],
-        "descriptors": {
-            "outputs": [{
-                "label": "auto_features_v1",
-                "generated_utc": created,
-                "generated_by": {"agent": GENERATOR_NAME, "version": GENERATOR_VERSION},
-                "descriptors": [
-                    {
-                        "name": "xanes.edge_position",
-                        "kind": "absolute",
-                        "source": "auto",
-                        "value": edge_position_first_derivative(energy, intensity),
-                        "unit": "eV",
-                        "definition": "First-derivative maximum of the simulated XAS spectrum.",
-                        "uncertainty": {"basis": "none"},
-                    },
-                    {
-                        "name": "xanes.white_line_intensity",
-                        "kind": "absolute",
-                        "source": "auto",
-                        "value": max(intensity) if intensity else None,
-                        "unit": "arb",
-                        "definition": "Maximum intensity of the simulated absorption spectrum.",
-                        "uncertainty": {"basis": "none"},
-                    },
-                ],
-            }],
-        },
+        "descriptors": {"outputs": [{"label": "auto_features_v1", "generated_utc": created, "generated_by": {"agent": GENERATOR_NAME, "version": GENERATOR_VERSION}, "descriptors": [
+            {"name": "xanes.edge_position", "kind": "absolute", "source": "auto", "value": edge_position_first_derivative(energy, intensity), "unit": "eV", "definition": "First-derivative maximum of the simulated XAS spectrum.", "uncertainty": {"basis": "none"}},
+            {"name": "xanes.white_line_intensity", "kind": "absolute", "source": "auto", "value": max(intensity) if intensity else None, "unit": "arb", "definition": "Maximum intensity of the simulated absorption spectrum.", "uncertainty": {"basis": "none"}},
+        ]}]},
         "tags": ["CO2RR_XAS_agent", "XAS_simulation", str(software)],
     }
     return record
@@ -447,16 +515,7 @@ def build_record(root: Path, *, record_id: str = "") -> Dict[str, Any]:
 
 def post_json(url: str, api_key: str, payload: Dict[str, Any]) -> Dict[str, Any]:
     body = json.dumps(payload).encode("utf-8")
-    req = urllib.request.Request(
-        url,
-        data=body,
-        method="POST",
-        headers={
-            "Authorization": f"Bearer {api_key}",
-            "Content-Type": "application/json",
-            "Accept": "application/json",
-        },
-    )
+    req = urllib.request.Request(url, data=body, method="POST", headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json", "Accept": "application/json"})
     with urllib.request.urlopen(req, timeout=120) as resp:
         return json.loads(resp.read().decode("utf-8"))
 
@@ -469,7 +528,6 @@ def main(argv: Optional[List[str]] = None) -> int:
     parser.add_argument("--validate", action="store_true", help="Validate with ISAAC Portal using ISAAC_URL/ISAAC_KEY.")
     parser.add_argument("--upload", action="store_true", help="Validate then upload with ISAAC Portal using ISAAC_URL/ISAAC_KEY.")
     args = parser.parse_args(argv)
-
     root = Path(args.input_dir).resolve()
     record = build_record(root, record_id=args.record_id)
     out = Path(args.output)
@@ -478,9 +536,11 @@ def main(argv: Optional[List[str]] = None) -> int:
     out.write_text(json.dumps(record, indent=2) + "\n")
     print(f"Wrote {out}")
     print(f"record_id = {record.get('record_id')}")
+    print(f"absorber = {record.get('system', {}).get('absorber')}")
+    print(f"edge = {record.get('system', {}).get('edge')}")
+    print(f"absorber_edge_source = {record.get('system', {}).get('configuration', {}).get('absorber_edge_source')}")
     print(f"series_count = {len(record.get('measurement', {}).get('series', []))}")
     print(f"asset_count = {len(record.get('assets', []))}")
-
     if args.validate or args.upload:
         isaac_url = env("ISAAC_URL", "https://isaac.slac.stanford.edu/portal/api").rstrip("/")
         isaac_key = env("ISAAC_KEY")
