@@ -111,6 +111,23 @@ def _inject_structure_setup(structure_block: str, structure_setup: str) -> str:
     return structure_block.replace(header, insertion, 1)
 
 
+def _move_chat_prompt_after_conversation(chat_block: str) -> str:
+    """Place the prompt box after the visible conversation, ChatGPT-style."""
+    prompt_start = chat_block.find('chat_prompt = st.chat_input(')
+    conversation_start = chat_block.find('with st.expander("Agent responses"', prompt_start)
+    debug_start = chat_block.find('if st.session_state.params.get("chat_debug_planner"', conversation_start)
+    if prompt_start == -1 or conversation_start == -1:
+        return chat_block
+    if debug_start == -1:
+        debug_start = len(chat_block)
+
+    before_prompt = chat_block[:prompt_start].rstrip() + "\n\n"
+    prompt_block = chat_block[prompt_start:conversation_start].strip("\n") + "\n\n"
+    conversation_block = chat_block[conversation_start:debug_start].strip("\n") + "\n\n"
+    debug_block = chat_block[debug_start:].lstrip("\n")
+    return before_prompt + conversation_block + prompt_block + debug_block
+
+
 def _split_workflow_and_agent(source: str) -> str:
     source, structure_setup = _extract_structure_setup(source)
 
@@ -143,6 +160,7 @@ def _split_workflow_and_agent(source: str) -> str:
         "chat_cols = st.columns([1, 1, 1, 2])",
         "chat_cols = [st.container(), st.container(), st.container(), st.container()]",
     )
+    chat_block = _move_chat_prompt_after_conversation(chat_block)
 
     workflow_block = structure_block + "\n\n" + batch_block + "\n\n" + nersc_block
     layout_block = (
@@ -164,7 +182,7 @@ def _build_runtime_app() -> str:
     source = _polish_labels(source)
     source = source.replace(
         'WEB_APP_UPDATE_TAG = "v33_2026-07-01_slurm_any_job_status"',
-        'WEB_APP_UPDATE_TAG = "v40_2026-07-02_agent_sidebar_main_workspace"',
+        'WEB_APP_UPDATE_TAG = "v41_2026-07-02_agent_prompt_after_conversation"',
         1,
     )
     return source
