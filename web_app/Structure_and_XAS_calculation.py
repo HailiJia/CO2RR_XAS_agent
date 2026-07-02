@@ -78,6 +78,69 @@ def _polish_labels(source: str) -> str:
     return source
 
 
+def _patch_job_listing_logic(source: str) -> str:
+    """Make current/running job questions return only the live squeue section."""
+    old = """    if intent == "list_jobs":
+        client = _chat_client_from_params(params)
+        username = str(params.get("nersc_username") or os.environ.get("USER") or "hjia").strip() or "hjia"
+        result = client.list_user_jobs(username=username, timeout_s=90)
+        st.session_state["nersc_user_jobs"] = result
+        output = str(result.get("output", json.dumps(result, indent=2)))
+        return f"Current/recent NERSC jobs for `{username}`:\\n\\n" + output[:5000]
+"""
+    new = """    if intent == "list_jobs":
+        client = _chat_client_from_params(params)
+        username = str(params.get("nersc_username") or os.environ.get("USER") or "hjia").strip() or "hjia"
+        result = client.list_user_jobs(username=username, timeout_s=90)
+        st.session_state["nersc_user_jobs"] = result
+        output = str(result.get("output", json.dumps(result, indent=2)))
+        current_only = (
+            any(
+                phrase in low
+                for phrase in [
+                    "only current",
+                    "current job",
+                    "current jobs",
+                    "running job",
+                    "running jobs",
+                    "jobs running",
+                    "queued job",
+                    "queued jobs",
+                    "on queue",
+                    "in queue",
+                    "squeue",
+                ]
+            )
+            or ("queue" in low and "job" in low)
+        )
+        if current_only:
+            marker = "== Current queued/running jobs =="
+            recent_marker = "== Recent accounting records =="
+            current_text = output
+            if marker in current_text:
+                current_text = current_text.split(marker, 1)[1]
+                if recent_marker in current_text:
+                    current_text = current_text.split(recent_marker, 1)[0]
+                current_text = marker + "\\n" + current_text.strip()
+            lines = [line.strip() for line in current_text.splitlines() if line.strip()]
+            data_lines = [
+                line for line in lines
+                if not line.startswith("==") and not line.startswith("JOBID|") and not line.startswith("JOBID ")
+            ]
+            if data_lines:
+                current_display = "\\n".join(lines)[:4000]
+                return f"Current queued/running NERSC jobs for `{username}`:\\n\\n```text\\n{current_display}\\n```"
+            hint = ""
+            if params.get("nersc_task_id") and not params.get("nersc_job_id"):
+                hint = f"\\n\\nLast submit SF API task ID is `{params.get('nersc_task_id')}`. If this was just submitted, run `check task` to see whether Slurm returned a job ID."
+            return f"No current queued or running NERSC jobs were found for `{username}`." + hint
+        return f"Current/recent NERSC jobs for `{username}`:\\n\\n" + output[:5000]
+"""
+    if old not in source:
+        return source
+    return source.replace(old, new, 1)
+
+
 def _extract_structure_setup(source: str) -> tuple[str, str]:
     """Remove the legacy sidebar structure controls and return them as a main-page block."""
     assignment_start = source.find("uploaded_structure_file = None")
@@ -178,11 +241,12 @@ def _split_workflow_and_agent(source: str) -> str:
 
 def _build_runtime_app() -> str:
     source = _APP_PATH.read_text(encoding="utf-8")
+    source = _patch_job_listing_logic(source)
     source = _split_workflow_and_agent(source)
     source = _polish_labels(source)
     source = source.replace(
         'WEB_APP_UPDATE_TAG = "v33_2026-07-01_slurm_any_job_status"',
-        'WEB_APP_UPDATE_TAG = "v41_2026-07-02_agent_prompt_after_conversation"',
+        'WEB_APP_UPDATE_TAG = "v42_2026-07-02_current_jobs_only_chat"',
         1,
     )
     return source
