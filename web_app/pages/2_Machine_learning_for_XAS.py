@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import math
 import os
+import re
 import sys
 from pathlib import Path
 from typing import Any, Dict, List, Sequence, Tuple
@@ -41,9 +42,21 @@ from tools.xas_record_utils import (
     target_value,
 )
 
-ML_PAGE_UPDATE_TAG = "v45_2026-07-02_strict_spectral_xas_filter"
+ML_PAGE_UPDATE_TAG = "v46_2026-07-03_xas_ml_target_cleanup"
 ISAAC_PORTAL_URL = "https://isaac.slac.stanford.edu/portal/"
 SIMPLE_XAS_SUMMARY_COLUMNS = ["record_id", "record_domain", "formula", "material_name", "absorber", "edge", "technique"]
+FACET_RE = re.compile(r"(?<![A-Za-z0-9])(?:[A-Z][a-z]?[A-Za-z0-9_/-]*)?\((111|110|100|211|210|310|311|331|001|011)\)(?![A-Za-z0-9])")
+SITE_PATTERNS = [
+    ("fcc hollow", re.compile(r"\bfcc\s+hollow\b|\bfcc\s+site\b", re.I)),
+    ("hcp hollow", re.compile(r"\bhcp\s+hollow\b|\bhcp\s+site\b", re.I)),
+    ("hollow", re.compile(r"\bhollow\b", re.I)),
+    ("bridge", re.compile(r"\bbridge\b", re.I)),
+    ("atop", re.compile(r"\batop\b|\btop\s+site\b", re.I)),
+    ("interface", re.compile(r"\binterface\b", re.I)),
+    ("vacancy site", re.compile(r"\bvacancy\s+site\b|\bdefect\s+site\b", re.I)),
+    ("step edge", re.compile(r"\bstep\s+edge\b", re.I)),
+    ("terrace", re.compile(r"\bterrace\b", re.I)),
+]
 
 st.set_page_config(page_title="CO2RR XAS Agent | Machine learning for XAS", layout="wide")
 st.title("Agentic machine learning for XAS")
@@ -83,6 +96,100 @@ def simple_xas_summary_from_rows(xas_rows: Sequence[Dict[str, Any]]) -> List[Dic
             "technique": row.get("technique") or get_path(record, "system.technique") or get_path(record, "measurement.technique") or "",
         }
     return list(by_id.values())
+
+
+def walk_strings(obj: Any, depth: int = 8):
+    if depth < 0:
+        return
+    if isinstance(obj, dict):
+        for value in obj.values():
+            yield from walk_strings(value, depth - 1)
+    elif isinstance(obj, list):
+        for value in obj[:100]:
+            yield from walk_strings(value, depth - 1)
+    elif isinstance(obj, str):
+        yield obj
+
+
+def record_text_blob(record: Dict[str, Any]) -> str:
+    preferred_paths = [
+        "sample.material.name",
+        "sample.material.notes",
+        "sample.sample_form",
+        "system.configuration.surface",
+        "system.configuration.facet",
+        "system.configuration.surface_facet",
+        "system.configuration.adsorption_site",
+        "system.configuration.adsorbate_site",
+        "system.configuration.site",
+        "context.simulation_assumptions.notes",
+    ]
+    values = [safe_str(get_path(record, path)) for path in preferred_paths if safe_str(get_path(record, path))]
+    values.extend(safe_str(v) for v in record.get("tags", []) if isinstance(v, str))
+    for asset in record.get("assets") or []:
+        if isinstance(asset, dict):
+            values.append(safe_str(asset.get("notes")))
+            values.append(safe_str(asset.get("uri")))
+    if not values:
+        values = list(walk_strings(record))
+    return "\n".join(values)
+
+
+def parsed_structure_labels(record: Dict[str, Any]) -> Dict[str, str]:
+    text = record_text_blob(record)
+    out: Dict[str, str] = {}
+    explicit_facet = (
+        get_path(record, "system.configuration.facet")
+        or get_path(record, "system.configuration.surface_facet")
+        or get_path(record, "sample.structure.facet")
+    )
+    if explicit_facet:
+        out["structure.facet"] = safe_str(explicit_facet)
+    else:
+        match = FACET_RE.search(text)
+        if match:
+            out["structure.facet"] = f"({match.group(1)})"
+    explicit_site = (
+        get_path(record, "system.configuration.adsorption_site")
+        or get_path(record, "system.configuration.adsorbate_site")
+        or get_path(record, "system.configuration.site")
+        or get_path(record, "sample.structure.adsorption_site")
+    )
+    if explicit_site:
+        out["structure.adsorption_site"] = safe_str(explicit_site)
+    else:
+        for label, pattern in SITE_PATTERNS:
+            if pattern.search(text):
+                out["structure.adsorption_site"] = label
+                break
+    return out
+
+
+def prepare_ml_target_metadata(rows: Sequence[Dict[str, Any]]) -> None:
+    for row in rows:
+        record = row.get("record") or {}
+        metadata = row.setdefault("metadata", {})
+        formula = get_path(record, "sample.material.formula") or row.get("formula")
+        if formula:
+            metadata["sample.material.formula"] = formula
+        metadata.update(parsed_structure_labels(record))
+
+
+def ml_label_candidates(rows: Sequence[Dict[str, Any]]) -> List[str]:
+    raw_candidates = label_fields(rows)
+    allowed: List[str] = []
+    if "sample.material.formula" in raw_candidates:
+        allowed.append("sample.material.formula")
+    descriptor_candidates = sorted(
+        key for key in raw_candidates
+        if key.startswith("descriptors.")
+        and any(target_value(row, key) not in [None, ""] for row in rows)
+    )
+    allowed.extend(descriptor_candidates)
+    for key in ["structure.facet", "structure.adsorption_site"]:
+        if key in raw_candidates and any(target_value(row, key) not in [None, ""] for row in rows):
+            allowed.append(key)
+    return allowed
 
 
 def scan_portal_stubs(client: ISAACPortalClient, page_size: int, max_records: int) -> Dict[str, Any]:
@@ -127,7 +234,6 @@ def records_from_portal_ui() -> List[Tuple[str, Dict[str, Any]]]:
     domain = f3.selectbox("Domain filter", ["all", "characterization", "simulation"], index=1)
     st.session_state["isaac_portal_page_size"] = int(page_size)
     st.session_state["isaac_portal_max_scan"] = int(max_scan)
-
     st.caption("Page size is capped at 500 by the portal. To scan more than 500 records, this app requests multiple pages with offsets 0, 500, 1000, ... and then applies the domain filter locally.")
 
     if st.button("Scan portal record stubs", type="secondary"):
@@ -183,10 +289,7 @@ def records_from_portal_ui() -> List[Tuple[str, Dict[str, Any]]]:
     portal_rows = rows_from_records(records_after_domain)
     strict_xas_rows = [
         row for row in portal_rows
-        if row.get("is_xas")
-        and row.get("x") is not None
-        and row.get("y") is not None
-        and row.get("n_points", 0) > 0
+        if row.get("is_xas") and row.get("x") is not None and row.get("y") is not None and row.get("n_points", 0) > 0
     ]
     xas_ids = {safe_str(row.get("record_id")) for row in strict_xas_rows if safe_str(row.get("record_id"))}
     simple_summary = simple_xas_summary_from_rows(strict_xas_rows)
@@ -321,11 +424,17 @@ if len(train_rows) < 2:
     st.info("Need at least two plottable labeled spectra for ML setup.")
     st.stop()
 
-label_candidates = label_fields(train_rows)
+prepare_ml_target_metadata(train_rows)
+label_candidates = ml_label_candidates(train_rows)
 if not label_candidates:
-    st.warning("No scalar label fields found in these ISAAC records.")
+    st.warning("No useful XAS ML target labels found. Allowed targets are sample.material.formula, descriptors.*, and parsed structure.facet / structure.adsorption_site.")
     st.stop()
+with st.expander("Allowed target/label fields", expanded=False):
+    st.write("Only chemically useful XAS ML targets are shown: material formula, non-null descriptors, and optional parsed facet/site labels.")
+    st.write(label_candidates)
 target = st.selectbox("Target / label field", label_candidates, index=label_candidates.index("sample.material.formula") if "sample.material.formula" in label_candidates else 0)
+if target.startswith("structure."):
+    st.warning("This target was parsed from record text. Manually check facet/site labels before using them for model training.")
 label_vals = [v for v in [target_value(r, target) for r in train_rows] if v not in [None, ""]]
 reg_ok = bool(label_vals) and all(is_number(v) for v in label_vals)
 task = st.radio("Task type", ["classification", "regression"], index=1 if reg_ok and target.startswith("descriptors.") else 0, horizontal=True)
@@ -333,7 +442,7 @@ if not SKLEARN_AVAILABLE:
     st.warning(f"scikit-learn is not available, so training is disabled. Import error: {SKLEARN_IMPORT_ERROR}")
 
 st.subheader("Auto-advisor")
-st.write("Run a deterministic comparison of feature sets, normalization choices, PCA/no-PCA, and simple models.")
+st.write("Run a deterministic comparison of feature sets, normalization choices, dimension reduction choices, and simple models.")
 a1, a2 = st.columns(2)
 advisor_grid = a1.slider("Auto-advisor common-grid points", 32, 512, 128, step=32)
 advisor_rows = a2.slider("Configurations to show", 5, 40, 15, step=5)
@@ -364,7 +473,7 @@ norm = st.selectbox("Spectrum normalization", ["minmax", "area", "zscore", "none
 n_grid = st.slider("Common-grid points", 32, 1024, 256, step=32)
 model_options = ["Dummy baseline", "Logistic regression", "Random forest", "SVM"] if task == "classification" else ["Dummy baseline", "Ridge", "Random forest", "SVR"]
 model_name = st.selectbox("Model", model_options, index=1 if len(model_options) > 1 else 0)
-use_pca = st.checkbox("Use PCA before model", value=False)
+use_pca = st.checkbox("Use dimension reduction (PCA) before model", value=False)
 if use_pca:
     n_comp = st.slider("PCA components", 1, min(32, max(1, len(train_rows) - 1)), min(4, max(1, len(train_rows) - 1)))
 else:
