@@ -27,8 +27,12 @@ EDGE_WINDOWS = [
     ("Cu", "L3", 920, 970), ("Ni", "L3", 830, 890),
     ("Cu", "K", 8850, 9100), ("Ni", "K", 8200, 8500),
     ("Ir", "L3", 11100, 11350), ("Pt", "L3", 11400, 11650),
-    ("Au", "L3", 11800, 12080),
+    ("Au", "L3", 11800, 12080), ("Bi", "L3", 13300, 13550),
 ]
+XAS_TECHNIQUE_RE = re.compile(r"\b(XAS|XANES|EXAFS|XAFS)\b|x-ray absorption|xray absorption|absorption spectroscopy", re.I)
+NON_XAS_TECHNIQUE_RE = re.compile(r"\b(XRD|XPS|UPS|XRF|XRR|PDF|Raman|FTIR|IR|SEM|TEM|STM|STS)\b", re.I)
+ABS_EDGE_RE = re.compile(r"(?<![A-Za-z0-9])([A-Z][a-z]?)[_\-\s]*(K|L[1-3]|M[1-5])(?:[_\-\s]*edge)?(?![A-Za-z0-9])", re.I)
+EDGE_RE = re.compile(r"(?<![A-Za-z0-9])(K|L[1-3]|M[1-5])(?:[_\-\s]*edge)?(?![A-Za-z0-9])", re.I)
 
 
 def safe_str(x: Any) -> str:
@@ -125,21 +129,33 @@ def descriptor_values(record: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def canonical_element(x: Any) -> str:
-    tokens = re.findall(r"[A-Za-z]{1,2}", safe_str(x))
-    if not tokens:
-        return ""
-    token = tokens[0]
+    text = safe_str(x)
+    match = ABS_EDGE_RE.search(text)
+    if match:
+        token = match.group(1)
+    else:
+        tokens = re.findall(r"[A-Z][a-z]?", text)
+        if not tokens:
+            return ""
+        token = tokens[0]
     return token.upper() if len(token) == 1 else token.capitalize()
 
 
 def canonical_edge(x: Any) -> str:
-    text = safe_str(x).upper()
-    for pattern, prefix in [(r"L\s*([1-3])", "L"), (r"M\s*([1-5])", "M")]:
-        match = re.search(pattern, text)
+    text = safe_str(x)
+    match = EDGE_RE.search(text)
+    return match.group(1).upper() if match else ""
+
+
+def parse_absorber_edge_text(*values: Any) -> Tuple[str, str]:
+    for value in values:
+        text = safe_str(value)
+        match = ABS_EDGE_RE.search(text)
         if match:
-            return prefix + match.group(1)
-    match = re.search(r"\b(K|L|M|N|O)\b", text)
-    return match.group(1) if match else ""
+            absorber = canonical_element(match.group(1))
+            edge = canonical_edge(match.group(2))
+            return absorber, edge
+    return "", ""
 
 
 def infer_edge(x: Optional[np.ndarray]) -> Tuple[str, str, str]:
@@ -167,8 +183,9 @@ def absorber_edge(record: Dict[str, Any], x: Optional[np.ndarray]) -> Tuple[str,
         or get_path(record, "measurement.edge")
         or find_first_key(record, ["edge", "absorption_edge"])
     )
-    abs_el = canonical_element(raw_abs)
-    edge = canonical_edge(raw_edge)
+    parsed_abs, parsed_edge = parse_absorber_edge_text(raw_abs, raw_edge)
+    abs_el = canonical_element(raw_abs) or parsed_abs
+    edge = canonical_edge(raw_edge) or canonical_edge(raw_abs) or parsed_edge
     if abs_el and edge:
         return abs_el, edge, "metadata"
     inferred_abs, inferred_edge, source = infer_edge(x)
@@ -185,13 +202,17 @@ def classify_series(x_name: str, x_unit: str, y_name: str) -> Tuple[bool, str, s
     xn, xu, yn = lower(x_name), lower(x_unit), lower(y_name)
     if xn in {"q", "qz"} or "angstrom^-1" in xu or "1/angstrom" in xu:
         return False, "not_xas_scattering", "x-axis is q/scattering vector"
+    if "2theta" in xn or "two theta" in xn or "diffraction" in xn:
+        return False, "not_xas_diffraction", "x-axis is diffraction/scattering angle"
+    if "binding" in xn or "photoelectron" in xn or "xps" in xn or "photoelectron" in yn:
+        return False, "not_xas_photoelectron", "x-axis/channel indicates XPS/photoelectron spectroscopy"
     has_energy_x = any(k in xn for k in ENERGY_NAMES) or xn in {"e", "energy_ev"}
     has_energy_unit = any(u == xu or u in xu for u in ENERGY_UNITS)
     has_signal = any(k in yn for k in SIGNAL_NAMES)
     if has_energy_x and has_energy_unit and has_signal:
-        return True, "xas_like", "energy-axis XAS/XANES-like spectrum"
+        return True, "xas_like", "energy-axis XAS/XANES-like spectrum with eV/keV unit"
     if has_energy_x and has_energy_unit:
-        return True, "xas_like_uncertain_y", "energy-axis spectrum; y name is not standard XAS"
+        return True, "xas_like_uncertain_y", "energy-axis spectrum with eV/keV unit; y name is not standard XAS"
     return False, "not_xas_unknown_axis", "no incident-energy x-axis with eV/keV units"
 
 
@@ -230,13 +251,25 @@ def choose_channel(channels: Sequence[Dict[str, Any]]) -> Dict[str, Any]:
     return channels[0]
 
 
+def record_technique(record: Dict[str, Any]) -> str:
+    return safe_str(
+        get_path(record, "system.technique")
+        or get_path(record, "system.configuration.technique")
+        or get_path(record, "measurement.technique")
+        or find_first_key(record, ["technique", "method"])
+    )
+
+
 def make_row(source: str, record: Dict[str, Any], series_id: str, x: Optional[np.ndarray], y: Optional[np.ndarray], x_name: str, x_unit: str, y_name: str, y_unit: str) -> Dict[str, Any]:
     absorber, edge, edge_source = absorber_edge(record, x)
     group = edge_group(absorber, edge)
+    technique = record_technique(record)
     if x is None or y is None or x.size != y.size:
         is_xas, classification, reason = False, "not_plottable_invalid_xy", "missing/non-numeric x or y, or length mismatch"
     else:
         is_xas, classification, reason = classify_series(x_name, x_unit, y_name)
+    if NON_XAS_TECHNIQUE_RE.search(technique) and not XAS_TECHNIQUE_RE.search(technique):
+        is_xas, classification, reason = False, "not_xas_technique", f"record technique is {technique}, not XAS"
     metadata = {
         **flatten_scalars(record),
         **descriptor_values(record),
@@ -254,7 +287,7 @@ def make_row(source: str, record: Dict[str, Any], series_id: str, x: Optional[np
         "source_name": source,
         "record_id": record.get("record_id"),
         "series_id": series_id,
-        "technique": get_path(record, "system.technique") or get_path(record, "system.configuration.technique"),
+        "technique": technique,
         "formula": get_path(record, "sample.material.formula") or get_path(record, "sample.material.name"),
         "absorber": absorber,
         "edge": edge,
