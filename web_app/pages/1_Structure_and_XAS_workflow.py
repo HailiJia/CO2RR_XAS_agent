@@ -5,7 +5,7 @@ import json
 import sys
 import time
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Optional
 
 import streamlit as st
 
@@ -109,7 +109,7 @@ with col_state:
     st.write("State file")
     st.code(str(state_file), language="text")
 
-state: Dict[str, Any] | None = None
+state: Optional[Dict[str, Any]] = None
 
 if start_clicked:
     try:
