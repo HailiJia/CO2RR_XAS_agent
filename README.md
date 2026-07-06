@@ -2,7 +2,7 @@
 
 A lightweight agent and web app for building CO2RR XAS workflows, generating FEFF/FDMNES/VASP inputs, submitting and monitoring NERSC jobs through the NERSC Superfacility API, converting completed runs into ISAAC AI-ready records, and using those records for XAS-focused machine learning.
 
-The main interactive entry point is the Streamlit **Structure and XAS calculation** app.
+The main interactive entry point is the Streamlit web app at `web_app/main.py`.
 
 ---
 
@@ -16,16 +16,14 @@ source .venv/bin/activate
 pip install --upgrade pip
 pip install -r requirements.txt
 pip install streamlit pandas scikit-learn
-streamlit run web_app/Structure_and_XAS_calculation.py
+streamlit run web_app/main.py
 ```
 
 From inside `web_app/`:
 
 ```bash
-streamlit run Structure_and_XAS_calculation.py
+streamlit run main.py
 ```
-
-`web_app/app.py` is retained as the legacy implementation used by the polished `Structure_and_XAS_calculation.py` entry point. Do not delete `app.py` unless the runtime app has first been fully flattened into one standalone file.
 
 ---
 
@@ -36,7 +34,7 @@ For ISAAC Portal validation/upload from the web app or command line, set:
 ```bash
 export ISAAC_URL="https://isaac.slac.stanford.edu/portal/api"
 export ISAAC_KEY="..."
-streamlit run web_app/Structure_and_XAS_calculation.py
+streamlit run web_app/main.py
 ```
 
 For one record from the command line:
@@ -65,12 +63,12 @@ The web app can also work from local ISAAC JSON files or ZIP archives without po
 
 ## NERSC Superfacility API usage
 
-The **NERSC agent** panel in the Structure and XAS app uses the NERSC Superfacility API when the app is running on your laptop. It expects these environment variables:
+The **NERSC agent** panel in the web app uses the NERSC Superfacility API when the app is running on your laptop. It expects these environment variables:
 
 ```bash
 export NERSC_SFAPI_CLIENT_ID="your_client_id_from_iris"
 export NERSC_SFAPI_PRIVATE_KEY_PATH="$HOME/Downloads/priv_key.pem"
-streamlit run web_app/Structure_and_XAS_calculation.py
+streamlit run web_app/main.py
 ```
 
 The private key must be the PEM key downloaded from Iris. Protect it before launching the app:
@@ -114,7 +112,7 @@ Use the same VPN/network state that you will use when running Streamlit.
 
 ## Structure, XAS, and NERSC workflow capabilities
 
-The Structure and XAS app can:
+The web app can:
 
 - build Cu/Au/Ni/Pt/Ir surfaces and interfaces;
 - add adsorbates such as CO, CHO, OCCO, COCO, CO2, OH, and H;
@@ -128,13 +126,14 @@ The Structure and XAS app can:
 - convert completed outputs into ISAAC draft records;
 - validate/upload ISAAC records through the ISAAC Portal API.
 
-The NERSC agent also includes a full relax-to-XAS workflow. It submits the relaxation job first. When a refresh detects that relaxation has completed, the app downloads `01_structure/CONTCAR`, regenerates local `02_XAS` inputs from that relaxed structure, uploads the regenerated XAS folder, and submits VASP/FDMNES/FEFF XAS jobs.
-
-The same workflow can be triggered in the chat box with commands such as:
+The chat box can run the stepwise NERSC workflow, for example:
 
 ```text
-start full relax XAS workflow under test03
-refresh full workflow
+Generate relaxation inputs
+Upload to NERSC under test04
+change to 8 hrs and submit the job
+check slurm job status
+cancel slurm job 55602116
 ```
 
 ---
@@ -201,9 +200,7 @@ CO2RR_XAS_agent/
 ├── workflow/                 # NERSC submit/monitor/finalize helpers
 ├── generators/               # slab/input generator utilities
 ├── web_app/                  # Streamlit web app
-│   ├── Structure_and_XAS_calculation.py
-│   ├── app.py
-│   ├── nersc_full_workflow_patch.py
+│   ├── main.py
 │   └── pages/
 │       └── 2_Machine_learning_for_XAS.py
 ├── XAS/                      # reusable XAS shell helpers
@@ -216,7 +213,7 @@ CO2RR_XAS_agent/
 
 ## Notes
 
-- Use `web_app/Structure_and_XAS_calculation.py` for most interactive work.
+- Use `web_app/main.py` for most interactive work.
 - Keep private API keys out of the repository.
 - Use `tools/convert_simulation_xas_run_to_isaac.py` for repeated simulation-folder conversion.
 - Keep experimental/literature one-off conversions outside the repository unless they are intended to become reusable workflows.
