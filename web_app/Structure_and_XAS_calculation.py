@@ -13,6 +13,11 @@ from __future__ import annotations
 import runpy
 from pathlib import Path
 
+try:
+    from web_app.nersc_full_workflow_patch import patch_full_workflow_source
+except Exception:
+    from nersc_full_workflow_patch import patch_full_workflow_source
+
 
 _THIS_FILE = Path(__file__).resolve()
 _APP_PATH = _THIS_FILE.with_name("app.py")
@@ -346,12 +351,13 @@ def _split_workflow_and_agent(source: str) -> str:
 def _build_runtime_app() -> str:
     source = _APP_PATH.read_text(encoding="utf-8")
     source = _patch_job_listing_logic(source)
+    source = patch_full_workflow_source(source)
     source = _split_workflow_and_agent(source)
     source = _patch_isaac_portal_upload(source)
     source = _polish_labels(source)
     source = source.replace(
         'WEB_APP_UPDATE_TAG = "v33_2026-07-01_slurm_any_job_status"',
-        'WEB_APP_UPDATE_TAG = "v44_2026-07-02_isaac_portal_upload"',
+        'WEB_APP_UPDATE_TAG = "v45_2026-07-06_nersc_full_workflow_ui"',
         1,
     )
     return source
