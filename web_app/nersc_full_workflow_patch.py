@@ -110,17 +110,25 @@ def patch_full_workflow_source(source: str) -> str:
     source = source.replace("For 'remove/delete remote folder /pscratch/...' use delete_remote_folder. ", "For 'remove/delete remote folder /pscratch/...' use delete_remote_folder. For 'cancel/scancel Slurm job 12345', use cancel_job. ", 1)
 
     classifier_marker = "    if _chat_requested_job_listing(low):\n"
-    cancel_rule = "    if re.search(r'\\b(cancel|scancel)\\b', low) and re.search(r'\\b(job|slurm|squeue|sacct)\\b|[0-9]{5,12}', low):\n        return 'cancel_job'\n"
-    if classifier_marker in source and "return 'cancel_job'" not in source:
+    cancel_rule = '''    if re.search(r"\\b(cancel|scancel)\\b", low) and re.search(r"\\b(job|slurm|squeue|sacct)\\b|[0-9]{5,12}", low):
+        return "cancel_job"
+'''
+    if classifier_marker in source and 'return "cancel_job"' not in source:
         source = source.replace(classifier_marker, cancel_rule + classifier_marker, 1)
 
-    submit_marker = "    if intent == \"submit\":\n"
-    submit_insert = "    if intent == 'submit':\n        return _fw_submit_with_optional_settings(params, text)\n\n"
+    submit_marker = '    if intent == "submit":\n'
+    submit_insert = '''    if intent == "submit":
+        return _fw_submit_with_optional_settings(params, text)
+
+'''
     if submit_marker in source and "_fw_submit_with_optional_settings(params, text)" not in source:
         source = source.replace(submit_marker, submit_insert + submit_marker.replace("if intent", "if False and intent"), 1)
 
-    executor_marker = "    if intent == \"convert_isaac\":\n"
-    executor_insert = "    if intent == 'cancel_job':\n        return _fw_cancel_job(params, text)\n\n"
-    if executor_marker in source and "if intent == 'cancel_job':" not in source:
+    executor_marker = '    if intent == "convert_isaac":\n'
+    executor_insert = '''    if intent == "cancel_job":
+        return _fw_cancel_job(params, text)
+
+'''
+    if executor_marker in source and 'if intent == "cancel_job":' not in source:
         source = source.replace(executor_marker, executor_insert + executor_marker, 1)
     return source
