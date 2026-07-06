@@ -33,7 +33,7 @@ from tools.xas_input_generator import (
     NERSCScriptGenerator,
 )
 
-WEB_APP_UPDATE_TAG = "v33_2026-07-01_slurm_any_job_status"
+WEB_APP_UPDATE_TAG = "v45_2026-07-06_nersc_full_workflow_ui"
 
 try:
     from tools.nersc_job_manager import (
@@ -926,7 +926,7 @@ def generate_batch_input_package(
 
         absorber = choose_batch_absorber(
             structure,
-            preferred=params.get("xas_absorber") if absorber_mode == "use selected absorber when present" else None,
+            preferred=params.get("xas_absorber") if absorber_mode == "Use selected absorber if available" else None,
         )
         edge = normalize_edge_for_absorber(absorber, params.get("xas_edge", "K"))
 
@@ -1954,7 +1954,7 @@ def _generate_xas_from_current_structure(params):
 
 
 def _generate_batch_from_current_settings(params):
-    if params.get("batch_source") != "Generate pathway from sidebar system":
+    if params.get("batch_source") != "Generate pathway from current structure setup":
         raise ValueError("Chat batch generation currently supports 'Generate pathway from sidebar system'. Use the Batch panel for uploaded ZIP/files.")
     workspace = Path(params.get("batch_output_dir", "generated_outputs/web_xas_agent/batch")) / "_chat_workspace"
     adsorbates = [ads for ads in params.get("batch_adsorbates", []) if ads in ADSORBATE_CHOICES]
@@ -2259,7 +2259,7 @@ def _planner_system_prompt():
         "generate_structure, generate_structure_and_relaxation, generate_relaxation, generate_xas, generate_batch_pathway, "
         "upload_nersc, generate_relaxation_and_upload, submit, check_task, check_slurm, "
         "list_jobs, list_remote_folder, delete_remote_folder, preview_file, download_outputs, convert_isaac, "
-        "show_paths, help, answer_question, update_settings, unknown. "
+        "show_paths, help, cancel_job, answer_question, update_settings, unknown. "
         "For 'full CO2RR reaction pathway', use generate_batch_pathway and pathway_adsorbates "
         "['clean','CO2','CO','CHO','OCCO','COCO','OH','H']. "
         "For questions asking paths, use show_paths. For questions asking current settings such as time limit, walltime, queue, account, or what something is, use answer_question. For requests like change time limit to 8 hrs or change queue to debug, use update_settings. "
@@ -2267,7 +2267,7 @@ def _planner_system_prompt():
         "For misspelled 'relation files' when context is VASP, infer relaxation files and use generate_structure_and_relaxation. "
         "For 'upload to NERSC under X' or 'uploade to NERSC under X', use upload_nersc and remote_run_name X. Do not set remote_run_name to NERSC. "
         "For 'what files are in that folder' or 'show clean surface folder files', use list_remote_folder. Do not invent a remote_run_name called files. "
-        "For 'remove/delete remote folder /pscratch/...' use delete_remote_folder. "
+        "For 'remove/delete remote folder /pscratch/...' use delete_remote_folder. For 'cancel/scancel Slurm job 12345', use cancel_job. "
         "For 'change to 8 hrs', use update_settings with settings {'nersc_walltime':'08:00:00'}. "
         "For 'generate relaxation inputs and upload to NERSC under X', use generate_relaxation_and_upload and remote_run_name X. "
         "Allowed JSON fields: intent, settings, pathway_adsorbates, remote_run_name, remote_dir, preview_file, explanation. "
@@ -2520,6 +2520,100 @@ def _remote_submit_from_natural_language(text, params):
         base = params.get("nersc_remote_dir", DEFAULT_NERSC_REMOTE_RUN_DIR)
     return str(PurePosixPath(str(base).rstrip("/")) / rel)
 
+# =============================================================================
+# Web NERSC chat/runtime patches
+# =============================================================================
+
+def _fw_clean_run_name(name):
+    raw_name = str(name or "").strip().strip(".,;:)>]")
+    raw_name = re.sub(r"\s+", "_", raw_name)
+    raw_name = re.sub(r"^(test)_+(\d+)$", r"\1\2", raw_name, flags=re.I)
+    raw_name = re.sub(r"[^A-Za-z0-9_.-]+", "_", raw_name).strip("_")
+    return raw_name
+
+
+def _remote_dir_from_natural_language(text, params):
+    raw = str(text or "").strip()
+    stop_names = {"", "none", "latest", "nersc", "perlmutter", "file", "files", "folder", "folders", "dir", "directory", "there", "that", "this", "current", "remote", "job", "jobs", "surface", "clean", "relaxation"}
+    abs_match = re.search(r"(/pscratch/[^\s`'\"]+|/global/[^\s`'\"]+)", raw)
+    if abs_match:
+        return abs_match.group(1).rstrip(".,;:)>]")
+    for pattern in [
+        r"(?:under|run(?:\s+name)?|named)\s+([A-Za-z0-9_.-]+(?:\s+[A-Za-z0-9_.-]+)?)",
+        r"(?:remote\s+)?(?:folder|dir|directory)\s+(?:named\s+)?([A-Za-z0-9_.-]+(?:\s+[A-Za-z0-9_.-]+)?)",
+    ]:
+        match = re.search(pattern, raw, flags=re.I)
+        if match:
+            name = _fw_clean_run_name(match.group(1))
+            if name.lower() not in stop_names and "/" not in name:
+                return f"{DEFAULT_NERSC_REMOTE_BASE}/web_xas_agent_runs/{name}"
+    if re.search(r"\b(upload|copy|send|move)\b", raw, flags=re.I):
+        for to_match in re.finditer(r"\bto\s+([A-Za-z0-9_.-]+(?:\s+[A-Za-z0-9_.-]+)?)", raw, flags=re.I):
+            name = _fw_clean_run_name(to_match.group(1))
+            if name.lower() not in stop_names and "/" not in name:
+                return f"{DEFAULT_NERSC_REMOTE_BASE}/web_xas_agent_runs/{name}"
+    if re.fullmatch(r"[A-Za-z0-9_.-]+(?:\s+[A-Za-z0-9_.-]+)?", raw):
+        name = _fw_clean_run_name(raw)
+        if name.lower() not in stop_names:
+            return f"{DEFAULT_NERSC_REMOTE_BASE}/web_xas_agent_runs/{name}"
+    return params.get("nersc_remote_dir", DEFAULT_NERSC_REMOTE_RUN_DIR)
+
+
+def _fw_text(result):
+    if not isinstance(result, dict):
+        return str(result)
+    return str(result.get("output") or result.get("raw_result") or json.dumps(result, indent=2))
+
+
+def _fw_cancel_job(params, text):
+    client = _chat_client_from_params(params)
+    job_id = _extract_slurm_job_id_from_text(text) or str(params.get("nersc_job_id", "")).strip()
+    if not job_id:
+        raise ValueError("No Slurm job ID was found. Say: cancel slurm job 55602116")
+    params["nersc_job_id"] = str(job_id)
+    cmd = "s" + "cancel " + client.shell_quote(job_id)
+    task = client.run_command(cmd)
+    task_id = str(task.get("task_id") or task.get("id") or "")
+    result = client.wait_task(task_id, timeout_s=90) if task_id else task
+    st.session_state["nersc_last_cancel"] = {"job_id": job_id, "task_id": task_id, "task": result}
+    try:
+        status = client.slurm_status(job_id, timeout_s=90)
+        st.session_state["nersc_last_slurm"] = status
+        status_text = _fw_text(status)
+    except Exception as exc:
+        status_text = f"Cancel request sent, but follow-up status check failed: {exc}"
+    return f"Cancel request sent for Slurm job `{job_id}`. SF API task ID: `{task_id}`.\n\n{status_text[:3000]}"
+
+
+def _fw_submit_with_optional_settings(params, text):
+    client = _chat_client_from_params(params)
+    workflow_updates = _parse_workflow_setting_changes(text)
+    upload_note = ""
+    if workflow_updates:
+        params.update(workflow_updates)
+        if st.session_state.get("last_structure") is not None:
+            _generate_relaxation_from_current_structure(params)
+        selected_local_dir = _selected_local_folder_from_params(params)
+        remote_dir = (st.session_state.get("nersc_last_upload") or {}).get("remote_dir") or params.get("nersc_remote_dir", DEFAULT_NERSC_REMOTE_RUN_DIR)
+        params["nersc_remote_dir"] = remote_dir
+        upload_result = client.upload_directory(local_dir=selected_local_dir, remote_dir=remote_dir, overwrite=True, timeout_s=240)
+        st.session_state["nersc_last_upload"] = upload_result
+        upload_note = " Updated settings: " + ", ".join(f"{k}={v}" for k, v in workflow_updates.items()) + f". Re-uploaded `{selected_local_dir}` to `{remote_dir}` before submission."
+    natural_submit = _remote_submit_from_natural_language(text, params)
+    remote_submit = natural_submit or _resolve_remote_submit_from_params(params)
+    if natural_submit:
+        params["nersc_remote_submit_script"] = remote_submit
+    result = client.submit_and_wait_for_jobid(remote_submit, timeout_s=180)
+    st.session_state["nersc_last_submit"] = result
+    if result.get("task_id"):
+        params["nersc_task_id"] = str(result["task_id"])
+    if result.get("job_id"):
+        params["nersc_job_id"] = str(result["job_id"])
+    params["nersc_last_submit_dir"] = str(PurePosixPath(remote_submit).parent)
+    params["nersc_download_remote_dir"] = params["nersc_last_submit_dir"]
+    job_id_display = params.get("nersc_job_id") or "not available yet; run check task in a few seconds"
+    return f"Submit request completed for `{remote_submit}`. SF API task ID: `{params.get('nersc_task_id', '')}`. Slurm job ID: `{job_id_display}`.{upload_note}"
+
 def _execute_chat_intent(intent, text, params, uploaded_file=None, plan=None):
     """Execute one explicit chat intent. Rule-based and optional LLM plans both use this."""
     low = str(text or "").lower()
@@ -2532,7 +2626,7 @@ def _execute_chat_intent(intent, text, params, uploaded_file=None, plan=None):
 
     if intent == "help":
         return (
-            "I can update sidebar settings and run workflow actions. Examples:\n"
+            "I can update workspace settings and run workflow actions. Examples:\n"
             "- `Cu 3x3 with CO`\n"
             "- `Generate full CO2RR reaction pathway on Cu`\n"
             "- `generate structure`\n"
@@ -2553,7 +2647,7 @@ def _execute_chat_intent(intent, text, params, uploaded_file=None, plan=None):
         parsed = _safe_parse_settings_from_text(text, allow_adsorbate=False)
         params.update(parsed)
         adsorbates = plan.get("pathway_adsorbates") or _pathway_adsorbates_from_text(text)
-        params["batch_source"] = "Generate pathway from sidebar system"
+        params["batch_source"] = "Generate pathway from current structure setup"
         params["batch_adsorbates"] = [a for a in adsorbates if a in ADSORBATE_CHOICES]
         result = _generate_batch_from_current_settings(params)
         params["nersc_upload_source"] = "Last batch package"
@@ -2704,6 +2798,46 @@ def _execute_chat_intent(intent, text, params, uploaded_file=None, plan=None):
         result = client.list_user_jobs(username=username, timeout_s=90)
         st.session_state["nersc_user_jobs"] = result
         output = str(result.get("output", json.dumps(result, indent=2)))
+        current_only = (
+            any(
+                phrase in low
+                for phrase in [
+                    "only current",
+                    "current job",
+                    "current jobs",
+                    "running job",
+                    "running jobs",
+                    "jobs running",
+                    "queued job",
+                    "queued jobs",
+                    "on queue",
+                    "in queue",
+                    "squeue",
+                ]
+            )
+            or ("queue" in low and "job" in low)
+        )
+        if current_only:
+            marker = "== Current queued/running jobs =="
+            recent_marker = "== Recent accounting records =="
+            current_text = output
+            if marker in current_text:
+                current_text = current_text.split(marker, 1)[1]
+                if recent_marker in current_text:
+                    current_text = current_text.split(recent_marker, 1)[0]
+                current_text = marker + "\n" + current_text.strip()
+            lines = [line.strip() for line in current_text.splitlines() if line.strip()]
+            data_lines = [
+                line for line in lines
+                if not line.startswith("==") and not line.startswith("JOBID|") and not line.startswith("JOBID ")
+            ]
+            if data_lines:
+                current_display = "\n".join(lines)[:4000]
+                return f"Current queued/running NERSC jobs for `{username}`:\n\n```text\n{current_display}\n```"
+            hint = ""
+            if params.get("nersc_task_id") and not params.get("nersc_job_id"):
+                hint = f"\n\nLast submit SF API task ID is `{params.get('nersc_task_id')}`. If this was just submitted, run `check task` to see whether Slurm returned a job ID."
+            return f"No current queued or running NERSC jobs were found for `{username}`." + hint
         return f"Current/recent NERSC jobs for `{username}`:\n\n" + output[:5000]
 
     if intent == "list_remote_folder":
@@ -2758,6 +2892,9 @@ def _execute_chat_intent(intent, text, params, uploaded_file=None, plan=None):
         params["isaac_local_output_dir"] = extracted
         return f"Downloaded and extracted outputs from `{remote_dir}` to `{extracted}`. Next: convert ISAAC."
 
+    if intent == "cancel_job":
+        return _fw_cancel_job(params, text)
+
     if intent == "convert_isaac":
         output_dir = params.get("isaac_local_output_dir", "generated_outputs/web_xas_agent/downloaded_outputs")
         record = build_isaac_record_from_outputs(
@@ -2798,6 +2935,8 @@ def _classify_chat_intent_rule_based(message):
         return "list_remote_folder"
     if any(p in low for p in ["what is the full path", "uploaded folder", "upload path", "submitted folder", "remote path", "where did", "where is"]):
         return "show_paths"
+    if re.search(r"\b(cancel|scancel)\b", low) and re.search(r"\b(job|slurm|squeue|sacct)\b|[0-9]{5,12}", low):
+        return "cancel_job"
     if _chat_requested_job_listing(low):
         return "list_jobs"
     if _extract_slurm_job_id_from_text(low) and ("slurm" in low or "job" in low or "squeue" in low or "sacct" in low):
@@ -2931,6 +3070,7 @@ def _run_chat_command(message, params, uploaded_file=None):
 
 st.set_page_config(page_title="CO2RR XAS Agent", layout="wide")
 st.title("CO2RR XAS Agent")
+st.caption("Use the sidebar as the agent console. Use the main workspace for catalyst structure setup, structure/XAS input generation, batch generation, NERSC jobs, ISAAC records, and ISAAC Portal upload.")
 
 COVERAGE_PRESETS = {
     "1/9 ML (3×3, default)": (3, 3),
@@ -2990,7 +3130,7 @@ if "params" not in st.session_state:
         "nersc_nodes": 1,
         "nersc_walltime": "02:00:00",
         "nersc_email": "",
-        "batch_source": "Generate pathway from sidebar system",
+        "batch_source": "Generate pathway from current structure setup",
         "batch_output_dir": "generated_outputs/web_xas_agent/batch",
         "batch_adsorbates": ["clean", "CO2", "CO", "CHO", "OCCO", "COCO", "OH", "H"],
         "batch_include_relaxation": True,
@@ -3021,12 +3161,106 @@ if "params" not in st.session_state:
 
 uploaded_structure_file = None
 
+# Polished page layout: sidebar agent console + main workflow workspace.
+p = st.session_state.params
 with st.sidebar:
-    st.header("System settings")
+    st.header("Agent console")
+    st.caption("Ask the agent to update settings, generate inputs, upload to NERSC, submit jobs, check Slurm, or inspect remote files.")
+    # Chat box: lightweight workflow console with persistent responses.
+    if "chat_history" not in st.session_state:
+        st.session_state["chat_history"] = [
+            {
+                "role": "assistant",
+                "message": "I can answer questions, update settings, and run actions. Try `Generate full CO2RR pathway on Cu`, `generate structure and relaxation files`, `upload to NERSC under test03`, `what files are in that folder`, `change to 8 hrs`, or `submit clean surface relaxation job`.",
+                "time": datetime.now().isoformat(timespec="seconds"),
+            }
+        ]
+
+    chat_cols = [st.container(), st.container(), st.container(), st.container()]
+    BACKEND_CHOICES = ["Rule-based", "Argonne ALCF", "OpenAI", "Anthropic"]
+    with chat_cols[0]:
+        p["chat_backend"] = st.selectbox(
+            "Agent planner",
+            BACKEND_CHOICES,
+            index=safe_index(BACKEND_CHOICES, p.get("chat_backend", "Rule-based")),
+            help="The LLM backend only plans commands. Local Python executes structures, NERSC actions, and ISAAC conversion.",
+        )
+    with chat_cols[1]:
+        alcf_clusters = ["Metis", "Sophia"]
+        p["alcf_cluster"] = st.selectbox(
+            "ALCF inference cluster",
+            alcf_clusters,
+            index=safe_index(alcf_clusters, p.get("alcf_cluster", DEFAULT_ALCF_CLUSTER)),
+            disabled=p.get("chat_backend") != "Argonne ALCF",
+        )
+    with chat_cols[2]:
+        selected_cluster = p.get("alcf_cluster", DEFAULT_ALCF_CLUSTER)
+        p["alcf_base_url"] = DEFAULT_ALCF_BASE_URLS.get(selected_cluster, DEFAULT_ALCF_BASE_URLS["Metis"])
+        if p.get("chat_backend") == "Anthropic":
+            p["anthropic_model"] = st.text_input("Anthropic model", value=p.get("anthropic_model") or DEFAULT_ANTHROPIC_MODEL)
+        elif p.get("chat_backend") == "OpenAI":
+            p["openai_model"] = st.text_input("OpenAI model", value=p.get("openai_model") or DEFAULT_OPENAI_MODEL)
+        else:
+            p["alcf_model"] = st.text_input(
+                "ALCF model",
+                value=p.get("alcf_model") or DEFAULT_ALCF_MODEL_BY_CLUSTER.get(selected_cluster, DEFAULT_ALCF_MODEL_BY_CLUSTER["Metis"]),
+                disabled=p.get("chat_backend") != "Argonne ALCF",
+            )
+    with chat_cols[3]:
+        if p.get("chat_backend") == "Argonne ALCF":
+            token_ready = bool(os.environ.get("ALCF_INFERENCE_ACCESS_TOKEN", ""))
+            token_helper_ready = (REPO_ROOT / "inference_auth_token.py").exists() or Path("inference_auth_token.py").exists()
+            if token_ready or token_helper_ready:
+                st.success("Argonne ALCF planner enabled. Local Python executes workflow actions.")
+            else:
+                st.warning("Authenticate first: `python inference_auth_token.py authenticate`, or set ALCF_INFERENCE_ACCESS_TOKEN.")
+        elif p.get("chat_backend") == "OpenAI":
+            if os.environ.get("OPENAI_API_KEY", ""):
+                st.success("OpenAI planner enabled. Local Python executes workflow actions.")
+            else:
+                st.warning("Set OPENAI_API_KEY before using the OpenAI backend.")
+        elif p.get("chat_backend") == "Anthropic":
+            if os.environ.get("ANTHROPIC_API_KEY", ""):
+                st.success("Anthropic planner enabled. Local Python executes workflow actions.")
+            else:
+                st.warning("Set ANTHROPIC_API_KEY and install `anthropic` before using Claude.")
+
+    with chat_cols[3]:
+        p["chat_debug_planner"] = st.checkbox(
+            "Show agent debug trace",
+            value=bool(p.get("chat_debug_planner", False)),
+            help="Show which planner handled the last chat command, plus the resolved intent and JSON plan.",
+        )
+
+    with st.expander("Conversation", expanded=True):
+        for item in st.session_state.get("chat_history", [])[-12:]:
+            with st.chat_message(item.get("role", "assistant")):
+                st.markdown(item.get("message", ""))
+
+    chat_prompt = st.chat_input("Ask the agent, e.g. generate full CO2RR pathway on Cu, upload under test03, check Slurm")
+    if chat_prompt:
+        _chat_add("user", chat_prompt)
+        response = _run_chat_command(chat_prompt, st.session_state.params, uploaded_file=uploaded_structure_file)
+        _chat_add("assistant", response)
+        if hasattr(st, "rerun"):
+            st.rerun()
+        else:
+            st.experimental_rerun()
+
+    if st.session_state.params.get("chat_debug_planner", False) and st.session_state.get("last_chat_planner_trace"):
+        with st.expander("Last chat planner trace", expanded=False):
+            st.json(st.session_state["last_chat_planner_trace"])
+
+
+
+st.header("Workflow workspace")
+st.subheader("Structure generation")
+
+with st.expander("Catalyst structure setup", expanded=True):
     p = st.session_state.params
 
     p["structure_source"] = st.radio(
-        "Structure source",
+        "Input structure",
         ["Build from settings", "Upload structure"],
         index=safe_index(["Build from settings", "Upload structure"], p.get("structure_source", "Build from settings")),
     )
@@ -3038,15 +3272,15 @@ with st.sidebar:
         st.info("Uploaded structures are used directly for relaxation and XAS input generation.")
     else:
         p["structure_mode"] = st.radio(
-            "System type",
+            "Surface model",
             ["Single metal surface", "Interface"],
             index=safe_index(["Single metal surface", "Interface"], p.get("structure_mode", "Single metal surface")),
         )
 
         if p["structure_mode"] == "Single metal surface":
-            p["element"] = st.selectbox("Metal", METAL_CHOICES, index=safe_index(METAL_CHOICES, p["element"]))
+            p["element"] = st.selectbox("Surface metal", METAL_CHOICES, index=safe_index(METAL_CHOICES, p["element"]))
             p["coverage_preset"] = st.selectbox(
-                "Nominal coverage",
+                "Adsorbate coverage",
                 list(COVERAGE_PRESETS),
                 index=safe_index(list(COVERAGE_PRESETS), p.get("coverage_preset", "1/9 ML (3×3, default)")),
                 help="Coverage is reported as monolayer (ML) for one adsorbate per surface supercell.",
@@ -3057,7 +3291,7 @@ with st.sidebar:
             c1, c2 = st.columns(2)
             with c1:
                 p["nx"] = st.number_input(
-                    "nx",
+                    "Supercell nx",
                     min_value=1,
                     max_value=30,
                     value=int(p["nx"]),
@@ -3065,7 +3299,7 @@ with st.sidebar:
                 )
             with c2:
                 p["ny"] = st.number_input(
-                    "ny",
+                    "Supercell ny",
                     min_value=1,
                     max_value=30,
                     value=int(p["ny"]),
@@ -3093,224 +3327,33 @@ with st.sidebar:
                 st.write("Auto mode chooses low-strain repeats along the interface. `ny` controls rows away from the interface.")
             c1, c2 = st.columns(2)
             with c1:
-                p["nx"] = st.number_input("requested nx", min_value=1, max_value=30, value=int(p["nx"]))
+                p["nx"] = st.number_input("Interface repeat target", min_value=1, max_value=30, value=int(p["nx"]))
             with c2:
-                p["ny"] = st.number_input("rows per side", min_value=1, max_value=30, value=int(p["ny"]))
+                p["ny"] = st.number_input("Rows away from interface", min_value=1, max_value=30, value=int(p["ny"]))
 
         p["facet"] = st.selectbox("Facet", ["111"], index=0)
         p["layers"] = st.number_input("Layers", min_value=2, max_value=12, value=int(p["layers"]))
-        p["vacuum"] = st.number_input("Vacuum, Å", min_value=5.0, max_value=40.0, value=float(p["vacuum"]), step=1.0)
+        p["vacuum"] = st.number_input("Vacuum thickness, Å", min_value=5.0, max_value=40.0, value=float(p["vacuum"]), step=1.0)
 
         p["adsorbate"] = st.selectbox("Adsorbate", ADSORBATE_CHOICES, index=safe_index(ADSORBATE_CHOICES, p["adsorbate"]))
-        p["height"] = st.number_input("Adsorbate height, Å", min_value=0.5, max_value=5.0, value=float(p["height"]), step=0.1)
+        p["height"] = st.number_input("Initial adsorbate height, Å", min_value=0.5, max_value=5.0, value=float(p["height"]), step=0.1)
         if p["adsorbate"] != "clean":
-            st.write(f"Default site: **{DEFAULT_ADSORBATE_SITES.get(p['adsorbate'], 'top')}**")
+            st.write(f"Initial adsorption site: **{DEFAULT_ADSORBATE_SITES.get(p['adsorbate'], 'top')}**")
 
         if p["structure_mode"] == "Interface" and p["adsorbate"] != "clean":
             binding_options = [p["element1"], p["element2"]]
             if p.get("interface_binding_element") not in binding_options:
                 p["interface_binding_element"] = "Cu" if "Cu" in binding_options else binding_options[0]
             p["interface_binding_element"] = st.selectbox(
-                "Adsorbate binding metal",
+                "Adsorbate binding site metal",
                 binding_options,
                 index=safe_index(binding_options, p["interface_binding_element"]),
             )
 
-    p["output_dir"] = st.text_input("Structure output directory", value=p["output_dir"])
-
-# Chat box: lightweight workflow console with persistent responses.
-if "chat_history" not in st.session_state:
-    st.session_state["chat_history"] = [
-        {
-            "role": "assistant",
-            "message": "I can answer questions, update settings, and run actions. Try `Generate full CO2RR pathway on Cu`, `generate structure and relaxation files`, `upload to NERSC under test03`, `what files are in that folder`, `change to 8 hrs`, or `submit clean surface relaxation job`.",
-            "time": datetime.now().isoformat(timespec="seconds"),
-        }
-    ]
-
-chat_cols = st.columns([1, 1, 1, 2])
-BACKEND_CHOICES = ["Rule-based", "Argonne ALCF", "OpenAI", "Anthropic"]
-with chat_cols[0]:
-    p["chat_backend"] = st.selectbox(
-        "Chat backend",
-        BACKEND_CHOICES,
-        index=safe_index(BACKEND_CHOICES, p.get("chat_backend", "Rule-based")),
-        help="The LLM backend only plans commands. Local Python executes structures, NERSC actions, and ISAAC conversion.",
-    )
-with chat_cols[1]:
-    alcf_clusters = ["Metis", "Sophia"]
-    p["alcf_cluster"] = st.selectbox(
-        "ALCF cluster",
-        alcf_clusters,
-        index=safe_index(alcf_clusters, p.get("alcf_cluster", DEFAULT_ALCF_CLUSTER)),
-        disabled=p.get("chat_backend") != "Argonne ALCF",
-    )
-with chat_cols[2]:
-    selected_cluster = p.get("alcf_cluster", DEFAULT_ALCF_CLUSTER)
-    p["alcf_base_url"] = DEFAULT_ALCF_BASE_URLS.get(selected_cluster, DEFAULT_ALCF_BASE_URLS["Metis"])
-    if p.get("chat_backend") == "Anthropic":
-        p["anthropic_model"] = st.text_input("Anthropic model", value=p.get("anthropic_model") or DEFAULT_ANTHROPIC_MODEL)
-    elif p.get("chat_backend") == "OpenAI":
-        p["openai_model"] = st.text_input("OpenAI model", value=p.get("openai_model") or DEFAULT_OPENAI_MODEL)
-    else:
-        p["alcf_model"] = st.text_input(
-            "ALCF model",
-            value=p.get("alcf_model") or DEFAULT_ALCF_MODEL_BY_CLUSTER.get(selected_cluster, DEFAULT_ALCF_MODEL_BY_CLUSTER["Metis"]),
-            disabled=p.get("chat_backend") != "Argonne ALCF",
-        )
-with chat_cols[3]:
-    if p.get("chat_backend") == "Argonne ALCF":
-        token_ready = bool(os.environ.get("ALCF_INFERENCE_ACCESS_TOKEN", ""))
-        token_helper_ready = (REPO_ROOT / "inference_auth_token.py").exists() or Path("inference_auth_token.py").exists()
-        if token_ready or token_helper_ready:
-            st.success("Argonne ALCF planner enabled. Local Python executes workflow actions.")
-        else:
-            st.warning("Authenticate first: `python inference_auth_token.py authenticate`, or set ALCF_INFERENCE_ACCESS_TOKEN.")
-    elif p.get("chat_backend") == "OpenAI":
-        if os.environ.get("OPENAI_API_KEY", ""):
-            st.success("OpenAI planner enabled. Local Python executes workflow actions.")
-        else:
-            st.warning("Set OPENAI_API_KEY before using the OpenAI backend.")
-    elif p.get("chat_backend") == "Anthropic":
-        if os.environ.get("ANTHROPIC_API_KEY", ""):
-            st.success("Anthropic planner enabled. Local Python executes workflow actions.")
-        else:
-            st.warning("Set ANTHROPIC_API_KEY and install `anthropic` before using Claude.")
-
-with chat_cols[3]:
-    p["chat_debug_planner"] = st.checkbox(
-        "Show planner trace",
-        value=bool(p.get("chat_debug_planner", False)),
-        help="Show which planner handled the last chat command, plus the resolved intent and JSON plan.",
-    )
-
-chat_prompt = st.chat_input("Ask the agent, e.g. generate full CO2RR pathway on Cu, upload under test03, check Slurm")
-if chat_prompt:
-    _chat_add("user", chat_prompt)
-    response = _run_chat_command(chat_prompt, st.session_state.params, uploaded_file=uploaded_structure_file)
-    _chat_add("assistant", response)
-
-with st.expander("Agent responses", expanded=True):
-    for item in st.session_state.get("chat_history", [])[-12:]:
-        with st.chat_message(item.get("role", "assistant")):
-            st.markdown(item.get("message", ""))
-
-if st.session_state.params.get("chat_debug_planner", False) and st.session_state.get("last_chat_planner_trace"):
-    with st.expander("Last chat planner trace", expanded=False):
-        st.json(st.session_state["last_chat_planner_trace"])
-
-st.header("Batch processing")
-with st.expander("Generate inputs for multiple structures or a reaction pathway", expanded=False):
-    p = st.session_state.params
-    p["batch_source"] = st.radio(
-        "Batch source",
-        ["Generate pathway from sidebar system", "Upload structure files or ZIP"],
-        index=safe_index(["Generate pathway from sidebar system", "Upload structure files or ZIP"], p.get("batch_source", "Generate pathway from sidebar system")),
-        horizontal=True,
-    )
-    p["batch_output_dir"] = st.text_input("Batch output directory", value=p.get("batch_output_dir", "generated_outputs/web_xas_agent/batch"))
-
-    st.markdown("#### NERSC project for generated batch scripts")
-    bacc1, bacc2, bacc3 = st.columns([1.2, 1.0, 1.0])
-    with bacc1:
-        p["nersc_account"] = st.text_input(
-            "NERSC project/account",
-            value=p.get("nersc_account", DEFAULT_NERSC_ACCOUNT),
-            key="batch_nersc_account",
-            help="This value is written to #SBATCH -A in every generated submit script, including batch relaxation, VASP, FDMNES, and FEFF jobs.",
-        ).strip() or DEFAULT_NERSC_ACCOUNT
-    with bacc2:
-        p["nersc_queue"] = st.selectbox(
-            "Queue/QOS",
-            ["regular", "debug", "premium", "shared"],
-            index=safe_index(["regular", "debug", "premium", "shared"], p.get("nersc_queue", "regular")),
-            key="batch_nersc_queue",
-        )
-    with bacc3:
-        p["nersc_walltime"] = st.text_input(
-            "Walltime",
-            value=p.get("nersc_walltime", "02:00:00"),
-            key="batch_nersc_walltime",
-        )
-
-    batch_uploaded_files = None
-    batch_adsorbates = []
-    if p["batch_source"] == "Generate pathway from sidebar system":
-        pathway_defaults = [ads for ads in ["clean", "CO2", "CO", "CHO", "OCCO", "COCO", "OH", "H"] if ads in ADSORBATE_CHOICES]
-        stored_batch_ads = [ads for ads in p.get("batch_adsorbates", pathway_defaults) if ads in ADSORBATE_CHOICES]
-        batch_adsorbates = st.multiselect(
-            "Adsorbates / pathway structures",
-            ADSORBATE_CHOICES,
-            default=stored_batch_ads or pathway_defaults,
-        )
-        p["batch_adsorbates"] = batch_adsorbates
-        st.caption("Each selected adsorbate is generated on the current sidebar system and written as one batch item.")
-    else:
-        batch_uploaded_files = st.file_uploader(
-            "Upload multiple structure files or one ZIP containing POSCAR/CONTCAR/CIF/XYZ files",
-            accept_multiple_files=True,
-            key="batch_structure_uploads",
-        )
-        st.caption("For a full local folder, zip the folder first and upload the ZIP.")
-
-    b1, b2, b3 = st.columns(3)
-    with b1:
-        p["batch_include_relaxation"] = st.checkbox("Generate VASP relaxation folders", value=bool(p.get("batch_include_relaxation", True)))
-    with b2:
-        p["batch_include_xas"] = st.checkbox("Generate XAS folders", value=bool(p.get("batch_include_xas", True)))
-    with b3:
-        p["batch_absorber_mode"] = st.selectbox(
-            "Batch absorber",
-            ["auto", "use selected absorber when present"],
-            index=safe_index(["auto", "use selected absorber when present"], p.get("batch_absorber_mode", "auto")),
-        )
-
-    if st.button("Generate batch input package", type="primary"):
-        try:
-            if not p.get("nersc_account") or p.get("nersc_account") == "mXXXX":
-                raise ValueError("Please enter a valid NERSC project/account, for example m5268, before generating batch submit scripts.")
-            workspace = Path(p["batch_output_dir"]) / "_workspace"
-            if p["batch_source"] == "Generate pathway from sidebar system":
-                if not batch_adsorbates:
-                    raise ValueError("Select at least one adsorbate/pathway item.")
-                batch_items = build_pathway_batch_items(p, batch_adsorbates, workspace)
-            else:
-                if not batch_uploaded_files:
-                    raise ValueError("Upload at least one structure file or ZIP.")
-                batch_items = build_uploaded_batch_items(batch_uploaded_files, workspace)
-
-            batch_result = generate_batch_input_package(
-                batch_items=batch_items,
-                output_dir=p["batch_output_dir"],
-                params=p,
-                include_relaxation=p["batch_include_relaxation"],
-                include_xas=p["batch_include_xas"],
-                absorber_mode=p["batch_absorber_mode"],
-            )
-            st.session_state["last_batch_result"] = batch_result
-            st.session_state["last_generated_package_kind"] = "batch"
-        except Exception as exc:
-            st.exception(exc)
-
-    if st.session_state.get("last_batch_result"):
-        batch_result = st.session_state["last_batch_result"]
-        st.success(f"Batch package generated for {batch_result['n_structures']} structures.")
-        with st.expander("Batch manifest", expanded=False):
-            st.json(batch_result)
-        run_dir = Path(batch_result["run_dir"])
-        if run_dir.exists():
-            st.download_button(
-                "Download batch ZIP",
-                data=zip_directory_bytes(run_dir),
-                file_name=f"{run_dir.name}.zip",
-                mime="application/zip",
-                key="download_batch_zip",
-            )
+    p["output_dir"] = st.text_input("Local output folder", value=p["output_dir"])
 
 
-st.header("Structure generation")
-
-with st.expander("Sidebar request", expanded=False):
+with st.expander("Current workflow parameters", expanded=False):
     st.json(st.session_state.params)
 
 if st.button("Generate structure", type="primary"):
@@ -3615,11 +3658,124 @@ if st.session_state.get("last_structure") is not None:
                     )
 
 # =============================================================================
+
+
+st.subheader("Batch generation")
+with st.expander("Generate input packages for multiple structures or reaction pathways", expanded=False):
+    p = st.session_state.params
+    p["batch_source"] = st.radio(
+        "Batch source",
+        ["Generate pathway from current structure setup", "Upload structure files or ZIP"],
+        index=safe_index(["Generate pathway from current structure setup", "Upload structure files or ZIP"], p.get("batch_source", "Generate pathway from current structure setup")),
+        horizontal=True,
+    )
+    p["batch_output_dir"] = st.text_input("Batch output directory", value=p.get("batch_output_dir", "generated_outputs/web_xas_agent/batch"))
+
+    st.markdown("#### NERSC project for generated batch scripts")
+    bacc1, bacc2, bacc3 = st.columns([1.2, 1.0, 1.0])
+    with bacc1:
+        p["nersc_account"] = st.text_input(
+            "NERSC project/account",
+            value=p.get("nersc_account", DEFAULT_NERSC_ACCOUNT),
+            key="batch_nersc_account",
+            help="This value is written to #SBATCH -A in every generated submit script, including batch relaxation, VASP, FDMNES, and FEFF jobs.",
+        ).strip() or DEFAULT_NERSC_ACCOUNT
+    with bacc2:
+        p["nersc_queue"] = st.selectbox(
+            "Queue/QOS",
+            ["regular", "debug", "premium", "shared"],
+            index=safe_index(["regular", "debug", "premium", "shared"], p.get("nersc_queue", "regular")),
+            key="batch_nersc_queue",
+        )
+    with bacc3:
+        p["nersc_walltime"] = st.text_input(
+            "Walltime",
+            value=p.get("nersc_walltime", "02:00:00"),
+            key="batch_nersc_walltime",
+        )
+
+    batch_uploaded_files = None
+    batch_adsorbates = []
+    if p["batch_source"] == "Generate pathway from current structure setup":
+        pathway_defaults = [ads for ads in ["clean", "CO2", "CO", "CHO", "OCCO", "COCO", "OH", "H"] if ads in ADSORBATE_CHOICES]
+        stored_batch_ads = [ads for ads in p.get("batch_adsorbates", pathway_defaults) if ads in ADSORBATE_CHOICES]
+        batch_adsorbates = st.multiselect(
+            "Adsorbates / pathway structures",
+            ADSORBATE_CHOICES,
+            default=stored_batch_ads or pathway_defaults,
+        )
+        p["batch_adsorbates"] = batch_adsorbates
+        st.caption("Each selected adsorbate is generated on the current sidebar system and written as one batch item.")
+    else:
+        batch_uploaded_files = st.file_uploader(
+            "Upload multiple structure files or one ZIP containing POSCAR/CONTCAR/CIF/XYZ files",
+            accept_multiple_files=True,
+            key="batch_structure_uploads",
+        )
+        st.caption("For a full local folder, zip the folder first and upload the ZIP.")
+
+    b1, b2, b3 = st.columns(3)
+    with b1:
+        p["batch_include_relaxation"] = st.checkbox("Include VASP relaxation inputs", value=bool(p.get("batch_include_relaxation", True)))
+    with b2:
+        p["batch_include_xas"] = st.checkbox("Include XAS inputs", value=bool(p.get("batch_include_xas", True)))
+    with b3:
+        p["batch_absorber_mode"] = st.selectbox(
+            "Absorber selection",
+            ["auto", "Use selected absorber if available"],
+            index=safe_index(["auto", "Use selected absorber if available"], p.get("batch_absorber_mode", "auto")),
+        )
+
+    if st.button("Generate batch input package", type="primary"):
+        try:
+            if not p.get("nersc_account") or p.get("nersc_account") == "mXXXX":
+                raise ValueError("Please enter a valid NERSC project/account, for example m5268, before generating batch submit scripts.")
+            workspace = Path(p["batch_output_dir"]) / "_workspace"
+            if p["batch_source"] == "Generate pathway from current structure setup":
+                if not batch_adsorbates:
+                    raise ValueError("Select at least one adsorbate/pathway item.")
+                batch_items = build_pathway_batch_items(p, batch_adsorbates, workspace)
+            else:
+                if not batch_uploaded_files:
+                    raise ValueError("Upload at least one structure file or ZIP.")
+                batch_items = build_uploaded_batch_items(batch_uploaded_files, workspace)
+
+            batch_result = generate_batch_input_package(
+                batch_items=batch_items,
+                output_dir=p["batch_output_dir"],
+                params=p,
+                include_relaxation=p["batch_include_relaxation"],
+                include_xas=p["batch_include_xas"],
+                absorber_mode=p["batch_absorber_mode"],
+            )
+            st.session_state["last_batch_result"] = batch_result
+            st.session_state["last_generated_package_kind"] = "batch"
+        except Exception as exc:
+            st.exception(exc)
+
+    if st.session_state.get("last_batch_result"):
+        batch_result = st.session_state["last_batch_result"]
+        st.success(f"Batch package generated for {batch_result['n_structures']} structures.")
+        with st.expander("Batch manifest", expanded=False):
+            st.json(batch_result)
+        run_dir = Path(batch_result["run_dir"])
+        if run_dir.exists():
+            st.download_button(
+                "Download batch ZIP",
+                data=zip_directory_bytes(run_dir),
+                file_name=f"{run_dir.name}.zip",
+                mime="application/zip",
+                key="download_batch_zip",
+            )
+
+
+
+
 # NERSC job control and ISAAC record conversion
 # =============================================================================
 
 st.divider()
-st.header("NERSC job control")
+st.subheader("NERSC agent")
 
 p = st.session_state.params
 p["nersc_enable"] = st.checkbox(
@@ -3977,3 +4133,104 @@ if p["nersc_enable"]:
         if st.session_state.get("nersc_job_registry"):
             with st.expander("Local job registry", expanded=False):
                 st.json(st.session_state["nersc_job_registry"])
+
+
+# =============================================================================
+# ISAAC Portal validation/upload
+# =============================================================================
+
+st.divider()
+st.subheader("ISAAC Portal")
+st.caption("Uses `ISAAC_URL` and `ISAAC_KEY` from the terminal environment. The API key is not stored in Streamlit state.")
+
+try:
+    from tools.isaac_portal_client import ISAACPortalClient
+    _isaac_portal_import_error = None
+except Exception as _exc:
+    ISAACPortalClient = None
+    _isaac_portal_import_error = _exc
+
+_isaac_env_url = os.environ.get("ISAAC_URL", "")
+_isaac_env_key = os.environ.get("ISAAC_KEY", "")
+_col_url, _col_key = st.columns(2)
+_col_url.caption(f"ISAAC_URL: `{_isaac_env_url or 'not set; using default portal API URL'}`")
+_col_key.caption("ISAAC_KEY: " + ("found" if _isaac_env_key else "missing"))
+
+_portal_mode = st.radio(
+    "ISAAC Portal upload source",
+    ["Generated/current ISAAC record", "Drop ISAAC JSON file(s)"],
+    horizontal=True,
+    key="isaac_portal_upload_mode",
+)
+
+_records_to_upload = []
+if _portal_mode == "Generated/current ISAAC record":
+    _candidate_record = st.session_state.get("last_isaac_record") or st.session_state.get("isaac_last_record")
+    _candidate_path = st.session_state.get("last_isaac_record_path") or st.session_state.get("isaac_last_record_path")
+    if not _candidate_record and _candidate_path and Path(str(_candidate_path)).exists():
+        try:
+            _candidate_record = json.loads(Path(str(_candidate_path)).read_text())
+        except Exception as _exc:
+            st.warning(f"Could not read generated ISAAC record path `{_candidate_path}`: {_exc}")
+    if not _candidate_record:
+        _fallback_path = Path(str(st.session_state.params.get("isaac_local_output_dir", "generated_outputs/web_xas_agent/downloaded_outputs"))) / "isaac_record_draft.json"
+        if _fallback_path.exists():
+            try:
+                _candidate_record = json.loads(_fallback_path.read_text())
+                _candidate_path = str(_fallback_path)
+            except Exception as _exc:
+                st.warning(f"Could not read `{_fallback_path}`: {_exc}")
+    if _candidate_record:
+        _records_to_upload.append((str(_candidate_path or _candidate_record.get("record_id") or "generated_record"), _candidate_record))
+        st.success(f"Selected generated ISAAC record `{_candidate_record.get('record_id', 'no record_id')}`.")
+        with st.expander("Generated ISAAC record preview", expanded=False):
+            st.json(_candidate_record)
+    else:
+        st.info("No generated ISAAC record is available yet. Convert outputs to an ISAAC record first, or use the drop-file option.")
+else:
+    _uploaded_records = st.file_uploader(
+        "Drop ISAAC record JSON file(s)",
+        type=["json"],
+        accept_multiple_files=True,
+        key="isaac_portal_json_drop",
+    )
+    for _uploaded in _uploaded_records or []:
+        try:
+            _record = json.loads(_uploaded.getvalue().decode("utf-8"))
+            if isinstance(_record, dict):
+                _records_to_upload.append((_uploaded.name, _record))
+        except Exception as _exc:
+            st.error(f"Could not parse `{getattr(_uploaded, 'name', 'uploaded')}`: {_exc}")
+
+if _isaac_portal_import_error is not None:
+    st.error(f"ISAAC Portal client could not be imported: {_isaac_portal_import_error}")
+elif not _isaac_env_key:
+    st.warning("Set `ISAAC_KEY` before launching Streamlit to validate or upload records.")
+elif _records_to_upload:
+    _upload_cols = st.columns(2)
+    if _upload_cols[0].button("Validate selected ISAAC record(s)", key="isaac_portal_validate"):
+        try:
+            _client = ISAACPortalClient()
+            _results = []
+            for _name, _record in _records_to_upload:
+                _results.append({"source": _name, "record_id": _record.get("record_id"), "validation": _client.validate_record(_record)})
+            st.session_state["isaac_portal_validation_results"] = _results
+        except Exception as _exc:
+            st.error(f"ISAAC Portal validation failed: {_exc}")
+    if _upload_cols[1].button("Validate + upload selected ISAAC record(s)", type="primary", key="isaac_portal_upload"):
+        try:
+            _client = ISAACPortalClient()
+            _results = []
+            for _name, _record in _records_to_upload:
+                _results.append({"source": _name, "record_id": _record.get("record_id"), "result": _client.validate_then_create(_record)})
+            st.session_state["isaac_portal_upload_results"] = _results
+        except Exception as _exc:
+            st.error(f"ISAAC Portal upload failed: {_exc}")
+
+if st.session_state.get("isaac_portal_validation_results"):
+    with st.expander("ISAAC Portal validation results", expanded=True):
+        st.json(st.session_state["isaac_portal_validation_results"])
+if st.session_state.get("isaac_portal_upload_results"):
+    with st.expander("ISAAC Portal upload results", expanded=True):
+        st.json(st.session_state["isaac_portal_upload_results"])
+
