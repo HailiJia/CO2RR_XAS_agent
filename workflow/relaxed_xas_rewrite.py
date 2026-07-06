@@ -1,8 +1,8 @@
 """Post-relaxation XAS input regeneration helpers.
 
 This module keeps the production NERSC workflow honest: relaxation must finish
-before XAS inputs are regenerated from ``relax/CONTCAR``.  It also provides a
-small runtime guard that generated XAS submit scripts can call before launching
+before XAS inputs are regenerated from ``relax/CONTCAR``. It also provides a
+runtime guard that generated XAS submit scripts can call before launching
 FEFF/FDMNES/VASP so stale inputs are detected instead of silently running from
 an unrelaxed POSCAR.
 """
@@ -110,9 +110,9 @@ if [ -f .xas_structure_source.sha256 ]; then
     echo "ERROR: Relaxed source structure is missing: ${{source_path}}" >&2
     exit 2
   fi
-  actual_sha=$(${{ISAAC_PYTHON}} - <<'PY'
+  actual_sha=$(SOURCE_PATH="${{source_path}}" ${{ISAAC_PYTHON}} - <<'PY'
 import hashlib, os
-p = os.environ.get('source_path')
+p = os.environ['SOURCE_PATH']
 h = hashlib.sha256()
 with open(p, 'rb') as f:
     for chunk in iter(lambda: f.read(1024 * 1024), b''):
@@ -130,7 +130,6 @@ else
   echo 'WARNING: no .xas_structure_source.sha256 found; cannot verify XAS input structure provenance.' >&2
 fi
 """
-        # Insert after module/env setup and before the first calculation command.
         insert_before = "# =============================================================================\n# ISAAC run metadata: initialized before the calculation starts"
         if insert_before in text:
             text = text.replace(insert_before, guard_block + "\n" + insert_before, 1)
