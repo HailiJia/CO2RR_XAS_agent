@@ -1,8 +1,8 @@
 # CO2RR XAS Agent
 
-A lightweight agent and web app for building CO2RR XAS workflows, generating FEFF/FDMNES/VASP inputs, converting completed runs into ISAAC AI-ready records, and using those records for XAS-focused machine learning.
+A lightweight agent and web app for building CO2RR XAS workflows, generating FEFF/FDMNES/VASP inputs, submitting and monitoring NERSC jobs through the NERSC Superfacility API, converting completed runs into ISAAC AI-ready records, and using those records for XAS-focused machine learning.
 
-The most useful entry point is now the Streamlit web app.
+The main interactive entry point is the Streamlit **Structure and XAS calculation** app.
 
 ---
 
@@ -16,130 +16,30 @@ source .venv/bin/activate
 pip install --upgrade pip
 pip install -r requirements.txt
 pip install streamlit pandas scikit-learn
-streamlit run web_app/Home.py
+streamlit run web_app/Structure_and_XAS_calculation.py
 ```
 
-Optional ISAAC Portal access:
+From inside `web_app/`:
+
+```bash
+streamlit run Structure_and_XAS_calculation.py
+```
+
+`web_app/app.py` is retained as the legacy implementation used by the polished `Structure_and_XAS_calculation.py` entry point. Do not delete `app.py` unless the runtime app has first been fully flattened into one standalone file.
+
+---
+
+## ISAAC Portal API usage
+
+For ISAAC Portal validation/upload from the web app or command line, set:
 
 ```bash
 export ISAAC_URL="https://isaac.slac.stanford.edu/portal/api"
 export ISAAC_KEY="..."
-streamlit run web_app/Home.py
+streamlit run web_app/Structure_and_XAS_calculation.py
 ```
 
-The web app can also work only from local ISAAC JSON files or ZIP archives; portal credentials are not required for local upload mode.
-
----
-
-## Web app capabilities
-
-### 1. XAS record loading and filtering
-
-The ML page can load records from:
-
-- local ISAAC JSON files
-- ZIP archives of ISAAC records
-- the ISAAC Portal, when `ISAAC_KEY` is set
-
-It applies strict XAS spectral filtering before ML. A record must contain a numeric incident-energy axis with eV/keV units and an XAS-like signal channel. Records that look like XRD, XPS, PDF, Raman, STM/STS, etc. are excluded from XAS ML by default.
-
-### 2. Simple XAS summary
-
-For valid XAS spectra, the app summarizes:
-
-- `record_id`
-- `record_domain`
-- material formula/name
-- absorber
-- edge
-- technique
-- number of spectral points
-- classification reason
-
-Absorber/edge metadata can be read from ISAAC fields such as `system.configuration.absorber` and `system.configuration.edge`, or inferred from the energy range when metadata are missing.
-
-### 3. Spectrum plotting
-
-The app plots spectra by absorber/edge group and supports:
-
-- raw spectra
-- min-max normalized spectra
-- min-max normalized spectra with vertical offsets
-- XAS-only, all plottable, or non-XAS diagnostic views
-
-### 4. XAS ML target/label selection
-
-The ML target selector is intentionally restricted to fields that are useful for XAS modeling:
-
-- `sample.material.formula`
-- non-null `descriptors.*` values
-- optional parsed structural labels:
-  - `structure.facet`
-  - `structure.adsorption_site`
-
-Other metadata such as record ID, source type, facility, instrument, timestamp, absorber, edge, technique, QC status, assets, links, and tags are not exposed as ML target labels. They can still be used for filtering or diagnosis, but they are not useful XAS ML targets and can introduce leakage/noise.
-
-Parsed facet/site labels are extracted from record text and should be manually checked before training.
-
-### 5. Auto-advisor for ML setup
-
-The auto-advisor compares:
-
-- feature sets: raw, derivative, CDF, peak-window features
-- normalization: min-max, area, z-score
-- dimension reduction choices, including no reduction and PCA
-- simple models and baselines
-
-It reports ranked configurations and a recommended starting point. Results should still be checked with grouped validation when enough records are available.
-
-### 6. Manual ML run
-
-Manual training supports:
-
-- classification or regression, depending on the target field
-- common-grid interpolation
-- spectrum normalization
-- optional dimension reduction with PCA
-- simple baselines and standard models
-- held-out prediction table
-- training curve diagnostics when enough spectra are available
-
----
-
-## Simulation workflow capabilities
-
-The agent can generate and process XAS simulation workflows for CO2RR-relevant catalyst models:
-
-- Cu/Au/Ni/Pt/Ir surfaces and interfaces
-- adsorbates such as CO, CHO, OCCO, and related intermediates
-- FEFF input generation
-- FDMNES input generation
-- VASP two-step SCF/XAS input generation
-- NERSC submit/monitor/finalize workflow
-- output parsing for FEFF, FDMNES, and VASP
-- ISAAC simulation evidence record generation
-
-Completed simulation folders can be converted into ISAAC records with:
-
-```bash
-bash XAS/convert_completed_simulation_xas_to_isaac.sh \
-  --input-dir . \
-  --output isaac_record_draft.json
-```
-
-The converter reads absorber and edge from the calculation inputs when possible:
-
-- FEFF: `feff.inp`, `POTENTIALS`, `PARAMETERS`, `ATOMS`
-- FDMNES: `*_in.txt`, `fdmfile.txt`
-- VASP: `INCAR`, `POTCAR.spec`, and folder/file labels
-
-Metadata and environment variables are used only as fallback.
-
----
-
-## ISAAC validation and upload
-
-For one record:
+For one record from the command line:
 
 ```bash
 export ISAAC_URL="https://isaac.slac.stanford.edu/portal/api"
@@ -150,7 +50,7 @@ python tools/convert_simulation_xas_run_to_isaac.py \
   --validate
 ```
 
-For a batch of JSON records, use the helper generated during analysis or adapt the same pattern:
+For a batch of JSON records, validate first, inspect the report, and upload only records that pass validation:
 
 ```bash
 python batch_validate_upload_isaac_records.py \
@@ -159,7 +59,136 @@ python batch_validate_upload_isaac_records.py \
   --upload
 ```
 
-The recommended workflow is to validate all records first, inspect the report, and upload only records that pass validation.
+The web app can also work from local ISAAC JSON files or ZIP archives without portal credentials.
+
+---
+
+## NERSC Superfacility API usage
+
+The **NERSC agent** panel in the Structure and XAS app uses the NERSC Superfacility API when the app is running on your laptop. It expects these environment variables:
+
+```bash
+export NERSC_SFAPI_CLIENT_ID="your_client_id_from_iris"
+export NERSC_SFAPI_PRIVATE_KEY_PATH="$HOME/Downloads/priv_key.pem"
+streamlit run web_app/Structure_and_XAS_calculation.py
+```
+
+The private key must be the PEM key downloaded from Iris. Protect it before launching the app:
+
+```bash
+chmod 400 "$HOME/Downloads/priv_key.pem"
+```
+
+The app also supports a literal PEM key through `NERSC_SFAPI_PRIVATE_KEY`, but the file-path form is recommended:
+
+```bash
+export NERSC_SFAPI_PRIVATE_KEY="$(cat $HOME/Downloads/priv_key.pem)"
+```
+
+The variable names used by this web app are **not** `SFAPI_CLIENT_ID` and `SFAPI_SECRET`; those names are used by the standalone `sfapi_client` package examples. For this repository, use:
+
+```text
+NERSC_SFAPI_CLIENT_ID
+NERSC_SFAPI_PRIVATE_KEY_PATH
+```
+
+To test the key with the app backend:
+
+```bash
+python - <<'PY'
+from tools.nersc_job_manager import NERSCSFAPIClient
+client = NERSCSFAPIClient()
+print(client.status())
+PY
+```
+
+If you create the client in Iris for a laptop-run web app, use your laptop's current public IPv4 address in the API client IP allowlist:
+
+```bash
+curl -4 https://ifconfig.me
+```
+
+Use the same VPN/network state that you will use when running Streamlit.
+
+---
+
+## Structure, XAS, and NERSC workflow capabilities
+
+The Structure and XAS app can:
+
+- build Cu/Au/Ni/Pt/Ir surfaces and interfaces;
+- add adsorbates such as CO, CHO, OCCO, COCO, CO2, OH, and H;
+- generate VASP relaxation folders;
+- generate FEFF, FDMNES, and VASP XAS input folders;
+- upload calculation packages to NERSC through the Superfacility API;
+- submit Slurm jobs from the web app;
+- check SF API task status and Slurm job status;
+- list remote folders and preview remote files;
+- download selected outputs;
+- convert completed outputs into ISAAC draft records;
+- validate/upload ISAAC records through the ISAAC Portal API.
+
+The NERSC agent also includes a full relax-to-XAS workflow. It submits the relaxation job first. When a refresh detects that relaxation has completed, the app downloads `01_structure/CONTCAR`, regenerates local `02_XAS` inputs from that relaxed structure, uploads the regenerated XAS folder, and submits VASP/FDMNES/FEFF XAS jobs.
+
+The same workflow can be triggered in the chat box with commands such as:
+
+```text
+start full relax XAS workflow under test03
+refresh full workflow
+```
+
+---
+
+## XAS ML capabilities
+
+The ML page can load records from:
+
+- local ISAAC JSON files;
+- ZIP archives of ISAAC records;
+- the ISAAC Portal, when `ISAAC_KEY` is set.
+
+It applies strict XAS spectral filtering before ML. A record must contain a numeric incident-energy axis with eV/keV units and an XAS-like signal channel. Records that look like XRD, XPS, PDF, Raman, STM/STS, etc. are excluded from XAS ML by default.
+
+For valid XAS spectra, the app summarizes:
+
+- `record_id`;
+- `record_domain`;
+- material formula/name;
+- absorber;
+- edge;
+- technique;
+- number of spectral points;
+- classification reason.
+
+The ML target selector is intentionally restricted to fields useful for XAS modeling:
+
+- `sample.material.formula`;
+- non-null `descriptors.*` values;
+- optional parsed structural labels such as `structure.facet` and `structure.adsorption_site`.
+
+Other metadata such as record ID, source type, facility, instrument, timestamp, absorber, edge, technique, QC status, assets, links, and tags are not exposed as ML target labels. They can still be used for filtering or diagnosis, but they are not useful XAS ML targets and can introduce leakage/noise.
+
+The auto-advisor compares feature sets, normalization, dimension reduction choices, simple baselines, and standard models. Manual training supports classification or regression, common-grid interpolation, normalization, optional PCA, baseline/model comparison, held-out prediction tables, and training-curve diagnostics.
+
+---
+
+## Simulation-folder ISAAC conversion
+
+Completed simulation folders can be converted into ISAAC records with:
+
+```bash
+bash XAS/convert_completed_simulation_xas_to_isaac.sh \
+  --input-dir . \
+  --output isaac_record_draft.json
+```
+
+The converter reads absorber and edge from calculation inputs when possible:
+
+- FEFF: `feff.inp`, `POTENTIALS`, `PARAMETERS`, `ATOMS`;
+- FDMNES: `*_in.txt`, `fdmfile.txt`;
+- VASP: `INCAR`, `POTCAR.spec`, and folder/file labels.
+
+Metadata and environment variables are used only as fallback.
 
 ---
 
@@ -168,11 +197,13 @@ The recommended workflow is to validate all records first, inspect the report, a
 ```text
 CO2RR_XAS_agent/
 ├── agent/                    # planner schemas, parser, and agent orchestration
-├── tools/                    # XAS record utilities, portal client, converters, ML helpers
+├── tools/                    # XAS utilities, portal client, NERSC client, converters, ML helpers
 ├── workflow/                 # NERSC submit/monitor/finalize helpers
 ├── generators/               # slab/input generator utilities
 ├── web_app/                  # Streamlit web app
-│   ├── Home.py
+│   ├── Structure_and_XAS_calculation.py
+│   ├── app.py
+│   ├── nersc_full_workflow_patch.py
 │   └── pages/
 │       └── 2_Machine_learning_for_XAS.py
 ├── XAS/                      # reusable XAS shell helpers
@@ -185,7 +216,8 @@ CO2RR_XAS_agent/
 
 ## Notes
 
-- Use the web app for most interactive work.
+- Use `web_app/Structure_and_XAS_calculation.py` for most interactive work.
+- Keep private API keys out of the repository.
 - Use `tools/convert_simulation_xas_run_to_isaac.py` for repeated simulation-folder conversion.
 - Keep experimental/literature one-off conversions outside the repository unless they are intended to become reusable workflows.
 - For XAS ML, use metadata for filtering and descriptors/chemically meaningful labels for targets.
