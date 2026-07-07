@@ -5,6 +5,7 @@ CO2RR XAS Agent is a Streamlit web app and workflow toolkit for building CO2 red
 The main interactive entry point is:
 
 ```bash
+cd CO2RR_XAS_Agent
 streamlit run web_app/CO2RR_XAS_Agent.py
 ```
 
