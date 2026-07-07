@@ -2709,6 +2709,119 @@ def _fw_active_remote_dir(params, text=""):
     return value.rstrip("/")
 
 
+
+
+def _fw_extract_command_output(result):
+    """Extract stdout from an SF API task result, including nested JSON string payloads."""
+    if not isinstance(result, dict):
+        return str(result)
+
+    payload = result.get("result")
+    if isinstance(payload, str):
+        try:
+            payload = json.loads(payload)
+        except Exception:
+            pass
+
+    if isinstance(payload, dict):
+        return str(
+            payload.get("output")
+            or payload.get("stdout")
+            or payload.get("raw_result")
+            or json.dumps(payload, indent=2)
+        )
+
+    return str(
+        result.get("output")
+        or result.get("stdout")
+        or result.get("raw_result")
+        or json.dumps(result, indent=2)
+    )
+
+
+def _fw_parse_workflow_state_from_output(output):
+    """Find and parse the workflow_state JSON object from command output."""
+    text = str(output or "")
+    decoder = json.JSONDecoder()
+    for i, ch in enumerate(text):
+        if ch != "{":
+            continue
+        try:
+            obj, _end = decoder.raw_decode(text[i:])
+        except Exception:
+            continue
+        if isinstance(obj, dict) and "stage" in obj and "jobs" in obj:
+            return obj
+    return None
+
+
+def _fw_format_workflow_status(remote_dir, result):
+    """Compact human-readable status report for the full relax -> XAS workflow."""
+    output = _fw_extract_command_output(result)
+    state = _fw_parse_workflow_state_from_output(output)
+
+    if not state:
+        return (
+            f"Full workflow status for `{remote_dir}`:\n\n"
+            "Could not parse `workflow_state.json` from the command output. Raw output:\n\n"
+            f"```text\n{output[:5000]}\n```"
+        )
+
+    jobs = state.get("jobs", {}) or {}
+    run_name = str(remote_dir).rstrip("/").split("/")[-1]
+    stage = state.get("stage", "unknown")
+    updated = state.get("updated_utc", "")
+
+    lines = [
+        f"Full workflow status: `{run_name}`",
+        f"Remote: `{remote_dir}`",
+        f"Stage: `{stage}`",
+    ]
+
+    if updated:
+        lines.append(f"Updated UTC: `{updated}`")
+    lines.append("")
+
+    if not jobs:
+        lines.append("No Slurm jobs are registered yet.")
+    else:
+        label_map = {
+            "relax": "Relaxation",
+            "workflow_xas": "XAS driver",
+            "xas_VASP": "VASP XAS",
+            "xas_FDMNES": "FDMNES XAS",
+            "xas_FEFF": "FEFF XAS",
+        }
+        order = ["relax", "workflow_xas", "xas_VASP", "xas_FDMNES", "xas_FEFF"]
+        ordered_names = [name for name in order if name in jobs]
+        ordered_names += [name for name in jobs if name not in order]
+
+        for name in ordered_names:
+            job = jobs.get(name, {}) or {}
+            label = label_map.get(name, name)
+            job_id = job.get("job_id", "")
+            job_state = job.get("state", "")
+            dependency = job.get("dependency") or ""
+            script = job.get("script", "")
+
+            lines.append(f"**{label}**")
+            lines.append(f"- Job ID: `{job_id}`")
+            lines.append(f"- State: `{job_state}`")
+            if dependency:
+                lines.append(f"- Dependency: `{dependency}`")
+            lines.append(f"- Script: `{script}`")
+            lines.append("")
+
+    events = state.get("events", []) or []
+    if events:
+        lines.append("Recent events:")
+        for event in events[-3:]:
+            time_utc = event.get("time_utc", "")
+            message = event.get("message", "")
+            lines.append(f"- `{time_utc}` — {message}")
+
+    return "\n".join(lines)
+
 def _fw_text(result):
     if not isinstance(result, dict):
         return str(result)
@@ -3020,8 +3133,7 @@ def _execute_chat_intent(intent, text, params, uploaded_file=None, plan=None):
         params["nersc_last_submit_dir"] = remote_dir
         params["nersc_download_remote_dir"] = remote_dir
         params["nersc_preview_dir"] = remote_dir
-        output = _fw_text(result)
-        return f"Full workflow status for `{remote_dir}`:\\n\\n{output[:5000]}"
+        return _fw_format_workflow_status(remote_dir, result)
 
     if intent == "help":
         return (
