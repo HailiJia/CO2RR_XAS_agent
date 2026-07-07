@@ -86,7 +86,7 @@ def _isaac_submit_metadata_finalize() -> List[str]:
         "# ISAAC run metadata: finalized after the calculation ends",
         "# =============================================================================",
         "export ISAAC_END_UTC=\"$(isaac_utc_now)\"",
-        "python - <<'PY'",
+        "python3 - <<'PY'",
         "import hashlib",
         "import json",
         "import os",
