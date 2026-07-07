@@ -140,6 +140,39 @@ workflow_state.py
 workflow_state.json
 workflow_manifest.json
 ```
+After the relaxation finishes successfully, `workflow_xas.sh` regenerates XAS inputs from `01_structure/CONTCAR`. The generated XAS stage is written under `02_XAS/`, for example:
+
+```text
+02_XAS/
+  structure_info.json
+
+  VASP/
+    structure_info.json
+    submit.sh
+    01_scf/
+      POSCAR
+      INCAR
+      KPOINTS
+      make_potcar.sh
+    02_xas/
+      POSCAR
+      INCAR
+      KPOINTS
+      make_potcar.sh
+
+  FDMNES/
+    structure_info.json
+    fdmfile.txt
+    *_in.txt
+    submit.sh
+
+  FEFF/
+    structure_info.json
+    feff.inp
+    POTENTIALS
+    PARAMETERS
+    ATOMS
+    submit.sh
 
 The workflow is Slurm-driven and does not require the web app to stay open after submission. `workflow_submit.sh` submits:
 
