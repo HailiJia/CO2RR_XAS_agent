@@ -1,12 +1,38 @@
 # CO2RR XAS Agent
 
-A lightweight agent and web app for building CO2RR XAS workflows, generating FEFF/FDMNES/VASP inputs, submitting and monitoring NERSC jobs through the NERSC Superfacility API, converting completed runs into ISAAC AI-ready records, and using those records for XAS-focused machine learning.
+CO2RR XAS Agent is a Streamlit web app and workflow toolkit for building CO2 reduction catalyst structures, generating relaxation and XAS inputs, running restartable NERSC Slurm workflows, and converting completed simulations into ISAAC AI-ready records.
 
-The main interactive entry point is the Streamlit web app at `web_app/main.py`.
+The main interactive entry point is:
+
+```bash
+streamlit run web_app/CO2RR_XAS_Agent.py
+```
+
+`web_app/CO2RR_XAS_Agent.py` is a wrapper around `web_app/main.py` so the Streamlit sidebar/page label appears as **CO2RR XAS Agent** instead of `main`.
 
 ---
 
-## Quick start: web app
+## Main capabilities
+
+The web app supports:
+
+- building Cu/Au/Ni/Pt/Ir surfaces and interfaces;
+- adding adsorbates such as CO, CHO, OCCO, COCO, CO2, OH, and H;
+- generating VASP relaxation input folders;
+- generating FEFF, FDMNES, and VASP XAS input folders;
+- preparing a restartable full NERSC workflow package;
+- uploading workflow packages to NERSC through the NERSC Superfacility API;
+- submitting Slurm jobs through a dependency-driven relax -> XAS workflow;
+- checking workflow, Slurm, and SF API task status from the web app;
+- listing remote folders and previewing remote files;
+- downloading selected outputs;
+- converting completed outputs into ISAAC draft records;
+- validating/uploading ISAAC records through the ISAAC Portal API;
+- loading ISAAC XAS records for ML preprocessing, feature/model comparison, and training.
+
+---
+
+## Quick start
 
 From the repository root:
 
@@ -16,79 +42,39 @@ source .venv/bin/activate
 pip install --upgrade pip
 pip install -r requirements.txt
 pip install streamlit pandas scikit-learn
-streamlit run web_app/main.py
+streamlit run web_app/CO2RR_XAS_Agent.py
 ```
 
-From inside `web_app/`:
+If you already use a conda environment:
 
 ```bash
-streamlit run main.py
+conda activate co2rr_agent
+streamlit run web_app/CO2RR_XAS_Agent.py
 ```
+
+Generated local packages are written under `generated_outputs/`. This directory is intended to stay local and should not be committed.
 
 ---
 
-## ISAAC Portal API usage
+## NERSC Superfacility API setup
 
-For ISAAC Portal validation/upload from the web app or command line, set:
-
-```bash
-export ISAAC_URL="https://isaac.slac.stanford.edu/portal/api"
-export ISAAC_KEY="..."
-streamlit run web_app/main.py
-```
-
-For one record from the command line:
-
-```bash
-export ISAAC_URL="https://isaac.slac.stanford.edu/portal/api"
-export ISAAC_KEY="..."
-python tools/convert_simulation_xas_run_to_isaac.py \
-  --input-dir . \
-  --output isaac_record_draft.json \
-  --validate
-```
-
-For a batch of JSON records, validate first, inspect the report, and upload only records that pass validation:
-
-```bash
-python batch_validate_upload_isaac_records.py \
-  --input records.zip \
-  --validate \
-  --upload
-```
-
-The web app can also work from local ISAAC JSON files or ZIP archives without portal credentials.
-
----
-
-## NERSC Superfacility API usage
-
-The **NERSC agent** panel in the web app uses the NERSC Superfacility API when the app is running on your laptop. It expects these environment variables:
+The web app can run on a laptop and communicate with NERSC through the NERSC Superfacility API. Set:
 
 ```bash
 export NERSC_SFAPI_CLIENT_ID="your_client_id_from_iris"
 export NERSC_SFAPI_PRIVATE_KEY_PATH="$HOME/Downloads/priv_key.pem"
-streamlit run web_app/main.py
+chmod 400 "$NERSC_SFAPI_PRIVATE_KEY_PATH"
+streamlit run web_app/CO2RR_XAS_Agent.py
 ```
 
-The private key must be the PEM key downloaded from Iris. Protect it before launching the app:
-
-```bash
-chmod 400 "$HOME/Downloads/priv_key.pem"
-```
-
-The app also supports a literal PEM key through `NERSC_SFAPI_PRIVATE_KEY`, but the file-path form is recommended:
-
-```bash
-export NERSC_SFAPI_PRIVATE_KEY="$(cat $HOME/Downloads/priv_key.pem)"
-```
-
-The variable names used by this web app are **not** `SFAPI_CLIENT_ID` and `SFAPI_SECRET`; those names are used by the standalone `sfapi_client` package examples. For this repository, use:
+The app expects these variable names:
 
 ```text
 NERSC_SFAPI_CLIENT_ID
 NERSC_SFAPI_PRIVATE_KEY_PATH
 ```
+
+The names `SFAPI_CLIENT_ID` and `SFAPI_SECRET` are used by some standalone SF API examples, but not by this app.
 
 To test the key with the app backend:
 
@@ -100,47 +86,157 @@ print(client.status())
 PY
 ```
 
-If you create the client in Iris for a laptop-run web app, use your laptop's current public IPv4 address in the API client IP allowlist:
+If the API client in Iris uses an IP allowlist, add the public IPv4 address of the machine/network where Streamlit is running:
 
 ```bash
 curl -4 https://ifconfig.me
 ```
 
-Use the same VPN/network state that you will use when running Streamlit.
+---
+
+## Full NERSC relax -> XAS workflow
+
+The recommended NERSC path is the full workflow package, not manual one-off job submission. The package contains:
+
+```text
+01_structure/
+  POSCAR
+  INCAR
+  KPOINTS
+  make_potcar.sh
+  submit_relax.sh
+  structure_info.json
+workflow_submit.sh
+workflow_xas.sh
+workflow_status.sh
+workflow_restart.sh
+workflow_cancel.sh
+workflow_state.py
+workflow_state.json
+workflow_manifest.json
+```
+
+The workflow is Slurm-driven and does not require the web app to stay open after submission. `workflow_submit.sh` submits:
+
+1. the VASP relaxation job, and
+2. the `workflow_xas.sh` driver job with `--dependency=afterok:<relax_job_id>`.
+
+`workflow_xas.sh` starts only after relaxation succeeds. It reads `01_structure/CONTCAR`, regenerates XAS inputs from the relaxed structure, then submits the VASP/FDMNES/FEFF XAS jobs.
+
+Example chat commands in the web app:
+
+```text
+prepare full workflow and upload to NERSC under test05
+start full workflow
+check workflow status in /pscratch/sd/h/hjia/CO2RR/web_xas_agent_runs/test05
+restart full workflow
+cancel full workflow
+```
+
+Expected status after starting:
+
+```text
+Relaxation   job_id=<relax_job_id>       state=PENDING/RUNNING
+XAS driver   job_id=<workflow_xas_job_id> state=PENDING, dependency=afterok:<relax_job_id>
+```
+
+A dependency-held `workflow_xas` job does not consume compute time while waiting for relaxation to finish.
 
 ---
 
-## Structure, XAS, and NERSC workflow capabilities
+## Manual NERSC checks
 
-The web app can:
+On Perlmutter:
 
-- build Cu/Au/Ni/Pt/Ir surfaces and interfaces;
-- add adsorbates such as CO, CHO, OCCO, COCO, CO2, OH, and H;
-- generate VASP relaxation folders;
-- generate FEFF, FDMNES, and VASP XAS input folders;
-- upload calculation packages to NERSC through the Superfacility API;
-- submit Slurm jobs from the web app;
-- check SF API task status and Slurm job status;
-- list remote folders and preview remote files;
-- download selected outputs;
-- convert completed outputs into ISAAC draft records;
-- validate/upload ISAAC records through the ISAAC Portal API.
+```bash
+cd /pscratch/sd/h/hjia/CO2RR/web_xas_agent_runs/test05
+bash workflow_status.sh
+squeue -u hjia -o "%.18i %.35j %.10T %.20R"
+sacct -u hjia -S now-2hours -o JobID,JobName,State,ExitCode,Elapsed,Submit,Start,End%20
+```
 
-The chat box can run the stepwise NERSC workflow, for example:
+To inspect the workflow state directly:
 
-```text
-Generate relaxation inputs
-Upload to NERSC under test04
-change to 8 hrs and submit the job
-check slurm job status
-cancel slurm job 55602116
+```bash
+cat workflow_state.json
+```
+
+To restart a failed or incomplete stage:
+
+```bash
+bash workflow_restart.sh
+```
+
+To cancel active workflow jobs recorded in `workflow_state.json`:
+
+```bash
+bash workflow_cancel.sh
 ```
 
 ---
 
-## XAS ML capabilities
+## Python on NERSC
 
-The ML page can load records from:
+Generated workflow scripts select a valid Python executable automatically. They try, in order:
+
+```text
+CO2RR_NERSC_PYTHON
+python3.11
+python3.10
+python3.9
+python3
+python
+```
+
+The scripts also attempt:
+
+```bash
+module load python/3.11 2>/dev/null || module load python 2>/dev/null || true
+```
+
+If needed, override the executable explicitly before running a workflow script:
+
+```bash
+export CO2RR_NERSC_PYTHON=$(command -v python3.11)
+```
+
+---
+
+## ISAAC Portal API usage
+
+For ISAAC Portal validation/upload from the web app or command line, set:
+
+```bash
+export ISAAC_URL="https://isaac.slac.stanford.edu/portal/api"
+export ISAAC_KEY="..."
+streamlit run web_app/CO2RR_XAS_Agent.py
+```
+
+Convert one completed simulation folder into an ISAAC draft record:
+
+```bash
+python tools/convert_simulation_xas_run_to_isaac.py \
+  --input-dir . \
+  --output isaac_record_draft.json \
+  --validate
+```
+
+For batch validation/upload:
+
+```bash
+python batch_validate_upload_isaac_records.py \
+  --input records.zip \
+  --validate \
+  --upload
+```
+
+The web app can also load local ISAAC JSON files or ZIP archives without portal credentials.
+
+---
+
+## XAS ML page
+
+The ML page loads records from:
 
 - local ISAAC JSON files;
 - ZIP archives of ISAAC records;
@@ -171,26 +267,6 @@ The auto-advisor compares feature sets, normalization, dimension reduction choic
 
 ---
 
-## Simulation-folder ISAAC conversion
-
-Completed simulation folders can be converted into ISAAC records with:
-
-```bash
-bash XAS/convert_completed_simulation_xas_to_isaac.sh \
-  --input-dir . \
-  --output isaac_record_draft.json
-```
-
-The converter reads absorber and edge from calculation inputs when possible:
-
-- FEFF: `feff.inp`, `POTENTIALS`, `PARAMETERS`, `ATOMS`;
-- FDMNES: `*_in.txt`, `fdmfile.txt`;
-- VASP: `INCAR`, `POTCAR.spec`, and folder/file labels.
-
-Metadata and environment variables are used only as fallback.
-
----
-
 ## Repository layout
 
 ```text
@@ -200,7 +276,8 @@ CO2RR_XAS_agent/
 ├── workflow/                 # NERSC submit/monitor/finalize helpers
 ├── generators/               # slab/input generator utilities
 ├── web_app/                  # Streamlit web app
-│   ├── main.py
+│   ├── CO2RR_XAS_Agent.py    # recommended Streamlit entry point
+│   ├── main.py               # main app implementation
 │   └── pages/
 │       └── 2_Machine_learning_for_XAS.py
 ├── XAS/                      # reusable XAS shell helpers
@@ -211,10 +288,39 @@ CO2RR_XAS_agent/
 
 ---
 
+## Development checks before merging
+
+Run these before merging the workflow branch into `main`:
+
+```bash
+python -m py_compile \
+  web_app/main.py \
+  web_app/CO2RR_XAS_Agent.py \
+  tools/nersc_workflow_package.py \
+  tools/web_nersc_workflow_integration.py \
+  tools/remote_xas_from_contcar.py
+
+python -m pytest tests/test_web_nersc_workflow_integration.py -q
+```
+
+Recommended merge sequence:
+
+```bash
+git checkout nersc-workflow-orchestrator
+git pull origin nersc-workflow-orchestrator
+
+git checkout main
+git pull origin main
+git merge --no-ff nersc-workflow-orchestrator
+git push origin main
+```
+
+---
+
 ## Notes
 
-- Use `web_app/main.py` for most interactive work.
-- Keep private API keys out of the repository.
-- Use `tools/convert_simulation_xas_run_to_isaac.py` for repeated simulation-folder conversion.
-- Keep experimental/literature one-off conversions outside the repository unless they are intended to become reusable workflows.
+- Use `web_app/CO2RR_XAS_Agent.py` for interactive work.
+- Keep API keys and private NERSC keys out of the repository.
+- Keep generated outputs under `generated_outputs/`; do not commit them.
+- The full NERSC workflow should regenerate XAS inputs from relaxed `01_structure/CONTCAR`, not the original POSCAR.
 - For XAS ML, use metadata for filtering and descriptors/chemically meaningful labels for targets.
