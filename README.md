@@ -25,10 +25,6 @@ streamlit run web_app/CO2RR_XAS_Agent.py
 Generated local packages are written under `generated_outputs/`. This directory is intended to stay local and should not be committed.
 
 ---
-```
-
-
----
 
 ## Main capabilities
 
