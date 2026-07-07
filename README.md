@@ -8,7 +8,6 @@ The main interactive entry point is:
 streamlit run web_app/CO2RR_XAS_Agent.py
 ```
 
-`web_app/CO2RR_XAS_Agent.py` is a wrapper around `web_app/main.py` so the Streamlit sidebar/page label appears as **CO2RR XAS Agent** instead of `main`.
 
 ---
 
