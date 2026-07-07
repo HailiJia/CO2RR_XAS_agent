@@ -7,16 +7,33 @@ upload a package, start `workflow_submit.sh`, and later inspect live status from
 app to stay open.
 """
 
-from __future__ import annotations
-
 import argparse
 import json
 import os
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Dict
+
+PYTHON_BOOTSTRAP = r'''
+module load python/3.11 2>/dev/null || module load python 2>/dev/null || true
+PYTHON_CMD="$(printenv CO2RR_NERSC_PYTHON || true)"
+if [ -z "$PYTHON_CMD" ]; then
+  for py in python3.11 python3.10 python3.9 python3 python; do
+    if command -v "$py" >/dev/null 2>&1; then
+      if "$py" -c 'import sys; raise SystemExit(0 if sys.version_info >= (3, 8) else 1)' >/dev/null 2>&1; then
+        PYTHON_CMD="$py"
+        break
+      fi
+    fi
+  done
+fi
+if [ -z "$PYTHON_CMD" ]; then
+  echo "ERROR: Python >= 3.8 is required. Load python/3.11 or set CO2RR_NERSC_PYTHON." >&2
+  exit 90
+fi
+echo "Using Python: $PYTHON_CMD ($($PYTHON_CMD --version 2>&1))"
+'''.strip()
 
 STATE_PY = r'''#!/usr/bin/env python3
-from __future__ import annotations
 import argparse, json, os, subprocess
 from datetime import datetime, timezone
 from pathlib import Path
@@ -56,7 +73,7 @@ def slurm_state(job_id):
     ]
     for cmd in cmds:
         try:
-            out = subprocess.check_output(cmd, text=True, stderr=subprocess.DEVNULL).strip()
+            out = subprocess.check_output(cmd, universal_newlines=True, stderr=subprocess.DEVNULL).strip()
         except Exception:
             out = ''
         if out:
@@ -101,7 +118,7 @@ def should_submit(data, name, resubmit_failed=False):
 
 def main():
     p = argparse.ArgumentParser()
-    sub = p.add_subparsers(dest='cmd', required=True)
+    sub = p.add_subparsers(dest='cmd')
     sub.add_parser('init')
     j = sub.add_parser('set-job')
     j.add_argument('--name', required=True)
@@ -109,12 +126,15 @@ def main():
     j.add_argument('--script', required=True)
     j.add_argument('--stage', default='')
     j.add_argument('--dependency', default='')
-    r = sub.add_parser('refresh')
+    sub.add_parser('refresh')
     ss = sub.add_parser('should-submit')
     ss.add_argument('--name', required=True)
     ss.add_argument('--resubmit-failed', action='store_true')
-    c = sub.add_parser('cancel')
+    sub.add_parser('cancel')
     args = p.parse_args()
+    if not args.cmd:
+        p.print_help()
+        raise SystemExit(2)
 
     data = load()
     if args.cmd == 'init':
@@ -134,7 +154,7 @@ def main():
         }
         if args.stage:
             data['stage'] = args.stage
-        event(data, f"registered {args.name} job {args.job_id}")
+        event(data, 'registered {0} job {1}'.format(args.name, args.job_id))
         save(data)
     elif args.cmd == 'refresh':
         data = refresh(data)
@@ -152,7 +172,7 @@ def main():
             if jid and state not in {'COMPLETED', 'FAILED', 'CANCELLED', 'CANCELED'}:
                 subprocess.call(['scancel', str(jid)])
                 job['state'] = 'CANCEL_REQUESTED'
-                event(data, f"cancel requested for {name} job {jid}")
+                event(data, 'cancel requested for {0} job {1}'.format(name, jid))
         data['stage'] = 'cancel_requested'
         save(data)
         print(json.dumps(data, indent=2))
@@ -164,29 +184,30 @@ if __name__ == '__main__':
 WORKFLOW_SUBMIT = '''#!/bin/bash
 set -euo pipefail
 cd "$(dirname "$0")"
-python3 workflow_state.py init
+{python_bootstrap}
+"$PYTHON_CMD" workflow_state.py init
 
 if [ ! -f 01_structure/submit_relax.sh ]; then
   echo "ERROR: missing 01_structure/submit_relax.sh" >&2
   exit 2
 fi
 
-if python3 workflow_state.py should-submit --name relax; then
+if "$PYTHON_CMD" workflow_state.py should-submit --name relax; then
   RELAX_JOB_ID=$(sbatch --parsable 01_structure/submit_relax.sh)
-  python3 workflow_state.py set-job --name relax --job-id "${RELAX_JOB_ID}" --script 01_structure/submit_relax.sh --stage relax_submitted
+  "$PYTHON_CMD" workflow_state.py set-job --name relax --job-id "${RELAX_JOB_ID}" --script 01_structure/submit_relax.sh --stage relax_submitted
 else
-  RELAX_JOB_ID=$(python3 -c "import json; print(json.load(open('workflow_state.json'))['jobs']['relax']['job_id'])")
+  RELAX_JOB_ID=$("$PYTHON_CMD" -c "import json; print(json.load(open('workflow_state.json'))['jobs']['relax']['job_id'])")
   echo "Relaxation already submitted or completed: ${RELAX_JOB_ID}"
 fi
 
-if python3 workflow_state.py should-submit --name workflow_xas; then
+if "$PYTHON_CMD" workflow_state.py should-submit --name workflow_xas; then
   XAS_DRIVER_JOB_ID=$(sbatch --parsable --dependency=afterok:${RELAX_JOB_ID} workflow_xas.sh)
-  python3 workflow_state.py set-job --name workflow_xas --job-id "${XAS_DRIVER_JOB_ID}" --script workflow_xas.sh --dependency afterok:${RELAX_JOB_ID} --stage relax_submitted
+  "$PYTHON_CMD" workflow_state.py set-job --name workflow_xas --job-id "${XAS_DRIVER_JOB_ID}" --script workflow_xas.sh --dependency afterok:${RELAX_JOB_ID} --stage relax_submitted
 else
   echo "workflow_xas job already submitted or completed."
 fi
 
-python3 workflow_state.py refresh
+"$PYTHON_CMD" workflow_state.py refresh
 '''
 
 WORKFLOW_XAS = '''#!/bin/bash
@@ -195,12 +216,13 @@ WORKFLOW_XAS = '''#!/bin/bash
 #SBATCH -A {account}
 #SBATCH -C cpu
 #SBATCH -N 1
-#SBATCH -t 00:30:00
+#SBATCH -t 00:10:00
 #SBATCH -o workflow_xas-%j.out
 #SBATCH -e workflow_xas-%j.err
 set -euo pipefail
 cd "$(dirname "$0")"
-python3 workflow_state.py refresh || true
+{python_bootstrap}
+"$PYTHON_CMD" workflow_state.py refresh || true
 
 if [ ! -f 01_structure/CONTCAR ]; then
   echo "ERROR: relaxation dependency succeeded but 01_structure/CONTCAR is missing" >&2
@@ -208,7 +230,7 @@ if [ ! -f 01_structure/CONTCAR ]; then
 fi
 
 if [ ! -f 02_XAS/.post_relax_generated ]; then
-  python3 {repo_root}/tools/remote_xas_from_contcar.py \
+  "$PYTHON_CMD" {repo_root}/tools/remote_xas_from_contcar.py \
     --package-root . \
     --contcar 01_structure/CONTCAR \
     --absorber "{absorber}" \
@@ -226,59 +248,66 @@ if [ ! -f 02_XAS/.post_relax_generated ]; then
 fi
 
 for name in VASP FDMNES FEFF; do
-  script="02_XAS/${name}/submit.sh"
-  key="xas_${name}"
-  if [ -f "${script}" ]; then
-    if python3 workflow_state.py should-submit --name "${key}" --resubmit-failed; then
-      jid=$(sbatch --parsable "${script}")
-      python3 workflow_state.py set-job --name "${key}" --job-id "${jid}" --script "${script}" --stage xas_submitted
+  script="02_XAS/${{name}}/submit.sh"
+  key="xas_${{name}}"
+  if [ -f "${{script}}" ]; then
+    if "$PYTHON_CMD" workflow_state.py should-submit --name "${{key}}" --resubmit-failed; then
+      jid=$(sbatch --parsable "${{script}}")
+      "$PYTHON_CMD" workflow_state.py set-job --name "${{key}}" --job-id "${{jid}}" --script "${{script}}" --stage xas_submitted
     else
-      echo "${key} already submitted/completed; skipping"
+      echo "${{key}} already submitted/completed; skipping"
     fi
   fi
 done
-python3 workflow_state.py refresh
+"$PYTHON_CMD" workflow_state.py refresh
 '''
 
 WORKFLOW_RESTART = '''#!/bin/bash
 set -euo pipefail
 cd "$(dirname "$0")"
-python3 workflow_state.py init
-python3 workflow_state.py refresh || true
+{python_bootstrap}
+"$PYTHON_CMD" workflow_state.py init
+"$PYTHON_CMD" workflow_state.py refresh || true
 
-relax_state=$(python3 -c "import json; d=json.load(open('workflow_state.json')); print(d.get('jobs',{}).get('relax',{}).get('state',''))")
+relax_state=$("$PYTHON_CMD" -c "import json; d=json.load(open('workflow_state.json')); print(d.get('jobs',{}).get('relax',{}).get('state',''))")
 if [ -z "${relax_state}" ] || [[ "${relax_state}" =~ ^(FAILED|CANCELLED|CANCELED|TIMEOUT|OUT_OF_MEMORY|UNKNOWN)$ ]]; then
   echo "Restarting/submitting relaxation"
   jid=$(sbatch --parsable 01_structure/submit_relax.sh)
-  python3 workflow_state.py set-job --name relax --job-id "${jid}" --script 01_structure/submit_relax.sh --stage relax_submitted
+  "$PYTHON_CMD" workflow_state.py set-job --name relax --job-id "${jid}" --script 01_structure/submit_relax.sh --stage relax_submitted
   xjid=$(sbatch --parsable --dependency=afterok:${jid} workflow_xas.sh)
-  python3 workflow_state.py set-job --name workflow_xas --job-id "${xjid}" --script workflow_xas.sh --dependency afterok:${jid} --stage relax_submitted
+  "$PYTHON_CMD" workflow_state.py set-job --name workflow_xas --job-id "${xjid}" --script workflow_xas.sh --dependency afterok:${jid} --stage relax_submitted
 elif [ "${relax_state}" = "COMPLETED" ]; then
   echo "Relaxation completed; continuing or restarting XAS stage"
   jid=$(sbatch --parsable workflow_xas.sh)
-  python3 workflow_state.py set-job --name workflow_xas --job-id "${jid}" --script workflow_xas.sh --stage relax_completed
+  "$PYTHON_CMD" workflow_state.py set-job --name workflow_xas --job-id "${jid}" --script workflow_xas.sh --stage relax_completed
 else
   echo "Relaxation is ${relax_state}; ensure workflow_xas dependency exists"
-  relax_jid=$(python3 -c "import json; print(json.load(open('workflow_state.json')).get('jobs',{}).get('relax',{}).get('job_id',''))")
-  if [ -n "${relax_jid}" ] && python3 workflow_state.py should-submit --name workflow_xas; then
+  relax_jid=$("$PYTHON_CMD" -c "import json; print(json.load(open('workflow_state.json')).get('jobs',{}).get('relax',{}).get('job_id',''))")
+  if [ -n "${relax_jid}" ] && "$PYTHON_CMD" workflow_state.py should-submit --name workflow_xas; then
     xjid=$(sbatch --parsable --dependency=afterok:${relax_jid} workflow_xas.sh)
-    python3 workflow_state.py set-job --name workflow_xas --job-id "${xjid}" --script workflow_xas.sh --dependency afterok:${relax_jid} --stage relax_submitted
+    "$PYTHON_CMD" workflow_state.py set-job --name workflow_xas --job-id "${xjid}" --script workflow_xas.sh --dependency afterok:${relax_jid} --stage relax_submitted
   fi
 fi
-python3 workflow_state.py refresh
+"$PYTHON_CMD" workflow_state.py refresh
 '''
 
 WORKFLOW_STATUS = '''#!/bin/bash
 set -euo pipefail
 cd "$(dirname "$0")"
-python3 workflow_state.py refresh
+{python_bootstrap}
+"$PYTHON_CMD" workflow_state.py refresh
 '''
 
 WORKFLOW_CANCEL = '''#!/bin/bash
 set -euo pipefail
 cd "$(dirname "$0")"
-python3 workflow_state.py cancel
+{python_bootstrap}
+"$PYTHON_CMD" workflow_state.py cancel
 '''
+
+
+def render_script(template: str) -> str:
+    return template.replace("{python_bootstrap}", PYTHON_BOOTSTRAP)
 
 
 def write_executable(path: Path, content: str) -> None:
@@ -297,26 +326,26 @@ def ensure_manifest(package_root: Path, args: argparse.Namespace) -> None:
             "cancel": "workflow_cancel.sh",
             "state_helper": "workflow_state.py",
         },
+        "python_selection": "CO2RR_NERSC_PYTHON or python/3.11 module or python >= 3.8",
         "xas_input_source": "post_relaxation_CONTCAR",
         "relax_submit": "01_structure/submit_relax.sh",
         "relaxed_structure": "01_structure/CONTCAR",
         "settings": vars(args),
     }
     (package_root / "workflow_manifest.json").write_text(json.dumps(manifest, indent=2))
-    if not (package_root / "workflow_state.json").exists():
-        (package_root / "workflow_state.json").write_text(json.dumps({
-            "stage": "prepared",
-            "jobs": {},
-            "events": [],
-            "manifest": "workflow_manifest.json",
-        }, indent=2))
+    (package_root / "workflow_state.json").write_text(json.dumps({
+        "stage": "prepared",
+        "jobs": {},
+        "events": [],
+        "manifest": "workflow_manifest.json",
+    }, indent=2))
 
 
 def create_workflow(package_root: Path, args: argparse.Namespace) -> Dict[str, str]:
     package_root.mkdir(parents=True, exist_ok=True)
     write_executable(package_root / "workflow_state.py", STATE_PY)
-    write_executable(package_root / "workflow_submit.sh", WORKFLOW_SUBMIT)
-    write_executable(package_root / "workflow_xas.sh", WORKFLOW_XAS.format(
+    write_executable(package_root / "workflow_submit.sh", render_script(WORKFLOW_SUBMIT))
+    write_executable(package_root / "workflow_xas.sh", render_script(WORKFLOW_XAS).format(
         repo_root=args.repo_root,
         account=args.account,
         queue=args.queue,
@@ -331,9 +360,9 @@ def create_workflow(package_root: Path, args: argparse.Namespace) -> Dict[str, s
         fdmnes_scf_flag="--fdmnes-scf \\\n    " if args.fdmnes_scf else "",
         potcar_dir=args.potcar_dir,
     ))
-    write_executable(package_root / "workflow_restart.sh", WORKFLOW_RESTART)
-    write_executable(package_root / "workflow_status.sh", WORKFLOW_STATUS)
-    write_executable(package_root / "workflow_cancel.sh", WORKFLOW_CANCEL)
+    write_executable(package_root / "workflow_restart.sh", render_script(WORKFLOW_RESTART))
+    write_executable(package_root / "workflow_status.sh", render_script(WORKFLOW_STATUS))
+    write_executable(package_root / "workflow_cancel.sh", render_script(WORKFLOW_CANCEL))
     ensure_manifest(package_root, args)
     return {"status": "success", "package_root": str(package_root), "submit": str(package_root / "workflow_submit.sh")}
 
