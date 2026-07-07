@@ -2,11 +2,29 @@
 
 CO2RR XAS Agent is a Streamlit web app and workflow toolkit for building CO2 reduction catalyst structures, generating relaxation and XAS inputs, running restartable NERSC Slurm workflows, and converting completed simulations into ISAAC AI-ready records.
 
-The main interactive entry point is:
+## Quick start
+
+From the repository root:
 
 ```bash
-cd CO2RR_XAS_Agent
+python -m venv .venv
+source .venv/bin/activate
+pip install --upgrade pip
+pip install -r requirements.txt
+pip install streamlit pandas scikit-learn
 streamlit run web_app/CO2RR_XAS_Agent.py
+```
+
+If you already use a conda environment:
+
+```bash
+conda activate co2rr_agent
+streamlit run web_app/CO2RR_XAS_Agent.py
+```
+
+Generated local packages are written under `generated_outputs/`. This directory is intended to stay local and should not be committed.
+
+---
 ```
 
 
@@ -34,29 +52,6 @@ The web app supports:
 
 ---
 
-## Quick start
-
-From the repository root:
-
-```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install --upgrade pip
-pip install -r requirements.txt
-pip install streamlit pandas scikit-learn
-streamlit run web_app/CO2RR_XAS_Agent.py
-```
-
-If you already use a conda environment:
-
-```bash
-conda activate co2rr_agent
-streamlit run web_app/CO2RR_XAS_Agent.py
-```
-
-Generated local packages are written under `generated_outputs/`. This directory is intended to stay local and should not be committed.
-
----
 
 ## NERSC Superfacility API setup
 
