@@ -16,9 +16,9 @@ streamlit run web_app/CO2RR_XAS_Agent.py
 The web app supports:
 
 - building Cu/Au/Ni/Pt/Ir surfaces and interfaces;
-- adding adsorbates such as CO, CHO, OCCO, COCO, CO2, OH, and H;
+- adding CO2RR reaction pathway adsorbates such as CO, CHO, OCCO, COCO, CO2, OH, and H;
 - generating VASP relaxation input folders;
-- generating FEFF, FDMNES, and VASP XAS input folders;
+- generating XAS calculation folders (supported software: FEFF, FDMNES, and VASP);
 - preparing a restartable full NERSC workflow package;
 - uploading workflow packages to NERSC through the NERSC Superfacility API;
 - submitting Slurm jobs through a dependency-driven relax -> XAS workflow;
