@@ -2,6 +2,46 @@
 
 This branch introduces a Slurm-side workflow layer for the Structure/XAS web app. The goal is to make the relax -> post-relax XAS workflow independent of the Streamlit process.
 
+## Correct web-app order
+
+The intended user-facing workflow is:
+
+```text
+Web app:
+1. Generate structure.
+2. Prepare the full NERSC workflow package.
+   - This internally generates 01_structure/submit_relax.sh.
+   - The user should not manually run a separate relaxation-input step.
+3. Generate workflow_submit.sh / workflow_xas.sh / workflow_status.sh / workflow_restart.sh / workflow_cancel.sh.
+4. Upload the whole package to NERSC.
+5. Remotely run: bash workflow_submit.sh.
+6. Later read workflow_state.json or run workflow_status.sh.
+```
+
+The web-app integration helper is implemented in:
+
+```text
+tools/web_nersc_workflow_integration.py
+```
+
+To wire the existing Streamlit app to this helper, run once from the repository root:
+
+```bash
+python scripts/apply_webapp_nersc_workflow_orchestrator_patch.py
+python -m py_compile web_app/main.py tools/web_nersc_workflow_integration.py
+```
+
+After patching, the chat box should support deterministic commands such as:
+
+```text
+prepare full workflow
+upload full workflow to NERSC under test03
+prepare, upload, and start full workflow under test03
+refresh full workflow status
+restart full workflow
+cancel full workflow
+```
+
 ## Design
 
 The web app should prepare and upload a package. NERSC then owns execution through scripts in the uploaded run directory:
@@ -66,7 +106,7 @@ Reads all known job IDs from `workflow_state.json` and calls `scancel` for unfin
 
 ## Local package generation
 
-After the app generates `01_structure/submit_relax.sh`, add the workflow layer with:
+The old manual backend-only way is still available. After the app generates `01_structure/submit_relax.sh`, add the workflow layer with:
 
 ```bash
 python tools/nersc_workflow_package.py \
@@ -79,6 +119,8 @@ python tools/nersc_workflow_package.py \
   --nodes 1 \
   --walltime 02:00:00
 ```
+
+For the corrected web-app flow, use `tools/web_nersc_workflow_integration.py` instead; it generates `01_structure/submit_relax.sh` and then calls the workflow package generator in one action.
 
 On NERSC, `--repo-root` should point to a clone of this repository. The generated `workflow_xas.sh` calls:
 
@@ -114,14 +156,14 @@ bash workflow_cancel.sh
 
 ## Web app integration target
 
-The next integration step is to add web-app buttons and chat commands that call these scripts through the NERSC SF API:
+The intended deterministic web-app actions are:
 
-- `Generate workflow package`
-- `Upload workflow package`
-- `Start workflow`
-- `Refresh workflow status`
-- `Restart workflow`
-- `Cancel workflow`
-- `Download workflow outputs`
+- `Prepare full workflow`: generate structure if needed, generate `01_structure/submit_relax.sh`, then generate `workflow_*.sh`.
+- `Upload full workflow package`: upload the package root to NERSC.
+- `Start full workflow`: run `bash workflow_submit.sh` remotely through the SF API.
+- `Refresh workflow status`: run `bash workflow_status.sh` remotely or read `workflow_state.json`.
+- `Restart workflow`: run `bash workflow_restart.sh` remotely.
+- `Cancel workflow`: run `bash workflow_cancel.sh` remotely.
+- `Download workflow outputs`: download outputs and state files from the remote run folder.
 
 The chat box should route to these deterministic operations instead of acting as the workflow engine.
