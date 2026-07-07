@@ -151,9 +151,9 @@ The workflow is Slurm-driven and does not require the web app to stay open after
 Example chat commands in the web app:
 
 ```text
-prepare full workflow and upload to NERSC under test05
+prepare full workflow and upload to NERSC under test01
 start full workflow
-check workflow status in /pscratch/sd/h/hjia/CO2RR/web_xas_agent_runs/test05
+check workflow status in /path/to/your/workflow/folder/test01
 restart full workflow
 cancel full workflow
 ```
