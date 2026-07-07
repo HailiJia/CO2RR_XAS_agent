@@ -1,4 +1,4 @@
-# web_app/app.py
+# web_app/main.py
 
 import io
 import json
@@ -14,7 +14,7 @@ import numpy as np
 import streamlit as st
 import streamlit.components.v1 as components
 
-# Make repo root importable when running: streamlit run web_app/app.py
+# Make repo root importable when running: streamlit run web_app/main.py
 REPO_ROOT = Path(__file__).resolve().parents[1]
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
@@ -25,12 +25,17 @@ from tools.structure_generator import (
     INTERFACE_GENERATOR_UPDATE_TAG,
 )
 from tools.utils import read_structure_file
+from tools.contact_checks import minimum_pair as element_aware_minimum_pair
 from tools.xas_input_generator import (
     RelaxationInputGenerator,
     FEFFInputGenerator,
     FDMNESInputGenerator,
     VASPXASInputGenerator,
     NERSCScriptGenerator,
+)
+from tools.web_nersc_workflow_integration import (
+    prepare_single_structure_workflow_package,
+    run_remote_workflow_script,
 )
 
 WEB_APP_UPDATE_TAG = "v45_2026-07-06_nersc_full_workflow_ui"
@@ -1798,6 +1803,38 @@ def _chat_client_from_params(params):
     )
 
 
+
+def _workflow_state_file(params=None):
+    """Local JSON file used to persist full NERSC workflow state across Streamlit restarts."""
+    params = params or st.session_state.get("params", {})
+    root = Path(params.get("xas_output_dir", "generated_outputs/web_xas_agent"))
+    return root / ".nersc_full_workflow_state.json"
+
+
+def _save_full_workflow_state(state, params=None):
+    """Persist full workflow state to disk so the workflow can continue after app restart."""
+    if not isinstance(state, dict) or not state:
+        return
+    state_path = _workflow_state_file(params)
+    state_path.parent.mkdir(parents=True, exist_ok=True)
+    payload = dict(state)
+    payload["saved_utc"] = datetime.utcnow().isoformat(timespec="seconds") + "Z"
+    state_path.write_text(json.dumps(payload, indent=2))
+
+
+def _load_full_workflow_state(params=None):
+    """Load persisted full workflow state, if present."""
+    state_path = _workflow_state_file(params)
+    if not state_path.exists():
+        return None
+    try:
+        state = json.loads(state_path.read_text())
+        if isinstance(state, dict) and state.get("stage"):
+            return state
+    except Exception:
+        return None
+    return None
+
 def _selected_local_folder_from_params(params):
     """Mirror the NERSC upload folder selection used by the UI."""
     source = params.get("nersc_upload_source", "Full package root")
@@ -1914,6 +1951,89 @@ def _generate_relaxation_from_current_structure(params):
     st.session_state["last_xas_dir"] = params["xas_output_dir"]
     return relax_result
 
+
+
+def _resolve_current_workflow_absorber_edge(params):
+    structure = st.session_state.get("last_structure")
+    atoms = list(dict.fromkeys((structure or {}).get("atoms", [])))
+    absorber_options = [el for el in atoms if el not in {"H"}] or atoms
+    absorber = params.get("xas_absorber")
+    if absorber not in absorber_options:
+        absorber = "Cu" if "Cu" in absorber_options else (absorber_options[0] if absorber_options else "Cu")
+        params["xas_absorber"] = absorber
+    edge = normalize_edge_for_absorber(absorber, params.get("xas_edge", "K"))
+    return absorber, edge
+
+
+def _prepare_full_workflow_from_current_structure(params):
+    """Prepare package root with 01_structure + workflow_*.sh in one user action."""
+    if st.session_state.get("last_structure") is None:
+        _generate_structure_from_params(params, uploaded_file=None)
+    structure = st.session_state["last_structure"]
+    absorber, edge = _resolve_current_workflow_absorber_edge(params)
+    result = prepare_single_structure_workflow_package(
+        structure=structure,
+        package_root=params["xas_output_dir"],
+        repo_root=params.get("nersc_repo_root") or os.environ.get("CO2RR_AGENT_REPO", str(REPO_ROOT)),
+        absorber=absorber,
+        edge=edge,
+        relaxation_settings=relaxation_settings_from_params(params),
+        account=params.get("nersc_account", DEFAULT_NERSC_ACCOUNT),
+        queue=params.get("nersc_queue", "regular"),
+        nodes=int(params.get("nersc_nodes", 1)),
+        walltime=params.get("nersc_walltime", "02:00:00"),
+        email=params.get("nersc_email", ""),
+        vasp_method=params.get("vasp_method", "PBE"),
+        cluster_radius=float(params.get("cluster_radius", 6.0)),
+        fdmnes_method=params.get("fdmnes_method", "Green"),
+        fdmnes_scf=bool(params.get("fdmnes_scf", False)),
+        potcar_dir=params.get("potcar_dir", DEFAULT_NERSC_POTCAR_DIR),
+    )
+    st.session_state["last_full_workflow_result"] = result
+    st.session_state["last_relax_result"] = result.get("relaxation")
+    st.session_state["last_generated_package_kind"] = "single_full_workflow"
+    params["nersc_upload_source"] = "Full package root"
+    params["nersc_remote_submit_script"] = "workflow_submit.sh"
+    params["nersc_download_glob"] = "workflow_state.json workflow_manifest.json *.out OUTCAR OSZICAR CONTCAR vasprun.xml xmu.dat *_conv.txt CORE_DIELECTRIC_IMAG.dat isaac_run_metadata.json isaac_record_draft.json"
+    return result, absorber, edge
+
+
+def _upload_full_workflow_package(params, text, plan=None):
+    remote_dir = _remote_dir_from_natural_language((plan or {}).get("remote_run_name") or text, params)
+    params["nersc_remote_dir"] = remote_dir
+    run_name = PurePosixPath(str(remote_dir).rstrip("/")).name or "latest"
+    local_base = Path(params.get("output_dir", "generated_outputs/web_xas_agent")).parent / "web_xas_agent_runs"
+    params["xas_output_dir"] = str(local_base / run_name)
+    result, absorber, edge = _prepare_full_workflow_from_current_structure(params)
+    client = _chat_client_from_params(params)
+    upload_result = client.upload_directory(
+        local_dir=result["package_root"],
+        remote_dir=remote_dir,
+        overwrite=bool(params.get("nersc_overwrite_remote", False)),
+        timeout_s=240,
+    )
+    st.session_state["nersc_last_upload"] = upload_result
+    params["nersc_download_remote_dir"] = remote_dir
+
+    params["nersc_preview_dir"] = remote_dir
+    ok, label = classify_upload_result(upload_result)
+    return result, upload_result, label, remote_dir, absorber, edge
+
+
+def _run_remote_full_workflow_action(params, text, script_name, state_key, timeout_s=180, plan=None):
+    client = _chat_client_from_params(params)
+    remote_dir = _remote_dir_explicitly_mentioned(text, params)
+    if not remote_dir:
+        remote_dir = (st.session_state.get("nersc_last_upload") or {}).get("remote_dir") or params.get("nersc_remote_dir", DEFAULT_NERSC_REMOTE_RUN_DIR)
+    remote_dir = str(remote_dir).rstrip("/")
+    result = run_remote_workflow_script(client, remote_dir, script_name, timeout_s=timeout_s)
+    st.session_state[state_key] = result
+    params["nersc_download_remote_dir"] = remote_dir
+    params["nersc_preview_dir"] = remote_dir
+    output = ""
+    if isinstance(result.get("result"), dict):
+        output = str(result["result"].get("output") or result["result"].get("raw_result") or "")
+    return remote_dir, result, output
 
 def _generate_xas_from_current_structure(params):
     if st.session_state.get("last_structure") is None:
@@ -2259,7 +2379,7 @@ def _planner_system_prompt():
         "generate_structure, generate_structure_and_relaxation, generate_relaxation, generate_xas, generate_batch_pathway, "
         "upload_nersc, generate_relaxation_and_upload, submit, check_task, check_slurm, "
         "list_jobs, list_remote_folder, delete_remote_folder, preview_file, download_outputs, convert_isaac, "
-        "show_paths, help, cancel_job, answer_question, update_settings, unknown. "
+        "show_paths, help, cancel_job, start_full_workflow, refresh_full_workflow, answer_question, update_settings, unknown. "
         "For 'full CO2RR reaction pathway', use generate_batch_pathway and pathway_adsorbates "
         "['clean','CO2','CO','CHO','OCCO','COCO','OH','H']. "
         "For questions asking paths, use show_paths. For questions asking current settings such as time limit, walltime, queue, account, or what something is, use answer_question. For requests like change time limit to 8 hrs or change queue to debug, use update_settings. "
@@ -2269,7 +2389,7 @@ def _planner_system_prompt():
         "For 'what files are in that folder' or 'show clean surface folder files', use list_remote_folder. Do not invent a remote_run_name called files. "
         "For 'remove/delete remote folder /pscratch/...' use delete_remote_folder. For 'cancel/scancel Slurm job 12345', use cancel_job. "
         "For 'change to 8 hrs', use update_settings with settings {'nersc_walltime':'08:00:00'}. "
-        "For 'generate relaxation inputs and upload to NERSC under X', use generate_relaxation_and_upload and remote_run_name X. "
+        "For 'generate relaxation inputs and upload to NERSC under X', use generate_relaxation_and_upload and remote_run_name X. For 'start full relax XAS workflow under X', use start_full_workflow and remote_run_name X. For 'refresh/check full workflow', use refresh_full_workflow. "
         "Allowed JSON fields: intent, settings, pathway_adsorbates, remote_run_name, remote_dir, preview_file, explanation. "
         "Do not include prose outside JSON."
     )
@@ -2460,7 +2580,7 @@ def _answer_chat_question(text, params):
     return (
         "I can answer current workflow settings and execute workflow commands. "
         "For example: `what is the relaxation time limit?`, `change time limit to 8 hrs`, "
-        "`change queue to debug`, `upload to NERSC under test03`, or `submit clean surface relaxation job`."
+        "`change queue to debug`, `prepare full workflow and upload to NERSC under test05`, or `refresh full workflow status`."
     )
 
 
@@ -2527,6 +2647,7 @@ def _remote_submit_from_natural_language(text, params):
 def _fw_clean_run_name(name):
     raw_name = str(name or "").strip().strip(".,;:)>]")
     raw_name = re.sub(r"\s+", "_", raw_name)
+    raw_name = re.sub(r"^(?:folder|dir|directory|run)_+", "", raw_name, flags=re.I)
     raw_name = re.sub(r"^(test)_+(\d+)$", r"\1\2", raw_name, flags=re.I)
     raw_name = re.sub(r"[^A-Za-z0-9_.-]+", "_", raw_name).strip("_")
     return raw_name
@@ -2614,6 +2735,237 @@ def _fw_submit_with_optional_settings(params, text):
     job_id_display = params.get("nersc_job_id") or "not available yet; run check task in a few seconds"
     return f"Submit request completed for `{remote_submit}`. SF API task ID: `{params.get('nersc_task_id', '')}`. Slurm job ID: `{job_id_display}`.{upload_note}"
 
+
+# =============================================================================
+# Full NERSC relaxation -> post-relaxation XAS workflow
+# =============================================================================
+
+def _full_workflow_slurm_text(result):
+    if not isinstance(result, dict):
+        return str(result)
+    return str(result.get("output") or result.get("raw_result") or json.dumps(result, indent=2))
+
+
+def _full_workflow_is_completed(result):
+    text = _full_workflow_slurm_text(result).upper()
+    return "COMPLETED" in text and not any(word in text for word in ["FAILED", "CANCELLED", "CANCELED", "TIMEOUT", "OUT_OF_MEMORY"])
+
+
+def _full_workflow_has_failed(result):
+    text = _full_workflow_slurm_text(result).upper()
+    return any(word in text for word in ["FAILED", "CANCELLED", "CANCELED", "TIMEOUT", "OUT_OF_MEMORY"])
+
+
+def _full_workflow_rows(state):
+    rows = []
+    if state.get("relax_job_id"):
+        rows.append({
+            "stage": "relax",
+            "job_id": state.get("relax_job_id"),
+            "state": state.get("relax_state", state.get("stage")),
+            "remote_submit": state.get("relax_remote_submit"),
+        })
+    for item in state.get("xas_jobs", []) or []:
+        rows.append({
+            "stage": "xas",
+            "software": item.get("software"),
+            "job_id": item.get("job_id"),
+            "state": item.get("state", "SUBMITTED"),
+            "remote_submit": item.get("remote_submit"),
+        })
+    return rows
+
+
+def _display_full_workflow_state(state):
+    if not state:
+        st.info("No full relax -> XAS workflow is active in this session.")
+        return
+    c1, c2, c3 = st.columns(3)
+    c1.metric("Workflow stage", state.get("stage", "not_started"))
+    c2.metric("Relax job", state.get("relax_job_id") or "-")
+    c3.metric("XAS jobs", len(state.get("xas_jobs", []) or []))
+    st.write("Remote run directory:", "`" + str(state.get("remote_dir", "")) + "`")
+    st.write("Local package root:", "`" + str(state.get("local_root", "")) + "`")
+    rows = _full_workflow_rows(state)
+    if rows:
+        st.table(rows)
+    with st.expander("Full workflow state JSON", expanded=False):
+        st.json(state)
+
+
+def _start_full_relax_xas_workflow(params, text="", uploaded_file=None):
+    """Generate relaxation inputs, upload package, and submit relaxation first."""
+    if not NERSC_JOB_CONTROL_AVAILABLE:
+        raise RuntimeError(f"NERSC job-control module is not available: {NERSC_JOB_CONTROL_IMPORT_ERROR}")
+    if st.session_state.get("last_structure") is None:
+        _generate_structure_from_params(params, uploaded_file=uploaded_file)
+    relax_result = _generate_relaxation_from_current_structure(params)
+    params["nersc_upload_source"] = "Full package root"
+    local_root = str(Path(params.get("xas_output_dir", "generated_outputs/web_xas_agent")).resolve())
+    remote_dir = _remote_dir_from_natural_language(text or params.get("nersc_remote_dir", DEFAULT_NERSC_REMOTE_RUN_DIR), params)
+    params["nersc_remote_dir"] = remote_dir
+    client = _chat_client_from_params(params)
+    upload_result = client.upload_directory(local_dir=local_root, remote_dir=remote_dir, overwrite=True, timeout_s=240)
+    st.session_state["nersc_last_upload"] = upload_result
+    remote_submit = str(PurePosixPath(remote_dir) / "01_structure" / "submit_relax.sh")
+    submit_result = client.submit_and_wait_for_jobid(remote_submit, timeout_s=180)
+    job_id = str(submit_result.get("job_id") or "")
+    params["nersc_task_id"] = str(submit_result.get("task_id") or "")
+    if job_id:
+        params["nersc_job_id"] = job_id
+    params["nersc_last_submit_dir"] = str(PurePosixPath(remote_submit).parent)
+    params["nersc_download_remote_dir"] = params["nersc_last_submit_dir"]
+    state = {
+        "stage": "relax_submitted",
+        "local_root": local_root,
+        "remote_dir": remote_dir,
+        "relax_folder": relax_result.get("relax_folder"),
+        "relax_remote_submit": remote_submit,
+        "relax_submit_result": submit_result,
+        "relax_job_id": job_id,
+        "relax_state": "SUBMITTED",
+        "upload_result": upload_result,
+        "xas_jobs": [],
+        "notes": [
+            "Refresh monitors relaxation. When relaxation is complete, the app downloads 01_structure/CONTCAR, regenerates 02_XAS from the relaxed structure, uploads 02_XAS, and submits XAS jobs."
+        ],
+    }
+    st.session_state["nersc_full_workflow"] = state
+    _save_full_workflow_state(state, params)
+    st.session_state["nersc_last_submit"] = submit_result
+    return state
+
+
+def _regenerate_and_submit_xas_after_relax(params, state, client):
+    """Download relaxed CONTCAR, regenerate XAS inputs, upload, and submit XAS jobs."""
+    local_root = Path(state["local_root"]).resolve()
+    remote_dir = str(state["remote_dir"]).rstrip("/")
+    archive_bytes, archive_meta = client.download_remote_archive(
+        remote_dir=str(PurePosixPath(remote_dir) / "01_structure"),
+        include_glob="CONTCAR OUTCAR OSZICAR vasprun.xml isaac_run_metadata.json isaac_record_draft.json",
+        timeout_s=240,
+    )
+    download_dir = local_root / "_remote_relax_download"
+    extract_archive_bytes(archive_bytes, str(download_dir), clean=True)
+    contcars = sorted(download_dir.rglob("CONTCAR"))
+    if not contcars:
+        raise RuntimeError("Relaxation completed, but no CONTCAR was found in the downloaded 01_structure archive.")
+    contcar = contcars[0]
+    relaxed_structure = read_structure_file(str(contcar))
+    relaxed_structure["metadata"] = dict(relaxed_structure.get("metadata", {}))
+    relaxed_structure["metadata"].update({
+        "source_file": str(contcar),
+        "source_stage": "post_relaxation_CONTCAR",
+        "workflow": "full_relax_then_xas",
+    })
+    st.session_state["last_structure"] = relaxed_structure
+    st.session_state["last_paths"] = {"poscar": str(contcar)}
+    st.session_state["last_substrate_n"] = len(relaxed_structure.get("atoms", []))
+
+    # Archive any pre-relax XAS folder before regenerating from relaxed structure.
+    xas_dir = Path(params.get("xas_output_dir", "generated_outputs/web_xas_agent")) / "02_XAS"
+    if xas_dir.exists():
+        archive_dir = xas_dir.with_name("02_XAS_pre_relax_" + datetime.now().strftime("%Y%m%d_%H%M%S"))
+        shutil.move(str(xas_dir), str(archive_dir))
+
+    xas_result, xas_dir, edge = _generate_xas_from_current_structure(params)
+    xas_remote_dir = str(PurePosixPath(remote_dir) / "02_XAS")
+    upload_result = client.upload_directory(local_dir=str(xas_dir), remote_dir=xas_remote_dir, overwrite=True, timeout_s=240)
+
+    jobs = []
+    for software, rel_submit in [("VASP", "VASP/submit.sh"), ("FDMNES", "FDMNES/submit.sh"), ("FEFF", "FEFF/submit.sh")]:
+        local_submit = Path(xas_dir) / rel_submit
+        if not local_submit.exists():
+            continue
+        remote_submit = str(PurePosixPath(remote_dir) / "02_XAS" / rel_submit)
+        submit_result = client.submit_and_wait_for_jobid(remote_submit, timeout_s=180)
+        jobs.append({
+            "software": software,
+            "remote_submit": remote_submit,
+            "task_id": submit_result.get("task_id"),
+            "job_id": submit_result.get("job_id"),
+            "state": "SUBMITTED",
+            "submit_result": submit_result,
+        })
+
+    state.update({
+        "stage": "xas_submitted",
+        "relaxed_contcar_local": str(contcar),
+        "relax_download_meta": archive_meta,
+        "xas_local_dir": str(xas_dir),
+        "xas_remote_dir": xas_remote_dir,
+        "xas_edge": edge,
+        "xas_result": xas_result,
+        "xas_upload_result": upload_result,
+        "xas_jobs": jobs,
+    })
+    st.session_state["nersc_full_workflow"] = state
+    _save_full_workflow_state(state, params)
+    return state
+
+
+def _refresh_full_relax_xas_workflow(params):
+    """Refresh relaxation/XAS status and advance the full workflow when ready."""
+    state = st.session_state.get("nersc_full_workflow")
+    if not state:
+        raise ValueError("No full workflow is active. Start the full relax -> XAS workflow first.")
+    client = _chat_client_from_params(params)
+    stage = state.get("stage", "")
+
+    if stage in {"relax_submitted", "relax_running", "relax_completed"}:
+        job_id = str(state.get("relax_job_id") or "").strip()
+        if not job_id:
+            raise ValueError("No relaxation Slurm job ID is stored in the workflow state.")
+        status = client.slurm_status(job_id, timeout_s=90)
+        state["relax_status"] = status
+        state["relax_status_text"] = _full_workflow_slurm_text(status)
+        if _full_workflow_has_failed(status):
+            state["stage"] = "relax_failed"
+            state["relax_state"] = "FAILED"
+        elif _full_workflow_is_completed(status):
+            state["stage"] = "relax_completed"
+            state["relax_state"] = "COMPLETED"
+            state = _regenerate_and_submit_xas_after_relax(params, state, client)
+        else:
+            state["stage"] = "relax_running"
+            state["relax_state"] = "RUNNING_OR_PENDING"
+        st.session_state["nersc_full_workflow"] = state
+        _save_full_workflow_state(state, params)
+        return state
+
+    if stage in {"xas_submitted", "xas_running"}:
+        all_done = True
+        any_failed = False
+        for job in state.get("xas_jobs", []) or []:
+            job_id = str(job.get("job_id") or "").strip()
+            if not job_id:
+                all_done = False
+                continue
+            status = client.slurm_status(job_id, timeout_s=90)
+            job["status"] = status
+            job["status_text"] = _full_workflow_slurm_text(status)
+            if _full_workflow_has_failed(status):
+                job["state"] = "FAILED"
+                any_failed = True
+            elif _full_workflow_is_completed(status):
+                job["state"] = "COMPLETED"
+            else:
+                job["state"] = "RUNNING_OR_PENDING"
+                all_done = False
+        if any_failed:
+            state["stage"] = "xas_failed_or_partial"
+        elif all_done and state.get("xas_jobs"):
+            state["stage"] = "completed"
+        else:
+            state["stage"] = "xas_running"
+        st.session_state["nersc_full_workflow"] = state
+        _save_full_workflow_state(state, params)
+        return state
+
+    st.session_state["nersc_full_workflow"] = state
+    _save_full_workflow_state(state, params)
+    return state
+
 def _execute_chat_intent(intent, text, params, uploaded_file=None, plan=None):
     """Execute one explicit chat intent. Rule-based and optional LLM plans both use this."""
     low = str(text or "").lower()
@@ -2663,6 +3015,68 @@ def _execute_chat_intent(intent, text, params, uploaded_file=None, plan=None):
         structure, paths, _substrate_n = _generate_structure_from_params(params, uploaded_file=uploaded_file)
         formula = " ".join(f"{el}{structure['atoms'].count(el)}" for el in dict.fromkeys(structure['atoms']))
         return f"Structure generated: `{formula}`. POSCAR: `{paths.get('poscar')}`. Next: generate relaxation inputs."
+
+    if intent == "prepare_full_workflow":
+        if st.session_state.get("last_structure") is None:
+            parsed = _safe_parse_settings_from_text(text, allow_adsorbate=True)
+            params.update(parsed)
+            _generate_structure_from_params(params, uploaded_file=uploaded_file)
+        result, absorber, edge = _prepare_full_workflow_from_current_structure(params)
+        return (
+            f"Full NERSC workflow package prepared at `{result.get('package_root')}`. "
+            f"Relaxation inputs were generated internally at `{result.get('relaxation', {}).get('relax_folder')}`. "
+            f"Workflow entry point: `workflow_submit.sh`; absorber `{absorber}`, edge `{edge}`. "
+            "Next: `upload full workflow to NERSC under testXX`, or `start full workflow` after upload."
+        )
+
+    if intent == "prepare_upload_full_workflow":
+        if st.session_state.get("last_structure") is None:
+            parsed = _safe_parse_settings_from_text(text, allow_adsorbate=True)
+            params.update(parsed)
+            _generate_structure_from_params(params, uploaded_file=uploaded_file)
+        result, upload_result, label, remote_dir, absorber, edge = _upload_full_workflow_package(params, text, plan=plan)
+        return (
+            f"Full NERSC workflow package prepared and uploaded. {label}.\n"
+            f"Local package: `{result.get('package_root')}`\n"
+            f"Remote package: `{remote_dir}`\n"
+            f"Absorber/edge: `{absorber}` `{edge}`.\n"
+            "Next: `start full workflow`, which remotely runs `bash workflow_submit.sh`."
+        )
+
+    if intent == "prepare_upload_start_full_workflow":
+        if st.session_state.get("last_structure") is None:
+            parsed = _safe_parse_settings_from_text(text, allow_adsorbate=True)
+            params.update(parsed)
+            _generate_structure_from_params(params, uploaded_file=uploaded_file)
+        result, upload_result, label, remote_dir, absorber, edge = _upload_full_workflow_package(params, text, plan=plan)
+        start_result = run_remote_workflow_script(_chat_client_from_params(params), remote_dir, "workflow_submit.sh", timeout_s=180)
+        st.session_state["nersc_last_workflow_start"] = start_result
+        output = ""
+        if isinstance(start_result.get("result"), dict):
+            output = str(start_result["result"].get("output") or start_result["result"].get("raw_result") or "")
+        return (
+            f"Full NERSC workflow package prepared, uploaded, and started. {label}.\n"
+            f"Remote package: `{remote_dir}`\n"
+            f"Entry point: `bash workflow_submit.sh`\n"
+            f"SF API task ID: `{start_result.get('task_id', '')}`\n\n"
+            f"{output[:4000]}"
+        )
+
+    if intent == "start_full_workflow":
+        remote_dir, result, output = _run_remote_full_workflow_action(params, text, "workflow_submit.sh", "nersc_last_workflow_start", timeout_s=180, plan=plan)
+        return f"Started full workflow in `{remote_dir}` by running `bash workflow_submit.sh`. SF API task ID: `{result.get('task_id', '')}`.\n\n{output[:4000]}"
+
+    if intent == "refresh_full_workflow_status":
+        remote_dir, result, output = _run_remote_full_workflow_action(params, text, "workflow_status.sh", "nersc_last_workflow_status", timeout_s=120, plan=plan)
+        return f"Workflow status refreshed in `{remote_dir}`.\n\n{output[:5000]}"
+
+    if intent == "restart_full_workflow":
+        remote_dir, result, output = _run_remote_full_workflow_action(params, text, "workflow_restart.sh", "nersc_last_workflow_restart", timeout_s=180, plan=plan)
+        return f"Workflow restart/continue requested in `{remote_dir}`. SF API task ID: `{result.get('task_id', '')}`.\n\n{output[:4000]}"
+
+    if intent == "cancel_full_workflow":
+        remote_dir, result, output = _run_remote_full_workflow_action(params, text, "workflow_cancel.sh", "nersc_last_workflow_cancel", timeout_s=120, plan=plan)
+        return f"Workflow cancel requested in `{remote_dir}`. SF API task ID: `{result.get('task_id', '')}`.\n\n{output[:4000]}"
 
     if intent == "generate_structure_and_relaxation":
         parsed = _safe_parse_settings_from_text(text, allow_adsorbate=True)
@@ -2895,6 +3309,19 @@ def _execute_chat_intent(intent, text, params, uploaded_file=None, plan=None):
     if intent == "cancel_job":
         return _fw_cancel_job(params, text)
 
+    if intent == "start_full_workflow":
+        remote_text = plan.get("remote_run_name") or plan.get("remote_dir") or text
+        state = _start_full_relax_xas_workflow(params, text=remote_text, uploaded_file=uploaded_file)
+        return (
+            f"Full relax -> XAS workflow started. Relaxation job `{state.get('relax_job_id') or 'not available yet'}` "
+            f"was submitted from `{state.get('relax_remote_submit')}`. Remote folder: `{state.get('remote_dir')}`. "
+            "Use `refresh full workflow` to monitor relaxation and submit regenerated XAS jobs after CONTCAR is available."
+        )
+
+    if intent == "refresh_full_workflow":
+        state = _refresh_full_relax_xas_workflow(params)
+        return "Full workflow refreshed. Current stage: `{}`. Jobs: `{}`.".format(state.get("stage"), len(_full_workflow_rows(state)))
+
     if intent == "convert_isaac":
         output_dir = params.get("isaac_local_output_dir", "generated_outputs/web_xas_agent/downloaded_outputs")
         record = build_isaac_record_from_outputs(
@@ -2924,9 +3351,38 @@ def _execute_chat_intent(intent, text, params, uploaded_file=None, plan=None):
     return "I did not understand this request. Say `help` to see supported commands."
 
 
+
+def _full_workflow_intent_from_text(text):
+    low = str(text or "").lower().strip()
+    is_full = any(x in low for x in ["full workflow", "workflow package", "relax-to-xas", "relax to xas", "relaxation to xas"])
+    if is_full:
+        if any(x in low for x in ["cancel", "stop"]):
+            return "cancel_full_workflow"
+        if any(x in low for x in ["restart", "continue", "resume"]):
+            return "restart_full_workflow"
+        if any(x in low for x in ["status", "refresh", "check"]):
+            return "refresh_full_workflow_status"
+        has_upload = any(x in low for x in ["upload", "uploade", "uploaded", "send", "copy"])
+        has_start = any(x in low for x in ["start", "run", "submit"])
+        has_prepare = any(x in low for x in ["prepare", "generate", "make", "build"])
+        if has_upload and has_start:
+            return "prepare_upload_start_full_workflow"
+        if has_upload:
+            return "prepare_upload_full_workflow"
+        if has_start:
+            return "start_full_workflow"
+        if has_prepare:
+            return "prepare_full_workflow"
+    if "upload" in low and any(x in low for x in ["did", "have", "was", "is", "where", "path", "status"]):
+        return "show_paths"
+    return None
+
 def _classify_chat_intent_rule_based(message):
     """Intent-first rule classifier. Avoids parsing chemistry inside questions/actions."""
     low = str(message or "").lower().strip()
+    full_workflow_override = _full_workflow_intent_from_text(message)
+    if full_workflow_override:
+        return full_workflow_override
     if low in {"help", "commands", "what can you do"}:
         return "help"
     if re.search(r"\b(remove|delete|rm)\b", low) and ("/pscratch/" in low or "/global/" in low or "that folder" in low or "remote" in low):
@@ -2935,6 +3391,23 @@ def _classify_chat_intent_rule_based(message):
         return "list_remote_folder"
     if any(p in low for p in ["what is the full path", "uploaded folder", "upload path", "submitted folder", "remote path", "where did", "where is"]):
         return "show_paths"
+    full_workflow_requested = any(p in low for p in ["full workflow", "workflow package", "relax-to-xas", "relax to xas", "relaxation to xas"])
+    if full_workflow_requested:
+        if re.search(r"\b(cancel|stop)\b", low):
+            return "cancel_full_workflow"
+        if re.search(r"\b(restart|continue|resume)\b", low):
+            return "restart_full_workflow"
+        if re.search(r"\b(status|refresh|check)\b", low):
+            return "refresh_full_workflow_status"
+        if re.search(r"\b(start|run|submit)\b", low) and re.search(r"\b(upload|prepare|generate|make|build)\b", low):
+            return "prepare_upload_start_full_workflow"
+        if re.search(r"\b(upload|send|copy)\b", low):
+            return "prepare_upload_full_workflow"
+        if re.search(r"\b(start|run|submit)\b", low):
+            return "start_full_workflow"
+        if re.search(r"\b(prepare|generate|make|build)\b", low):
+            return "prepare_full_workflow"
+
     if re.search(r"\b(cancel|scancel)\b", low) and re.search(r"\b(job|slurm|squeue|sacct)\b|[0-9]{5,12}", low):
         return "cancel_job"
     if _chat_requested_job_listing(low):
@@ -2955,6 +3428,8 @@ def _classify_chat_intent_rule_based(message):
         return "update_settings"
     if low.endswith("?") or low.startswith(("what ", "what's ", "what is ", "how ", "can i ", "could i ", "do i ", "does ", "is ")):
         return "answer_question"
+    if any(p in low for p in ["full workflow", "relax xas workflow", "relax then xas", "relaxation then xas", "post-relax xas", "post relax xas", "full relax xas"]):
+        return "refresh_full_workflow" if any(p in low for p in ["refresh", "check", "status", "monitor"]) else "start_full_workflow"
     if any(p in low for p in ["full co2rr", "full reaction pathway", "reaction pathway", "full pathway", "pathway on"]):
         return "generate_batch_pathway" if "generate" in low or "make" in low or "build" in low else "update_settings"
     if "generate" in low and ("structure" in low or "surface" in low) and ("relax" in low or "relaxation" in low or "relation" in low):
@@ -2991,6 +3466,35 @@ def _classify_chat_intent_rule_based(message):
         return "update_settings"
     return "unknown"
 
+
+def _force_full_workflow_intent(text):
+    low = str(text or "").lower().strip()
+    is_full = any(x in low for x in [
+        "full workflow", "workflow package", "relax-to-xas", "relax to xas", "relaxation to xas"
+    ])
+    if not is_full:
+        if "upload" in low and any(x in low for x in ["did", "have", "was", "is", "where", "path", "status"]):
+            return "show_paths"
+        return None
+    if any(x in low for x in ["cancel", "stop"]):
+        return "cancel_full_workflow"
+    if any(x in low for x in ["restart", "continue", "resume"]):
+        return "restart_full_workflow"
+    if any(x in low for x in ["status", "refresh", "check"]):
+        return "refresh_full_workflow_status"
+    has_upload = any(x in low for x in ["upload", "uploade", "uploaded", "send", "copy"])
+    has_prepare = any(x in low for x in ["prepare", "generate", "make", "build"])
+    has_start = any(x in low for x in ["start", "submit"])
+    if has_upload and has_start:
+        return "prepare_upload_start_full_workflow"
+    if has_upload:
+        return "prepare_upload_full_workflow"
+    if has_start:
+        return "start_full_workflow"
+    if has_prepare:
+        return "prepare_full_workflow"
+    return None
+
 def _run_chat_command(message, params, uploaded_file=None):
     """Route a chat message through intent-first command handling.
 
@@ -3006,6 +3510,20 @@ def _run_chat_command(message, params, uploaded_file=None):
     text = str(message or "").strip()
     if not text:
         return "Please type a command or structure request."
+    forced_intent = _force_full_workflow_intent(text)
+    if forced_intent:
+        st.session_state["last_chat_planner_trace"] = {
+            "backend_requested": params.get("chat_backend"),
+            "planner_used": "Rule-based forced full workflow",
+            "fallback_reason": "forced before LLM/default planner",
+            "resolved_intent": forced_intent,
+            "plan": None,
+            "message": text,
+        }
+        try:
+            return _execute_chat_intent(forced_intent, text, params, uploaded_file=uploaded_file, plan=None)
+        except Exception as exc:
+            return f"Failed: {exc}"
 
     plan = None
     backend = params.get("chat_backend", "Rule-based")
@@ -3034,9 +3552,17 @@ def _run_chat_command(message, params, uploaded_file=None):
         # and safe: do not let the model answer/help when the user explicitly
         # asked to list or delete a concrete NERSC path.
         low_text = text.lower()
-        if _chat_requested_job_listing(low_text):
+        full_workflow_override = _full_workflow_intent_from_text(text)
+        if full_workflow_override:
+            intent = full_workflow_override
+
+        if re.search(r"\b(cancel|scancel)\b", low_text) and re.search(r"\b(job|slurm|squeue|sacct)\b|[0-9]{5,12}", low_text):
+            intent = "cancel_job"
+        if any(p in low_text for p in ["full workflow", "relax xas workflow", "relax then xas", "relaxation then xas", "post-relax xas", "post relax xas", "full relax xas"]):
+            intent = "refresh_full_workflow" if any(p in low_text for p in ["refresh", "check", "status", "monitor"]) else "start_full_workflow"
+        elif intent != "cancel_job" and _chat_requested_job_listing(low_text):
             intent = "list_jobs"
-        elif _extract_slurm_job_id_from_text(low_text) and ("slurm" in low_text or "job" in low_text or "squeue" in low_text or "sacct" in low_text):
+        elif intent != "cancel_job" and _extract_slurm_job_id_from_text(low_text) and ("slurm" in low_text or "job" in low_text or "squeue" in low_text or "sacct" in low_text):
             intent = "check_slurm"
         elif re.search(r"\b(remove|delete|rm)\b", low_text) and ("/pscratch/" in low_text or "/global/" in low_text or "that folder" in low_text or "remote" in low_text):
             intent = "delete_remote_folder"
@@ -3143,7 +3669,8 @@ if "params" not in st.session_state:
         "nersc_remote_dir": DEFAULT_NERSC_REMOTE_RUN_DIR,
         "nersc_upload_source": "Full package root",
         "nersc_custom_local_dir": "",
-        "nersc_remote_submit_script": "01_structure/submit_relax.sh",
+        "nersc_remote_submit_script": "workflow_submit.sh",
+        "nersc_repo_root": os.environ.get("CO2RR_AGENT_REPO", str(REPO_ROOT)),
         "nersc_task_id": "",
         "nersc_job_id": "",
         "nersc_tail_file": "vasp.out",
@@ -3161,6 +3688,12 @@ if "params" not in st.session_state:
 
 uploaded_structure_file = None
 
+if "nersc_full_workflow" not in st.session_state:
+    _persisted_workflow_state = _load_full_workflow_state(st.session_state.params)
+    if _persisted_workflow_state:
+        st.session_state["nersc_full_workflow"] = _persisted_workflow_state
+
+
 # Polished page layout: sidebar agent console + main workflow workspace.
 p = st.session_state.params
 with st.sidebar:
@@ -3171,7 +3704,7 @@ with st.sidebar:
         st.session_state["chat_history"] = [
             {
                 "role": "assistant",
-                "message": "I can answer questions, update settings, and run actions. Try `Generate full CO2RR pathway on Cu`, `generate structure and relaxation files`, `upload to NERSC under test03`, `what files are in that folder`, `change to 8 hrs`, or `submit clean surface relaxation job`.",
+                "message": "I can answer questions, update settings, and run actions. Try `prepare, upload, and start full workflow under test03`, `refresh full workflow status`, `Generate full CO2RR pathway on Cu`, `what files are in that folder`, or `change to 8 hrs`.",
                 "time": datetime.now().isoformat(timespec="seconds"),
             }
         ]
@@ -3423,13 +3956,13 @@ if st.session_state.get("last_structure") is not None:
     if metadata.get("type") == "interface" or "interface" in metadata:
         show_interface_strain(metadata)
 
-    dmin, pair = min_pair_distance(positions)
-    if dmin < 1.2:
-        st.error(f"Possible severe overlap: minimum distance = {dmin:.3f} Å between atoms {pair}")
-    elif dmin < 2.0:
-        st.warning(f"Possible close contact: minimum distance = {dmin:.3f} Å between atoms {pair}")
+    contact_report = element_aware_minimum_pair(atoms, positions)
+    if contact_report["severity"] == "error":
+        st.error(contact_report["message"])
+    elif contact_report["severity"] == "warning":
+        st.warning(contact_report["message"])
     else:
-        st.info(f"Minimum non-PBC atom distance: {dmin:.3f} Å")
+        st.info(contact_report["message"])
 
     reports = adsorbate_geometry_report(structure, substrate_n)
     if reports:
@@ -3528,7 +4061,8 @@ if st.session_state.get("last_structure") is not None:
         relax_result = st.session_state["last_relax_result"]
         st.success("VASP relaxation inputs generated.")
         with st.expander("Relaxation file list", expanded=False):
-            st.code(file_tree(relax_result["directory"]), language="text")
+            relax_tree_dir = relax_result.get("directory") or relax_result.get("relax_folder") or str(Path(p["xas_output_dir"]) / "01_structure")
+            st.code(file_tree(relax_tree_dir), language="text")
         vasp_folder = Path(relax_result["relax_folder"])
         if vasp_folder.exists():
             st.download_button(
@@ -3837,6 +4371,26 @@ if p["nersc_enable"]:
             )
             if st.session_state.get("nersc_status_result"):
                 st.json(st.session_state["nersc_status_result"])
+
+
+        st.subheader("Full relax -> XAS workflow")
+        st.caption("Submit relaxation first. When refresh detects completion, the app downloads `01_structure/CONTCAR`, regenerates local `02_XAS` from the relaxed structure, uploads the regenerated XAS folder, and submits VASP/FDMNES/FEFF XAS jobs.")
+        fw1, fw2 = st.columns(2)
+        with fw1:
+            if st.button("Start full relax -> XAS workflow", type="primary", key="start_full_relax_xas_workflow"):
+                try:
+                    st.session_state["nersc_full_workflow"] = _start_full_relax_xas_workflow(p, text=p.get("nersc_remote_dir", ""), uploaded_file=uploaded_structure_file)
+                    st.success("Full workflow started. Use Refresh full workflow status after the relaxation job finishes.")
+                except Exception as exc:
+                    st.exception(exc)
+        with fw2:
+            if st.button("Refresh full workflow status", key="refresh_full_relax_xas_workflow"):
+                try:
+                    st.session_state["nersc_full_workflow"] = _refresh_full_relax_xas_workflow(p)
+                    st.success("Full workflow status refreshed.")
+                except Exception as exc:
+                    st.exception(exc)
+        _display_full_workflow_state(st.session_state.get("nersc_full_workflow"))
 
         st.subheader("Upload input package")
         folder_options = _local_folder_options()
