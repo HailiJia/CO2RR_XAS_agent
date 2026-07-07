@@ -27,7 +27,9 @@ The web app supports:
 - downloading selected outputs;
 - converting completed outputs into ISAAC draft records;
 - validating/uploading ISAAC records through the ISAAC Portal API;
-- loading ISAAC XAS records for ML preprocessing, feature/model comparison, and training.
+- loading ISAAC XAS records;
+- training machine learning models for XAS from ISAAC records;
+- comparing XAS machine learning features and models.
 
 ---
 
@@ -93,6 +95,38 @@ curl -4 https://ifconfig.me
 
 ---
 
+## ISAAC Portal API usage
+
+For ISAAC Portal validation/upload from the web app or command line, set:
+
+```bash
+export ISAAC_URL="https://isaac.slac.stanford.edu/portal/api"
+export ISAAC_KEY="..."
+streamlit run web_app/CO2RR_XAS_Agent.py
+```
+
+Convert one completed simulation folder into an ISAAC draft record:
+
+```bash
+python tools/convert_simulation_xas_run_to_isaac.py \
+  --input-dir . \
+  --output isaac_record_draft.json \
+  --validate
+```
+
+For batch validation/upload:
+
+```bash
+python batch_validate_upload_isaac_records.py \
+  --input records.zip \
+  --validate \
+  --upload
+```
+
+The web app can also load local ISAAC JSON files or ZIP archives without portal credentials.
+
+---
+
 ## Full NERSC relax -> XAS workflow
 
 The recommended NERSC path is the full workflow package, not manual one-off job submission. The package contains:
@@ -148,10 +182,10 @@ A dependency-held `workflow_xas` job does not consume compute time while waiting
 On Perlmutter:
 
 ```bash
-cd /pscratch/sd/h/hjia/CO2RR/web_xas_agent_runs/test05
+cd /path/to/your/workflow/folder
 bash workflow_status.sh
-squeue -u hjia -o "%.18i %.35j %.10T %.20R"
-sacct -u hjia -S now-2hours -o JobID,JobName,State,ExitCode,Elapsed,Submit,Start,End%20
+squeue -u username -o "%.18i %.35j %.10T %.20R"
+sacct -u username -S now-2hours -o JobID,JobName,State,ExitCode,Elapsed,Submit,Start,End%20
 ```
 
 To inspect the workflow state directly:
@@ -198,38 +232,6 @@ If needed, override the executable explicitly before running a workflow script:
 ```bash
 export CO2RR_NERSC_PYTHON=$(command -v python3.11)
 ```
-
----
-
-## ISAAC Portal API usage
-
-For ISAAC Portal validation/upload from the web app or command line, set:
-
-```bash
-export ISAAC_URL="https://isaac.slac.stanford.edu/portal/api"
-export ISAAC_KEY="..."
-streamlit run web_app/CO2RR_XAS_Agent.py
-```
-
-Convert one completed simulation folder into an ISAAC draft record:
-
-```bash
-python tools/convert_simulation_xas_run_to_isaac.py \
-  --input-dir . \
-  --output isaac_record_draft.json \
-  --validate
-```
-
-For batch validation/upload:
-
-```bash
-python batch_validate_upload_isaac_records.py \
-  --input records.zip \
-  --validate \
-  --upload
-```
-
-The web app can also load local ISAAC JSON files or ZIP archives without portal credentials.
 
 ---
 
@@ -287,34 +289,6 @@ CO2RR_XAS_agent/
 
 ---
 
-## Development checks before merging
-
-Run these before merging the workflow branch into `main`:
-
-```bash
-python -m py_compile \
-  web_app/main.py \
-  web_app/CO2RR_XAS_Agent.py \
-  tools/nersc_workflow_package.py \
-  tools/web_nersc_workflow_integration.py \
-  tools/remote_xas_from_contcar.py
-
-python -m pytest tests/test_web_nersc_workflow_integration.py -q
-```
-
-Recommended merge sequence:
-
-```bash
-git checkout nersc-workflow-orchestrator
-git pull origin nersc-workflow-orchestrator
-
-git checkout main
-git pull origin main
-git merge --no-ff nersc-workflow-orchestrator
-git push origin main
-```
-
----
 
 ## Notes
 
