@@ -2680,6 +2680,35 @@ def _remote_dir_from_natural_language(text, params):
     return params.get("nersc_remote_dir", DEFAULT_NERSC_REMOTE_RUN_DIR)
 
 
+
+
+def _fw_active_remote_dir(params, text=""):
+    """Resolve the active full-workflow remote directory, even after Streamlit reruns."""
+    raw = str(text or "")
+    m = re.search(r"(/pscratch/[^\s`'\"]+|/global/[^\s`'\"]+)", raw)
+    if m:
+        remote_dir = m.group(1).rstrip(".,;:)>]")
+        params["nersc_remote_dir"] = remote_dir
+        params["nersc_last_submit_dir"] = remote_dir
+        params["nersc_download_remote_dir"] = remote_dir
+        params["nersc_preview_dir"] = remote_dir
+        st.session_state["last_full_workflow_remote_dir"] = remote_dir
+        return remote_dir
+
+    for key in [
+        "nersc_last_submit_dir",
+        "nersc_download_remote_dir",
+        "nersc_preview_dir",
+        "nersc_remote_dir",
+    ]:
+        value = str(params.get(key, "") or "").strip()
+        if value:
+            return value.rstrip("/")
+
+    value = str(st.session_state.get("last_full_workflow_remote_dir", "") or "").strip()
+    return value.rstrip("/")
+
+
 def _fw_text(result):
     if not isinstance(result, dict):
         return str(result)
@@ -2975,6 +3004,24 @@ def _execute_chat_intent(intent, text, params, uploaded_file=None, plan=None):
         for key, value in plan["settings"].items():
             if key in params and value not in (None, ""):
                 params[key] = value
+
+
+    if intent in {"refresh_full_workflow_status", "check_full_workflow_status"} or "workflow status" in low:
+        remote_dir = _fw_active_remote_dir(params, text)
+        if not remote_dir:
+            raise ValueError("No full workflow directory is known. Use: check workflow status in /pscratch/.../web_xas_agent_runs/test05")
+        client = _chat_client_from_params(params)
+        cmd = "cd " + client.shell_quote(remote_dir) + " && bash workflow_status.sh"
+        task = client.run_command(cmd)
+        task_id = str(task.get("task_id") or task.get("id") or "")
+        result = client.wait_task(task_id, timeout_s=120) if task_id else task
+        st.session_state["last_full_workflow_remote_dir"] = remote_dir
+        params["nersc_remote_dir"] = remote_dir
+        params["nersc_last_submit_dir"] = remote_dir
+        params["nersc_download_remote_dir"] = remote_dir
+        params["nersc_preview_dir"] = remote_dir
+        output = _fw_text(result)
+        return f"Full workflow status for `{remote_dir}`:\\n\\n{output[:5000]}"
 
     if intent == "help":
         return (
