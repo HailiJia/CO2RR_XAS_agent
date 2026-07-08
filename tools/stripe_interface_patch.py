@@ -51,6 +51,16 @@ def _safe_first_region(adsorbate: str, requested: Optional[str]) -> str:
     return requested if requested in options else options[0]
 
 
+def is_all_region_request(text: str) -> bool:
+    low = str(text or "").lower()
+    wants_all = bool(re.search(r"\b(all|every|full|complete)\b", low))
+    mentions_region = "adsorption region" in low or "adsorption regions" in low or "region" in low
+    mentions_cu_au = "cu/au" in low or "cu-au" in low or ("cu" in low and "au" in low)
+    mentions_generate = bool(re.search(r"\b(generate|make|build|create)\b", low))
+    mentions_possible = "possible" in low or "combination" in low or "iterate" in low or "screen" in low
+    return mentions_generate and mentions_cu_au and mentions_region and (wants_all or mentions_possible)
+
+
 def install() -> None:
     """Install Cu/Au stripe-ratio and adsorption-region support by patching the generator module."""
     from tools import utils
@@ -185,7 +195,6 @@ def _patched_generate_interface(
         match["match_direction"] = "x/interface"
         n1 = int(match["element1_repeats"])
         n2 = int(match["element2_repeats"])
-        matched = float(match["matched_block_length"])
 
     common_x = float(match["matched_block_length"])
     row_spacing1 = period1 * np.sqrt(3) / 2
@@ -380,8 +389,83 @@ def _attach_region_descriptors(structure: Dict[str, Any], adsorbate_name: str, r
     metadata["adsorbate_metadata"] = ads_meta
 
 
+STRIPE_BATCH_HELPER_SOURCE = r'''
+
+def _stripe_generate_all_adsorption_region_batch(params):
+    """Generate all Cu/Au(111) stripe-ratio × adsorption-region × allowed-adsorbate structures."""
+    params["structure_source"] = "Build from settings"
+    params["structure_mode"] = "Interface"
+    params["element1"] = "Cu"
+    params["element2"] = "Au"
+    params["facet"] = "111"
+    params["batch_source"] = "Generate pathway from current structure setup"
+
+    workspace = Path(params.get("batch_output_dir", "generated_outputs/web_xas_agent/batch")) / "_stripe_adsorption_region_workspace"
+    workspace.mkdir(parents=True, exist_ok=True)
+    generator = StructureGenerator()
+    items = []
+    combo_manifest = []
+
+    for ratio in stripe_patch_ratio_choices():
+        for region, adsorbates in stripe_patch_region_adsorbates().items():
+            for ads in adsorbates:
+                base = generator.generate_interface(
+                    element1="Cu",
+                    element2="Au",
+                    facet1="111",
+                    facet2="111",
+                    supercell=(int(params.get("nx", 3)), int(params.get("ny", 3))),
+                    layers1=int(params.get("layers", 4)),
+                    layers2=int(params.get("layers", 4)),
+                    vacuum=float(params.get("vacuum", 15.0)),
+                    match_mode=params.get("interface_match_mode", "auto"),
+                    element1_repeats=int(params.get("element1_repeats", 4)) if params.get("interface_match_mode") == "manual" else None,
+                    element2_repeats=int(params.get("element2_repeats", 4)) if params.get("interface_match_mode") == "manual" else None,
+                    stripe_ratio=ratio,
+                )
+                structure = generator.add_adsorbate(
+                    base,
+                    ads,
+                    site="auto",
+                    height=float(params.get("height", 2.0)),
+                    binding_element="Cu" if region != "Au_side_interface" else "Au",
+                    adsorption_region=region,
+                )
+                name = sanitize_name(f"Cu_Au_111_stripe_{ratio.replace(':', 'to')}_{region}_{ads}")
+                items.append({
+                    "name": name,
+                    "source": "stripe_adsorption_region_grid",
+                    "structure": structure,
+                    "substrate_n": len(base.get("atoms", [])),
+                    "source_poscar": None,
+                })
+                combo_manifest.append({"name": name, "stripe_ratio": ratio, "adsorption_region": region, "adsorbate": ads})
+
+    batch_result = generate_batch_input_package(
+        batch_items=items,
+        output_dir=params.get("batch_output_dir", "generated_outputs/web_xas_agent/batch"),
+        params=params,
+        include_relaxation=params.get("batch_include_relaxation", True),
+        include_xas=params.get("batch_include_xas", True),
+        absorber_mode=params.get("batch_absorber_mode", "auto"),
+    )
+    batch_result["stripe_adsorption_region_grid"] = {
+        "stripe_ratios": stripe_patch_ratio_choices(),
+        "adsorption_region_adsorbates": stripe_patch_region_adsorbates(),
+        "n_combinations": len(combo_manifest),
+        "combinations": combo_manifest,
+    }
+    manifest_path = Path(batch_result["run_dir"]) / "stripe_adsorption_region_manifest.json"
+    manifest_path.write_text(json.dumps(batch_result["stripe_adsorption_region_grid"], indent=2))
+    st.session_state["last_batch_result"] = batch_result
+    st.session_state["last_generated_package_kind"] = "batch"
+    params["nersc_upload_source"] = "Last batch package"
+    return batch_result
+'''
+
+
 def patched_main_source(source: str) -> str:
-    """Patch main.py source at runtime so the web UI exposes stripe/region controls without rewriting main.py wholesale."""
+    """Patch main.py source at runtime so the web UI exposes stripe/region controls and agent batch commands."""
     source = source.replace(
         'ADSORBATE_CHOICES = ["clean", "CO", "OCCO", "CHO", "COCO", "CO2", "OH", "H", "CHOH", "CH", "CH2", "CH3", "CH4"]',
         'ADSORBATE_CHOICES = ["clean", "CO", "O", "OCCO", "CHO", "COCO", "CO2", "OH", "H", "CHOH", "CH", "CH2", "CH3", "CH4"]',
@@ -404,10 +488,8 @@ def patched_main_source(source: str) -> str:
         'interface_binding_element=params.get("interface_binding_element", params["element1"]),',
         'interface_binding_element=p.get("interface_binding_element", p["element1"]),',
     ]:
-        source = source.replace(
-            old,
-            old + '\n                stripe_ratio=params.get("stripe_ratio", "1:1"),' if 'params' in old else old + '\n                stripe_ratio=p.get("stripe_ratio", "1:1"),',
-        )
+        replacement = old + ('\n                stripe_ratio=params.get("stripe_ratio", "1:1"),' if 'params' in old else '\n                stripe_ratio=p.get("stripe_ratio", "1:1"),')
+        source = source.replace(old, replacement)
     source = source.replace(
         'stripe_ratio=params.get("stripe_ratio", "1:1"),',
         'stripe_ratio=params.get("stripe_ratio", "1:1"),\n                adsorption_region=params.get("adsorption_region"),',
@@ -434,11 +516,20 @@ def patched_main_source(source: str) -> str:
     )
     source = source.replace(
         '    return parsed\n\n\ndef generate_structure',
-        '    stripe_match = re.search(r"(?:cu\\s*[:/]\\s*au\\s*)?(1|2|3)\\s*:\\s*(1|2|3)", text)\n    if stripe_match:\n        parsed["stripe_ratio"] = f"{stripe_match.group(1)}:{stripe_match.group(2)}"\n    for region in stripe_patch_region_choices():\n        if region.lower() in text.replace("-", "_"):\n            parsed["adsorption_region"] = region\n            break\n\n    return parsed\n\n\ndef generate_structure',
+        '    stripe_match = re.search(r"(?:cu\\s*[:/]\\s*au\\s*)?(1|2|3)\\s*:\\s*(1|2|3)", text)\n    if stripe_match:\n        parsed["stripe_ratio"] = f"{stripe_match.group(1)}:{stripe_match.group(2)}"\n    for region in stripe_patch_region_choices():\n        if region.lower() in text.replace("-", "_"):\n            parsed["adsorption_region"] = region\n            parsed.setdefault("structure_mode", "Interface")\n            parsed.setdefault("element1", "Cu")\n            parsed.setdefault("element2", "Au")\n            break\n    if "stripe_ratio" in parsed:\n        parsed.setdefault("structure_mode", "Interface")\n        parsed.setdefault("element1", "Cu")\n        parsed.setdefault("element2", "Au")\n\n    return parsed\n\n\ndef generate_structure',
     )
     source = source.replace(
         '["OCCO", "COCO", "CHOH", "CHO", "CO2", "CO", "OH", "CH3", "CH2", "CH", "H"]',
         '["OCCO", "COCO", "CHOH", "CHO", "CO2", "CO", "OH", "O", "CH3", "CH2", "CH", "H"]',
+    )
+    source = source.replace(
+        'def build_uploaded_batch_items(uploaded_files, workspace):',
+        STRIPE_BATCH_HELPER_SOURCE + '\n\ndef build_uploaded_batch_items(uploaded_files, workspace):',
+    )
+    source = source.replace(
+        '    low = str(text or "").lower()\n    plan = plan or {}\n',
+        '    low = str(text or "").lower()\n    plan = plan or {}\n\n    if stripe_patch_is_all_region_request(text):\n        result = _stripe_generate_all_adsorption_region_batch(params)\n        combo = result.get("stripe_adsorption_region_grid", {})\n        return (\n            f"Generated Cu/Au(111) stripe adsorption-region batch with `{combo.get(\'n_combinations\', result.get(\'n_structures\'))}` structures at `{result.get(\'run_dir\')}`.\\n"\n            f"Stripe ratios: `{\', \'.join(combo.get(\'stripe_ratios\', []))}`.\\n"\n            "This batch iterates all configured adsorption regions and allowed adsorbates. Next: upload to NERSC, or download the batch ZIP from the Batch generation panel."\n        )\n',
+        1,
     )
     return source
 
@@ -453,6 +544,8 @@ def run_patched_main(app_dir: Path) -> None:
         "stripe_patch_ratio_choices": lambda: STRIPE_RATIO_CHOICES,
         "stripe_patch_region_choices": lambda: ADSORPTION_REGION_CHOICES,
         "stripe_patch_region_options": region_options_for_adsorbate,
+        "stripe_patch_region_adsorbates": lambda: ADSORPTION_REGION_ADSORBATES,
         "stripe_patch_parse_ratio": parse_stripe_ratio,
+        "stripe_patch_is_all_region_request": is_all_region_request,
     }
     exec(compile(source, str(source_path), "exec"), globals_dict)
