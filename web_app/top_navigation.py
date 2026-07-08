@@ -156,7 +156,7 @@ section[data-testid="stSidebar"] nav[aria-label="Pages"] {{
   <div class="co2rr-tabbar-wrap">
     <div class="co2rr-tabbar">
       <a class="co2rr-tab {calc_active}" href="./" target="_self">Calculation Agent</a>
-      <a class="co2rr-tab {ml_active}" href="./Machine_Learning_Agent" target="_self">Machine Learning Agent</a>
+      <a class="co2rr-tab {ml_active}" href="./Machine_learning_for_XAS" target="_self">Machine Learning Agent</a>
     </div>
   </div>
   <div class="co2rr-active-mode">Active: {active_label}</div>
