@@ -18,15 +18,6 @@ def render_top_navigation(active_page: AgentPage) -> None:
 }
 
 /* App-level top navigation. */
-.co2rr-nav-label {
-    font-size: 0.78rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: rgba(49, 51, 63, 0.65);
-    margin: 0.25rem 0 0.35rem 0;
-}
-
 .co2rr-active-agent {
     display: inline-flex;
     align-items: center;
@@ -81,13 +72,10 @@ def install_top_navigation(active_page: AgentPage) -> None:
     before other Streamlit commands.
     """
     original_set_page_config = st.set_page_config
-    rendered_key = f"_co2rr_top_nav_rendered_{active_page}"
 
     def wrapped_set_page_config(*args, **kwargs):
         result = original_set_page_config(*args, **kwargs)
-        if not st.session_state.get(rendered_key, False):
-            st.session_state[rendered_key] = True
-            render_top_navigation(active_page)
+        render_top_navigation(active_page)
         return result
 
     st.set_page_config = wrapped_set_page_config
