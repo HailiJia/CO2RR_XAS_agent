@@ -3763,7 +3763,7 @@ def _run_chat_command(message, params, uploaded_file=None):
         return f"Failed: {exc}"
 
 st.set_page_config(page_title="CO2RR XAS Agent", layout="wide")
-st.title("Agentic calculation workflow for XAS")
+st.title("Agentic calculation for XAS")
 st.caption("Use the sidebar as the agent console. Use the main workspace for catalyst structure setup, structure/XAS input generation, batch generation, NERSC jobs, ISAAC records, and ISAAC Portal upload.")
 
 COVERAGE_PRESETS = {
