@@ -1868,6 +1868,8 @@ def _prefer_last_batch_for_chat_upload(params, text=""):
 
     if any(term in low for term in ["single", "current structure", "full package root", "web_xas_agent root"]):
         return False
+    if "workflow" in low and not any(term in low for term in ["batch", "pathway", "full co2rr", "reaction pathway"]):
+        return False
     if any(term in low for term in ["batch", "pathway", "full co2rr", "reaction pathway"]):
         return True
     if source == "Last batch package" and package_kind != "single":
@@ -3176,8 +3178,8 @@ def _execute_chat_intent(intent, text, params, uploaded_file=None, plan=None):
         return f"Structure generated: `{formula}`. POSCAR: `{paths.get('poscar')}`. Next: generate relaxation inputs."
 
     if intent == "prepare_full_workflow":
-        if st.session_state.get("last_structure") is None:
-            parsed = _safe_parse_settings_from_text(text, allow_adsorbate=True)
+        parsed = _safe_parse_settings_from_text(text, allow_adsorbate=True)
+        if parsed or st.session_state.get("last_structure") is None:
             params.update(parsed)
             _generate_structure_from_params(params, uploaded_file=uploaded_file)
         result, absorber, edge = _prepare_full_workflow_from_current_structure(params)
@@ -3189,8 +3191,8 @@ def _execute_chat_intent(intent, text, params, uploaded_file=None, plan=None):
         )
 
     if intent == "prepare_upload_full_workflow":
-        if st.session_state.get("last_structure") is None:
-            parsed = _safe_parse_settings_from_text(text, allow_adsorbate=True)
+        parsed = _safe_parse_settings_from_text(text, allow_adsorbate=True)
+        if parsed or st.session_state.get("last_structure") is None:
             params.update(parsed)
             _generate_structure_from_params(params, uploaded_file=uploaded_file)
         result, upload_result, label, remote_dir, absorber, edge = _upload_full_workflow_package(params, text, plan=plan)
@@ -3203,8 +3205,8 @@ def _execute_chat_intent(intent, text, params, uploaded_file=None, plan=None):
         )
 
     if intent == "prepare_upload_start_full_workflow":
-        if st.session_state.get("last_structure") is None:
-            parsed = _safe_parse_settings_from_text(text, allow_adsorbate=True)
+        parsed = _safe_parse_settings_from_text(text, allow_adsorbate=True)
+        if parsed or st.session_state.get("last_structure") is None:
             params.update(parsed)
             _generate_structure_from_params(params, uploaded_file=uploaded_file)
         result, upload_result, label, remote_dir, absorber, edge = _upload_full_workflow_package(params, text, plan=plan)
@@ -3628,9 +3630,16 @@ def _classify_chat_intent_rule_based(message):
 
 def _force_full_workflow_intent(text):
     low = str(text or "").lower().strip()
-    is_full = any(x in low for x in [
-        "full workflow", "workflow package", "relax-to-xas", "relax to xas", "relaxation to xas"
-    ])
+    is_full = (
+        any(x in low for x in [
+            "full workflow", "workflow package", "relax-to-xas", "relax to xas", "relaxation to xas"
+        ])
+        or (
+            "workflow" in low
+            and any(x in low for x in ["generate", "prepare", "make", "build", "upload", "start", "submit"])
+            and not any(x in low for x in ["batch workflow", "pathway workflow"])
+        )
+    )
     if not is_full:
         if "upload" in low and any(x in low for x in ["did", "have", "was", "is", "where", "path", "status"]):
             return "show_paths"
