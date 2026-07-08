@@ -13,11 +13,12 @@ def render_top_navigation(active_page: AgentPage) -> None:
         """
 <style>
 /* Hide Streamlit's default multipage navigation in the sidebar. */
-[data-testid="stSidebarNav"] {
+[data-testid="stSidebarNav"],
+section[data-testid="stSidebar"] [data-testid="stSidebarNav"],
+section[data-testid="stSidebar"] nav[aria-label="Pages"] {
     display: none !important;
 }
 
-/* App-level top navigation. */
 .co2rr-active-agent {
     display: inline-flex;
     align-items: center;
@@ -25,17 +26,29 @@ def render_top_navigation(active_page: AgentPage) -> None:
     font-size: 0.9rem;
     font-weight: 700;
     color: rgba(49, 51, 63, 0.74);
-    margin: 0 0 0.2rem 0;
+    margin: 0 0 0.35rem 0;
 }
 
-/* Make Streamlit page links look like compact product tabs. */
+/* Make Streamlit page links look like full-width product tabs. */
+div[data-testid="stPageLink"] {
+    width: 100% !important;
+}
+
 div[data-testid="stPageLink"] a {
-    font-size: 1.08rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    min-width: 230px !important;
+    min-height: 48px !important;
+    white-space: nowrap !important;
+    overflow: visible !important;
+    font-size: 1.05rem !important;
     font-weight: 750 !important;
-    padding: 0.58rem 1.05rem !important;
+    padding: 0.62rem 1.05rem !important;
     border: 1px solid rgba(49, 51, 63, 0.18) !important;
     border-radius: 0.7rem !important;
-    background: rgba(250, 250, 250, 0.82) !important;
+    background: rgba(250, 250, 250, 0.86) !important;
     text-decoration: none !important;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
 }
@@ -52,11 +65,11 @@ div[data-testid="stPageLink"] a:hover {
     active_label = "Calculation Agent" if active_page == "calculation" else "Machine Learning Agent"
     st.markdown(f'<div class="co2rr-active-agent">Active mode: {active_label}</div>', unsafe_allow_html=True)
 
-    nav_col1, nav_col2, nav_spacer = st.columns([1.35, 1.65, 6.0])
+    nav_col1, nav_col2, nav_spacer = st.columns([2.4, 2.8, 4.8])
     with nav_col1:
-        st.page_link("CO2RR_XAS_Agent.py", label="Calculation Agent", icon="🧮")
+        st.page_link("CO2RR_XAS_Agent.py", label="Calculation Agent")
     with nav_col2:
-        st.page_link("pages/2_Machine_Learning_Agent.py", label="Machine Learning Agent", icon="🤖")
+        st.page_link("pages/2_Machine_Learning_Agent.py", label="Machine Learning Agent")
     with nav_spacer:
         st.empty()
 
@@ -64,13 +77,7 @@ div[data-testid="stPageLink"] a:hover {
 
 
 def install_top_navigation(active_page: AgentPage) -> None:
-    """Install a small hook that renders navigation immediately after page setup.
-
-    The existing calculation and ML pages call ``st.set_page_config`` themselves.
-    Hooking that call lets us place navigation at the very top without editing the
-    large page bodies or violating Streamlit's requirement that page config is set
-    before other Streamlit commands.
-    """
+    """Install a hook that renders navigation immediately after page setup."""
     original_set_page_config = st.set_page_config
 
     def wrapped_set_page_config(*args, **kwargs):
