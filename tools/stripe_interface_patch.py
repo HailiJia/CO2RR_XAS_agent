@@ -319,10 +319,10 @@ def _patched_add_adsorbate(self, structure: Dict[str, Any], adsorbate_name: str,
     if interface_meta.get("type") != "lateral" or adsorbate_name == "clean":
         return self._stripe_original_add_adsorbate(structure, adsorbate_name, *args, **kwargs)
 
-    region = _safe_first_region(adsorbate_name, adsorption_region)
-    allowed = ADSORPTION_REGION_ADSORBATES.get(region, [])
-    if allowed and adsorbate_name not in allowed:
-        raise ValueError(f"Adsorbate {adsorbate_name} is not configured for adsorption_region={region}. Allowed: {allowed}")
+    requested_region = adsorption_region
+    region = _safe_first_region(adsorbate_name, requested_region)
+    if requested_region and requested_region != region:
+        metadata.setdefault("adsorption_region_request_warning", f"Requested {requested_region} is not configured for {adsorbate_name}; using {region}.")
 
     positions = np.asarray(structure["positions"], dtype=float)
     atoms = list(structure["atoms"])
