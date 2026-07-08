@@ -9,35 +9,31 @@ AgentPage = Literal["calculation", "ml"]
 
 def render_top_navigation(active_page: AgentPage) -> None:
     """Render a fixed full-width app header and hide Streamlit's sidebar page list."""
-    calc_active = "active" if active_page == "calculation" else ""
-    ml_active = "active" if active_page == "ml" else ""
-    active_label = "Calculation Agent" if active_page == "calculation" else "Machine Learning Agent"
-
     st.markdown(
-        f"""
+        """
 <style>
-:root {{
+:root {
     --co2rr-topbar-height: 74px;
-}}
+}
 
 /* Reserve space for the fixed app bar. */
-.block-container {{
+.block-container {
     padding-top: calc(var(--co2rr-topbar-height) + 1.6rem) !important;
-}}
+}
 
 /* Keep the sidebar visually aligned below the app bar. */
-section[data-testid="stSidebar"] > div:first-child {{
+section[data-testid="stSidebar"] > div:first-child {
     padding-top: calc(var(--co2rr-topbar-height) + 1.2rem) !important;
-}}
+}
 
 /* Hide Streamlit's default multipage navigation in the sidebar. */
 [data-testid="stSidebarNav"],
 section[data-testid="stSidebar"] [data-testid="stSidebarNav"],
-section[data-testid="stSidebar"] nav[aria-label="Pages"] {{
+section[data-testid="stSidebar"] nav[aria-label="Pages"] {
     display: none !important;
-}}
+}
 
-.co2rr-topbar {{
+.co2rr-topbar {
     position: fixed;
     top: 0;
     left: 0;
@@ -53,37 +49,37 @@ section[data-testid="stSidebar"] nav[aria-label="Pages"] {{
     border-bottom: 1px solid rgba(49, 51, 63, 0.13);
     box-shadow: 0 2px 14px rgba(15, 23, 42, 0.05);
     backdrop-filter: blur(10px);
-}}
+}
 
-.co2rr-brand {{
+.co2rr-brand {
     display: flex;
     flex-direction: column;
     gap: 0.05rem;
     min-width: 0;
-}}
+}
 
-.co2rr-brand-title {{
+.co2rr-brand-title {
     font-size: 1.28rem;
     font-weight: 850;
     line-height: 1.1;
     color: #262b3a;
     white-space: nowrap;
-}}
+}
 
-.co2rr-brand-subtitle {{
+.co2rr-brand-subtitle {
     font-size: 0.76rem;
     font-weight: 650;
     color: rgba(49, 51, 63, 0.58);
     white-space: nowrap;
-}}
+}
 
-.co2rr-tabbar-wrap {{
+.co2rr-tabbar-wrap {
     display: flex;
     justify-content: center;
     min-width: 0;
-}}
+}
 
-.co2rr-tabbar {{
+.co2rr-tabbar {
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
@@ -91,9 +87,9 @@ section[data-testid="stSidebar"] nav[aria-label="Pages"] {{
     border-radius: 999px;
     background: rgba(245, 247, 250, 0.96);
     border: 1px solid rgba(49, 51, 63, 0.14);
-}}
+}
 
-.co2rr-tab {{
+.co2rr-tab {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -107,46 +103,40 @@ section[data-testid="stSidebar"] nav[aria-label="Pages"] {{
     text-decoration: none !important;
     white-space: nowrap;
     transition: background 0.12s ease, box-shadow 0.12s ease, color 0.12s ease;
-}}
+}
 
-.co2rr-tab:hover {{
+.co2rr-tab:hover {
     background: rgba(255, 75, 75, 0.08);
     color: #262b3a !important;
-}}
+}
 
-.co2rr-tab.active {{
-    background: white;
-    color: #262b3a !important;
-    box-shadow: 0 1px 7px rgba(15, 23, 42, 0.12);
-}}
-
-.co2rr-active-mode {{
+.co2rr-nav-note {
     display: flex;
     justify-content: flex-end;
-    color: rgba(49, 51, 63, 0.66);
+    color: rgba(49, 51, 63, 0.50);
     font-size: 0.78rem;
-    font-weight: 720;
+    font-weight: 650;
     white-space: nowrap;
-}}
+}
 
-@media (max-width: 920px) {{
-    .co2rr-topbar {{
+@media (max-width: 920px) {
+    .co2rr-topbar {
         grid-template-columns: 1fr;
         height: 112px;
         align-items: center;
         padding: 0.7rem 1.0rem;
-    }}
-    :root {{
+    }
+    :root {
         --co2rr-topbar-height: 112px;
-    }}
-    .co2rr-brand, .co2rr-active-mode {{
+    }
+    .co2rr-brand, .co2rr-nav-note {
         display: none;
-    }}
-    .co2rr-tab {{
+    }
+    .co2rr-tab {
         min-width: 150px;
         font-size: 0.92rem;
-    }}
-}}
+    }
+}
 </style>
 <div class="co2rr-topbar">
   <div class="co2rr-brand">
@@ -155,11 +145,11 @@ section[data-testid="stSidebar"] nav[aria-label="Pages"] {{
   </div>
   <div class="co2rr-tabbar-wrap">
     <div class="co2rr-tabbar">
-      <a class="co2rr-tab {calc_active}" href="./" target="_self">Calculation Agent</a>
-      <a class="co2rr-tab {ml_active}" href="./Machine_learning_for_XAS" target="_self">Machine Learning Agent</a>
+      <a class="co2rr-tab" href="./" target="_self">Calculation Agent</a>
+      <a class="co2rr-tab" href="./Machine_learning_for_XAS" target="_self">Machine Learning Agent</a>
     </div>
   </div>
-  <div class="co2rr-active-mode">Active: {active_label}</div>
+  <div class="co2rr-nav-note">Agent mode</div>
 </div>
         """.strip(),
         unsafe_allow_html=True,
