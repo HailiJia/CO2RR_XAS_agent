@@ -1201,6 +1201,7 @@ class VASPXASInputGenerator:
         lines.extend([
             "",
             "set -uo pipefail",
+            "cd \"$(dirname \"$0\")\"",
             "module load vasp/6.4.3-cpu",
             "export OMP_NUM_THREADS=2",
             "export OMP_PLACES=threads",
@@ -1377,7 +1378,7 @@ class NERSCScriptGenerator:
         ]
         if email:
             lines.extend(["#SBATCH --mail-type=ALL", f"#SBATCH --mail-user={email}"])
-        lines.extend(["", "set -uo pipefail"])
+        lines.extend(["", "set -uo pipefail", "cd \"$(dirname \"$0\")\""])
         if module_line:
             lines.extend([module_line])
         if software_upper == "VASP":

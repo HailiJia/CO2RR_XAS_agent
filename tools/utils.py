@@ -151,7 +151,7 @@ def get_nersc_defaults() -> Dict[str, Any]:
         "account": get_env_default("CO2RR_NERSC_ACCOUNT", "mXXXX"),
         "queue": get_env_default("CO2RR_NERSC_QUEUE", "regular"),
         "nodes": int(get_env_default("CO2RR_NERSC_NODES", "2")),
-        "walltime": get_env_default("CO2RR_NERSC_WALLTIME", "8:00:00"),
+        "walltime": get_env_default("CO2RR_NERSC_WALLTIME", "05:00:00"),
         "cluster": get_env_default("CO2RR_NERSC_CLUSTER", "Perlmutter"),
         "facility_name": get_env_default("CO2RR_NERSC_FACILITY", "NERSC"),
         "organization": get_env_default("CO2RR_NERSC_ORGANIZATION", "LBNL"),

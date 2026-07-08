@@ -203,7 +203,7 @@ def generate_relaxation_inputs_for_workflow(
     account: str = DEFAULT_NERSC_ACCOUNT,
     queue: str = "regular",
     nodes: int = 1,
-    walltime: str = "02:00:00",
+    walltime: str = "05:00:00",
     email: str = "",
 ) -> Dict[str, Any]:
     """Generate ``01_structure/submit_relax.sh`` as part of a full workflow package."""
@@ -257,7 +257,7 @@ def prepare_single_structure_workflow_package(
     account: str = DEFAULT_NERSC_ACCOUNT,
     queue: str = "regular",
     nodes: int = 1,
-    walltime: str = "02:00:00",
+    walltime: str = "05:00:00",
     email: str = "",
     vasp_method: str = "PBE",
     cluster_radius: float = 6.0,

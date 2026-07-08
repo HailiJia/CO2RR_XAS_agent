@@ -946,7 +946,7 @@ def generate_batch_input_package(
                 account=params.get("nersc_account", DEFAULT_NERSC_ACCOUNT),
                 queue=params.get("nersc_queue", "regular"),
                 nodes=int(params.get("nersc_nodes", 1)),
-                walltime=params.get("nersc_walltime", "02:00:00"),
+                walltime=params.get("nersc_walltime", "05:00:00"),
                 email=params.get("nersc_email", ""),
             )
         if include_xas:
@@ -968,7 +968,7 @@ def generate_batch_input_package(
                 account=params.get("nersc_account", DEFAULT_NERSC_ACCOUNT),
                 queue=params.get("nersc_queue", "regular"),
                 nodes=int(params.get("nersc_nodes", 1)),
-                walltime=params.get("nersc_walltime", "02:00:00"),
+                walltime=params.get("nersc_walltime", "05:00:00"),
                 email=params.get("nersc_email", ""),
             )
 
@@ -993,7 +993,7 @@ def generate_batch_input_package(
         "include_xas": include_xas,
         "nersc_account": params.get("nersc_account", DEFAULT_NERSC_ACCOUNT),
         "nersc_queue": params.get("nersc_queue", "regular"),
-        "nersc_walltime": params.get("nersc_walltime", "02:00:00"),
+        "nersc_walltime": params.get("nersc_walltime", "05:00:00"),
         "summary": summary,
     }
     (run_dir / "batch_manifest.json").write_text(json.dumps(manifest, indent=2))
@@ -1582,7 +1582,7 @@ def generate_relaxation_folder(
     account=DEFAULT_NERSC_ACCOUNT,
     queue="regular",
     nodes=1,
-    walltime="02:00:00",
+    walltime="05:00:00",
     email="",
 ):
     """Generate VASP structure-relaxation inputs directly under 01_structure."""
@@ -1650,7 +1650,7 @@ def generate_xas_calculation_folders(
     account=DEFAULT_NERSC_ACCOUNT,
     queue="regular",
     nodes=1,
-    walltime="02:00:00",
+    walltime="05:00:00",
     email="",
 ):
     """Generate XAS inputs into 02_XAS/{VASP,FDMNES,FEFF}.
@@ -1981,7 +1981,7 @@ def _prepare_full_workflow_from_current_structure(params):
         account=params.get("nersc_account", DEFAULT_NERSC_ACCOUNT),
         queue=params.get("nersc_queue", "regular"),
         nodes=int(params.get("nersc_nodes", 1)),
-        walltime=params.get("nersc_walltime", "02:00:00"),
+        walltime=params.get("nersc_walltime", "05:00:00"),
         email=params.get("nersc_email", ""),
         vasp_method=params.get("vasp_method", "PBE"),
         cluster_radius=float(params.get("cluster_radius", 6.0)),
@@ -2565,7 +2565,7 @@ def _answer_chat_question(text, params):
             target = "XAS calculation"
         queue = params.get("nersc_queue", "regular")
         account = params.get("nersc_account", DEFAULT_NERSC_ACCOUNT)
-        walltime = params.get("nersc_walltime", "02:00:00")
+        walltime = params.get("nersc_walltime", "05:00:00")
         return (
             f"Current {target} NERSC walltime is `{walltime}` with queue `{queue}` and account `{account}`.\n"
             "You can change it by saying, for example: `change time limit to 8 hrs` or `change queue to debug`."
@@ -2574,7 +2574,7 @@ def _answer_chat_question(text, params):
         return (
             f"Current NERSC settings: account/project `{params.get('nersc_account', DEFAULT_NERSC_ACCOUNT)}`, "
             f"queue `{params.get('nersc_queue', 'regular')}`, nodes `{params.get('nersc_nodes', 1)}`, "
-            f"walltime `{params.get('nersc_walltime', '02:00:00')}`. "
+            f"walltime `{params.get('nersc_walltime', '05:00:00')}`. "
             f"Generated VASP 6 CPU scripts use `{DEFAULT_VASP6_MPI_RANKS_PER_NODE}` MPI ranks per node, `{DEFAULT_VASP6_OMP_NUM_THREADS}` OpenMP threads per rank, and `-c {DEFAULT_VASP6_CPUS_PER_TASK}`."
         )
     return (
@@ -3813,7 +3813,7 @@ if "params" not in st.session_state:
         "nersc_username": os.environ.get("USER", "hjia"),
         "nersc_queue": "regular",
         "nersc_nodes": 1,
-        "nersc_walltime": "02:00:00",
+        "nersc_walltime": "05:00:00",
         "nersc_email": "",
         "batch_source": "Generate pathway from current structure setup",
         "batch_output_dir": "generated_outputs/web_xas_agent/batch",
@@ -4192,7 +4192,7 @@ if st.session_state.get("last_structure") is not None:
     with n3:
         p["nersc_nodes"] = st.number_input("Nodes", min_value=1, max_value=64, value=int(p.get("nersc_nodes", 1)), key="relax_nodes")
     with n4:
-        p["nersc_walltime"] = st.text_input("Walltime", value=p.get("nersc_walltime", "02:00:00"), key="relax_walltime")
+        p["nersc_walltime"] = st.text_input("Walltime", value=p.get("nersc_walltime", "05:00:00"), key="relax_walltime")
     with n5:
         p["nersc_email"] = st.text_input("Email, optional", value=p.get("nersc_email", ""), key="relax_email")
 
@@ -4283,7 +4283,7 @@ if st.session_state.get("last_structure") is not None:
     with x3:
         p["nersc_nodes"] = st.number_input("Nodes", min_value=1, max_value=64, value=int(p.get("nersc_nodes", 1)), key="xas_nodes")
     with x4:
-        p["nersc_walltime"] = st.text_input("Walltime", value=p.get("nersc_walltime", "02:00:00"), key="xas_walltime")
+        p["nersc_walltime"] = st.text_input("Walltime", value=p.get("nersc_walltime", "05:00:00"), key="xas_walltime")
     with x5:
         p["nersc_email"] = st.text_input("Email, optional", value=p.get("nersc_email", ""), key="xas_email")
 
@@ -4383,7 +4383,7 @@ with st.expander("Generate input packages for multiple structures or reaction pa
     with bacc3:
         p["nersc_walltime"] = st.text_input(
             "Walltime",
-            value=p.get("nersc_walltime", "02:00:00"),
+            value=p.get("nersc_walltime", "05:00:00"),
             key="batch_nersc_walltime",
         )
 

@@ -117,7 +117,7 @@ python tools/nersc_workflow_package.py \
   --account m5268 \
   --queue regular \
   --nodes 1 \
-  --walltime 02:00:00
+  --walltime 05:00:00
 ```
 
 For the corrected web-app flow, use `tools/web_nersc_workflow_integration.py` instead; it generates `01_structure/submit_relax.sh` and then calls the workflow package generator in one action.

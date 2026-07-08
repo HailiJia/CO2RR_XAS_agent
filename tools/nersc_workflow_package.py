@@ -381,7 +381,7 @@ def main() -> None:
     p.add_argument("--account", default=os.environ.get("CO2RR_NERSC_ACCOUNT", os.environ.get("NERSC_ACCOUNT", "m5268")))
     p.add_argument("--queue", default="regular")
     p.add_argument("--nodes", type=int, default=1)
-    p.add_argument("--walltime", default="02:00:00")
+    p.add_argument("--walltime", default="05:00:00")
     p.add_argument("--email", default="")
     args = p.parse_args()
     print(json.dumps(create_workflow(Path(args.package_root).resolve(), args), indent=2))
