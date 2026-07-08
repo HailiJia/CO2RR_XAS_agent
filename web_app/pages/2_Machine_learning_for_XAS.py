@@ -239,7 +239,17 @@ def records_from_portal_ui() -> List[Tuple[str, Dict[str, Any]]]:
     if st.button("Scan portal record stubs", type="secondary"):
         try:
             client = ISAACPortalClient()
-            scanned = scan_portal_stubs(client, page_size=int(page_size), max_records=int(max_scan))
+            if hasattr(st, "status"):
+                with st.status("Scanning ISAAC Portal record stubs...", expanded=True) as status:
+                    st.write(f"Page size: `{int(page_size)}`")
+                    st.write(f"Maximum records to scan: `{int(max_scan)}`")
+                    st.write("Requesting portal pages with offsets 0, page_size, 2×page_size, ...")
+                    scanned = scan_portal_stubs(client, page_size=int(page_size), max_records=int(max_scan))
+                    st.write(f"Scanned `{scanned.get('scanned')}` stub record(s) across `{scanned.get('pages')}` page(s).")
+                    status.update(label="Portal stub scan finished.", state="complete", expanded=False)
+            else:
+                with st.spinner("Scanning ISAAC Portal record stubs..."):
+                    scanned = scan_portal_stubs(client, page_size=int(page_size), max_records=int(max_scan))
             st.session_state["isaac_portal_list"] = scanned
         except Exception as exc:
             st.error(f"Failed to scan ISAAC Portal records: {exc}")
@@ -275,7 +285,17 @@ def records_from_portal_ui() -> List[Tuple[str, Dict[str, Any]]]:
         if st.button("Fetch full records and find valid XAS spectra", type="primary", disabled=not selected_ids):
             try:
                 client = ISAACPortalClient()
-                records = client.fetch_records(selected_ids)
+                fetch_ids = list(selected_ids)
+                if hasattr(st, "status"):
+                    with st.status("Fetching full records from ISAAC Portal...", expanded=True) as status:
+                        st.write(f"Requested full records: `{len(fetch_ids)}`")
+                        st.write("This can take a while because each full ISAAC record must be retrieved before XAS filtering.")
+                        records = client.fetch_records(fetch_ids)
+                        st.write(f"Fetched `{len(records)}` full record(s).")
+                        status.update(label="Full-record fetch finished.", state="complete", expanded=False)
+                else:
+                    with st.spinner("Fetching full records from ISAAC Portal..."):
+                        records = client.fetch_records(fetch_ids)
                 st.session_state["isaac_portal_records"] = records
                 st.success(f"Fetched {len(records)} full record(s) from ISAAC Portal.")
             except Exception as exc:
@@ -285,14 +305,30 @@ def records_from_portal_ui() -> List[Tuple[str, Dict[str, Any]]]:
     if not records:
         return []
 
-    records_after_domain = [(source, rec) for source, rec in records if domain == "all" or rec.get("record_domain") == domain]
-    portal_rows = rows_from_records(records_after_domain)
-    strict_xas_rows = [
-        row for row in portal_rows
-        if row.get("is_xas") and row.get("x") is not None and row.get("y") is not None and row.get("n_points", 0) > 0
-    ]
-    xas_ids = {safe_str(row.get("record_id")) for row in strict_xas_rows if safe_str(row.get("record_id"))}
-    simple_summary = simple_xas_summary_from_rows(strict_xas_rows)
+    if hasattr(st, "status"):
+        with st.status("Filtering fetched records for valid XAS spectra...", expanded=True) as status:
+            st.write(f"Cached full records: `{len(records)}`")
+            records_after_domain = [(source, rec) for source, rec in records if domain == "all" or rec.get("record_domain") == domain]
+            st.write(f"After domain filter `{domain}`: `{len(records_after_domain)}` record(s).")
+            st.write("Parsing spectra and checking for numeric energy/intensity arrays...")
+            portal_rows = rows_from_records(records_after_domain)
+            strict_xas_rows = [
+                row for row in portal_rows
+                if row.get("is_xas") and row.get("x") is not None and row.get("y") is not None and row.get("n_points", 0) > 0
+            ]
+            xas_ids = {safe_str(row.get("record_id")) for row in strict_xas_rows if safe_str(row.get("record_id"))}
+            simple_summary = simple_xas_summary_from_rows(strict_xas_rows)
+            status.update(label=f"XAS filtering finished: {len(simple_summary)} valid spectral record(s).", state="complete", expanded=False)
+    else:
+        with st.spinner("Filtering fetched records for valid XAS spectra..."):
+            records_after_domain = [(source, rec) for source, rec in records if domain == "all" or rec.get("record_domain") == domain]
+            portal_rows = rows_from_records(records_after_domain)
+            strict_xas_rows = [
+                row for row in portal_rows
+                if row.get("is_xas") and row.get("x") is not None and row.get("y") is not None and row.get("n_points", 0) > 0
+            ]
+            xas_ids = {safe_str(row.get("record_id")) for row in strict_xas_rows if safe_str(row.get("record_id"))}
+            simple_summary = simple_xas_summary_from_rows(strict_xas_rows)
     st.success(f"Fetched-cache records after domain filter: {len(records_after_domain)}. Valid XAS spectral records: {len(simple_summary)}.")
     with st.expander("Simple XAS summary table", expanded=True):
         display_table(simple_summary)
