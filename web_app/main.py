@@ -3938,10 +3938,46 @@ with st.sidebar:
             with st.chat_message(item.get("role", "assistant")):
                 st.markdown(item.get("message", ""))
 
-    chat_prompt = st.chat_input("Ask the agent, e.g. generate full CO2RR pathway on Cu, upload under test03, check Slurm")
+    def _chat_status_label(text: str) -> str:
+        low = str(text or "").lower()
+        if "upload" in low and "nersc" in low:
+            return "Uploading files to NERSC..."
+        if "start" in low and "workflow" in low:
+            return "Starting the NERSC workflow..."
+        if "workflow status" in low or ("check" in low and "workflow" in low):
+            return "Checking workflow status..."
+        if "slurm" in low or "job" in low:
+            return "Checking Slurm job status..."
+        if "download" in low:
+            return "Downloading outputs..."
+        if "generate" in low:
+            return "Generating inputs..."
+        return "Agent is working..."
+
+    chat_prompt = st.chat_input("Ask the agent, e.g. generate full CO2RR pathway on Cu, upload to NERSC, check Slurm job status")
     if chat_prompt:
         _chat_add("user", chat_prompt)
-        response = _run_chat_command(chat_prompt, st.session_state.params, uploaded_file=uploaded_structure_file)
+        status_label = _chat_status_label(chat_prompt)
+
+        with st.chat_message("assistant"):
+            if hasattr(st, "status"):
+                with st.status(status_label, expanded=True) as status:
+                    st.write("Running requested agent action.")
+                    response = _run_chat_command(
+                        chat_prompt,
+                        st.session_state.params,
+                        uploaded_file=uploaded_structure_file,
+                    )
+                    status.update(label="Agent action finished.", state="complete", expanded=False)
+            else:
+                with st.spinner(status_label):
+                    response = _run_chat_command(
+                        chat_prompt,
+                        st.session_state.params,
+                        uploaded_file=uploaded_structure_file,
+                    )
+            st.markdown(response)
+
         _chat_add("assistant", response)
         if hasattr(st, "rerun"):
             st.rerun()
@@ -4547,7 +4583,24 @@ if p["nersc_enable"]:
         with fw1:
             if st.button("Start full relax -> XAS workflow", type="primary", key="start_full_relax_xas_workflow"):
                 try:
-                    st.session_state["nersc_full_workflow"] = _start_full_relax_xas_workflow(p, text=p.get("nersc_remote_dir", ""), uploaded_file=uploaded_structure_file)
+                    if hasattr(st, "status"):
+                        with st.status("Starting full relax -> XAS workflow...", expanded=True) as status:
+                            st.write(f"Remote folder: `{p.get('nersc_remote_dir', '')}`")
+                            st.write("Generating relaxation inputs, uploading the package, and submitting the relaxation job.")
+                            state = _start_full_relax_xas_workflow(
+                                p,
+                                text=p.get("nersc_remote_dir", ""),
+                                uploaded_file=uploaded_structure_file,
+                            )
+                            status.update(label="Full workflow started.", state="complete", expanded=False)
+                    else:
+                        with st.spinner("Starting full relax -> XAS workflow..."):
+                            state = _start_full_relax_xas_workflow(
+                                p,
+                                text=p.get("nersc_remote_dir", ""),
+                                uploaded_file=uploaded_structure_file,
+                            )
+                    st.session_state["nersc_full_workflow"] = state
                     st.success("Full workflow started. Use Refresh full workflow status after the relaxation job finishes.")
                 except Exception as exc:
                     st.exception(exc)
@@ -4603,12 +4656,25 @@ if p["nersc_enable"]:
                 if not selected_local_dir or not Path(selected_local_dir).is_dir():
                     raise ValueError(f"Local folder does not exist: {selected_local_dir}")
                 client = _nersc_client_from_settings()
-                upload_result = client.upload_directory(
-                    local_dir=selected_local_dir,
-                    remote_dir=p["nersc_remote_dir"],
-                    overwrite=overwrite_remote,
-                    timeout_s=240,
-                )
+                if hasattr(st, "status"):
+                    with st.status("Uploading to NERSC...", expanded=True) as status:
+                        st.write(f"Local folder: `{selected_local_dir}`")
+                        st.write(f"Remote folder: `{p['nersc_remote_dir']}`")
+                        upload_result = client.upload_directory(
+                            local_dir=selected_local_dir,
+                            remote_dir=p["nersc_remote_dir"],
+                            overwrite=overwrite_remote,
+                            timeout_s=240,
+                        )
+                        status.update(label="Upload finished.", state="complete", expanded=False)
+                else:
+                    with st.spinner(f"Uploading `{selected_local_dir}` to NERSC..."):
+                        upload_result = client.upload_directory(
+                            local_dir=selected_local_dir,
+                            remote_dir=p["nersc_remote_dir"],
+                            overwrite=overwrite_remote,
+                            timeout_s=240,
+                        )
                 st.session_state["nersc_last_upload"] = upload_result
                 st.session_state["nersc_job_registry"] = st.session_state.get("nersc_job_registry", [])
                 st.session_state["nersc_job_registry"].append({
