@@ -201,6 +201,11 @@ def patched_main_source(source: str) -> str:
         'result = _stripe_generate_all_adsorption_region_batch(params, text)',
         1,
     )
+    source = source.replace(
+        '            "Invalid row_1/row_2 combinations are skipped automatically. Next: upload to NERSC, or download the batch ZIP from the Batch generation panel."',
+        '            "Generated with the existing stripe-ratio and adsorption-region definitions, including Cu-side, Au-side, along-interface, across-interface, and valid dimer placements. Invalid ratio/region combinations are skipped automatically. Next: upload to NERSC, or download the batch ZIP from the Batch generation panel."',
+        1,
+    )
 
     return source
 
