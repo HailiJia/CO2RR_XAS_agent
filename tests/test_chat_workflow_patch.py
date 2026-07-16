@@ -8,6 +8,7 @@ from tools.chat_workflow_patch import (
     requested_cu_au_ratios,
     should_generate_structure,
 )
+from tools.stripe_interface_patch import ADSORPTION_REGION_ADSORBATES
 
 
 def test_generate_adsorbate_on_metal_is_an_action():
@@ -54,6 +55,6 @@ def test_runtime_patch_reuses_existing_stripe_batch_helper():
     assert "def _chat_generate_requested_site_ratio_batch" not in patched
     assert "generate_site_ratio_grid" not in patched
     assert "stripe_patch_region_adsorbates" in patched
-    assert "Cu_side_interface_dimer_along_x" in patched
-    assert "Cu_Au_boundary_bridge" in patched
+    assert "Cu_side_interface_dimer_along_x" in ADSORPTION_REGION_ADSORBATES
+    assert "Cu_Au_boundary_bridge" in ADSORPTION_REGION_ADSORBATES
     assert "chat_patch_should_generate_structure" in patched
