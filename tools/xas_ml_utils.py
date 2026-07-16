@@ -26,6 +26,15 @@ except Exception as exc:  # pragma: no cover - depends on runtime env
     SKLEARN_IMPORT_ERROR = exc
 
 
+PEAK_DESCRIPTOR_FEATURE = "peak_descriptors"
+LEGACY_PEAK_DESCRIPTOR_FEATURE = "peak_window"
+
+
+def _uses_peak_descriptors(kinds: Sequence[str]) -> bool:
+    """Accept the renamed feature and the legacy token used by older settings."""
+    return PEAK_DESCRIPTOR_FEATURE in kinds or LEGACY_PEAK_DESCRIPTOR_FEATURE in kinds
+
+
 def feature_matrix(rows: Sequence[Dict[str, Any]], target: str, kinds: Sequence[str], norm: str, n_grid: int):
     valid = [
         row for row in rows
@@ -66,7 +75,7 @@ def feature_matrix(rows: Sequence[Dict[str, Any]], target: str, kinds: Sequence[
             cdf = cdf / (float(cdf[-1]) or 1.0)
             feats.extend(cdf.tolist())
             local_names.extend([f"cdf_{i:03d}" for i in range(len(grid))])
-        if "peak_window" in kinds:
+        if _uses_peak_descriptors(kinds):
             dy = np.gradient(yi, grid)
             pk = int(np.argmax(yi))
             vals = [float(grid[pk]), float(yi[pk]), integrate(yi, grid), float(np.max(dy)), float(np.min(dy))]
@@ -200,7 +209,7 @@ def learning_curve_rows(model, X: np.ndarray, y_model: np.ndarray, task: str) ->
 
 
 def auto_advisor(rows, target, task, n_grid, max_rows):
-    feature_sets = [["peak_window"], ["raw", "peak_window"], ["derivative", "peak_window"], ["cdf", "peak_window"], ["raw"], ["raw", "derivative"], ["raw", "cdf"]]
+    feature_sets = [[PEAK_DESCRIPTOR_FEATURE], ["raw", PEAK_DESCRIPTOR_FEATURE], ["derivative", PEAK_DESCRIPTOR_FEATURE], ["cdf", PEAK_DESCRIPTOR_FEATURE], ["raw"], ["raw", "derivative"], ["raw", "cdf"]]
     models = ["Dummy baseline", "Logistic regression", "SVM", "Random forest"] if task == "classification" else ["Dummy baseline", "Ridge", "SVR", "Random forest"]
     results, failures = [], []
     for fs in feature_sets:
