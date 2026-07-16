@@ -10,7 +10,7 @@ for path in [APP_DIR, REPO_ROOT]:
         sys.path.insert(0, str(path))
 
 from top_navigation import install_top_navigation
-from tools.stripe_interface_patch import run_patched_main
+from tools.nersc_portability_patch import run_patched_main
 
 install_top_navigation(active_page="calculation")
 run_patched_main(APP_DIR)
