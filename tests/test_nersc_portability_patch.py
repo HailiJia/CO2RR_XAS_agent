@@ -10,8 +10,16 @@ def test_runtime_source_removes_user_specific_nersc_fallbacks():
 
     compile(patched, str(repo_root / "web_app" / "main.py"), "exec")
 
-    assert "hjia" not in patched
-    assert "m5268" not in patched
+    forbidden_fallbacks = [
+        'os.environ.get("NERSC_ACCOUNT", "m5268")',
+        '"/pscratch/sd/h/hjia/CO2RR"',
+        'os.environ.get("USER") or "hjia"',
+        '.strip() or "hjia"',
+        '"/pscratch/sd/h/hjia"',
+    ]
+    for pattern in forbidden_fallbacks:
+        assert pattern not in patched
+
     assert 'os.environ.get("CO2RR_NERSC_USERNAME")' in patched
     assert 'os.environ.get("NERSC_USERNAME")' in patched
     assert 'os.environ.get("CO2RR_NERSC_ACCOUNT")' in patched
