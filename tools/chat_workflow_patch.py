@@ -30,7 +30,8 @@ def requested_cu_au_ratios(text: str, current_ratio: str = "1:1") -> List[str]:
     """Return requested ratios in the existing generator's Cu:Au convention.
 
     The prompt may use either Cu:Au or Au:Cu ordering. For example,
-    ``Au:Cu=1:2`` is normalized to ``Cu:Au=2:1``.
+    ``Au:Cu=1:2`` is normalized to ``Cu:Au=2:1``. Returned values are passed
+    directly to the pre-existing stripe batch generator.
     """
     raw = str(text or "")
     low = raw.lower()
