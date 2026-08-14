@@ -122,28 +122,47 @@ if pd is None:'''
 _download_insert = '''plot_mode = st.selectbox("Display mode", ["raw", "min-max normalized", "min-max normalized with vertical offset"], index=1)
 
 selected_plot_rows = [r for r in plot_rows if r.get("edge_group") in sel_groups]
-with st.expander("Download data", expanded=False):
-    st.caption("Download the currently selected signal type and absorber/edge groups as a tidy CSV for publication-quality plotting in Python, Origin, MATLAB, or other tools.")
-    if pd is None:
-        st.warning("pandas is required to prepare the spectral download.")
-    elif not selected_plot_rows:
-        st.info("Select at least one absorber/edge group above.")
-    else:
-        download_points = []
-        download_series = []
-        for row in selected_plot_rows:
-            record = row.get("record") or {}
-            material_name = safe_str(get_path(record, "sample.material.name"))
-            adsorbate = safe_str(target_value(row, "structure.adsorbate"))
-            site = safe_str(target_value(row, "structure.adsorption_site"))
-            facet = safe_str(target_value(row, "structure.facet"))
-            series_label_parts = [adsorbate or material_name or safe_str(row.get("formula")), site]
-            series_label = " | ".join(v for v in series_label_parts if v)
-            if not series_label:
-                series_label = safe_str(row.get("record_id")) or safe_str(row.get("source_name")) or safe_str(row.get("series_id"))
-            x = np.asarray(row["x"], dtype=float)
-            y = np.asarray(row["y"], dtype=float)
-            download_series.append({
+st.subheader("Download data")
+st.caption("Export the currently selected signal type and absorber/edge groups for publication-quality plotting in Python, Origin, MATLAB, or other tools.")
+if pd is None:
+    st.warning("pandas is required to prepare the spectral download.")
+elif not selected_plot_rows:
+    st.info("Select at least one absorber/edge group above.")
+else:
+    download_points = []
+    download_series = []
+    for row in selected_plot_rows:
+        record = row.get("record") or {}
+        material_name = safe_str(get_path(record, "sample.material.name"))
+        adsorbate = safe_str(target_value(row, "structure.adsorbate"))
+        site = safe_str(target_value(row, "structure.adsorption_site"))
+        facet = safe_str(target_value(row, "structure.facet"))
+        series_label_parts = [adsorbate or material_name or safe_str(row.get("formula")), site]
+        series_label = " | ".join(v for v in series_label_parts if v)
+        if not series_label:
+            series_label = safe_str(row.get("record_id")) or safe_str(row.get("source_name")) or safe_str(row.get("series_id"))
+        x = np.asarray(row["x"], dtype=float)
+        y = np.asarray(row["y"], dtype=float)
+        download_series.append({
+            "label": series_label,
+            "record_id": safe_str(row.get("record_id")),
+            "series_id": safe_str(row.get("series_id")),
+            "material_name": material_name,
+            "formula": safe_str(row.get("formula")),
+            "adsorbate": adsorbate,
+            "adsorption_site": site,
+            "facet": facet,
+            "absorber": safe_str(row.get("absorber")),
+            "edge": safe_str(row.get("edge")),
+            "signal_type": safe_str(row.get("signal_type")),
+            "x_name": safe_str(row.get("x_name")),
+            "x_unit": safe_str(row.get("x_unit")),
+            "y_name": safe_str(row.get("y_name")),
+            "y_unit": safe_str(row.get("y_unit")),
+            "n_points": int(row.get("n_points") or len(x)),
+        })
+        for xv, yv in zip(x, y):
+            download_points.append({
                 "label": series_label,
                 "record_id": safe_str(row.get("record_id")),
                 "series_id": safe_str(row.get("series_id")),
@@ -155,49 +174,30 @@ with st.expander("Download data", expanded=False):
                 "absorber": safe_str(row.get("absorber")),
                 "edge": safe_str(row.get("edge")),
                 "signal_type": safe_str(row.get("signal_type")),
-                "x_name": safe_str(row.get("x_name")),
-                "x_unit": safe_str(row.get("x_unit")),
-                "y_name": safe_str(row.get("y_name")),
-                "y_unit": safe_str(row.get("y_unit")),
-                "n_points": int(row.get("n_points") or len(x)),
+                "energy": float(xv),
+                "signal": float(yv),
+                "energy_unit": safe_str(row.get("x_unit")),
+                "signal_unit": safe_str(row.get("y_unit")),
             })
-            for xv, yv in zip(x, y):
-                download_points.append({
-                    "label": series_label,
-                    "record_id": safe_str(row.get("record_id")),
-                    "series_id": safe_str(row.get("series_id")),
-                    "material_name": material_name,
-                    "formula": safe_str(row.get("formula")),
-                    "adsorbate": adsorbate,
-                    "adsorption_site": site,
-                    "facet": facet,
-                    "absorber": safe_str(row.get("absorber")),
-                    "edge": safe_str(row.get("edge")),
-                    "signal_type": safe_str(row.get("signal_type")),
-                    "energy": float(xv),
-                    "signal": float(yv),
-                    "energy_unit": safe_str(row.get("x_unit")),
-                    "signal_unit": safe_str(row.get("y_unit")),
-                })
-        download_df = pd.DataFrame(download_points)
-        series_df = pd.DataFrame(download_series)
-        st.write(f"Selected `{len(series_df)}` spectral series and `{len(download_df)}` data points.")
-        display_table(download_series)
-        c_dl1, c_dl2 = st.columns(2)
-        c_dl1.download_button(
-            "Download spectra CSV",
-            data=download_df.to_csv(index=False),
-            file_name="isaac_xas_selected_spectra.csv",
-            mime="text/csv",
-            use_container_width=True,
-        )
-        c_dl2.download_button(
-            "Download series metadata CSV",
-            data=series_df.to_csv(index=False),
-            file_name="isaac_xas_selected_series_metadata.csv",
-            mime="text/csv",
-            use_container_width=True,
-        )
+    download_df = pd.DataFrame(download_points)
+    series_df = pd.DataFrame(download_series)
+    st.write(f"Selected `{len(series_df)}` spectral series and `{len(download_df)}` data points.")
+    display_table(download_series)
+    c_dl1, c_dl2 = st.columns(2)
+    c_dl1.download_button(
+        "Download spectra CSV",
+        data=download_df.to_csv(index=False),
+        file_name="isaac_xas_selected_spectra.csv",
+        mime="text/csv",
+        use_container_width=True,
+    )
+    c_dl2.download_button(
+        "Download series metadata CSV",
+        data=series_df.to_csv(index=False),
+        file_name="isaac_xas_selected_series_metadata.csv",
+        mime="text/csv",
+        use_container_width=True,
+    )
 
 if pd is None:'''
 if _download_anchor not in _source:
