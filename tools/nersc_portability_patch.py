@@ -82,8 +82,6 @@ def _compat_resolve_text_settings(text, params, parsed):
         result.setdefault("element2", current.get("element2", "Au"))
         return result
 
-    # When the user explicitly changes the adsorbate, do not carry an invalid
-    # region from the previous sidebar/chat state into the new structure.
     if explicit_adsorbate not in (None, "clean"):
         options = chat.stripe.region_options_for_adsorbate(explicit_adsorbate, effective_ratio)
         selected = result.get("adsorption_region") or current.get("adsorption_region")
@@ -96,7 +94,7 @@ def _compat_resolve_text_settings(text, params, parsed):
 
 
 def patched_main_source(source: str) -> str:
-    """Apply chat/stripe patches and remove user-specific NERSC defaults."""
+    """Apply chat/stripe patches plus portable NERSC prompt handling."""
     source = _CHAT_PATCHED_MAIN_SOURCE(source)
 
     old_defaults = (
@@ -159,6 +157,90 @@ def patched_main_source(source: str) -> str:
     if old_job_username not in source:
         raise RuntimeError("Could not locate the NERSC job-list username fallback to patch.")
     source = source.replace(old_job_username, new_job_username, 1)
+
+    # Account/project IDs such as m5268 must never be consumed by the generic
+    # three-digit facet parser (which would otherwise produce facet=526).
+    old_safe_parse = (
+        '    parsed = parse_prompt(text)\n'
+        '    if not allow_adsorbate and "adsorbate" in parsed:\n'
+    )
+    new_safe_parse = (
+        '    chemistry_text = re.sub(\n'
+        '        r"(?i)\\b(?:nersc\\s+)?(?:account|allocation|project(?:\\s+id)?)\\s*(?:to|=|as|is)?\\s*[A-Za-z][A-Za-z0-9_.-]*",\n'
+        '        "",\n'
+        '        str(text or ""),\n'
+        '    )\n'
+        '    parsed = parse_prompt(chemistry_text)\n'
+        '    parsed.update(_parse_workflow_setting_changes(text))\n'
+        '    if not allow_adsorbate and "adsorbate" in parsed:\n'
+    )
+    if old_safe_parse not in source:
+        raise RuntimeError("Could not locate safe prompt parser for NERSC account masking.")
+    source = source.replace(old_safe_parse, new_safe_parse, 1)
+
+    # Natural start/status wording should resolve `in test10` to the named run,
+    # rather than silently falling back to web_xas_agent_runs/latest.
+    old_remote_tail = (
+        '    if re.search(r"\\b(?:folder|dir|directory)\\s+named\\s+[A-Za-z0-9_.-]+", raw, flags=re.I):\n'
+        '        candidate = _remote_dir_from_natural_language(raw, params)\n'
+        '        if candidate != params.get("nersc_remote_dir", DEFAULT_NERSC_REMOTE_RUN_DIR):\n'
+        '            return candidate\n'
+        '    return None\n'
+    )
+    new_remote_tail = (
+        '    if re.search(r"\\b(?:folder|dir|directory)\\s+named\\s+[A-Za-z0-9_.-]+", raw, flags=re.I):\n'
+        '        candidate = _remote_dir_from_natural_language(raw, params)\n'
+        '        if candidate != params.get("nersc_remote_dir", DEFAULT_NERSC_REMOTE_RUN_DIR):\n'
+        '            return candidate\n'
+        '    if re.search(r"\\b(?:workflow|run)\\b", raw, flags=re.I):\n'
+        '        in_match = re.search(r"\\b(?:in|at|from)\\s+([A-Za-z0-9_.-]+)\\b", raw, flags=re.I)\n'
+        '        if in_match:\n'
+        '            name = in_match.group(1).strip().strip(".,;:)")\n'
+        '            if name.lower() not in {"the", "that", "this", "nersc", "workflow", "run"}:\n'
+        '                return f"{DEFAULT_NERSC_REMOTE_BASE}/web_xas_agent_runs/{name}"\n'
+        '    return None\n'
+    )
+    if old_remote_tail not in source:
+        raise RuntimeError("Could not locate explicit remote-directory parser.")
+    source = source.replace(old_remote_tail, new_remote_tail, 1)
+
+    # A combined command such as `Use account m5268 and start the workflow in
+    # test10` must update the current account and rewrite the already-uploaded
+    # Slurm scripts before workflow_submit.sh is invoked.
+    old_action_head = (
+        'def _run_remote_full_workflow_action(params, text, script_name, state_key, timeout_s=180, plan=None):\n'
+        '    client = _chat_client_from_params(params)\n'
+    )
+    new_action_head = (
+        'def _run_remote_full_workflow_action(params, text, script_name, state_key, timeout_s=180, plan=None):\n'
+        '    workflow_updates = _parse_workflow_setting_changes(text)\n'
+        '    if workflow_updates:\n'
+        '        params.update(workflow_updates)\n'
+        '    client = _chat_client_from_params(params)\n'
+    )
+    if old_action_head not in source:
+        raise RuntimeError("Could not locate remote full-workflow action helper.")
+    source = source.replace(old_action_head, new_action_head, 1)
+
+    old_remote_run = (
+        '    remote_dir = str(remote_dir).rstrip("/")\n'
+        '    result = run_remote_workflow_script(client, remote_dir, script_name, timeout_s=timeout_s)\n'
+    )
+    new_remote_run = (
+        '    remote_dir = str(remote_dir).rstrip("/")\n'
+        '    if script_name in {"workflow_submit.sh", "workflow_restart.sh"}:\n'
+        '        from tools.nersc_account_compat import set_remote_workflow_account\n'
+        '        set_remote_workflow_account(\n'
+        '            client,\n'
+        '            remote_dir,\n'
+        '            params.get("nersc_account", DEFAULT_NERSC_ACCOUNT),\n'
+        '            timeout_s=min(timeout_s, 120),\n'
+        '        )\n'
+        '    result = run_remote_workflow_script(client, remote_dir, script_name, timeout_s=timeout_s)\n'
+    )
+    if old_remote_run not in source:
+        raise RuntimeError("Could not locate remote workflow script invocation.")
+    source = source.replace(old_remote_run, new_remote_run, 1)
 
     return source
 
