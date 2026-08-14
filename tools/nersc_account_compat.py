@@ -49,8 +49,6 @@ def _set_account_in_text(text: str, account: Any) -> str:
     text = _remove_account_directives(text)
     text = _insert_account_directive(text, normalized)
 
-    # workflow_xas.sh passes the account to remote_xas_from_contcar.py so that
-    # post-relaxation VASP/FDMNES/FEFF scripts use the same project.
     replacement = f'--account "{normalized}"'
     text = re.sub(
         r"--account[ \t]+(?:\"[^\"]*\"|'[^']*'|[^\s\\]+)",
@@ -114,7 +112,7 @@ def sanitize_local_workflow_package(package_root: str | Path, account: Any = "")
 def _remote_account_source(account: Any) -> str:
     normalized = _normalize_account(account)
     account_literal = repr(normalized)
-    return f'''\
+    return f"""\
 import re
 from pathlib import Path
 
@@ -154,7 +152,7 @@ done
     if updated != original:
         path.write_text(updated)
         path.chmod(0o755)
-'''
+"""
 
 
 def set_remote_workflow_account(
