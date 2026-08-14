@@ -343,19 +343,118 @@ def workflow_remote_script_path(remote_dir: str, script_name: str) -> str:
     return str(PurePosixPath(str(remote_dir).rstrip("/")) / script_name)
 
 
+def _workflow_state_from_command_output(output: Any) -> Optional[Dict[str, Any]]:
+    """Extract a workflow-state JSON object from mixed shell stdout."""
+    text = str(output or "")
+    decoder = json.JSONDecoder()
+    state = None
+    for index, char in enumerate(text):
+        if char != "{":
+            continue
+        try:
+            candidate, _end = decoder.raw_decode(text[index:])
+        except Exception:
+            continue
+        if isinstance(candidate, dict) and "stage" in candidate and "jobs" in candidate:
+            state = candidate
+    return state
+
+
+def _workflow_command_output(result_json: Dict[str, Any]) -> str:
+    if not isinstance(result_json, dict):
+        return str(result_json or "")
+    return str(
+        result_json.get("output")
+        or result_json.get("stdout")
+        or result_json.get("raw_result")
+        or ""
+    )
+
+
 def run_remote_workflow_script(client: Any, remote_dir: str, script_name: str, timeout_s: int = 120) -> Dict[str, Any]:
-    """Run one generated workflow helper through the SF API command endpoint."""
+    """Run a workflow helper and verify that the remote command really succeeded.
+
+    An SF API task ID only confirms that the asynchronous command request was
+    accepted.  It does not prove that ``bash workflow_submit.sh`` reached
+    ``sbatch`` successfully.  Capture the shell exit code explicitly and, for
+    submit/restart actions, require the remote workflow state to contain a
+    registered relaxation job before reporting success.
+    """
     remote_dir = str(remote_dir).rstrip("/")
     script_name = str(script_name).strip() or "workflow_submit.sh"
-    if script_name not in {"workflow_submit.sh", "workflow_status.sh", "workflow_restart.sh", "workflow_cancel.sh"}:
+    allowed = {"workflow_submit.sh", "workflow_status.sh", "workflow_restart.sh", "workflow_cancel.sh"}
+    if script_name not in allowed:
         raise ValueError(f"Unsupported workflow script: {script_name}")
-    cmd = f"cd {client.shell_quote(remote_dir)} && bash {client.shell_quote(script_name)}"
+
+    quoted_dir = client.shell_quote(remote_dir)
+    quoted_script = client.shell_quote(script_name)
+    verify_relax = script_name in {"workflow_submit.sh", "workflow_restart.sh"}
+    verify_block = ""
+    if verify_relax:
+        verify_block = (
+            'if [ "$rc" -eq 0 ]; then '
+            'if [ ! -s workflow_state.json ] || ! grep -q \'"relax"\' workflow_state.json; then '
+            "echo 'ERROR: workflow command returned success but no relaxation job was registered in workflow_state.json' >&2; "
+            'rc=65; '
+            'fi; '
+            'fi; '
+        )
+
+    cmd = (
+        f"cd {quoted_dir} && bash {quoted_script}; "
+        'rc=$?; '
+        f"{verify_block}"
+        'printf \'\\n__CO2RR_WORKFLOW_EXIT_CODE__=%s\\n\' "$rc"; '
+        'if [ -f workflow_state.json ]; then '
+        "echo '__CO2RR_WORKFLOW_STATE_BEGIN__'; cat workflow_state.json; echo '__CO2RR_WORKFLOW_STATE_END__'; "
+        'fi; '
+        'exit "$rc"'
+    )
     task = client.run_command(cmd)
     task_id = str(task.get("task_id") or task.get("id") or "")
     if not task_id:
-        return task
+        raise RuntimeError(f"SF API did not return a task ID for `{script_name}`: {task}")
+
     task_result = client.wait_task(task_id, timeout_s=timeout_s)
     result_json = client.task_result_json(task_result) if hasattr(client, "task_result_json") else {}
+    if not isinstance(result_json, dict):
+        result_json = {"raw_result": result_json}
+
+    output = _workflow_command_output(result_json)
+    task_status = str(task_result.get("status", "")).strip().lower() if isinstance(task_result, dict) else ""
+    command_status = str(result_json.get("status", "")).strip().lower()
+    command_error = result_json.get("error")
+    bad_statuses = {"failed", "error", "cancelled", "canceled"}
+
+    exit_match = re.search(r"__CO2RR_WORKFLOW_EXIT_CODE__=(\d+)", output)
+    shell_exit_code = int(exit_match.group(1)) if exit_match else None
+    failure_reasons = []
+    if task_status in bad_statuses:
+        failure_reasons.append(f"SF API task status={task_status}")
+    if command_status in bad_statuses:
+        failure_reasons.append(f"remote command status={command_status}")
+    if command_error not in (None, "", False):
+        failure_reasons.append(f"remote error={command_error}")
+    result_exit_code = result_json.get("exit_code")
+    if result_exit_code not in (None, 0, "0"):
+        failure_reasons.append(f"remote result exit_code={result_exit_code}")
+    if shell_exit_code not in (None, 0):
+        failure_reasons.append(f"shell exit code={shell_exit_code}")
+
+    state = _workflow_state_from_command_output(output)
+    if verify_relax:
+        relax_job = ((state or {}).get("jobs") or {}).get("relax") or {}
+        relax_job_id = str(relax_job.get("job_id") or "").strip()
+        if not relax_job_id:
+            failure_reasons.append("no relaxation Slurm job was registered")
+
+    if failure_reasons:
+        detail = output.strip() or json.dumps(result_json, indent=2)
+        raise RuntimeError(
+            f"Remote `{script_name}` failed ({'; '.join(failure_reasons)}). "
+            f"SF API task ID: {task_id}. Remote output:\n{detail[:6000]}"
+        )
+
     return {
         "status": "completed",
         "remote_dir": remote_dir,
@@ -363,4 +462,7 @@ def run_remote_workflow_script(client: Any, remote_dir: str, script_name: str, t
         "task_id": task_id,
         "task": task_result,
         "result": result_json,
+        "output": output,
+        "shell_exit_code": shell_exit_code,
+        "workflow_state": state,
     }
