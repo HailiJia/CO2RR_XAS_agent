@@ -52,6 +52,34 @@ if _loaded_old not in _source:
     raise RuntimeError("Signal-type patch could not find the loaded-records block.")
 _source = _source.replace(_loaded_old, _loaded_new)
 
+_adsorbate_old = '''        metadata.update(parsed_structure_labels(record))'''
+_adsorbate_new = '''        metadata.update(parsed_structure_labels(record))
+        explicit_adsorbate = (
+            get_path(record, "system.configuration.adsorbate.identity")
+            or get_path(record, "system.configuration.adsorbate_identity")
+            or get_path(record, "sample.adsorbate.identity")
+        )
+        if explicit_adsorbate:
+            metadata["structure.adsorbate"] = safe_str(explicit_adsorbate)
+        else:
+            material_name = safe_str(get_path(record, "sample.material.name"))
+            adsorbate_match = re.search(r"\\bwith\\s+([A-Za-z0-9_+\\-]+)\\s+adsorbate\\b", material_name, re.I)
+            if adsorbate_match:
+                metadata["structure.adsorbate"] = adsorbate_match.group(1)
+            elif material_name and "slab" in material_name.lower() and "adsorbate" not in material_name.lower():
+                metadata["structure.adsorbate"] = "clean"'''
+if _adsorbate_old not in _source:
+    raise RuntimeError("Adsorbate-target patch could not find the ML metadata block.")
+_source = _source.replace(_adsorbate_old, _adsorbate_new)
+_source = _source.replace(
+    'for key in ["structure.facet", "structure.adsorption_site"]:',
+    'for key in ["structure.adsorbate", "structure.facet", "structure.adsorption_site"]:',
+)
+_source = _source.replace(
+    'Only chemically useful XAS ML targets are shown: material formula, non-null descriptors, and optional parsed facet/site labels.',
+    'Only chemically useful XAS ML targets are shown: material formula, non-null descriptors, and optional parsed adsorbate/facet/site labels.',
+)
+
 _plot_old = '''else:
     plot_rows = plottable
 plot_groups = sorted({r.get("edge_group", "Unknown absorber/edge") for r in plot_rows})'''
