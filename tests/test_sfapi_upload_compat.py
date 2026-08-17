@@ -26,20 +26,23 @@ class _Response:
 
 
 class _Session:
-    def __init__(self, response=None):
+    def __init__(self, response=None, responses=None):
         self.put_calls = []
         self.response = response or _Response()
+        self.responses = list(responses or [])
 
     def put(self, url, files=None):
         self.put_calls.append((url, files))
+        if self.responses:
+            return self.responses.pop(0)
         return self.response
 
 
 class _FakeClient:
     system = "perlmutter"
 
-    def __init__(self, response=None):
-        self.session = _Session(response=response)
+    def __init__(self, response=None, responses=None):
+        self.session = _Session(response=response, responses=responses)
         self.commands = []
         self.waited = []
         self.legacy_calls = []
@@ -49,9 +52,12 @@ class _FakeClient:
         return "https://api.nersc.gov/api/v1.2/" + path
 
     def _check(self, response, context):
+        payload = response.json()
         if response.status_code >= 400:
-            raise RuntimeError(f"{context} failed with HTTP {response.status_code}: {response.json()}")
-        return response.json()
+            raise RuntimeError(f"{context} failed with HTTP {response.status_code}: {payload}")
+        if isinstance(payload, dict) and payload.get("error"):
+            raise RuntimeError(f"{context} returned error: {payload.get('error')}")
+        return payload
 
     def _local_dir_to_tar_bundle(self, local_dir):
         payload = b"fake-tar-gz"
@@ -66,7 +72,7 @@ class _FakeClient:
 
     def run_command(self, command):
         self.commands.append(command)
-        return {"task_id": "123"}
+        return {"task_id": str(123 + len(self.commands) - 1)}
 
     def _wait_successful_command(self, task_id, timeout_s=180):
         self.waited.append((task_id, timeout_s))
@@ -90,7 +96,7 @@ class _FakeClient:
         }
 
 
-def test_workflow_upload_uses_one_file_put_and_one_unpack_task(tmp_path):
+def test_workflow_upload_preserves_absolute_nersc_path(tmp_path):
     (tmp_path / "workflow_submit.sh").write_text("#!/bin/bash\n")
     client = _FakeClient()
 
@@ -106,13 +112,35 @@ def test_workflow_upload_uses_one_file_put_and_one_unpack_task(tmp_path):
     assert result["chunk_task_ids"] == []
     assert len(client.session.put_calls) == 1
     url, files = client.session.put_calls[0]
-    assert "/utilities/upload/perlmutter/pscratch/" in url
-    assert "/utilities/upload/perlmutter//pscratch/" not in url
+    # NERSC's official sfapi_client preserves the leading slash of absolute
+    # filesystem paths, so the route separator plus /pscratch appears as //.
+    assert "/utilities/upload/perlmutter//pscratch/" in url
     assert "file" in files
     assert len(client.commands) == 1
     assert "tar -xzf" in client.commands[0]
     assert "rm -rf '/pscratch/sd/h/hjia/CO2RR/web_xas_agent_runs/test12'" in client.commands[0]
     assert client.waited == [("123", 600)]
+
+
+def test_missing_upload_parent_is_created_and_direct_upload_retried(tmp_path):
+    (tmp_path / "workflow_submit.sh").write_text("#!/bin/bash\n")
+    missing = _Response(status_code=200, payload={"status": "error", "error": "No such file"})
+    success = _Response(status_code=200, payload={"status": "ok", "error": None})
+    client = _FakeClient(responses=[missing, success])
+
+    result = _direct_upload_directory(
+        client,
+        str(tmp_path),
+        "/pscratch/sd/h/hjia/CO2RR/web_xas_agent_runs/test12",
+        timeout_s=240,
+    )
+
+    assert result["status"] == "uploaded"
+    assert len(client.session.put_calls) == 2
+    assert len(client.commands) == 2
+    assert client.commands[0] == "mkdir -p '/pscratch/sd/h/hjia/CO2RR/web_xas_agent_runs'"
+    assert "tar -xzf" in client.commands[1]
+    assert client.waited == [("123", 600), ("124", 600)]
 
 
 def test_forbidden_direct_upload_falls_back_to_legacy_command_transport(tmp_path):
