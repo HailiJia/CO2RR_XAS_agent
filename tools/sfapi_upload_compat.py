@@ -7,6 +7,11 @@ from pathlib import Path, PurePosixPath
 from typing import Any, Dict
 
 
+def _is_missing_remote_path_error(exc: Exception) -> bool:
+    text = str(exc).lower()
+    return "no such file" in text or "no such file or directory" in text
+
+
 def _direct_upload_directory(
     self,
     local_dir: str,
@@ -38,20 +43,40 @@ def _direct_upload_directory(
     safe_name = remote_path.name or "workflow"
     remote_tmp_tgz = f"{remote_parent}/.{safe_name}.web_xas_agent_upload_{marker}.tar.gz"
 
-    # Use a canonical single-slash API path. The filesystem path itself remains
-    # absolute; only the URL path component drops the leading slash so we do not
-    # produce .../{machine}//pscratch/... .
-    upload_api_path = remote_tmp_tgz.lstrip("/")
-    upload_url = self._url(f"utilities/upload/{self.system}/{upload_api_path}")
-    files = {
-        "file": (
-            PurePosixPath(remote_tmp_tgz).name,
-            io.BytesIO(archive_bytes),
-            "application/gzip",
-        )
-    }
-    response = self.session.put(upload_url, files=files)
-    upload_result = self._check(response, "workflow archive upload")
+    # IMPORTANT: keep the leading slash of the absolute NERSC filesystem path.
+    # NERSC's official sfapi_client constructs the same form:
+    #   utilities/upload/perlmutter//pscratch/...
+    # The apparent double slash is intentional: one slash separates the API
+    # route and the second slash is the leading slash of the absolute path.
+    upload_url = self._url(f"utilities/upload/{self.system}/{remote_tmp_tgz}")
+
+    def _put_archive():
+        files = {
+            "file": (
+                PurePosixPath(remote_tmp_tgz).name,
+                io.BytesIO(archive_bytes),
+                "application/gzip",
+            )
+        }
+        response = self.session.put(upload_url, files=files)
+        return self._check(response, "workflow archive upload")
+
+    try:
+        upload_result = _put_archive()
+    except Exception as exc:
+        if not _is_missing_remote_path_error(exc):
+            raise
+
+        # The upload endpoint creates the file but not missing parent
+        # directories. Create the parent once and retry the direct upload.
+        mkdir_task = self.run_command(f"mkdir -p {self.shell_quote(remote_parent)}")
+        mkdir_id = str(mkdir_task.get("task_id") or mkdir_task.get("id") or "")
+        if not mkdir_id:
+            raise RuntimeError(
+                f"SF API did not return a task ID while creating upload parent {remote_parent}: {mkdir_task}"
+            ) from exc
+        self._wait_successful_command(mkdir_id, timeout_s=max(int(timeout_s), 600))
+        upload_result = _put_archive()
 
     expected_sha = self.shell_quote(archive_sha256)
     overwrite_cmd = f"rm -rf {self.shell_quote(remote_dir)}; " if overwrite else ""
