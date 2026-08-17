@@ -18,10 +18,9 @@ def _direct_upload_directory(
     """Upload a workflow package with the SF API file-upload endpoint.
 
     The historical implementation sent the archive as many 8k base64 append
-    command tasks.  One task stuck in SF API status ``new`` caused the whole
-    upload to time out.  NERSC provides ``PUT /utilities/upload`` specifically
-    for small files, so upload one tar.gz and use one command task to verify and
-    unpack it.
+    command tasks. One task stuck in SF API status ``new`` could make the whole
+    upload time out. NERSC provides ``PUT /utilities/upload`` for small files,
+    so this path uploads one tar.gz and uses one command task to verify/unpack.
 
     ``chunk_chars`` is accepted for API compatibility but intentionally unused.
     """
@@ -39,10 +38,11 @@ def _direct_upload_directory(
     safe_name = remote_path.name or "workflow"
     remote_tmp_tgz = f"{remote_parent}/.{safe_name}.web_xas_agent_upload_{marker}.tar.gz"
 
-    # Match NERSC's official sfapi_client implementation: multipart PUT to
-    # utilities/upload/{machine}/{path}.  This request is synchronous and does
-    # not create one SF task per archive chunk.
-    upload_url = self._url(f"utilities/upload/{self.system}/{remote_tmp_tgz}")
+    # Use a canonical single-slash API path. The filesystem path itself remains
+    # absolute; only the URL path component drops the leading slash so we do not
+    # produce .../{machine}//pscratch/... .
+    upload_api_path = remote_tmp_tgz.lstrip("/")
+    upload_url = self._url(f"utilities/upload/{self.system}/{upload_api_path}")
     files = {
         "file": (
             PurePosixPath(remote_tmp_tgz).name,
@@ -73,8 +73,7 @@ def _direct_upload_directory(
         raise RuntimeError(f"SF API did not return a task ID while unpacking workflow archive: {unpack_task}")
 
     # A single unpack task may occasionally sit in SF API status 'new'. Give it
-    # a longer window than the old per-chunk timeout while avoiding hundreds of
-    # sequential waits.
+    # a longer window than the old per-chunk timeout.
     unpack_timeout = max(int(timeout_s), 600)
     unpack_result = self._wait_successful_command(unpack_id, timeout_s=unpack_timeout)
 
@@ -95,11 +94,77 @@ def _direct_upload_directory(
     }
 
 
+def _direct_upload_was_forbidden(exc: Exception) -> bool:
+    """True for auth/scope rejection of the direct file-upload endpoint."""
+    text = str(exc).lower()
+    return (
+        "http 401" in text
+        or "http 403" in text
+        or "forbidden" in text
+        or "unauthorized" in text
+    )
+
+
+def _upload_directory_with_fallback(
+    self,
+    local_dir: str,
+    remote_dir: str,
+    overwrite: bool = True,
+    chunk_chars: int = 8000,
+    timeout_s: int = 240,
+) -> Dict[str, Any]:
+    """Prefer direct upload, but preserve the previously working command path.
+
+    SF API endpoints are independently permission-scoped. Some credentials that
+    can run the command-based workflow transport may receive HTTP 401/403 from
+    ``utilities/upload``. In that case, automatically fall back to the original
+    command-based uploader instead of failing the user request.
+    """
+    try:
+        return _direct_upload_directory(
+            self,
+            local_dir,
+            remote_dir,
+            overwrite=overwrite,
+            chunk_chars=chunk_chars,
+            timeout_s=timeout_s,
+        )
+    except Exception as exc:
+        if not _direct_upload_was_forbidden(exc):
+            raise
+
+        legacy = getattr(self, "_legacy_workflow_upload_directory", None)
+        if legacy is None:
+            raise
+
+        # The legacy path previously worked with this app's SF API credentials.
+        # Keep its conservative 8k chunks, but extend the per-task wait so an SF
+        # task that remains in status='new' for several minutes does not trigger
+        # the old 240-second false failure as readily.
+        result = legacy(
+            local_dir,
+            remote_dir,
+            overwrite=overwrite,
+            chunk_chars=int(chunk_chars or 8000),
+            timeout_s=max(int(timeout_s), 900),
+        )
+        if isinstance(result, dict):
+            result = dict(result)
+            result["transport"] = "sfapi_command_chunk_fallback"
+            result["direct_upload_error"] = str(exc)
+        return result
+
+
 def install() -> None:
-    """Install the direct-file workflow uploader on the existing SF API client."""
+    """Install robust workflow upload transport on the existing SF API client."""
     from tools.nersc_job_manager import NERSCSFAPIClient
 
     if getattr(NERSCSFAPIClient, "_direct_workflow_upload_installed", False):
         return
-    NERSCSFAPIClient.upload_directory = _direct_upload_directory
+
+    # Preserve the pre-patch implementation so credentials that cannot access
+    # utilities/upload can still use the command-based transfer that worked in
+    # earlier versions of the app.
+    NERSCSFAPIClient._legacy_workflow_upload_directory = NERSCSFAPIClient.upload_directory
+    NERSCSFAPIClient.upload_directory = _upload_directory_with_fallback
     NERSCSFAPIClient._direct_workflow_upload_installed = True
