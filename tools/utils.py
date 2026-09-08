@@ -54,21 +54,24 @@ METALS_3D = ['Sc', 'Ti', 'V', 'Cr', 'Mn', 'Fe', 'Co', 'Ni', 'Cu', 'Zn']
 METALS_4D = ['Y', 'Zr', 'Nb', 'Mo', 'Tc', 'Ru', 'Rh', 'Pd', 'Ag', 'Cd']
 METALS_5D = ['Hf', 'Ta', 'W', 'Re', 'Os', 'Ir', 'Pt', 'Au', 'Hg']
 
+# Representative room-temperature experimental lattice parameters (Angstrom).
+# These values are explicit workflow defaults; structure generation should not
+# silently fall back to ASE reference-state lattice constants.
 METAL_DATA = {
-    'Al': {'structure': 'fcc', 'a': 4.05},
-    'Fe': {'structure': 'bcc', 'a': 2.87},
-    'Co': {'structure': 'hcp', 'a': 2.51, 'c': 4.07},
-    'Ni': {'structure': 'fcc', 'a': 3.52},
+    'Al': {'structure': 'fcc', 'a': 4.050},
+    'Fe': {'structure': 'bcc', 'a': 2.867},
+    'Co': {'structure': 'hcp', 'a': 2.507, 'c': 4.070},
+    'Ni': {'structure': 'fcc', 'a': 3.524},
     'Cu': {'structure': 'fcc', 'a': 3.615},
-    'Zn': {'structure': 'hcp', 'a': 2.66, 'c': 4.95},
-    'Mo': {'structure': 'bcc', 'a': 3.15},
-    'Ru': {'structure': 'hcp', 'a': 2.71, 'c': 4.28},
-    'Rh': {'structure': 'fcc', 'a': 3.80},
-    'Pd': {'structure': 'fcc', 'a': 3.89},
-    'Ag': {'structure': 'fcc', 'a': 4.09},
-    'Ir': {'structure': 'fcc', 'a': 3.84},
-    'Pt': {'structure': 'fcc', 'a': 3.92},
-    'Au': {'structure': 'fcc', 'a': 4.08},
+    'Zn': {'structure': 'hcp', 'a': 2.665, 'c': 4.950},
+    'Mo': {'structure': 'bcc', 'a': 3.147},
+    'Ru': {'structure': 'hcp', 'a': 2.710, 'c': 4.280},
+    'Rh': {'structure': 'fcc', 'a': 3.800},
+    'Pd': {'structure': 'fcc', 'a': 3.891},
+    'Ag': {'structure': 'fcc', 'a': 4.085},
+    'Ir': {'structure': 'fcc', 'a': 3.840},
+    'Pt': {'structure': 'fcc', 'a': 3.924},
+    'Au': {'structure': 'fcc', 'a': 4.078},
 }
 
 EDGE_ENERGIES = {'K': K_EDGE_ENERGIES, 'L3': L3_EDGE_ENERGIES}
