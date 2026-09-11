@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import re
+from math import gcd
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Tuple
 
@@ -55,9 +56,8 @@ def ratio_from_row_counts(cu_rows: int, au_rows: int) -> str:
     relaxed parents can have e.g. 3 Cu + 6 Au rows.  In that case retain the
     explicit row-count label instead of silently truncating 3//2 to 1.
     """
-    if cu_rows % STRIPE_ROW_BASE_UNIT == 0 and au_rows % STRIPE_ROW_BASE_UNIT == 0:
-        return stripe_ratio_label(cu_rows // STRIPE_ROW_BASE_UNIT, au_rows // STRIPE_ROW_BASE_UNIT)
-    return f"{int(cu_rows)}:{int(au_rows)}"
+    divisor = gcd(max(1, int(cu_rows)), max(1, int(au_rows)))
+    return stripe_ratio_label(int(cu_rows) // divisor, int(au_rows) // divisor)
 
 
 def actual_rows_from_ratio(value: Any) -> Tuple[int, int, str]:
