@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import re
+from math import gcd
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Tuple
 
@@ -46,6 +47,17 @@ def parse_stripe_ratio(value: Any, default: Tuple[int, int] = (1, 1)) -> Tuple[i
 
 def stripe_ratio_label(cu_units: int, au_units: int) -> str:
     return f"{int(cu_units)}:{int(au_units)}"
+
+
+def ratio_from_row_counts(cu_rows: int, au_rows: int) -> str:
+    """Return a display ratio while preserving non-base-unit row counts.
+
+    The historical UI ratio is expressed in two-row units, but uploaded and
+    relaxed parents can have e.g. 3 Cu + 6 Au rows.  In that case retain the
+    explicit row-count label instead of silently truncating 3//2 to 1.
+    """
+    divisor = gcd(max(1, int(cu_rows)), max(1, int(au_rows)))
+    return stripe_ratio_label(int(cu_rows) // divisor, int(au_rows) // divisor)
 
 
 def actual_rows_from_ratio(value: Any) -> Tuple[int, int, str]:
@@ -144,14 +156,14 @@ def _rows_for_elements(
         e2_rows = max(1, int(element2_rows or requested_rows_per_side))
         final_cu_rows = e1_rows if element1 == "Cu" else (e2_rows if element2 == "Cu" else 0)
         final_au_rows = e1_rows if element1 == "Au" else (e2_rows if element2 == "Au" else 0)
-        ratio = stripe_ratio_label(max(1, final_cu_rows // STRIPE_ROW_BASE_UNIT), max(1, final_au_rows // STRIPE_ROW_BASE_UNIT)) if final_cu_rows and final_au_rows else f"{e1_rows}:{e2_rows}"
+        ratio = ratio_from_row_counts(final_cu_rows, final_au_rows) if final_cu_rows and final_au_rows else f"{e1_rows}:{e2_rows}"
     else:
         if cu_rows is None or au_rows is None:
             cu_rows_parsed, au_rows_parsed, ratio = actual_rows_from_ratio(stripe_ratio)
             cu_rows = cu_rows if cu_rows is not None else cu_rows_parsed
             au_rows = au_rows if au_rows is not None else au_rows_parsed
         else:
-            ratio = stripe_ratio_label(max(1, int(cu_rows) // STRIPE_ROW_BASE_UNIT), max(1, int(au_rows) // STRIPE_ROW_BASE_UNIT))
+            ratio = ratio_from_row_counts(int(cu_rows), int(au_rows))
         cu_rows = max(1, int(cu_rows))
         au_rows = max(1, int(au_rows))
         e1_rows = cu_rows if element1 == "Cu" else (au_rows if element1 == "Au" else requested_rows_per_side)
@@ -248,19 +260,22 @@ def _patched_generate_interface(
     positions: List[np.ndarray] = []
     for layer in range(layers):
         shift = stacking[layer % 3]
+        # Convert triangular-lattice (u,v) ABC shifts to the rectangular
+        # row representation used by this interface builder.
+        shift_x = float(shift[0] + 0.5 * shift[1])
         z = layer * layer_spacing
         for j in range(e1_rows):
             row_shift = 0.5 * (j % 2)
             y = (j + shift[1]) * row_spacing1
             for i in range(n1):
-                x_frac = (i + shift[0] + row_shift) / n1
+                x_frac = (i + shift_x + row_shift) / n1
                 atoms.append(element1)
                 positions.append(np.array([(x_frac % 1.0) * common_x, y, z]))
         for j in range(e2_rows):
             row_shift = 0.5 * (j % 2)
             y = split_y + (j + shift[1]) * row_spacing2
             for i in range(n2):
-                x_frac = (i + shift[0] + row_shift) / n2
+                x_frac = (i + shift_x + row_shift) / n2
                 atoms.append(element2)
                 positions.append(np.array([(x_frac % 1.0) * common_x, y, z]))
 
