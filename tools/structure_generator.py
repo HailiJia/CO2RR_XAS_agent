@@ -311,6 +311,10 @@ class StructureGenerator:
         positions = []
         for layer in range(layers):
             shift = stacking[layer % 3]
+            # The interface generator uses a rectangular row representation.
+            # Convert the fractional triangular-lattice shift (u,v) to that
+            # representation: x gets u+v/2 and y gets v row spacings.
+            shift_x = float(shift[0] + 0.5 * shift[1])
             z = layer * layer_spacing
             for i in range(supercell[0]):
                 for j in range(supercell[1]):
@@ -722,6 +726,7 @@ class StructureGenerator:
 
         for layer in range(layers):
             shift = stacking[layer % 3]
+            shift_x = float(shift[0] + 0.5 * shift[1])
             z = layer * layer_spacing
 
             # element1 block: below the internal interface, y in [0, split_y)
@@ -729,7 +734,7 @@ class StructureGenerator:
                 row_shift = 0.5 * (j % 2)
                 y = (j + shift[1]) * row_spacing1
                 for i in range(n1):
-                    x_frac = (i + shift[0] + row_shift) / n1
+                    x_frac = (i + shift_x + row_shift) / n1
                     x = (x_frac % 1.0) * common_x
                     atoms.append(element1)
                     positions.append(np.array([x, y, z]))
@@ -739,7 +744,7 @@ class StructureGenerator:
                 row_shift = 0.5 * (j % 2)
                 y = split_y + (j + shift[1]) * row_spacing2
                 for i in range(n2):
-                    x_frac = (i + shift[0] + row_shift) / n2
+                    x_frac = (i + shift_x + row_shift) / n2
                     x = (x_frac % 1.0) * common_x
                     atoms.append(element2)
                     positions.append(np.array([x, y, z]))

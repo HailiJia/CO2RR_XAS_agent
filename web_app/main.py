@@ -358,6 +358,9 @@ def parse_prompt(prompt):
     """Simple first-pass parser. Sidebar values remain the source of truth."""
     text = prompt.lower()
     parsed = {}
+    if any(term in text for term in ("relaxed interface", "relaxed parent", "plain interface", "use the uploaded", "use uploaded")):
+        parsed["structure_source"] = "Upload structure"
+        parsed["relaxed_parent"] = True
 
     if ("single" in text or "surface" in text or "pure" in text or "pure metal" in text) and "interface" not in text:
         parsed["structure_mode"] = "Single metal surface"
@@ -1895,7 +1898,14 @@ def _generate_structure_from_params(params, uploaded_file=None):
         upload_dir.mkdir(parents=True, exist_ok=True)
         upload_path = upload_dir / uploaded_file.name
         upload_path.write_bytes(uploaded_file.getbuffer())
-        structure = read_structure_file(str(upload_path))
+        if params.get("relaxed_parent"):
+            from tools.relaxed_interface import load_relaxed_interface
+            structure = load_relaxed_interface(str(upload_path), element1="Cu", element2="Au", cu_rows=4, au_rows=4)
+            structure["metadata"]["supercell"] = [9, 8]
+            if params.get("adsorbate") and params.get("adsorbate") != "clean":
+                structure = StructureGenerator().add_adsorbate(structure, params["adsorbate"], site="auto", height=float(params.get("height", 2.0)), binding_element="Cu")
+        else:
+            structure = read_structure_file(str(upload_path))
         structure["metadata"] = dict(structure.get("metadata", {}))
         structure["metadata"].update({
             "type": "uploaded_structure",
