@@ -383,7 +383,9 @@ def _scenario_specs(structure: Dict[str, Any], adsorbate: str, distribution: str
             mode = None
         return [{"name": distribution, "distribution": distribution, "element": preferred, "pair_mode": mode}]
     if not is_interface:
-        return [{"name": "uniform", "distribution": "uniform", "element": preferred, "pair_mode": None}]
+        if adsorbate in {"OCCO", "COOH"} and preferred != "Au":
+            return [{"name": "uniform", "distribution": "uniform", "element": preferred, "pair_mode": "same"}]
+        return [{"name": "uniform", "distribution": "uniform", "element": preferred, "pair_mode": "top" if adsorbate == "COOH" else None}]
     if adsorbate == "OCCO":
         return [
             {"name": "CuCu_uniform", "distribution": "uniform", "element": "Cu", "pair_mode": "same"},
