@@ -273,6 +273,18 @@ def _single_geometry(name: str, site: Dict[str, Any]) -> Tuple[List[str], np.nda
         oc = -co / np.linalg.norm(co)
         oh = math.cos(math.radians(110.0)) * oc + math.sin(math.radians(110.0)) * _perp(oc)
         return ["C", "O", "H"], np.array([C, O, O + COH_OH * oh])
+    if name == "COOH":
+        # Monodentate Au-like starting motif: carbon binds the metal; retain
+        # one carbonyl O and one hydroxyl O-H.
+        co = np.array([0.28, 0.0, math.sqrt(COOH_CARBONYL**2 - 0.28**2)])
+        Ocar = C + co
+        uco = co / np.linalg.norm(co)
+        uoh = math.cos(math.radians(125.0)) * uco + math.sin(math.radians(125.0)) * _perp(uco)
+        Oh = C + COOH_COH * uoh
+        oc = (C - Oh) / np.linalg.norm(C - Oh)
+        uh = math.cos(math.radians(108.0)) * oc + math.sin(math.radians(108.0)) * _perp(oc)
+        H = Oh + COOH_OH * uh
+        return ["C", "O", "O", "H"], np.array([C, Ocar, Oh, H])
 
     data = ADSORBATES[name]
     local = np.asarray(data["positions"], float).copy()
@@ -363,8 +375,13 @@ def _scenario_specs(structure: Dict[str, Any], adsorbate: str, distribution: str
     interface = structure.get("metadata", {}).get("interface", {})
     is_interface = isinstance(interface, dict) and interface.get("type") == "lateral"
     if not all_scenarios:
-        return [{"name": distribution, "distribution": distribution, "element": preferred,
-                 "pair_mode": "cross" if distribution == "cross_interface" else None}]
+        if adsorbate == "OCCO":
+            mode = "cross" if distribution == "cross_interface" else "same"
+        elif adsorbate == "COOH":
+            mode = "cross" if distribution == "cross_interface" else ("top" if preferred == "Au" else "same")
+        else:
+            mode = None
+        return [{"name": distribution, "distribution": distribution, "element": preferred, "pair_mode": mode}]
     if not is_interface:
         return [{"name": "uniform", "distribution": "uniform", "element": preferred, "pair_mode": None}]
     if adsorbate == "OCCO":
@@ -408,8 +425,8 @@ def generate_adsorbate_scenarios(
 
     preferred = _preferred(structure, preferred_element)
     denominator, basis = _denominator(structure, preferred, coverage_basis)
-    target = max(1, int(round(float(coverage) * denominator)))
-    n_ads = max(1, int(round(target / 2.0))) if adsorbate == "OCCO" else target
+    target = max(1, int(math.floor(float(coverage) * denominator + 0.5)))
+    n_ads = max(1, int(math.floor(target / 2.0 + 0.5))) if adsorbate == "OCCO" else target
     actual_equiv = 2 * n_ads if adsorbate == "OCCO" else n_ads
     cell = np.asarray(structure["cell"], float)
 
