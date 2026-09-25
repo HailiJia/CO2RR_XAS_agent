@@ -10,6 +10,7 @@ from .utils import (
 )
 from .result_parser import ResultParser, execute_result_parsing
 from .ml_xas_workflow import execute_ml_dataset_assembly
+from .adsorbate_scenarios import generate_adsorbate_scenarios
 
 __all__ = [
     'ensure_dir',
@@ -23,4 +24,5 @@ __all__ = [
     'ResultParser',
     'execute_result_parsing',
     'execute_ml_dataset_assembly',
+    'generate_adsorbate_scenarios',
 ]
