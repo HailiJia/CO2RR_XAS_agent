@@ -1,0 +1,13 @@
+file,nominal_Cu_ML,actual_Cu_ML,Cu_OH,Au_extra_OH_not_counted,total_OH,distribution,Cu3_fcc,Cu_interface_fcc,min_OO_A,min_Ometal_A,max_Ometal_A,OH_bond_A
+POSCAR_OH_0125ML_uniform_low4Cu,0.125,0.111,4,0,4,uniform,2,2,7.671,1.787,2.12,0.98
+POSCAR_OH_0125ML_uniform_high5Cu,0.125,0.139,5,0,5,uniform,3,2,7.671,1.693,2.12,0.98
+POSCAR_OH_0125ML_interface_Au,0.125,0.111,4,1,5,interface_Au,1,3,7.671,1.721,2.131,0.98
+POSCAR_OH_0125ML_interior_biased,0.125,0.111,4,0,4,interior_biased,4,0,6.768,1.694,1.85,0.98
+POSCAR_OH_025ML_uniform,0.250,0.250,9,0,9,uniform,6,3,4.432,1.693,2.12,0.98
+POSCAR_OH_025ML_interface_biased,0.250,0.250,9,0,9,interface_biased,5,4,2.56,1.693,2.12,0.98
+POSCAR_OH_025ML_interface_Au,0.250,0.250,9,1,10,interface_Au,5,4,2.56,1.693,2.12,0.98
+POSCAR_OH_025ML_interior_biased,0.250,0.250,9,0,9,interior_biased,9,0,2.557,1.693,1.85,0.98
+POSCAR_OH_050ML_uniform,0.500,0.500,18,0,18,uniform,14,4,2.557,1.693,2.131,0.98
+POSCAR_OH_050ML_interface_biased,0.500,0.500,18,0,18,interface_biased,9,9,2.557,1.693,2.131,0.98
+POSCAR_OH_050ML_interface_Au,0.500,0.500,18,2,20,interface_Au,9,9,2.557,1.693,2.131,0.98
+POSCAR_OH_050ML_interior_biased,0.500,0.500,18,0,18,interior_biased,17,1,2.557,1.693,1.85,0.98
