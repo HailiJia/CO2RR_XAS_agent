@@ -82,14 +82,18 @@ ADSORBATES = {
     'H': {'atoms': ['H'], 'positions': np.array([[0.0, 0.0, 0.0]]), 'binding_atom': 0},
     'OH': {'atoms': ['O', 'H'], 'positions': np.array([[0.0, 0.0, 0.0], [0.0, 0.0, 0.97]]), 'binding_atom': 0},
     'H2O': {'atoms': ['O', 'H', 'H'], 'positions': np.array([[0.0, 0.0, 0.0], [0.76, 0.59, 0.0], [-0.76, 0.59, 0.0]]), 'binding_atom': 0},
-    'CHO': {'atoms': ['C', 'O', 'H'], 'positions': np.array([[0.0, 0.0, 0.0], [1.094, 0.0, 0.387], [-0.363, 0.943, 0.363]]), 'binding_atom': 0},
+    # True formyl: surface-C(H)=O. Keep distinct from COH (surface-C-O-H).
+    'CHO': {'atoms': ['C', 'O', 'H'], 'positions': np.array([[0.0, 0.0, 0.0], [0.22, 0.0, 1.210], [-0.55, 0.953, 0.0]]), 'binding_atom': 0},
+    'COH': {'atoms': ['C', 'O', 'H'], 'positions': np.array([[0.0, 0.0, 0.0], [0.30, 0.0, 1.296], [1.04, 0.0, 1.938]]), 'binding_atom': 0},
+    'COOH': {'atoms': ['C', 'O', 'O', 'H'], 'positions': np.array([[0.0, 0.0, 0.0], [1.26, 0.0, 0.0], [-0.76, 1.09, 0.0], [-1.08, 1.99, 0.0]]), 'binding_atom': 0},
+    # Legacy CHOH retained for backward compatibility with prior workflows.
     'CHOH': {'atoms': ['C', 'H', 'O', 'H'], 'positions': np.array([[0.0, 0.0, 0.0], [-0.6, 0.8, 0.2], [1.2, 0.0, 0.3], [1.7, 0.0, 1.1]]), 'binding_atom': 0},
     'CH': {'atoms': ['C', 'H'], 'positions': np.array([[0.0, 0.0, 0.0], [0.0, 0.0, 1.09]]), 'binding_atom': 0},
     'CH2': {'atoms': ['C', 'H', 'H'], 'positions': np.array([[0.0, 0.0, 0.0], [0.9, 0.0, 0.6], [-0.9, 0.0, 0.6]]), 'binding_atom': 0},
     'CH3': {'atoms': ['C', 'H', 'H', 'H'], 'positions': np.array([[0.0, 0.0, 0.0], [0.9, 0.0, 0.6], [-0.45, 0.78, 0.6], [-0.45, -0.78, 0.6]]), 'binding_atom': 0},
     'CH4': {'atoms': ['C', 'H', 'H', 'H', 'H'], 'positions': np.array([[0.0, 0.0, 0.0], [0.63, 0.63, 0.63], [-0.63, -0.63, 0.63], [-0.63, 0.63, -0.63], [0.63, -0.63, -0.63]]), 'binding_atom': 0},
     'COCO': {'atoms': ['C', 'O', 'C', 'O'], 'positions': np.array([[0.0, 0.0, 0.0], [1.15, 0.0, 0.2], [-1.35, 0.0, 0.0], [-2.5, 0.0, 0.2]]), 'binding_atom': 0},
-    'OCCO': {'atoms': ['O', 'C', 'C', 'O'],'positions': np.array([[0.0, 0.0, 1.22],[0.0, 0.0, 0.0],[1.42, 0.0, 0.0],[1.42, 0.0, 1.22]]),'binding_atom': 1}
+    'OCCO': {'atoms': ['O', 'C', 'C', 'O'],'positions': np.array([[0.0, 0.0, 1.25],[0.0, 0.0, 0.0],[1.45, 0.0, 0.0],[1.45, 0.0, 1.25]]),'binding_atom': 1}
 }
 
 ADSORPTION_SITES = {
@@ -99,7 +103,7 @@ ADSORPTION_SITES = {
     'hcp': np.array([2.0 / 3.0, 2.0 / 3.0]),
 }
 
-CO2RR_PATHWAY = ['CO', 'CHO', 'CHOH', 'CH3', 'CH4', 'COCO', 'OCCO']
+CO2RR_PATHWAY = ['CO', 'COH', 'CHO', 'COOH', 'CHOH', 'CH3', 'CH4', 'OCCO']
 
 # =============================================================================
 # File and directory utilities
