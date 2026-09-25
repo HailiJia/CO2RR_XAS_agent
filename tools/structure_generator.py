@@ -19,6 +19,7 @@ from .utils import (
     METAL_DATA, ADSORBATES, ADSORPTION_SITES, CO2RR_PATHWAY,
     write_poscar, read_poscar, read_structure_file, ensure_dir, generate_uuid, get_timestamp
 )
+from .adsorbate_scenarios import generate_adsorbate_scenarios as generate_coverage_scenarios
 
 
 # Adsorbate-specific defaults used by the generator itself, not only by the web UI.
@@ -27,6 +28,8 @@ DEFAULT_ADSORBATE_SITES = {
     "CO": "top",
     "CO2": "top",
     "CHO": "top",
+    "COH": "top",
+    "COOH": "bridge",
     "CHOH": "top",
     "CH3": "top",
     "CH4": "top",
@@ -46,6 +49,8 @@ DEFAULT_INTERFACE_BINDING_ELEMENTS = {
     "CO": "Cu",
     "CO2": "Cu",
     "CHO": "Cu",
+    "COH": "Cu",
+    "COOH": "Cu",
     "CHOH": "Cu",
     "CH": "Cu",
     "CH2": "Cu",
@@ -1062,8 +1067,18 @@ def execute_structure_generation(
     interface_match_mode: str = "auto",
     element1_repeats: Optional[int] = None,
     element2_repeats: Optional[int] = None,
+    coverage: Optional[float] = None,
+    distribution: Optional[str] = None,
+    preferred_binding_element: Optional[str] = None,
+    coverage_basis: Optional[str] = None,
+    all_scenarios: bool = False,
+    boundary_margin: float = 0.12,
 ) -> Dict:
-    """Execute Skill 1: Structure Generation."""
+    """Execute Skill 1: Structure Generation.
+
+    When coverage/distribution controls are supplied, use the dataset-oriented
+    scenario generator. Legacy single-adsorbate placement is unchanged otherwise.
+    """
     generator = StructureGenerator()
     results = {"status": "success", "structures": [], "files": []}
 
@@ -1121,17 +1136,45 @@ def execute_structure_generation(
                 if isinstance(adsorbate, str):
                     adsorbate = [adsorbate]
 
+                scenario_mode = coverage is not None or distribution is not None or all_scenarios
                 for ads in adsorbate:
-                    struct = generator.add_adsorbate(
-                        structure.copy(),
-                        ads,
-                        site=site,
-                        metadata_overrides=metadata_overrides,
-                    )
-                    struct_dir = os.path.join(output_dir, ads, "structure")
-                    files = generator.save_structure(struct, struct_dir)
-                    results["structures"].append(struct["metadata"])
-                    results["files"].append(files)
+                    if scenario_mode:
+                        # A representative low/moderate coverage is used only when
+                        # the user explicitly requests scenario generation but omits coverage.
+                        scenario_coverage = float(coverage) if coverage is not None else 0.111
+                        generated = generate_coverage_scenarios(
+                            structure,
+                            adsorbate=ads,
+                            coverage=scenario_coverage,
+                            distribution=distribution or "uniform",
+                            preferred_element=preferred_binding_element,
+                            coverage_basis=coverage_basis,
+                            all_scenarios=bool(all_scenarios),
+                            boundary_margin=float(boundary_margin),
+                        )
+                        for struct in generated:
+                            scenario_name = struct["metadata"].get("scenario_name", distribution or "uniform")
+                            struct["metadata"] = generator._with_ml_metadata(
+                                struct["metadata"],
+                                adsorbate_name=ads,
+                                site="multi",
+                                metadata_overrides=metadata_overrides,
+                            )
+                            struct_dir = os.path.join(output_dir, ads, scenario_name, "structure")
+                            files = generator.save_structure(struct, struct_dir)
+                            results["structures"].append(struct["metadata"])
+                            results["files"].append(files)
+                    else:
+                        struct = generator.add_adsorbate(
+                            structure.copy(),
+                            ads,
+                            site=site,
+                            metadata_overrides=metadata_overrides,
+                        )
+                        struct_dir = os.path.join(output_dir, ads, "structure")
+                        files = generator.save_structure(struct, struct_dir)
+                        results["structures"].append(struct["metadata"])
+                        results["files"].append(files)
             else:
                 structure["metadata"] = generator._with_ml_metadata(
                     structure["metadata"],
