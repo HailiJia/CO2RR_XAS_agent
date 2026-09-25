@@ -203,6 +203,30 @@ class XASPlan(BaseModel):
     adsorbate: Optional[AdsorbateMetadata] = Field(default=None, description="Structured adsorbate/intermediate metadata for XAS ML records.")
 
     site: Optional[Literal["top", "bridge", "fcc", "hcp"]] = None
+    coverage: Optional[float] = Field(
+        default=None,
+        description="Adsorbate coverage in monolayers relative to coverage_basis, e.g. 0.111.",
+    )
+    distribution: Optional[Literal["uniform", "interface_biased", "interior_biased", "cross_interface"]] = Field(
+        default=None,
+        description="Spatial adsorbate distribution on the surface.",
+    )
+    coverage_basis: Optional[str] = Field(
+        default=None,
+        description="Top-layer coverage denominator: element symbol such as Cu/Au, or all_surface.",
+    )
+    preferred_binding_element: Optional[str] = Field(
+        default=None,
+        description="Preferred metal for adsorbate binding when multiple surface elements are present.",
+    )
+    all_scenarios: bool = Field(
+        default=False,
+        description="Generate all species-specific physically reasonable distribution/binding scenarios.",
+    )
+    boundary_margin: Optional[float] = Field(
+        default=None,
+        description="Minimum fractional x/y distance from periodic cell boundaries for adsorbates.",
+    )
     supercell: Optional[List[int]] = Field(default=None, description="Two integers, e.g. [3, 3]")
     layers: Optional[int] = None
 
@@ -259,6 +283,18 @@ class XASPlan(BaseModel):
             parameters["absorber"] = self.absorber_elements[0]
         if self.site is not None:
             parameters["site"] = self.site
+        if self.coverage is not None:
+            parameters["coverage"] = float(self.coverage)
+        if self.distribution is not None:
+            parameters["distribution"] = self.distribution
+        if self.coverage_basis is not None:
+            parameters["coverage_basis"] = self.coverage_basis
+        if self.preferred_binding_element is not None:
+            parameters["preferred_binding_element"] = self.preferred_binding_element
+        if self.all_scenarios:
+            parameters["all_scenarios"] = True
+        if self.boundary_margin is not None:
+            parameters["boundary_margin"] = float(self.boundary_margin)
         if self.supercell is not None and len(self.supercell) >= 2:
             parameters["supercell"] = (int(self.supercell[0]), int(self.supercell[1]))
         if self.layers is not None:
