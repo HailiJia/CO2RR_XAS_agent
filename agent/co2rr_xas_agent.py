@@ -123,6 +123,66 @@ class LocalIntentParser:
         if layers_match:
             parameters["layers"] = int(layers_match.group(1))
 
+        # Dataset-oriented adsorbate controls.
+        coverage_match = re.search(
+            r"\\bcoverage\\s*(?:=|is|of|:)?\\s*(0(?:\\.\\d+)?|1(?:\\.0+)?)\\s*(?:ml)?\\b",
+            request_lower,
+        )
+        if not coverage_match:
+            coverage_match = re.search(r"\\b(0(?:\\.\\d+)?|1(?:\\.0+)?)\\s*ml\\b", request_lower)
+        percent_match = re.search(r"\\b(\\d+(?:\\.\\d+)?)\\s*%\\s*(?:coverage|ml)?\\b", request_lower)
+        if coverage_match:
+            parameters["coverage"] = float(coverage_match.group(1))
+        elif percent_match:
+            parameters["coverage"] = float(percent_match.group(1)) / 100.0
+
+        all_scenarios = any(
+            phrase in request_lower
+            for phrase in [
+                "all reasonable scenarios",
+                "all scenarios",
+                "all reasonable configurations",
+                "all distributions",
+                "all adsorption scenarios",
+            ]
+        )
+        if all(word in request_lower for word in ["uniform", "interface", "interior"]):
+            all_scenarios = True
+        if all_scenarios:
+            parameters["all_scenarios"] = True
+
+        if re.search(r"\\b(cross[- ]interface|across the interface|across interface)\\b", request_lower):
+            parameters["distribution"] = "cross_interface"
+        elif re.search(r"\\binterface[- ]biased\\b", request_lower):
+            parameters["distribution"] = "interface_biased"
+        elif re.search(r"\\binterior[- ]biased\\b", request_lower):
+            parameters["distribution"] = "interior_biased"
+        elif re.search(r"\\buniform(?:ly)?\\b", request_lower):
+            parameters["distribution"] = "uniform"
+
+        basis_match = re.search(
+            r"(?:coverage\\s+(?:based|normalized|referenced)\\s+(?:on|to)|coverage\\s+denominator)\\s*(Cu|Au|all_surface)",
+            request,
+            re.IGNORECASE,
+        )
+        if basis_match:
+            parameters["coverage_basis"] = basis_match.group(1)
+
+        binding_match = re.search(
+            r"(?:bind(?:ing)?\\s+(?:on|to|element)?|prefer(?:red)?\\s+(?:binding\\s+)?(?:metal|element)?)\\s*(Cu|Au)\\b",
+            request,
+            re.IGNORECASE,
+        )
+        if binding_match:
+            parameters["preferred_binding_element"] = binding_match.group(1)
+
+        boundary_match = re.search(
+            r"boundary\\s+margin\\s*(?:=|is|of|:)?\\s*(0(?:\\.\\d+)?)",
+            request_lower,
+        )
+        if boundary_match:
+            parameters["boundary_margin"] = float(boundary_match.group(1))
+
         for site in ["top", "bridge", "fcc", "hcp"]:
             if re.search(rf"\b{site}\b", request_lower):
                 parameters["site"] = site
@@ -498,6 +558,12 @@ class CO2RRXASAgent:
             output_dir=intent.output_dir,
             full_pathway=intent.full_pathway,
             metadata_overrides=intent.parameters.get("metadata_overrides"),
+            coverage=intent.parameters.get("coverage"),
+            distribution=intent.parameters.get("distribution"),
+            preferred_binding_element=intent.parameters.get("preferred_binding_element"),
+            coverage_basis=intent.parameters.get("coverage_basis"),
+            all_scenarios=bool(intent.parameters.get("all_scenarios", False)),
+            boundary_margin=float(intent.parameters.get("boundary_margin", 0.12)),
         )
 
     def _common_xas_kwargs(self, intent: ParsedIntent, structure_metadata: Optional[Dict] = None) -> Dict[str, Any]:
