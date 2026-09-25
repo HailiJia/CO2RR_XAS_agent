@@ -125,12 +125,12 @@ class LocalIntentParser:
 
         # Dataset-oriented adsorbate controls.
         coverage_match = re.search(
-            r"\\bcoverage\\s*(?:=|is|of|:)?\\s*(0(?:\\.\\d+)?|1(?:\\.0+)?)\\s*(?:ml)?\\b",
+            r"\bcoverage\s*(?:=|is|of|:)?\s*(0(?:\.\d+)?|1(?:\.0+)?)\s*(?:ml)?\b",
             request_lower,
         )
         if not coverage_match:
-            coverage_match = re.search(r"\\b(0(?:\\.\\d+)?|1(?:\\.0+)?)\\s*ml\\b", request_lower)
-        percent_match = re.search(r"\\b(\\d+(?:\\.\\d+)?)\\s*%\\s*(?:coverage|ml)?\\b", request_lower)
+            coverage_match = re.search(r"\b(0(?:\.\d+)?|1(?:\.0+)?)\s*ml\b", request_lower)
+        percent_match = re.search(r"\b(\d+(?:\.\d+)?)\s*%\s*(?:coverage|ml)?\b", request_lower)
         if coverage_match:
             parameters["coverage"] = float(coverage_match.group(1))
         elif percent_match:
@@ -151,17 +151,17 @@ class LocalIntentParser:
         if all_scenarios:
             parameters["all_scenarios"] = True
 
-        if re.search(r"\\b(cross[- ]interface|across the interface|across interface)\\b", request_lower):
+        if re.search(r"\b(cross[- ]interface|across the interface|across interface)\b", request_lower):
             parameters["distribution"] = "cross_interface"
-        elif re.search(r"\\binterface[- ]biased\\b", request_lower):
+        elif re.search(r"\binterface[- ]biased\b", request_lower):
             parameters["distribution"] = "interface_biased"
-        elif re.search(r"\\binterior[- ]biased\\b", request_lower):
+        elif re.search(r"\binterior[- ]biased\b", request_lower):
             parameters["distribution"] = "interior_biased"
-        elif re.search(r"\\buniform(?:ly)?\\b", request_lower):
+        elif re.search(r"\buniform(?:ly)?\b", request_lower):
             parameters["distribution"] = "uniform"
 
         basis_match = re.search(
-            r"(?:coverage\\s+(?:based|normalized|referenced)\\s+(?:on|to)|coverage\\s+denominator)\\s*(Cu|Au|all_surface)",
+            r"(?:coverage\s+(?:based|normalized|referenced)\s+(?:on|to)|coverage\s+denominator)\s*(Cu|Au|all_surface)",
             request,
             re.IGNORECASE,
         )
@@ -169,7 +169,7 @@ class LocalIntentParser:
             parameters["coverage_basis"] = basis_match.group(1)
 
         binding_match = re.search(
-            r"(?:bind(?:ing)?\\s+(?:on|to|element)?|prefer(?:red)?\\s+(?:binding\\s+)?(?:metal|element)?)\\s*(Cu|Au)\\b",
+            r"(?:bind(?:ing)?\s+(?:on|to|element)?|prefer(?:red)?\s+(?:binding\s+)?(?:metal|element)?)\s*(Cu|Au)\b",
             request,
             re.IGNORECASE,
         )
@@ -177,7 +177,7 @@ class LocalIntentParser:
             parameters["preferred_binding_element"] = binding_match.group(1)
 
         boundary_match = re.search(
-            r"boundary\\s+margin\\s*(?:=|is|of|:)?\\s*(0(?:\\.\\d+)?)",
+            r"boundary\s+margin\s*(?:=|is|of|:)?\s*(0(?:\.\d+)?)",
             request_lower,
         )
         if boundary_match:
