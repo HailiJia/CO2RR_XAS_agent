@@ -18,6 +18,7 @@ class ParameterExtractor:
         'vacuum': r'(\d+(?:\.\d+)?)\s*[AÅ]?\s*vacuum',
         'adsorbate': r'\b(CO2?|H2?O?|OH|COOH|COH|CHO|OCCO|HCOO)\b',
         'coverage': r'\b(?:coverage\s*(?:=|is|of|:)?\s*)?(0(?:\.\d+)?|1(?:\.0+)?)\s*(?:ML)?\b',
+        'coverages': r'\bcoverages?\s*(?:=|are|is|of|:)?\s*((?:0(?:\.\d+)?|1(?:\.0+)?)(?:\s*(?:ML)?\s*(?:,|and|/)\s*(?:0(?:\.\d+)?|1(?:\.0+)?)){1,}\s*(?:ML)?)',
         'distribution': r'\b(uniform|interface[- ]biased|interior[- ]biased|cross[- ]interface)\b',
         'binding_site': r'\b(ontop|bridge|fcc|hcp|hollow)\b',
         'edge': r'\b([KLM][1-5]?)\s*[-]?\s*edge',
@@ -81,9 +82,14 @@ class ParameterExtractor:
             if dist_match:
                 params['adsorbate']['distance'] = float(dist_match.group(1))
 
-            coverage_match = re.search(self.PATTERNS['coverage'], text, re.IGNORECASE)
-            if coverage_match:
-                params['adsorbate']['coverage'] = float(coverage_match.group(1))
+            coverages_match = re.search(self.PATTERNS['coverages'], text, re.IGNORECASE)
+            if coverages_match:
+                values = re.findall(r'(?<!\d)(0(?:\.\d+)?|1(?:\.0+)?)(?!\d)', coverages_match.group(1))
+                params['adsorbate']['coverages'] = [float(value) for value in values]
+            else:
+                coverage_match = re.search(self.PATTERNS['coverage'], text, re.IGNORECASE)
+                if coverage_match:
+                    params['adsorbate']['coverage'] = float(coverage_match.group(1))
 
             distribution_match = re.search(self.PATTERNS['distribution'], text, re.IGNORECASE)
             if distribution_match:
