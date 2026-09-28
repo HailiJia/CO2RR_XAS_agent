@@ -93,6 +93,8 @@ For an internal Cu/Au interface:
 - Cu-Cu, uniformly placed
 - Cu-Cu, interface-biased
 - Cu-Au cross-interface: one carbon associated with Cu and the other with Au
+- at higher total C coverage: the same single OCCO core + spatially distributed
+  spectator CO
 
 ### High-coverage OCCO
 
