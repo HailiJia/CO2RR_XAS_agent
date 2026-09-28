@@ -2,7 +2,7 @@ import numpy as np
 
 from agent.co2rr_xas_agent import LocalIntentParser
 from tools.adsorbate_scenarios import generate_adsorbate_scenarios
-from tools.structure_generator import StructureGenerator
+from tools.structure_generator import StructureGenerator, execute_structure_generation
 
 
 def _cuau_5layer():
@@ -268,3 +268,37 @@ def test_dense_co_075_is_supported_under_pbc():
     n = len(structure["atoms"])
     assert result["atoms"][n:].count("C") == 27
     assert result["atoms"][n:].count("O") == 27
+
+
+
+def test_written_scenario_variants_have_unique_structure_ids(tmp_path):
+    result = execute_structure_generation(
+        mode="generate",
+        metal1="Cu",
+        metal2="Au",
+        facet1="111",
+        facet2="111",
+        adsorbate="CO",
+        supercell=(3, 4),
+        layers=5,
+        coverages=[0.056, 0.111],
+        distribution="uniform",
+        coverage_basis="Cu",
+        output_dir=str(tmp_path),
+    )
+    assert result["status"] == "success"
+    assert len(result["structures"]) == 2
+
+    ids = [metadata["structure_id"] for metadata in result["structures"]]
+    assert len(set(ids)) == 2
+    assert any("cov0p056" in value for value in ids)
+    assert any("cov0p111" in value for value in ids)
+
+    for metadata in result["structures"]:
+        nested = metadata["adsorbate_metadata"]
+        assert nested["distribution"] == "uniform"
+        assert nested["coverage_actual"] == metadata["coverage_actual"]
+
+    paths = [entry["poscar"] for entry in result["files"]]
+    assert any("cov_0p056_uniform" in path for path in paths)
+    assert any("cov_0p111_uniform" in path for path in paths)
