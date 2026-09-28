@@ -92,8 +92,15 @@ ADSORBATES = {
     'CH2': {'atoms': ['C', 'H', 'H'], 'positions': np.array([[0.0, 0.0, 0.0], [0.9, 0.0, 0.6], [-0.9, 0.0, 0.6]]), 'binding_atom': 0},
     'CH3': {'atoms': ['C', 'H', 'H', 'H'], 'positions': np.array([[0.0, 0.0, 0.0], [0.9, 0.0, 0.6], [-0.45, 0.78, 0.6], [-0.45, -0.78, 0.6]]), 'binding_atom': 0},
     'CH4': {'atoms': ['C', 'H', 'H', 'H', 'H'], 'positions': np.array([[0.0, 0.0, 0.0], [0.63, 0.63, 0.63], [-0.63, -0.63, 0.63], [-0.63, 0.63, -0.63], [0.63, -0.63, -0.63]]), 'binding_atom': 0},
-    'COCO': {'atoms': ['C', 'O', 'C', 'O'], 'positions': np.array([[0.0, 0.0, 0.0], [1.15, 0.0, 0.2], [-1.35, 0.0, 0.0], [-2.5, 0.0, 0.2]]), 'binding_atom': 0},
+    # Legacy spelling retained only so old requests can be canonicalized to OCCO.
+    'COCO': {'atoms': ['O', 'C', 'C', 'O'], 'positions': np.array([[0.0, 0.0, 1.25], [0.0, 0.0, 0.0], [1.45, 0.0, 0.0], [1.45, 0.0, 1.25]]), 'binding_atom': 1},
     'OCCO': {'atoms': ['O', 'C', 'C', 'O'],'positions': np.array([[0.0, 0.0, 1.25],[0.0, 0.0, 0.0],[1.45, 0.0, 0.0],[1.45, 0.0, 1.25]]),'binding_atom': 1}
+}
+
+# Canonical adsorbate labels used by the ML dataset.  COCO is retained as
+# an input alias for older prompts/files but is not a separate chemistry class.
+ADSORBATE_ALIASES = {
+    'COCO': 'OCCO',
 }
 
 ADSORPTION_SITES = {
