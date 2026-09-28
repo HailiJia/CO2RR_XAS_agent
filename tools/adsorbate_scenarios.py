@@ -427,8 +427,11 @@ def _pair_geometry(name: str, site: Dict[str, Any], structure: Dict[str, Any]) -
             Au, Cu, axis = B, A, -u
 
         metal_sep = float(np.linalg.norm((Cu - Au)[:2]))
-        x_c = 0.5 * (metal_sep - COOH_CARBONYL_CROSS)
-        if x_c <= 0.0 or x_c >= COOH_AU_C:
+        q = metal_sep - COOH_CARBONYL_CROSS
+        x_c = (
+            q**2 + COOH_AU_C**2 - COOH_CROSS_CU_O**2
+        ) / (2.0 * q)
+        if q <= 0.0 or x_c <= 0.0 or x_c >= COOH_AU_C:
             raise ValueError(f"Cannot construct Au-Cu COOH geometry for metal separation {metal_sep:.3f} A.")
         z_c = math.sqrt(max(COOH_AU_C**2 - x_c**2, 0.0))
         C = Au + x_c * axis + z_c * z
@@ -603,10 +606,15 @@ def generate_adsorbate_scenarios(
                 disjoint_indices=True,
             )
         else:
+            # Upright single-site CO/H/OH can safely occupy sites close to a
+            # periodic edge; excluding those sites would make dense coverages
+            # artificially impossible. Lateral multi-atom motifs retain the
+            # requested boundary margin.
+            single_site_margin = 0.0 if adsorbate in {"CO", "H", "OH"} else boundary_margin
             candidates = (
-                _hollows(structure, element, boundary_margin)
+                _hollows(structure, element, single_site_margin)
                 if adsorbate in {"H", "OH"}
-                else _top_sites(structure, element, boundary_margin)
+                else _top_sites(structure, element, single_site_margin)
             )
             selected = _select(candidates, n_core, cell, dist)
 
@@ -621,7 +629,8 @@ def generate_adsorbate_scenarios(
                 if pair_mode
                 else _single_geometry(adsorbate, site)
             )
-            if any(_margin(p, cell) < boundary_margin for p in add_pos):
+            enforce_margin = pair_mode or adsorbate not in {"CO", "H", "OH"}
+            if enforce_margin and any(_margin(p, cell) < boundary_margin for p in add_pos):
                 raise ValueError(f"{adsorbate} scenario {spec['name']} crosses the periodic boundary margin.")
             new_atoms.extend(add_atoms)
             new_pos.extend(add_pos)
@@ -647,7 +656,7 @@ def generate_adsorbate_scenarios(
                 n_cu = n_spectator_co - n_au
 
                 cu_candidates = [
-                    s for s in _top_sites(structure, "Cu", boundary_margin)
+                    s for s in _top_sites(structure, "Cu", 0.0)
                     if not central_indices.intersection(set(s["indices"]))
                 ]
                 cu_sites = _select(
@@ -661,7 +670,7 @@ def generate_adsorbate_scenarios(
                 fixed_positions.extend(np.asarray(_single_geometry("CO", s)[1], float)[0] for s in cu_sites)
 
                 au_candidates = [
-                    s for s in _top_sites(structure, "Au", boundary_margin)
+                    s for s in _top_sites(structure, "Au", 0.0)
                     if not central_indices.intersection(set(s["indices"]))
                 ]
                 au_sites = _select(
@@ -674,7 +683,7 @@ def generate_adsorbate_scenarios(
                 spectator_sites.extend(au_sites)
             else:
                 spectator_candidates = [
-                    s for s in _top_sites(structure, element or "Cu", boundary_margin)
+                    s for s in _top_sites(structure, element or "Cu", 0.0)
                     if not central_indices.intersection(set(s["indices"]))
                 ]
                 spectator_sites = _select(
@@ -687,8 +696,8 @@ def generate_adsorbate_scenarios(
 
             for site in spectator_sites:
                 add_atoms, add_pos = _single_geometry("CO", site)
-                if any(_margin(p, cell) < boundary_margin for p in add_pos):
-                    raise ValueError(f"OCCO spectator CO in scenario {spec['name']} crosses the boundary margin.")
+                # Spectator CO is upright and PBC-safe even when its top site is
+                # close to x/y = 0/1; only the OCCO core must stay internal.
                 new_atoms.extend(add_atoms)
                 new_pos.extend(add_pos)
                 groups.append(np.asarray(add_pos, float))
