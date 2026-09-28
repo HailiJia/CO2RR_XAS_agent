@@ -25,4 +25,6 @@ jobs:
           python -m pip install numpy pydantic custodian pytest
 
       - name: Run adsorbate scenario regression tests
+        env:
+          PYTHONPATH: .
         run: pytest -q tests/test_adsorbate_scenarios.py
