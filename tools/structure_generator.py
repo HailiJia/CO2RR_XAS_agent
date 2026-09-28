@@ -247,6 +247,14 @@ class StructureGenerator:
                     else f"{composition}({facet}) {site_value or 'top'}"
                 ),
                 "binding_atom": self._binding_atom_symbol(ads_value),
+                "coverage_requested": enriched.get("coverage_requested"),
+                "coverage_actual": enriched.get("coverage_actual"),
+                "coverage_basis": enriched.get("coverage_basis"),
+                "distribution": enriched.get("distribution"),
+                "scenario_name": enriched.get("scenario_name"),
+                "n_adsorbates": enriched.get("n_adsorbates"),
+                "n_occo": enriched.get("n_occo"),
+                "n_spectator_co": enriched.get("n_spectator_co"),
             }
         else:
             adsorbate = {
@@ -266,6 +274,11 @@ class StructureGenerator:
             id_parts = [composition or "structure", str(facet or "facet")]
             if ads_value:
                 id_parts.extend([ads_value, str(site_value or "top")])
+                if enriched.get("coverage_actual") is not None:
+                    coverage_token = f"{float(enriched['coverage_actual']):.3f}".replace(".", "p")
+                    id_parts.append(f"cov{coverage_token}")
+                if enriched.get("scenario_name"):
+                    id_parts.append(str(enriched["scenario_name"]))
             else:
                 id_parts.append("clean")
             id_parts.append("001")
