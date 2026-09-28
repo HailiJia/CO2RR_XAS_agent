@@ -218,7 +218,23 @@ Rules:
 15. Preserve structured ML metadata when provided. For example, map `catalyst: elements: [Cu, Au] composition: CuAu surface_facet: "111" site_type: interface structure_id: ...` into the catalyst object and map `adsorbate: identity: "OCCO" formula: "C2O2" intermediate_class: "C2" binding_mode: "bridge" adsorption_site: "Cu-Au interface" binding_atom: "C"` into the adsorbate object.
 16. If the user asks to submit jobs, monitor jobs, run on NERSC, wait for completion, or write records after jobs finish, use action=nersc_workflow.
 17. For nersc_workflow, set submit_jobs=true unless the user says dry run or do not submit; set monitor_jobs=true when the user asks to monitor/wait; set parse_when_complete=true when the user asks to write ISAAC records after completion.
-18. Return only JSON.
+18. Adsorbate coverage/distribution controls:
+    - "0.25 ML" or "coverage 0.25" -> coverage=0.25.
+    - A coverage list/sweep such as "0.056, 0.111, and 0.25 ML" -> coverages=[0.056, 0.111, 0.25].
+    - "uniform" -> distribution="uniform".
+    - "interface-biased" -> distribution="interface_biased".
+    - "interior-biased" -> distribution="interior_biased".
+    - "across/cross interface" -> distribution="cross_interface".
+    - "coverage based/referenced on Cu" -> coverage_basis="Cu" (same for Au or all_surface).
+19. If the user asks for "all reasonable scenarios", "all scenarios", or equivalent, set all_scenarios=true. If the user does not provide coverage(s), leave coverage and coverages unset so the deterministic generator can use the species-specific recommended coverage grid.
+20. Preserve species identity:
+    - CHO is true formyl, surface-C(H)=O.
+    - COH is surface-C-O-H.
+    - COOH is carboxyl.
+    - OCCO is the C-C-coupled C2O2 intermediate; COCO is treated as an alias for OCCO by the execution layer.
+21. For OCCO at higher total C-equivalent coverage, do not request multiple OCCO dimers. The deterministic generator keeps one OCCO core and adds spectator CO. Cross-interface OCCO means one C associated with Cu and the other with Au.
+22. Use preferred_binding_element only when the user explicitly requests a preferred metal. Use boundary_margin when the user explicitly gives one.
+23. Return only JSON.
 """.strip()
 
 
