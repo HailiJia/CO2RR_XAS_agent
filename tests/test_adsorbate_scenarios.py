@@ -302,3 +302,18 @@ def test_written_scenario_variants_have_unique_structure_ids(tmp_path):
     paths = [entry["poscar"] for entry in result["files"]]
     assert any("cov_0p056_uniform" in path for path in paths)
     assert any("cov_0p111_uniform" in path for path in paths)
+
+
+
+def test_coco_alias_canonicalizes_to_occo():
+    structure = _cuau_5layer()
+    result = generate_adsorbate_scenarios(
+        structure,
+        "COCO",
+        coverage=0.056,
+        distribution="cross_interface",
+        coverage_basis="Cu",
+    )[0]
+    assert result["metadata"]["adsorbate"] == "OCCO"
+    assert result["metadata"]["adsorbate_requested"] == "COCO"
+    assert result["metadata"]["n_occo"] == 1
