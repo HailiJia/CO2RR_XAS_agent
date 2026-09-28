@@ -8,6 +8,8 @@ to the original single-adsorbate mode.
 ```text
 Generate CO on Cu Au (111) at 0.25 ML, uniform, coverage based on Cu.
 
+Generate CO on Cu Au (111) at coverages 0.056, 0.111 and 0.25 ML, uniform.
+
 Generate OH on Cu Au (111) at 0.111 ML, interface-biased, coverage based on Cu.
 
 Generate CO at 0.25 ML, interior-biased, coverage based on Cu.
@@ -15,6 +17,9 @@ Generate CO at 0.25 ML, interior-biased, coverage based on Cu.
 Generate OCCO across the interface at 0.056 ML on Cu Au (111).
 
 Generate all reasonable scenarios for OCCO on Cu Au (111) at 0.056 ML.
+
+Generate all reasonable scenarios for OCCO on Cu Au (111).
+# With no coverage supplied, use the species-specific recommended coverage grid.
 
 Generate all reasonable scenarios for COOH on Cu Au (111) at 0.056 ML,
 coverage based on Cu, boundary margin 0.15.
@@ -55,13 +60,31 @@ example, with 36 top-layer Cu atoms:
 - 8 adsorbates = 0.222 ML
 - 12 adsorbates = 0.333 ML
 
-For OCCO, coverage is reported as **CO-equivalent carbon coverage**: one OCCO
-contains two carbon centers and therefore contributes 2/36 = 0.056 ML on the
-36-Cu basis.
+For OCCO, coverage is reported as **total CO-equivalent carbon coverage**.
+One OCCO contains two carbon centers and therefore contributes 2/36 = 0.056 ML
+on the 36-Cu basis. At higher total coverage, the generator keeps **one OCCO
+core and adds spectator CO** rather than filling the surface with multiple OCCO
+dimers. For example:
+
+- 0.056 ML = 1 OCCO
+- 0.111 ML = 1 OCCO + 2 spectator CO
+- 0.167 ML = 1 OCCO + 4 spectator CO
+- 0.222 ML = 1 OCCO + 6 spectator CO
+- 0.333 ML = 1 OCCO + 10 spectator CO
 
 ## "All reasonable scenarios"
 
-This is species-specific rather than a blind Cartesian product.
+This is species-specific rather than a blind Cartesian product. If the user
+supplies a coverage, all reasonable binding/distribution scenarios are generated
+at that coverage. If the user omits coverage, the agent also uses a conservative
+species-specific coverage grid:
+
+- CO: 0.028, 0.056, 0.111, 0.25, 0.50, 0.75 ML
+- H / OH: 0.111, 0.25, 0.50 ML
+- CHO / COH: 0.028, 0.056, 0.111, 0.167 ML
+- COOH: 0.028, 0.056, 0.111 ML
+- OCCO total C-equivalent coverage: 0.056, 0.111, 0.167, 0.222, 0.333 ML
+
 
 For an internal Cu/Au interface:
 
@@ -100,19 +123,26 @@ These are **initial structures for relaxation**, not fixed final bond lengths.
   - Au-Cu motif: C associated with Au and carbonyl O directed toward Cu.
   - Au-top motif is also available.
 - OCCO: C-C-coupled C2O2 with initial C-C about 1.45 Å and C-O about 1.25 Å.
+  A Cu-Au cross-interface case explicitly places one carbon on the Cu side and
+  the other on the Au side. Higher total coverage is represented as OCCO + CO.
 - H and OH: use threefold fcc hollow candidates when available.
 
 ## Boundary and spacing safeguards
 
 The scenario generator:
 
-1. rejects adsorption sites within a configurable fractional x/y boundary margin;
-2. places interface motifs at the internal interface rather than the periodic
-   edge when eligible internal sites exist;
-3. uses maximin selection to avoid artificial clustering;
-4. rejects severe inter-adsorbate overlaps;
-5. records actual coverage, selected sites, distribution, and boundary margin in
-   `structure_info.json`.
+1. keeps lateral multi-atom motifs such as OCCO and COOH away from the periodic
+   x/y cell edge so the molecule is not visually/structurally split across PBC;
+2. places cross-interface motifs at the **internal** Cu/Au interface, not the
+   periodic edge;
+3. uses maximin selection as the primary criterion so interface- or
+   interior-biased high-coverage structures do not artificially cluster;
+4. allows upright PBC-safe single-site CO/H/OH to use edge-equivalent sites,
+   which is necessary for physically meaningful dense coverages such as
+   0.5-0.75 ML CO;
+5. rejects severe inter-adsorbate overlaps;
+6. records requested/actual coverage, selected sites, distribution, and boundary
+   settings in `structure_info.json`.
 
 Example:
 
@@ -120,8 +150,7 @@ Example:
 boundary margin 0.15
 ```
 
-requires all generated adsorbate atoms to remain at least 0.15 fractional
-coordinate from x/y cell boundaries.
+applies the internal-cell safeguard to lateral multi-atom adsorbate motifs.
 
 ## Python API
 
@@ -138,5 +167,6 @@ structures = generate_adsorbate_scenarios(
 )
 ```
 
-The legacy single-adsorbate generator is unchanged unless coverage, distribution,
-or `all_scenarios` is requested.
+The legacy single-adsorbate generator is unchanged unless coverage, coverages,
+distribution, or `all_scenarios` is requested. Scenario folders include both
+coverage and distribution, for example `CO/cov_0p250_interface_biased/structure`.
