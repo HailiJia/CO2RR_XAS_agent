@@ -205,12 +205,14 @@ def _pairs(structure: Dict[str, Any], first: str, second: Optional[str], boundar
         reference = np.array([idx for idx in top if atoms[idx] == first], dtype=int)
         nn = _nearest_neighbor_distance(pos[reference], cell) if len(reference) >= 2 else _nearest_neighbor_distance(pos[top], cell)
     else:
-        cross_distances = [
-            _pbc_xy_distance(pos[a], pos[b], cell)
-            for a in top for b in top
-            if atoms[a] == first and atoms[b] == second
-        ]
-        nn = min(cross_distances) if cross_distances else _nearest_neighbor_distance(pos[top], cell)
+        first_ref = np.array([idx for idx in top if atoms[idx] == first], dtype=int)
+        second_ref = np.array([idx for idx in top if atoms[idx] == second], dtype=int)
+        if len(first_ref) >= 2 and len(second_ref) >= 2:
+            nn_first = _nearest_neighbor_distance(pos[first_ref], cell)
+            nn_second = _nearest_neighbor_distance(pos[second_ref], cell)
+            nn = 0.5 * (nn_first + nn_second)
+        else:
+            nn = _nearest_neighbor_distance(pos[top], cell)
     sites = []
     for a_i, a in enumerate(top):
         for b in top[a_i + 1:]:
