@@ -28,6 +28,34 @@ COOH_OH = 0.99
 OCCO_CC = 1.45
 OCCO_CO = 1.25
 
+# COOH starting-geometry targets used for deterministic initial structures.
+# These are relaxation seeds, not universal relaxed bond lengths.
+COOH_CARBONYL_CROSS = 1.23
+COOH_CU_C = 1.95
+COOH_CU_O1 = 2.00
+COOH_CU_O2 = 2.28
+COOH_AU_C = 2.10
+COOH_CROSS_CU_O = 2.10
+
+# Species-specific default grids used only when the user explicitly asks for
+# "all reasonable scenarios" without giving coverage(s).
+RECOMMENDED_COVERAGES = {
+    "CO": [0.028, 0.056, 0.111, 0.25, 0.50, 0.75],
+    "H": [0.111, 0.25, 0.50],
+    "OH": [0.111, 0.25, 0.50],
+    "CHO": [0.028, 0.056, 0.111, 0.167],
+    "COH": [0.028, 0.056, 0.111, 0.167],
+    "COOH": [0.028, 0.056, 0.111],
+    # Above the dilute limit, keep one OCCO and add spectator CO rather than
+    # constructing an OCCO overlayer.
+    "OCCO": [0.056, 0.111, 0.167, 0.222, 0.333],
+}
+
+
+def recommended_coverages(adsorbate: str) -> List[float]:
+    """Return the conservative default coverage grid for scenario sweeps."""
+    return list(RECOMMENDED_COVERAGES.get(adsorbate, [0.111]))
+
 
 def _frac(position: np.ndarray, cell: np.ndarray) -> np.ndarray:
     return np.asarray(position, float) @ np.linalg.inv(np.asarray(cell, float))
@@ -121,7 +149,10 @@ def _hollows(structure: Dict[str, Any], element: Optional[str], boundary_margin:
     metadata = structure.get("metadata", {})
     top = _top_indices(atoms, pos)
     second = _second_indices(atoms, pos, top)
-    nn = _nearest_neighbor_distance(pos[top], cell)
+    reference = np.array([idx for idx in top if not element or atoms[idx] == element], dtype=int)
+    if len(reference) < 2:
+        reference = top
+    nn = _nearest_neighbor_distance(pos[reference], cell)
     sites, seen = [], set()
     for ai in range(len(top)):
         for bi in range(ai + 1, len(top)):
@@ -170,7 +201,16 @@ def _pairs(structure: Dict[str, Any], first: str, second: Optional[str], boundar
     cell = np.asarray(structure["cell"], float)
     metadata = structure.get("metadata", {})
     top = _top_indices(atoms, pos)
-    nn = _nearest_neighbor_distance(pos[top], cell)
+    if second is None:
+        reference = np.array([idx for idx in top if atoms[idx] == first], dtype=int)
+        nn = _nearest_neighbor_distance(pos[reference], cell) if len(reference) >= 2 else _nearest_neighbor_distance(pos[top], cell)
+    else:
+        cross_distances = [
+            _pbc_xy_distance(pos[a], pos[b], cell)
+            for a in top for b in top
+            if atoms[a] == first and atoms[b] == second
+        ]
+        nn = min(cross_distances) if cross_distances else _nearest_neighbor_distance(pos[top], cell)
     sites = []
     for a_i, a in enumerate(top):
         for b in top[a_i + 1:]:
@@ -203,41 +243,92 @@ def _pairs(structure: Dict[str, Any], first: str, second: Optional[str], boundar
     return sites
 
 
-def _select(candidates: List[Dict[str, Any]], n: int, cell: np.ndarray, distribution: str) -> List[Dict[str, Any]]:
+def _select(
+    candidates: List[Dict[str, Any]],
+    n: int,
+    cell: np.ndarray,
+    distribution: str,
+    fixed_positions: Optional[Sequence[np.ndarray]] = None,
+    disjoint_indices: bool = False,
+) -> List[Dict[str, Any]]:
+    """Deterministic maximin selection with optional interface/interior bias.
+
+    Spatial separation is always the primary objective. The distribution bias is
+    secondary, which prevents high-coverage interface/interior cases from
+    collapsing into an artificial local cluster.
+    """
+    if n <= 0:
+        return []
     if n > len(candidates):
         raise ValueError(f"Requested {n} adsorbates but only {len(candidates)} eligible sites exist.")
     if not candidates:
         raise ValueError("No eligible adsorption sites after boundary/site filters.")
-    if n == 1:
-        if distribution == "interface_biased":
-            return [min(candidates, key=lambda x: (x["interface_distance"], -_margin(x["position"], cell)))]
-        if distribution == "interior_biased":
-            return [max(candidates, key=lambda x: (x["interface_distance"], _margin(x["position"], cell)))]
-        return [max(candidates, key=lambda x: _margin(x["position"], cell))]
 
+    fixed = [np.asarray(p, float) for p in (fixed_positions or [])]
     best = None
+
+    def conflicts(site: Dict[str, Any], selected: List[Dict[str, Any]]) -> bool:
+        if not disjoint_indices:
+            return False
+        ids = set(site.get("indices", ()))
+        return any(ids.intersection(set(other.get("indices", ()))) for other in selected)
+
+    def site_sep(site: Dict[str, Any], selected: List[Dict[str, Any]]) -> float:
+        anchors = [np.asarray(s["position"], float) for s in selected] + fixed
+        if not anchors:
+            return float("inf")
+        return min(_pbc_xy_distance(site["position"], p, cell) for p in anchors)
+
     for seed in candidates[:80]:
         selected = [seed]
         remaining = [x for x in candidates if x is not seed]
+        valid = True
+
         while len(selected) < n:
+            pool = [x for x in remaining if not conflicts(x, selected)]
+            if not pool:
+                valid = False
+                break
+
             def score(site):
-                sep = min(_pbc_xy_distance(site["position"], s["position"], cell) for s in selected)
+                sep = site_sep(site, selected)
                 dint = float(site["interface_distance"])
                 bias = -dint if distribution == "interface_biased" else dint if distribution == "interior_biased" else 0.0
-                return sep, bias
-            chosen = max(remaining, key=score)
+                return sep, bias, _margin(site["position"], cell)
+
+            chosen = max(pool, key=score)
             selected.append(chosen)
             remaining.remove(chosen)
-        ds = [_pbc_xy_distance(selected[i]["position"], selected[j]["position"], cell)
-              for i in range(len(selected)) for j in range(i)]
-        minsep = min(ds)
-        avgsep = float(np.mean(ds))
+
+        if not valid:
+            continue
+
+        ds = [
+            _pbc_xy_distance(selected[i]["position"], selected[j]["position"], cell)
+            for i in range(len(selected)) for j in range(i)
+        ]
+        ds.extend(
+            _pbc_xy_distance(site["position"], p, cell)
+            for site in selected for p in fixed
+        )
+        minsep = min(ds) if ds else float("inf")
+        avgsep = float(np.mean(ds)) if ds else float("inf")
         avgint = float(np.mean([x["interface_distance"] for x in selected]))
-        obj = (minsep, -avgint, avgsep) if distribution == "interface_biased" else               (minsep, avgint, avgsep) if distribution == "interior_biased" else               (minsep, avgsep)
+        avgmargin = float(np.mean([_margin(x["position"], cell) for x in selected]))
+
+        if distribution == "interface_biased":
+            obj = (minsep, -avgint, avgsep, avgmargin)
+        elif distribution == "interior_biased":
+            obj = (minsep, avgint, avgsep, avgmargin)
+        else:
+            obj = (minsep, avgsep, avgmargin)
+
         if best is None or obj > best[0]:
             best = (obj, selected)
-    return best[1]
 
+    if best is None:
+        raise ValueError("Could not choose non-overlapping adsorption sites for the requested coverage.")
+    return best[1]
 
 def _perp(v: np.ndarray) -> np.ndarray:
     v = np.asarray(v, float)
@@ -326,24 +417,68 @@ def _pair_geometry(name: str, site: Dict[str, Any], structure: Dict[str, Any]) -
         raise ValueError(f"No pair geometry for {name}.")
 
     if {ea, eb} == {"Au", "Cu"}:
+        # Cross-interface asymmetric bidentate COOH:
+        # carbon on Au, carbonyl O on Cu. Put C=O nearly parallel to the
+        # surface and solve the in-plane geometry so both metal contacts are
+        # close to 2.10 A.
         if ea == "Au":
             Au, Cu, axis = A, B, u
         else:
             Au, Cu, axis = B, A, -u
-        C = Au + 0.55 * axis + np.array([0.0, 0.0, 2.02])
-        direction = Cu - C
-        Ocar = C + COOH_CARBONYL * direction / np.linalg.norm(direction)
+
+        metal_sep = float(np.linalg.norm((Cu - Au)[:2]))
+        x_c = 0.5 * (metal_sep - COOH_CARBONYL_CROSS)
+        if x_c <= 0.0 or x_c >= COOH_AU_C:
+            raise ValueError(f"Cannot construct Au-Cu COOH geometry for metal separation {metal_sep:.3f} A.")
+        z_c = math.sqrt(max(COOH_AU_C**2 - x_c**2, 0.0))
+        C = Au + x_c * axis + z_c * z
+        Ocar = C + COOH_CARBONYL_CROSS * axis
     else:
+        # Cu-Cu asymmetric bidentate COOH. Solve the carbonyl-O position from
+        # O-Cu1/O-Cu2 targets, then solve C from C-Cu1 and C=O distances.
         Cu1, Cu2 = A, B
-        C = Cu1 - 0.15 * u + np.array([0.0, 0.0, 1.94])
-        target = Cu1 + 0.75 * u + np.array([0.0, 0.0, 1.80])
-        Ocar = C + COOH_CARBONYL * (target - C) / np.linalg.norm(target - C)
+        metal_sep = float(np.linalg.norm((Cu2 - Cu1)[:2]))
+        x_o = (
+            metal_sep**2 + COOH_CU_O1**2 - COOH_CU_O2**2
+        ) / (2.0 * metal_sep)
+        if abs(x_o) >= COOH_CU_O1:
+            raise ValueError(f"Cannot construct Cu-Cu COOH geometry for metal separation {metal_sep:.3f} A.")
+        z_o = math.sqrt(max(COOH_CU_O1**2 - x_o**2, 0.0))
+        Ocar = Cu1 + x_o * u + z_o * z
+
+        e = (Ocar - Cu1) / COOH_CU_O1
+        e_u = float(np.dot(e, u))
+        e_z = float(np.dot(e, z))
+        plane_perp = -e_z * u + e_u * z
+        plane_perp /= np.linalg.norm(plane_perp)
+        a = (
+            COOH_CU_C**2 - COOH_CARBONYL**2 + COOH_CU_O1**2
+        ) / (2.0 * COOH_CU_O1)
+        h = math.sqrt(max(COOH_CU_C**2 - a**2, 0.0))
+        C = Cu1 + a * e + h * plane_perp
 
     co = (Ocar - C) / np.linalg.norm(Ocar - C)
-    uoh = math.cos(math.radians(125.0)) * co + math.sin(math.radians(125.0)) * _perp(co)
+    up = z - np.dot(z, co) * co
+    if np.linalg.norm(up) < 1e-8:
+        up = _perp(co)
+    else:
+        up /= np.linalg.norm(up)
+    if np.dot(up, z) < 0:
+        up = -up
+
+    uoh = math.cos(math.radians(125.0)) * co + math.sin(math.radians(125.0)) * up
+    uoh /= np.linalg.norm(uoh)
     Oh = C + COOH_COH * uoh
-    oc = (C - Oh) / np.linalg.norm(C - Oh)
-    uh = math.cos(math.radians(108.0)) * oc - math.sin(math.radians(108.0)) * _perp(oc)
+
+    # O-H points away from C but toward the surface, matching the dataset
+    # convention used for the corrected COOH structures.
+    outward = Oh - C
+    horizontal = outward - np.dot(outward, z) * z
+    if np.linalg.norm(horizontal) < 1e-8:
+        horizontal = -u
+    horizontal /= np.linalg.norm(horizontal)
+    uh = 0.8 * horizontal - 0.6 * z
+    uh /= np.linalg.norm(uh)
     H = Oh + COOH_OH * uh
     return ["C", "O", "O", "H"], np.array([C, Ocar, Oh, H])
 
@@ -416,7 +551,12 @@ def generate_adsorbate_scenarios(
     all_scenarios: bool = False,
     boundary_margin: float = 0.12,
 ) -> List[Dict[str, Any]]:
-    """Generate coverage/distribution-controlled adsorbate structures."""
+    """Generate coverage/distribution-controlled adsorbate structures.
+
+    OCCO coverage is total CO-equivalent carbon coverage. Only one OCCO core is
+    generated per structure; higher requested coverage is represented by
+    spectator CO around that core rather than by an OCCO overlayer.
+    """
     distribution = str(distribution or "uniform").lower()
     if distribution not in DISTRIBUTIONS:
         raise ValueError(f"Unknown distribution {distribution}.")
@@ -424,13 +564,23 @@ def generate_adsorbate_scenarios(
         raise ValueError(f"Unknown adsorbate {adsorbate}.")
     if float(coverage) <= 0:
         raise ValueError("Coverage must be positive.")
+    if not (0.0 < float(boundary_margin) < 0.5):
+        raise ValueError("boundary_margin must lie between 0 and 0.5.")
 
     preferred = _preferred(structure, preferred_element)
     denominator, basis = _denominator(structure, preferred, coverage_basis)
     target = max(1, int(math.floor(float(coverage) * denominator + 0.5)))
-    n_ads = max(1, int(math.floor(target / 2.0 + 0.5))) if adsorbate == "OCCO" else target
-    actual_equiv = 2 * n_ads if adsorbate == "OCCO" else n_ads
     cell = np.asarray(structure["cell"], float)
+
+    if adsorbate == "OCCO":
+        target = max(2, target)
+        n_core = 1
+        n_spectator_co = max(0, target - 2)
+        actual_equiv = 2 + n_spectator_co
+    else:
+        n_core = target
+        n_spectator_co = 0
+        actual_equiv = n_core
 
     outputs = []
     for spec in _scenario_specs(structure, adsorbate, distribution, preferred, all_scenarios):
@@ -440,31 +590,116 @@ def generate_adsorbate_scenarios(
         pair_mode = adsorbate in {"OCCO", "COOH"} and mode in {"same", "cross"}
 
         if pair_mode:
-            candidates = _pairs(structure, "Cu", "Au", boundary_margin) if mode == "cross" else                          _pairs(structure, element or "Cu", None, boundary_margin)
-            selected = _select(candidates, n_ads, cell, "interface_biased" if dist == "cross_interface" else dist)
+            candidates = (
+                _pairs(structure, "Cu", "Au", boundary_margin)
+                if mode == "cross"
+                else _pairs(structure, element or "Cu", None, boundary_margin)
+            )
+            selected = _select(
+                candidates,
+                n_core,
+                cell,
+                "interface_biased" if dist == "cross_interface" else dist,
+                disjoint_indices=True,
+            )
         else:
-            candidates = _hollows(structure, element, boundary_margin) if adsorbate in {"H", "OH"} else                          _top_sites(structure, element, boundary_margin)
-            selected = _select(candidates, n_ads, cell, dist)
+            candidates = (
+                _hollows(structure, element, boundary_margin)
+                if adsorbate in {"H", "OH"}
+                else _top_sites(structure, element, boundary_margin)
+            )
+            selected = _select(candidates, n_core, cell, dist)
 
         new_atoms = list(structure["atoms"])
         new_pos = [np.asarray(x, float).copy() for x in structure["positions"]]
-        groups = []
-        site_meta = []
+        groups: List[np.ndarray] = []
+        site_meta: List[Dict[str, Any]] = []
 
         for site in selected:
-            add_atoms, add_pos = _pair_geometry(adsorbate, site, structure) if pair_mode else                                  _single_geometry(adsorbate, site)
+            add_atoms, add_pos = (
+                _pair_geometry(adsorbate, site, structure)
+                if pair_mode
+                else _single_geometry(adsorbate, site)
+            )
             if any(_margin(p, cell) < boundary_margin for p in add_pos):
                 raise ValueError(f"{adsorbate} scenario {spec['name']} crosses the periodic boundary margin.")
             new_atoms.extend(add_atoms)
             new_pos.extend(add_pos)
-            groups.append(add_pos)
+            groups.append(np.asarray(add_pos, float))
             site_meta.append({
+                "role": "OCCO_core" if adsorbate == "OCCO" else adsorbate,
                 "kind": site["kind"],
                 "indices": list(site["indices"]),
                 "composition": site["composition"],
                 "interface_distance": float(site["interface_distance"]),
                 "fractional_xy": [float(x) for x in (_frac(site["position"], cell)[:2] % 1.0)],
             })
+
+        # High-coverage OCCO is one coupled OCCO plus spectator CO, not several
+        # OCCO dimers. Spectators remain spatially distributed by maximin.
+        if adsorbate == "OCCO" and n_spectator_co > 0:
+            central_indices = set(selected[0]["indices"])
+            fixed_positions = [p for group in groups for p in group]
+            spectator_sites: List[Dict[str, Any]] = []
+
+            if mode == "cross":
+                n_au = int(math.floor(0.2 * n_spectator_co + 0.5))
+                n_cu = n_spectator_co - n_au
+
+                cu_candidates = [
+                    s for s in _top_sites(structure, "Cu", boundary_margin)
+                    if not central_indices.intersection(set(s["indices"]))
+                ]
+                cu_sites = _select(
+                    cu_candidates,
+                    n_cu,
+                    cell,
+                    "uniform",
+                    fixed_positions=fixed_positions,
+                ) if n_cu else []
+                spectator_sites.extend(cu_sites)
+                fixed_positions.extend(np.asarray(_single_geometry("CO", s)[1], float)[0] for s in cu_sites)
+
+                au_candidates = [
+                    s for s in _top_sites(structure, "Au", boundary_margin)
+                    if not central_indices.intersection(set(s["indices"]))
+                ]
+                au_sites = _select(
+                    au_candidates,
+                    n_au,
+                    cell,
+                    "uniform",
+                    fixed_positions=fixed_positions,
+                ) if n_au else []
+                spectator_sites.extend(au_sites)
+            else:
+                spectator_candidates = [
+                    s for s in _top_sites(structure, element or "Cu", boundary_margin)
+                    if not central_indices.intersection(set(s["indices"]))
+                ]
+                spectator_sites = _select(
+                    spectator_candidates,
+                    n_spectator_co,
+                    cell,
+                    dist,
+                    fixed_positions=fixed_positions,
+                )
+
+            for site in spectator_sites:
+                add_atoms, add_pos = _single_geometry("CO", site)
+                if any(_margin(p, cell) < boundary_margin for p in add_pos):
+                    raise ValueError(f"OCCO spectator CO in scenario {spec['name']} crosses the boundary margin.")
+                new_atoms.extend(add_atoms)
+                new_pos.extend(add_pos)
+                groups.append(np.asarray(add_pos, float))
+                site_meta.append({
+                    "role": "spectator_CO",
+                    "kind": site["kind"],
+                    "indices": list(site["indices"]),
+                    "composition": site["composition"],
+                    "interface_distance": float(site["interface_distance"]),
+                    "fractional_xy": [float(x) for x in (_frac(site["position"], cell)[:2] % 1.0)],
+                })
 
         min_inter = float("inf")
         for i in range(len(groups)):
@@ -484,8 +719,14 @@ def generate_adsorbate_scenarios(
             "coverage_actual": actual_equiv / float(denominator),
             "coverage_basis": basis,
             "coverage_denominator": denominator,
-            "coverage_definition": "CO-equivalent C count / denominator" if adsorbate == "OCCO" else "adsorbate count / denominator",
-            "n_adsorbates": n_ads,
+            "coverage_definition": (
+                "total C-equivalent count (OCCO + spectator CO) / denominator"
+                if adsorbate == "OCCO"
+                else "adsorbate count / denominator"
+            ),
+            "n_adsorbates": (1 + n_spectator_co) if adsorbate == "OCCO" else n_core,
+            "n_occo": 1 if adsorbate == "OCCO" else 0,
+            "n_spectator_co": n_spectator_co,
             "distribution": dist,
             "scenario_name": spec["name"],
             "boundary_margin_fractional": float(boundary_margin),
