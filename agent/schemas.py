@@ -205,7 +205,11 @@ class XASPlan(BaseModel):
     site: Optional[Literal["top", "bridge", "fcc", "hcp"]] = None
     coverage: Optional[float] = Field(
         default=None,
-        description="Adsorbate coverage in monolayers relative to coverage_basis, e.g. 0.111.",
+        description="Single adsorbate coverage in monolayers relative to coverage_basis, e.g. 0.111.",
+    )
+    coverages: Optional[List[float]] = Field(
+        default=None,
+        description="Optional coverage sweep, e.g. [0.056, 0.111, 0.25]. Takes precedence over coverage.",
     )
     distribution: Optional[Literal["uniform", "interface_biased", "interior_biased", "cross_interface"]] = Field(
         default=None,
@@ -285,6 +289,8 @@ class XASPlan(BaseModel):
             parameters["site"] = self.site
         if self.coverage is not None:
             parameters["coverage"] = float(self.coverage)
+        if self.coverages is not None:
+            parameters["coverages"] = [float(value) for value in self.coverages]
         if self.distribution is not None:
             parameters["distribution"] = self.distribution
         if self.coverage_basis is not None:
