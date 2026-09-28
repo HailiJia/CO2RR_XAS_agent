@@ -16,7 +16,7 @@ from typing import Any, Dict, List, Tuple, Optional, Sequence, Union
 INTERFACE_GENERATOR_UPDATE_TAG = "v4_2026-06-29_adsorbate_default_sites_generator_level"
 
 from .utils import (
-    METAL_DATA, ADSORBATES, ADSORPTION_SITES, CO2RR_PATHWAY,
+    METAL_DATA, ADSORBATES, ADSORPTION_SITES, ADSORBATE_ALIASES, CO2RR_PATHWAY,
     write_poscar, read_poscar, read_structure_file, ensure_dir, generate_uuid, get_timestamp
 )
 from .adsorbate_scenarios import (
@@ -836,8 +836,10 @@ class StructureGenerator:
         - Lateral interfaces: adsorbate-specific site at the interface.
         - OCCO/COCO on lateral interfaces: bridge the two interface sides.
         """
+        requested_adsorbate = adsorbate_name
+        adsorbate_name = ADSORBATE_ALIASES.get(adsorbate_name, adsorbate_name)
         if adsorbate_name not in self.adsorbates:
-            raise ValueError(f"Unknown adsorbate: {adsorbate_name}. Available: {list(self.adsorbates.keys())}")
+            raise ValueError(f"Unknown adsorbate: {requested_adsorbate}. Available: {list(self.adsorbates.keys())}")
 
         effective_site = self._resolve_adsorbate_site(adsorbate_name, site)
 
@@ -969,6 +971,9 @@ class StructureGenerator:
 
         new_metadata = metadata.copy()
         new_metadata["adsorbate"] = adsorbate_name
+        if requested_adsorbate != adsorbate_name:
+            new_metadata["adsorbate_requested"] = requested_adsorbate
+            new_metadata["adsorbate_alias_resolved"] = adsorbate_name
         new_metadata["adsorption_site"] = effective_site
         new_metadata["adsorption_height"] = height
         if binding_element is not None:
@@ -1159,7 +1164,8 @@ def execute_structure_generation(
                     or distribution is not None
                     or all_scenarios
                 )
-                for ads in adsorbate:
+                for requested_ads in adsorbate:
+                    ads = ADSORBATE_ALIASES.get(requested_ads, requested_ads)
                     if scenario_mode:
                         if coverages is not None:
                             coverage_values = [float(value) for value in coverages]
