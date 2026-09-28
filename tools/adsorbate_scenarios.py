@@ -12,7 +12,7 @@ from typing import Any, Dict, List, Optional, Sequence, Tuple
 
 import numpy as np
 
-from .utils import ADSORBATES
+from .utils import ADSORBATES, ADSORBATE_ALIASES
 
 DISTRIBUTIONS = {"uniform", "interface_biased", "interior_biased", "cross_interface"}
 
@@ -54,7 +54,8 @@ RECOMMENDED_COVERAGES = {
 
 def recommended_coverages(adsorbate: str) -> List[float]:
     """Return the conservative default coverage grid for scenario sweeps."""
-    return list(RECOMMENDED_COVERAGES.get(adsorbate, [0.111]))
+    canonical = ADSORBATE_ALIASES.get(adsorbate, adsorbate)
+    return list(RECOMMENDED_COVERAGES.get(canonical, [0.111]))
 
 
 def _frac(position: np.ndarray, cell: np.ndarray) -> np.ndarray:
@@ -562,11 +563,13 @@ def generate_adsorbate_scenarios(
     generated per structure; higher requested coverage is represented by
     spectator CO around that core rather than by an OCCO overlayer.
     """
+    requested_adsorbate = adsorbate
+    adsorbate = ADSORBATE_ALIASES.get(adsorbate, adsorbate)
     distribution = str(distribution or "uniform").lower()
     if distribution not in DISTRIBUTIONS:
         raise ValueError(f"Unknown distribution {distribution}.")
     if adsorbate not in ADSORBATES and adsorbate not in {"COH", "COOH"}:
-        raise ValueError(f"Unknown adsorbate {adsorbate}.")
+        raise ValueError(f"Unknown adsorbate {requested_adsorbate}.")
     if float(coverage) <= 0:
         raise ValueError("Coverage must be positive.")
     if not (0.0 < float(boundary_margin) < 0.5):
@@ -726,6 +729,7 @@ def generate_adsorbate_scenarios(
         metadata = dict(structure.get("metadata", {}))
         metadata.update({
             "adsorbate": adsorbate,
+            "adsorbate_requested": requested_adsorbate,
             "coverage_requested": float(coverage),
             "coverage_actual": actual_equiv / float(denominator),
             "coverage_basis": basis,
