@@ -124,17 +124,26 @@ class LocalIntentParser:
             parameters["layers"] = int(layers_match.group(1))
 
         # Dataset-oriented adsorbate controls.
-        coverage_match = re.search(
-            r"\bcoverage\s*(?:=|is|of|:)?\s*(0(?:\.\d+)?|1(?:\.0+)?)\s*(?:ml)?\b",
+        multi_coverage_match = re.search(
+            r"\bcoverages?\s*(?:=|are|is|of|:)?\s*"
+            r"((?:0(?:\.\d+)?|1(?:\.0+)?)(?:\s*(?:ml)?\s*(?:,|and|/)\s*(?:0(?:\.\d+)?|1(?:\.0+)?)){1,}\s*(?:ml)?)",
             request_lower,
         )
-        if not coverage_match:
-            coverage_match = re.search(r"\b(0(?:\.\d+)?|1(?:\.0+)?)\s*ml\b", request_lower)
-        percent_match = re.search(r"\b(\d+(?:\.\d+)?)\s*%\s*(?:coverage|ml)?\b", request_lower)
-        if coverage_match:
-            parameters["coverage"] = float(coverage_match.group(1))
-        elif percent_match:
-            parameters["coverage"] = float(percent_match.group(1)) / 100.0
+        if multi_coverage_match:
+            values = re.findall(r"(?<!\d)(0(?:\.\d+)?|1(?:\.0+)?)(?!\d)", multi_coverage_match.group(1))
+            parameters["coverages"] = [float(value) for value in values]
+        else:
+            coverage_match = re.search(
+                r"\bcoverage\s*(?:=|is|of|:)?\s*(0(?:\.\d+)?|1(?:\.0+)?)\s*(?:ml)?\b",
+                request_lower,
+            )
+            if not coverage_match:
+                coverage_match = re.search(r"\b(0(?:\.\d+)?|1(?:\.0+)?)\s*ml\b", request_lower)
+            percent_match = re.search(r"\b(\d+(?:\.\d+)?)\s*%\s*(?:coverage|ml)?\b", request_lower)
+            if coverage_match:
+                parameters["coverage"] = float(coverage_match.group(1))
+            elif percent_match:
+                parameters["coverage"] = float(percent_match.group(1)) / 100.0
 
         all_scenarios = any(
             phrase in request_lower
@@ -559,6 +568,7 @@ class CO2RRXASAgent:
             full_pathway=intent.full_pathway,
             metadata_overrides=intent.parameters.get("metadata_overrides"),
             coverage=intent.parameters.get("coverage"),
+            coverages=intent.parameters.get("coverages"),
             distribution=intent.parameters.get("distribution"),
             preferred_binding_element=intent.parameters.get("preferred_binding_element"),
             coverage_basis=intent.parameters.get("coverage_basis"),
