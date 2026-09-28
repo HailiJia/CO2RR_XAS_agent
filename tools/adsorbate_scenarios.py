@@ -603,6 +603,16 @@ def generate_adsorbate_scenarios(
                 if mode == "cross"
                 else _pairs(structure, element or "Cu", None, boundary_margin)
             )
+            # A safe pair center is not sufficient for a laterally extended
+            # adsorbate. Filter using the complete trial geometry so COOH/OCCO
+            # cannot be selected if any atom would straddle the x/y boundary.
+            candidates = [
+                site for site in candidates
+                if all(
+                    _margin(p, cell) >= boundary_margin
+                    for p in _pair_geometry(adsorbate, site, structure)[1]
+                )
+            ]
             selected = _select(
                 candidates,
                 n_core,
@@ -621,6 +631,14 @@ def generate_adsorbate_scenarios(
                 if adsorbate in {"H", "OH"}
                 else _top_sites(structure, element, single_site_margin)
             )
+            if adsorbate not in {"CO", "H", "OH"}:
+                candidates = [
+                    site for site in candidates
+                    if all(
+                        _margin(p, cell) >= boundary_margin
+                        for p in _single_geometry(adsorbate, site)[1]
+                    )
+                ]
             selected = _select(candidates, n_core, cell, dist)
 
         new_atoms = list(structure["atoms"])
