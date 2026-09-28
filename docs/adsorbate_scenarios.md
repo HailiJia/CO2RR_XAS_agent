@@ -94,6 +94,27 @@ For an internal Cu/Au interface:
 - Cu-Cu, interface-biased
 - Cu-Au cross-interface: one carbon associated with Cu and the other with Au
 
+### High-coverage OCCO
+
+OCCO is treated as a transient C-C-coupled intermediate, not as an overlayer.
+For requested total C-equivalent coverage above the dilute 2/36 case, the
+generator keeps **one OCCO core** and fills the remaining coverage with
+spectator CO:
+
+- 0.056 ML = one OCCO, no spectator CO
+- 0.111 ML = one OCCO + 2 CO
+- 0.167 ML = one OCCO + 4 CO
+- 0.222 ML = one OCCO + 6 CO
+- 0.333 ML = one OCCO + 10 CO
+
+For the Cu-Au cross-interface scenario, the OCCO core spans an internal Cu-Au
+pair. Spectator CO is mostly Cu-bound, with a small Au-bound fraction at higher
+coverage. `2CO` is not treated as a separate adsorbate class; adjacent uncoupled
+CO belongs to the CO distribution space.
+
+`COCO` is accepted only as a backward-compatible input alias and is canonicalized
+to the `OCCO` label.
+
 ### COOH
 
 - Cu-bound, uniform
