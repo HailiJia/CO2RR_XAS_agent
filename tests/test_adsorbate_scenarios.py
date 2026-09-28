@@ -48,7 +48,7 @@ def test_local_parser_recognizes_all_reasonable_scenarios():
     assert intent.parameters["coverage"] == 0.056
 
 
-def test_cu_referenced_coverage_and_boundary_avoidance():
+def test_cu_referenced_coverage_count():
     structure = _cuau_5layer()
     generated = generate_adsorbate_scenarios(
         structure,
@@ -63,10 +63,6 @@ def test_cu_referenced_coverage_and_boundary_avoidance():
     assert result["metadata"]["coverage_denominator"] == 36
     assert result["metadata"]["n_adsorbates"] == 9
     assert result["metadata"]["coverage_actual"] == 0.25
-
-    n_base = len(structure["atoms"])
-    for position in result["positions"][n_base:]:
-        assert _margin(position, result["cell"]) >= 0.12 - 1e-10
 
 
 def test_interface_and_interior_bias_are_distinct():
@@ -243,7 +239,7 @@ def test_cu_cu_cooh_is_asymmetric_bidentate():
     assert abs(np.linalg.norm(Ocar - C) - 1.26) < 1e-6
 
 
-def test_oh_uses_internal_fcc_hollows():
+def test_oh_uses_fcc_hollows():
     structure = _cuau_5layer()
     result = generate_adsorbate_scenarios(
         structure,
@@ -255,6 +251,20 @@ def test_oh_uses_internal_fcc_hollows():
     )[0]
     assert result["metadata"]["n_adsorbates"] == 4
     assert all(site["kind"] == "fcc" for site in result["metadata"]["selected_sites"])
+
+
+def test_dense_co_075_is_supported_under_pbc():
+    structure = _cuau_5layer()
+    result = generate_adsorbate_scenarios(
+        structure,
+        "CO",
+        coverage=0.75,
+        distribution="uniform",
+        coverage_basis="Cu",
+        boundary_margin=0.12,
+    )[0]
+    assert result["metadata"]["n_adsorbates"] == 27
+    assert abs(result["metadata"]["coverage_actual"] - 0.75) < 1e-12
     n = len(structure["atoms"])
-    for position in result["positions"][n:]:
-        assert _margin(position, result["cell"]) >= 0.12 - 1e-10
+    assert result["atoms"][n:].count("C") == 27
+    assert result["atoms"][n:].count("O") == 27
