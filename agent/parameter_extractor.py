@@ -16,7 +16,10 @@ class ParameterExtractor:
         'miller_index': r'\((\d),?\s*(\d),?\s*(\d)\)',
         'layers': r'(\d+)\s*layers?',
         'vacuum': r'(\d+(?:\.\d+)?)\s*[AÅ]?\s*vacuum',
-        'adsorbate': r'\b(CO2?|H2?O?|OH|COOH|CHO|HCOO)\b',
+        'adsorbate': r'\b(CO2?|H2?O?|OH|COOH|COH|CHO|OCCO|HCOO)\b',
+        'coverage': r'\b(?:coverage\s*(?:=|is|of|:)?\s*)?(0(?:\.\d+)?|1(?:\.0+)?)\s*(?:ML)?\b',
+        'coverages': r'\bcoverages?\s*(?:=|are|is|of|:)?\s*((?:0(?:\.\d+)?|1(?:\.0+)?)(?:\s*(?:ML)?\s*(?:,|and|/)\s*(?:0(?:\.\d+)?|1(?:\.0+)?)){1,}\s*(?:ML)?)',
+        'distribution': r'\b(uniform|interface[- ]biased|interior[- ]biased|cross[- ]interface)\b',
         'binding_site': r'\b(ontop|bridge|fcc|hcp|hollow)\b',
         'edge': r'\b([KLM][1-5]?)\s*[-]?\s*edge',
         'distance': r'(\d+(?:\.\d+)?)\s*[AÅ]?\s*(?:distance|height|above)',
@@ -78,6 +81,23 @@ class ParameterExtractor:
             dist_match = re.search(self.PATTERNS['distance'], text_lower)
             if dist_match:
                 params['adsorbate']['distance'] = float(dist_match.group(1))
+
+            coverages_match = re.search(self.PATTERNS['coverages'], text, re.IGNORECASE)
+            if coverages_match:
+                values = re.findall(r'(?<!\d)(0(?:\.\d+)?|1(?:\.0+)?)(?!\d)', coverages_match.group(1))
+                params['adsorbate']['coverages'] = [float(value) for value in values]
+            else:
+                coverage_match = re.search(self.PATTERNS['coverage'], text, re.IGNORECASE)
+                if coverage_match:
+                    params['adsorbate']['coverage'] = float(coverage_match.group(1))
+
+            distribution_match = re.search(self.PATTERNS['distribution'], text, re.IGNORECASE)
+            if distribution_match:
+                distribution = distribution_match.group(1).lower().replace("-", "_").replace(" ", "_")
+                params['adsorbate']['distribution'] = distribution
+
+            if re.search(r'\ball reasonable (?:scenarios|configurations)\b|\ball scenarios\b', text, re.IGNORECASE):
+                params['adsorbate']['all_scenarios'] = True
         
         return params
     

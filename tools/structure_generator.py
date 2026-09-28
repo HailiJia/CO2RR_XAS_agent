@@ -12,12 +12,16 @@ Updated for web_xas_agent:
 import os
 import json
 import numpy as np
-from typing import Any, Dict, List, Tuple, Optional, Union
+from typing import Any, Dict, List, Tuple, Optional, Sequence, Union
 INTERFACE_GENERATOR_UPDATE_TAG = "v4_2026-06-29_adsorbate_default_sites_generator_level"
 
 from .utils import (
-    METAL_DATA, ADSORBATES, ADSORPTION_SITES, CO2RR_PATHWAY,
+    METAL_DATA, ADSORBATES, ADSORPTION_SITES, ADSORBATE_ALIASES, CO2RR_PATHWAY,
     write_poscar, read_poscar, read_structure_file, ensure_dir, generate_uuid, get_timestamp
+)
+from .adsorbate_scenarios import (
+    generate_adsorbate_scenarios as generate_coverage_scenarios,
+    recommended_coverages,
 )
 
 
@@ -27,6 +31,8 @@ DEFAULT_ADSORBATE_SITES = {
     "CO": "top",
     "CO2": "top",
     "CHO": "top",
+    "COH": "top",
+    "COOH": "bridge",
     "CHOH": "top",
     "CH3": "top",
     "CH4": "top",
@@ -46,6 +52,8 @@ DEFAULT_INTERFACE_BINDING_ELEMENTS = {
     "CO": "Cu",
     "CO2": "Cu",
     "CHO": "Cu",
+    "COH": "Cu",
+    "COOH": "Cu",
     "CHOH": "Cu",
     "CH": "Cu",
     "CH2": "Cu",
@@ -239,6 +247,14 @@ class StructureGenerator:
                     else f"{composition}({facet}) {site_value or 'top'}"
                 ),
                 "binding_atom": self._binding_atom_symbol(ads_value),
+                "coverage_requested": enriched.get("coverage_requested"),
+                "coverage_actual": enriched.get("coverage_actual"),
+                "coverage_basis": enriched.get("coverage_basis"),
+                "distribution": enriched.get("distribution"),
+                "scenario_name": enriched.get("scenario_name"),
+                "n_adsorbates": enriched.get("n_adsorbates"),
+                "n_occo": enriched.get("n_occo"),
+                "n_spectator_co": enriched.get("n_spectator_co"),
             }
         else:
             adsorbate = {
@@ -258,6 +274,11 @@ class StructureGenerator:
             id_parts = [composition or "structure", str(facet or "facet")]
             if ads_value:
                 id_parts.extend([ads_value, str(site_value or "top")])
+                if enriched.get("coverage_actual") is not None:
+                    coverage_token = f"{float(enriched['coverage_actual']):.3f}".replace(".", "p")
+                    id_parts.append(f"cov{coverage_token}")
+                if enriched.get("scenario_name"):
+                    id_parts.append(str(enriched["scenario_name"]))
             else:
                 id_parts.append("clean")
             id_parts.append("001")
@@ -815,8 +836,10 @@ class StructureGenerator:
         - Lateral interfaces: adsorbate-specific site at the interface.
         - OCCO/COCO on lateral interfaces: bridge the two interface sides.
         """
+        requested_adsorbate = adsorbate_name
+        adsorbate_name = ADSORBATE_ALIASES.get(adsorbate_name, adsorbate_name)
         if adsorbate_name not in self.adsorbates:
-            raise ValueError(f"Unknown adsorbate: {adsorbate_name}. Available: {list(self.adsorbates.keys())}")
+            raise ValueError(f"Unknown adsorbate: {requested_adsorbate}. Available: {list(self.adsorbates.keys())}")
 
         effective_site = self._resolve_adsorbate_site(adsorbate_name, site)
 
@@ -948,6 +971,9 @@ class StructureGenerator:
 
         new_metadata = metadata.copy()
         new_metadata["adsorbate"] = adsorbate_name
+        if requested_adsorbate != adsorbate_name:
+            new_metadata["adsorbate_requested"] = requested_adsorbate
+            new_metadata["adsorbate_alias_resolved"] = adsorbate_name
         new_metadata["adsorption_site"] = effective_site
         new_metadata["adsorption_height"] = height
         if binding_element is not None:
@@ -1062,8 +1088,19 @@ def execute_structure_generation(
     interface_match_mode: str = "auto",
     element1_repeats: Optional[int] = None,
     element2_repeats: Optional[int] = None,
+    coverage: Optional[float] = None,
+    coverages: Optional[Sequence[float]] = None,
+    distribution: Optional[str] = None,
+    preferred_binding_element: Optional[str] = None,
+    coverage_basis: Optional[str] = None,
+    all_scenarios: bool = False,
+    boundary_margin: float = 0.12,
 ) -> Dict:
-    """Execute Skill 1: Structure Generation."""
+    """Execute Skill 1: Structure Generation.
+
+    When coverage/distribution controls are supplied, use the dataset-oriented
+    scenario generator. Legacy single-adsorbate placement is unchanged otherwise.
+    """
     generator = StructureGenerator()
     results = {"status": "success", "structures": [], "files": []}
 
@@ -1121,17 +1158,68 @@ def execute_structure_generation(
                 if isinstance(adsorbate, str):
                     adsorbate = [adsorbate]
 
-                for ads in adsorbate:
-                    struct = generator.add_adsorbate(
-                        structure.copy(),
-                        ads,
-                        site=site,
-                        metadata_overrides=metadata_overrides,
-                    )
-                    struct_dir = os.path.join(output_dir, ads, "structure")
-                    files = generator.save_structure(struct, struct_dir)
-                    results["structures"].append(struct["metadata"])
-                    results["files"].append(files)
+                scenario_mode = (
+                    coverage is not None
+                    or coverages is not None
+                    or distribution is not None
+                    or all_scenarios
+                )
+                for requested_ads in adsorbate:
+                    ads = ADSORBATE_ALIASES.get(requested_ads, requested_ads)
+                    if scenario_mode:
+                        if coverages is not None:
+                            coverage_values = [float(value) for value in coverages]
+                        elif coverage is not None:
+                            coverage_values = [float(coverage)]
+                        elif all_scenarios:
+                            coverage_values = recommended_coverages(ads)
+                        else:
+                            # Distribution-only requests still need a coverage.
+                            coverage_values = [0.111]
+
+                        # Preserve order while removing accidental duplicates.
+                        coverage_values = list(dict.fromkeys(coverage_values))
+
+                        for scenario_coverage in coverage_values:
+                            generated = generate_coverage_scenarios(
+                                structure,
+                                adsorbate=ads,
+                                coverage=scenario_coverage,
+                                distribution=distribution or "uniform",
+                                preferred_element=preferred_binding_element,
+                                coverage_basis=coverage_basis,
+                                all_scenarios=bool(all_scenarios),
+                                boundary_margin=float(boundary_margin),
+                            )
+                            for struct in generated:
+                                scenario_name = struct["metadata"].get("scenario_name", distribution or "uniform")
+                                coverage_tag = f"cov_{scenario_coverage:.3f}".replace(".", "p")
+                                struct["metadata"] = generator._with_ml_metadata(
+                                    struct["metadata"],
+                                    adsorbate_name=ads,
+                                    site="multi",
+                                    metadata_overrides=metadata_overrides,
+                                )
+                                struct_dir = os.path.join(
+                                    output_dir,
+                                    ads,
+                                    f"{coverage_tag}_{scenario_name}",
+                                    "structure",
+                                )
+                                files = generator.save_structure(struct, struct_dir)
+                                results["structures"].append(struct["metadata"])
+                                results["files"].append(files)
+                    else:
+                        struct = generator.add_adsorbate(
+                            structure.copy(),
+                            ads,
+                            site=site,
+                            metadata_overrides=metadata_overrides,
+                        )
+                        struct_dir = os.path.join(output_dir, ads, "structure")
+                        files = generator.save_structure(struct, struct_dir)
+                        results["structures"].append(struct["metadata"])
+                        results["files"].append(files)
             else:
                 structure["metadata"] = generator._with_ml_metadata(
                     structure["metadata"],
