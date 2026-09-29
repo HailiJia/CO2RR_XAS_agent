@@ -1,0 +1,32 @@
+{
+  "name": "CO2_0p028_interface_biased_activated",
+  "multilabel": {
+    "CO": 0,
+    "H": 0,
+    "OH": 0,
+    "CHO": 0,
+    "COH": 0,
+    "COOH": 0,
+    "OCCO": 0,
+    "CO2": 1,
+    "OCHO": 0,
+    "O": 0,
+    "OCCOH": 0,
+    "COCHO": 0
+  },
+  "adsorbate_counts": {
+    "CO2": 1
+  },
+  "coverage_total": 0.027777777777777776,
+  "coverage_definition": "molecule count / 36 Cu",
+  "coverage_basis": "36 top-layer Cu reference sites",
+  "coverage_by_species": {
+    "CO2": 0.027777777777777776
+  },
+  "distribution": "interface_biased",
+  "compute": "cpu",
+  "notes": "activated bent CO2: mixed C-O coordination seed; C-O 1.28/1.29 A, O-C-O 123 deg",
+  "min_intergroup_distance_A": null,
+  "min_adsorbate_xy_margin_fractional": 0.3921388713074237,
+  "base_structure": "relaxed plain Cu/Au(111) 5-layer ABCAB; bottom 3 fixed, top 2 relaxed"
+}

@@ -1,0 +1,22 @@
+ENCUT = 520
+PREC = Accurate
+EDIFF = 1E-5
+ISPIN = 1
+ISMEAR = 1
+SIGMA = 0.20
+IBRION = 2
+NSW = 200
+ISIF = 2
+EDIFFG = -0.05
+LREAL = Auto
+LASPH = .TRUE.
+ALGO = Normal
+NELM = 120
+NCORE = 1
+# Bottom three metal layers fixed; top two metal layers and adsorbates relaxed.
+LDIPOL = .TRUE.
+IDIPOL = 3
+DIPOL = 0.5 0.5 0.186001
+AMIN = 0.01
+LWAVE = .FALSE.
+LCHARG = .FALSE.

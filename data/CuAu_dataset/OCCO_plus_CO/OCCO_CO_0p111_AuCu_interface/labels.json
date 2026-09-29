@@ -1,0 +1,34 @@
+{
+  "name": "OCCO_CO_0p111_AuCu_interface",
+  "multilabel": {
+    "CO": 1,
+    "H": 0,
+    "OH": 0,
+    "CHO": 0,
+    "COH": 0,
+    "COOH": 0,
+    "OCCO": 1,
+    "CO2": 0,
+    "OCHO": 0,
+    "O": 0,
+    "OCCOH": 0,
+    "COCHO": 0
+  },
+  "adsorbate_counts": {
+    "OCCO": 1,
+    "CO": 2
+  },
+  "coverage_total": 0.1111111111111111,
+  "coverage_definition": "total C-equivalent count / 36 Cu",
+  "coverage_basis": "36 top-layer Cu reference sites",
+  "coverage_by_species": {
+    "OCCO": 0.05555555555555555,
+    "CO": 0.05555555555555555
+  },
+  "distribution": "interface_biased",
+  "compute": "gpu",
+  "notes": "one OCCO core plus spectator CO; no multiple OCCO dimers",
+  "min_intergroup_distance_A": 9.028678922939585,
+  "min_adsorbate_xy_margin_fractional": 0.037292603983128,
+  "base_structure": "relaxed plain Cu/Au(111) 5-layer ABCAB; bottom 3 fixed, top 2 relaxed"
+}

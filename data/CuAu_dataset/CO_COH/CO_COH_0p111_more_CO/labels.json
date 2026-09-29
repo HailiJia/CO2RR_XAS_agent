@@ -1,0 +1,34 @@
+{
+  "name": "CO_COH_0p111_interface",
+  "multilabel": {
+    "CO": 1,
+    "H": 0,
+    "OH": 0,
+    "CHO": 0,
+    "COH": 1,
+    "COOH": 0,
+    "OCCO": 0,
+    "CO2": 0,
+    "OCHO": 0,
+    "O": 0,
+    "OCCOH": 0,
+    "COCHO": 0
+  },
+  "adsorbate_counts": {
+    "COH": 1,
+    "CO": 3
+  },
+  "coverage_total": 0.1111111111111111,
+  "coverage_definition": "total C1 adsorbate count / 36 Cu",
+  "coverage_basis": "36 top-layer Cu reference sites",
+  "coverage_by_species": {
+    "CO": 0.08333333333333333,
+    "COH": 0.027777777777777776
+  },
+  "distribution": "interface_biased",
+  "compute": "gpu",
+  "notes": "one COH embedded in CO-rich background",
+  "min_intergroup_distance_A": 7.679632462682491,
+  "min_adsorbate_xy_margin_fractional": 0.0,
+  "base_structure": "relaxed plain Cu/Au(111) 5-layer ABCAB; bottom 3 fixed, top 2 relaxed"
+}

@@ -1,0 +1,32 @@
+{
+  "name": "OCCOH_0p056_AuCu_interface",
+  "multilabel": {
+    "CO": 0,
+    "H": 0,
+    "OH": 0,
+    "CHO": 0,
+    "COH": 0,
+    "COOH": 0,
+    "OCCO": 0,
+    "CO2": 0,
+    "OCHO": 0,
+    "O": 0,
+    "OCCOH": 1,
+    "COCHO": 0
+  },
+  "adsorbate_counts": {
+    "OCCOH": 1
+  },
+  "coverage_total": 0.05555555555555555,
+  "coverage_definition": "C-equivalent count / 36 Cu",
+  "coverage_basis": "36 top-layer Cu reference sites",
+  "coverage_by_species": {
+    "OCCOH": 0.05555555555555555
+  },
+  "distribution": "interface_biased",
+  "compute": "cpu",
+  "notes": "single OCCOH C2 intermediate; no dense C2 overlayer",
+  "min_intergroup_distance_A": null,
+  "min_adsorbate_xy_margin_fractional": 0.11430424569916467,
+  "base_structure": "relaxed plain Cu/Au(111) 5-layer ABCAB; bottom 3 fixed, top 2 relaxed"
+}
