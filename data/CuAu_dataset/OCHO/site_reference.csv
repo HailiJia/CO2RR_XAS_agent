@@ -1,0 +1,16 @@
+case,OCHO_index,site_key,metal1_index,metal1,metal2_index,metal2,O-O_A,C-O1_A,C-O2_A,C-H_A,M1-O_A,M2-O_A
+01_1OCHO_CuCu_interface,1,CuCu_interface_center,174,Cu,175,Cu,2.2500,1.2700,1.2700,1.1000,1.9088,1.9088
+02_1OCHO_AuCu_across,1,AuCu_across_center,175,Cu,312,Au,2.2500,1.2700,1.2700,1.1000,1.9150,2.0639
+03_1OCHO_CuCu_interior,1,CuCu_interior_center,156,Cu,157,Cu,2.2500,1.2700,1.2700,1.1000,1.9056,1.9056
+04_2OCHO_CuCu_interface_plus_interior,1,CuCu_interface_center,174,Cu,175,Cu,2.2500,1.2700,1.2700,1.1000,1.9088,1.9088
+04_2OCHO_CuCu_interface_plus_interior,2,CuCu_interior_center,156,Cu,157,Cu,2.2500,1.2700,1.2700,1.1000,1.9056,1.9056
+05_2OCHO_CuCu_interface_plus_AuCu,1,CuCu_interface_left,171,Cu,172,Cu,2.2500,1.2700,1.2700,1.1000,1.9055,1.9055
+05_2OCHO_CuCu_interface_plus_AuCu,2,AuCu_across_center,175,Cu,312,Au,2.2500,1.2700,1.2700,1.1000,1.9150,2.0639
+06_2OCHO_2CuCu_interface,1,CuCu_interface_left,171,Cu,172,Cu,2.2500,1.2700,1.2700,1.1000,1.9055,1.9055
+06_2OCHO_2CuCu_interface,2,CuCu_interface_right,175,Cu,176,Cu,2.2500,1.2700,1.2700,1.1000,1.9067,1.9067
+07_3OCHO_2CuCu_interface_plus_interior,1,CuCu_interface_left,171,Cu,172,Cu,2.2500,1.2700,1.2700,1.1000,1.9055,1.9055
+07_3OCHO_2CuCu_interface_plus_interior,2,CuCu_interface_right,175,Cu,176,Cu,2.2500,1.2700,1.2700,1.1000,1.9067,1.9067
+07_3OCHO_2CuCu_interface_plus_interior,3,CuCu_interior_midleft,154,Cu,155,Cu,2.2500,1.2700,1.2700,1.1000,1.9060,1.9060
+08_3OCHO_1CuCu_interface_plus_2interior,1,CuCu_interface_center,174,Cu,175,Cu,2.2500,1.2700,1.2700,1.1000,1.9088,1.9088
+08_3OCHO_1CuCu_interface_plus_2interior,2,CuCu_interior_left,153,Cu,154,Cu,2.2500,1.2700,1.2700,1.1000,1.9066,1.9066
+08_3OCHO_1CuCu_interface_plus_2interior,3,CuCu_interior_right,158,Cu,159,Cu,2.2500,1.2700,1.2700,1.1000,1.9060,1.9060

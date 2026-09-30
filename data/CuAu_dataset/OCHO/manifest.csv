@@ -1,0 +1,9 @@
+case,C_count,O_count,H_count,configuration,compute,site_keys
+01_1OCHO_CuCu_interface,1,2,1,1 CuCu interface (along boundary),CPU,CuCu_interface_center
+02_1OCHO_AuCu_across,1,2,1,1 AuCu across boundary,CPU,AuCu_across_center
+03_1OCHO_CuCu_interior,1,2,1,1 CuCu interior (middle Cu),CPU,CuCu_interior_center
+04_2OCHO_CuCu_interface_plus_interior,2,4,2,1 CuCu interface + 1 CuCu interior,CPU,"CuCu_interface_center,CuCu_interior_center"
+05_2OCHO_CuCu_interface_plus_AuCu,2,4,2,1 CuCu interface + 1 AuCu,CPU,"CuCu_interface_left,AuCu_across_center"
+06_2OCHO_2CuCu_interface,2,4,2,2 CuCu interface,CPU,"CuCu_interface_left,CuCu_interface_right"
+07_3OCHO_2CuCu_interface_plus_interior,3,6,3,2 CuCu interface + 1 CuCu interior,CPU,"CuCu_interface_left,CuCu_interface_right,CuCu_interior_midleft"
+08_3OCHO_1CuCu_interface_plus_2interior,3,6,3,1 CuCu interface + 2 CuCu interior,CPU,"CuCu_interface_center,CuCu_interior_left,CuCu_interior_right"
