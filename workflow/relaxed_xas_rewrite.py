@@ -178,6 +178,16 @@ def regenerate_xas_from_relaxed(
     if xas_root.exists():
         shutil.rmtree(xas_root)
 
+    import json
+    from tools.dataset_labels import relaxed_metadata
+    from tools.utils import read_structure_file
+    info_path = contcar.with_name("structure_info.json")
+    info = json.loads(info_path.read_text()) if info_path.exists() else {}
+    initial_path = contcar.with_name("POSCAR")
+    initial = read_structure_file(str(initial_path)) if initial_path.exists() else None
+    metadata = relaxed_metadata(read_structure_file(str(contcar)), info, initial)
+    metadata.update({"source_file": str(contcar), "source_stage": "post_relaxation_CONTCAR"})
+    (out / "relaxed_structure_info.json").write_text(json.dumps(metadata, indent=2) + "\n")
     result = execute_xas_input_generation(
         structure_file=str(contcar),
         output_dir=str(out),
@@ -190,7 +200,7 @@ def regenerate_xas_from_relaxed(
         edge_override=edge_override,
         vasp_method=vasp_method,
         potcar_dir=potcar_dir,
-        structure_metadata={"source_file": str(contcar), "source_stage": "post_relaxation_CONTCAR"},
+        structure_metadata=metadata,
     )
     sig = write_xas_structure_signature(out, contcar)
     _copy_signature_into_xas_dirs(out, sig)

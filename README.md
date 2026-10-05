@@ -322,3 +322,7 @@ CO2RR_XAS_agent/
 - Keep generated outputs under `generated_outputs/`; do not commit them.
 - The full NERSC workflow should regenerate XAS inputs from relaxed `01_structure/CONTCAR`, not the original POSCAR.
 - For XAS ML, use metadata for filtering and descriptors/chemically meaningful labels for targets.
+
+### Geometry labels and grouped XAS ML
+
+See [the validation and grouped-learning guide](docs/geometry_labels_grouped_ml.md) for general bimetallic regions, periodic molecule checks, coverage/relaxed-label provenance, and the fitted-model and split-manifest downloads.

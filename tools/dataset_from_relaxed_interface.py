@@ -10,6 +10,8 @@ import argparse, csv, json, shutil
 import numpy as np
 from .relaxed_interface import load_relaxed_interface
 from .utils import ADSORBATES
+from .dataset_labels import annotate_structure, molecule_record
+from .structure_generator import StructureGenerator
 ADSORBATES.setdefault("O", {"atoms": ["O"], "positions": np.array([[0., 0., 0.]]), "binding_atom": 0})
 
 COVERAGE_GRID = (0.25, 0.50, 0.75)
@@ -59,6 +61,7 @@ def _add_species(structure, adsorbate, site_ids, coverage, region, binding_eleme
     z_surface = max(float(positions[i, 2]) for i, a in enumerate(atoms) if a == binding_element)
     used = set(site_ids)
     top_pool = list(_substrate_top_indices(structure, binding_element))
+    molecules = list(structure.get("metadata", {}).get("molecules", []))
     for site_index in site_ids:
         reference = positions[site_index].copy()
         ads_positions = np.asarray(data["positions"], dtype=float).copy()
@@ -68,25 +71,24 @@ def _add_species(structure, adsorbate, site_ids, coverage, region, binding_eleme
             # molecular coverage therefore occupies two surface sites.
             partner = min((i for i in top_pool if i not in used and i != site_index), key=lambda i: np.linalg.norm(positions[i, :2] - reference[:2]))
             used.add(partner)
-            c_indices = [1, 2] if adsorbate == "OCCO" else [0, 2]
-            c0, c1 = ads_positions[c_indices]
-            v = positions[partner, :2] - reference[:2]
-            length = max(np.linalg.norm(c1[:2] - c0[:2]), 1e-8)
-            unit = v / max(np.linalg.norm(v), 1e-8)
-            ads_positions[:, :2] -= c0[:2]
-            ads_positions[:, :2] += reference[:2] + 0.5 * v
-            ads_positions[c_indices[0], :2] = reference[:2]
-            ads_positions[c_indices[1], :2] = positions[partner, :2]
-            ads_positions[:, 2] += 2.0 - ads_positions[c_indices[0], 2]
+            from .adsorbate_scenarios import _pair_geometry
+            add_atoms, ads_positions = _pair_geometry("OCCO", {"indices": [site_index, partner]}, structure)
         else:
             ads_positions -= ads_positions[binding]
             ads_positions += reference + np.array([0.0, 0.0, 2.0])
-        atoms.extend(list(data["atoms"]))
+        add_atoms = add_atoms if adsorbate in {"OCCO", "COCO"} else list(data["atoms"])
+        start_index = len(atoms)
+        atoms.extend(add_atoms)
         positions = np.vstack([positions, ads_positions])
+        molecules.append(molecule_record(adsorbate, range(start_index, len(atoms)), atoms, positions))
     metadata = dict(structure.get("metadata", {}))
     site_count = len(_substrate_top_indices(structure, binding_element))
     site_occupancy = len(site_ids) * (2 if adsorbate in {"OCCO", "COCO"} else 1)
+    for key in ("configuration_id", "geometry_hash_initial", "species_requested", "geometry_requested", "atom_ids", "atom_layers"):
+        metadata.pop(key, None)
     metadata.update({
+        "molecules": molecules,
+        "parent_structure_id": structure.get("metadata", {}).get("parent_structure_id") or structure.get("metadata", {}).get("configuration_id"),
         "adsorbate": adsorbate,
         "adsorbate_count": len(site_ids),
         "binding_element": binding_element,
@@ -102,7 +104,7 @@ def _add_species(structure, adsorbate, site_ids, coverage, region, binding_eleme
         "label_schema_version": "1.1",
         "structure_status": "parent_relaxed_plus_adsorbate_unrelaxed",
     })
-    return {"atoms": atoms, "positions": positions, "cell": cell, "metadata": metadata}
+    return annotate_structure({"atoms": atoms, "positions": positions, "cell": cell, "metadata": metadata})
 
 def _coverage_count(coverage, site_count, adsorbate):
     occupancy = 2 if adsorbate in {"OCCO", "COCO"} else 1
@@ -174,9 +176,11 @@ def build(parent, output):
         sample_id = f"{index:03d}_{name}"
         folder = output / sample_id
         folder.mkdir()
-        _write_poscar(folder / "POSCAR", structure["atoms"], structure["positions"], structure["cell"])
-        (folder / "structure_info.json").write_text(json.dumps(structure["metadata"], indent=2, default=str))
-        rows.append(_manifest_row(sample_id, structure))
+        StructureGenerator().save_structure(structure, str(folder), name=sample_id)
+        info = json.loads((folder / "structure_info.json").read_text())
+        rows.append({**_manifest_row(sample_id, structure), "configuration_id": info["configuration_id"],
+                     "label_status": info["label_status"], "species_observed": info["species_observed"],
+                     "geometry_observed": info["geometry_observed"], "coverage_actual": info["coverage_labels"]["actual"]})
     fields = list(rows[0])
     with (output / "dataset_manifest.csv").open("w", newline="") as handle:
         writer = csv.DictWriter(handle, fieldnames=fields)

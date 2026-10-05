@@ -32,6 +32,7 @@ else:
     if str(repo) not in sys.path:
         sys.path.insert(0, str(repo))
 
+from tools.dataset_labels import relaxed_metadata
 from tools.utils import read_structure_file, write_poscar  # noqa: E402
 from tools.xas_input_generator import (  # noqa: E402
     FEFFInputGenerator,
@@ -177,7 +178,11 @@ def regenerate_xas(args: argparse.Namespace) -> Dict:
     metadata["composition"] = ordered_composition(structure.get("atoms", []))
     metadata["sample_formula"] = metadata.get("sample_formula") or formula_from_composition(metadata["composition"])
     metadata["n_atoms"] = len(structure.get("atoms", []))
-    structure["metadata"].update(metadata)
+    initial_path = contcar.with_name("POSCAR")
+    initial = read_structure_file(str(initial_path)) if initial_path.exists() else None
+    metadata = relaxed_metadata(structure, metadata, initial)
+    structure["metadata"] = metadata
+    (package_root / "relaxed_structure_info.json").write_text(json.dumps(metadata, indent=2) + "\n")
 
     absorber = choose_absorber(structure, args.absorber)
     edge = normalize_edge(absorber, args.edge)

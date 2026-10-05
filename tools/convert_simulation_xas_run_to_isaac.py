@@ -510,6 +510,18 @@ def build_record(root: Path, *, record_id: str = "") -> Dict[str, Any]:
         ]}]},
         "tags": ["CO2RR_XAS_agent", "XAS_simulation", str(software)],
     }
+    # Keep this converter standalone for copied NERSC job folders.
+    info = read_json(root / "structure_info.json")
+    if info:
+        record["sample"].update({
+            "configuration_id": info.get("configuration_id"), "parent_structure_id": info.get("parent_structure_id"),
+            "catalyst": info.get("catalyst", {}), "adsorbate": info.get("adsorbate_metadata", {}),
+            "ml_labels": info.get("ml_targets", {}),
+            "structure_descriptors": {k: info.get(k) for k in (
+                "label_schema_version", "label_status", "label_stage", "geometry_hash", "species_requested",
+                "species_observed", "geometry_requested", "geometry_observed", "distribution_requested",
+                "distribution_observed", "coverage_labels", "observed_geometry", "geometry_qc", "atom_ids", "atom_layers", "surface_atom_ids")},
+        })
     return record
 
 

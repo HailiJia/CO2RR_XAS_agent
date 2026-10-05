@@ -184,6 +184,19 @@ def formula_from_structure_info(info: Dict[str, Any]) -> str:
     return "not_specified"
 
 
+
+def sample_label_fields(info):
+    """Mirror label schema 2.0 without optional scientific dependencies."""
+    if not info:
+        return {}
+    return {"configuration_id": info.get("configuration_id"), "parent_structure_id": info.get("parent_structure_id"),
+            "catalyst": info.get("catalyst", {}), "adsorbate": info.get("adsorbate_metadata", {}),
+            "ml_labels": info.get("ml_targets", {}),
+            "structure_descriptors": {k: info.get(k) for k in (
+                "label_schema_version", "label_status", "label_stage", "geometry_hash", "species_requested",
+                "species_observed", "geometry_requested", "geometry_observed", "distribution_requested",
+                "distribution_observed", "coverage_labels", "observed_geometry", "geometry_qc", "atom_ids", "atom_layers", "surface_atom_ids")}}
+
 def adsorbate_identity(info: Dict[str, Any]) -> str:
     ads = info.get("adsorbate_metadata") if isinstance(info.get("adsorbate_metadata"), dict) else {}
     return str(ads.get("identity") or "clean")
@@ -233,6 +246,7 @@ def relaxation_record_id(info: Dict[str, Any], sequence: int = 1) -> str:
     record_id = f"01JRGDFTEVID00{system_token}RELX{sequence:03d}"
     if not re.match(r"^[0-9A-Z]{26}$", record_id):
         raise ValueError(f"Generated invalid relaxation record_id: {record_id}")
+    record["sample"].update(sample_label_fields(info))
     return record_id
 
 
@@ -240,6 +254,7 @@ def xas_record_id(sequence: int = 1) -> str:
     record_id = f"01JRG{'SIMXAS'}{sequence:015d}"
     if not re.match(r"^[0-9A-Z]{26}$", record_id):
         raise ValueError(f"Generated invalid XAS record_id: {record_id}")
+    record["sample"].update(sample_label_fields(info))
     return record_id
 
 
@@ -380,6 +395,7 @@ def build_relaxation_record(output_dir: str, sequence: int = 1) -> Dict[str, Any
         "links": [],
         "tags": ["CO2RR_XAS_agent", "DFT_relaxation"],
     })
+    record["sample"].update(sample_label_fields(info))
     return record
 
 
@@ -595,6 +611,7 @@ def build_xas_record(output_dir: str, sequence: int = 1) -> Dict[str, Any]:
         "descriptors": {"outputs": [{"label": "auto_features_v1", "generated_utc": timestamps["created_utc"], "generated_by": {"agent": GENERATOR_NAME, "version": GENERATOR_VERSION}, "descriptors": descriptors}]},
         "tags": ["CO2RR_XAS_agent", "XAS_simulation"],
     })
+    record["sample"].update(sample_label_fields(info))
     return record
 
 

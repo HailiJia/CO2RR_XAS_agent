@@ -31,6 +31,28 @@ DIMER_CU_ONLY_REGIONS = {"Cu_side_interface_dimer_along_x", "Cu_side_interface_d
 DIMER_REGIONS = {"Cu_Au_boundary_bridge", *DIMER_CU_ONLY_REGIONS}
 
 
+# Generic names refer to the ordered metals in the interface metadata.
+GENERIC_SINGLE_REGIONS = {
+    "M1_side_interface": ("element1", 0), "M2_side_interface": ("element2", 0),
+    "M1_near_interface_row_1": ("element1", 1), "M1_near_interface_row_2": ("element1", 2),
+    "M2_near_interface_row_1": ("element2", 1), "M2_near_interface_row_2": ("element2", 2),
+    "M1_terrace": ("element1", -1), "M2_terrace": ("element2", -1),
+}
+GENERIC_DIMER_REGIONS = {"M1_M2_boundary_bridge", "M1_side_interface_dimer_along_x", "M1_side_interface_dimer_row0_row1",
+                         "M2_side_interface_dimer_along_x", "M2_side_interface_dimer_row0_row1"}
+
+
+def generic_region_options(adsorbate):
+    return sorted(GENERIC_DIMER_REGIONS) if adsorbate in {"OCCO", "COCO"} else list(GENERIC_SINGLE_REGIONS)
+
+
+def _region_element_rank(region, metadata):
+    if region in GENERIC_SINGLE_REGIONS:
+        key, rank = GENERIC_SINGLE_REGIONS[region]
+        return metadata[key], rank
+    return SINGLE_SITE_REGIONS.get(region, (metadata.get("element1"), 0))
+
+
 def parse_stripe_ratio(value: Any, default: Tuple[int, int] = (1, 1)) -> Tuple[int, int]:
     """Return the display ratio units, not actual row counts."""
     if isinstance(value, (tuple, list)) and len(value) == 2:
@@ -78,7 +100,9 @@ def region_is_valid_for_ratio(region: str, stripe_ratio: Any) -> bool:
     return cu_rows >= region_min_cu_rows(region)
 
 
-def region_options_for_adsorbate(adsorbate: str, stripe_ratio: Any = "1:1") -> List[str]:
+def region_options_for_adsorbate(adsorbate: str, stripe_ratio: Any = "1:1", element1="Cu", element2="Au") -> List[str]:
+    if {element1, element2} != {"Cu", "Au"}:
+        return generic_region_options(adsorbate)
     if not adsorbate or adsorbate == "clean":
         return ["Cu_side_interface"]
     options = [region for region, ads_list in ADSORPTION_REGION_ADSORBATES.items() if adsorbate in ads_list]
@@ -108,7 +132,13 @@ def is_all_region_request(text: str) -> bool:
     return mentions_generate and mentions_cu_au and mentions_region and (wants_all or mentions_possible)
 
 
-def binding_element_for_region(region: str) -> Optional[str]:
+def binding_element_for_region(region: str, element1="Cu", element2="Au") -> Optional[str]:
+    if region.startswith("M1_M2_"):
+        return None
+    if region.startswith("M1_"):
+        return element1
+    if region.startswith("M2_"):
+        return element2
     if region == "Au_side_interface":
         return "Au"
     if region == "Cu_Au_boundary_bridge":
@@ -157,7 +187,17 @@ def _rows_for_elements(
         final_cu_rows = e1_rows if element1 == "Cu" else (e2_rows if element2 == "Cu" else 0)
         final_au_rows = e1_rows if element1 == "Au" else (e2_rows if element2 == "Au" else 0)
         ratio = ratio_from_row_counts(final_cu_rows, final_au_rows) if final_cu_rows and final_au_rows else f"{e1_rows}:{e2_rows}"
+    elif {element1, element2} != {"Cu", "Au"}:
+        if stripe_ratio is not None:
+            e1_rows, e2_rows, ratio = actual_rows_from_ratio(stripe_ratio)
+        else:
+            e1_rows = e2_rows = requested_rows_per_side
+            ratio = "1:1"
+        final_cu_rows = e1_rows if element1 == "Cu" else e2_rows if element2 == "Cu" else 0
+        final_au_rows = e1_rows if element1 == "Au" else e2_rows if element2 == "Au" else 0
     else:
+        if stripe_ratio is None and cu_rows is None and au_rows is None:
+            cu_rows = au_rows = requested_rows_per_side
         if cu_rows is None or au_rows is None:
             cu_rows_parsed, au_rows_parsed, ratio = actual_rows_from_ratio(stripe_ratio)
             cu_rows = cu_rows if cu_rows is not None else cu_rows_parsed
@@ -193,6 +233,8 @@ def _patched_generate_interface(
     element1_rows: Optional[int] = None,
     element2_rows: Optional[int] = None,
 ) -> Dict[str, Any]:
+    if element1 == element2:
+        raise ValueError("A bimetallic interface requires two distinct elements.")
     if facet1 != facet2:
         raise ValueError("Lateral interfaces currently require matching facets")
     if facet1 != "111":
@@ -346,22 +388,11 @@ def _top_row_values(positions: np.ndarray, indices: Iterable[int], axis: int, to
 
 
 def _rank_rows_by_nearest_interface(row_values: List[float], y_min: float, y_max: float) -> Dict[float, int]:
-    ordered = sorted(row_values, key=lambda y: (min(abs(y - y_min), abs(y_max - y)), y))
-    ranks: Dict[float, int] = {}
-    # Pairs of rows at both stripe boundaries are the same distance class.
-    class_distances: List[float] = []
-    for y in ordered:
-        dist = min(abs(y - y_min), abs(y_max - y))
-        class_id = None
-        for idx, prev in enumerate(class_distances):
-            if abs(dist - prev) < 1e-5:
-                class_id = idx
-                break
-        if class_id is None:
-            class_distances.append(dist)
-            class_id = len(class_distances) - 1
-        ranks[y] = class_id
-    return ranks
+    # Both ends of a periodic stripe have an interface. Rank atomic rows from
+    # each end; ABC layer offsets must not turn the opposite boundary row into
+    # an apparent first interior row.
+    ordered = sorted(row_values)
+    return {row: min(i, len(ordered) - 1 - i) for i, row in enumerate(ordered)}
 
 
 def _row_candidates_for_region(self, atoms: List[str], positions: np.ndarray, top_indices: np.ndarray, metadata: Dict[str, Any], element: str, row_rank: int) -> List[int]:
@@ -385,6 +416,8 @@ def _row_candidates_for_region(self, atoms: List[str], positions: np.ndarray, to
         return []
     row_values = _top_row_values(positions, candidates, split_axis)
     rank_by_y = _rank_rows_by_nearest_interface(row_values, y_min, y_max)
+    if row_rank == -1:
+        row_rank = max(rank_by_y.values())
     allowed_rows = [y for y, rank in rank_by_y.items() if rank == row_rank]
     out = [idx for idx in candidates if any(abs(float(positions[idx, split_axis]) - y) < 1e-5 for y in allowed_rows)]
     return out
@@ -399,7 +432,10 @@ def _choose_atom_near_x(self, positions: np.ndarray, candidates: List[int], cell
 def _choose_neighbor_along_x(self, positions: np.ndarray, candidates: List[int], cell: np.ndarray, line_axis: int, primary_idx: int) -> int:
     line_length = float(cell[line_axis, line_axis]) if cell[line_axis, line_axis] else None
     x0 = float(positions[primary_idx, line_axis])
-    others = [idx for idx in candidates if idx != primary_idx]
+    split_axis = 1 - line_axis
+    others = [idx for idx in candidates if idx != primary_idx
+              and abs(positions[idx, split_axis] - positions[primary_idx, split_axis]) < 1e-5
+              and self._periodic_delta(float(positions[idx, line_axis]), x0, line_length) > 1e-5]
     if not others:
         raise ValueError("Need at least two Cu atoms along the interface for dimer_along_x placement.")
     # Prefer a nearby but not identical x-neighbor along the same Cu row.
@@ -411,7 +447,7 @@ def _site_index_for_region(self, atoms: List[str], positions: np.ndarray, cell: 
     split_axis_name = interface_meta.get("split_axis", "y")
     split_axis = 1 if split_axis_name == "y" else 0
     line_axis = 0 if split_axis == 1 else 1
-    element, row_rank = SINGLE_SITE_REGIONS.get(region, ("Cu", 0))
+    element, row_rank = _region_element_rank(region, metadata)
     candidates = _row_candidates_for_region(self, atoms, positions, top_indices, metadata, element, row_rank)
     if not candidates:
         raise ValueError(f"No valid {element} top-layer candidates for adsorption_region={region}.")
@@ -419,7 +455,7 @@ def _site_index_for_region(self, atoms: List[str], positions: np.ndarray, cell: 
     return list(top_indices).index(chosen_global_idx), element, row_rank
 
 
-def _custom_add_cu_dimer_adsorbate(self, structure: Dict[str, Any], adsorbate_name: str, region: str, height: float) -> Dict[str, Any]:
+def _custom_add_cu_dimer_adsorbate(self, structure: Dict[str, Any], adsorbate_name: str, region: str, height: float, element: str = "Cu") -> Dict[str, Any]:
     if adsorbate_name not in {"OCCO", "COCO"}:
         raise ValueError(f"{region} is only configured for OCCO/COCO, not {adsorbate_name}.")
     atoms = list(structure["atoms"])
@@ -430,52 +466,36 @@ def _custom_add_cu_dimer_adsorbate(self, structure: Dict[str, Any], adsorbate_na
     split_axis_name = interface_meta.get("split_axis", "y")
     split_axis = 1 if split_axis_name == "y" else 0
     line_axis = 0 if split_axis == 1 else 1
-    top_indices = self._top_layer_indices(positions)
-    z_max = positions[:, 2].max()
+    from tools.contact_checks import METALS
+    metal_indices = np.asarray([i for i, atom in enumerate(atoms) if atom in METALS], int)
+    top_indices = metal_indices[self._top_layer_indices(positions[metal_indices])]
+    z_max = positions[top_indices, 2].max()
 
-    row0_candidates = _row_candidates_for_region(self, atoms, positions, top_indices, metadata, "Cu", 0)
+    row0_candidates = _row_candidates_for_region(self, atoms, positions, top_indices, metadata, element, 0)
     if not row0_candidates:
         raise ValueError("No Cu interface row candidates are available for Cu-only dimer placement.")
     first_idx = _choose_atom_near_x(self, positions, row0_candidates, cell, line_axis)
-    if region == "Cu_side_interface_dimer_along_x":
+    if region.endswith("dimer_along_x"):
         second_idx = _choose_neighbor_along_x(self, positions, row0_candidates, cell, line_axis, first_idx)
         distance_to_interface_row = 0
     else:
-        row1_candidates = _row_candidates_for_region(self, atoms, positions, top_indices, metadata, "Cu", 1)
+        row1_candidates = _row_candidates_for_region(self, atoms, positions, top_indices, metadata, element, 1)
         if not row1_candidates:
             raise ValueError("Cu_side_interface_dimer_row0_row1 requires at least 4 Cu rows.")
-        second_idx = _choose_atom_near_x(self, positions, row1_candidates, cell, line_axis, positions[first_idx, line_axis])
+        from tools.contact_checks import minimum_image_vectors
+        second_idx = min(row1_candidates, key=lambda i: np.linalg.norm(minimum_image_vectors(positions[i] - positions[first_idx], cell)[:2]))
         distance_to_interface_row = 1
 
-    ads_data = self.adsorbates[adsorbate_name]
-    ads_atoms = list(ads_data["atoms"])
-    ads_positions = np.array(ads_data["positions"], dtype=float).copy()
-    c_indices = [idx for idx, atom in enumerate(ads_atoms) if atom == "C"]
-    if len(c_indices) < 2:
-        raise ValueError(f"{adsorbate_name} needs at least two C atoms for dimer placement.")
-    c0, c1 = c_indices[:2]
-    original_c0 = ads_positions[c0].copy()
-    original_c1 = ads_positions[c1].copy()
-    target0 = positions[first_idx].copy()
-    target1 = positions[second_idx].copy()
-    target0[2] = z_max + height
-    target1[2] = z_max + height
-    new_ads_positions = ads_positions.copy()
-    for k in range(len(ads_atoms)):
-        d0 = np.linalg.norm(ads_positions[k] - original_c0)
-        d1 = np.linalg.norm(ads_positions[k] - original_c1)
-        if d0 <= d1:
-            new_ads_positions[k] = target0 + (ads_positions[k] - original_c0)
-        else:
-            new_ads_positions[k] = target1 + (ads_positions[k] - original_c1)
-    new_ads_positions[c0] = target0
-    new_ads_positions[c1] = target1
-
+    from tools.adsorbate_scenarios import _pair_geometry
+    from tools.dataset_labels import annotate_structure, molecule_record
+    ads_atoms, new_ads_positions = _pair_geometry("OCCO", {"indices": [first_idx, second_idx]}, structure)
+    new_ads_positions[:, 2] += z_max + height - min(new_ads_positions[0, 2], new_ads_positions[2, 2])
+    adsorbate_name = "OCCO"  # COCO is the legacy input alias.
     new_metadata = metadata.copy()
     new_metadata["adsorbate"] = adsorbate_name
     new_metadata["adsorption_site"] = region
     new_metadata["adsorption_height"] = height
-    new_metadata["adsorption_binding_element"] = "Cu"
+    new_metadata["adsorption_binding_element"] = element
     new_metadata = self._with_ml_metadata(new_metadata, adsorbate_name, region, None)
     result = {
         "atoms": atoms + ads_atoms,
@@ -483,34 +503,57 @@ def _custom_add_cu_dimer_adsorbate(self, structure: Dict[str, Any], adsorbate_na
         "cell": cell.copy(),
         "metadata": new_metadata,
     }
-    _attach_region_descriptors(result, adsorbate_name, region, "Cu", distance_to_interface_row, region)
-    return result
+    molecules = list(metadata.get("molecules", []))
+    molecules.append(molecule_record("OCCO", range(len(atoms), len(result["atoms"])), result["atoms"], result["positions"]))
+    result["metadata"]["molecules"] = molecules
+    result["metadata"]["selected_sites"] = [{"role": "OCCO_core", "indices": [first_idx, second_idx], "kind": "bridge", "composition": f"{element}-{element}"}]
+    for key in ("configuration_id", "geometry_hash_initial", "species_requested", "geometry_requested", "atom_ids", "atom_layers"):
+        result["metadata"].pop(key, None)
+    _attach_region_descriptors(result, adsorbate_name, region, element, distance_to_interface_row, region)
+    return annotate_structure(result)
 
 
 def _patched_add_adsorbate(self, structure: Dict[str, Any], adsorbate_name: str, *args: Any, adsorption_region: Optional[str] = None, **kwargs: Any) -> Dict[str, Any]:
+    from tools.dataset_labels import annotate_structure
+    structure = annotate_structure({**structure, "metadata": dict(structure.get("metadata", {}))}, stage=structure.get("metadata", {}).get("label_stage", "generated"))
     metadata = structure.get("metadata", {})
     interface_meta = metadata.get("interface", {}) if isinstance(metadata.get("interface"), dict) else {}
     if interface_meta.get("type") != "lateral" or adsorbate_name == "clean":
         return self._stripe_original_add_adsorbate(structure, adsorbate_name, *args, **kwargs)
 
     stripe_ratio = metadata.get("stripe_ratio") or interface_meta.get("stripe_ratio") or "1:1"
-    region = _safe_first_region(adsorbate_name, adsorption_region, stripe_ratio=stripe_ratio)
+    generic = adsorption_region in set(GENERIC_SINGLE_REGIONS) | GENERIC_DIMER_REGIONS
+    if adsorption_region is None and {metadata.get("element1"), metadata.get("element2")} != {"Cu", "Au"}:
+        adsorption_region = "M1_M2_boundary_bridge" if adsorbate_name in {"OCCO", "COCO"} else "M1_side_interface"
+        generic = True
+    if generic:
+        if adsorption_region not in generic_region_options(adsorbate_name):
+            raise ValueError(f"Unsupported region {adsorption_region} for {adsorbate_name}.")
+        region = adsorption_region
+    else:
+        if adsorption_region is not None and adsorption_region not in ADSORPTION_REGION_CHOICES:
+            raise ValueError(f"Unknown adsorption region: {adsorption_region}")
+        region = _safe_first_region(adsorbate_name, adsorption_region, stripe_ratio=stripe_ratio)
+        if binding_element_for_region(region) and binding_element_for_region(region) not in structure["atoms"]:
+            raise ValueError(f"Legacy region {region} requires its named metal; use M1/M2 regions.")
     height = float(kwargs.get("height", 2.0))
-    kwargs.pop("binding_element", None)  # Region is authoritative; no independent binding-element selector.
-
-    if region in DIMER_CU_ONLY_REGIONS:
-        return _custom_add_cu_dimer_adsorbate(self, structure, adsorbate_name, region, height)
+    kwargs.pop("binding_element", None)
+    if region in DIMER_CU_ONLY_REGIONS or (region in GENERIC_DIMER_REGIONS and region != "M1_M2_boundary_bridge"):
+        element = metadata["element2"] if region.startswith("M2_") else metadata["element1"] if generic else "Cu"
+        return _custom_add_cu_dimer_adsorbate(self, structure, adsorbate_name, region, height, element)
 
     positions = np.asarray(structure["positions"], dtype=float)
     atoms = list(structure["atoms"])
     cell = np.asarray(structure["cell"], dtype=float)
-    top_indices = self._top_layer_indices(positions)
-    binding_element = binding_element_for_region(region)
+    from tools.contact_checks import METALS
+    metal_indices = np.asarray([i for i, atom in enumerate(atoms) if atom in METALS], int)
+    top_indices = metal_indices[self._top_layer_indices(positions[metal_indices])]
+    binding_element = binding_element_for_region(region, metadata["element1"], metadata["element2"])
     site_index = kwargs.pop("site_index", None)
     row_distance = 0
     binding_mode = "single_site"
 
-    if region == "Cu_Au_boundary_bridge":
+    if region in {"Cu_Au_boundary_bridge", "M1_M2_boundary_bridge"}:
         if adsorbate_name not in {"OCCO", "COCO"}:
             raise ValueError("Cu_Au_boundary_bridge is only configured for OCCO/COCO.")
         binding_mode = "dual_C_bridge"
@@ -526,8 +569,10 @@ def _patched_add_adsorbate(self, structure: Dict[str, Any], adsorbate_name: str,
         binding_element=binding_element,
         **kwargs,
     )
-    _attach_region_descriptors(result, adsorbate_name, region, binding_element, row_distance, binding_mode)
-    return result
+    _attach_region_descriptors(result, result["metadata"].get("adsorbate", adsorbate_name), region, binding_element, row_distance, binding_mode)
+    from tools.dataset_labels import annotate_structure
+    result["metadata"].pop("geometry_requested", None)
+    return annotate_structure(result)
 
 
 def _attach_region_descriptors(structure: Dict[str, Any], adsorbate_name: str, region: str, binding_element: Optional[str], row_distance: int, binding_mode: str) -> None:
@@ -694,15 +739,15 @@ def patched_main_source(source: str) -> str:
     )
     source = source.replace(
         '            else:\n                st.write("Auto mode chooses low-strain repeats along the interface. `ny` controls rows away from the interface.")',
-        '            else:\n                st.write("Auto mode chooses low-strain repeats along the interface. Stripe ratio controls Cu/Au row widths perpendicular to the interface.")',
+        '            else:\n                st.write("Auto mode chooses low-strain repeats along the interface. Stripe ratio controls metal row widths perpendicular to the interface.")',
     )
     source = source.replace(
         '            with c2:\n                p["ny"] = st.number_input("Rows away from interface", min_value=1, max_value=30, value=int(p["ny"]))\n\n        p["facet"] = st.selectbox("Facet", ["111"], index=0)',
-        '            with c2:\n                p["ny"] = st.number_input("Rows fallback", min_value=1, max_value=30, value=int(p["ny"]), help="Used only if no Cu:Au stripe ratio is selected.")\n            ratio_options = stripe_patch_ratio_choices()\n            p["stripe_ratio"] = st.selectbox("Cu:Au stripe row ratio", ratio_options, index=safe_index(ratio_options, p.get("stripe_ratio", "1:1")))\n            cu_rows, au_rows, _ = stripe_patch_actual_rows(p["stripe_ratio"])\n            st.caption(f"Stripe width: Cu rows = {cu_rows}, Au rows = {au_rows}; interface axis x, split axis y. Ratio labels use a 2-row base unit.")\n\n        p["facet"] = st.selectbox("Facet", ["111"], index=0)',
+        '            with c2:\n                p["ny"] = st.number_input("Rows fallback", min_value=1, max_value=30, value=int(p["ny"]), help="Used only if no stripe ratio is selected.")\n            ratio_options = stripe_patch_ratio_choices()\n            p["stripe_ratio"] = st.selectbox("First:second metal stripe row ratio", ratio_options, index=safe_index(ratio_options, p.get("stripe_ratio", "1:1")))\n            m1_rows, m2_rows, _ = stripe_patch_actual_rows(p["stripe_ratio"])\n            st.caption(f"Stripe width: first-metal rows = {m1_rows}, second-metal rows = {m2_rows}; interface axis x, split axis y. Ratio labels use a 2-row base unit.")\n\n        p["facet"] = st.selectbox("Facet", ["111"], index=0)',
     )
     source = source.replace(
         '            p["interface_binding_element"] = st.selectbox(\n                "Adsorbate binding site metal",\n                binding_options,\n                index=safe_index(binding_options, p["interface_binding_element"]),\n            )',
-        '            region_options = stripe_patch_region_options(p["adsorbate"], p.get("stripe_ratio", "1:1"))\n            if p.get("adsorption_region") not in region_options:\n                p["adsorption_region"] = region_options[0]\n            p["adsorption_region"] = st.selectbox(\n                "Adsorption region",\n                region_options,\n                index=safe_index(region_options, p.get("adsorption_region", region_options[0])),\n                help="Region is authoritative and determines Cu/Au binding automatically. Stored in structure_info.metadata.descriptors.adsorption_region.",\n            )\n            p["interface_binding_element"] = stripe_patch_binding_element_for_region(p["adsorption_region"]) or "Cu"\n            st.caption(f"Binding element is inferred from region: {p[\'interface_binding_element\']}.")',
+        '            region_options = stripe_patch_region_options(p["adsorbate"], p.get("stripe_ratio", "1:1"), p["element1"], p["element2"])\n            if p.get("adsorption_region") not in region_options:\n                p["adsorption_region"] = region_options[0]\n            p["adsorption_region"] = st.selectbox(\n                "Adsorption region",\n                region_options,\n                index=safe_index(region_options, p.get("adsorption_region", region_options[0])),\n                help="The region selects the binding metal. M1 and M2 refer to the first and second metals.",\n            )\n            p["interface_binding_element"] = stripe_patch_binding_element_for_region(p["adsorption_region"], p["element1"], p["element2"]) or p["element1"]\n            st.caption(f"Binding element is inferred from region: {p[\'interface_binding_element\']}.")',
     )
     source = source.replace(
         '    return parsed\n\n\ndef generate_structure',

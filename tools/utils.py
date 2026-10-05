@@ -90,7 +90,7 @@ ADSORBATES = {
     'CHOH': {'atoms': ['C', 'H', 'O', 'H'], 'positions': np.array([[0.0, 0.0, 0.0], [-0.6, 0.8, 0.2], [1.2, 0.0, 0.3], [1.7, 0.0, 1.1]]), 'binding_atom': 0},
     'CH': {'atoms': ['C', 'H'], 'positions': np.array([[0.0, 0.0, 0.0], [0.0, 0.0, 1.09]]), 'binding_atom': 0},
     'CH2': {'atoms': ['C', 'H', 'H'], 'positions': np.array([[0.0, 0.0, 0.0], [0.9, 0.0, 0.6], [-0.9, 0.0, 0.6]]), 'binding_atom': 0},
-    'CH3': {'atoms': ['C', 'H', 'H', 'H'], 'positions': np.array([[0.0, 0.0, 0.0], [0.9, 0.0, 0.6], [-0.45, 0.78, 0.6], [-0.45, -0.78, 0.6]]), 'binding_atom': 0},
+    'CH3': {'atoms': ['C', 'H', 'H', 'H'], 'positions': np.array([[0.0, 0.0, 0.0], [1.027661, 0.0, 0.363333], [-0.5138305, 0.8899813, 0.363333], [-0.5138305, -0.8899813, 0.363333]]), 'binding_atom': 0},
     'CH4': {'atoms': ['C', 'H', 'H', 'H', 'H'], 'positions': np.array([[0.0, 0.0, 0.0], [0.63, 0.63, 0.63], [-0.63, -0.63, 0.63], [-0.63, 0.63, -0.63], [0.63, -0.63, -0.63]]), 'binding_atom': 0},
     # Legacy spelling retained only so old requests can be canonicalized to OCCO.
     'COCO': {'atoms': ['O', 'C', 'C', 'O'], 'positions': np.array([[0.0, 0.0, 1.25], [0.0, 0.0, 0.0], [1.45, 0.0, 0.0], [1.45, 0.0, 1.25]]), 'binding_atom': 1},
@@ -477,7 +477,7 @@ def write_poscar(
         cell_inv = np.linalg.inv(np.array(cell))
         frac_positions = []
         for pos in positions:
-            frac = np.dot(cell_inv, pos)
+            frac = np.asarray(pos) @ cell_inv
             frac_positions.append(frac.tolist())
         write_positions = frac_positions
     else:

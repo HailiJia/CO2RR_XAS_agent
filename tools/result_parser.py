@@ -233,7 +233,9 @@ def _infer_sample_from_inputs(
             unique_atoms.append(atom)
 
     sample_form = "bulk_model"
-    cell = structure.get("cell") or []
+    cell = structure.get("cell")
+    if cell is None:
+        cell = []
     try:
         lengths = [float(np.linalg.norm(np.array(v, dtype=float))) for v in cell]
         if len(lengths) == 3:
@@ -1184,6 +1186,13 @@ class ISAACRecordGenerator:
                 "sample_form": parameters.get("sample_form") or input_sample.get("sample_form") or sample_meta.get("sample_form", "slab_model"),
                 "catalyst": catalyst_meta,
                 "adsorbate": adsorbate_meta,
+                "configuration_id": structure_metadata.get("configuration_id"),
+                "parent_structure_id": structure_metadata.get("parent_structure_id"),
+                "ml_labels": structure_metadata.get("ml_targets", {}),
+                "structure_descriptors": {key: structure_metadata.get(key) for key in (
+                    "label_schema_version", "label_status", "label_stage", "geometry_hash",
+                    "species_requested", "species_observed", "geometry_requested", "geometry_observed",
+                    "distribution_requested", "distribution_observed", "coverage_labels", "observed_geometry", "geometry_qc", "atom_ids", "atom_layers", "surface_atom_ids")},
                 "structure_id": parameters.get("structure_id") or structure_metadata.get("structure_id") or catalyst_meta.get("structure_id"),
             },
             

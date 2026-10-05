@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import math
+import json
 import os
 import re
 import sys
@@ -24,10 +25,11 @@ from tools.isaac_portal_client import ISAACPortalClient
 from tools.xas_ml_utils import (
     SKLEARN_AVAILABLE,
     SKLEARN_IMPORT_ERROR,
-    auto_advisor,
+    run_auto_advisor,
+    export_model,
     feature_matrix,
     learning_curve_rows,
-    train_manual,
+    train_manual_rows,
 )
 from tools.xas_record_utils import (
     get_path,
@@ -468,7 +470,7 @@ if not label_candidates:
 with st.expander("Allowed target/label fields", expanded=False):
     st.write("Only chemically useful XAS ML targets are shown: material formula, non-null descriptors, and optional parsed facet/site labels.")
     st.write(label_candidates)
-target = st.selectbox("Target / label field", label_candidates, index=label_candidates.index("sample.material.formula") if "sample.material.formula" in label_candidates else 0)
+target = st.selectbox("Target / label field", label_candidates, index=label_candidates.index("sample.ml_labels.adsorbate_identity") if "sample.ml_labels.adsorbate_identity" in label_candidates else 0)
 if target.startswith("structure."):
     st.warning("This target was parsed from record text. Manually check facet/site labels before using them for model training.")
 label_vals = [v for v in [target_value(r, target) for r in train_rows] if v not in [None, ""]]
@@ -477,6 +479,18 @@ task = st.radio("Task type", ["classification", "regression"], index=1 if reg_ok
 if not SKLEARN_AVAILABLE:
     st.warning(f"scikit-learn is not available, so training is disabled. Import error: {SKLEARN_IMPORT_ERROR}")
 
+group_candidates = [key for key in label_candidates if any(token in key for token in ("configuration_id", "structure_id", "condition_id", "parent_structure_id"))]
+group_choice = st.selectbox("Keep related spectra together by", ["Automatic configuration linkage"] + group_candidates)
+group_field = None if group_choice == "Automatic configuration linkage" else group_choice
+st.caption("The same configuration stays together across absorbers, backends and processing variants. A fixed test set is reserved before grouped validation. Select the clean parent only for a stricter family holdout.")
+
+
+def model_downloads(result):
+    st.download_button("Download fitted model and processing recipe", export_model(result), "xas_ml_model.joblib", mime="application/octet-stream")
+    st.download_button("Download split manifest", json.dumps(result["split_manifest"], indent=2), "xas_ml_split_manifest.json", mime="application/json")
+    st.json(result["metrics"])
+
+
 st.subheader("Auto-advisor")
 st.write("Run a deterministic comparison of feature sets, normalization choices, dimension reduction choices, and simple models.")
 a1, a2 = st.columns(2)
@@ -484,13 +498,15 @@ advisor_grid = a1.slider("Auto-advisor common-grid points", 32, 512, 128, step=3
 advisor_rows = a2.slider("Configurations to show", 5, 40, 15, step=5)
 if st.button("Run Auto-advisor comparison", disabled=not SKLEARN_AVAILABLE, type="secondary"):
     try:
-        res, failures = auto_advisor(train_rows, target, task, advisor_grid, advisor_rows)
+        run = run_auto_advisor(train_rows, target, task, advisor_grid, advisor_rows, group_field=group_field)
+        res, failures = run["recommendations"], run["failures"]
+        model_downloads(run["result"])
         if res:
-            st.success("Auto-advisor finished. Use the recommendation as a starting point, then verify with grouped validation.")
+            st.success("The advisor selected a model using grouped validation and evaluated that model on the reserved test set.")
             best = res[0]
             st.markdown(f"**Recommendation:** `{best['feature_set']}` features, `{best['normalization']}` normalization, `{best['dimension_reduction']}`, `{best['model']}`.")
             if pd is not None:
-                df = pd.DataFrame(res)
+                df = pd.DataFrame([{k: v for k, v in r.items() if k not in {"split_manifest", "cv_folds"}} for r in res])
                 st.dataframe(df.drop(columns=["rank_score"], errors="ignore"), use_container_width=True)
                 st.download_button("Download Auto-advisor CSV", data=df.to_csv(index=False), file_name="xas_ml_auto_advisor_results.csv", mime="text/csv")
             else:
@@ -517,9 +533,9 @@ else:
 
 if st.button("Train model", type="primary", disabled=not SKLEARN_AVAILABLE):
     try:
-        X, y, feature_names, grid = feature_matrix(train_rows, target, feature_kinds, norm, n_grid)
-        result = train_manual(X, y, task, model_name, use_pca, n_comp)
-        st.success(f"Trained {model_name} on {X.shape[0]} spectra with {X.shape[1]} features.")
+        result = train_manual_rows(train_rows, target, task, model_name, feature_kinds, norm, n_grid, use_pca, n_comp, group_field)
+        st.success(f"Trained {model_name} on {len(result['train_indices'])} spectra; evaluated on {len(result['test_indices'])} spectra from separate configurations.")
+        model_downloads(result)
         metric_items = list(result["metrics"].items())
         cols = st.columns(max(1, len(metric_items)))
         for col, (key, value) in zip(cols, metric_items):
@@ -534,13 +550,13 @@ if st.button("Train model", type="primary", disabled=not SKLEARN_AVAILABLE):
             st.table(result["table"])
         st.subheader("Training curve")
         try:
-            ylabel, curve_rows, note = learning_curve_rows(result["model"], X, result["y_model"], task)
+            ylabel, curve_rows, note = learning_curve_rows(result["model"], result["X"], result["y_model"], task, result["groups"], result["train_indices"])
             if note:
                 st.info(note)
             elif curve_rows and pd is not None:
                 st.caption(ylabel)
                 curve_df = pd.DataFrame(curve_rows)
-                st.line_chart(curve_df, x="training_size", y=["train", "validation"], use_container_width=True)
+                st.line_chart(curve_df, x="training_groups", y=["train", "validation"], use_container_width=True)
                 st.dataframe(curve_df, use_container_width=True)
             elif curve_rows:
                 st.table(curve_rows)

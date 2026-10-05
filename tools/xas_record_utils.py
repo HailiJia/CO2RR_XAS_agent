@@ -368,7 +368,7 @@ def target_value(row: Dict[str, Any], path: str) -> Any:
 
 
 def label_fields(rows: Sequence[Dict[str, Any]]) -> List[str]:
-    preferred = ["sample.material.formula", "sample.material.name", "derived.absorber", "derived.edge", "derived.edge_group", "system.technique", "source_type", "record_domain"]
+    preferred = ["sample.ml_labels.adsorbate_identity", "sample.ml_labels.local_geometry", "sample.ml_labels.coverage", "sample.material.formula", "sample.material.name", "derived.absorber", "derived.edge", "derived.edge_group", "system.technique", "source_type", "record_domain"]
     keys = set()
     for row in rows:
         for key, value in (row.get("metadata") or {}).items():
