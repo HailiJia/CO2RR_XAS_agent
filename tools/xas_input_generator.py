@@ -4,6 +4,7 @@ Skill 2 Implementation
 """
 
 import os
+from pathlib import Path
 import json
 import numpy as np
 from typing import Dict, List, Tuple, Optional
@@ -250,6 +251,16 @@ def _isaac_submit_metadata_finalize() -> List[str]:
         "    'links': [],",
         "    'descriptors': {'outputs': []},",
         "}",
+        "info_path = Path('structure_info.json')",
+        'if info_path.exists():',
+        '    info = json.loads(info_path.read_text())',
+        "    sample = metadata.setdefault('sample', {})",
+        "    sample['configuration_id'] = info.get('configuration_id')",
+        "    sample['parent_structure_id'] = info.get('parent_structure_id')",
+        "    sample['ml_labels'] = info.get('ml_targets', {})",
+        "    sample['catalyst'] = info.get('catalyst', {})",
+        "    sample['adsorbate'] = info.get('adsorbate_metadata', {})",
+        "    sample['structure_descriptors'] = {k: info.get(k) for k in ('label_schema_version', 'label_status', 'label_stage', 'geometry_hash', 'species_requested', 'species_observed', 'geometry_requested', 'geometry_observed', 'coverage_labels', 'distribution_observed', 'observed_geometry', 'geometry_qc', 'atom_ids', 'atom_layers', 'surface_atom_ids')}",
         "Path(os.environ.get('ISAAC_METADATA_FILE', 'isaac_run_metadata.json')).write_text(json.dumps(metadata, indent=2) + '\\n')",
         "print('Wrote', os.environ.get('ISAAC_METADATA_FILE', 'isaac_run_metadata.json'))",
         "PY",
@@ -1499,9 +1510,27 @@ class XASInputGenerator:
             'xas': {}
         }
         
+        from .dataset_labels import annotate_structure, remap_metadata, relaxed_metadata
+        from .utils import read_poscar
+        structure = annotate_structure(structure, stage=structure.get("metadata", {}).get("label_stage", "generated"))
+        elements = list(dict.fromkeys(structure["atoms"]))
+        permutation = [i for el in elements for i, atom in enumerate(structure["atoms"]) if atom == el]
+        saved_metadata = remap_metadata(structure["metadata"], permutation)
         # 1. Generate relaxation inputs
         relax_dir = os.path.join(output_dir, "relax")
-        relax_files = self.relax_gen.write_inputs(structure, relax_dir)
+        preserve_initial = structure["metadata"].get("label_stage") == "post_relaxation" and Path(relax_dir, "POSCAR").is_file()
+        if preserve_initial:
+            relax_files = [str(path) for path in Path(relax_dir).iterdir() if path.name in {"POSCAR", "INCAR", "KPOINTS", "POTCAR.spec", "make_potcar.sh"}]
+            saved = read_poscar(os.path.join(relax_dir, "POSCAR"))
+            info_path = Path(relax_dir, "structure_info.json")
+            saved["metadata"] = json.loads(info_path.read_text()) if info_path.exists() else saved_metadata
+        else:
+            relax_files = self.relax_gen.write_inputs(structure, relax_dir)
+            saved = read_poscar(os.path.join(relax_dir, "POSCAR"))
+            saved["metadata"] = saved_metadata
+            saved = annotate_structure(saved, stage=structure["metadata"].get("label_stage", "generated"))
+            with open(os.path.join(relax_dir, "structure_info.json"), "w") as f:
+                json.dump(saved["metadata"], f, indent=2)
         
         # Relaxation submit script
         meta = structure.get('metadata', {})
@@ -1527,7 +1556,7 @@ class XASInputGenerator:
         warnings = []
         if os.path.exists(relaxed_contcar):
             xas_structure = read_poscar(relaxed_contcar)
-            xas_structure['metadata'] = dict(structure.get('metadata', {}))
+            xas_structure['metadata'] = relaxed_metadata(xas_structure, saved["metadata"], saved)
             xas_structure['metadata']['source_file'] = relaxed_contcar
             xas_structure_source = "relax/CONTCAR"
         else:
@@ -1640,6 +1669,13 @@ class XASInputGenerator:
                 )
                 results['xas'][edge_key]['VASP'] = vasp_result
         
+        for path in Path(output_dir).rglob("submit*.sh"):
+            if "xas" in path.parts:
+                # VASP input writers use the same element grouping as POSCAR;
+                # XAS records carry configuration identity independently of
+                # the absorbing site and backend.
+                out_meta = remap_metadata(xas_structure["metadata"], permutation) if xas_structure is structure else xas_structure["metadata"]
+                (path.parent / "structure_info.json").write_text(json.dumps(out_meta, indent=2) + "\n")
         return results
 
 
@@ -1692,8 +1728,12 @@ def execute_xas_input_generation(
     # Add metadata if provided
     if structure_metadata:
         structure['metadata'] = structure_metadata
-    elif 'metadata' not in structure:
-        structure['metadata'] = {}
+    else:
+        info_path = Path(structure_file).with_name("structure_info.json")
+        if info_path.exists():
+            structure['metadata'] = json.loads(info_path.read_text())
+        else:
+            structure.setdefault('metadata', {})
     
     # Generate all inputs
     generator = XASInputGenerator()

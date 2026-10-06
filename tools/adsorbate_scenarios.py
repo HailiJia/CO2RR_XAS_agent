@@ -12,6 +12,8 @@ from typing import Any, Dict, List, Optional, Sequence, Tuple
 
 import numpy as np
 
+from .dataset_labels import annotate_structure, molecule_record
+
 from .utils import ADSORBATES, ADSORBATE_ALIASES
 
 DISTRIBUTIONS = {"uniform", "interface_biased", "interior_biased", "cross_interface"}
@@ -69,14 +71,8 @@ def _margin(position: np.ndarray, cell: np.ndarray) -> float:
 
 
 def _pbc_vector(a: np.ndarray, b: np.ndarray, cell: np.ndarray) -> np.ndarray:
-    d = np.asarray(b, float) - np.asarray(a, float)
-    lx = float(np.linalg.norm(cell[0, :2]))
-    ly = float(np.linalg.norm(cell[1, :2]))
-    if lx > 1e-12:
-        d[0] = (d[0] + 0.5 * lx) % lx - 0.5 * lx
-    if ly > 1e-12:
-        d[1] = (d[1] + 0.5 * ly) % ly - 0.5 * ly
-    return d
+    from .contact_checks import minimum_image_vectors
+    return minimum_image_vectors(np.asarray(b) - np.asarray(a), cell)
 
 
 def _pbc_xy_distance(a: np.ndarray, b: np.ndarray, cell: np.ndarray) -> float:
@@ -528,12 +524,16 @@ def _scenario_specs(structure: Dict[str, Any], adsorbate: str, distribution: str
             return [{"name": "uniform", "distribution": "uniform", "element": preferred, "pair_mode": "same"}]
         return [{"name": "uniform", "distribution": "uniform", "element": preferred, "pair_mode": "top" if adsorbate == "COOH" else None}]
     if adsorbate == "OCCO":
+        first = structure["metadata"].get("element1", preferred)
+        second = structure["metadata"].get("element2")
         return [
-            {"name": "CuCu_uniform", "distribution": "uniform", "element": "Cu", "pair_mode": "same"},
-            {"name": "CuCu_interface", "distribution": "interface_biased", "element": "Cu", "pair_mode": "same"},
-            {"name": "AuCu_interface", "distribution": "cross_interface", "element": None, "pair_mode": "cross"},
+            {"name": f"{first}{first}_uniform", "distribution": "uniform", "element": first, "pair_mode": "same"},
+            {"name": f"{first}{first}_interface", "distribution": "interface_biased", "element": first, "pair_mode": "same"},
+            {"name": f"{second}{first}_interface", "distribution": "cross_interface", "element": None, "pair_mode": "cross"},
         ]
     if adsorbate == "COOH":
+        if {structure["metadata"].get("element1"), structure["metadata"].get("element2")} != {"Cu", "Au"}:
+            raise ValueError("The asymmetric COOH scenario sweep is calibrated for Cu/Au; use explicit monodentate placement for other metals.")
         return [
             {"name": "Cu_uniform", "distribution": "uniform", "element": "Cu", "pair_mode": "same"},
             {"name": "Cu_interface", "distribution": "interface_biased", "element": "Cu", "pair_mode": "same"},
@@ -563,6 +563,7 @@ def generate_adsorbate_scenarios(
     generated per structure; higher requested coverage is represented by
     spectator CO around that core rather than by an OCCO overlayer.
     """
+    structure = annotate_structure({**structure, "metadata": dict(structure.get("metadata", {}))}, stage=structure.get("metadata", {}).get("label_stage", "generated"))
     requested_adsorbate = adsorbate
     adsorbate = ADSORBATE_ALIASES.get(adsorbate, adsorbate)
     distribution = str(distribution or "uniform").lower()
@@ -576,6 +577,15 @@ def generate_adsorbate_scenarios(
         raise ValueError("boundary_margin must lie between 0 and 0.5.")
 
     preferred = _preferred(structure, preferred_element)
+    first = structure.get("metadata", {}).get("element1", preferred)
+    second = structure.get("metadata", {}).get("element2")
+    if distribution == "cross_interface" and adsorbate not in {"OCCO", "COOH"}:
+        raise ValueError("Cross-interface placement requires a supported multidentate adsorbate.")
+    if adsorbate == "COOH" and (
+        (second and {first, second} != {"Cu", "Au"})
+        or (not second and first not in {"Cu", "Au"})
+    ):
+        raise ValueError("Bidentate COOH scenarios currently support Cu/Au only.")
     denominator, basis = _denominator(structure, preferred, coverage_basis)
     target = max(1, int(math.floor(float(coverage) * denominator + 0.5)))
     cell = np.asarray(structure["cell"], float)
@@ -599,9 +609,9 @@ def generate_adsorbate_scenarios(
 
         if pair_mode:
             candidates = (
-                _pairs(structure, "Cu", "Au", boundary_margin)
+                _pairs(structure, first, second, boundary_margin)
                 if mode == "cross"
-                else _pairs(structure, element or "Cu", None, boundary_margin)
+                else _pairs(structure, element or first, None, boundary_margin)
             )
             # A safe pair center is not sufficient for a laterally extended
             # adsorbate. Filter using the complete trial geometry so COOH/OCCO
@@ -645,6 +655,7 @@ def generate_adsorbate_scenarios(
         new_pos = [np.asarray(x, float).copy() for x in structure["positions"]]
         groups: List[np.ndarray] = []
         site_meta: List[Dict[str, Any]] = []
+        molecules = list(structure.get("metadata", {}).get("molecules", []))
 
         for site in selected:
             add_atoms, add_pos = (
@@ -655,8 +666,10 @@ def generate_adsorbate_scenarios(
             enforce_margin = pair_mode or adsorbate not in {"CO", "H", "OH"}
             if enforce_margin and any(_margin(p, cell) < boundary_margin for p in add_pos):
                 raise ValueError(f"{adsorbate} scenario {spec['name']} crosses the periodic boundary margin.")
+            start_index = len(new_atoms)
             new_atoms.extend(add_atoms)
             new_pos.extend(add_pos)
+            molecules.append(molecule_record(adsorbate, range(start_index, len(new_atoms)), new_atoms, new_pos))
             groups.append(np.asarray(add_pos, float))
             site_meta.append({
                 "role": "OCCO_core" if adsorbate == "OCCO" else adsorbate,
@@ -679,7 +692,7 @@ def generate_adsorbate_scenarios(
                 n_cu = n_spectator_co - n_au
 
                 cu_candidates = [
-                    s for s in _top_sites(structure, "Cu", 0.0)
+                    s for s in _top_sites(structure, first, 0.0)
                     if not central_indices.intersection(set(s["indices"]))
                 ]
                 cu_sites = _select(
@@ -693,7 +706,7 @@ def generate_adsorbate_scenarios(
                 fixed_positions.extend(np.asarray(_single_geometry("CO", s)[1], float)[0] for s in cu_sites)
 
                 au_candidates = [
-                    s for s in _top_sites(structure, "Au", 0.0)
+                    s for s in _top_sites(structure, second, 0.0)
                     if not central_indices.intersection(set(s["indices"]))
                 ]
                 au_sites = _select(
@@ -721,8 +734,10 @@ def generate_adsorbate_scenarios(
                 add_atoms, add_pos = _single_geometry("CO", site)
                 # Spectator CO is upright and PBC-safe even when its top site is
                 # close to x/y = 0/1; only the OCCO core must stay internal.
+                start_index = len(new_atoms)
                 new_atoms.extend(add_atoms)
                 new_pos.extend(add_pos)
+                molecules.append(molecule_record("CO", range(start_index, len(new_atoms)), new_atoms, new_pos))
                 groups.append(np.asarray(add_pos, float))
                 site_meta.append({
                     "role": "spectator_CO",
@@ -745,7 +760,11 @@ def generate_adsorbate_scenarios(
             raise ValueError(f"{adsorbate} scenario {spec['name']} has a {min_inter:.3f} A inter-adsorbate contact.")
 
         metadata = dict(structure.get("metadata", {}))
+        for key in ("configuration_id", "geometry_hash_initial", "species_requested", "geometry_requested", "atom_ids", "atom_layers"):
+            metadata.pop(key, None)
         metadata.update({
+            "molecules": molecules,
+            "parent_structure_id": structure.get("metadata", {}).get("parent_structure_id") or structure.get("metadata", {}).get("configuration_id"),
             "adsorbate": adsorbate,
             "adsorbate_requested": requested_adsorbate,
             "coverage_requested": float(coverage),
@@ -766,11 +785,11 @@ def generate_adsorbate_scenarios(
             "selected_sites": site_meta,
             "min_inter_adsorbate_distance": None if math.isinf(min_inter) else min_inter,
         })
-        outputs.append({
+        outputs.append(annotate_structure({
             "atoms": new_atoms,
             "positions": np.asarray(new_pos, float),
             "cell": cell.copy(),
             "metadata": metadata,
-        })
+        }))
 
     return outputs

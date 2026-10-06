@@ -1,11 +1,15 @@
-name: Adsorbate scenario tests
+name: Structure labels and grouped ML tests
 
 on:
   pull_request:
     paths:
       - "agent/**"
       - "tools/**"
-      - "tests/test_adsorbate_scenarios.py"
+      - "tests/**"
+      - "web_app/**"
+      - "workflow/**"
+      - "generators/**"
+      - "requirements.txt"
       - ".github/workflows/adsorbate_scenarios.yml"
   workflow_dispatch:
 
@@ -22,9 +26,9 @@ jobs:
       - name: Install focused test dependencies
         run: |
           python -m pip install --upgrade pip
-          python -m pip install numpy pydantic custodian pytest
+          python -m pip install numpy pydantic custodian pytest jsonschema scikit-learn joblib ase pymatgen
 
       - name: Run adsorbate scenario regression tests
         env:
           PYTHONPATH: .
-        run: pytest -q tests/test_adsorbate_scenarios.py
+        run: python -m pytest -q tests/test_adsorbate_scenarios.py tests/test_geometry_labels.py tests/test_grouped_xas_ml.py tests/test_label_workflow_integration.py tests/test_xas_ml_peak_descriptors.py tests/test_ml_xas_workflow.py

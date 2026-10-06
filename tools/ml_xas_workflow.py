@@ -17,6 +17,7 @@ from typing import Any, Dict, List, Optional, Sequence, Tuple
 import numpy as np
 
 from tools.utils import ensure_dir, generate_uuid
+from tools.ml_splits import configuration_group
 
 SUPPORTED_EDGE_LABELS = {
     ("Cu", "K"),
@@ -27,6 +28,7 @@ SUPPORTED_EDGE_LABELS = {
     ("C", "K"),
 }
 DEFAULT_GROUP_KEYS = [
+    "configuration_id",
     "condition_id",
     "structure_id",
     "sample_id",
@@ -130,9 +132,12 @@ def _labels_from_record(record: Dict[str, Any]) -> Dict[str, Any]:
     adsorbate = sample.get("adsorbate", {}) if isinstance(sample.get("adsorbate"), dict) else {}
     ml_labels = sample.get("ml_labels", {}) if isinstance(sample.get("ml_labels"), dict) else {}
     motif = ml_labels.get("adsorption_motif") or adsorbate.get("binding_mode") or adsorbate.get("adsorption_site")
+    measured = sample.get("structure_descriptors", {}).get("label_schema_version") == "2.0"
     return {
-        "adsorbate_identity": ml_labels.get("adsorbate_identity") or adsorbate.get("identity"),
-        "adsorption_motif": motif,
+        "adsorbate_identity": ml_labels.get("adsorbate_identity") if measured else ml_labels.get("adsorbate_identity") or adsorbate.get("identity"),
+        "adsorption_motif": ml_labels.get("local_geometry") if measured else motif,
+        "coverage": ml_labels.get("coverage"),
+        "label_status": sample.get("structure_descriptors", {}).get("label_status", "legacy_unverified"),
         "oxidation_coordination_class": ml_labels.get("oxidation_coordination_class"),
         "catalyst_composition": catalyst.get("composition"),
         "surface_facet": catalyst.get("surface_facet"),
@@ -161,7 +166,13 @@ def build_spectrum_table(records: Sequence[Dict[str, Any]]) -> List[Dict[str, An
                 or catalyst.get("structure_id")
                 or record.get("record_id")
             )
+            try:
+                configuration_id, grouping_source = configuration_group({"record": record})
+            except ValueError:
+                configuration_id, grouping_source = None, "missing_configuration_linkage"
             rows.append({
+                "configuration_id": configuration_id,
+                "grouping_source": grouping_source,
                 "record_id": record.get("record_id"),
                 "series_id": series.get("series_id"),
                 "condition_id": condition_id,
@@ -296,9 +307,10 @@ def build_condition_table(spectrum_rows: Sequence[Dict[str, Any]]) -> List[Dict[
     """Merge spectra into condition/structure-level samples."""
     grouped: Dict[str, Dict[str, Any]] = {}
     for row in spectrum_rows:
-        condition_id = str(row.get("condition_id") or row.get("record_id"))
+        condition_id = str(row.get("configuration_id") or row.get("condition_id") or row.get("record_id"))
         entry = grouped.setdefault(condition_id, {
             "condition_id": condition_id,
+            "configuration_id": row.get("configuration_id"),
             "structure_id": row.get("catalyst", {}).get("structure_id") or row.get("condition_id"),
             "sample_id": row.get("record_id"),
             "catalyst_composition": row.get("labels", {}).get("catalyst_composition"),

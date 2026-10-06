@@ -19,6 +19,7 @@ from .utils import (
     METAL_DATA, ADSORBATES, ADSORPTION_SITES, ADSORBATE_ALIASES, CO2RR_PATHWAY,
     write_poscar, read_poscar, read_structure_file, ensure_dir, generate_uuid, get_timestamp
 )
+from .dataset_labels import annotate_structure, molecule_record, remap_metadata
 from .adsorbate_scenarios import (
     generate_adsorbate_scenarios as generate_coverage_scenarios,
     recommended_coverages,
@@ -89,7 +90,11 @@ class StructureGenerator:
             return "clean"
         if site is None or str(site).lower() == "auto":
             return DEFAULT_ADSORBATE_SITES.get(adsorbate_name, "top")
-        return str(site)
+        resolved = str(site).strip().lower()
+        resolved = {"atop": "top", "ontop": "top"}.get(resolved, resolved)
+        if resolved not in {*self.sites, "bridge_interface"}:
+            raise ValueError(f"Unknown adsorption site {site}.")
+        return resolved
 
     def _top_layer_indices(self, positions: np.ndarray, tol: float = 0.5) -> np.ndarray:
         z_max = positions[:, 2].max()
@@ -836,6 +841,7 @@ class StructureGenerator:
         - Lateral interfaces: adsorbate-specific site at the interface.
         - OCCO/COCO on lateral interfaces: bridge the two interface sides.
         """
+        structure = annotate_structure({**structure, "metadata": dict(structure.get("metadata", {}))}, stage=structure.get("metadata", {}).get("label_stage", "generated"))
         requested_adsorbate = adsorbate_name
         adsorbate_name = ADSORBATE_ALIASES.get(adsorbate_name, adsorbate_name)
         if adsorbate_name not in self.adsorbates:
@@ -854,8 +860,12 @@ class StructureGenerator:
         metadata = structure.get("metadata", {})
         interface_meta = metadata.get("interface", {}) if isinstance(metadata.get("interface"), dict) else {}
 
-        z_max = positions[:, 2].max()
-        top_indices = self._top_layer_indices(positions)
+        from .contact_checks import METALS
+        metal_indices = np.asarray([i for i, atom in enumerate(atoms) if atom in METALS], int)
+        if not len(metal_indices):
+            raise ValueError("No metal substrate found for adsorption.")
+        top_indices = metal_indices[self._top_layer_indices(positions[metal_indices])]
+        z_max = positions[top_indices, 2].max()
         if len(top_indices) == 0:
             raise ValueError("No top-layer atoms found for adsorbate placement")
 
@@ -880,7 +890,7 @@ class StructureGenerator:
                 )
 
         if site_index >= len(top_indices) or site_index < 0:
-            site_index = 0
+            raise ValueError("site_index is outside the metal top layer.")
 
         ref_pos = positions[top_indices[site_index]].copy()
 
@@ -922,26 +932,13 @@ class StructureGenerator:
             c_indices = [idx for idx, atom in enumerate(ads_atoms) if atom == "C"]
             if len(c_indices) >= 2:
                 c_left, c_right = c_indices[:2]
-                original_c_left = ads_positions[c_left].copy()
-                original_c_right = ads_positions[c_right].copy()
-
-                target_left = left_pos.copy()
-                target_right = right_pos.copy()
-                target_left[2] = z_max + height
-                target_right[2] = z_max + height
-
-                # Preserve each atom's local vector relative to the nearest C.
-                new_ads_positions = ads_positions.copy()
-                for k in range(len(ads_atoms)):
-                    d_left = np.linalg.norm(ads_positions[k] - original_c_left)
-                    d_right = np.linalg.norm(ads_positions[k] - original_c_right)
-                    if d_left <= d_right:
-                        new_ads_positions[k] = target_left + (ads_positions[k] - original_c_left)
-                    else:
-                        new_ads_positions[k] = target_right + (ads_positions[k] - original_c_right)
-                new_ads_positions[c_left] = target_left
-                new_ads_positions[c_right] = target_right
-                ads_positions = new_ads_positions
+                # Keep the coupled C-C bond instead of stretching it to the
+                # metal-site spacing. The carbon anchors shift inward.
+                from .adsorbate_scenarios import _pair_geometry
+                ads_atoms, ads_positions = _pair_geometry(
+                    "OCCO", {"indices": [left_idx, right_idx]}, structure
+                )
+                ads_positions[:, 2] += z_max + height - min(ads_positions[0, 2], ads_positions[2, 2])
                 effective_site = "bridge_interface"
             else:
                 target = ref_pos.copy()
@@ -980,12 +977,16 @@ class StructureGenerator:
             new_metadata["adsorption_binding_element"] = binding_element
         new_metadata = self._with_ml_metadata(new_metadata, adsorbate_name, effective_site, metadata_overrides)
 
-        return {
-            "atoms": new_atoms,
-            "positions": new_positions,
-            "cell": cell.copy(),
-            "metadata": new_metadata,
-        }
+        molecules = list(new_metadata.get("molecules", []))
+        molecules.append(molecule_record(adsorbate_name, range(len(atoms), len(new_atoms)), new_atoms, new_positions))
+        new_metadata["molecules"] = molecules
+        new_metadata["parent_structure_id"] = metadata.get("parent_structure_id") or metadata.get("configuration_id")
+        for key in ("configuration_id", "geometry_hash_initial", "species_requested", "geometry_requested", "atom_ids", "atom_layers"):
+            new_metadata.pop(key, None)
+        return annotate_structure({
+            "atoms": new_atoms, "positions": new_positions,
+            "cell": cell.copy(), "metadata": new_metadata,
+        })
 
     def generate_co2rr_pathway(
         self,
@@ -1042,6 +1043,14 @@ class StructureGenerator:
                 parts.append(meta["adsorbate"])
             name = "_".join(parts) if parts else "structure"
 
+        # The writer groups atoms by element. Persist indices in that same
+        # order so molecule/site mappings survive POSCAR -> CONTCAR.
+        elements = list(dict.fromkeys(structure["atoms"]))
+        permutation = [i for element in elements for i, atom in enumerate(structure["atoms"]) if atom == element]
+        saved = {"atoms": [structure["atoms"][i] for i in permutation],
+                 "positions": np.asarray(structure["positions"])[permutation], "cell": structure["cell"],
+                 "metadata": remap_metadata(structure.get("metadata", {}), permutation)}
+        saved = annotate_structure(saved, stage=saved["metadata"].get("label_stage", "generated"))
         poscar_path = os.path.join(output_dir, "POSCAR")
         write_poscar(
             structure["atoms"],
@@ -1052,7 +1061,7 @@ class StructureGenerator:
         )
 
         metadata_path = os.path.join(output_dir, "structure_info.json")
-        metadata = structure["metadata"].copy()
+        metadata = saved["metadata"].copy()
         if "catalyst" not in metadata:
             metadata = self._with_ml_metadata(metadata)
         metadata["n_atoms"] = len(structure["atoms"])

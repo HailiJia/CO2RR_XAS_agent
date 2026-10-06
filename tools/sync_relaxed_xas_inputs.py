@@ -313,6 +313,15 @@ def sync_relaxed_xas_inputs(path: str, backup: bool = True) -> Dict[str, Any]:
     structure.setdefault("metadata", {})["source_file"] = str(contcar)
     structure["metadata"]["source"] = "post_relax_CONTCAR_sync"
 
+    from tools.dataset_labels import relaxed_metadata
+    info_path = structure_dir / "structure_info.json"
+    info = json.loads(info_path.read_text()) if info_path.exists() else {}
+    initial_path = structure_dir / "POSCAR"
+    initial = read_poscar(str(initial_path)) if initial_path.exists() else None
+    structure["metadata"] = relaxed_metadata(structure, info, initial)
+    for folder in [xas_dir] + [p for p in xas_dir.rglob("*") if p.is_dir()]:
+        (folder / "structure_info.json").write_text(json.dumps(structure["metadata"], indent=2) + "\n")
+
     relaxed_copy = xas_dir / "relaxed_CONTCAR_for_xas"
     maybe_backup(relaxed_copy, backup)
     shutil.copy2(contcar, relaxed_copy)

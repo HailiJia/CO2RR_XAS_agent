@@ -4170,7 +4170,7 @@ if st.session_state.get("last_structure") is not None:
     if metadata.get("type") == "interface" or "interface" in metadata:
         show_interface_strain(metadata)
 
-    contact_report = element_aware_minimum_pair(atoms, positions)
+    contact_report = element_aware_minimum_pair(atoms, positions, structure.get("cell"), molecules=metadata.get("molecules", []))
     if contact_report["severity"] == "error":
         st.error(contact_report["message"])
     elif contact_report["severity"] == "warning":

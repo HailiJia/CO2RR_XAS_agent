@@ -127,6 +127,7 @@ class SlabGenerator(BaseGenerator):
             interface_match_side=interface_match_side,
         )
         
+        substrate_n = len(slab)
         # Add adsorbate if specified
         adsorbate_params = params.get('adsorbate')
         if adsorbate_params and adsorbate_params.get('molecule'):
@@ -143,7 +144,21 @@ class SlabGenerator(BaseGenerator):
         poscar = Poscar(structure)
         poscar_content = poscar.get_str()
         
+        from tools.dataset_labels import annotate_structure, molecule_record
+        from tools.utils import ADSORBATES, ADSORBATE_ALIASES
+        metadata = {"element": elements[0], "facet": "".join(map(str, miller_index)),
+                    "interface": slab.info.get("interface", {}), "pbc": [True, True, False]}
+        if len(elements) == 2:
+            metadata.update({"element1": elements[0], "element2": elements[1], "facet1": metadata["facet"], "facet2": metadata["facet"]})
+        if adsorbate_params and adsorbate_params.get("molecule"):
+            species = ADSORBATE_ALIASES.get(adsorbate_params["molecule"], adsorbate_params["molecule"])
+            metadata.update({"adsorbate": species, "adsorption_site": adsorbate_params.get("binding_site", ADSORBATE_DEFAULTS.get(species, {}).get("site"))})
+            if species in ADSORBATES:
+                metadata["molecules"] = [molecule_record(species, range(substrate_n, len(slab)), slab.get_chemical_symbols(), slab.positions)]
+        metadata = annotate_structure({"atoms": slab.get_chemical_symbols(), "positions": slab.positions, "cell": slab.cell.array, "metadata": metadata})["metadata"]
+        slab.info["structure_metadata"] = metadata
         return {
+            'metadata': metadata,
             'atoms': slab,
             'structure': structure,
             'poscar': poscar_content,
@@ -697,15 +712,9 @@ class SlabGenerator(BaseGenerator):
                 ],
             )
         if mol_name == 'CH3':
-            return Atoms(
-                ['C', 'H', 'H', 'H'],
-                positions=[
-                    [0.0, 0.0, 0.0],
-                    [0.0, 0.0, 1.09],
-                    [1.028, 0.0, 0.363],
-                    [-0.514, 0.890, 0.363],
-                ],
-            )
+            return Atoms(['C', 'H', 'H', 'H'], positions=[
+                [0.0, 0.0, 0.0], [1.027661, 0.0, 0.363333],
+                [-0.5138305, 0.8899813, 0.363333], [-0.5138305, -0.8899813, 0.363333]])
         if mol_name == 'CH4':
             return Atoms(
                 ['C', 'H', 'H', 'H', 'H'],
@@ -840,3 +849,5 @@ class SlabGenerator(BaseGenerator):
         poscar_path = output_dir / 'POSCAR'
         with open(poscar_path, 'w') as f:
             f.write(outputs['poscar'])
+        import json
+        (output_dir / 'structure_info.json').write_text(json.dumps(outputs['metadata'], indent=2) + '\n')
