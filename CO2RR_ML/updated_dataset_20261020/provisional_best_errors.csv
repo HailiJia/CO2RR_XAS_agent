@@ -1,0 +1,27 @@
+configuration,truth,prediction,missing,extra
+2CO_adjacent/2CO_adjacent_0p056_interior,CO,CO;H,,H
+CHO/CHO_0p028_Cu_top,CO;H,CO,H,
+CHO/CHO_0p056_AuCu_bidentate,CHO,OCHO,CHO,OCHO
+CHO/CHO_0p056_CuCu_bidentate,CHO,CHO;CO,,CO
+CHO/CHO_0p056_interface_Cu,CHO;CO;H,(below thresholds),CHO;CO;H,
+CHO/CHO_0p056_interior_Cu,CHO;CO;H,OCHO,CHO;CO;H,OCHO
+CHO/CHO_0p111_uniform,CHO;CO;H,CO,CHO;H,
+CO2/CO2_0p028_linear_Cu_top,CO2,CO2;COOH,,COOH
+CO2/CO2_0p056_mixed,CO2,COOH,CO2,COOH
+COCHO/COCHO_0p056_Cu_interface,CO;H,CO,H,
+COCHO/COCHO_0p056_Cu_interior,COCHO,(below thresholds),COCHO,
+COH/CHO_0p028_interface_Cu3,COH,(below thresholds),COH,
+COH/CHO_0p167_uniform,COH,CO;H,COH,CO;H
+COOH/COOH_0p056_Au_top,COOH,(below thresholds),COOH,
+COOH/COOH_0p111_AuCu_interface,COOH,CO2,COOH,CO2
+CO_H/CO_H_0p083_2CO_1H,CO;H,CO,H,
+CO_H/CO_H_0p083_2CO_1H_AuCu2,CO;H,CO,H,
+CO_OH/CO_OH_0p111_3CO_1OH,CO;OH,CO,OH,
+H_0p25/Au,H,H;O,,O
+O/O_0p028_1O_Cu3,O,(below thresholds),O,
+O/O_0p083_3O_Cu3_AuCu2,O,H;O,,H
+OCCOH/OCCOH_0p056_Cu_interface,OCCOH,(below thresholds),OCCOH,
+OCCOH/OCCOH_0p056_Cu_interior,OCCOH,(below thresholds),OCCOH,
+OCHO/01_1OCHO_CuCu_interface,OCHO,(below thresholds),OCHO,
+OCHO/02_1OCHO_AuCu_across,OCHO,(below thresholds),OCHO,
+OH/OH_0p125_interior_biased,OH,(below thresholds),OH,

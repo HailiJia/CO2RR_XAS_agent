@@ -1,0 +1,779 @@
+{
+  "backup": "/Users/hjia/Downloads/CO2RR/CO2RR_ML/updated_dataset_20261020/records_before_count_correction_20261020T152449Z.tar.gz",
+  "changes": [
+    {
+      "record": "CHO/CHO_0p028_Cu_top/XAS/FDMNES/green/isaac_record_layers.json",
+      "before": {
+        "atom_counts": {
+          "Cu": 180,
+          "Au": 160,
+          "C": 1,
+          "O": 1,
+          "H": 1
+        },
+        "total_atoms": 343,
+        "adsorbate_counts": {
+          "CHO": 2
+        },
+        "adsorbate_count_total": 2,
+        "adsorbate_identities": [
+          "CHO"
+        ],
+        "adsorbate_count_source": "CONTCAR_connectivity",
+        "poscar_count_crosscheck": "match",
+        "path_count_hint_status": "not_available"
+      },
+      "after": {
+        "atom_counts": {
+          "Cu": 180,
+          "Au": 160,
+          "C": 1,
+          "O": 1,
+          "H": 1
+        },
+        "total_atoms": 343,
+        "adsorbate_counts": {
+          "CO": 1,
+          "H": 1
+        },
+        "adsorbate_count_total": 2,
+        "adsorbate_identities": [
+          "CO",
+          "H"
+        ],
+        "adsorbate_count_source": "CONTCAR_connectivity",
+        "poscar_count_crosscheck": "match",
+        "path_count_hint_status": "not_available"
+      },
+      "components": [
+        {
+          "species": "CO",
+          "atom_indices_1based": [
+            341,
+            342
+          ],
+          "bonds": [
+            {
+              "atoms": [
+                342,
+                341
+              ],
+              "elements": [
+                "O",
+                "C"
+              ],
+              "distance_A": 1.1691849703498127
+            }
+          ]
+        },
+        {
+          "species": "H",
+          "atom_indices_1based": [
+            343
+          ],
+          "bonds": []
+        }
+      ],
+      "record_sha256_before": "eb7c549716819fc89ea42ec12f88140855c17c33f5f7869e61d07c26f97554f0",
+      "record_sha256_after": "245a99df0f35f6b0404e12195679cbaf7187bc4f414c33ec54724f22a1f4b023",
+      "measurement_sha256": "b1c9d4e61a18310c39a82022545ac2d5d86db6ff0551f0f2ded46021f08c46fb"
+    },
+    {
+      "record": "CHO/CHO_0p056_interface_Cu/XAS/FDMNES/green/isaac_record_layers.json",
+      "before": {
+        "atom_counts": {
+          "Cu": 180,
+          "Au": 160,
+          "C": 2,
+          "O": 2,
+          "H": 2
+        },
+        "total_atoms": 346,
+        "adsorbate_counts": {
+          "CHO": 3
+        },
+        "adsorbate_count_total": 3,
+        "adsorbate_identities": [
+          "CHO"
+        ],
+        "adsorbate_count_source": "CONTCAR_connectivity",
+        "poscar_count_crosscheck": "match",
+        "path_count_hint_status": "not_available"
+      },
+      "after": {
+        "atom_counts": {
+          "Cu": 180,
+          "Au": 160,
+          "C": 2,
+          "O": 2,
+          "H": 2
+        },
+        "total_atoms": 346,
+        "adsorbate_counts": {
+          "CO": 1,
+          "CHO": 1,
+          "H": 1
+        },
+        "adsorbate_count_total": 3,
+        "adsorbate_identities": [
+          "CHO",
+          "CO",
+          "H"
+        ],
+        "adsorbate_count_source": "CONTCAR_connectivity",
+        "poscar_count_crosscheck": "match",
+        "path_count_hint_status": "not_available"
+      },
+      "components": [
+        {
+          "species": "CO",
+          "atom_indices_1based": [
+            341,
+            343
+          ],
+          "bonds": [
+            {
+              "atoms": [
+                343,
+                341
+              ],
+              "elements": [
+                "O",
+                "C"
+              ],
+              "distance_A": 1.1708241389725111
+            }
+          ]
+        },
+        {
+          "species": "CHO",
+          "atom_indices_1based": [
+            342,
+            344,
+            346
+          ],
+          "bonds": [
+            {
+              "atoms": [
+                344,
+                342
+              ],
+              "elements": [
+                "O",
+                "C"
+              ],
+              "distance_A": 1.2080697464050514
+            },
+            {
+              "atoms": [
+                346,
+                342
+              ],
+              "elements": [
+                "H",
+                "C"
+              ],
+              "distance_A": 1.117594595674418
+            }
+          ]
+        },
+        {
+          "species": "H",
+          "atom_indices_1based": [
+            345
+          ],
+          "bonds": []
+        }
+      ],
+      "record_sha256_before": "023adbd9ac413f8a175025587d757495688450ee804c68835494ec024c5b8925",
+      "record_sha256_after": "9092771cb05d05f5a7b056e674e038d338ff8cd8d022cb083b44e35b2df60f59",
+      "measurement_sha256": "94a94cb2e7be3aa0e9460f9745ab211aeec4c788e7204b888cd52a300859bb48"
+    },
+    {
+      "record": "CHO/CHO_0p056_interior_Cu/XAS/FDMNES/green/isaac_record_layers.json",
+      "before": {
+        "atom_counts": {
+          "Cu": 180,
+          "Au": 160,
+          "C": 2,
+          "O": 2,
+          "H": 2
+        },
+        "total_atoms": 346,
+        "adsorbate_counts": {
+          "CHO": 3
+        },
+        "adsorbate_count_total": 3,
+        "adsorbate_identities": [
+          "CHO"
+        ],
+        "adsorbate_count_source": "CONTCAR_connectivity",
+        "poscar_count_crosscheck": "match",
+        "path_count_hint_status": "not_available"
+      },
+      "after": {
+        "atom_counts": {
+          "Cu": 180,
+          "Au": 160,
+          "C": 2,
+          "O": 2,
+          "H": 2
+        },
+        "total_atoms": 346,
+        "adsorbate_counts": {
+          "CO": 1,
+          "CHO": 1,
+          "H": 1
+        },
+        "adsorbate_count_total": 3,
+        "adsorbate_identities": [
+          "CHO",
+          "CO",
+          "H"
+        ],
+        "adsorbate_count_source": "CONTCAR_connectivity",
+        "poscar_count_crosscheck": "match",
+        "path_count_hint_status": "not_available"
+      },
+      "components": [
+        {
+          "species": "CO",
+          "atom_indices_1based": [
+            341,
+            343
+          ],
+          "bonds": [
+            {
+              "atoms": [
+                343,
+                341
+              ],
+              "elements": [
+                "O",
+                "C"
+              ],
+              "distance_A": 1.1804963838222342
+            }
+          ]
+        },
+        {
+          "species": "CHO",
+          "atom_indices_1based": [
+            342,
+            344,
+            346
+          ],
+          "bonds": [
+            {
+              "atoms": [
+                344,
+                342
+              ],
+              "elements": [
+                "O",
+                "C"
+              ],
+              "distance_A": 1.264748999608805
+            },
+            {
+              "atoms": [
+                346,
+                342
+              ],
+              "elements": [
+                "H",
+                "C"
+              ],
+              "distance_A": 1.111823079515594
+            }
+          ]
+        },
+        {
+          "species": "H",
+          "atom_indices_1based": [
+            345
+          ],
+          "bonds": []
+        }
+      ],
+      "record_sha256_before": "1c65a0eb9f9ecaffb171528238846f5f4ea08d61f81935fd71b50958baea87b0",
+      "record_sha256_after": "4d3c70eaedc0536a00bba36c275d98d1a7c1f01e58bb55c23ff8f43c72aebe31",
+      "measurement_sha256": "c78ec1ab29dfe07ac691696df0fc03353ddeb8dd5375189ab045a4115b14c78b"
+    },
+    {
+      "record": "CHO/CHO_0p111_uniform/XAS/FDMNES/green/isaac_record_layers.json",
+      "before": {
+        "atom_counts": {
+          "Cu": 180,
+          "Au": 160,
+          "C": 4,
+          "O": 4,
+          "H": 4
+        },
+        "total_atoms": 352,
+        "adsorbate_counts": {
+          "CHO": 6
+        },
+        "adsorbate_count_total": 6,
+        "adsorbate_identities": [
+          "CHO"
+        ],
+        "adsorbate_count_source": "CONTCAR_connectivity",
+        "poscar_count_crosscheck": "match",
+        "path_count_hint_status": "not_available"
+      },
+      "after": {
+        "atom_counts": {
+          "Cu": 180,
+          "Au": 160,
+          "C": 4,
+          "O": 4,
+          "H": 4
+        },
+        "total_atoms": 352,
+        "adsorbate_counts": {
+          "CO": 2,
+          "CHO": 2,
+          "H": 2
+        },
+        "adsorbate_count_total": 6,
+        "adsorbate_identities": [
+          "CHO",
+          "CO",
+          "H"
+        ],
+        "adsorbate_count_source": "CONTCAR_connectivity",
+        "poscar_count_crosscheck": "match",
+        "path_count_hint_status": "not_available"
+      },
+      "components": [
+        {
+          "species": "CO",
+          "atom_indices_1based": [
+            341,
+            345
+          ],
+          "bonds": [
+            {
+              "atoms": [
+                345,
+                341
+              ],
+              "elements": [
+                "O",
+                "C"
+              ],
+              "distance_A": 1.1807183131082337
+            }
+          ]
+        },
+        {
+          "species": "CHO",
+          "atom_indices_1based": [
+            342,
+            346,
+            350
+          ],
+          "bonds": [
+            {
+              "atoms": [
+                346,
+                342
+              ],
+              "elements": [
+                "O",
+                "C"
+              ],
+              "distance_A": 1.2103172719368216
+            },
+            {
+              "atoms": [
+                350,
+                342
+              ],
+              "elements": [
+                "H",
+                "C"
+              ],
+              "distance_A": 1.116529560562438
+            }
+          ]
+        },
+        {
+          "species": "CO",
+          "atom_indices_1based": [
+            343,
+            347
+          ],
+          "bonds": [
+            {
+              "atoms": [
+                347,
+                343
+              ],
+              "elements": [
+                "O",
+                "C"
+              ],
+              "distance_A": 1.18165958602099
+            }
+          ]
+        },
+        {
+          "species": "CHO",
+          "atom_indices_1based": [
+            344,
+            348,
+            352
+          ],
+          "bonds": [
+            {
+              "atoms": [
+                352,
+                344
+              ],
+              "elements": [
+                "H",
+                "C"
+              ],
+              "distance_A": 1.1181512895873313
+            },
+            {
+              "atoms": [
+                348,
+                344
+              ],
+              "elements": [
+                "O",
+                "C"
+              ],
+              "distance_A": 1.2073562216999878
+            }
+          ]
+        },
+        {
+          "species": "H",
+          "atom_indices_1based": [
+            349
+          ],
+          "bonds": []
+        },
+        {
+          "species": "H",
+          "atom_indices_1based": [
+            351
+          ],
+          "bonds": []
+        }
+      ],
+      "record_sha256_before": "bd6aa6246c2032707d5a7ecf4aff6db12013b74c5ade2fe1a58ceb55b4d5a9cd",
+      "record_sha256_after": "e8698e5f58ba10c47e728cd66d4ee9bc108cf8976075aa2eb374029c95d07689",
+      "measurement_sha256": "fc7f53e187bcb1a06fe98206946bc23f7f47379bb2039dcbce744945ba097c06"
+    },
+    {
+      "record": "COCHO/COCHO_0p056_AuCu_interface/XAS/FDMNES/green/isaac_record_layers.json",
+      "before": {
+        "atom_counts": {
+          "Cu": 180,
+          "Au": 160,
+          "C": 2,
+          "O": 2,
+          "H": 1
+        },
+        "total_atoms": 345,
+        "adsorbate_counts": {
+          "COCHO": 1
+        },
+        "adsorbate_count_total": 1,
+        "adsorbate_identities": [
+          "COCHO"
+        ],
+        "adsorbate_count_source": "CONTCAR_connectivity",
+        "poscar_count_crosscheck": "match",
+        "path_count_hint_status": "not_available"
+      },
+      "after": {
+        "atom_counts": {
+          "Cu": 180,
+          "Au": 160,
+          "C": 2,
+          "O": 2,
+          "H": 1
+        },
+        "total_atoms": 345,
+        "adsorbate_counts": {
+          "OCCOH": 1
+        },
+        "adsorbate_count_total": 1,
+        "adsorbate_identities": [
+          "OCCOH"
+        ],
+        "adsorbate_count_source": "CONTCAR_connectivity",
+        "poscar_count_crosscheck": "match",
+        "path_count_hint_status": "not_available"
+      },
+      "components": [
+        {
+          "species": "OCCOH",
+          "atom_indices_1based": [
+            341,
+            342,
+            343,
+            344,
+            345
+          ],
+          "bonds": [
+            {
+              "atoms": [
+                342,
+                341
+              ],
+              "elements": [
+                "C",
+                "C"
+              ],
+              "distance_A": 1.452628316388747
+            },
+            {
+              "atoms": [
+                343,
+                341
+              ],
+              "elements": [
+                "O",
+                "C"
+              ],
+              "distance_A": 1.3736893646670951
+            },
+            {
+              "atoms": [
+                344,
+                342
+              ],
+              "elements": [
+                "O",
+                "C"
+              ],
+              "distance_A": 1.2073186844566282
+            },
+            {
+              "atoms": [
+                345,
+                343
+              ],
+              "elements": [
+                "H",
+                "O"
+              ],
+              "distance_A": 0.9796819463304708
+            }
+          ]
+        }
+      ],
+      "record_sha256_before": "c0ca02a5f18fd47bb6b90d6683ec64be5f59c92a15888cf00e61e13bc8a8cbf4",
+      "record_sha256_after": "cb716e6c615a1ad9c9a8f82f4a74d4f8985eb341419bbbaec8942d9d54f7271f",
+      "measurement_sha256": "173958013e27395f587431b976329ecd78ef3cf9f2cb0501f3e1c2b6336c6164"
+    },
+    {
+      "record": "COCHO/COCHO_0p056_AuCu_interface2/XAS/FDMNES/green/isaac_record_layers.json",
+      "before": {
+        "atom_counts": {
+          "Cu": 180,
+          "Au": 160,
+          "C": 2,
+          "O": 2,
+          "H": 1
+        },
+        "total_atoms": 345,
+        "adsorbate_counts": {
+          "COCHO": 1
+        },
+        "adsorbate_count_total": 1,
+        "adsorbate_identities": [
+          "COCHO"
+        ],
+        "adsorbate_count_source": "CONTCAR_connectivity",
+        "poscar_count_crosscheck": "match",
+        "path_count_hint_status": "not_available"
+      },
+      "after": {
+        "atom_counts": {
+          "Cu": 180,
+          "Au": 160,
+          "C": 2,
+          "O": 2,
+          "H": 1
+        },
+        "total_atoms": 345,
+        "adsorbate_counts": {
+          "OCCOH": 1
+        },
+        "adsorbate_count_total": 1,
+        "adsorbate_identities": [
+          "OCCOH"
+        ],
+        "adsorbate_count_source": "CONTCAR_connectivity",
+        "poscar_count_crosscheck": "match",
+        "path_count_hint_status": "not_available"
+      },
+      "components": [
+        {
+          "species": "OCCOH",
+          "atom_indices_1based": [
+            341,
+            342,
+            343,
+            344,
+            345
+          ],
+          "bonds": [
+            {
+              "atoms": [
+                342,
+                341
+              ],
+              "elements": [
+                "C",
+                "C"
+              ],
+              "distance_A": 1.4520330154501846
+            },
+            {
+              "atoms": [
+                343,
+                341
+              ],
+              "elements": [
+                "O",
+                "C"
+              ],
+              "distance_A": 1.3755016389488774
+            },
+            {
+              "atoms": [
+                344,
+                342
+              ],
+              "elements": [
+                "O",
+                "C"
+              ],
+              "distance_A": 1.2070125041518556
+            },
+            {
+              "atoms": [
+                345,
+                343
+              ],
+              "elements": [
+                "H",
+                "O"
+              ],
+              "distance_A": 0.9798288818478361
+            }
+          ]
+        }
+      ],
+      "record_sha256_before": "d81eb89a846d07462ee24ea26b89e72ed09996b5ce0556ce59d71ad86b7ff612",
+      "record_sha256_after": "ebfda0c9fb81e93995f8a9b4e8bfebb72fbbd04075fd7dcf3166f97b3e4ad318",
+      "measurement_sha256": "d371dc443a1d922d886c432f3328209f1787d4c378bf310f21311fa43d667cdf"
+    },
+    {
+      "record": "COCHO/COCHO_0p056_Cu_interface/XAS/FDMNES/green/isaac_record_layers.json",
+      "before": {
+        "atom_counts": {
+          "Cu": 180,
+          "Au": 160,
+          "C": 2,
+          "O": 2,
+          "H": 1
+        },
+        "total_atoms": 345,
+        "adsorbate_counts": {
+          "COCHO": 3
+        },
+        "adsorbate_count_total": 3,
+        "adsorbate_identities": [
+          "COCHO"
+        ],
+        "adsorbate_count_source": "CONTCAR_connectivity",
+        "poscar_count_crosscheck": "match",
+        "path_count_hint_status": "not_available"
+      },
+      "after": {
+        "atom_counts": {
+          "Cu": 180,
+          "Au": 160,
+          "C": 2,
+          "O": 2,
+          "H": 1
+        },
+        "total_atoms": 345,
+        "adsorbate_counts": {
+          "CO": 2,
+          "H": 1
+        },
+        "adsorbate_count_total": 3,
+        "adsorbate_identities": [
+          "CO",
+          "H"
+        ],
+        "adsorbate_count_source": "CONTCAR_connectivity",
+        "poscar_count_crosscheck": "match",
+        "path_count_hint_status": "not_available"
+      },
+      "components": [
+        {
+          "species": "CO",
+          "atom_indices_1based": [
+            341,
+            343
+          ],
+          "bonds": [
+            {
+              "atoms": [
+                343,
+                341
+              ],
+              "elements": [
+                "O",
+                "C"
+              ],
+              "distance_A": 1.157686540212121
+            }
+          ]
+        },
+        {
+          "species": "CO",
+          "atom_indices_1based": [
+            342,
+            344
+          ],
+          "bonds": [
+            {
+              "atoms": [
+                344,
+                342
+              ],
+              "elements": [
+                "O",
+                "C"
+              ],
+              "distance_A": 1.1835359187209071
+            }
+          ]
+        },
+        {
+          "species": "H",
+          "atom_indices_1based": [
+            345
+          ],
+          "bonds": []
+        }
+      ],
+      "record_sha256_before": "2106c1c94dd0104dc94506bffbab9b85457f75819a7fababc62f45176f9085b7",
+      "record_sha256_after": "1e223a6d104280b789e0707cd2b5b2795d67ae7af113cae28cfbd15f5790cfcc",
+      "measurement_sha256": "c5ccdfb50c737094d0872c6db62c87afd7616808831be2ffa3192581106f2596"
+    }
+  ]
+}

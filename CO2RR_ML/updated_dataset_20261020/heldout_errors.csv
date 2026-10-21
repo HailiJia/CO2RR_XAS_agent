@@ -1,0 +1,28 @@
+configuration,fold,truth,prediction,missing,extra
+2CO_adjacent/2CO_adjacent_0p056_interior,4,CO,CHO;CO;H,,CHO;H
+CHO/CHO_0p028_Cu_top,1,CO;H,CO,H,
+CHO/CHO_0p056_AuCu_bidentate,2,CHO,OCHO,CHO,OCHO
+CHO/CHO_0p056_interface_Cu,0,CHO;CO;H,(below thresholds),CHO;CO;H,
+CHO/CHO_0p056_interior_Cu,4,CHO;CO;H,(below thresholds),CHO;CO;H,
+CHO/CHO_0p111_uniform,3,CHO;CO;H,(below thresholds),CHO;CO;H,
+CO2/CO2_0p028_linear_Cu_top,0,CO2,CO2;COOH,,COOH
+CO2/CO2_0p056_mixed,3,CO2,COOH,CO2,COOH
+COCHO/COCHO_0p056_Cu_interface,0,CO;H,(below thresholds),CO;H,
+COCHO/COCHO_0p056_Cu_interior,2,COCHO,(below thresholds),COCHO,
+COH/CHO_0p028_interface_Cu3,2,COH,(below thresholds),COH,
+COH/CHO_0p056_AuCuCu,2,COH,(below thresholds),COH,
+COH/CHO_0p167_uniform,0,COH,(below thresholds),COH,
+COOH/COOH_0p028_AuCu_interface,2,COOH,(below thresholds),COOH,
+COOH/COOH_0p056_Au_top,4,COOH,(below thresholds),COOH,
+COOH/COOH_0p111_AuCu_interface,1,COOH,CO2,COOH,CO2
+CO_H/CO_H_0p083_2CO_1H,1,CO;H,CO,H,
+CO_H/CO_H_0p083_2CO_1H_AuCu2,1,CO;H,CO,H,
+CO_H/CO_H_0p111_2CO_2H,2,CO;H,CO,H,
+CO_OH/CO_OH_0p111_3CO_1OH,3,CO;OH,CO,OH,
+O/O_0p028_1O_AuCu2,2,O,(below thresholds),O,
+O/O_0p028_1O_Cu3,3,O,(below thresholds),O,
+OCCOH/OCCOH_0p056_Cu_interface,2,OCCOH,(below thresholds),OCCOH,
+OCCOH/OCCOH_0p056_Cu_interior,4,OCCOH,(below thresholds),OCCOH,
+OCHO/01_1OCHO_CuCu_interface,1,OCHO,(below thresholds),OCHO,
+OCHO/02_1OCHO_AuCu_across,0,OCHO,(below thresholds),OCHO,
+OH/OH_0p125_interior_biased,3,OH,(below thresholds),OH,

@@ -2,6 +2,21 @@
 
 CO2RR XAS Agent is a Streamlit web app and workflow toolkit for building CO2 reduction catalyst structures, generating relaxation and XAS inputs, running restartable NERSC Slurm workflows, and converting completed simulations into ISAAC AI-ready records.
 
+## Audited Cu K-edge adsorbate benchmark
+
+The [executed analysis notebook](CO2RR_ML/updated_dataset_20261020/adsorbate_identity_depth_updated.ipynb) studies **adsorbate identity and depth sensitivity only**, using simulated Cu K-edge spectra from `measurement.series`. See the [analysis README](CO2RR_ML/updated_dataset_20261020/README.md), [brief interpretation](CO2RR_ML/updated_dataset_20261020/ANALYSIS.md), and [figure download](CO2RR_ML/updated_dataset_20261020/requested_figures.zip).
+
+- **155 unique structures** in the full inventory, including unfinished calculations; **87 configurations / 348 layer spectra** in training and evaluation.
+- Coadsorption is multilabel (for example CO + H); bonded intermediates remain distinct species. CuO is excluded from this benchmark. No completed clean-control spectra are available.
+- Layer 5 is the physical top. Compatible raw spectra are weighted by represented Cu populations before normalization. All layers of a configuration remain in the same cross-validation fold.
+- Features: normalized shape, CDF, derivatives, combined shape/CDF/derivatives, DCT24, and additional tree-based depth/multiscale representations. Models: logistic regression, RBF SVM, random forest, joint extra-trees, and independent species extra-trees.
+- The automatic independent-model selection procedure gives **micro/macro F1 0.779/0.638**. The best observed fixed entry—top-layer first derivative with extra-trees—gives **0.798/0.660**, selected after comparing CV results and requiring independent confirmation.
+- The [population audit correction](CO2RR_ML/updated_dataset_20261020/CONVOLUTION_AUDIT_CORRECTION.md) restores two CO structures: their final convolution logs verify 36 sites despite three-site subset recalculation decks. Only `CO/CO_0p11/uniform2` remains excluded for incompatible layer grids.
+
+The folder contains the executed notebook, source code, PNG/PDF figures, split manifests, audit tables and held-out predictions. Rerunning the structural/spectral audit requires the full local simulation dataset; it is not supplied by the repository's structure-input examples. The analysis README explains how to set the dataset/output paths and install dependencies.
+
+---
+
 ## Quick start
 
 From the repository root:

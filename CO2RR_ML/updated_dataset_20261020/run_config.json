@@ -1,0 +1,1099 @@
+{
+  "seed": 20261020,
+  "manifest_hash": "14f57ef4a6e8a62e80a67e0bbcdd6a65dc672740cf8d1bf3bd6463e7b195fa3f",
+  "candidates": [
+    {
+      "depth": "layer_5",
+      "feature": "normalized",
+      "model": "logistic",
+      "id": 0
+    },
+    {
+      "depth": "layer_5",
+      "feature": "normalized",
+      "model": "SVM",
+      "id": 1
+    },
+    {
+      "depth": "layer_5",
+      "feature": "normalized",
+      "model": "random_forest",
+      "id": 2
+    },
+    {
+      "depth": "layer_5",
+      "feature": "normalized",
+      "model": "extra_trees",
+      "id": 3
+    },
+    {
+      "depth": "layer_5",
+      "feature": "normalized",
+      "model": "independent_trees",
+      "id": 4
+    },
+    {
+      "depth": "layer_5",
+      "feature": "CDF",
+      "model": "logistic",
+      "id": 5
+    },
+    {
+      "depth": "layer_5",
+      "feature": "CDF",
+      "model": "SVM",
+      "id": 6
+    },
+    {
+      "depth": "layer_5",
+      "feature": "CDF",
+      "model": "random_forest",
+      "id": 7
+    },
+    {
+      "depth": "layer_5",
+      "feature": "CDF",
+      "model": "extra_trees",
+      "id": 8
+    },
+    {
+      "depth": "layer_5",
+      "feature": "CDF",
+      "model": "independent_trees",
+      "id": 9
+    },
+    {
+      "depth": "layer_5",
+      "feature": "derivative",
+      "model": "logistic",
+      "id": 10
+    },
+    {
+      "depth": "layer_5",
+      "feature": "derivative",
+      "model": "SVM",
+      "id": 11
+    },
+    {
+      "depth": "layer_5",
+      "feature": "derivative",
+      "model": "random_forest",
+      "id": 12
+    },
+    {
+      "depth": "layer_5",
+      "feature": "derivative",
+      "model": "extra_trees",
+      "id": 13
+    },
+    {
+      "depth": "layer_5",
+      "feature": "derivative",
+      "model": "independent_trees",
+      "id": 14
+    },
+    {
+      "depth": "layer_5",
+      "feature": "shape_CDF_derivatives",
+      "model": "logistic",
+      "id": 15
+    },
+    {
+      "depth": "layer_5",
+      "feature": "shape_CDF_derivatives",
+      "model": "SVM",
+      "id": 16
+    },
+    {
+      "depth": "layer_5",
+      "feature": "shape_CDF_derivatives",
+      "model": "random_forest",
+      "id": 17
+    },
+    {
+      "depth": "layer_5",
+      "feature": "shape_CDF_derivatives",
+      "model": "extra_trees",
+      "id": 18
+    },
+    {
+      "depth": "layer_5",
+      "feature": "shape_CDF_derivatives",
+      "model": "independent_trees",
+      "id": 19
+    },
+    {
+      "depth": "layer_5",
+      "feature": "DCT24",
+      "model": "logistic",
+      "id": 20
+    },
+    {
+      "depth": "layer_5",
+      "feature": "DCT24",
+      "model": "SVM",
+      "id": 21
+    },
+    {
+      "depth": "layer_5",
+      "feature": "DCT24",
+      "model": "random_forest",
+      "id": 22
+    },
+    {
+      "depth": "layer_5",
+      "feature": "DCT24",
+      "model": "extra_trees",
+      "id": 23
+    },
+    {
+      "depth": "layer_5",
+      "feature": "DCT24",
+      "model": "independent_trees",
+      "id": 24
+    },
+    {
+      "depth": "layer_4",
+      "feature": "normalized",
+      "model": "logistic",
+      "id": 25
+    },
+    {
+      "depth": "layer_4",
+      "feature": "normalized",
+      "model": "SVM",
+      "id": 26
+    },
+    {
+      "depth": "layer_4",
+      "feature": "normalized",
+      "model": "random_forest",
+      "id": 27
+    },
+    {
+      "depth": "layer_4",
+      "feature": "normalized",
+      "model": "extra_trees",
+      "id": 28
+    },
+    {
+      "depth": "layer_4",
+      "feature": "normalized",
+      "model": "independent_trees",
+      "id": 29
+    },
+    {
+      "depth": "layer_4",
+      "feature": "CDF",
+      "model": "logistic",
+      "id": 30
+    },
+    {
+      "depth": "layer_4",
+      "feature": "CDF",
+      "model": "SVM",
+      "id": 31
+    },
+    {
+      "depth": "layer_4",
+      "feature": "CDF",
+      "model": "random_forest",
+      "id": 32
+    },
+    {
+      "depth": "layer_4",
+      "feature": "CDF",
+      "model": "extra_trees",
+      "id": 33
+    },
+    {
+      "depth": "layer_4",
+      "feature": "CDF",
+      "model": "independent_trees",
+      "id": 34
+    },
+    {
+      "depth": "layer_4",
+      "feature": "derivative",
+      "model": "logistic",
+      "id": 35
+    },
+    {
+      "depth": "layer_4",
+      "feature": "derivative",
+      "model": "SVM",
+      "id": 36
+    },
+    {
+      "depth": "layer_4",
+      "feature": "derivative",
+      "model": "random_forest",
+      "id": 37
+    },
+    {
+      "depth": "layer_4",
+      "feature": "derivative",
+      "model": "extra_trees",
+      "id": 38
+    },
+    {
+      "depth": "layer_4",
+      "feature": "derivative",
+      "model": "independent_trees",
+      "id": 39
+    },
+    {
+      "depth": "layer_4",
+      "feature": "shape_CDF_derivatives",
+      "model": "logistic",
+      "id": 40
+    },
+    {
+      "depth": "layer_4",
+      "feature": "shape_CDF_derivatives",
+      "model": "SVM",
+      "id": 41
+    },
+    {
+      "depth": "layer_4",
+      "feature": "shape_CDF_derivatives",
+      "model": "random_forest",
+      "id": 42
+    },
+    {
+      "depth": "layer_4",
+      "feature": "shape_CDF_derivatives",
+      "model": "extra_trees",
+      "id": 43
+    },
+    {
+      "depth": "layer_4",
+      "feature": "shape_CDF_derivatives",
+      "model": "independent_trees",
+      "id": 44
+    },
+    {
+      "depth": "layer_4",
+      "feature": "DCT24",
+      "model": "logistic",
+      "id": 45
+    },
+    {
+      "depth": "layer_4",
+      "feature": "DCT24",
+      "model": "SVM",
+      "id": 46
+    },
+    {
+      "depth": "layer_4",
+      "feature": "DCT24",
+      "model": "random_forest",
+      "id": 47
+    },
+    {
+      "depth": "layer_4",
+      "feature": "DCT24",
+      "model": "extra_trees",
+      "id": 48
+    },
+    {
+      "depth": "layer_4",
+      "feature": "DCT24",
+      "model": "independent_trees",
+      "id": 49
+    },
+    {
+      "depth": "layer_3",
+      "feature": "normalized",
+      "model": "logistic",
+      "id": 50
+    },
+    {
+      "depth": "layer_3",
+      "feature": "normalized",
+      "model": "SVM",
+      "id": 51
+    },
+    {
+      "depth": "layer_3",
+      "feature": "normalized",
+      "model": "random_forest",
+      "id": 52
+    },
+    {
+      "depth": "layer_3",
+      "feature": "normalized",
+      "model": "extra_trees",
+      "id": 53
+    },
+    {
+      "depth": "layer_3",
+      "feature": "normalized",
+      "model": "independent_trees",
+      "id": 54
+    },
+    {
+      "depth": "layer_3",
+      "feature": "CDF",
+      "model": "logistic",
+      "id": 55
+    },
+    {
+      "depth": "layer_3",
+      "feature": "CDF",
+      "model": "SVM",
+      "id": 56
+    },
+    {
+      "depth": "layer_3",
+      "feature": "CDF",
+      "model": "random_forest",
+      "id": 57
+    },
+    {
+      "depth": "layer_3",
+      "feature": "CDF",
+      "model": "extra_trees",
+      "id": 58
+    },
+    {
+      "depth": "layer_3",
+      "feature": "CDF",
+      "model": "independent_trees",
+      "id": 59
+    },
+    {
+      "depth": "layer_3",
+      "feature": "derivative",
+      "model": "logistic",
+      "id": 60
+    },
+    {
+      "depth": "layer_3",
+      "feature": "derivative",
+      "model": "SVM",
+      "id": 61
+    },
+    {
+      "depth": "layer_3",
+      "feature": "derivative",
+      "model": "random_forest",
+      "id": 62
+    },
+    {
+      "depth": "layer_3",
+      "feature": "derivative",
+      "model": "extra_trees",
+      "id": 63
+    },
+    {
+      "depth": "layer_3",
+      "feature": "derivative",
+      "model": "independent_trees",
+      "id": 64
+    },
+    {
+      "depth": "layer_3",
+      "feature": "shape_CDF_derivatives",
+      "model": "logistic",
+      "id": 65
+    },
+    {
+      "depth": "layer_3",
+      "feature": "shape_CDF_derivatives",
+      "model": "SVM",
+      "id": 66
+    },
+    {
+      "depth": "layer_3",
+      "feature": "shape_CDF_derivatives",
+      "model": "random_forest",
+      "id": 67
+    },
+    {
+      "depth": "layer_3",
+      "feature": "shape_CDF_derivatives",
+      "model": "extra_trees",
+      "id": 68
+    },
+    {
+      "depth": "layer_3",
+      "feature": "shape_CDF_derivatives",
+      "model": "independent_trees",
+      "id": 69
+    },
+    {
+      "depth": "layer_3",
+      "feature": "DCT24",
+      "model": "logistic",
+      "id": 70
+    },
+    {
+      "depth": "layer_3",
+      "feature": "DCT24",
+      "model": "SVM",
+      "id": 71
+    },
+    {
+      "depth": "layer_3",
+      "feature": "DCT24",
+      "model": "random_forest",
+      "id": 72
+    },
+    {
+      "depth": "layer_3",
+      "feature": "DCT24",
+      "model": "extra_trees",
+      "id": 73
+    },
+    {
+      "depth": "layer_3",
+      "feature": "DCT24",
+      "model": "independent_trees",
+      "id": 74
+    },
+    {
+      "depth": "layer_2",
+      "feature": "normalized",
+      "model": "logistic",
+      "id": 75
+    },
+    {
+      "depth": "layer_2",
+      "feature": "normalized",
+      "model": "SVM",
+      "id": 76
+    },
+    {
+      "depth": "layer_2",
+      "feature": "normalized",
+      "model": "random_forest",
+      "id": 77
+    },
+    {
+      "depth": "layer_2",
+      "feature": "normalized",
+      "model": "extra_trees",
+      "id": 78
+    },
+    {
+      "depth": "layer_2",
+      "feature": "normalized",
+      "model": "independent_trees",
+      "id": 79
+    },
+    {
+      "depth": "layer_2",
+      "feature": "CDF",
+      "model": "logistic",
+      "id": 80
+    },
+    {
+      "depth": "layer_2",
+      "feature": "CDF",
+      "model": "SVM",
+      "id": 81
+    },
+    {
+      "depth": "layer_2",
+      "feature": "CDF",
+      "model": "random_forest",
+      "id": 82
+    },
+    {
+      "depth": "layer_2",
+      "feature": "CDF",
+      "model": "extra_trees",
+      "id": 83
+    },
+    {
+      "depth": "layer_2",
+      "feature": "CDF",
+      "model": "independent_trees",
+      "id": 84
+    },
+    {
+      "depth": "layer_2",
+      "feature": "derivative",
+      "model": "logistic",
+      "id": 85
+    },
+    {
+      "depth": "layer_2",
+      "feature": "derivative",
+      "model": "SVM",
+      "id": 86
+    },
+    {
+      "depth": "layer_2",
+      "feature": "derivative",
+      "model": "random_forest",
+      "id": 87
+    },
+    {
+      "depth": "layer_2",
+      "feature": "derivative",
+      "model": "extra_trees",
+      "id": 88
+    },
+    {
+      "depth": "layer_2",
+      "feature": "derivative",
+      "model": "independent_trees",
+      "id": 89
+    },
+    {
+      "depth": "layer_2",
+      "feature": "shape_CDF_derivatives",
+      "model": "logistic",
+      "id": 90
+    },
+    {
+      "depth": "layer_2",
+      "feature": "shape_CDF_derivatives",
+      "model": "SVM",
+      "id": 91
+    },
+    {
+      "depth": "layer_2",
+      "feature": "shape_CDF_derivatives",
+      "model": "random_forest",
+      "id": 92
+    },
+    {
+      "depth": "layer_2",
+      "feature": "shape_CDF_derivatives",
+      "model": "extra_trees",
+      "id": 93
+    },
+    {
+      "depth": "layer_2",
+      "feature": "shape_CDF_derivatives",
+      "model": "independent_trees",
+      "id": 94
+    },
+    {
+      "depth": "layer_2",
+      "feature": "DCT24",
+      "model": "logistic",
+      "id": 95
+    },
+    {
+      "depth": "layer_2",
+      "feature": "DCT24",
+      "model": "SVM",
+      "id": 96
+    },
+    {
+      "depth": "layer_2",
+      "feature": "DCT24",
+      "model": "random_forest",
+      "id": 97
+    },
+    {
+      "depth": "layer_2",
+      "feature": "DCT24",
+      "model": "extra_trees",
+      "id": 98
+    },
+    {
+      "depth": "layer_2",
+      "feature": "DCT24",
+      "model": "independent_trees",
+      "id": 99
+    },
+    {
+      "depth": "top_2",
+      "feature": "normalized",
+      "model": "logistic",
+      "id": 100
+    },
+    {
+      "depth": "top_2",
+      "feature": "normalized",
+      "model": "SVM",
+      "id": 101
+    },
+    {
+      "depth": "top_2",
+      "feature": "normalized",
+      "model": "random_forest",
+      "id": 102
+    },
+    {
+      "depth": "top_2",
+      "feature": "normalized",
+      "model": "extra_trees",
+      "id": 103
+    },
+    {
+      "depth": "top_2",
+      "feature": "normalized",
+      "model": "independent_trees",
+      "id": 104
+    },
+    {
+      "depth": "top_2",
+      "feature": "CDF",
+      "model": "logistic",
+      "id": 105
+    },
+    {
+      "depth": "top_2",
+      "feature": "CDF",
+      "model": "SVM",
+      "id": 106
+    },
+    {
+      "depth": "top_2",
+      "feature": "CDF",
+      "model": "random_forest",
+      "id": 107
+    },
+    {
+      "depth": "top_2",
+      "feature": "CDF",
+      "model": "extra_trees",
+      "id": 108
+    },
+    {
+      "depth": "top_2",
+      "feature": "CDF",
+      "model": "independent_trees",
+      "id": 109
+    },
+    {
+      "depth": "top_2",
+      "feature": "derivative",
+      "model": "logistic",
+      "id": 110
+    },
+    {
+      "depth": "top_2",
+      "feature": "derivative",
+      "model": "SVM",
+      "id": 111
+    },
+    {
+      "depth": "top_2",
+      "feature": "derivative",
+      "model": "random_forest",
+      "id": 112
+    },
+    {
+      "depth": "top_2",
+      "feature": "derivative",
+      "model": "extra_trees",
+      "id": 113
+    },
+    {
+      "depth": "top_2",
+      "feature": "derivative",
+      "model": "independent_trees",
+      "id": 114
+    },
+    {
+      "depth": "top_2",
+      "feature": "shape_CDF_derivatives",
+      "model": "logistic",
+      "id": 115
+    },
+    {
+      "depth": "top_2",
+      "feature": "shape_CDF_derivatives",
+      "model": "SVM",
+      "id": 116
+    },
+    {
+      "depth": "top_2",
+      "feature": "shape_CDF_derivatives",
+      "model": "random_forest",
+      "id": 117
+    },
+    {
+      "depth": "top_2",
+      "feature": "shape_CDF_derivatives",
+      "model": "extra_trees",
+      "id": 118
+    },
+    {
+      "depth": "top_2",
+      "feature": "shape_CDF_derivatives",
+      "model": "independent_trees",
+      "id": 119
+    },
+    {
+      "depth": "top_2",
+      "feature": "DCT24",
+      "model": "logistic",
+      "id": 120
+    },
+    {
+      "depth": "top_2",
+      "feature": "DCT24",
+      "model": "SVM",
+      "id": 121
+    },
+    {
+      "depth": "top_2",
+      "feature": "DCT24",
+      "model": "random_forest",
+      "id": 122
+    },
+    {
+      "depth": "top_2",
+      "feature": "DCT24",
+      "model": "extra_trees",
+      "id": 123
+    },
+    {
+      "depth": "top_2",
+      "feature": "DCT24",
+      "model": "independent_trees",
+      "id": 124
+    },
+    {
+      "depth": "top_3",
+      "feature": "normalized",
+      "model": "logistic",
+      "id": 125
+    },
+    {
+      "depth": "top_3",
+      "feature": "normalized",
+      "model": "SVM",
+      "id": 126
+    },
+    {
+      "depth": "top_3",
+      "feature": "normalized",
+      "model": "random_forest",
+      "id": 127
+    },
+    {
+      "depth": "top_3",
+      "feature": "normalized",
+      "model": "extra_trees",
+      "id": 128
+    },
+    {
+      "depth": "top_3",
+      "feature": "normalized",
+      "model": "independent_trees",
+      "id": 129
+    },
+    {
+      "depth": "top_3",
+      "feature": "CDF",
+      "model": "logistic",
+      "id": 130
+    },
+    {
+      "depth": "top_3",
+      "feature": "CDF",
+      "model": "SVM",
+      "id": 131
+    },
+    {
+      "depth": "top_3",
+      "feature": "CDF",
+      "model": "random_forest",
+      "id": 132
+    },
+    {
+      "depth": "top_3",
+      "feature": "CDF",
+      "model": "extra_trees",
+      "id": 133
+    },
+    {
+      "depth": "top_3",
+      "feature": "CDF",
+      "model": "independent_trees",
+      "id": 134
+    },
+    {
+      "depth": "top_3",
+      "feature": "derivative",
+      "model": "logistic",
+      "id": 135
+    },
+    {
+      "depth": "top_3",
+      "feature": "derivative",
+      "model": "SVM",
+      "id": 136
+    },
+    {
+      "depth": "top_3",
+      "feature": "derivative",
+      "model": "random_forest",
+      "id": 137
+    },
+    {
+      "depth": "top_3",
+      "feature": "derivative",
+      "model": "extra_trees",
+      "id": 138
+    },
+    {
+      "depth": "top_3",
+      "feature": "derivative",
+      "model": "independent_trees",
+      "id": 139
+    },
+    {
+      "depth": "top_3",
+      "feature": "shape_CDF_derivatives",
+      "model": "logistic",
+      "id": 140
+    },
+    {
+      "depth": "top_3",
+      "feature": "shape_CDF_derivatives",
+      "model": "SVM",
+      "id": 141
+    },
+    {
+      "depth": "top_3",
+      "feature": "shape_CDF_derivatives",
+      "model": "random_forest",
+      "id": 142
+    },
+    {
+      "depth": "top_3",
+      "feature": "shape_CDF_derivatives",
+      "model": "extra_trees",
+      "id": 143
+    },
+    {
+      "depth": "top_3",
+      "feature": "shape_CDF_derivatives",
+      "model": "independent_trees",
+      "id": 144
+    },
+    {
+      "depth": "top_3",
+      "feature": "DCT24",
+      "model": "logistic",
+      "id": 145
+    },
+    {
+      "depth": "top_3",
+      "feature": "DCT24",
+      "model": "SVM",
+      "id": 146
+    },
+    {
+      "depth": "top_3",
+      "feature": "DCT24",
+      "model": "random_forest",
+      "id": 147
+    },
+    {
+      "depth": "top_3",
+      "feature": "DCT24",
+      "model": "extra_trees",
+      "id": 148
+    },
+    {
+      "depth": "top_3",
+      "feature": "DCT24",
+      "model": "independent_trees",
+      "id": 149
+    },
+    {
+      "depth": "all_4",
+      "feature": "normalized",
+      "model": "logistic",
+      "id": 150
+    },
+    {
+      "depth": "all_4",
+      "feature": "normalized",
+      "model": "SVM",
+      "id": 151
+    },
+    {
+      "depth": "all_4",
+      "feature": "normalized",
+      "model": "random_forest",
+      "id": 152
+    },
+    {
+      "depth": "all_4",
+      "feature": "normalized",
+      "model": "extra_trees",
+      "id": 153
+    },
+    {
+      "depth": "all_4",
+      "feature": "normalized",
+      "model": "independent_trees",
+      "id": 154
+    },
+    {
+      "depth": "all_4",
+      "feature": "CDF",
+      "model": "logistic",
+      "id": 155
+    },
+    {
+      "depth": "all_4",
+      "feature": "CDF",
+      "model": "SVM",
+      "id": 156
+    },
+    {
+      "depth": "all_4",
+      "feature": "CDF",
+      "model": "random_forest",
+      "id": 157
+    },
+    {
+      "depth": "all_4",
+      "feature": "CDF",
+      "model": "extra_trees",
+      "id": 158
+    },
+    {
+      "depth": "all_4",
+      "feature": "CDF",
+      "model": "independent_trees",
+      "id": 159
+    },
+    {
+      "depth": "all_4",
+      "feature": "derivative",
+      "model": "logistic",
+      "id": 160
+    },
+    {
+      "depth": "all_4",
+      "feature": "derivative",
+      "model": "SVM",
+      "id": 161
+    },
+    {
+      "depth": "all_4",
+      "feature": "derivative",
+      "model": "random_forest",
+      "id": 162
+    },
+    {
+      "depth": "all_4",
+      "feature": "derivative",
+      "model": "extra_trees",
+      "id": 163
+    },
+    {
+      "depth": "all_4",
+      "feature": "derivative",
+      "model": "independent_trees",
+      "id": 164
+    },
+    {
+      "depth": "all_4",
+      "feature": "shape_CDF_derivatives",
+      "model": "logistic",
+      "id": 165
+    },
+    {
+      "depth": "all_4",
+      "feature": "shape_CDF_derivatives",
+      "model": "SVM",
+      "id": 166
+    },
+    {
+      "depth": "all_4",
+      "feature": "shape_CDF_derivatives",
+      "model": "random_forest",
+      "id": 167
+    },
+    {
+      "depth": "all_4",
+      "feature": "shape_CDF_derivatives",
+      "model": "extra_trees",
+      "id": 168
+    },
+    {
+      "depth": "all_4",
+      "feature": "shape_CDF_derivatives",
+      "model": "independent_trees",
+      "id": 169
+    },
+    {
+      "depth": "all_4",
+      "feature": "DCT24",
+      "model": "logistic",
+      "id": 170
+    },
+    {
+      "depth": "all_4",
+      "feature": "DCT24",
+      "model": "SVM",
+      "id": 171
+    },
+    {
+      "depth": "all_4",
+      "feature": "DCT24",
+      "model": "random_forest",
+      "id": 172
+    },
+    {
+      "depth": "all_4",
+      "feature": "DCT24",
+      "model": "extra_trees",
+      "id": 173
+    },
+    {
+      "depth": "all_4",
+      "feature": "DCT24",
+      "model": "independent_trees",
+      "id": 174
+    },
+    {
+      "depth": "depth_channels",
+      "feature": "contrast",
+      "model": "extra_trees",
+      "id": 175
+    },
+    {
+      "depth": "depth_channels",
+      "feature": "contrast",
+      "model": "independent_trees",
+      "id": 176
+    },
+    {
+      "depth": "depth_channels",
+      "feature": "multiscale",
+      "model": "extra_trees",
+      "id": 177
+    },
+    {
+      "depth": "depth_channels",
+      "feature": "multiscale",
+      "model": "independent_trees",
+      "id": 178
+    }
+  ],
+  "thresholds": [
+    0.15,
+    0.25,
+    0.35,
+    0.45,
+    0.5,
+    0.55,
+    0.65,
+    0.75
+  ],
+  "tree_counts": {
+    "random_forest": 96,
+    "extra_trees": 96,
+    "independent_trees": 64
+  },
+  "primary": "independent_selected",
+  "label_version": "new_count_schema_verified",
+  "features": "per-sample fixed; scalers training-only",
+  "tag": "c3a27f0c3a56"
+}
