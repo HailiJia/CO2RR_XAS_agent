@@ -26,6 +26,8 @@ import os
 import re
 from datetime import datetime, timezone
 from pathlib import Path
+import sys
+if __package__ in (None, ''):sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 from typing import Any, Dict, Iterable, List, Optional, Tuple
 
 ISAAC_RECORD_VERSION = "1.05"
@@ -353,7 +355,7 @@ def build_relaxation_record(output_dir: str, sequence: int = 1) -> Dict[str, Any
         "system": {
             "domain": "computational",
             "technique": "DFT",
-            "facility": {"facility_name": "NERSC", "organization": "ANL", "cluster": "Perlmutter"},
+            "facility": {"facility_name": "NERSC", "organization": "Lawrence Berkeley National Laboratory", "cluster": "Perlmutter"},
             "instrument": {
                 "instrument_type": "simulation_engine",
                 "instrument_name": "VASP_Standard",
@@ -592,7 +594,7 @@ def build_xas_record(output_dir: str, sequence: int = 1) -> Dict[str, Any]:
         "system": {
             "domain": "computational",
             "technique": "DFT",
-            "facility": {"facility_name": "NERSC", "organization": "ANL", "cluster": "Perlmutter"},
+            "facility": {"facility_name": "NERSC", "organization": "Lawrence Berkeley National Laboratory", "cluster": "Perlmutter"},
             "instrument": {"instrument_type": "simulation_engine", "instrument_name": "VASP_Standard", "vendor_or_project": "VASP"},
             "configuration": {"code_version": "VASP 6.4.3", "compute_architecture": "CPU", "generator_name": GENERATOR_NAME, "generator_version": GENERATOR_VERSION},
         },
@@ -611,7 +613,26 @@ def build_xas_record(output_dir: str, sequence: int = 1) -> Dict[str, Any]:
         "descriptors": {"outputs": [{"label": "auto_features_v1", "generated_utc": timestamps["created_utc"], "generated_by": {"agent": GENERATOR_NAME, "version": GENERATOR_VERSION}, "descriptors": descriptors}]},
         "tags": ["CO2RR_XAS_agent", "XAS_simulation"],
     })
+    # Infer the backend from actual local calculation inputs. This route must
+    # not identify every broadened XAS output as VASP/DFT.
+    if (root/'fdmfile.txt').exists() or any(root.glob('*_in.txt')):
+        backend='FDMNES'
+    elif (root/'feff.inp').exists(): backend='FEFF'
+    elif (root/'INCAR').exists(): backend='VASP'
+    else: backend=None
+    if backend != 'VASP':
+        record['system']['technique']='XAS'
+        record['system']['instrument']={'instrument_type':'simulation_engine','instrument_name':backend or 'unresolved','vendor_or_project':backend or 'unresolved'}
+        record['system']['configuration'].pop('code_version',None)
+        record['computation']['method']={'notes':f"XAS backend: {backend or 'unresolved'}. Multiple-scattering family is not represented by the pinned ISAAC enum; family omitted. Core-hole model requires explicit input/version evidence."}
     record["sample"].update(sample_label_fields(info))
+    from tools.component_audit import attach_component_audit, calculation_structure
+    actual_structure, coordinate_source = calculation_structure(root)
+    if actual_structure is not None:
+        record = attach_component_audit(record, actual_structure, info.get('molecules', []))
+        record['sample']['structure_descriptors']['component_coordinate_source'] = coordinate_source
+    else:
+        record['sample'].setdefault('structure_descriptors', {})['component_audit_status'] = 'actual_input_coordinates_unavailable'
     return record
 
 

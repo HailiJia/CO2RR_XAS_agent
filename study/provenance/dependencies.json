@@ -1,0 +1,19 @@
+{
+  "python": "3.11.14",
+  "packages": {
+    "numpy": "2.3.5",
+    "pandas": "3.0.1",
+    "scipy": "1.17.0",
+    "scikit-learn": "1.8.0",
+    "matplotlib": "3.10.8",
+    "joblib": "1.5.3",
+    "pytest": "9.1.1",
+    "ase": "3.28.0",
+    "pymatgen": "2025.10.7",
+    "jsonschema": "4.26.0",
+    "nbformat": "5.10.4",
+    "ipython": "9.10.0",
+    "ipykernel": "7.2.0"
+  },
+  "test_environment_note": "EELS scientific environment; missing pytest/ASE/pymatgen modules supplied from existing co2rr_agent installation. No HPC execution."
+}

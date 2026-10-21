@@ -520,3 +520,9 @@ def execute_ml_dataset_assembly(
             "Model training backends are intentionally not run by dataset assembly; consume these tables with the CO2RR_ISAAC_XAS_ML skill plan."
         ],
     }
+
+
+def assemble_audited_multilabel_cohort(data_root,split_manifest):
+    """Application API for the verified 11-output workflow, never string classes."""
+    from tools.study_cohort import load_cohort
+    return load_cohort(data_root,split_manifest)

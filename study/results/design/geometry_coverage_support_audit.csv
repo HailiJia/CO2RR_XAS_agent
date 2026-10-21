@@ -1,0 +1,88 @@
+configuration,fold,counts,site_counts,geometry_verified_for_prediction,performance
+2CO_adjacent/2CO_adjacent_0p056_interior,4,"{""CO"": 2}","{""bridge"": 1, ""fcc_hollow"": 1}",False,unmeasured
+2CO_adjacent/2CO_adjacent_0p056_orientation_alt,2,"{""CO"": 2}","{""atop"": 2}",False,unmeasured
+2CO_adjacent/2CO_adjacent_0p111_interface,3,"{""CO"": 4}","{""atop"": 4}",False,unmeasured
+2CO_adjacent/2CO_adjacent_0p111_uniform,4,"{""CO"": 4}","{""atop"": 4}",False,unmeasured
+CHO/CHO_0p028_Cu_top,1,"{""CO"": 1, ""H"": 1}","{""hcp_hollow"": 1, ""off_high_symmetry"": 1}",False,unmeasured
+CHO/CHO_0p056_AuCu_bidentate,2,"{""CHO"": 2}","{""atop"": 2}",False,unmeasured
+CHO/CHO_0p056_CuCu_bidentate,1,"{""CHO"": 2}","{""atop"": 1, ""off_high_symmetry"": 1}",False,unmeasured
+CHO/CHO_0p056_interface_Cu,0,"{""CHO"": 1, ""CO"": 1, ""H"": 1}","{""atop"": 1, ""hcp_hollow"": 1, ""off_high_symmetry"": 1}",False,unmeasured
+CHO/CHO_0p056_interior_Cu,4,"{""CHO"": 1, ""CO"": 1, ""H"": 1}","{""bridge"": 1, ""hcp_hollow"": 2}",False,unmeasured
+CHO/CHO_0p111_uniform,3,"{""CHO"": 2, ""CO"": 2, ""H"": 2}","{""atop"": 2, ""fcc_hollow"": 2, ""hcp_hollow"": 2}",False,unmeasured
+CO/CO_0p11/interface_biased,2,"{""CO"": 4}","{""atop"": 3, ""off_high_symmetry"": 1}",False,unmeasured
+CO/CO_0p11/interior_biased,4,"{""CO"": 4}","{""atop"": 4}",False,unmeasured
+CO/CO_0p14/interface_biased,1,"{""CO"": 5}","{""atop"": 5}",False,unmeasured
+CO/CO_0p14/interior_biased,0,"{""CO"": 5}","{""atop"": 5}",False,unmeasured
+CO/CO_0p14/uniform,3,"{""CO"": 5}","{""atop"": 5}",False,unmeasured
+CO/CO_0p14/uniform2,0,"{""CO"": 5}","{""atop"": 5}",False,unmeasured
+CO/CO_0p25/interface_biased,2,"{""CO"": 9}","{""atop"": 9}",False,unmeasured
+CO/CO_0p25/interface_biased2,0,"{""CO"": 9}","{""atop"": 9}",False,unmeasured
+CO/CO_0p25/interior_biased,2,"{""CO"": 9}","{""atop"": 9}",False,unmeasured
+CO/CO_0p25/uniform,0,"{""CO"": 9}","{""atop"": 9}",False,unmeasured
+CO/CO_0p5/interface_biased,4,"{""CO"": 18}","{""atop"": 8, ""bridge"": 2, ""fcc_hollow"": 2, ""hcp_hollow"": 4, ""off_high_symmetry"": 2}",False,unmeasured
+CO/CO_0p5/interior_biased,2,"{""CO"": 18}","{""atop"": 5, ""bridge"": 4, ""fcc_hollow"": 4, ""hcp_hollow"": 3, ""off_high_symmetry"": 2}",False,unmeasured
+CO/CO_0p5/uniform,1,"{""CO"": 18}","{""atop"": 13, ""bridge"": 1, ""fcc_hollow"": 1, ""hcp_hollow"": 1, ""off_high_symmetry"": 2}",False,unmeasured
+CO/CO_0p75/uniform,3,"{""CO"": 27}","{""atop"": 9, ""bridge"": 6, ""fcc_hollow"": 3, ""hcp_hollow"": 1, ""off_high_symmetry"": 8}",False,unmeasured
+CO2/CO2_0p028_interface_biased_activated,2,"{""CO2"": 1}","{""off_high_symmetry"": 1}",False,unmeasured
+CO2/CO2_0p028_linear_Cu_top,0,"{""CO2"": 1}","{""bridge"": 1}",False,unmeasured
+CO2/CO2_0p056_mixed,3,"{""CO2"": 2}","{""off_high_symmetry"": 2}",False,unmeasured
+COCHO/COCHO_0p056_AuCu_interface,3,"{""OCCOH"": 1}","{""bridge"": 1}",False,unmeasured
+COCHO/COCHO_0p056_AuCu_interface2,1,"{""OCCOH"": 1}","{""bridge"": 1}",False,unmeasured
+COCHO/COCHO_0p056_Cu_interface,0,"{""CO"": 2, ""H"": 1}","{""atop"": 1, ""bridge"": 1, ""fcc_hollow"": 1}",False,unmeasured
+COCHO/COCHO_0p056_Cu_interior,2,"{""COCHO"": 1}","{""atop"": 1}",False,unmeasured
+COH/CHO_0p028_interface_Cu3,2,"{""COH"": 1}","{""fcc_hollow"": 1}",False,unmeasured
+COH/CHO_0p056_AuCuCu,2,"{""COH"": 2}","{""bridge"": 1, ""fcc_hollow"": 1}",False,unmeasured
+COH/CHO_0p056_interface_Cu3,1,"{""COH"": 2}","{""fcc_hollow"": 2}",False,unmeasured
+COH/CHO_0p056_interior,0,"{""COH"": 2}","{""fcc_hollow"": 2}",False,unmeasured
+COH/CHO_0p056_uniform,4,"{""COH"": 2}","{""fcc_hollow"": 2}",False,unmeasured
+COH/CHO_0p167_uniform,0,"{""COH"": 6}","{""fcc_hollow"": 6}",False,unmeasured
+COOH/COOH_0p028_AuCu_interface,2,"{""COOH"": 1}","{""atop"": 1}",False,unmeasured
+COOH/COOH_0p056_AuCu_interface,1,"{""COOH"": 2}","{""atop"": 2}",False,unmeasured
+COOH/COOH_0p056_Au_top,4,"{""COOH"": 2}","{""atop"": 2}",False,unmeasured
+COOH/COOH_0p056_Cu_interface,3,"{""COOH"": 2}","{""off_high_symmetry"": 2}",False,unmeasured
+COOH/COOH_0p056_Cu_uniform,1,"{""COOH"": 2}","{""off_high_symmetry"": 2}",False,unmeasured
+COOH/COOH_0p056_mixed_Au_Cu,0,"{""COOH"": 2}","{""atop"": 1, ""off_high_symmetry"": 1}",False,unmeasured
+COOH/COOH_0p111_AuCu_interface,1,"{""COOH"": 4}","{""atop"": 3, ""off_high_symmetry"": 1}",False,unmeasured
+COOH/COOH_0p111_Au_top,4,"{""COOH"": 4}","{""atop"": 4}",False,unmeasured
+CO_H/CO_H_0p083_2CO_1H,1,"{""CO"": 2, ""H"": 1}","{""atop"": 2, ""hcp_hollow"": 1}",False,unmeasured
+CO_H/CO_H_0p083_2CO_1H_AuCu2,1,"{""CO"": 2, ""H"": 1}","{""atop"": 2, ""bridge"": 1}",False,unmeasured
+CO_H/CO_H_0p111_2CO_2H,2,"{""CO"": 2, ""H"": 2}","{""atop"": 2, ""fcc_hollow"": 1, ""hcp_hollow"": 1}",False,unmeasured
+CO_OH/CO_OH_0p111_3CO_1OH,3,"{""CO"": 3, ""OH"": 1}","{""atop"": 3, ""hcp_hollow"": 1}",False,unmeasured
+H/H_0p75/0p88_mixed,4,{},{},False,unmeasured
+H_0p25/Au,0,"{""H"": 9}","{""fcc_hollow"": 9}",False,unmeasured
+H_0p25/interface_biased2,4,"{""H"": 9}","{""bridge"": 2, ""fcc_hollow"": 7}",False,unmeasured
+H_0p25/interior_biased,3,"{""H"": 9}","{""fcc_hollow"": 9}",False,unmeasured
+H_0p25/uniform,3,"{""H"": 9}","{""bridge"": 1, ""fcc_hollow"": 8}",False,unmeasured
+H_0p5/Au,2,"{""H"": 18}","{""fcc_hollow"": 18}",False,unmeasured
+H_0p5/interface_biased,0,"{""H"": 18}","{""bridge"": 2, ""fcc_hollow"": 16}",False,unmeasured
+H_0p5/interface_biased2,4,"{""H"": 18}","{""bridge"": 3, ""fcc_hollow"": 15}",False,unmeasured
+H_0p5/interior_biased,3,"{""H"": 18}","{""fcc_hollow"": 18}",False,unmeasured
+H_0p5/uniform,3,"{""H"": 18}","{""fcc_hollow"": 17, ""off_high_symmetry"": 1}",False,unmeasured
+H_0p75/Au,3,"{""H"": 27}","{""fcc_hollow"": 27}",False,unmeasured
+H_0p75/interface_biased,4,"{""H"": 27}","{""bridge"": 1, ""fcc_hollow"": 26}",False,unmeasured
+H_0p75/mixed,2,"{""H"": 24}","{""fcc_hollow"": 24}",False,unmeasured
+H_0p75/uniform,0,"{""H"": 27}","{""fcc_hollow"": 27}",False,unmeasured
+O/O_0p028_1O_AuCu2,2,"{""O"": 1}","{""bridge"": 1}",False,unmeasured
+O/O_0p028_1O_Cu3,3,"{""O"": 1}","{""hcp_hollow"": 1}",False,unmeasured
+O/O_0p056_2O_AuCu2,1,"{""O"": 2}","{""bridge"": 1, ""fcc_hollow"": 1}",False,unmeasured
+O/O_0p056_2O_Cu3_distributed,0,"{""O"": 2}","{""fcc_hollow"": 2}",False,unmeasured
+O/O_0p056_2O_mixed_Cu3_AuCu2,4,"{""O"": 2}","{""bridge"": 1, ""fcc_hollow"": 1}",False,unmeasured
+O/O_0p083_3O_Cu3_AuCu2,2,"{""O"": 3}","{""bridge"": 1, ""fcc_hollow"": 2}",False,unmeasured
+O/O_0p083_3O_interface_weighted_Cu3_AuCu2,1,"{""O"": 3}","{""bridge"": 2, ""fcc_hollow"": 1}",False,unmeasured
+OCCOH/OCCOH_0p056_Cu_interface,2,"{""OCCOH"": 1}","{""off_high_symmetry"": 1}",False,unmeasured
+OCCOH/OCCOH_0p056_Cu_interior,4,"{""OCCOH"": 1}","{""off_high_symmetry"": 1}",False,unmeasured
+OCCO_CO/OCCO_CO_0p111_Cu_rich,4,"{""CO"": 4}","{""atop"": 4}",False,unmeasured
+OCCO_CO/OCCO_plus_CO_0p222_AuCu_interface,3,"{""CO"": 8}","{""atop"": 7, ""fcc_hollow"": 1}",False,unmeasured
+OCCO_CO/OCCO_plus_CO_0p222_Cu_rich,3,"{""CO"": 8}","{""atop"": 5, ""fcc_hollow"": 3}",False,unmeasured
+OCHO/01_1OCHO_CuCu_interface,1,"{""OCHO"": 1}","{""atop"": 1}",False,unmeasured
+OCHO/02_1OCHO_AuCu_across,0,"{""OCHO"": 1}","{""atop"": 1}",False,unmeasured
+OCHO/03_1OCHO_CuCu_interior,4,"{""OCHO"": 1}","{""atop"": 1}",False,unmeasured
+OCHO/04_2OCHO_CuCu_interface_plus_interior,1,"{""OCHO"": 2}","{""atop"": 2}",False,unmeasured
+OCHO/05_2OCHO_CuCu_interface_plus_AuCu,1,"{""OCHO"": 2}","{""atop"": 2}",False,unmeasured
+OCHO/06_2OCHO_2CuCu_interface,0,"{""OCHO"": 2}","{""atop"": 2}",False,unmeasured
+OCHO/07_3OCHO_2CuCu_interface_plus_interior,3,"{""OCHO"": 3}","{""atop"": 3}",False,unmeasured
+OCHO/08_3OCHO_1CuCu_interface_plus_2interior,4,"{""OCHO"": 3}","{""atop"": 3}",False,unmeasured
+OH/OH_0p125_interior_biased,3,"{""OH"": 4}","{""fcc_hollow"": 4}",False,unmeasured
+OH/OH_0p25_interface_Au,0,"{""OH"": 10}","{""bridge"": 3, ""fcc_hollow"": 5, ""hcp_hollow"": 2}",False,unmeasured
+OH/OH_0p25_interior_biased,4,"{""OH"": 9}","{""bridge"": 3, ""fcc_hollow"": 6}",False,unmeasured
+OH/OH_0p25_uniform,1,"{""OH"": 9}","{""bridge"": 2, ""fcc_hollow"": 6, ""hcp_hollow"": 1}",False,unmeasured

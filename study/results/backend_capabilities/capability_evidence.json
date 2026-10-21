@@ -1,0 +1,106 @@
+[
+  {
+    "backend": "FDMNESXASGenerator",
+    "absorber": "C",
+    "edge": "K",
+    "numerically_verified": false,
+    "parser_raw_output_available": false,
+    "generated_input": true,
+    "absorbing_index": 1,
+    "keys": [
+      "fdmnes_inp",
+      "structure",
+      "absorbing_index",
+      "absorbing_element",
+      "params"
+    ],
+    "generator_check_passed": true
+  },
+  {
+    "backend": "FEFFXASGenerator",
+    "absorber": "C",
+    "edge": "K",
+    "numerically_verified": false,
+    "parser_raw_output_available": false,
+    "generated_input": true,
+    "absorbing_index": 1,
+    "keys": [
+      "feff_inp",
+      "structure",
+      "absorbing_index",
+      "params"
+    ],
+    "generator_check_passed": true
+  },
+  {
+    "backend": "VASPXASGenerator",
+    "absorber": "C",
+    "edge": "K",
+    "numerically_verified": false,
+    "parser_raw_output_available": false,
+    "generated_input": true,
+    "absorbing_index": 1,
+    "keys": [
+      "incar",
+      "incar_dict",
+      "poscar",
+      "kpoints",
+      "structure",
+      "absorbing_index",
+      "params"
+    ],
+    "generator_check_passed": true
+  },
+  {
+    "backend": "FDMNESXASGenerator",
+    "absorber": "O",
+    "edge": "K",
+    "numerically_verified": false,
+    "parser_raw_output_available": false,
+    "generated_input": true,
+    "absorbing_index": 2,
+    "keys": [
+      "fdmnes_inp",
+      "structure",
+      "absorbing_index",
+      "absorbing_element",
+      "params"
+    ],
+    "generator_check_passed": true
+  },
+  {
+    "backend": "FEFFXASGenerator",
+    "absorber": "O",
+    "edge": "K",
+    "numerically_verified": false,
+    "parser_raw_output_available": false,
+    "generated_input": true,
+    "absorbing_index": 2,
+    "keys": [
+      "feff_inp",
+      "structure",
+      "absorbing_index",
+      "params"
+    ],
+    "generator_check_passed": true
+  },
+  {
+    "backend": "VASPXASGenerator",
+    "absorber": "O",
+    "edge": "K",
+    "numerically_verified": false,
+    "parser_raw_output_available": false,
+    "generated_input": true,
+    "absorbing_index": 2,
+    "keys": [
+      "incar",
+      "incar_dict",
+      "poscar",
+      "kpoints",
+      "structure",
+      "absorbing_index",
+      "params"
+    ],
+    "generator_check_passed": true
+  }
+]

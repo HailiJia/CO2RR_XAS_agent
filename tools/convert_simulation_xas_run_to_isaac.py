@@ -437,7 +437,7 @@ def system_from_metadata(metadata: Dict[str, Any], software: str, absorber: str,
         "edge": edge,
         "facility": {
             "facility_name": first_present(facility.get("facility_name"), env("ISAAC_FACILITY_NAME"), default="NERSC"),
-            "organization": first_present(facility.get("organization"), env("ISAAC_ORGANIZATION"), default="LBNL"),
+            "organization": first_present(facility.get("organization"), env("ISAAC_ORGANIZATION"), default="Lawrence Berkeley National Laboratory"),
             "cluster": first_present(facility.get("cluster"), env("ISAAC_CLUSTER"), default="Perlmutter"),
         },
         "instrument": {
@@ -451,12 +451,13 @@ def system_from_metadata(metadata: Dict[str, Any], software: str, absorber: str,
 
 def computation_block(root: Path, software: str, absorber: str, edge: str) -> Dict[str, Any]:
     incar = parse_key_value_file(root / "INCAR")
-    family = "DFT" if software.upper() == "VASP" else "multiple_scattering_xas"
     method: Dict[str, Any] = {
-        "family": family,
-        "core_hole_treatment": "not_specified",
-        "notes": f"Simulated {absorber} {edge}-edge XAS using {software}.",
+        "notes": f"Simulated {absorber} {edge}-edge XAS using {software}. "
+                 "ISAAC's pinned method-family enum has no multiple-scattering value; "
+                 "omit family for scattering backends rather than invent one. "
+                 "Core-hole treatment requires explicit input/version evidence.",
     }
+    if software.upper() == "VASP": method["family"] = "DFT"
     if software.upper() == "VASP" or incar:
         method.update({"functional_class": "GGA", "functional_name": "PBE", "basis_type": "planewave", "pseudopotential": "PAW"})
         if incar.get("ENCUT"):
@@ -522,6 +523,18 @@ def build_record(root: Path, *, record_id: str = "") -> Dict[str, Any]:
                 "species_observed", "geometry_requested", "geometry_observed", "distribution_requested",
                 "distribution_observed", "coverage_labels", "observed_geometry", "geometry_qc", "atom_ids", "atom_layers", "surface_atom_ids")},
         })
+    try:
+        from tools.component_audit import attach_component_audit, calculation_structure
+    except ImportError:
+        record["sample"].setdefault("structure_descriptors", {})["component_audit_status"] = "shared_module_unavailable; legacy standalone converter requires review"
+    else:
+        # Use the actual calculation input, not a parent's newer relaxed file.
+        actual_structure, coordinate_source = calculation_structure(root)
+        if actual_structure is not None:
+            record = attach_component_audit(record, actual_structure, info.get("molecules", []))
+            record['sample']['structure_descriptors']['component_coordinate_source'] = coordinate_source
+        else:
+            record["sample"].setdefault("structure_descriptors", {})["component_audit_status"] = "actual_input_coordinates_unavailable"
     return record
 
 
