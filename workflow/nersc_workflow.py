@@ -491,4 +491,115 @@ def execute_nersc_full_workflow(
             ))
         ctx["relax_jobs"] = submitted
 
-    def monitor_
+    def monitor_relax_jobs(ctx: Dict[str, Any]) -> None:
+        if ctx.get("submit") and ctx.get("monitor"):
+            ctx["manager"].wait(ctx.get("relax_jobs", []), poll_interval=poll_interval, timeout=timeout)
+            failed = [job for job in ctx.get("relax_jobs", []) if job.state not in SUCCESS_STATES]
+            if failed:
+                ctx["relax_failed"] = True
+                ctx.setdefault("warnings", []).append(
+                    "Relaxation ended in terminal state(s): " + ", ".join(sorted({job.state for job in failed})) + "; XAS generation/submission skipped."
+                )
+
+    def regenerate_xas_inputs(ctx: Dict[str, Any]) -> None:
+        if ctx.get("relax_failed"):
+            return
+        # The relaxed structure may have already existed before submission.
+        if not ctx.get("relaxed_structure_file"):
+            relax_jobs = ctx.get("relax_jobs", [])
+            if ctx.get("submit") and ctx.get("monitor") and relax_jobs and all(job.state in SUCCESS_STATES for job in relax_jobs):
+                contcar = require_relaxed_contcar(output_dir)
+                ctx["relaxed_structure_file"] = str(contcar)
+            elif not ctx.get("submit"):
+                # A requested dry run is successful when it safely prepares
+                # relaxation inputs and stops before creating stale XAS jobs.
+                # The result message explains the required post-relax step.
+                return
+            else:
+                ctx["relax_failed"] = True
+                ctx.setdefault("warnings", []).append(
+                    "Relaxation did not complete successfully; XAS generation/submission skipped."
+                )
+                return
+
+        ctx["inputs"] = regenerate_xas_from_relaxed(output_dir=output_dir, **regen_kwargs)
+        ctx["xas_scripts"] = [
+            item for item in discover_submit_scripts(ctx["inputs"], software_filter=software)
+            if item.get("stage") == "xas"
+        ]
+
+    def submit_xas_jobs(ctx: Dict[str, Any]) -> None:
+        if not ctx.get("xas_scripts"):
+            ctx["xas_jobs"] = []
+            return
+        if not ctx.get("submit"):
+            ctx["xas_jobs"] = _jobs_from_scripts(ctx.get("xas_scripts", []), state="DRY_RUN")
+            return
+        if not ctx.get("monitor") and not ctx.get("relaxed_structure_file"):
+            ctx.setdefault("warnings", []).append("monitor=False: XAS jobs were not submitted because relaxed XAS inputs cannot be generated yet.")
+            ctx["xas_jobs"] = []
+            return
+
+        submitted: List[NERSCJob] = []
+        for item in ctx.get("xas_scripts", []):
+            job_id = ctx["manager"].submit(item["script"])
+            submitted.append(NERSCJob(
+                job_id=job_id,
+                script=item["script"],
+                output_dir=item.get("output_dir", str(Path(item["script"]).resolve().parent)),
+                software=item.get("software") or _software_from_path(Path(item["script"])),
+                absorber=item.get("absorber") or _absorber_edge_from_path(Path(item["script"]))[0],
+                edge=item.get("edge") or _absorber_edge_from_path(Path(item["script"]))[1],
+                stage="xas",
+            ))
+        ctx["xas_jobs"] = submitted
+
+    def monitor_xas_jobs(ctx: Dict[str, Any]) -> None:
+        if ctx.get("submit") and ctx.get("monitor"):
+            ctx["manager"].wait(ctx.get("xas_jobs", []), poll_interval=poll_interval, timeout=timeout)
+
+    def parse_records(ctx: Dict[str, Any]) -> None:
+        if ctx.get("submit") and ctx.get("monitor") and ctx.get("parse_when_complete") and ctx.get("relaxed_structure_file"):
+            ctx["records"] = parse_completed_jobs(
+                ctx.get("xas_jobs", []),
+                structure_file=ctx["relaxed_structure_file"],
+                vasp_mode=xas_kwargs.get("vasp_mode", "trace"),
+                parameters=record_parameters,
+            )
+
+    steps = [
+        NERSCWorkflowStep("generate_initial_relax_inputs", generate_initial_relax_inputs, context),
+        NERSCWorkflowStep("submit_relax_jobs", submit_relax_jobs, context),
+        NERSCWorkflowStep("monitor_relax_jobs", monitor_relax_jobs, context),
+        NERSCWorkflowStep("regenerate_xas_inputs_from_relaxed_contcar", regenerate_xas_inputs, context),
+        NERSCWorkflowStep("submit_xas_jobs", submit_xas_jobs, context),
+        NERSCWorkflowStep("monitor_xas_jobs", monitor_xas_jobs, context),
+        NERSCWorkflowStep("parse_completed_xas_jobs", parse_records, context),
+    ]
+    custodian_result = run_custodian_steps(steps, output_dir=output_dir, context=context)
+
+    submitted = list(context.get("relax_jobs", [])) + list(context.get("xas_jobs", []))
+    context["submitted"] = submitted
+    status = "success"
+    if submitted and any(job.state not in SUCCESS_STATES and job.state not in {"SUBMITTED", "DRY_RUN"} for job in submitted):
+        status = "warning"
+    if context.get("warnings"):
+        status = "warning" if status == "success" else status
+
+    if not context.get("submit"):
+        message = "Relaxation inputs generated; XAS inputs will be regenerated after relax/CONTCAR exists."
+    elif not context.get("monitor"):
+        message = "Relaxation job submitted. XAS jobs are intentionally not submitted until relaxed CONTCAR is available and inputs are regenerated."
+    else:
+        message = "NERSC workflow completed with post-relaxation XAS input regeneration."
+
+    result = NERSCWorkflowResult(
+        status=status,
+        inputs=context.get("inputs", {}),
+        submitted_jobs=submitted,
+        records=context.get("records", []),
+        message=message,
+    ).to_dict()
+    result["relaxed_structure_file"] = context.get("relaxed_structure_file")
+    result["job_manager"] = custodian_result
+    return result

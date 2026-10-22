@@ -1,29 +1,17 @@
-# Evidence status
+# Evidence ledger (supersedes the reviewed-head validation claim)
 
-| Item | Status | Evidence / limit |
+| Evidence class | Result and limits | Record |
 |---|---|---|
-| Archived identity/depth OOF metrics and CSV reconciliation | measured | [results/replay/](results/replay/) — 87 configurations, 348 spectra; primary 0.7791/0.6383 and exploratory winner retained separately |
-| Exact-cohort local export and byte verification | completed | [results/export_verification.json](results/export_verification.json) — 87 configurations; source files immutable; full export remains local and unpublished |
-| Relocated agent-invoked archived-selector training | measured / replayed | [results/agent_training_trace.json](results/agent_training_trace.json) — Fresh 895-cache run; primary score reproduced; all five saved-model held-out folds replay exactly |
-| Current cold-cache OOF comparison | completed; differences disclosed | [results/full_reproduction.json](results/full_reproduction.json) — 140/169 OOF files exactly match; primary and exploratory fixed-winner prediction arrays exact; other model variants differ under current dependencies |
-| Shared component graph audit | implementation-tested | [results/seven_label_regressions.json](results/seven_label_regressions.json) — Mapping/topology and seven corrected examples; skew in-plane minimum images; vacuum nonperiodic; ambiguity remains review-required |
-| Final FDMNES cell and layer population utility | implementation-tested | [../tools/layer_population.py](../tools/layer_population.py) — All six cell metrics checked; final 36-site CO populations retained; incompatible grid excluded |
-| Actual legacy layer-record producer | unavailable | [provenance/repository_review.json](provenance/repository_review.json) — Producer absent from accessible source; no attribution to unrelated root converter |
-| Shared audited multilabel application and agent route | executed / tested | [results/agent_training_trace.json](results/agent_training_trace.json) — Natural-language planner dispatch verified; CO_H is multilabel; categorical task remains separate; outer-test perturbation does not alter ranking |
-| Representative schema/facility metadata audit | implementation-tested | [results/schema_review/schema_review.json](results/schema_review/schema_review.json) — No original record edited; measurement arrays preserved; no portal request |
-| FDMNES default core-hole interpretation | version-supported inference | [results/schema_review/core_hole_provenance.json](results/schema_review/core_hole_provenance.json) — 348 input decks and 332 convolution logs; 16 logs absent; schema treatment remains not_reported |
-| Planned matrix and source reconciliation | completed | [results/design/](results/design/) — Cu:Au 1:1,2:1,1:2,3:1,1:3 with explicit rows and local motifs; requested cells distinct from completed inventory |
-| Matched 2CO/OCCO input quartet | inputs verified; new jobs not submitted | [results/design/matched_quartet.json](results/design/matched_quartet.json) — Shared parent, cell, 2C+2O, coverage denominator and initial C-C distances verified |
-| Matched relaxed Cu/C/O coupling contrasts | planned / unavailable | [prepared_jobs/job_manifest.json](prepared_jobs/job_manifest.json) — No matched relaxed outputs; possible dissociation is not labeled intact OCCO; no spectral contrast invented |
-| Experimental reference metrics | unavailable | [results/reference_trace_inventory.csv](results/reference_trace_inventory.csv) — Supplied CuO comparison PDF is visual context only; trace-level numeric data/provenance missing |
-| Geometry/coverage inference performance | unmeasured | [results/design/geometry_coverage_support_audit.csv](results/design/geometry_coverage_support_audit.csv) — Support and missing-label audit exported; targets not adequate for performance claims |
-| Confirmation robustness, calibration and OOD | planned | [provenance/perturbation_plan.json](provenance/perturbation_plan.json) — No frozen independent confirmation set or measured perturbation protocol |
-| Existing execution event evidence | partial; rates unavailable | [results/execution/](results/execution/) — Surviving log paths linked where supported; attempted-run denominator incomplete |
-| End-to-end local workflow/inference trace | implementation-tested; scheduler simulated | [results/local_fixture_trace.json](results/local_fixture_trace.json) — Four simulated jobs link actual structure/final geometry to existing FDMNES record and fold-held-out prediction |
-| Production retry/cost/intervention rates | unavailable | [results/execution/execution_summary.json](results/execution/execution_summary.json) — Scheduler, output-validity, record-creation and ML denominators are not reconciled |
-| ISAAC round-trip local fixtures | implementation-tested | [../tools/isaac_roundtrip.py](../tools/isaac_roundtrip.py) — Stable IDs, measurement/identity hashes and prediction replay tested locally only |
-| Remote ISAAC deposition/retrieval | not performed | [../batch_validate_upload_isaac_records.py](../batch_validate_upload_isaac_records.py) — No external writes, validation or receipts |
-| Five revised PDF/SVG/PNG figures and exact data | rebuilt and verified | [manuscript_package/figures/](manuscript_package/figures/) — Figure 2 diagrams illustrative; Figure 5 uses starting inputs |
-| Revised manuscript and five captions | source available; authoritative | [manuscript_package/manuscript.tex](manuscript_package/manuscript.tex) — Unconfirmed declarations remain placeholders; supplied PDF is pre-edit context only |
-| Compile paper twice and inspect final pages | blocked | [results/manuscript_build/compile_status.json](results/manuscript_build/compile_status.json) — No TeX engine; no SI source; no final page inspection possible |
-| Current focused scientific/workflow suite | passed | [results/test_status.json](results/test_status.json) — 101 passed, 0 failed, 4 dependency/fallback warnings |
+| Reviewed head | 518c686c is truncated; old 101-pass claim is invalid for that SHA | provenance/source_repair_inventory.json |
+| Repaired current source | All tracked Python AST/compile and required import checks; exact eight-file suite is rerun from the pushed SHA in a clean worktree. Consult the PR receipt for the subject SHA and results | results/test_status.json and PR #18 validation receipt |
+| Runtime route checks | Agent and web dispatch call tools.audited_training.run_audited_training; terminal failed relaxation skips XAS; graph/cell tests retained | focused suite and source hashes |
+| Archived primary | 87 configurations, 348 spectra; F1 0.7791/0.6383, exact-set 0.6897 | results/replay/ |
+| Archived exploratory fixed winner | F1 0.7978/0.6597, exact-set 0.7011; post-hoc, not confirmation | archived OOF arrays |
+| Archived fresh run | Primary/fixed winner exact; 140/169 broader OOF files exact, 29 differ; five saved fold reloads exact; no causal dependency experiment | results/full_reproduction.json and saved_model_replay.json |
+| New numeric references | 18 slots inventoried, 15 present; short-window metrics, shared calibration, distinct shape/sensitivity views; reversed oxide folders and unverified GW aliases disclosed | reference_benchmark/ |
+| Core-hole interpretation | not_reported; explicit inputs, logged output and guide inference separate; no matching 2026 guide/source pinned; 332 logs, 16 absent | results/core_hole_interpretation_v2.json |
+| Revised paper/SI | Complete authoritative sources, rebuilt PDFs and inspection receipts; legacy source claims superseded | manuscript_package/ and results/manuscript_build/ |
+| Local end-to-end trace | Simulated scheduler joins actual saved relaxed geometry, existing XAS and held-out inference; not production execution | results/local_fixture_trace.json |
+| Unmeasured | Matched relaxed 2CO/OCCO Cu/C/O contrasts, independent transfer confirmation, production intervention/retry rates and comparable speedup | No additional HPC or portal work requested/performed |
+
+Original data, model and run archives remain unchanged. Recovered truncated derived CSV/JSON artifacts restore their complete local bytes, with hashes, rather than replacing scientific results. The original manuscript-package review documents are historical records; this ledger and the new benchmark are current.

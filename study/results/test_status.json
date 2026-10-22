@@ -1,50 +1,9 @@
 {
-  "untouched_reviewed_baseline_nersc_workflow_tests": {
-    "passed": 4,
-    "failed": 5,
-    "same_five_failures": true,
-    "log": "/tmp/co2rr_baseline_tests.log",
-    "status": "five failures reproduced on reviewed base before fixture and genuine workflow fixes"
-  },
-  "syntax_parse": {
-    "changed_python_files": 29,
-    "passed": true
-  },
-  "figure_only_rebuild": {
-    "pdf_svg_png_outputs": 15,
-    "passed": true
-  },
-  "diff_whitespace_check": "passed",
-  "manuscript_compile": "blocked: no TeX engine available; zero passes",
-  "current_head_focused": {
-    "passed": 101,
-    "failed": 0,
-    "warnings": 4,
-    "duration_seconds": 5.03,
-    "suite": [
-      "test_geometry_labels.py",
-      "test_grouped_xas_ml.py",
-      "test_xas_ml_peak_descriptors.py",
-      "test_nersc_workflow.py",
-      "test_web_nersc_workflow_integration.py",
-      "test_nersc_prompt_regressions.py",
-      "test_label_workflow_integration.py",
-      "test_study_reconciliation.py"
-    ],
-    "result": "passed on current PR working tree, including the repaired baseline NERSC fixture cases"
-  },
-  "reviewed_pre_fix_focused_suite": {
-    "passed": 123,
-    "failed": 5,
-    "warnings": 3,
-    "failures": [
-      "tests/test_nersc_workflow.py::test_nersc_workflow_can_submit_and_monitor_with_fake_slurm",
-      "tests/test_nersc_workflow.py::test_agent_exposes_nersc_dry_run_workflow",
-      "tests/test_nersc_workflow.py::test_generated_nersc_workflow_carries_ml_metadata_in_dry_run",
-      "tests/test_nersc_workflow.py::test_prompt_generates_lateral_cu_au_interface_occo_and_au_l3_only",
-      "tests/test_nersc_workflow.py::test_agent_recovers_nersc_submit_to_dry_run_when_slurm_missing"
-    ],
-    "log": "/tmp/co2rr_final_tests.log",
-    "status": "pre-fix local result; five NERSC fixture failures matched untouched baseline and have since been corrected"
-  }
+  "reviewed_head": "518c686ccdaf79e24eca7577d72b5b9448987631",
+  "reviewed_head_prior_pass_claim_valid": false,
+  "repair_source_manifest": "study/provenance/source_repair_inventory.json",
+  "repaired_local_focused_suite": {"passed": 101, "failed": 0, "warnings": 4},
+  "clean_pushed_commit_receipt": "PR #18 validation receipt identifies exact SHA and independently fetched clean-worktree results; do not attribute local results to the reviewed head",
+  "archived_training_reperformed_on_this_commit": false,
+  "production_scheduler_tested": false
 }

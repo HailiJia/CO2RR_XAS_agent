@@ -137,5 +137,56 @@
       "source": "CuO_Kedge_benchmark.pdf",
       "sha256": "7a35eedf8e04ae9fdbb165fca938c8a7cb13965b849a3eae639a72a123de615b"
     }
-  ]
+  ],
+  "revision": {
+    "date": "2026-10-21",
+    "plotting_code": "code/make_publication_figures.py",
+    "design_references": [
+      "provenance/design_references/flowchart_reference.png",
+      "provenance/design_references/structure_reference.png"
+    ],
+    "molecular_templates": {
+      "file": "figure_data/adsorbate_templates.json",
+      "source": "tools/utils.py",
+      "note": "Illustrative starting templates with explicitly declared bond connectivity."
+    },
+    "CuO_paths": {
+      "file": "figure_data/CuO_vector_paths.csv",
+      "source": "figure_data/CuO_Kedge_benchmark_source.pdf",
+      "note": "Extracted vector paths for graphical restyling only, not raw experimental traces."
+    },
+    "molecular_illustrations": {
+      "file": "figure_data/adsorbate_illustrations.json",
+      "source": "Explicit schematic graphs for the 12 illustrated species; ideal drawing coordinates, not optimized structures.",
+      "note": "Original construction templates remain separately in adsorbate_templates.json; current gallery uses the schematic file.",
+      "display": "Shared viewport and equal display radii for C/O/H symbols; not physical atomic radii."
+    },
+    "PR_review": "provenance/pr18_review/independent_review.json",
+    "interface_site_illustration": {
+      "file": "figure_data/interface_site_illustration.json",
+      "source": "Ideal triangular (111) schematic with declared metal identities, CO coordinates and metal-contact indices.",
+      "note": "Not a relaxed calculation, not included in training or inventory counts. Explicit Cu-Au bridge crosses the boundary."
+    },
+    "depth_display": "Separate individual-layer and top-n-layer-average plots in Figure 4c; values and intervals unchanged."
+  },
+  "latest_review": {
+    "head": "518c686ccdaf79e24eca7577d72b5b9448987631",
+    "independent_findings": "provenance/pr18_review_latest/independent_review.json",
+    "OOF_primary_predictions": "unchanged and independently replayed",
+    "broader_refit": "reported 140/169 exact, primary and fixed-winner arrays exact; raw refit not rerun here",
+    "reference_benchmark": "new numeric data and Cu_XAS.ipynb unavailable here; current CuO remains qualitative vector rendering data"
+  },
+  "latest_figure_revision": {
+    "Figure2b": "exclusive single-species and coadsorbed bins; 152 adsorbate-bearing inventory structures and 87 ML configurations",
+    "Figure2c": "common 3D oblique projection, seven sites, includes CuCuCu and CuAuAu hollows",
+    "Figure4d": "Normalized energy spectrum replaces Shape label; numerical candidate unchanged",
+    "code": "code/make_publication_figures.py"
+  },
+  "numeric_reference_revision": {
+    "figure": "Figure_3_spectroscopy",
+    "input": "study/reference_benchmark/raw/",
+    "processed": "figure_data/reference_benchmark/plotted_arrays.csv",
+    "code": "study/reference_benchmark/process.py",
+    "legacy_CuO_vector_paths": "historical rendering only; not used by current figures or metrics"
+  }
 }

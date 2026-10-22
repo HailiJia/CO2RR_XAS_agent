@@ -775,4 +775,132 @@ class CO2RRXASAgent:
         adsorbate: Optional[Union[str, List[str]]] = None,
         site: str = "top",
         supercell: tuple = (3, 3),
-       
+        layers: int = 4,
+        output_dir: Optional[str] = None,
+        full_pathway: bool = False,
+        metadata_overrides: Optional[Dict[str, Any]] = None,
+    ) -> Dict:
+        """Direct API for structure generation."""
+        return execute_structure_generation(
+            mode="generate",
+            metal1=metal1,
+            metal2=metal2,
+            facet1=facet1,
+            facet2=facet2,
+            adsorbate=adsorbate,
+            site=site,
+            supercell=supercell,
+            layers=layers,
+            output_dir=output_dir or self.default_output_dir,
+            full_pathway=full_pathway,
+            metadata_overrides=metadata_overrides,
+        )
+
+    def generate_xas_inputs(
+        self,
+        structure_file: str,
+        output_dir: Optional[str] = None,
+        nersc_account: Optional[str] = None,
+        nersc_queue: Optional[str] = None,
+        nersc_nodes: Optional[int] = None,
+        nersc_walltime: Optional[str] = None,
+        email: Optional[str] = None,
+        cluster_radius: float = 6.0,
+        fdmnes_options: Optional[Dict[str, bool]] = None,
+        fdmnes_energy_range=(-5.0, 0.2, 50.0),
+        edge_override: Optional[str] = None,
+    ) -> Dict:
+        """Direct API for XAS input generation."""
+        return execute_xas_input_generation(
+            structure_file=structure_file,
+            output_dir=output_dir or self.default_output_dir,
+            nersc_account=nersc_account,
+            nersc_queue=nersc_queue,
+            nersc_nodes=nersc_nodes,
+            nersc_walltime=nersc_walltime,
+            email=email,
+            cluster_radius=cluster_radius,
+            fdmnes_options=fdmnes_options,
+            fdmnes_energy_range=EnergyRange.from_any(fdmnes_energy_range).as_fdmnes_range(),
+            edge_override=edge_override,
+        )
+
+    def run_nersc_workflow(
+        self,
+        structure_file: str,
+        output_dir: Optional[str] = None,
+        software: str = "all",
+        submit: bool = True,
+        monitor: bool = True,
+        parse_when_complete: bool = True,
+        **kwargs,
+    ) -> Dict:
+        """Direct API for NERSC generate -> submit -> monitor -> parse workflow."""
+        return execute_nersc_full_workflow(
+            structure_file=structure_file,
+            output_dir=output_dir or self.default_output_dir,
+            software=software,
+            submit=submit,
+            monitor=monitor,
+            parse_when_complete=parse_when_complete,
+            **kwargs,
+        )
+
+    def parse_results(
+        self,
+        output_dir: str,
+        software: str,
+        structure_file: str,
+        absorber: Optional[str] = None,
+        edge: Optional[str] = None,
+        vasp_mode: str = "trace",
+    ) -> Dict:
+        """Direct API for result parsing."""
+        result = execute_result_parsing(
+            output_dir=output_dir,
+            software=software,
+            structure_file=structure_file,
+            absorber=absorber,
+            edge=edge,
+            vasp_mode=vasp_mode,
+        )
+
+
+# =============================================================================
+# Main Entry Points
+# =============================================================================
+
+
+def create_agent(
+    output_dir: str = "co2rr_xas_output",
+    planner=None,
+    use_llm: bool = False,
+) -> CO2RRXASAgent:
+    """Create an agent. If use_llm=True and planner is None, build one from env."""
+    if use_llm and planner is None:
+        try:
+            try:
+                from agent.planner import create_llm_planner_from_env
+            except ImportError:  # pragma: no cover
+                from .planner import create_llm_planner_from_env
+            planner = create_llm_planner_from_env()
+        except Exception as exc:
+            print(f"[warning] Could not initialize LLM planner; using local parser only. Error: {exc}")
+            planner = None
+
+    return CO2RRXASAgent(
+        default_output_dir=output_dir,
+        planner=planner,
+        use_llm=use_llm,
+    )
+
+
+def process_request(
+    request: str,
+    output_dir: str = "co2rr_xas_output",
+    planner=None,
+    use_llm: bool = False,
+    **kwargs,
+) -> Dict:
+    agent = create_agent(output_dir, planner=planner, use_llm=use_llm)
+    return agent.process_request(request, **kwargs)

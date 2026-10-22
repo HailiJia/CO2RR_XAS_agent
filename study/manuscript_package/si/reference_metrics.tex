@@ -1,0 +1,22 @@
+\begin{table}[!htbp]
+\centering\small
+\caption{Conditional common-offset comparison; 8980--9020 eV, 201 points. RMSE uses local edge-jump units. Calibration is fitted on Cu, not an absolute-energy test.}
+\begin{tabular}{llrrr}
+\toprule
+Material & Treatment & RMSE & Correlation & Shift/eV \\
+\midrule
+Cu & Green & 0.0539 & 0.9866 & -0.186 \\
+Cu & FDM & 0.0896 & 0.8703 & -0.186 \\
+Cu & FEFF & 0.1002 & 0.9668 & -8.323 \\
+Cu & VASP PBE & 0.2539 & 0.1640 & +85.558 \\
+Cu & VASP ``GW & 0.3715 & -0.7655 & +85.558 \\
+Cu2O & Green & 0.1031 & 0.9779 & -0.186 \\
+Cu2O & FDM & 0.1069 & 0.9778 & -0.186 \\
+Cu2O & FEFF & 0.2489 & 0.8403 & -8.323 \\
+CuO & Green & 0.1378 & 0.9642 & -0.186 \\
+CuO & FDM & 0.9540 & 0.8625 & -0.186 \\
+CuO & FEFF & 0.2118 & 0.8414 & -8.323 \\
+CuO & VASP ``GW & 0.2861 & 0.7047 & +85.558 \\
+\bottomrule
+\end{tabular}
+\end{table}

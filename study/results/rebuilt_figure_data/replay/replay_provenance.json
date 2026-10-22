@@ -164,4 +164,31 @@
     "oof_fold_4_depth_layer_3_micro.npz": "399be6437782c32ab680ed991d7e6b384d7b18c6f31df10b1d713a8ac05a3949",
     "oof_fold_0_depth_layer_5_micro.npz": "8439452918148506c17b48e66f625b205f1f64911e015874a28e254a0c7344df",
     "oof_depth_all_4_macro.npz": "18b4f9372f70b7e6d3422c2bac3c672cf6248b92e98f29d5328ba249d2393f68",
-    "oof_fold_3_mo
+    "oof_fold_3_model_independent_trees_macro.npz": "93f09ff94c645923ca9815b9d42681406fe60abcefe56e4e191b43efcecfc06a",
+    "oof_fold_0_depth_layer_2_macro.npz": "fd529f7fb1f614e6155c1158f2b6dacd1638bb99b1d3b29a38724ae8d3c3fd98",
+    "oof_fold_3_depth_all_4_macro.npz": "c0a3f4883d1f61eedfc4845c434c1d1f2b4bcb87e174955f6b6521b65543dcd3",
+    "oof_fold_4_depth_layer_4_macro.npz": "823efee5fa2cc0cdfa13a255faa857996dfbf9b374fcc8304c8ca9b0b29ad645",
+    "oof_fold_4_depth_top_2_micro.npz": "15325a87980a7978fae2d6ff0f4e4875c48f8af4274f5a695898e12331b5cd6e",
+    "oof_fold_3_all_selected_macro.npz": "93f09ff94c645923ca9815b9d42681406fe60abcefe56e4e191b43efcecfc06a"
+  },
+  "fingerprint": {
+    "code": {
+      "spectral_multilabel.py": "fd3d48d9876defd672a2cb55e4ef890e31155d8d6f67d6152f2a3c078b9ac0e4",
+      "component_audit.py": "791236ef40eac3dfb0c9730ff889e36db274fa8d0fd1292cb150dbc6c96cfcbb",
+      "layer_population.py": "0e61e9008c8a56341a8024fce76c16e6a7429cf8f6cfbf2394415666781d6ed6",
+      "contact_checks.py": "1915784038da5a2f2e7716b71316110702217b36618056ed411a19debafc0735",
+      "study_cohort.py": "4f6bdf62510f30b60145f4ae7733301812fd69f69f77be6e363ed55432f527a7",
+      "ml_splits.py": "22626def229644b4f22e2cdb1010f33d5e1d8e67e171e4005cd35dd447cbf3cd"
+    },
+    "dependencies": {
+      "python": "3.11.9",
+      "pandas": "3.0.3",
+      "numpy": "2.4.6",
+      "scipy": "1.17.1",
+      "sklearn": "1.9.0",
+      "joblib": "1.5.3"
+    }
+  },
+  "uncertainty": "Existing bootstrap intervals condition on fitted OOF predictions; not retraining confidence intervals",
+  "confirmation": "Repeatedly examined cohort; reserve genuinely new configurations for confirmation"
+}

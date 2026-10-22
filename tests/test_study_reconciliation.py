@@ -251,4 +251,4 @@ def test_execution_backfill_deduplicates_copied_scheduler_attempts(tmp_path):
     summary=backfill_events(tmp_path,tmp_path/'report')
     assert summary['observed_attempts_with_surviving_scheduler_stdout']==1 and summary['observed_scheduler_stdout_files']==2
     row=json.loads((tmp_path/'report/execution_events.jsonl').read_text().splitlines()[0]);assert len(row['configuration_aliases'])==2
-    assert summ
+    assert summary['first_pass_success_rate'] is None

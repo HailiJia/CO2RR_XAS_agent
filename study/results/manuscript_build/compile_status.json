@@ -1,8 +1,66 @@
 {
-  "status": "blocked",
-  "reason": "TeX engine pdflatex unavailable",
-  "source_available": true,
-  "source": "manuscript.tex",
-  "passes_completed": 0,
-  "page_inspection": "not run; no freshly compiled PDF"
+  "status": "compiled_and_inspected",
+  "engine": "Tectonic 0.17.0",
+  "engine_sha256": "b52b5a730e2b0b33087304f7720f649603953f270a6b1c88bb031e1ae01f7f9c",
+  "bundle": "tlextras-2022.0r0; default_bundle_v33",
+  "renderer": "PDFKit via study/code/render_pdf.swift",
+  "documents": [
+    {
+      "document": "manuscript",
+      "passes": [
+        0,
+        0
+      ],
+      "pdf_sha256": "d1cb53e1d405745561969802bc6068f8e1d1439befe4192d0080a637b58041a7",
+      "pages": 15,
+      "all_pages_rendered_and_visually_inspected": true,
+      "rendered_page_sha256": {
+        "page_01.png": "9eaec1609e5ae2bdeda0e98fafd4f60f6259e82a633912525b69dfb26ef28ef2",
+        "page_02.png": "8c4679dc8832740a2fab350e428d8eafdacc0b92d72f091676d35d63317e0b9a",
+        "page_03.png": "b28d902a5be8bc4bac70a04c4af388bef907764f359969c0a84a8a11ea458a43",
+        "page_04.png": "32a13876e0ce260c6d2444852564d2c229e8e31d8e12979ae34fae6382f2925a",
+        "page_05.png": "53be9ac3c24f74cf9eeab4949bb2dab839e3e6b695ba50065149218af1c91b4d",
+        "page_06.png": "eee11cb38cebedf3389ba04261a70ea6004315005bd3ef01cd5a3c87e35ab39f",
+        "page_07.png": "21f348664e8a8d2a876b4238b9498c31822b5d8d241f87d7beafc51f6fa4824d",
+        "page_08.png": "368abfc6302c5c2c812ee17e6d687ee0ec0f95ae0d204367426c3831d7dd4669",
+        "page_09.png": "e0a9587c015011f23021a897c56f06389e035fddc1fc420551ee11e5c120921f",
+        "page_10.png": "355895a46f72d637a174ff5bb55df93e39278869230179e93911aa781248f3a3",
+        "page_11.png": "2cc776c10fb74f3f5f1f8cbc9e920c374ce6058fef44ac537204b8b3fe9a49c3",
+        "page_12.png": "df0902ad3f3c1b0d336b9393a4cebd860f3efdce4aa4170bea1b3e26cd25c5bb",
+        "page_13.png": "dde3ca5ce22ef2c60a1d0b07670846b771972a2e02cf12e39d0ff81c9feb8252",
+        "page_14.png": "63aea06c31a1be586f1c6b4195081aa265dc57d64557378c48cb981fe4582b91",
+        "page_15.png": "2f844a9bca65564f833d846fa799fc963608f26617a16ac1bbb204652f4508e0"
+      }
+    },
+    {
+      "document": "Supporting_Information",
+      "passes": [
+        0,
+        0
+      ],
+      "pdf_sha256": "613e379faced5c7b61c49c7e0fda9397287229a18e1db3ae33d4057f0f079e47",
+      "pages": 13,
+      "all_pages_rendered_and_visually_inspected": true,
+      "rendered_page_sha256": {
+        "page_01.png": "d826d00c12ab901f22b0e3bc412e9fdbb82c7a1c65702ed0094c060472446bb8",
+        "page_02.png": "e58ccba1b40b753a688eb51bfe8a4b043f1e91276f78cbe59fb892d96f35dc0c",
+        "page_03.png": "7d58986588666c3b810781be50278ac69340eea572f1aa3fa847757a093c7a50",
+        "page_04.png": "c998862b0b0fd8096df500f2be3f4454a047f35db280655e61d23f3c6604eae0",
+        "page_05.png": "3a179eeb3935499755a3d2f9dab450defc6b828a3558f887f760879778c1f0f2",
+        "page_06.png": "f1eabc1696cbff9a6e8d587177cb3488a4196b08830176fe73d064055f2e1f8d",
+        "page_07.png": "738fba4191f4c6583710e30ba300a88cbb04f80ea7faa694185e694cb36c6823",
+        "page_08.png": "95b6f72fa81d0d37b4f75c7a86c9058d7053032a43ce9ee025125399d32a95bf",
+        "page_09.png": "c47ca69b1b4c94e71e162882fe75b09f8d44e323af801ba3029561b13453bb2d",
+        "page_10.png": "7cda6090ddaaaebb845069123c160d7cbfe773a455c0d2a85649a8ad9ca2d72e",
+        "page_11.png": "bfd4dff6bc3fe72a3d52be9b45c09cd8aa50d35466594f56d05afd3720e352ad",
+        "page_12.png": "93a93f021c2fb6237f7a0bf6d5ed142e99bcdf1b5d0a9dfd12002aefc79e2b1d",
+        "page_13.png": "6a65a72d00a7e6f5a2667d1e083c11f3df1bca7735f11c5d3e23bd0c9741ad30"
+      }
+    }
+  ],
+  "missing_references": 0,
+  "overfull_boxes": 0,
+  "missing_glyphs": 0,
+  "layout_notes": "SI grids on landscape pages with larger labels; main reference panel reduced to FDMNES/FEFF; all methods get dedicated SI grid; old Figure 3d remains removed",
+  "warnings": "underfull reference-list boxes only"
 }
