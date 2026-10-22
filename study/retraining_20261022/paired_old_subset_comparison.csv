@@ -1,0 +1,4 @@
+metric,updated_old_subset,frozen_primary,difference,conditional_95_low,conditional_95_high,scope
+micro_f1,0.7816091954022989,0.7790697674418605,0.0025394279604383785,-0.04235964805661337,0.048969160728215326,paired configuration bootstrap of fixed predictions on same 87 old configurations; excludes refit/selection uncertainty
+macro_f1,0.6457768459335859,0.6382765882765882,0.007500257656997689,-0.04936146954348384,0.06688453988731304,paired configuration bootstrap of fixed predictions on same 87 old configurations; excludes refit/selection uncertainty
+exact_set_accuracy,0.6781609195402298,0.6896551724137931,-0.011494252873563315,-0.0692528735632184,0.05747126436781613,paired configuration bootstrap of fixed predictions on same 87 old configurations; excludes refit/selection uncertainty

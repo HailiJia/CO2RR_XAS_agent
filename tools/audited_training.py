@@ -92,6 +92,9 @@ def run_audited_training(data_root, output_dir, split_manifest=None,
     The export root may be given either as its directory or as its ``data`` child.
     A new, empty output directory is required so cache provenance is unambiguous.
     """
+    if recipe == 'updated_data_v3':
+        from .updated_data_training import run
+        return run(data_root, output_dir, split_manifest)
     if recipe == 'motif_holdout_v2':
         from .scientific_motif import run
         return run(data_root, output_dir, split_manifest)
@@ -175,7 +178,7 @@ def main(argv=None):
     p.add_argument('--data-root', required=True)
     p.add_argument('--output-dir', required=True)
     p.add_argument('--split-manifest')
-    p.add_argument('--recipe', choices=['archived_primary', 'training_only_global_threshold', 'scientific_extensions_v2', 'motif_holdout_v2'], default='archived_primary')
+    p.add_argument('--recipe', choices=['archived_primary', 'training_only_global_threshold', 'scientific_extensions_v2', 'motif_holdout_v2', 'updated_data_v3'], default='archived_primary')
     a = p.parse_args(argv)
     print(json.dumps(run_audited_training(a.data_root, a.output_dir, a.split_manifest, a.recipe), indent=2))
 
