@@ -26,6 +26,23 @@ def structure(atoms,positions,cell=None):return dict(atoms=atoms,positions=np.as
 def test_component_distinctions(atoms,positions,counts):
     audit=audit_components(structure(atoms,positions));assert audit['counts']==counts and audit['status']=='verified'
 
+@pytest.mark.parametrize('atoms,positions,expected,status',[
+ (['C','O','C','O'],[[0,0,5],[1.2,0,5],[2.4,0,5],[3.6,0,5]],{},'review_required'), # C-O-C-O chain
+ (['C','C','O','O'],[[2,2,5],[8,2,5],[3.2,2,5],[9.2,2,5]],{'CO':2},'verified'), # two disconnected COs
+ (['C','C','O','O'],[[2,2,5],[3.45,2,5],[2,3.3,5],[3.45,3.3,5]],{},'review_required'), # O-O-bridged graph
+])
+def test_c2o2_formula_does_not_substitute_for_bond_topology(atoms,positions,expected,status):
+    audit=audit_components(structure(atoms,positions))
+    assert audit['status']==status and audit['counts']==expected
+    assert audit['counts'].get('OCCO',0)==0
+
+def test_expected_component_graph_is_checked_and_requested_identity_retained():
+    s=structure(['O','C','C','O'],[[2,2,5],[3.2,2,5],[4.65,2,5],[5.85,2,5]])
+    audit=audit_components(s,[dict(species='OCCO',atom_indices=[0,1,2,3],formula_counts={'O':2,'C':2},expected_edges=[[1,2],[2,3],[3,4]])])
+    assert audit['status']=='verified'
+    mismatch=audit_components(s,[dict(species='OCCO',atom_indices=[0,1,2,3],expected_edges=[[1,2],[2,4],[3,4]])])
+    assert mismatch['status']=='review_required' and mismatch['mapping_evidence'][0]['edge_graph_matches'] is False
+
 def test_periodic_skew_and_nonperiodic_vacuum_and_cutoff_boundary():
     skew=[[10,0,0],[9,1,0],[0,0,25]]
     audit=audit_components(structure(['C','O'],[[0,0,10],[9.31,.49,10]],skew));assert audit['counts']=={'CO':1}
@@ -62,6 +79,27 @@ def test_full_and_subset_retry_with_final_population(tmp_path):
     assert verify_layer_population(p,5)['population']==2
     (p/'fdmnes.out').rename(p/'fdmnes_convolution-123.out');assert verify_layer_population(p,5)['population']==2
 
+def test_fdmnes_crystal_cell_must_match_relaxed_cell(tmp_path):
+    p=layer_fixture(tmp_path);deck=p/'Cu_layer5_in.txt'
+    deck.write_text(deck.read_text().replace('10 10 25 90 90 90','20 10 25 90 90 90'))
+    with pytest.raises(ValueError,match='cell lengths'):
+        verify_layer_population(p,5)
+
+def test_fdmnes_skew_cell_and_rigid_cartesian_frame_are_supported(tmp_path):
+    from tools.component_audit import read_poscar
+    p=layer_fixture(tmp_path);old=read_poscar(p/'CONTCAR');frac=old['positions']@np.linalg.inv(old['cell'])
+    cell=np.array([[10.,0,0],[5.,8.660254037844386,0],[0,0,25.]])
+    theta=np.deg2rad(31);rotation=np.array([[np.cos(theta),-np.sin(theta),0],[np.sin(theta),np.cos(theta),0],[0,0,1.]])
+    rotated=cell@rotation;pos=frac@rotated
+    lines=['fixture','1']+[' '.join(map(str,v)) for v in rotated]+['Cu','10','Direct']+[' '.join(map(str,v)) for v in frac]
+    (p/'CONTCAR').write_text('\n'.join(lines)+'\n')
+    (p/'absorbers.tsv').write_text('atom_index\theight_A\n9\t8\n10\t8\n')
+    params='10 10 25 90 90 60'
+    cr='\n'.join('29 '+' '.join(map(str,v)) for v in frac)
+    (p/'Cu_layer5_in.txt').write_text(f'Crystal\n{params}\n{cr}\nAbsorber\n9 10\nConvolution\nEnd\n')
+    result=verify_layer_population(p,5)
+    assert result['population']==2 and result['coordinate_frame'].endswith('in-plane PBC only')
+
 @pytest.mark.parametrize('fault',['partial','duplicate','element','height','ecut','grid','physical_subset'])
 def test_reject_population_faults(tmp_path,fault):
     p=layer_fixture(tmp_path)
@@ -88,6 +126,36 @@ def test_species_order_clean_unknown_and_no_positive_training():
     with pytest.raises(ValueError,match='Unseen'):identity_set('made_up_species')
     X=np.arange(12).reshape(6,2);Y=np.zeros((6,3),int);Y[:3,0]=1
     b=fit_binary(X,Y);assert b['no_positive_training']==[1,2];assert (binary_scores(b,X)[:,1:]==0).all()
+
+def test_agent_natural_language_dispatches_to_shared_audited_training(monkeypatch,tmp_path):
+    from agent.co2rr_xas_agent import CO2RRXASAgent
+    from agent.schemas import XASPlan
+    import tools.audited_training as training
+    calls=[]
+    def fake(**kwargs):
+        calls.append(kwargs)
+        return {'status':'success','recipe':kwargs['recipe'],'output_dir':kwargs['output_dir']}
+    monkeypatch.setattr(training,'run_audited_training',fake)
+    request='train the adsorbate multilabel model data-root=/local/export split-manifest=/local/export/splits.csv'
+    result=CO2RRXASAgent(default_output_dir=str(tmp_path),use_llm=False).process_request(request)
+    assert result['status']=='success' and calls[0]['data_root']=='/local/export'
+    assert calls[0]['split_manifest']=='/local/export/splits.csv'
+    assert calls[0]['recipe']=='archived_primary'
+    plan=XASPlan(action='audited_training',data_root='/local/export')
+    assert plan.to_parsed_intent(str(tmp_path)).action=='audited_training'
+
+def test_archived_agent_export_writes_recipe_and_named_heldout_predictions(tmp_path):
+    from tools.audited_training import _write_archived_recipe_and_heldout
+    run=tmp_path/'run';run.mkdir()
+    (run/'run_config.json').write_text(json.dumps({'candidates':[{'feature':'CDF'}],'thresholds':[.35,.5]}))
+    pd.DataFrame({'configuration':['cfg-a','cfg-b']}).to_csv(run/'cv_manifest.csv',index=False)
+    truth=np.array([[1,0],[0,1]]);pred=truth.copy();fold=np.array([0,1]);species=np.array(['CO','H'])
+    np.savez_compressed(run/'oof_independent_selected_micro.npz',truth=truth,prediction=pred,fold=fold,species=species)
+    _write_archived_recipe_and_heldout(run)
+    z=np.load(run/'heldout_predictions.npz')
+    assert z['configuration'].tolist()==['cfg-a','cfg-b'] and np.array_equal(z['prediction'],pred)
+    recipe=json.loads((run/'recipe.json').read_text())
+    assert recipe['name']=='archived_primary_nested_selector' and recipe['candidate_space']==[{'feature':'CDF'}]
 
 def test_advisor_ranking_cannot_see_outer_test():
     rng=np.random.default_rng(1);Xs={'shape':rng.normal(size=(12,4)),'cdf':rng.normal(size=(12,3))};Y=np.zeros((12,2),int);Y[::2,0]=1;Y[::3,1]=1;groups=np.array([str(i//2) for i in range(12)]);tr=np.arange(8);te=np.arange(8,12)
@@ -183,4 +251,4 @@ def test_execution_backfill_deduplicates_copied_scheduler_attempts(tmp_path):
     summary=backfill_events(tmp_path,tmp_path/'report')
     assert summary['observed_attempts_with_surviving_scheduler_stdout']==1 and summary['observed_scheduler_stdout_files']==2
     row=json.loads((tmp_path/'report/execution_events.jsonl').read_text().splitlines()[0]);assert len(row['configuration_aliases'])==2
-    assert summary['first_pass_success_rate'] is None
+    assert summ

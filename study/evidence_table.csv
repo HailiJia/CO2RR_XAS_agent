@@ -1,24 +1,26 @@
 item,status,evidence,limit
-Archived identity/depth OOF metrics and CSV reconciliation,completed,results/replay/,"All supplied primary/fixed-depth/exploratory values retained; 87 configurations, 348 spectra"
-Exact-cohort local export and byte verification,completed,results/export_verification.json,87 configurations; source files unchanged; lossless logs; no publication
-Relocated primary saved-model replay,completed,results/model_replay/saved_model_replay.json,All five held-out fold predictions identical after save/load
-Complete cold-cache 179-recipe reproduction,completed,results/full_reproduction.json,895 fresh fit caches; all 169 archived OOF arrays match element for element
-Shared component audit and seven corrected examples,implementation-tested,results/seven_label_regressions.json,Skew in-plane minimum images; vacuum nonperiodic; cutoff/mapping review gates
-Final population utility and recovered CO eligibility,implementation-tested,../tools/layer_population.py,36 final sites retained; partial/duplicate/wrong-element/height/E_cut/grid cases tested
-Actual legacy layer-record producer repair,blocked,provenance/repository_review.json,Source/version absent; root converter is not assumed to own it
-Shared multilabel application route and leakage guards,implementation-tested,../tests/test_study_reconciliation.py,Separate from categorical advisor; outer-test ranking invariance and missing positives tested; not independent confirmation
-Representative schema/facility metadata proposal,implementation-tested,provenance/schema_source.json,Zero local pinned-schema errors; arrays unchanged; no original edit or portal request
-Actual FDMNES core-hole treatment,unavailable,provenance/schema_source.json,Actual input/default-version evidence still needed; no invented value
-"Planned matrix, source reconciliation and priorities",completed,results/design/,Source ratio audit and missing cells are separate from completion
-Matched input quartet and prepared relaxation inputs,completed,results/design/matched_quartet.json,"Shared cell/parent, loading/denominator verified; no jobs submitted"
-Matched relaxed Cu/C/O coupling contrasts/discrimination,blocked,prepared_jobs/job_manifest.json,No verified final matched quartet spectra; dissociation must not become an intact label
-Numerical experimental Cu/Cu2O/CuO comparisons,unavailable,results/reference_trace_inventory.csv,Raw experimental traces/provenance and named PDF unavailable; no image-derived precision
-Geometry/coverage inference performance,planned,results/design/geometry_coverage_support_audit.csv,Support exported; targets not sufficiently verified for a new performance claim
-"Confirmation robustness, calibration and OOD",planned,provenance/perturbation_plan.json,No frozen genuinely new confirmation set or experiment-grounded ranges
-Execution event backfill and prospective event code,implementation-tested,results/execution/,735 stdout paths -> 651 distinct scheduler job IDs; denominator incomplete
-Execution success/cost/intervention rates,blocked,results/execution/execution_summary.json,Accounting/restart/manual-action history missing; rates null
-ISAAC round-trip local fixtures,implementation-tested,../tools/isaac_roundtrip.py,"Stable IDs, measurement/identity hashes and predictions tested locally only"
-ISAAC remote deposition/retrieval/independent reuse,unavailable,../batch_validate_upload_isaac_records.py,No external writes/validation performed; no receipts claimed
-Five outline-role PDF/SVG/PNG figures and exact data,completed,figures/,Rebuilt and visually inspected; unmeasured panels explicitly pending
-Original supplied manuscript/caption reconciliation,blocked,README.md,Named source package absent; separate working draft follows accessible outline
-Compile paper twice and inspect all rendered pages,blocked,results/manuscript_build/compile_status.json,TeX engine unavailable; zero completed passes; no page-review claim
+Archived identity/depth OOF metrics and CSV reconciliation,measured,results/replay/,"87 configurations, 348 spectra; primary 0.7791/0.6383 and exploratory winner retained separately"
+Exact-cohort local export and byte verification,completed,results/export_verification.json,87 configurations; source files immutable; full export remains local and unpublished
+Relocated agent-invoked archived-selector training,measured / replayed,results/agent_training_trace.json,Fresh 895-cache run; primary score reproduced; all five saved-model held-out folds replay exactly
+Current cold-cache OOF comparison,completed; differences disclosed,results/full_reproduction.json,140/169 OOF files exactly match; primary and exploratory fixed-winner prediction arrays exact; other model variants differ under current dependencies
+Shared component graph audit,implementation-tested,results/seven_label_regressions.json,Mapping/topology and seven corrected examples; skew in-plane minimum images; vacuum nonperiodic; ambiguity remains review-required
+Final FDMNES cell and layer population utility,implementation-tested,../tools/layer_population.py,All six cell metrics checked; final 36-site CO populations retained; incompatible grid excluded
+Actual legacy layer-record producer,unavailable,provenance/repository_review.json,Producer absent from accessible source; no attribution to unrelated root converter
+Shared audited multilabel application and agent route,executed / tested,results/agent_training_trace.json,Natural-language planner dispatch verified; CO_H is multilabel; categorical task remains separate; outer-test perturbation does not alter ranking
+Representative schema/facility metadata audit,implementation-tested,results/schema_review/schema_review.json,No original record edited; measurement arrays preserved; no portal request
+FDMNES default core-hole interpretation,version-supported inference,results/schema_review/core_hole_provenance.json,348 input decks and 332 convolution logs; 16 logs absent; schema treatment remains not_reported
+Planned matrix and source reconciliation,completed,results/design/,"Cu:Au 1:1,2:1,1:2,3:1,1:3 with explicit rows and local motifs; requested cells distinct from completed inventory"
+Matched 2CO/OCCO input quartet,inputs verified; new jobs not submitted,results/design/matched_quartet.json,"Shared parent, cell, 2C+2O, coverage denominator and initial C-C distances verified"
+Matched relaxed Cu/C/O coupling contrasts,planned / unavailable,prepared_jobs/job_manifest.json,No matched relaxed outputs; possible dissociation is not labeled intact OCCO; no spectral contrast invented
+Experimental reference metrics,unavailable,results/reference_trace_inventory.csv,Supplied CuO comparison PDF is visual context only; trace-level numeric data/provenance missing
+Geometry/coverage inference performance,unmeasured,results/design/geometry_coverage_support_audit.csv,Support and missing-label audit exported; targets not adequate for performance claims
+"Confirmation robustness, calibration and OOD",planned,provenance/perturbation_plan.json,No frozen independent confirmation set or measured perturbation protocol
+Existing execution event evidence,partial; rates unavailable,results/execution/,Surviving log paths linked where supported; attempted-run denominator incomplete
+End-to-end local workflow/inference trace,implementation-tested; scheduler simulated,results/local_fixture_trace.json,Four simulated jobs link actual structure/final geometry to existing FDMNES record and fold-held-out prediction
+Production retry/cost/intervention rates,unavailable,results/execution/execution_summary.json,"Scheduler, output-validity, record-creation and ML denominators are not reconciled"
+ISAAC round-trip local fixtures,implementation-tested,../tools/isaac_roundtrip.py,"Stable IDs, measurement/identity hashes and prediction replay tested locally only"
+Remote ISAAC deposition/retrieval,not performed,../batch_validate_upload_isaac_records.py,"No external writes, validation or receipts"
+Five revised PDF/SVG/PNG figures and exact data,rebuilt and verified,manuscript_package/figures/,Figure 2 diagrams illustrative; Figure 5 uses starting inputs
+Revised manuscript and five captions,source available; authoritative,manuscript_package/manuscript.tex,Unconfirmed declarations remain placeholders; supplied PDF is pre-edit context only
+Compile paper twice and inspect final pages,blocked,results/manuscript_build/compile_status.json,No TeX engine; no SI source; no final page inspection possible
+Current focused scientific/workflow suite,passed,results/test_status.json,"101 passed, 0 failed, 4 dependency/fallback warnings"

@@ -11,6 +11,21 @@ from .dataset_labels import geometry_hash
 
 QUARTET=[('2CO','interface','2CO_adjacent/2CO_adjacent_0p056_interface'),('2CO','terrace','2CO_adjacent/2CO_adjacent_0p056_interior'),('OCCO','interface','OCCO/OCCO_0p056_interface'),('OCCO','terrace','OCCO/OCCO_0p056_interior')]
 
+def _cyclic_motifs(row_elements):
+    """Count overlapping three-row stripe windows on the periodic surface."""
+    result=Counter();n=len(row_elements)
+    if n<3:return result
+    names={(3,0):'Cu3',(2,1):'Cu2Au',(1,2):'CuAu2',(0,3):'Au3'}
+    for i in range(n):
+        window=[row_elements[(i+j)%n] for j in range(3)]
+        if any(x not in {'Cu','Au'} for x in window):continue
+        result[names[(window.count('Cu'),window.count('Au'))]]+=1
+    return result
+
+def _circular_distance(a,b):
+    d=abs((float(a)-float(b))%1.0)
+    return min(d,1.0-d)
+
 def reconcile_design(repo_root,data_root,analysis_dir,output_dir):
     repo=Path(repo_root);root=Path(data_root);base=Path(analysis_dir);out=Path(output_dir);out.mkdir(parents=True,exist_ok=True)
     inventory=pd.read_csv(base/'all_unique_structures.csv');support=pd.read_csv(base/'species_support.csv');records=pd.read_csv(base/'record_audit.csv')
@@ -22,9 +37,9 @@ def reconcile_design(repo_root,data_root,analysis_dir,output_dir):
     # Explicit minimal row counts define the ratios, not evidence that any
     # requested matrix cell has been generated or relaxed.
     planned=[]
-    for parent,cu,au in [('pure Cu(111)',1,0),('pure Au(111)',0,1),('Cu:Au 1:1',1,1),('Cu:Au 2:1',2,1),('Cu:Au 1:2',1,2),('Cu:Au 6:2',6,2)]:
+    for parent,cu,au in [('pure Cu(111)',3,0),('pure Au(111)',0,3),('Cu:Au 1:1',1,1),('Cu:Au 2:1',2,1),('Cu:Au 1:2',1,2),('Cu:Au 3:1',3,1),('Cu:Au 1:3',1,3)]:
         for region in (['terrace'] if not cu or not au else ['interface','near-interface','terrace']):
-            planned.append(dict(parent=parent,explicit_minimum_Cu_rows=cu,explicit_minimum_Au_rows=au,region=region,coverage='must specify numerator/denominator',distribution='planned stratification',species_scope='clean, C1, C2, coadsorbates',source_match='unverified; folder names alone cannot establish row ratio',completion='not asserted'))
+            planned.append(dict(parent=parent,explicit_Cu_rows=cu,explicit_Au_rows=au,total_lateral_rows=cu+au,region=region,coverage='must specify numerator/denominator',distribution='planned stratification',species_scope='clean, C1, C2, coadsorbates',source_match='unverified; folder names alone cannot establish row ratio',completion='not asserted'))
     pd.DataFrame(planned).to_csv(out/'planned_structural_matrix.csv',index=False)
     actual=[];initial_lookup={}
     for row in inventory.itertuples():
@@ -48,13 +63,32 @@ def reconcile_design(repo_root,data_root,analysis_dir,output_dir):
                     if not rows or v-rows[-1][-1]>.6:rows.append([])
                     rows[-1].append(v)
                 counts[element]=len(rows)
-            actual.append(dict(configuration=row.configuration,Cu_rows=counts['Cu'],Au_rows=counts['Au'],row_method='initial top-layer fractional-y clusters; 0.6 A gap; inferred, not requested metadata',ml_status=row.ml_status))
+            ordered=sorted(top_ids,key=lambda i:float(frac[i,1]%1.0));groups=[]
+            for i in ordered:
+                y=float(frac[i,1]%1.0)*length
+                if not groups or y-groups[-1][-1][1]>.6:groups.append([])
+                groups[-1].append((int(i),y))
+            row_elements=[Counter(aa[i] for i,_ in g if aa[i] in {'Cu','Au'}).most_common(1)[0][0] for g in groups]
+            row_centers=[float(np.mean([frac[i,1]%1.0 for i,_ in g]))%1.0 for g in groups]
+            motifs=_cyclic_motifs(row_elements)
+            nonmetal=np.flatnonzero(~mm);ads_y=float(np.mean(frac[nonmetal,1])%1.0) if len(nonmetal) else None
+            local_motif='none';interface_distance=None
+            if ads_y is not None and len(row_centers)>=3:
+                near=int(np.argmin([_circular_distance(ads_y,y) for y in row_centers]))
+                local=[row_elements[(near+j-1)%len(row_elements)] for j in range(3)]
+                local_motif={(3,0):'Cu3',(2,1):'Cu2Au',(1,2):'CuAu2',(0,3):'Au3'}.get((local.count('Cu'),local.count('Au')),'mixed/unknown')
+                a=np.asarray(st['cell'][0],float);b=np.asarray(st['cell'][1],float);bperp=np.linalg.norm(b-np.dot(b,a/np.linalg.norm(a))*a/np.linalg.norm(a))
+                edges=[(row_centers[k]+((row_centers[(k+1)%len(row_centers)]-row_centers[k])%1.0)/2.0)%1.0 for k in range(len(row_centers)) if row_elements[k]!=row_elements[(k+1)%len(row_centers)]]
+                if edges:interface_distance=min(_circular_distance(ads_y,e) for e in edges)*bperp
+            actual.append(dict(configuration=row.configuration,Cu_rows=counts['Cu'],Au_rows=counts['Au'],top_row_sequence=';'.join(row_elements),Cu3=motifs['Cu3'],Cu2Au=motifs['Cu2Au'],CuAu2=motifs['CuAu2'],Au3=motifs['Au3'],adsorbate_local_motif=local_motif,nearest_interface_A=interface_distance,row_method='initial top-layer fractional-y clusters; 0.6 A row gap; cyclic 3-row windows; inferred from coordinates',ml_status=row.ml_status))
         except (ValueError,IndexError):continue
     pd.DataFrame(actual).to_csv(out/'actual_structural_matrix.csv',index=False)
     for plan in planned:
-        cu,au=plan['explicit_minimum_Cu_rows'],plan['explicit_minimum_Au_rows']
+        cu,au=plan['explicit_Cu_rows'],plan['explicit_Au_rows']
         candidates=[a for a in actual if (not au and a['Au_rows']==0 and a['Cu_rows']>0) or (not cu and a['Cu_rows']==0 and a['Au_rows']>0) or (cu and au and a['Cu_rows']*au==a['Au_rows']*cu and a['Cu_rows']>0 and a['Au_rows']>0)]
         plan['matching_ratio_unique_sources']=len(candidates)
+        motif=plan['parent'].split()[-1]
+        plan['matching_local_motif_unique_sources']=sum(a['adsorbate_local_motif']==motif for a in actual) if motif in {'Cu3','Cu2Au','CuAu2','Au3'} else None
         plan['source_match']='ratio observed; requested region still unverified' if candidates else 'requested ratio absent from audited source inventory'
     pd.DataFrame(planned).to_csv(out/'planned_structural_matrix.csv',index=False)
     quartet=[];jobs=[];parents=[]

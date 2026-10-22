@@ -5,9 +5,16 @@ import re
 from pathlib import Path
 import numpy as np
 import pandas as pd
-from .component_audit import read_poscar
+from .component_audit import (read_poscar,read_fdmnes_crystal,
+    FDMNES_CELL_LENGTH_TOLERANCE_A,FDMNES_CELL_ANGLE_TOLERANCE_DEG)
 
 ECUT_TOLERANCE_EV=.00051
+
+def _cell_lengths_angles(cell):
+    a,b,c=np.asarray(cell,float)
+    lengths=np.linalg.norm([a,b,c],axis=1)
+    def angle(u,v):return float(np.rad2deg(np.arccos(np.clip(np.dot(u,v)/(np.linalg.norm(u)*np.linalg.norm(v)),-1,1))))
+    return np.r_[lengths,angle(b,c),angle(a,c),angle(a,b)]
 
 def verify_layer_population(folder,layer):
     folder=Path(folder);stem=f'Cu_layer{layer}';structure=read_poscar(folder/'CONTCAR');atoms=np.array(structure['atoms'])
@@ -22,15 +29,23 @@ def verify_layer_population(folder,layer):
         if not groups or heights[index]-heights[groups[-1][-1]]>.6:groups.append([])
         groups[-1].append(int(index))
     if len(groups)!=5 or set(indices)!={i+1 for i in groups[layer-1]}:raise ValueError('Layer table does not cover the full physical Cu layer')
-    deck=(folder/f'{stem}_in.txt').read_text();selected=list(map(int,re.search(r'(?im)^Absorber\s*\n([^\n]+)',deck)[1].split()))
+    deck_path=folder/f'{stem}_in.txt';deck=deck_path.read_text();selected=list(map(int,re.search(r'(?im)^Absorber\s*\n([^\n]+)',deck)[1].split()))
     if len(selected)!=len(set(selected)) or not set(selected)<=set(indices):raise ValueError('Invalid main-deck absorber indices')
-    crystal=re.search(r'(?ims)^Crystal\s*\n(.*?)\n\s*Absorber',deck)[1].strip().splitlines()
-    values=np.array([list(map(float,line.split())) for line in crystal[1:] if line.strip()])
+    parsed=read_fdmnes_crystal(deck)
+    if parsed is None:raise ValueError('Invalid or missing six-parameter FDMNES Crystal cell')
+    values=np.column_stack([np.array([{'Cu':29,'Au':79,'C':6,'O':8,'H':1}[a] for a in parsed['atoms']]),parsed['fractional']])
     numbers={'Cu':29,'Au':79,'C':6,'O':8,'H':1}
     if len(values)!=len(atoms) or not np.array_equal(values[:,0],[numbers[a] for a in atoms]):raise ValueError('Calculation input elements disagree')
-    delta=(values[:,1:]@structure['cell'])-structure['positions']
+    ref_metric=_cell_lengths_angles(structure['cell']);deck_metric=_cell_lengths_angles(parsed['cell'])
+    if not np.allclose(deck_metric[:3],ref_metric[:3],atol=FDMNES_CELL_LENGTH_TOLERANCE_A,rtol=0):raise ValueError('FDMNES Crystal cell lengths disagree with relaxed structure')
+    if not np.allclose(deck_metric[3:],ref_metric[3:],atol=FDMNES_CELL_ANGLE_TOLERANCE_DEG,rtol=0):raise ValueError('FDMNES Crystal cell angles disagree with relaxed structure')
+    ref_fractional=structure['positions']@np.linalg.inv(structure['cell'])
+    delta=(values[:,1:]-ref_fractional)@structure['cell']
     from .contact_checks import minimum_image_vectors
-    if not np.allclose(minimum_image_vectors(delta,structure['cell']),0,atol=3e-6):raise ValueError('Calculation input coordinates disagree')
+    # Fractional coordinates compare the same lattice frame, are invariant to
+    # a rigid Cartesian rotation of the complete cell, wrap only in-plane, and
+    # leave vacuum-direction displacement nonperiodic.
+    if not np.allclose(minimum_image_vectors(delta,structure['cell'],(True,True,False)),0,atol=3e-6):raise ValueError('Calculation input coordinates disagree')
     evidence=[];site_paths=[];grid=None
     # A separate final convolution log supersedes a subset recalculation deck.
     logs=([folder/'fdmnes.out'] if (folder/'fdmnes.out').exists() else [])+sorted(folder.glob('fdmnes_convolution*.out'))
@@ -90,7 +105,9 @@ def verify_layer_population(folder,layer):
     output=folder/f'{stem}_conv.txt';a=np.loadtxt(output,skiprows=1)
     if a.ndim!=2 or a.shape[1]!=2 or not np.isfinite(a).all() or not np.all(np.diff(a[:,0])>0):raise ValueError('Invalid convolved grid')
     return dict(layer=int(layer),population=len(indices),main_deck_population=len(selected),provenance=provenance,
-                convolution_log=log.name if log else None,convolution_log_sha256=hashlib.sha256(log.read_bytes()).hexdigest() if log else None,population_basis='unique physical Cu atom indices, not sum of source symmetry multiplicities',E_cut_tolerance_eV=ECUT_TOLERANCE_EV,mean_height_A=float(table.height_A.mean()),output_sha256=hashlib.sha256(output.read_bytes()).hexdigest(),sites=evidence)
+                convolution_log=log.name if log else None,convolution_log_sha256=hashlib.sha256(log.read_bytes()).hexdigest() if log else None,population_basis='unique physical Cu atom indices, not sum of source symmetry multiplicities',E_cut_tolerance_eV=ECUT_TOLERANCE_EV,mean_height_A=float(table.height_A.mean()),output_sha256=hashlib.sha256(output.read_bytes()).hexdigest(),sites=evidence,
+                fdmnes_cell_parameters=parsed['lattice_parameters'],cell_length_tolerance_A=FDMNES_CELL_LENGTH_TOLERANCE_A,
+                cell_angle_tolerance_deg=FDMNES_CELL_ANGLE_TOLERANCE_DEG,coordinate_frame='fractional coordinates in matching six-parameter cell; in-plane PBC only')
 
 def aggregate_layers(arrays,populations,layers):
     """Average compatible raw arrays before any normalization."""

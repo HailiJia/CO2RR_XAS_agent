@@ -1,6 +1,8 @@
 {
   "status": "blocked",
   "reason": "TeX engine pdflatex unavailable",
+  "source_available": true,
+  "source": "manuscript.tex",
   "passes_completed": 0,
-  "original_supplied_manuscript_available": false
+  "page_inspection": "not run; no freshly compiled PDF"
 }

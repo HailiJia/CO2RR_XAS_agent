@@ -5,7 +5,9 @@ import json,re,hashlib,sys,time,warnings
 import numpy as np
 import pandas as pd
 import matplotlib
-matplotlib.use('module://matplotlib_inline.backend_inline')
+# This program writes figures to files and is also invoked by the portable CLI.
+# Do not require a notebook-only backend for headless reproduction.
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from scipy.signal import savgol_filter
 from scipy.integrate import cumulative_trapezoid
@@ -17,7 +19,12 @@ from sklearn.svm import SVC
 from sklearn.ensemble import RandomForestClassifier,ExtraTreesClassifier
 from sklearn.model_selection import KFold
 from sklearn.metrics import f1_score,precision_recall_fscore_support,multilabel_confusion_matrix
-from IPython.display import display,Markdown
+try:
+    from IPython.display import display,Markdown
+except ImportError:  # CLI replay does not require notebook presentation helpers.
+    def display(value):
+        print(value)
+    Markdown=lambda value:value
 import sklearn,scipy
 import argparse, os
 BASE=Path(__file__).resolve().parent if '__file__' in globals() else Path.cwd()
@@ -606,61 +613,4 @@ best_family=family_results.sort_values(['micro_f1','macro_f1'],ascending=False).
 best_observed=fixed_report[fixed_report.objective=='micro'].sort_values(['micro_f1','macro_f1'],ascending=False).iloc[0]
 rare=', '.join(support_table.loc[support_table.sampling=='INSUFFICIENT','species'])
 counts=dict(source_locations=len(inventory),unique_inventory=len(unique_inventory),record_files=len(record_paths),usable=N,layer_spectra=4*N,old_configurations=N-len(new),new_valid_configurations=len(new),duplicate_records=int((record_audit.status=='duplicate').sum()),excluded_records=int((record_audit.status=='excluded').sum()))
-(OUT/'run_summary.json').write_text(json.dumps(counts|dict(primary_micro_f1=float(primary_result.micro_f1),primary_macro_f1=float(primary_result.macro_f1),provisional_best_micro_f1=float(best_observed.micro_f1),provisional_best_macro_f1=float(best_observed.macro_f1),best_observed_family=str(best_family.selector)),indent=2))
-bullets=[
- f'- Data: {len(inventory)} source locations → {len(unique_inventory)} unique structures, including unfinished cases and the CuO reference. {len(record_paths)} record files → {N} usable unique configurations ({4*N} spectra); {N-len(new)} previous configurations retain their folds and {len(new)} new valid configurations are assigned using labels only.',
- '- Record format: use adsorbate_counts/adsorbate_identities and cross-check component formulas/site species against relaxed CONTCAR. POSCAR is separately audited; dissociation is allowed to change species. Seven regenerated records were backed up and corrected before training. No measurement values were changed.',
- '- Mixtures: exact combinations (for example CO + H) are counted once in the inventory. A second panel reports nonexclusive species presence. Classification is multilabel; counts and site geometry are never predictor inputs or prediction targets.',
- '- Features tried: normalized spectral shape, CDF, first derivative, combined shape/CDF/first-and-second derivatives, DCT24; plus multiscale derivatives and separate top-layer/depth-contrast channels for tree workflows.',
- '- Models tried: balanced logistic regression (C=1), RBF SVM (C=3), joint random forest, joint extra-trees, and independent binary extra-trees classifiers. Native forests have 96 trees; independent forests have 64 trees per species. SVM sigmoid scores are not calibrated probabilities.',
- f'- Predeclared reference workflow: independent-species extra-trees with feature/depth and guarded threshold selection inside the training folds; pooled held-out micro F1 {primary_result.micro_f1:.3f}, macro F1 {primary_result.macro_f1:.3f}, exact label-set accuracy {primary_result.exact_match:.3f}. It was specified from the previous experiments before seeing the new test scores.',
- f'- Provisional best to carry forward: {best_observed.model} with {best_observed.feature} on {best_observed.depth}, because it has the strongest observed pooled micro/macro tradeoff ({best_observed.micro_f1:.3f}/{best_observed.macro_f1:.3f}). It is selected after comparing CV entries, so its score is exploratory and needs independent confirmation.',
- f'- Highest observed model-family score: {best_family.selector.replace("model_","")} (micro/macro F1 {best_family.micro_f1:.3f}/{best_family.macro_f1:.3f}). Highest observed fixed entry: {best_observed.model}, {best_observed.feature}, {best_observed.depth} ({best_observed.micro_f1:.3f}/{best_observed.macro_f1:.3f}). These rankings are exploratory; choosing them after viewing held-out scores is not independent confirmation.',
- '- Validation: identical configuration-level outer folds across all representations; three inner folds select thresholds/features/models; all fitted preprocessing stays in training data. No layer from a structure crosses folds. Macro F1 includes every observed species, including rare failures.',
- f'- Main data limitation: {rare} have fewer than five positive configurations. COCHO has only one, leaving no positive training example when it is held out. More models cannot fix that sampling gap.',
- '- Why performance remains limited: few and imbalanced independent configurations, sparse mixtures, configuration-dependent spectra and potentially diluted depth signatures. Wrong-species substitutions and below-threshold omissions are listed separately. These are model/data limitations, not proof of intrinsic spectral indistinguishability.',
- '- Improvement plan: fix the upstream identity/count converter to classify each molecular component rather than copy directory names; add independent rare-species and matched CO/CO+H/CO+OH configurations; complete clean controls and missing layer averages; reserve new data for confirmation; evaluate sensitivity to noise and energy shifts before experimental transfer.',
- '- Interpretation limits: new data and corrected targets change the benchmark. Repeated exploration of this small simulated cohort is not an external test. Bootstrap intervals condition on fitted CV models, omit retraining uncertainty, and are not corrected for multiple comparisons.'
-]
-for label in ['H','OH','CHO']:
-    if label in SPECIES:
-        g=mixture_report[mixture_report.species==label]
-        text='; '.join(f'{r.kind}: {r.detected}/{r.support}' for r in g.itertuples() if r.support)
-        bullets.append(f'- Provisional-best mixture diagnostic for {label}: {text}.')
-depth_scores=selector_scores[(selector_scores.objective=='micro')&selector_scores.selector.isin(['depth_layer_5','depth_top_2','depth_all_4'])].set_index('selector')
-depth_winner={'depth_layer_5':'The top layer','depth_top_2':'The top-two average','depth_all_4':'The four-layer average'}[depth_scores.micro_f1.idxmax()]
-bullets.insert(8,'- Layer sensitivity (within-depth feature/threshold selection): '+ '; '.join(f'{name}: micro/macro F1 {depth_scores.loc[key,"micro_f1"]:.3f}/{depth_scores.loc[key,"macro_f1"]:.3f}' for key,name in [('depth_layer_5','top layer'),('depth_top_2','top two'),('depth_all_4','all four')])+f'. {depth_winner} has the highest point estimate among these depths. Conditional paired intervals are saved separately.')
-chosen_errors=[]
-for i,(a,b) in enumerate(zip(Y,chosen)):
-    if not np.array_equal(a,b):chosen_errors.append(dict(configuration=manifest.configuration[i],truth=';'.join(SPECIES[a==1]),prediction=';'.join(SPECIES[b==1]) or '(below thresholds)',missing=';'.join(SPECIES[(a==1)&(b==0)]),extra=';'.join(SPECIES[(a==0)&(b==1)])))
-pd.DataFrame(chosen_errors).to_csv(OUT/'provisional_best_errors.csv',index=False)
-(OUT/'DETAILED_ANALYSIS.md').write_text('\n'.join(bullets)+'\n')
-brief=[
- f'- Inventory: **{len(unique_inventory)} unique structures** from {len(inventory)} source locations, including unfinished structures. **{N} configurations / {4*N} spectra** are usable for ML; {len(new)} newly valid configurations were added and the previous folds were preserved.',
- '- Record audit: seven regenerated records had wrong species/counts or site-species labels. They were backed up and corrected from relaxed connectivity; spectra are unchanged. POSCAR/CONTCAR differences are recorded rather than forced to match.',
- '- Population audit corrected: the two recovered CO configurations have 36-site final convolution logs, matching all site files; three-site subset recalculation decks do not determine the final convolution population. No spectra were changed.',
- '- Mixtures: count exact combinations once (CO + H, CHO + CO + H, etc.), and also show per-species presence. Classification stays multilabel; adsorbate multiplicities and geometry are not predicted or used as features.',
- '- Features tried: normalized shape, CDF, first derivative, shape + CDF + both derivatives, DCT24; tree workflows also test multiscale derivatives and top-layer/depth-contrast channels.',
- '- Models tried: logistic regression, RBF SVM, joint random forest, joint extra-trees, and independent species extra-trees. All comparisons use identical outer folds and training-only tuning.',
- f'- Provisional best: **{best_observed.model}, {best_observed.feature}, {best_observed.depth}** — micro F1 **{best_observed.micro_f1:.3f}**, macro F1 **{best_observed.macro_f1:.3f}**. It has the strongest observed score tradeoff, but was chosen after comparing CV entries and needs independent confirmation. The predeclared automatic selector scored {primary_result.micro_f1:.3f}/{primary_result.macro_f1:.3f}.',
- '- Depth: '+ '; '.join(f'{name} {depth_scores.loc[key,"micro_f1"]:.3f}/{depth_scores.loc[key,"macro_f1"]:.3f}' for key,name in [('depth_layer_5','top layer'),('depth_top_2','top two'),('depth_all_4','all four')])+f' (micro/macro F1 with feature selection inside each fixed depth). {depth_winner} has the highest point estimate among these depths; paired uncertainty is reported separately.',
- f'- Why scores remain limited: scarce positives ({rare}), imbalanced data, few mixed examples and configuration-dependent spectral signatures. COCHO has only one example, so its held-out fold has no positive training case. No completed clean controls are available.',
- '- Next steps: fix the upstream component-label converter; add independent rare-species and matched CO/CO+H/CO+OH cases; finish clean controls and repair incomplete/subset layer spectra; reserve new structures for confirmation; test noise/energy-shift robustness.'
-]
-mixture_notes=[]
-for label in ['H','CHO','OH']:
-    g=mixture_report[mixture_report.species==label].set_index('kind')
-    if 'mixed' in g.index and g.loc['mixed','support']:
-        mixture_notes.append(f"{label} {int(g.loc['mixed','detected'])}/{int(g.loc['mixed','support'])} in mixtures")
-brief.insert(-1,'- Mixtures remain difficult for the provisional best: '+', '.join(mixture_notes)+'. These omissions limit complete identity-set prediction even when common pure species are detected.')
-(OUT/'ANALYSIS.md').write_text('\n'.join(brief)+'\n');display(Markdown('\n'.join(brief)))
-# Minimal reproducibility and integrity checks.
-assert N==len(set(manifest.structure_hash)) and N==len(set(manifest.record))
-assert sorted(np.concatenate([te for tr,te in FOLDS]).tolist())==list(range(N))
-for f,(tr,te) in enumerate(FOLDS):
-    assert not set(tr)&set(te)
-    inner=pd.read_csv(OUT/f'inner_folds_{f}.csv');assert set(inner.manifest_row)==set(tr)
-assert int(combo_table.to_numpy().sum())==len(unique_inventory)
-assert all((FIG/(name+suffix)).exists() for name in ['01_all_structures_by_adsorbate','02_training_testing_structure_counts','03_layer_sensitivity','04_adsorbate_identity_performance','05_feature_model_comparison'] for suffix in ['.png','.pdf'])
-(OUT/'environment.json').write_text(json.dumps(dict(python=sys.version,numpy=np.__version__,pandas=pd.__version__,scipy=scipy.__version__,sklearn=sklearn.__version__,seed=SEED),indent=2))
-print('Completed. Five requested figures saved as PNG and PDF; full CSV audits and held-out predictions saved alongside the notebook.')
+(OUT/'run_summary.json').write_text(json.dumps(counts|dict(primary_micro_f1=float(primary_result.micro_f1),primary_macro_f1=float(primary_result.macro_f1),provisional_best_micro_f1=float(best_observed.micro_f1),provisional_best_macro_f1=float(best_observed.macro_f1),best_observed_family=str(best_family.sele

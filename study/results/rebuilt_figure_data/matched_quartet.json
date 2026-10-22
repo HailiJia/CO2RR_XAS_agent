@@ -1,0 +1,105 @@
+{
+  "shared_cell": true,
+  "shared_metal_parent": true,
+  "structures": [
+    {
+      "state_requested": "2CO",
+      "region": "interface",
+      "input": "data/CuAu_dataset/2CO_adjacent/2CO_adjacent_0p056_interface/POSCAR",
+      "input_sha256": "d4bf91d2dae173fe182e499128ade5d5587a6bae528e787c1fc6e891d1e149c1",
+      "minimum_CC_A": 2.522521158890633,
+      "loading": {
+        "C": 2,
+        "O": 2
+      },
+      "Cu_top_sites": 36,
+      "all_top_sites": 68,
+      "C_equivalent_coverage_Cu": 0.05555555555555555,
+      "molecular_coverage_Cu": 0.05555555555555555,
+      "coverage_note": "C-equivalent 2/Cu-top-sites; molecular coverage differs for one OCCO and two CO",
+      "settings_hashes": {
+        "INCAR": "7454aa136a1bc45ccbb0a7f042597605110ddf136d8495c1b4c2d2fedc4cc72d",
+        "KPOINTS": "ca0d3b09f1f98fa91eebd307459cc62767f1482c2ce736d3d916048a99df30f8"
+      },
+      "initial_geometry_aliases": [
+        "2CO_adjacent/2CO_adjacent_0p056_interface"
+      ],
+      "relaxed_candidates": [],
+      "relaxed_available": false,
+      "final_component_audit": null
+    },
+    {
+      "state_requested": "2CO",
+      "region": "terrace",
+      "input": "data/CuAu_dataset/2CO_adjacent/2CO_adjacent_0p056_interior/POSCAR",
+      "input_sha256": "241be1e65743e866f2d61663a9af53de3f2d673a7c46340789bbd22f15834561",
+      "minimum_CC_A": 2.460764428064487,
+      "loading": {
+        "C": 2,
+        "O": 2
+      },
+      "Cu_top_sites": 36,
+      "all_top_sites": 68,
+      "C_equivalent_coverage_Cu": 0.05555555555555555,
+      "molecular_coverage_Cu": 0.05555555555555555,
+      "coverage_note": "C-equivalent 2/Cu-top-sites; molecular coverage differs for one OCCO and two CO",
+      "settings_hashes": {
+        "INCAR": "7454aa136a1bc45ccbb0a7f042597605110ddf136d8495c1b4c2d2fedc4cc72d",
+        "KPOINTS": "ca0d3b09f1f98fa91eebd307459cc62767f1482c2ce736d3d916048a99df30f8"
+      },
+      "initial_geometry_aliases": [],
+      "relaxed_candidates": [],
+      "relaxed_available": false,
+      "final_component_audit": null
+    },
+    {
+      "state_requested": "OCCO",
+      "region": "interface",
+      "input": "data/CuAu_dataset/OCCO/OCCO_0p056_interface/POSCAR",
+      "input_sha256": "53a4806c2aad94a54417aeade5f12e21badf746de9698e4a36c82bd0551d05b7",
+      "minimum_CC_A": 1.4499999999999993,
+      "loading": {
+        "C": 2,
+        "O": 2
+      },
+      "Cu_top_sites": 36,
+      "all_top_sites": 68,
+      "C_equivalent_coverage_Cu": 0.05555555555555555,
+      "molecular_coverage_Cu": 0.027777777777777776,
+      "coverage_note": "C-equivalent 2/Cu-top-sites; molecular coverage differs for one OCCO and two CO",
+      "settings_hashes": {
+        "INCAR": "7454aa136a1bc45ccbb0a7f042597605110ddf136d8495c1b4c2d2fedc4cc72d",
+        "KPOINTS": "ca0d3b09f1f98fa91eebd307459cc62767f1482c2ce736d3d916048a99df30f8"
+      },
+      "initial_geometry_aliases": [],
+      "relaxed_candidates": [],
+      "relaxed_available": false,
+      "final_component_audit": null
+    },
+    {
+      "state_requested": "OCCO",
+      "region": "terrace",
+      "input": "data/CuAu_dataset/OCCO/OCCO_0p056_interior/POSCAR",
+      "input_sha256": "0df8b34642aa49646bb3f38de939c65b54489f6c4fc7e17d0f61b9594de9d39b",
+      "minimum_CC_A": 1.449999999999999,
+      "loading": {
+        "C": 2,
+        "O": 2
+      },
+      "Cu_top_sites": 36,
+      "all_top_sites": 68,
+      "C_equivalent_coverage_Cu": 0.05555555555555555,
+      "molecular_coverage_Cu": 0.027777777777777776,
+      "coverage_note": "C-equivalent 2/Cu-top-sites; molecular coverage differs for one OCCO and two CO",
+      "settings_hashes": {
+        "INCAR": "7454aa136a1bc45ccbb0a7f042597605110ddf136d8495c1b4c2d2fedc4cc72d",
+        "KPOINTS": "ca0d3b09f1f98fa91eebd307459cc62767f1482c2ce736d3d916048a99df30f8"
+      },
+      "initial_geometry_aliases": [],
+      "relaxed_candidates": [],
+      "relaxed_available": false,
+      "final_component_audit": null
+    }
+  ],
+  "contrast_status": "No eligible intact OCCO positives; matched final Cu/C/O contrasts unmeasured; no coupling discrimination or barrier/selectivity inference"
+}
