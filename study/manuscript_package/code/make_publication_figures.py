@@ -58,11 +58,12 @@ def project(xyz,elevation=65,azimuth=0):
     x=xyz[:,0]*np.cos(a)-xyz[:,1]*np.sin(a);y=xyz[:,0]*np.sin(a)+xyz[:,1]*np.cos(a)
     return np.column_stack([x,y*np.sin(e)+xyz[:,2]*np.cos(e)]),-y*np.cos(e)+xyz[:,2]*np.sin(e)
 
-def structure(ax,file,local=False):
+def structure(ax,file,local=False,substrate_only=False):
     sp,xyz,cell,frac=load_poscar(DATA/'structures'/file);metal=np.isin(sp,['Cu','Au']);ads=~metal
     # Include the two outer layers, then let depth sorting provide occlusion.
     selected=(metal&(xyz[:,2]>xyz[metal,2].max()-4.1))|ads
-    center=xyz[ads].mean(axis=0);q=xyz.copy();q[:,:2]-=center[:2]
+    if substrate_only:selected &= metal
+    center=xyz[metal if substrate_only else ads].mean(axis=0);q=xyz.copy();q[:,:2]-=center[:2]
     if local:
         # Periodic in-plane copies prevent a cropped cell edge from looking vacant.
         qq=[];ss=[]
@@ -199,10 +200,10 @@ def fig1():
     save(f,'Figure_1_framework')
 
 def fig2():
-    f=plt.figure(figsize=(7.2,9.1));gs=f.add_gridspec(2,2,height_ratios=[1,1.55],width_ratios=[1,1.1],hspace=.25,wspace=.28)
-    a=f.add_subplot(gs[0,0]);structure(a,'2CO_adjacent_interface.vasp');panel(a,'a','Interfacial chemical space')
-    a.text(.5,-.04,'Cu–Au interface with adsorbates',transform=a.transAxes,ha='center',fontsize=8)
-    a.legend(handles=[Line2D([],[],ls='',marker='o',ms=5.5,color=P[z],label=z) for z in ['Cu','Au','C','O','H']],ncol=5,loc='lower center',bbox_to_anchor=(.5,-.19),fontsize=7,handletextpad=.2,columnspacing=.7)
+    f=plt.figure(figsize=(7.2,9.1));gs=f.add_gridspec(2,2,height_ratios=[1,1.55],width_ratios=[1,1.1],hspace=.35,wspace=.28)
+    a=f.add_subplot(gs[0,0]);structure(a,'2CO_adjacent_interface.vasp',substrate_only=True);panel(a,'a','Substrate and adsorbates')
+    a.text(.5,-.04,'Cu–Au substrate interface',transform=a.transAxes,ha='center',fontsize=8)
+    f.legend(handles=[Line2D([],[],ls='',marker='o',ms=5.5,color=P[z],label=z) for z in ['Cu','Au','C','O','H']],ncol=5,loc='center',bbox_to_anchor=(.54,.586),fontsize=8,handletextpad=.25,columnspacing=1.4)
     sub=gs[0,1].subgridspec(3,4,hspace=.38,wspace=.20)
     for k,name in enumerate(['CO','CO2','CHO','COH','COOH','OCHO','COCHO','OCCOH','OCCO','H','O','OH']):molecule(f.add_subplot(sub[k//4,k%4]),name)
     inv=pd.read_csv(DATA/'all_unique_structures.csv');ml=pd.read_csv(DATA/'cv_manifest.csv')
@@ -231,36 +232,35 @@ def fig2():
     save(f,'Figure_2_dataset')
 
 def fig3():
-    f=plt.figure(figsize=(7.2,8.0));gs=f.add_gridspec(3,1,height_ratios=[1.0,.85,1.65],hspace=.49)
+    f=plt.figure(figsize=(7.2,5.2));gs=f.add_gridspec(2,1,height_ratios=[1.35,1],hspace=.60,top=.80,bottom=.10)
     ref=gs[0].subgridspec(1,3,wspace=.30)
-    d=pd.read_csv(DATA/'reference_benchmark'/'plotted_arrays.csv')
-    colors={'fdmnes_green':'#0072B2','fdmnes_fdm':'#D55E00','feff':'#009E73'}
+    d=pd.read_csv(DATA/'reference_benchmark_v2'/'plotted_arrays.csv')
+    colors={'fdmnes_green':'#0072B2','fdmnes_fdm':'#D55E00','feff':'#009E73','vasp_pbe':'#CC79A7','vasp_gw':'#E69F00'}
+    labels={'fdmnes_green':'FDMNES green','fdmnes_fdm':'FDMNES fdm','feff':'FEFF','vasp_pbe':'VASP PBE','vasp_gw':'VASP GW'}
+    handles=[Line2D([],[],color='black',lw=1.5,label='Experiment')]+[Line2D([],[],color=c,lw=1.2,label=labels[m]) for m,c in colors.items()]
+    handles.append(Line2D([],[],color=colors['fdmnes_fdm'],lw=1.2,ls='--',label='CuO fdm: supplied single site'))
+    f.text(.125,.98,'a  Reference benchmark: Cu-calibrated alignment',fontweight='bold',fontsize=10)
+    f.legend(handles=handles,loc='center',bbox_to_anchor=(.54,.895),ncol=3,fontsize=7.1,handlelength=2,columnspacing=1.2,labelspacing=.45)
+    display=[]
     for i,material in enumerate(['Cu','Cu2O','CuO']):
-        a=f.add_subplot(ref[0,i]);subset=d[(d.material==material)&(d.view=='common')]
+        a=f.add_subplot(ref[0,i]);subset=d[(d.material==material)&(d.comparison_type=='Cu_calibrated')]
         first=True
         for method,col in colors.items():
             q=subset[subset.method==method]
             if q.empty:continue
-            if first:a.plot(q.energy_eV-8979,q.experiment,color='black',lw=1.5,label='Experiment');first=False
-            a.plot(q.energy_eV-8979,q.calculation,color=col,lw=1.1,label={'fdmnes_green':'Green','fdmnes_fdm':'FDM','feff':'FEFF','vasp_pbe':'PBE','vasp_gw':'“GW”*'}[method])
-        a.set(xlim=(1,41),ylim=(-.85,3.6),xlabel='Photon energy − 8979 eV')
-        if i==0:a.set_ylabel('Local edge-jump absorption')
-        a.set_title(('a  ' if i==0 else '')+material,loc='left',fontweight='bold')
-        a.legend(fontsize=7,loc='upper right',ncol=2,handlelength=1.1,columnspacing=.6)
+            if first:
+                a.plot(q.energy_eV,q.experiment,color='black',lw=1.5);first=False
+                display.extend(dict(material=material,method='experiment',energy_eV=e,intensity_au=v) for e,v in zip(q.energy_eV,q.experiment))
+            a.plot(q.energy_eV,q.calculation,color=col,lw=1.15,ls='--' if material=='CuO' and method=='fdmnes_fdm' else '-')
+            display.extend(dict(material=material,method=method,energy_eV=e,intensity_au=v) for e,v in zip(q.energy_eV,q.calculation))
+        a.set(xlim=(8980,9020),ylim=(-.035,1.08),xlabel='Photon energy (eV)');a.set_xticks([8980,9000,9020]);a.set_yticks([0,.5,1]);a.ticklabel_format(axis='x',style='plain',useOffset=False);a.tick_params(labelsize=7)
+        if i==0:a.set_ylabel('Intensity (a.u.)')
+        a.set_title({'Cu':'Cu','Cu2O':'Cu₂O','CuO':'CuO'}[material],loc='left',fontweight='bold',pad=8)
+    pd.DataFrame(display).to_csv(DATA/'Figure_3a_display.csv',index=False)
     a=f.add_subplot(gs[1]);d=pd.read_csv(DATA/'representative_layer_spectra.csv');d=d[d.configuration=='CO/CO_0p11/interface_biased']
     for l,col in zip([5,4,3,2],[P['orange'],P['blue'],'#228833','#AA3377']):
         q=d[d.layer==l];a.plot(q.energy_eV,q.absorption,lw=1.7,color=col,label='Surface' if l==5 else f'Layer {l}')
-    a.set(xlim=(8974,9029),xlabel='Photon energy (eV)',ylabel='Absorption (a.u.)');a.legend(fontsize=7.5,loc='lower right');a.ticklabel_format(axis='x',style='plain',useOffset=False);panel(a,'b','Layer-resolved Cu K edge')
-    sub=gs[2].subgridspec(3,4,hspace=.30,wspace=.16);d=pd.read_csv(DATA/'spectral_identity_contrasts.csv');order=['CO','CO2','CHO','COH','COOH','OCHO','COCHO','OCCOH','H','O','OH'];lim=np.max(np.abs(d.iloc[:,1:].values))*1.13*1e4;x=d.energy_eV.values
-    for i,name in enumerate(order):
-        a=f.add_subplot(sub[i//4,i%4]);y=d[name].values*1e4
-        a.axhline(0,color='#A9B0B8',lw=.6);a.fill_between(x,0,y,where=y>=0,color=P['blue'],alpha=.26,interpolate=True);a.fill_between(x,0,y,where=y<=0,color=P['orange'],alpha=.30,interpolate=True);a.plot(x,y,c=P['navy'],lw=1.05)
-        a.set(xlim=(8974,9029),ylim=(-lim,lim));a.set_xticks([8980,9000,9020]);a.set_yticks([-4,0,4]);a.tick_params(labelsize=7)
-        a.text(.95,.87,name.replace('CO2','CO₂'),transform=a.transAxes,ha='right',fontsize=8,fontweight='bold')
-        if i%4:a.set_yticklabels([])
-        if i<8:a.set_xticklabels([])
-        if i==0:a.text(0,1.26,'c  Species-conditioned spectral contrasts',transform=a.transAxes,fontweight='bold',fontsize=10)
-    a=f.add_subplot(sub[2,3]);blank(a);a.axis('off');a.text(.05,.85,'Shared scales\nContrast × 10⁴ (eV⁻¹)\nPhoton energy (eV)\n\nPresence − absence',transform=a.transAxes,va='top',fontsize=7.3,linespacing=1.6)
+    a.set(xlim=(8974,9029),xlabel='Photon energy (eV)',ylabel='Intensity (a.u.)');a.legend(fontsize=7.5,loc='lower right');a.ticklabel_format(axis='x',style='plain',useOffset=False);panel(a,'b','Layer-resolved Cu K edge')
     save(f,'Figure_3_spectroscopy')
 
 def fig4():
@@ -269,7 +269,7 @@ def fig4():
     for delta,col,metric,lab in [(-.18,P['blue'],'micro_f1','Micro F1'),(.18,P['orange'],'macro_f1','Macro F1')]:
         v=[d.loc[k,metric] for k in keys];a.bar(x+delta,v,.34,color=col,label=lab)
     a.set_xticks(x,['Primary\nselector','Surface','Top two','Four layers']);a.set(ylim=(0,1),ylabel='Held-out F1');a.legend(fontsize=8,ncol=2,loc='upper center',bbox_to_anchor=(.5,1.03),handlelength=1);panel(a,'a','Automated inference')
-    a=f.add_subplot(gs[1]);d=pd.read_csv(DATA/'per_species.csv').query('selector=="independent_selected" and objective=="micro"');x=np.arange(len(d));a.bar(x,d.f1,color=[P['blue'] if n>=5 else '#A8B5C3' for n in d.support],width=.72)
+    a=f.add_subplot(gs[0,1]);d=pd.read_csv(DATA/'per_species.csv').query('selector=="independent_selected" and objective=="micro"');x=np.arange(len(d));a.bar(x,d.f1,color=[P['blue'] if n>=5 else '#A8B5C3' for n in d.support],width=.72)
     a.set_xticks(x,[s.replace('CO2','CO₂')+('*' if n<5 else '') for s,n in zip(d.species,d.support)],rotation=50,ha='right');a.set(ylim=(0,1.12),ylabel='Held-out F1')
     for i,q in enumerate(d.itertuples()):a.text(i,q.f1+.035,str(q.support),ha='center',fontsize=7.5)
     panel(a,'b','Adsorbate identification')

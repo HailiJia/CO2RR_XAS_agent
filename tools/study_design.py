@@ -28,7 +28,7 @@ def _circular_distance(a,b):
 
 def reconcile_design(repo_root,data_root,analysis_dir,output_dir):
     repo=Path(repo_root);root=Path(data_root);base=Path(analysis_dir);out=Path(output_dir);out.mkdir(parents=True,exist_ok=True)
-    inventory=pd.read_csv(base/'all_unique_structures.csv');support=pd.read_csv(base/'species_support.csv');records=pd.read_csv(base/'record_audit.csv')
+    inventory=pd.read_csv(base/'all_unique_structures.csv');support=pd.read_csv(base/'species_support.csv')
     priorities=[]
     for target,reason,rank in [('clean','No eligible clean controls; needed to measure false positives against no adsorbate',1),('CO2','Three positives; reserve new independent groups for both training and confirmation',2),('COCHO','One positive; a held-out fold has zero training positives',2),('OCCOH','Four positives; sparse independent confirmation',2),('CO+H / CO / CO+OH','Matched parent/site/loading comparisons isolate coadsorbate omissions',3),('intact OCCO / two CO','No eligible intact OCCO positives; verify final connectivity and matched parents',3)]:
         n=int(support.set_index('species').loc[target,'support']) if target in support.species.values else 0 if target in ['clean','intact OCCO / two CO'] else None
@@ -113,7 +113,12 @@ def reconcile_design(repo_root,data_root,analysis_dir,output_dir):
         quartet.append(row)
         if observed is None or observed['counts'].get('OCCO',0)==0 and state=='OCCO':jobs.append(dict(input=str(p.relative_to(repo)),state_requested=state,region=region,action='prepare relaxation or review dissociation; do not force coupled labels',submission_authorized=False,requested_edges=['Cu K','C K','O K'],spectral_contrasts_status='unmeasured',backend_support='verify generated inputs and parsers before submitting'))
     samecell=all(np.allclose(parents[0][0],x[0]) for x in parents);sameparent=all(parents[0][1]==x[1] for x in parents)
-    (out/'matched_quartet.json').write_text(json.dumps(dict(shared_cell=samecell,shared_metal_parent=sameparent,structures=quartet,contrast_status='No eligible intact OCCO positives; matched final Cu/C/O contrasts unmeasured; no coupling discrimination or barrier/selectivity inference'),indent=2)+'\n')
+    # Expanded evidence recovery supersedes the exact-initial-only lookup.
+    from .controlled_comparisons import recover_quartet
+    recovered=recover_quartet(root,repo)
+    for row,evidence in zip(quartet,recovered['structures']):
+        row.update(evidence)
+    (out/'matched_quartet.json').write_text(json.dumps(dict(shared_cell=samecell,shared_metal_parent=sameparent,structures=quartet,contrast_status=recovered['contrast_status'],search_artifact_paths=recovered['search_artifact_paths']),indent=2)+'\n')
     (out/'missing_job_manifest.json').write_text(json.dumps(dict(jobs=jobs,submitted=False),indent=2)+'\n')
     # Export actual record geometry/count support without training new tasks.
     geometry=[]

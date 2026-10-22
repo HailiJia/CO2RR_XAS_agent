@@ -1,59 +1,47 @@
-# Review of PR #18 and manuscript update
+## Current figure-clarity revision
 
-Reviewed repository: [HailiJia/CO2RR_XAS_agent](https://github.com/HailiJia/CO2RR_XAS_agent/pull/18). Head **518c686ccdaf79e24eca7577d72b5b9448987631**, open draft, unmerged. This supersedes the earlier review of `68953df`.
+This revision follows the review at unchanged PR head 390b1b8. Main Figure 3 includes all available VASP curves; no additional numeric series were invented. Reference display curves use unit-maximum intensity, with numerical metrics unchanged. Figure 3c uses one common −1 to 1 factor and an explicit species-present minus species-absent comparison, without a clean reference or percentage interpretation. Figure 2a separates bare-substrate display from adsorbate cartoons under one shared legend. The proposed coupling comparison is now an Outlook rather than a Results subsection. The new Codex prompt prioritizes completed chemical evidence, coadsorbate recovery, robustness/domain tests, compact feature/model ablations and a real agent-invoked analysis trace.
 
-**PR #18 does not yet address everything. Its committed source is broken, its manuscript is the older draft, and the new numeric reference benchmark has not been uploaded.** Several intended scientific fixes are present and their focused tests pass, but the quoted all-passing status does not describe the committed head.
+# PR #18 review: repaired head and numeric reference benchmark
 
-## Committed-source blockers
+Reviewed [PR #18](https://github.com/HailiJia/CO2RR_XAS_agent/pull/18) at **390b1b899c4dca43685fda1380a494b1d5019fcd**. It remains an open, unmerged draft. This review supersedes the source-blocker findings at 518c686.
 
-Git object sizes and a remote file fetch confirm truncation in the repository itself:
+The previous truncation blockers are repaired. Independent checks in a clean detached checkout confirm:
 
-| File | Size | Failure |
-|---|---:|---|
-| `workflow/nersc_workflow.py` | 18,000 bytes | Ends `def monitor_`; syntax error at line 494. |
-| `agent/co2rr_xas_agent.py` | 36,000 bytes | Ends in `generate_structure(` signature; syntax error at line 769. |
-| `CO2RR_ML/updated_dataset_20261020/analysis.py` | 54,000 bytes | Ends inside run-summary construction; unclosed expression at line 616. |
-| `tests/test_study_reconciliation.py` | — | Last line `assert summ` raises `NameError`. |
+- **106/106 tracked Python files compile**, with no syntax errors.
+- **Six runtime imports pass**: workflow, agent, audited training, component audit, layer-population validation, and execution evidence.
+- The exact eight-file focused suite gives **101 passed, 0 failed**, with three environment-dependent warnings, in 7.37 s. Codex's four-warning receipt uses a different environment; the pass count agrees.
+- All **165 uploaded benchmark inputs/logs** match both their stored and original uncompressed SHA-256 values in the inventory.
+- All **46 reported reference RMSE values** recompute from the exact saved plotted arrays within 1e-10. Separately executing the portable processing script from the included raw inputs reproduces all 46 values, with maximum RMSE difference 1e-15 and maximum shift difference 2.1e-12 eV. This verifies reproducibility under the declared protocol, not the uniqueness or physical optimality of its preprocessing.
+- The revised notebook contains four executed code cells with no saved error outputs. Its full execution was not repeated here.
+- Saved prediction replay reproduces primary micro/macro F1 **0.7791/0.6383**, exact-set **0.6897**, and exploratory **0.7978/0.6597**, exact-set **0.7011**. No raw-cohort refit or new HPC execution was performed in this review.
 
-All 102 tracked Python files were AST-scanned; the three source files above fail syntax parsing. The exact eight-file suite named in the PR stops during collection on the workflow syntax error. An independently run four-file subset (`test_study_reconciliation`, `test_geometry_labels`, `test_grouped_xas_ml`, `test_xas_ml_peak_descriptors`) yields **76 passed, 2 failed**, with three warnings. Failures are the agent import and the truncated execution-backfill assertion. Logs and syntax findings accompany this package.
+The source repair and benchmark upload requested in the preceding prompt are therefore substantially complete. Detailed independent evidence is in `provenance/pr18_review_390b1b8/independent_review.json`.
 
-The “101 passed, 0 failed” JSON is an archived reported test result. It cannot validate the present committed source. Codex must recover complete files, inspect other changed tails, rerun checks, and verify the exact pushed SHA from a clean checkout.
+## Reference evidence and its limits
 
-## Scientific and integration progress
+The 18-slot inventory contains **12 calculations and three experiments**, with three absent numeric calculations: **Cu2O VASP PBE, Cu2O VASP “GW”, and CuO VASP PBE**. Missing cells remain blank.
 
-| Item | Review finding |
-|---|---|
-| OCCO graph validation | Previous formula-only defect is fixed in the shared audit. Compatible C–C/C–O connectivity is required; the C–O–C–O counterexample is rejected. Focused graph tests pass. |
-| FDMNES cell validation | Shared six-parameter cell reader and matching-cell checks reject changed cell lengths. Skew-cell/rigid-frame tests pass. |
-| Agent/UI training route | Shared `run_audited_training`, schema action, planner route, and core dispatch are present in source, but the truncated agent prevents import. Current executable integration is not established. |
-| Archived primary result | Saved OOF replay independently verifies micro/macro F1 **0.7791/0.6383**, exact-set **0.6897**. |
-| Reported fresh refit | `full_reproduction.json` and agent trace report 895 recomputed cache entries, 87 geometry groups, identical primary and exploratory-winner prediction arrays, and five successful fold-model reload checks. The raw export is unavailable here, so the full refit was not independently repeated. |
-| Broader OOF comparison | **140/169 exact; 29 differing** model variants. New and archived dependency versions differ. Do not claim universal exact reproduction or a proven cause without controlled testing. |
-| End-to-end fixture | Four simulated scheduler events, saved relaxed geometry, an existing FDMNES record, and held-out inference. It does not generate new spectra or demonstrate production NERSC execution. |
-| Core-hole inference | Input keywords and documented defaults provide partial context; explicit metadata remains unspecified. The available guide is dated November 2022, outputs July 2026. Version-specific applicability still needs verification. Separate convolution logs exist for 332/348 layers. |
+Oxide FDMNES modes were correctly reassigned using their inputs/logs rather than reversed directory labels. The VASP “GW” name is retained as an unverified alias; the available inputs do not establish a GW/BSE calculation. The nominal metallic experimental header describes a Cu electrode under potential, rather than a certified bulk foil.
 
-## Manuscript regression in PR
+Under common Cu-calibrated offsets, Green RMSE is **0.0539, 0.1031, and 0.1378** for Cu, Cu2O, and CuO. The error calculations use fixed local edge-jump normalization and 201 points over 8980–9020 eV. Native convolutions are preserved. VASP and unconvolved CuO FDM receive an explicit constant-lifetime comparison prescription, while the extra Gaussian is only a sensitivity study. The native final-state treatments are not equivalent.
 
-`study/manuscript_package/manuscript.tex` still contains placeholder authors, an abstract naming ISAAC and detailed inventory totals, the old introduction, Lightshow in the removed position, “Schema 2.0” language, and internal reconciliation prose. It is not the manuscript revised in this conversation. The SI source is absent from that PR package, although the complete revised package delivered here includes it. The Codex prompt instructs importing this full package rather than revising the older draft again.
+These findings support Green as a practical calculation route for the configuration survey. They do not establish a universal method ranking or measured speedup. Green and FDM give nearly equal separately aligned Cu2O errors, with FDM slightly lower. CuO FDM is a single-site result without completed native final-state convolution, so its larger error cannot isolate a solver effect.
 
-## Changes made in the accompanying revision
+An additional processing limit identified here is that the shift search permits varying spectral intersections with at least 20 samples. Although every final common-offset comparison has the complete 201-point window, the separately aligned CuO FDM entry has only **145 points over 8980–9008.8 eV**, with its fitted shift at the search bound. The updated SI explicitly marks this table entry and warns against comparison with full-window errors. A future processing protocol should constrain all fitted objectives to the same full window and report before/after results without overwriting this archive.
 
-- Abstract stays general through the full workflow description, then introduces CO2RR as the demonstration; catalyst selectivity remains the opening motivation.
-- Introduction connects characterization during operation, XAS ensemble sensitivity, controlled simulations, model families/properties, featurization, and end-to-end agent coordination. Random-forest and convolutional-network examples supplement the existing neural-network, multimodal, and featurization references.
-- Section 2.2 now develops the scientific comparison through local metal coordination, interface distance, coverage, and relaxed connectivity.
-- Figure 2b separates single-species and mixed-species configurations into exclusive bins; 152 adsorbate-bearing inventory structures and 87 ML configurations are represented. Two clean surfaces and one CuO reference are omitted.
-- Figure 2c uses a common oblique projection for the entire metal/CO scene and adds CuCuCu and CuAuAu hollows, retaining the boundary-spanning bridge and CuCuAu hollow. Exact schematic coordinates and contacts are saved.
-- “Normalized energy spectrum” replaces the “Shape” feature label, with an explicit definition that the energy axis is not rescaled. DCT24 is defined mathematically and cites the original DCT paper; 24 is a study-specific fixed feature dimension.
-- Main results retain the archived primary values; SI now accurately distinguishes the reported agent refit, 140/169 file agreement, five model reloads, and fixture scope. Core-hole defaults are described as inferred, not explicitly recorded or verified for the July 2026 revision.
+## Changes to the manuscript package
 
-## Benchmark work requiring the Codex working folder
+- Integrated the repaired PR's numeric Cu/Cu2O/CuO benchmark, raw inputs, original/revised notebooks, portable processing, provenance, metrics, and exact plotted arrays.
+- Rewrote the benchmark additions as connected scientific prose: reference chemistry motivates the check, its results justify the practical Green choice, and its limits lead into the layer and adsorbate analyses. Input-path and notebook bookkeeping stays outside the main text.
+- Preserved the general abstract followed by the CO2RR demonstration, author information, seven-site Figure 2 schematic, exclusive single/coadsorbed bins, DCT24 definition/reference, and separated individual-layer/top-n-average plots.
+- Improved Figure 3's shared legend, formula labels, reference-panel scaling, and dashed incomplete CuO FDM curve. Restyled all four SI grids without changing any numeric arrays or processing.
+- Corrected a plotting-source regression: Figure 4b used `gs[1]`, which spans the lower row, although the committed saved image showed the intended upper-right panel. The supplied code now uses `gs[0,1]`, and Figures 3 and 4 were regenerated.
+- Replaced the SI's long reference metric list with a matrix that keeps missing calculations blank, adds the RMSE equation, and flags unequal comparison support.
+- Kept all archived ML values and their evidence boundaries unchanged. The 140/169 broader OOF matches and five saved-model reload checks describe the recorded earlier run, not new fits on this repaired head.
 
-The newly supplied `benchmark` folder and `Cu_XAS.ipynb` are not in this review workspace or the reviewed PR. The only available reference panel here remains a qualitative CuO graphic reconstructed from supplied vector paths. No new reference metrics or three-compound speed/accuracy finding has been invented.
+## Work still requiring scientific evidence
 
-The follow-up prompt requests an authorized upload to PR #18 and reproducible processing of Cu(0), Cu2O/Cu(I), and CuO/Cu(II) for FDMNES Green, FDMNES finite differences, FEFF, VASP PBE, VASP GW, and experiment. Missing series remain blank. It specifies notebook-based provenance, justified broadening without double convolution, alignment that preserves chemical shifts, consistent normalization/windows, metrics, runtime evidence, and main/SI publication figures with saved code.
+Matched relaxed 2CO/OCCO Cu/C/O contrasts, production scheduler/intervention/retry rates, and independent transfer confirmation remain unmeasured. The local execution trace is a software fixture using simulated scheduler events and existing spectra. A guide/source matching the July 2026 ML executable remains unavailable; explicit core-hole metadata stays unspecified, and the 332 present/16 absent ML convolution logs remain distinct from the 2025 reference logs.
 
-After those results exist, Section 3.1 should state the observed basis for the FDMNES Green choice, balancing spectral agreement and computational cost. The present revision gives the documented qualitative numerical rationale while withholding an unsupported claim that the new benchmark has already established it.
-
-Matched relaxed 2CO/OCCO contrasts, actual production execution/intervention rates, independent confirmation, and public availability of the complete simulation export remain separate unfinished scientific/release tasks. No PR writes, merges, HPC jobs, or portal writes were made during this review.
-
-The ready-to-use task is in `CO2RR_Codex_PR18_Followup.md`; attach it together with the complete revised ZIP.
+The complete 87-configuration simulation export is still not included in the PR. That limits independent full-cohort refitting even though saved-array replay and reference-input reproduction are now available. No new HPC jobs, portal writes, merges, or GitHub mutations were made in this review.

@@ -1,0 +1,13 @@
+\begin{table}[htbp]\centering\small
+\caption{Frozen primary and new nested extensions. Aug. denotes training-only synthetic augmentation. New recipes use the common cropped window; these are repeated evaluations of the same configurations.}\label{tab:extensions}
+\begin{tabular}{lrrr}\toprule Recipe & Micro F1 & Macro F1 & Exact set\\\midrule
+frozen primary & 0.779 & 0.638 & 0.690\\
+nearest neighbor & 0.733 & 0.607 & 0.690\\
+nearest neighbor + aug. & 0.714 & 0.567 & 0.701\\
+independent trees & 0.650 & 0.476 & 0.517\\
+independent trees + aug. & 0.674 & 0.502 & 0.552\\
+classifier chain & 0.671 & 0.505 & 0.563\\
+classifier chain + aug. & 0.663 & 0.476 & 0.552\\
+xgboost & 0.614 & 0.440 & 0.425\\
+xgboost + aug. & 0.596 & 0.371 & 0.494\\
+\bottomrule\end{tabular}\end{table}

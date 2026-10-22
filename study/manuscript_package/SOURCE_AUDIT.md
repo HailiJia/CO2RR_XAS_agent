@@ -1,3 +1,15 @@
+## Current figure-clarity revision
+
+This revision follows the review at unchanged PR head 390b1b8. Main Figure 3 includes all available VASP curves; no additional numeric series were invented. Reference display curves use unit-maximum intensity, with numerical metrics unchanged. Figure 3c uses one common −1 to 1 factor and an explicit species-present minus species-absent comparison, without a clean reference or percentage interpretation. Figure 2a separates bare-substrate display from adsorbate cartoons under one shared legend. The proposed coupling comparison is now an Outlook rather than a Results subsection. The new Codex prompt prioritizes completed chemical evidence, coadsorbate recovery, robustness/domain tests, compact feature/model ablations and a real agent-invoked analysis trace.
+
+## Current status: PR #18 at 390b1b8
+
+This section supersedes older pending-source and pending-benchmark notes below. The repaired source independently passes 106 compile checks, six imports, and 101 focused tests. All 165 benchmark inputs match original hashes and all 46 saved-array RMSE values recompute. The numeric benchmark is now included; no new ML fit or HPC run was performed.
+
+The current manuscript integrates those references with scientific prose, preserves all agreed abstract/interface/ML figure choices, and marks processing limits. In particular, separately aligned CuO FDM uses only 145 samples and cannot be compared directly with full-window errors. Figure 4b source indexing was corrected; the new grid styling changes display only. See CO2RR_PR18_Review.md and provenance/pr18_review_390b1b8/independent_review.json.
+
+## Historical notes
+
 # Evidence audit for the manuscript draft
 
 Reviewed 21 October 2026. Repository: https://github.com/HailiJia/CO2RR_XAS_agent at commit `71bb0a20b369faba842b413a09544dd66c127a78`. Main-branch tree contains 1,177 tracked blobs. The repository was cloned and inspected locally; input examples, source routines, the updated ML tables, source analysis, correction archives, documentation and PR history were used. This is a source/artifact review, not a fresh production workflow run or full model refit.

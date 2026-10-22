@@ -1,0 +1,24 @@
+{
+  "compile_route": "Tectonic 0.17.0 offline bundle; two final invocations per document",
+  "logs": [
+    "manuscript_build_1.log",
+    "manuscript_build_2.log",
+    "SI_build_1.log",
+    "SI_build_2.log"
+  ],
+  "visual_inspection": "every rendered final page, all Figure 3 curves/legend and publication scale inspected; no overlaps/cropping/unresolved references/overfull boxes found",
+  "documents": [
+    {
+      "path": "study/manuscript_package/manuscript.pdf",
+      "sha256": "fb2a5ddb8c464e5dd461aa18f270d94b3e2c1c7ba874469e9f7f30713cf90b8e",
+      "bytes": 2731858,
+      "pages": 16
+    },
+    {
+      "path": "study/manuscript_package/Supporting_Information.pdf",
+      "sha256": "1e86574995bdbb829062bcdb545293c41917a41420900e3522e2aa387df7ea91",
+      "bytes": 286563,
+      "pages": 21
+    }
+  ]
+}

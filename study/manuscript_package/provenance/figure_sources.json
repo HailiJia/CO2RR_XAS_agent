@@ -188,5 +188,33 @@
     "processed": "figure_data/reference_benchmark/plotted_arrays.csv",
     "code": "study/reference_benchmark/process.py",
     "legacy_CuO_vector_paths": "historical rendering only; not used by current figures or metrics"
+  },
+  "current_revision": {
+    "PR_head": "390b1b899c4dca43685fda1380a494b1d5019fcd",
+    "numeric_references": "reference_benchmark/",
+    "main_reference_arrays": "figure_data/reference_benchmark/plotted_arrays.csv",
+    "SI_plot_source": "code/plot_reference_grids.py",
+    "numeric_processing_unchanged_from_PR": true,
+    "figure4b_source_fix": "gs[1] -> gs[0,1]",
+    "reference_plot_changes": "shared legend, row/material y scales, dashed incomplete CuO FDM, chemical formula subscripts",
+    "evidence": "provenance/pr18_review_390b1b8/independent_review.json"
+  },
+  "figure_clarity_revision": {
+    "Figure2a": "metal-only representative substrate rendering left; adsorbate illustrations right; shared Cu/Au/C/O/H legend",
+    "Figure3a": "all 12 available calculations plus 3 experiments; unit-maximum display; unchanged metrics",
+    "Figure3c": "species-present minus species-absent mean, common [-1,1] divisor; no clean-surface reference",
+    "relative_contrast_data": "figure_data/relative_spectral_identity_contrasts.csv",
+    "contrast_divisor": "figure_data/spectral_contrast_display.json",
+    "display_reference_arrays": "figure_data/Figure_3a_display.csv",
+    "proposed_chemical_test": "moved from Results subsection 3.6 to Outlook section",
+    "next_work": "CO2RR_Codex_PR18_Followup.md"
+  },
+  "scientific_extensions_v2": {
+    "reference_arrays": "figure_data/reference_benchmark_v2/plotted_arrays.csv",
+    "reference_metrics": "figure_data/reference_benchmark_v2/similarity_metrics.csv",
+    "figure3c": "omitted; clean control unavailable after expanded search",
+    "ML_extension_arrays": "figure_data/extensions_v2",
+    "primary_archive": "unchanged",
+    "input_package_sha256": "20dc81e29084075523a94075253a785bdba3f86cef309f499a98324f19c53eff"
   }
 }

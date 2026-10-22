@@ -1,0 +1,30 @@
+SYSTEM = Cu64 ground-state SCF (reference)
+
+# Electronic minimization
+ALGO  = Normal
+PREC  = Accurate
+ENCUT = 600
+
+EDIFF = 1E-6
+NELM  = 200
+LREAL = Auto
+
+# Metallic occupations (good default for Cu)
+ISMEAR = 1
+SIGMA  = 0.20
+
+# Non-magnetic Cu metal
+ISPIN = 1
+
+# Static SCF (no ionic relax)
+IBRION = -1
+NSW    = 0
+ISIF   = 2
+
+# Write restart files (useful as starting guess for the core-hole SCF)
+LWAVE  = TRUE
+LCHARG = TRUE
+
+# Optional parallel knobs (only if you know your machine layout)
+# NCORE = 1
+# KPAR  = 1

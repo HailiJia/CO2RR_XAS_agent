@@ -1,0 +1,10 @@
+material,method,comparison,reason
+Cu,feff,native_axis,identical full window unavailable; no variable intersection
+Cu,vasp_pbe,native_axis,identical full window unavailable; no variable intersection
+Cu,vasp_gw,native_axis,identical full window unavailable; no variable intersection
+Cu2O,feff,native_axis,identical full window unavailable; no variable intersection
+Cu2O,vasp_pbe,,no verified numeric XAS series in source snapshot or repeat local search
+Cu2O,vasp_gw,,no verified numeric XAS series in source snapshot or repeat local search
+CuO,feff,native_axis,identical full window unavailable; no variable intersection
+CuO,vasp_pbe,,no verified numeric XAS series in source snapshot or repeat local search
+CuO,vasp_gw,native_axis,identical full window unavailable; no variable intersection

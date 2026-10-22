@@ -1,0 +1,21 @@
+........................................................................ [ 65%]
+......................................                                   [100%]
+=============================== warnings summary ===============================
+tests/test_grouped_xas_ml.py::test_manual_fit_keeps_all_replicates_together_and_fits_scaler_on_train_only
+  <python environment>/lib/python3.11/site-packages/sklearn/metrics/_classification.py:614: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+    warnings.warn(
+
+tests/test_label_workflow_integration.py::test_native_slab_route_writes_molecule_and_atom_mappings
+  <python environment>/lib/python3.11/site-packages/pydantic/_internal/_config.py:291: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.9/migration/
+    warnings.warn(DEPRECATION_MESSAGE, DeprecationWarning)
+
+tests/test_label_workflow_integration.py::test_native_slab_route_writes_molecule_and_atom_mappings
+  /private<checkout>/generators/vasp_input_generator.py:18: UserWarning: Lightshow not available. Using fallback VASP parameter generation.
+    warnings.warn("Lightshow not available. Using fallback VASP parameter generation.")
+
+tests/test_label_workflow_integration.py::test_native_slab_route_writes_molecule_and_atom_mappings
+  /private<checkout>/generators/feff_input_generator.py:18: UserWarning: Lightshow not available. Using fallback FEFF parameter generation.
+    warnings.warn("Lightshow not available. Using fallback FEFF parameter generation.")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+110 passed, 4 warnings in 6.24s

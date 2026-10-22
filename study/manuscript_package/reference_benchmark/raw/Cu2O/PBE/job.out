@@ -1,0 +1,67 @@
+ ----------------------------------------------------
+    OOO  PPPP  EEEEE N   N M   M PPPP
+   O   O P   P E     NN  N MM MM P   P
+   O   O PPPP  EEEEE N N N M M M PPPP   -- VERSION
+   O   O P     E     N  NN M   M P
+    OOO  P     EEEEE N   N M   M P
+ ----------------------------------------------------
+ running   64 mpi-ranks, with    1 threads/rank
+ distrk:  each k-point on   64 cores,    1 groups
+ distr:  one band on    1 cores,   64 groups
+ vasp.6.3.2 27Jun22 (build May 28 2024 15:01:12) complex                        
+  
+ POSCAR found type information on POSCAR CuCuO 
+ POSCAR found :  3 types and     162 ions
+ Reading from existing POTCAR
+ -----------------------------------------------------------------------------
+|                                                                             |
+|           W    W    AA    RRRRR   N    N  II  N    N   GGGG   !!!           |
+|           W    W   A  A   R    R  NN   N  II  NN   N  G    G  !!!           |
+|           W    W  A    A  R    R  N N  N  II  N N  N  G       !!!           |
+|           W WW W  AAAAAA  RRRRR   N  N N  II  N  N N  G  GGG   !            |
+|           WW  WW  A    A  R   R   N   NN  II  N   NN  G    G                |
+|           W    W  A    A  R    R  N    N  II  N    N   GGGG   !!!           |
+|                                                                             |
+|     You use a magnetic or noncollinear calculation, but did not specify     |
+|     the initial magnetic moment with the MAGMOM tag. Note that a            |
+|     default of 1 will be used for all atoms. This ferromagnetic setup       |
+|     may break the symmetry of the crystal, in particular it may rule        |
+|     out finding an antiferromagnetic solution. Thence, we recommend         |
+|     setting the initial magnetic moment manually or verifying carefully     |
+|     that this magnetic setup is desired.                                    |
+|                                                                             |
+ -----------------------------------------------------------------------------
+
+ scaLAPACK will be used
+ Reading from existing POTCAR
+ LDA part: xc-table for Pade appr. of Perdew
+ POSCAR, INCAR and KPOINTS ok, starting setup
+ FFT: planning ... GRIDC
+ FFT: planning ... GRID_SOFT
+ FFT: planning ... GRID
+ WAVECAR not read
+ entering main loop
+       N       E                     dE             d eps       ncg     rms          rms(c)
+DAV:   1     0.177699759594E+05    0.17770E+05   -0.72425E+05 16384   0.228E+03
+DAV:   2     0.335727450553E+04   -0.14413E+05   -0.13215E+05 16384   0.541E+02
+DAV:   3    -0.169105006110E+03   -0.35264E+04   -0.32647E+04 16576   0.242E+02
+DAV:   4    -0.561843874956E+03   -0.39274E+03   -0.38388E+03 17920   0.816E+01
+DAV:   5    -0.569160933315E+03   -0.73171E+01   -0.72985E+01 17664   0.117E+01    0.910E+01
+DAV:   6    -0.501697675325E+03    0.67463E+02   -0.42695E+02 22528   0.561E+01    0.350E+01
+DAV:   7    -0.520339969966E+03   -0.18642E+02   -0.12268E+02 21568   0.371E+01    0.238E+01
+DAV:   8    -0.527252712280E+03   -0.69127E+01   -0.23226E+01 18816   0.886E+00    0.142E+01
+DAV:   9    -0.537910831759E+03   -0.10658E+02   -0.40907E+00 20864   0.409E+00    0.556E+00
+DAV:  10    -0.541199693731E+03   -0.32889E+01   -0.25417E+00 22464   0.422E+00    0.185E+00
+DAV:  11    -0.541484997468E+03   -0.28530E+00   -0.81152E-01 17920   0.202E+00    0.829E-01
+DAV:  12    -0.541519441241E+03   -0.34444E-01   -0.81656E-02 20032   0.625E-01    0.505E-01
+DAV:  13    -0.541518621506E+03    0.81973E-03   -0.14073E-02 17536   0.477E-01    0.235E-01
+DAV:  14    -0.541518171901E+03    0.44960E-03   -0.55265E-03 21952   0.317E-01    0.522E-02
+DAV:  15    -0.541518240136E+03   -0.68235E-04   -0.10006E-03 18880   0.113E-01    0.296E-02
+DAV:  16    -0.541518250873E+03   -0.10737E-04   -0.17600E-04 18944   0.507E-02    0.155E-02
+DAV:  17    -0.541518243075E+03    0.77975E-05   -0.45075E-05 21312   0.322E-02    0.124E-02
+DAV:  18    -0.541518234133E+03    0.89426E-05   -0.94383E-06 18944   0.149E-02    0.463E-03
+DAV:  19    -0.541518233011E+03    0.11215E-05   -0.38828E-06 16064   0.418E-03    0.151E-03
+DAV:  20    -0.541518234394E+03   -0.13825E-05   -0.51611E-07  9728   0.298E-03    0.886E-04
+DAV:  21    -0.541518235101E+03   -0.70731E-06   -0.10677E-07  9728   0.147E-03
+   1 F= -.54151824E+03 E0= -.54151824E+03  d E =-.131743E-10  mag=    -0.0001
+ writing wavefunctions

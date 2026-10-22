@@ -1,0 +1,185 @@
+........................................................................ [ 80%]
+..........FFF.F.F                                                        [100%]
+=================================== FAILURES ===================================
+__________ test_nersc_workflow_can_submit_and_monitor_with_fake_slurm __________
+
+    def test_nersc_workflow_can_submit_and_monitor_with_fake_slurm():
+        runner = FakeSLURMRunner()
+        manager = NERSCJobManager(runner=runner)
+        structure_file = REPO_ROOT / "example_ouput" / "VASP" / "XAS" / "POSCAR"
+    
+        with tempfile.TemporaryDirectory() as tmp:
+>           result = execute_nersc_full_workflow(
+                structure_file=str(structure_file),
+                output_dir=str(Path(tmp) / "nersc"),
+                software="FEFF",
+                submit=True,
+                monitor=True,
+                parse_when_complete=False,
+                poll_interval=1,
+                job_manager=manager,
+                nersc_account="m1234",
+                nersc_queue="regular",
+                nersc_nodes=1,
+                nersc_walltime="00:30:00",
+                edge_override="K",
+            )
+
+tests/test_nersc_workflow.py:100: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+workflow/nersc_workflow.py:568: in execute_nersc_full_workflow
+    custodian_result = run_custodian_steps(steps, output_dir=output_dir, context=context)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+workflow/nersc_workflow.py:126: in run_custodian_steps
+    run_log = custodian.run()
+              ^^^^^^^^^^^^^^^
+/root/.local/lib/python3.12/site-packages/custodian/custodian.py:400: in run
+    self._run_job(job_n, job)
+/root/.local/lib/python3.12/site-packages/custodian/custodian.py:477: in _run_job
+    p = job.run(directory=self.directory)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+workflow/nersc_workflow.py:68: in run
+    self.action(self.context)
+workflow/nersc_workflow.py:503: in regenerate_xas_inputs
+    contcar = require_relaxed_contcar(output_dir)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+output_dir = '/tmp/tmpzkcn5o4t/nersc'
+
+    def require_relaxed_contcar(output_dir: os.PathLike[str] | str) -> Path:
+        """Return ``output_dir/relax/CONTCAR`` or raise a clear error."""
+        contcar = Path(output_dir).resolve() / "relax" / "CONTCAR"
+        if not contcar.is_file() or contcar.stat().st_size == 0:
+>           raise FileNotFoundError(
+                f"Relaxed structure not found: {contcar}. Run/finish relaxation before generating or submitting XAS inputs."
+            )
+E           FileNotFoundError: Relaxed structure not found: /tmp/tmpzkcn5o4t/nersc/relax/CONTCAR. Run/finish relaxation before generating or submitting XAS inputs.
+
+workflow/relaxed_xas_rewrite.py:35: FileNotFoundError
+__________________ test_agent_exposes_nersc_dry_run_workflow ___________________
+
+    def test_agent_exposes_nersc_dry_run_workflow():
+        from agent.co2rr_xas_agent import create_agent
+    
+        structure_file = REPO_ROOT / "example_ouput" / "VASP" / "XAS" / "POSCAR"
+        with tempfile.TemporaryDirectory() as tmp:
+            agent = create_agent(use_llm=False)
+            result = agent.run_nersc_workflow(
+                structure_file=str(structure_file),
+                output_dir=str(Path(tmp) / "agent_dry_run"),
+                software="FEFF",
+                submit=False,
+                nersc_account="m1234",
+                nersc_nodes=1,
+                edge_override="K",
+            )
+    
+>       assert result["status"] == "success"
+E       AssertionError: assert 'warning' == 'success'
+E         
+E         - success
+E         + warning
+
+tests/test_nersc_workflow.py:141: AssertionError
+_________ test_generated_nersc_workflow_carries_ml_metadata_in_dry_run _________
+
+    def test_generated_nersc_workflow_carries_ml_metadata_in_dry_run():
+        from agent.co2rr_xas_agent import process_request
+    
+        request = (
+            'Run NERSC workflow dry run for catalyst: elements: [Cu, Au] composition: CuAu '
+            'surface_facet: "111" site_type: interface structure_id: "CuAu_111_OCCO_bridge_001" '
+            'adsorbate: identity: "OCCO" formula: "C2O2" intermediate_class: "C2" '
+            'binding_mode: "bridge" adsorption_site: "Cu-Au interface" binding_atom: "C" K edge'
+        )
+    
+        with tempfile.TemporaryDirectory() as tmp:
+            result = process_request(request, output_dir=tmp, use_llm=False)
+            metadata_path = next(Path(tmp).rglob("structure_info.json"))
+            import json
+            metadata = json.loads(metadata_path.read_text())
+    
+>       assert result["status"] == "success"
+E       AssertionError: assert 'warning' == 'success'
+E         
+E         - success
+E         + warning
+
+tests/test_nersc_workflow.py:163: AssertionError
+______ test_prompt_generates_lateral_cu_au_interface_occo_and_au_l3_only _______
+
+    def test_prompt_generates_lateral_cu_au_interface_occo_and_au_l3_only():
+        from agent.co2rr_xas_agent import process_request
+        from tools.utils import read_poscar
+        import json
+    
+        request = (
+            "Generate XAS inputs for OCCO adsorbate on Cu(111)-Au(111) interface, "
+            "K edge, radius 7 Angstrom, energy range -5 0.2 50, "
+            "NERSC account m5268, do not submit"
+        )
+    
+        with tempfile.TemporaryDirectory() as tmp:
+            result = process_request(request, output_dir=tmp, use_llm=False)
+            root = Path(tmp)
+            metadata = json.loads(next(root.rglob("structure_info.json")).read_text())
+            structure = read_poscar(str(next(root.rglob("OCCO/structure/POSCAR"))))
+            xas_keys = set(result["inputs"]["xas"].keys())
+            relax_poscar = next(root.rglob("relax/POSCAR")).read_text()
+    
+>       assert result["status"] == "success"
+E       AssertionError: assert 'warning' == 'success'
+E         
+E         - success
+E         + warning
+
+tests/test_nersc_workflow.py:228: AssertionError
+________ test_agent_recovers_nersc_submit_to_dry_run_when_slurm_missing ________
+
+    def test_agent_recovers_nersc_submit_to_dry_run_when_slurm_missing():
+        from agent.co2rr_xas_agent import process_request
+        import workflow.nersc_workflow as workflow_module
+    
+        original = workflow_module.NERSCJobManager.is_nersc_environment
+        workflow_module.NERSCJobManager.is_nersc_environment = staticmethod(lambda: False)
+        try:
+            with tempfile.TemporaryDirectory() as tmp:
+                result = process_request(
+                    "Run on NERSC for OCCO adsorbate on Cu(111), K edge, submit and monitor",
+                    output_dir=tmp,
+                    use_llm=False,
+                )
+        finally:
+            workflow_module.NERSCJobManager.is_nersc_environment = original
+    
+>       assert result["status"] == "success"
+E       AssertionError: assert 'warning' == 'success'
+E         
+E         - success
+E         + warning
+
+tests/test_nersc_workflow.py:269: AssertionError
+------------------------------ Captured log call -------------------------------
+ERROR    custodian.custodian:custodian.py:719 NERSCWorkflowRecoveryHandler
+=============================== warnings summary ===============================
+tests/test_study_reconciliation.py::test_vasp_light_element_kpoint_serialization[C]
+  /workspace/scratch/3e0413ea174b/pr18-review/generators/vasp_input_generator.py:18: UserWarning: Lightshow not available. Using fallback VASP parameter generation.
+    warnings.warn("Lightshow not available. Using fallback VASP parameter generation.")
+
+tests/test_study_reconciliation.py::test_vasp_light_element_kpoint_serialization[C]
+  /workspace/scratch/3e0413ea174b/pr18-review/generators/feff_input_generator.py:18: UserWarning: Lightshow not available. Using fallback FEFF parameter generation.
+    warnings.warn("Lightshow not available. Using fallback FEFF parameter generation.")
+
+tests/test_grouped_xas_ml.py::test_manual_fit_keeps_all_replicates_together_and_fits_scaler_on_train_only
+  /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/sklearn/metrics/_classification.py:620: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_nersc_workflow.py::test_nersc_workflow_can_submit_and_monitor_with_fake_slurm
+FAILED tests/test_nersc_workflow.py::test_agent_exposes_nersc_dry_run_workflow
+FAILED tests/test_nersc_workflow.py::test_generated_nersc_workflow_carries_ml_metadata_in_dry_run
+FAILED tests/test_nersc_workflow.py::test_prompt_generates_lateral_cu_au_interface_occo_and_au_l3_only
+FAILED tests/test_nersc_workflow.py::test_agent_recovers_nersc_submit_to_dry_run_when_slurm_missing
+5 failed, 84 passed, 3 warnings in 5.08s

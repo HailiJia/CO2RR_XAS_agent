@@ -92,6 +92,9 @@ def run_audited_training(data_root, output_dir, split_manifest=None,
     The export root may be given either as its directory or as its ``data`` child.
     A new, empty output directory is required so cache provenance is unambiguous.
     """
+    if recipe == 'scientific_extensions_v2':
+        from .scientific_extensions import run
+        return run(data_root, output_dir, split_manifest)
     if recipe not in {'archived_primary', 'training_only_global_threshold'}:
         raise ValueError('Unsupported audited training recipe')
     if not data_root:
@@ -169,9 +172,16 @@ def main(argv=None):
     p.add_argument('--data-root', required=True)
     p.add_argument('--output-dir', required=True)
     p.add_argument('--split-manifest')
-    p.add_argument('--recipe', choices=['archived_primary', 'training_only_global_threshold'], default='archived_primary')
+    p.add_argument('--recipe', choices=['archived_primary', 'training_only_global_threshold', 'scientific_extensions_v2'], default='archived_primary')
     a = p.parse_args(argv)
     print(json.dumps(run_audited_training(a.data_root, a.output_dir, a.split_manifest, a.recipe), indent=2))
+
+
+def review_extension_model(model_path, raw_spectra, energy, **domain):
+    """Shared callable for agent/UI review of a trusted extension model bundle."""
+    import joblib
+    from .scientific_review import predict_with_review
+    return predict_with_review(joblib.load(model_path), raw_spectra, energy, **domain)
 
 
 if __name__ == '__main__':

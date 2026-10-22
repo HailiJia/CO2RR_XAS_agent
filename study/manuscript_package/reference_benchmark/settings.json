@@ -1,0 +1,94 @@
+{
+  "protocol": "reference-v1",
+  "pre_window_eV": [
+    8974.0,
+    8976.0
+  ],
+  "post_window_eV": [
+    9020.0,
+    9028.0
+  ],
+  "metric_interpretation": "conditional short-window local edge-jump comparison, not standardized absolute accuracy; conventional long pre-edge regression is unsupported by FDMNES range",
+  "metric_window_eV": [
+    8980.0,
+    9020.0
+  ],
+  "grid_step_eV": 0.2,
+  "shift_sign": "E_plotted = E_input + shift_eV",
+  "common_calibration": "one shift per backend fitted on Cu only; shared by all compounds and FDMNES modes",
+  "common_shift_bounds_eV": {
+    "fdmnes": [
+      -20.0,
+      20.0
+    ],
+    "feff": [
+      -25.0,
+      25.0
+    ],
+    "vasp": [
+      0.0,
+      200.0
+    ]
+  },
+  "shape_residual_shift_bounds_eV": [
+    -20.0,
+    20.0
+  ],
+  "objective": "edge-jump normalized RMSE on 8980\u20139020 eV, 0.2 eV linear grid; no extrapolation",
+  "fit_degrees_of_freedom": "common: 1 backend shift on Cu; optional shape: 1 residual shift per available compound/method; widths fixed",
+  "normalization_nominal_offsets_eV": {
+    "fdmnes": 0.0,
+    "feff": -12.0,
+    "vasp_pbe": 120.0,
+    "vasp_gw": 130.0,
+    "experiment": 0.0
+  },
+  "normalization_energy_note": "fixed windows evaluated on nominal axes once before shift fitting; FDMNES 0; FEFF -12 maps a below-E_F interval (native 8986\u20138988 eV); VASP PBE +120 follows notebook; GW alias +130 places window below first numeric onset; these offsets set normalization windows only; fitted shifts never refit background or scale",
+  "preprocessing_order": [
+    "parse numeric columns",
+    "average diagonal tensor components if VASP",
+    "average duplicate energy rows",
+    "remaining core-lifetime convolution where explicitly specified",
+    "constant local pre-edge subtraction on fixed nominal axes",
+    "local edge-jump scaling",
+    "energy shift",
+    "interpolate only within support",
+    "metrics"
+  ],
+  "additional_lorentzian_FWHM_eV": 1.55,
+  "additional_lorentzian_HWHM_eV": 0.775,
+  "additional_lifetime_applies_to": [
+    "vasp core-hole dielectric outputs",
+    "unconvolved CuO FDM output"
+  ],
+  "lifetime_source": "explicit comparison prescription using Cu K Gamma_hole value in the five supplied FDMNES convolution logs; not a version-default claim; constant core lifetime only",
+  "additional_gaussian_sigma_eV": 0.0,
+  "additional_gaussian_FWHM_eV": 0.0,
+  "instrument_resolution": "not reported; no measured instrumental Gaussian imposed",
+  "gaussian_sensitivity_sigma_eV": 1.0,
+  "gaussian_sensitivity_FWHM_eV": 2.354820045,
+  "gaussian_sensitivity_source": "original notebook cells 1\u20132; unvalidated sensitivity, not measured resolution or fitted width",
+  "lorentzian_kernel": "gamma/(pi*(dE**2+gamma**2)); quadrature on native grid, finite-domain kernel weights renormalized; no spectral extrapolation",
+  "normalization_limit": "2 eV local pre-edge window, not conventional long-range pre-edge regression; post window is local, not asymptotic; all conclusions conditional on these short ranges",
+  "experimental_anchor": "supplied Energy column unchanged; no independent calibration/uncertainty metadata supplied",
+  "vasp_label_limit": "folder aliases retained; recorded ALGO Fast/Exact, ICORELEVEL=2, CH_LSPEC; no verified GW/BSE treatment",
+  "references": [
+    "https://vasp.at/wiki/index.php?title=CH_SIGMA&oldid=28409",
+    "https://vasp.at/wiki/Supercell_core-hole_calculations",
+    "https://feff.phys.washington.edu/FEFF/Docs/feff9/feff90/feff90_users_guide.pdf",
+    "https://data-analysis.synchrotron-soleil.fr/tmp/software/fdmnes/fdmnes_Linux/Doc/Manual_Eng.pdf"
+  ],
+  "fitted_common_offsets_eV": {
+    "fdmnes": -0.185715334770218,
+    "feff": -8.32334347832111,
+    "vasp": 85.55780480404653
+  },
+  "process_sha256": "f4596f8e243542a8e438fc868a20b341443748176a5e0ce11d88f0152d917366",
+  "raw_inventory_sha256": "a1328f1b33e7077b2a97967d4379e6840fda7012d26c0ea46b488157ef441673",
+  "environment": {
+    "python": "3.12.9 | packaged by Anaconda, Inc. | (main, Feb  6 2025, 12:55:12) [Clang 14.0.6 ]",
+    "platform": "macOS-26.7.1-arm64-arm-64bit",
+    "numpy": "1.26.4",
+    "pandas": "2.2.3"
+  }
+}
