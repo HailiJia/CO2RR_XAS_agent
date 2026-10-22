@@ -1,9 +1,32 @@
 {
   "reviewed_head": "518c686ccdaf79e24eca7577d72b5b9448987631",
   "reviewed_head_prior_pass_claim_valid": false,
-  "repair_source_manifest": "study/provenance/source_repair_inventory.json",
-  "repaired_local_focused_suite": {"passed": 101, "failed": 0, "warnings": 4},
-  "clean_pushed_commit_receipt": "PR #18 validation receipt identifies exact SHA and independently fetched clean-worktree results; do not attribute local results to the reviewed head",
-  "archived_training_reperformed_on_this_commit": false,
-  "production_scheduler_tested": false
+  "tested_sha": "d64d26825427d4110a18c4e80bee5d4f1d788973",
+  "clean_checkout_verification": "study/results/clean_checkout_verification.json",
+  "tracked_python_AST_compile": {
+    "passed": 106,
+    "failed": 0
+  },
+  "runtime_imports_passed": 6,
+  "focused_suite": {
+    "passed": 101,
+    "failed": 0,
+    "warnings": 4,
+    "seconds": 5.43,
+    "files": [
+      "tests/test_geometry_labels.py",
+      "tests/test_grouped_xas_ml.py",
+      "tests/test_xas_ml_peak_descriptors.py",
+      "tests/test_nersc_workflow.py",
+      "tests/test_web_nersc_workflow_integration.py",
+      "tests/test_nersc_prompt_regressions.py",
+      "tests/test_label_workflow_integration.py",
+      "tests/test_study_reconciliation.py"
+    ],
+    "log_sha256": "413b53584b663e1c2d8967ddb978e112701186a79776c436e9750ae250f34ef6"
+  },
+  "scientific_training_fit_rerun": false,
+  "archived_full_reproduction_exact_OOF_files": "140/169; 29 differing variants; no controlled dependency-causality experiment",
+  "production_scheduler_tested": false,
+  "evidence_commit_note": "This receipt describes the identified tested source/artifact commit; PR validation records the final evidence-only commit check separately."
 }
