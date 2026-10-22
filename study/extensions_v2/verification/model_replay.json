@@ -1,5 +1,28 @@
 {
   "saved_models_verified": 40,
+  "motif_models_verified": 4,
+  "motif_models": [
+    {
+      "model": "Au3.joblib",
+      "sha256": "79638e065b3e766c8453620eca5dff4e19ed8fe5910e0d5bfaf4372ded625a2b",
+      "scores_identical": true
+    },
+    {
+      "model": "Cu2Au.joblib",
+      "sha256": "02d0d01e213a4aeeb63e3e6b5a08bdabfb1094f5ebdc46462532fc8b3db43143",
+      "scores_identical": true
+    },
+    {
+      "model": "Cu3.joblib",
+      "sha256": "d039e26ac3fb9abb6b373bdcc643087943989301fdf55b4cd2be70f546f3d5bc",
+      "scores_identical": true
+    },
+    {
+      "model": "CuAu2.joblib",
+      "sha256": "be3c8697e6642ac0b2e0a0ddfcbcc5263e244091fc6e5317ecca3a73a7382f8d",
+      "scores_identical": true
+    }
+  ],
   "all_identical": true,
   "shared_review_callable_executed": true,
   "models": [

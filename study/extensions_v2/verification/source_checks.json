@@ -1,6 +1,6 @@
 {
   "scope": "every tracked Python file AST+py_compile and index/working byte/hash equality",
-  "python_files": 124,
+  "python_files": 125,
   "imports": [
     "workflow.nersc_workflow",
     "agent.co2rr_xas_agent",
@@ -9,7 +9,8 @@
     "tools.scientific_extensions",
     "tools.scientific_review",
     "tools.chemical_lineage",
-    "tools.controlled_comparisons"
+    "tools.controlled_comparisons",
+    "tools.scientific_motif"
   ],
   "files": [
     {
@@ -63,9 +64,9 @@
     },
     {
       "path": "agent/co2rr_xas_agent.py",
-      "bytes": 40450,
-      "sha256": "cbcb16789f43e7016cacbd3b22fcf1a8364c0e9f2dceb538dc328793e480ec6b",
-      "git_blob": "5103ef0ac7350decca47f38913378ecb9f8b5667",
+      "bytes": 40567,
+      "sha256": "2c22cce2dec226fa8bc357ec1777a3da2a478300dbae2a02e2908c5bcd0ae4c7",
+      "git_blob": "759eea4f659d00dbac9bdb614f95d354d730a632",
       "index_matches_working_bytes": true
     },
     {
@@ -84,9 +85,9 @@
     },
     {
       "path": "agent/schemas.py",
-      "bytes": 15739,
-      "sha256": "2cc17f58ac1f430833f83cee1e1969dbe9b31c033aea4534e59c04e2ad7b0e3e",
-      "git_blob": "fc8e2a0ad52ebdebaac023b9c5d2f2c4cfd917d2",
+      "bytes": 15759,
+      "sha256": "abba65a851241d69ecc5f5b23554b16b7476816e6130c488de2487cb2f05a751",
+      "git_blob": "10ba4e1bad29c19a1ff4982f4982a87750dc4141",
       "index_matches_working_bytes": true
     },
     {
@@ -224,9 +225,9 @@
     },
     {
       "path": "study/code/verify_extension_models_v2.py",
-      "bytes": 1476,
-      "sha256": "3dd7cbfeba539b46082e03a2bb46d828e387b7572e4a46a4ddd03dba3636c4ae",
-      "git_blob": "2e7d29b2278d8f33e023cbb1a1a69be863fec01e",
+      "bytes": 1999,
+      "sha256": "070a3fc3153bc28e5ce7e3f78a87a2fb78ebb1ed76291fd8890b336e859ff27b",
+      "git_blob": "cdc5814029c1eab106cf59594b5881a30f7aa313",
       "index_matches_working_bytes": true
     },
     {
@@ -434,9 +435,9 @@
     },
     {
       "path": "tests/test_scientific_extensions_v2.py",
-      "bytes": 4603,
-      "sha256": "1f37d4c19e5ea5bf3a7a75c378e8d29a2287b2af3aaf7306372dadf4bf6291d4",
-      "git_blob": "00dbc9043ca2eea377404ae37b19dbf29c5841e8",
+      "bytes": 5413,
+      "sha256": "e79f926e37385f674b64dbc25c8da1726fcd894f375bcd260b88c38a97c2f412",
+      "git_blob": "88d0b0e6aca81fdcba418c8279cc602c9d24b549",
       "index_matches_working_bytes": true
     },
     {
@@ -490,9 +491,9 @@
     },
     {
       "path": "tools/audited_training.py",
-      "bytes": 10268,
-      "sha256": "3e2bbeada748ea653fafef3f5a74e9c911d723592d3bae4c8cfe045adf303c62",
-      "git_blob": "a9ee47b2ea38ae3c641e7db4d56cc917eb5a5af1",
+      "bytes": 10425,
+      "sha256": "bcef6a5ab4cc7a9cb4d741a736db1adc8c676b836a7cceb81cf2bfa1e04cb3b8",
+      "git_blob": "91cbee3d2aeba0da213091a049c30dd2767849b3",
       "index_matches_working_bytes": true
     },
     {
@@ -685,6 +686,13 @@
       "index_matches_working_bytes": true
     },
     {
+      "path": "tools/scientific_motif.py",
+      "bytes": 5029,
+      "sha256": "e8b9b8917f23a06b63512da2de4ef699fcb1d22e0faad14f05bc2e180db4cf64",
+      "git_blob": "7106a6a7966dc69bb7e52306b524cf47f7780243",
+      "index_matches_working_bytes": true
+    },
+    {
       "path": "tools/scientific_review.py",
       "bytes": 1815,
       "sha256": "89a95eeba1289f6b9ff2837c2366a428fa2843bbb74b93595e16ef73e44e9fce",
@@ -826,9 +834,9 @@
     },
     {
       "path": "web_app/ml_pages/multilabel_presence.py",
-      "bytes": 1756,
-      "sha256": "f4fb209337a463769071566599bfe8f12d8f1c9e94142bf80b430c3bdee7c829",
-      "git_blob": "dc17b2dd70e656198bd7c8d690a5ae043b30ef82",
+      "bytes": 1867,
+      "sha256": "8a205a966b4bf3038157484a9060a9fdb0263ca27393731b277e084c0643a738",
+      "git_blob": "0db5faef8f6fb7736478b78f3cb344b2560c61dd",
       "index_matches_working_bytes": true
     },
     {

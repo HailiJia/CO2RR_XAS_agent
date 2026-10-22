@@ -1,0 +1,12 @@
+{
+  "version": "motif-holdout-v2",
+  "group_definition": "initial top-metal-layer three-row Cu/Au composition, nearest fractional-y row; cyclic row windows and 0.6 A clustering in tools.study_design; not a relaxed adsorption binding-site label",
+  "outer": "leave each observed local motif out completely; separate from frozen configuration folds",
+  "inner": "3 grouped configuration folds within outer training for thresholds only",
+  "recipe": "predeclared DCT16 independent Extra Trees, 32 trees, min leaf2, balanced class weights, threshold grid inherited from scientific_extensions; no outer-score feature/model selection",
+  "predictors": "surface-layer spectrum only, same 8976-9027 eV crop as extensions; no motif/count/name/graph predictors",
+  "source_sha256": "e8b9b8917f23a06b63512da2de4ef699fcb1d22e0faad14f05bc2e180db4cf64",
+  "inventory_sha256": "32996bed959ee5f0e6def386e1b08058ee634e6df614f10b412cc7672234070c",
+  "sparse_groups": "CuAu2 has one held-out configuration; report count and avoid general population claims",
+  "independence": "same repeatedly examined cohort, not prospective confirmation or ancestral-parent transfer"
+}

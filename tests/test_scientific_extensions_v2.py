@@ -66,9 +66,20 @@ def test_new_natural_language_recipe_routes_to_shared_training():
     from agent.co2rr_xas_agent import LocalIntentParser
     parsed=LocalIntentParser().parse('Train the adsorbate identity model using scientific extensions v2 for coadsorbate recovery, data-root=/tmp/local-export')
     assert parsed.parameters['training_recipe']=='scientific_extensions_v2'
+    assert LocalIntentParser().parse('Train adsorbate identity with motif-held-out evaluation').parameters['training_recipe']=='motif_holdout_v2'
 
 
 def test_review_rejects_out_of_grid_without_extrapolation():
     from tools.scientific_review import predict_with_review
     result=predict_with_review({'energy':np.arange(10)},np.ones((1,9)),np.arange(9))
     assert result['status']=='review_required' and result['predictions']==[]
+
+
+def test_motif_holdout_is_blocked_and_scores_reproduce_predictions():
+    b=ROOT/'study/extensions_v2/motif_holdout';z=np.load(b/'oof.npz');splits=json.loads((b/'splits.json').read_text());covered=[]
+    for s in splits:
+        tr,te=np.array(s['training']),np.array(s['test']);assert not set(z['motif'][tr])&set(z['motif'][te])
+        assert np.array_equal(z['prediction'][te],z['score'][te]>=np.array(s['thresholds']))
+        covered.extend(te.tolist())
+        for inner in s['inner_splits']:assert set(inner['training'])|set(inner['validation'])==set(tr) and not set(inner['training'])&set(inner['validation'])
+    assert sorted(covered)==list(range(87))

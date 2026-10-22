@@ -95,7 +95,7 @@ class LocalIntentParser:
                 match = re.search(pattern, request, re.IGNORECASE)
                 if match:
                     parameters[key] = match.group(1)
-            parameters["training_recipe"] = "scientific_extensions_v2" if any(t in request_lower for t in ["scientific extensions", "coadsorbate recovery", "scientific_extensions_v2"]) else "training_only_global_threshold" if "global threshold" in request_lower else "archived_primary"
+            parameters["training_recipe"] = "motif_holdout_v2" if any(t in request_lower for t in ["motif held out", "motif-held-out", "motif_holdout_v2"]) else "scientific_extensions_v2" if any(t in request_lower for t in ["scientific extensions", "coadsorbate recovery", "scientific_extensions_v2"]) else "training_only_global_threshold" if "global threshold" in request_lower else "archived_primary"
 
         parameters["fdmnes_options"] = self._extract_fdmnes_options(request_lower)
         metadata_overrides = self._extract_ml_metadata(request)
