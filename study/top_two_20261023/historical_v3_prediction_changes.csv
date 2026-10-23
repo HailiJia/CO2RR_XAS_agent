@@ -1,0 +1,88 @@
+configuration,truth,old_prediction,v3_prediction,old_exact,v3_exact,new_false_H_or_OH
+2CO_adjacent/2CO_adjacent_0p056_interior,"[""CO""]","[""CHO"", ""CO"", ""H""]","[""H""]",False,False,False
+2CO_adjacent/2CO_adjacent_0p056_orientation_alt,"[""CO""]","[""CO""]","[""CO""]",True,True,False
+2CO_adjacent/2CO_adjacent_0p111_interface,"[""CO""]","[""CO""]","[""CO""]",True,True,False
+2CO_adjacent/2CO_adjacent_0p111_uniform,"[""CO""]","[""CO""]","[""CO""]",True,True,False
+CHO/CHO_0p028_Cu_top,"[""CO"", ""H""]","[""CO""]","[""CO""]",False,False,False
+CHO/CHO_0p056_AuCu_bidentate,"[""CHO""]","[""OCHO""]","[""OCHO""]",False,False,False
+CHO/CHO_0p056_CuCu_bidentate,"[""CHO""]","[""CHO""]","[""CHO""]",True,True,False
+CHO/CHO_0p056_interface_Cu,"[""CHO"", ""CO"", ""H""]",[],[],False,False,False
+CHO/CHO_0p056_interior_Cu,"[""CHO"", ""CO"", ""H""]",[],[],False,False,False
+CHO/CHO_0p111_uniform,"[""CHO"", ""CO"", ""H""]",[],"[""CO""]",False,False,False
+CO/CO_0p11/interface_biased,"[""CO""]","[""CO""]","[""CO""]",True,True,False
+CO/CO_0p11/interior_biased,"[""CO""]","[""CO""]","[""CO""]",True,True,False
+CO/CO_0p14/interface_biased,"[""CO""]","[""CO""]","[""CO""]",True,True,False
+CO/CO_0p14/interior_biased,"[""CO""]","[""CO""]","[""CO""]",True,True,False
+CO/CO_0p14/uniform,"[""CO""]","[""CO""]","[""CO""]",True,True,False
+CO/CO_0p14/uniform2,"[""CO""]","[""CO""]","[""CO""]",True,True,False
+CO/CO_0p25/interface_biased,"[""CO""]","[""CO""]","[""CO""]",True,True,False
+CO/CO_0p25/interface_biased2,"[""CO""]","[""CO""]","[""CO""]",True,True,False
+CO/CO_0p25/interior_biased,"[""CO""]","[""CO""]","[""CO""]",True,True,False
+CO/CO_0p25/uniform,"[""CO""]","[""CO""]","[""CO""]",True,True,False
+CO/CO_0p5/interface_biased,"[""CO""]","[""CO""]","[""CO""]",True,True,False
+CO/CO_0p5/interior_biased,"[""CO""]","[""CO""]","[""CO"", ""OH""]",True,False,True
+CO/CO_0p5/uniform,"[""CO""]","[""CO""]","[""CO"", ""H""]",True,False,True
+CO/CO_0p75/uniform,"[""CO""]","[""CO""]","[""CO""]",True,True,False
+CO2/CO2_0p028_interface_biased_activated,"[""CO2""]","[""CO2""]","[""CO2""]",True,True,False
+CO2/CO2_0p028_linear_Cu_top,"[""CO2""]","[""CO2"", ""COOH""]","[""CO2""]",False,True,False
+CO2/CO2_0p056_mixed,"[""CO2""]","[""COOH""]","[""COOH""]",False,False,False
+COCHO/COCHO_0p056_AuCu_interface,"[""OCCOH""]","[""OCCOH""]","[""OCCOH""]",True,True,False
+COCHO/COCHO_0p056_AuCu_interface2,"[""OCCOH""]","[""OCCOH""]","[""OCCOH""]",True,True,False
+COCHO/COCHO_0p056_Cu_interface,"[""CO"", ""H""]",[],"[""CO""]",False,False,False
+COCHO/COCHO_0p056_Cu_interior,"[""COCHO""]",[],[],False,False,False
+COH/CHO_0p028_interface_Cu3,"[""COH""]",[],[],False,False,False
+COH/CHO_0p056_AuCuCu,"[""COH""]",[],"[""COH""]",False,True,False
+COH/CHO_0p056_interface_Cu3,"[""COH""]","[""COH""]","[""COH""]",True,True,False
+COH/CHO_0p056_interior,"[""COH""]","[""COH""]","[""COH""]",True,True,False
+COH/CHO_0p056_uniform,"[""COH""]","[""COH""]","[""COH""]",True,True,False
+COH/CHO_0p167_uniform,"[""COH""]",[],[],False,False,False
+COOH/COOH_0p028_AuCu_interface,"[""COOH""]",[],"[""COOH""]",False,True,False
+COOH/COOH_0p056_AuCu_interface,"[""COOH""]","[""COOH""]","[""COOH""]",True,True,False
+COOH/COOH_0p056_Au_top,"[""COOH""]",[],[],False,False,False
+COOH/COOH_0p056_Cu_interface,"[""COOH""]","[""COOH""]","[""COOH""]",True,True,False
+COOH/COOH_0p056_Cu_uniform,"[""COOH""]","[""COOH""]","[""COOH""]",True,True,False
+COOH/COOH_0p056_mixed_Au_Cu,"[""COOH""]","[""COOH""]","[""COOH""]",True,True,False
+COOH/COOH_0p111_AuCu_interface,"[""COOH""]","[""CO2""]",[],False,False,False
+COOH/COOH_0p111_Au_top,"[""COOH""]","[""COOH""]",[],True,False,False
+CO_H/CO_H_0p083_2CO_1H,"[""CO"", ""H""]","[""CO""]","[""CO""]",False,False,False
+CO_H/CO_H_0p083_2CO_1H_AuCu2,"[""CO"", ""H""]","[""CO""]","[""CO""]",False,False,False
+CO_H/CO_H_0p111_2CO_2H,"[""CO"", ""H""]","[""CO""]","[""CO"", ""H""]",False,True,False
+CO_OH/CO_OH_0p111_3CO_1OH,"[""CO"", ""OH""]","[""CO""]","[""CO""]",False,False,False
+H/H_0p75/0p88_mixed,"[""H""]","[""H""]","[""H""]",True,True,False
+H_0p25/Au,"[""H""]","[""H""]","[""H""]",True,True,False
+H_0p25/interface_biased2,"[""H""]","[""H""]","[""H""]",True,True,False
+H_0p25/interior_biased,"[""H""]","[""H""]","[""H""]",True,True,False
+H_0p25/uniform,"[""H""]","[""H""]","[""H""]",True,True,False
+H_0p5/Au,"[""H""]","[""H""]","[""H""]",True,True,False
+H_0p5/interface_biased,"[""H""]","[""H""]","[""H""]",True,True,False
+H_0p5/interface_biased2,"[""H""]","[""H""]","[""H""]",True,True,False
+H_0p5/interior_biased,"[""H""]","[""H""]","[""H""]",True,True,False
+H_0p5/uniform,"[""H""]","[""H""]","[""H""]",True,True,False
+H_0p75/Au,"[""H""]","[""H""]","[""H""]",True,True,False
+H_0p75/interface_biased,"[""H""]","[""H""]","[""H""]",True,True,False
+H_0p75/mixed,"[""H""]","[""H""]","[""H""]",True,True,False
+H_0p75/uniform,"[""H""]","[""H""]","[""H""]",True,True,False
+O/O_0p028_1O_AuCu2,"[""O""]",[],[],False,False,False
+O/O_0p028_1O_Cu3,"[""O""]",[],"[""CO"", ""H""]",False,False,False
+O/O_0p056_2O_AuCu2,"[""O""]","[""O""]","[""O""]",True,True,False
+O/O_0p056_2O_Cu3_distributed,"[""O""]","[""O""]","[""O""]",True,True,False
+O/O_0p056_2O_mixed_Cu3_AuCu2,"[""O""]","[""O""]","[""O""]",True,True,False
+O/O_0p083_3O_Cu3_AuCu2,"[""O""]","[""O""]",[],True,False,False
+O/O_0p083_3O_interface_weighted_Cu3_AuCu2,"[""O""]","[""O""]","[""O""]",True,True,False
+OCCOH/OCCOH_0p056_Cu_interface,"[""OCCOH""]",[],[],False,False,False
+OCCOH/OCCOH_0p056_Cu_interior,"[""OCCOH""]",[],[],False,False,False
+OCCO_CO/OCCO_CO_0p111_Cu_rich,"[""CO""]","[""CO""]","[""CO""]",True,True,False
+OCCO_CO/OCCO_plus_CO_0p222_AuCu_interface,"[""CO""]","[""CO""]","[""CO""]",True,True,False
+OCCO_CO/OCCO_plus_CO_0p222_Cu_rich,"[""CO""]","[""CO""]","[""CO""]",True,True,False
+OCHO/01_1OCHO_CuCu_interface,"[""OCHO""]",[],[],False,False,False
+OCHO/02_1OCHO_AuCu_across,"[""OCHO""]",[],[],False,False,False
+OCHO/03_1OCHO_CuCu_interior,"[""OCHO""]","[""OCHO""]",[],True,False,False
+OCHO/04_2OCHO_CuCu_interface_plus_interior,"[""OCHO""]","[""OCHO""]","[""OCHO""]",True,True,False
+OCHO/05_2OCHO_CuCu_interface_plus_AuCu,"[""OCHO""]","[""OCHO""]","[""OCHO""]",True,True,False
+OCHO/06_2OCHO_2CuCu_interface,"[""OCHO""]","[""OCHO""]","[""OCHO""]",True,True,False
+OCHO/07_3OCHO_2CuCu_interface_plus_interior,"[""OCHO""]","[""OCHO""]","[""OCHO""]",True,True,False
+OCHO/08_3OCHO_1CuCu_interface_plus_2interior,"[""OCHO""]","[""OCHO""]","[""OCHO""]",True,True,False
+OH/OH_0p125_interior_biased,"[""OH""]",[],[],False,False,False
+OH/OH_0p25_interface_Au,"[""OH""]","[""OH""]","[""OH""]",True,True,False
+OH/OH_0p25_interior_biased,"[""OH""]","[""OH""]","[""OH""]",True,True,False
+OH/OH_0p25_uniform,"[""OH""]","[""OH""]","[""OH""]",True,True,False

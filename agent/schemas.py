@@ -251,7 +251,7 @@ class XASPlan(BaseModel):
     monitor_timeout: Optional[int] = Field(default=None, description="Optional monitor timeout in seconds.")
     data_root: Optional[str] = Field(default=None, description="Verified local cohort export root for audited multilabel training.")
     split_manifest: Optional[str] = Field(default=None, description="Frozen configuration-level split manifest.")
-    training_recipe: Literal["archived_primary", "training_only_global_threshold", "scientific_extensions_v2", "motif_holdout_v2", "updated_data_v3"] = "archived_primary"
+    training_recipe: Literal["archived_primary", "training_only_global_threshold", "scientific_extensions_v2", "motif_holdout_v2", "updated_data_v3", "fixed_top_two_v4"] = "archived_primary"
 
     def to_parsed_intent(self, output_dir: str) -> ParsedIntent:
         """Convert LLM-facing XASPlan to execution-facing ParsedIntent."""

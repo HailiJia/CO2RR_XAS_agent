@@ -87,7 +87,10 @@ def feature_for_records(records,populations,energy,depth,feature):
     if len(populations)!=len(records):raise ValueError('Missing represented populations')
     if depth!='depth_channels':
         raw=np.array([aggregate_layers(a,p,DEPTHS[depth])[1] for a,p in zip(layers,populations)])
-        return feature_bank(raw,energy)[feature]
+        bank=feature_bank(raw,energy)
+        if feature in {'DCT8','DCT16','DCT32'}:
+            return dct(bank['normalized'],type=2,norm='ortho',axis=1)[:,:int(feature[3:])]
+        return bank[feature]
     stack=np.array([[a[l][:,1] for l in [2,3,4,5]] for a in layers]);pos=stack-stack.min(axis=2,keepdims=True)
     areas=np.trapezoid(pos[:,3,:],energy,axis=1)
     if np.any(areas<=0):raise ValueError('Invalid top layer area')

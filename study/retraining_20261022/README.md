@@ -1,4 +1,6 @@
-# Updated export v3 — 22 October 2026
+# Historical automatic-depth export v3 — 22 October 2026
+
+**Protocol correction:** this run selected depth automatically. Its 0.7821 result does not update the manuscript’s fixed-top-two benchmark. See [EVALUATION_CORRECTION.md](EVALUATION_CORRECTION.md) and the paired fixed-top-two study in `../top_two_20261023`.
 
 The updated local export was audited and refitted through `CO2RRXASAgent → tools.audited_training.run_audited_training(recipe='updated_data_v3')`. The original 87-configuration/348-spectrum benchmark, its predictions/models, reference benchmarks and manuscript package remain unchanged.
 
@@ -21,7 +23,9 @@ The independent binary Extra Trees selector is refitted with the same 37 feature
 | Frozen primary | 87 | 0.7791 | 0.6383 | 0.6897 |
 | Updated refit, all | 90 | 0.7821 | 0.6448 | 0.6778 |
 | Updated refit, matched old subset | 87 | 0.7816 | 0.6458 | 0.6782 |
-| New/recovered configurations held out from all training/selection | 3 | 0.8000 | 0.0727 | 0.6667 |
+| New/recovered configurations held out from all training/selection | 3 | 0.8000 | Not informative (CO-only) | 0.6667 |
+
+For this subset, CO precision is 1.0, recall 2/3, and F1 0.8. Other species have no positive cases and their recovery was not tested. The legacy all-eleven-label macro 0.0727 is merely 0.8/11 and remains only in saved provenance.
 
 The 90- and 87-configuration totals are not directly comparable. On the same old 87, the micro-F1 change is +0.00254, with conditional paired 95% interval −0.04236 to +0.04897. All three metric intervals include zero and exclude refitting uncertainty. This is not an established overall improvement or independent confirmation. Existing folds have been examined repeatedly.
 
