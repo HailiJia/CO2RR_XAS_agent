@@ -1,0 +1,15 @@
+{
+  "depth": "top_2 only",
+  "feature": "Combined fixed by author",
+  "leaf": 1,
+  "trees": 64,
+  "training": "old 87 only; all new/recovered configurations excluded from all fitting/threshold selection",
+  "seeds": [
+    20261020,
+    20261021,
+    20261022
+  ],
+  "calibration": "none; tree scores are not calibrated probabilities",
+  "evaluation": "diagnostic only, n=3 CO-only, not prospectively registered",
+  "source_sha256": "62d6bb764ce5d4578036dccada35e0270ea15fb0d7e65c3baa9f86caadc7c121"
+}

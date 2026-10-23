@@ -1,0 +1,668 @@
+[
+  {
+    "candidate": "layer_5::normalized",
+    "inner_micro_f1": 0.6875,
+    "thresholds": [
+      0.55,
+      0.55,
+      0.55,
+      0.55,
+      0.55,
+      0.55,
+      0.55,
+      0.55,
+      0.55,
+      0.55,
+      0.55
+    ],
+    "decoder": "global"
+  },
+  {
+    "candidate": "layer_5::CDF",
+    "inner_micro_f1": 0.6338028169014085,
+    "thresholds": [
+      0.45,
+      0.4,
+      0.45,
+      0.45,
+      0.45,
+      0.4,
+      0.4,
+      0.475,
+      0.45,
+      0.45,
+      0.45
+    ],
+    "decoder": "shrunk"
+  },
+  {
+    "candidate": "layer_5::derivative",
+    "inner_micro_f1": 0.7407407407407407,
+    "thresholds": [
+      0.5,
+      0.525,
+      0.5,
+      0.5,
+      0.5,
+      0.525,
+      0.5,
+      0.425,
+      0.5,
+      0.5,
+      0.5
+    ],
+    "decoder": "shrunk"
+  },
+  {
+    "candidate": "layer_5::shape_CDF_derivatives",
+    "inner_micro_f1": 0.7175572519083969,
+    "thresholds": [
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5
+    ],
+    "decoder": "global"
+  },
+  {
+    "candidate": "layer_5::DCT24",
+    "inner_micro_f1": 0.7285714285714285,
+    "thresholds": [
+      0.45,
+      0.45,
+      0.45,
+      0.45,
+      0.45,
+      0.45,
+      0.45,
+      0.45,
+      0.45,
+      0.45,
+      0.45
+    ],
+    "decoder": "global"
+  },
+  {
+    "candidate": "layer_4::normalized",
+    "inner_micro_f1": 0.6074074074074074,
+    "thresholds": [
+      0.45,
+      0.45,
+      0.45,
+      0.45,
+      0.45,
+      0.45,
+      0.45,
+      0.45,
+      0.45,
+      0.45,
+      0.45
+    ],
+    "decoder": "global"
+  },
+  {
+    "candidate": "layer_4::CDF",
+    "inner_micro_f1": 0.42857142857142855,
+    "thresholds": [
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5
+    ],
+    "decoder": "global"
+  },
+  {
+    "candidate": "layer_4::derivative",
+    "inner_micro_f1": 0.6612903225806451,
+    "thresholds": [
+      0.55,
+      0.55,
+      0.55,
+      0.55,
+      0.55,
+      0.5,
+      0.525,
+      0.525,
+      0.55,
+      0.5,
+      0.55
+    ],
+    "decoder": "shrunk"
+  },
+  {
+    "candidate": "layer_4::shape_CDF_derivatives",
+    "inner_micro_f1": 0.6713286713286714,
+    "thresholds": [
+      0.35,
+      0.35,
+      0.35,
+      0.35,
+      0.35,
+      0.35,
+      0.425,
+      0.35,
+      0.35,
+      0.4,
+      0.35
+    ],
+    "decoder": "shrunk"
+  },
+  {
+    "candidate": "layer_4::DCT24",
+    "inner_micro_f1": 0.65625,
+    "thresholds": [
+      0.45,
+      0.45,
+      0.45,
+      0.45,
+      0.45,
+      0.45,
+      0.475,
+      0.4,
+      0.45,
+      0.4,
+      0.45
+    ],
+    "decoder": "shrunk"
+  },
+  {
+    "candidate": "layer_3::normalized",
+    "inner_micro_f1": 0.3939393939393939,
+    "thresholds": [
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.2,
+      0.3,
+      0.25,
+      0.25,
+      0.25,
+      0.25
+    ],
+    "decoder": "shrunk"
+  },
+  {
+    "candidate": "layer_3::CDF",
+    "inner_micro_f1": 0.3228346456692913,
+    "thresholds": [
+      0.15,
+      0.15,
+      0.15,
+      0.15,
+      0.15,
+      0.15,
+      0.15,
+      0.2,
+      0.15,
+      0.15,
+      0.15
+    ],
+    "decoder": "shrunk"
+  },
+  {
+    "candidate": "layer_3::derivative",
+    "inner_micro_f1": 0.44871794871794873,
+    "thresholds": [
+      0.35,
+      0.35,
+      0.35,
+      0.35,
+      0.35,
+      0.35,
+      0.35,
+      0.35,
+      0.35,
+      0.35,
+      0.35
+    ],
+    "decoder": "global"
+  },
+  {
+    "candidate": "layer_3::shape_CDF_derivatives",
+    "inner_micro_f1": 0.44025157232704404,
+    "thresholds": [
+      0.35,
+      0.35,
+      0.35,
+      0.35,
+      0.35,
+      0.3,
+      0.4,
+      0.35,
+      0.35,
+      0.3,
+      0.35
+    ],
+    "decoder": "shrunk"
+  },
+  {
+    "candidate": "layer_3::DCT24",
+    "inner_micro_f1": 0.5074626865671642,
+    "thresholds": [
+      0.45,
+      0.45,
+      0.45,
+      0.45,
+      0.45,
+      0.45,
+      0.45,
+      0.45,
+      0.45,
+      0.45,
+      0.45
+    ],
+    "decoder": "global"
+  },
+  {
+    "candidate": "layer_2::normalized",
+    "inner_micro_f1": 0.31654676258992803,
+    "thresholds": [
+      0.15,
+      0.15,
+      0.15,
+      0.15,
+      0.15,
+      0.15,
+      0.15,
+      0.15,
+      0.15,
+      0.15,
+      0.15
+    ],
+    "decoder": "global"
+  },
+  {
+    "candidate": "layer_2::CDF",
+    "inner_micro_f1": 0.3270440251572327,
+    "thresholds": [
+      0.35,
+      0.35,
+      0.35,
+      0.35,
+      0.35,
+      0.425,
+      0.425,
+      0.3,
+      0.35,
+      0.3,
+      0.35
+    ],
+    "decoder": "shrunk"
+  },
+  {
+    "candidate": "layer_2::derivative",
+    "inner_micro_f1": 0.3203463203463203,
+    "thresholds": [
+      0.25,
+      0.2,
+      0.25,
+      0.25,
+      0.25,
+      0.2,
+      0.25,
+      0.2,
+      0.25,
+      0.2,
+      0.25
+    ],
+    "decoder": "shrunk"
+  },
+  {
+    "candidate": "layer_2::shape_CDF_derivatives",
+    "inner_micro_f1": 0.30996309963099633,
+    "thresholds": [
+      0.15,
+      0.15,
+      0.15,
+      0.15,
+      0.15,
+      0.15,
+      0.15,
+      0.15,
+      0.15,
+      0.15,
+      0.15
+    ],
+    "decoder": "global"
+  },
+  {
+    "candidate": "layer_2::DCT24",
+    "inner_micro_f1": 0.3333333333333333,
+    "thresholds": [
+      0.15,
+      0.15,
+      0.15,
+      0.15,
+      0.15,
+      0.15,
+      0.15,
+      0.15,
+      0.15,
+      0.15,
+      0.15
+    ],
+    "decoder": "global"
+  },
+  {
+    "candidate": "top_2::normalized",
+    "inner_micro_f1": 0.706766917293233,
+    "thresholds": [
+      0.55,
+      0.55,
+      0.55,
+      0.55,
+      0.55,
+      0.55,
+      0.55,
+      0.55,
+      0.55,
+      0.55,
+      0.55
+    ],
+    "decoder": "global"
+  },
+  {
+    "candidate": "top_2::CDF",
+    "inner_micro_f1": 0.6143790849673203,
+    "thresholds": [
+      0.45,
+      0.45,
+      0.45,
+      0.45,
+      0.45,
+      0.45,
+      0.45,
+      0.45,
+      0.45,
+      0.45,
+      0.45
+    ],
+    "decoder": "global"
+  },
+  {
+    "candidate": "top_2::derivative",
+    "inner_micro_f1": 0.7083333333333334,
+    "thresholds": [
+      0.35,
+      0.425,
+      0.35,
+      0.35,
+      0.35,
+      0.3,
+      0.35,
+      0.3,
+      0.35,
+      0.35,
+      0.35
+    ],
+    "decoder": "shrunk"
+  },
+  {
+    "candidate": "top_2::shape_CDF_derivatives",
+    "inner_micro_f1": 0.7205882352941176,
+    "thresholds": [
+      0.5,
+      0.575,
+      0.5,
+      0.5,
+      0.5,
+      0.475,
+      0.5,
+      0.425,
+      0.5,
+      0.5,
+      0.5
+    ],
+    "decoder": "shrunk"
+  },
+  {
+    "candidate": "top_2::DCT24",
+    "inner_micro_f1": 0.6814814814814815,
+    "thresholds": [
+      0.45,
+      0.45,
+      0.45,
+      0.45,
+      0.45,
+      0.475,
+      0.45,
+      0.45,
+      0.45,
+      0.4,
+      0.45
+    ],
+    "decoder": "shrunk"
+  },
+  {
+    "candidate": "top_3::normalized",
+    "inner_micro_f1": 0.6616541353383458,
+    "thresholds": [
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5
+    ],
+    "decoder": "global"
+  },
+  {
+    "candidate": "top_3::CDF",
+    "inner_micro_f1": 0.6133333333333333,
+    "thresholds": [
+      0.45,
+      0.45,
+      0.45,
+      0.45,
+      0.45,
+      0.45,
+      0.45,
+      0.45,
+      0.45,
+      0.45,
+      0.45
+    ],
+    "decoder": "global"
+  },
+  {
+    "candidate": "top_3::derivative",
+    "inner_micro_f1": 0.6861313868613139,
+    "thresholds": [
+      0.45,
+      0.45,
+      0.45,
+      0.45,
+      0.45,
+      0.45,
+      0.45,
+      0.45,
+      0.45,
+      0.45,
+      0.45
+    ],
+    "decoder": "global"
+  },
+  {
+    "candidate": "top_3::shape_CDF_derivatives",
+    "inner_micro_f1": 0.6891891891891891,
+    "thresholds": [
+      0.35,
+      0.425,
+      0.35,
+      0.35,
+      0.35,
+      0.35,
+      0.35,
+      0.4,
+      0.35,
+      0.3,
+      0.35
+    ],
+    "decoder": "shrunk"
+  },
+  {
+    "candidate": "top_3::DCT24",
+    "inner_micro_f1": 0.6666666666666666,
+    "thresholds": [
+      0.35,
+      0.425,
+      0.35,
+      0.35,
+      0.35,
+      0.3,
+      0.35,
+      0.35,
+      0.35,
+      0.4,
+      0.35
+    ],
+    "decoder": "shrunk"
+  },
+  {
+    "candidate": "all_4::normalized",
+    "inner_micro_f1": 0.6766917293233082,
+    "thresholds": [
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.425,
+      0.475,
+      0.5,
+      0.5,
+      0.425,
+      0.5
+    ],
+    "decoder": "shrunk"
+  },
+  {
+    "candidate": "all_4::CDF",
+    "inner_micro_f1": 0.562874251497006,
+    "thresholds": [
+      0.35,
+      0.35,
+      0.35,
+      0.35,
+      0.35,
+      0.3,
+      0.35,
+      0.35,
+      0.35,
+      0.3,
+      0.35
+    ],
+    "decoder": "shrunk"
+  },
+  {
+    "candidate": "all_4::derivative",
+    "inner_micro_f1": 0.706766917293233,
+    "thresholds": [
+      0.45,
+      0.5,
+      0.45,
+      0.45,
+      0.45,
+      0.475,
+      0.45,
+      0.45,
+      0.45,
+      0.4,
+      0.45
+    ],
+    "decoder": "shrunk"
+  },
+  {
+    "candidate": "all_4::shape_CDF_derivatives",
+    "inner_micro_f1": 0.6711409395973155,
+    "thresholds": [
+      0.35,
+      0.425,
+      0.35,
+      0.35,
+      0.35,
+      0.3,
+      0.425,
+      0.35,
+      0.35,
+      0.35,
+      0.35
+    ],
+    "decoder": "shrunk"
+  },
+  {
+    "candidate": "all_4::DCT24",
+    "inner_micro_f1": 0.6764705882352942,
+    "thresholds": [
+      0.45,
+      0.45,
+      0.45,
+      0.45,
+      0.45,
+      0.4,
+      0.475,
+      0.4,
+      0.45,
+      0.45,
+      0.45
+    ],
+    "decoder": "shrunk"
+  },
+  {
+    "candidate": "depth_channels::contrast",
+    "inner_micro_f1": 0.7647058823529411,
+    "thresholds": [
+      0.5,
+      0.475,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.525,
+      0.425,
+      0.5,
+      0.425,
+      0.5
+    ],
+    "decoder": "shrunk"
+  },
+  {
+    "candidate": "depth_channels::multiscale",
+    "inner_micro_f1": 0.7518796992481203,
+    "thresholds": [
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.425,
+      0.575,
+      0.425,
+      0.5,
+      0.5,
+      0.5
+    ],
+    "decoder": "shrunk"
+  }
+]

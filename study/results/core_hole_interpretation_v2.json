@@ -1,0 +1,16 @@
+{
+  "supersedes_interpretation_only": "schema_review/core_hole_provenance.json",
+  "metadata": "not_reported",
+  "archived_ML_outputs_revision": "28 July 2026",
+  "available_guide_cover": "November 2022",
+  "matching_guide_source_release_pinned": false,
+  "convolution_logs_present": 332,
+  "convolution_logs_absent": 16,
+  "logged_parameters_eV": {
+    "Gamma_hole": 1.55,
+    "Gamma_max": 10
+  },
+  "width_convention": "not reinterpreted without version-matched verification",
+  "benchmark_revision": "11 April 2025; separate data, Gamma_max=15 in completed logs",
+  "interpretation": "Explicit input, logged output and generic guide inference are distinct; no version-specific default established."
+}

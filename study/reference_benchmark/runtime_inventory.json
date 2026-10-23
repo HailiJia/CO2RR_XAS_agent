@@ -1,0 +1,68 @@
+[
+  {
+    "log": "raw/CuO/fdm_green/CuO_bav.txt.gz",
+    "reported_CPU_time": null,
+    "resource_request": [
+      "#PBS -l nodes=1:ppn=64:gen8",
+      "#PBS -l walltime=96:00:00",
+      "/home/hjia/parallel_fdmnes/fdmnes_mpi_linux64 -np 32"
+    ],
+    "hardware": "gen8 in request; exact processor and achieved parallelism not recorded",
+    "comparison": "not comparable end-to-end wall time; no measured speedup"
+  },
+  {
+    "log": "raw/CuO/fdm_fdm/Cu_bav.txt.gz",
+    "reported_CPU_time": "Total time =   91018.9 s CPU",
+    "resource_request": [
+      "#PBS -l nodes=1:ppn=64:gen8",
+      "#PBS -l walltime=96:00:00",
+      "/home/hjia/parallel_fdmnes/fdmnes_mpi_linux64 -np 32"
+    ],
+    "hardware": "gen8 in request; exact processor and achieved parallelism not recorded",
+    "comparison": "not comparable end-to-end wall time; no measured speedup"
+  },
+  {
+    "log": "raw/Cu/fdm_green/Cu_bav.txt.gz",
+    "reported_CPU_time": "Total time =    7165.2 s CPU",
+    "resource_request": [
+      "#PBS -l nodes=1:ppn=64:gen8",
+      "#PBS -l walltime=96:00:00",
+      "/home/hjia/parallel_fdmnes/fdmnes_mpi_linux64 -np 64"
+    ],
+    "hardware": "gen8 in request; exact processor and achieved parallelism not recorded",
+    "comparison": "not comparable end-to-end wall time; no measured speedup"
+  },
+  {
+    "log": "raw/Cu/fdm_fdm/Cu_bav.txt.gz",
+    "reported_CPU_time": "Total time =   16349.2 s CPU",
+    "resource_request": [
+      "#PBS -l nodes=1:ppn=64:gen8",
+      "#PBS -l walltime=96:00:00",
+      "/home/hjia/parallel_fdmnes/fdmnes_mpi_linux64 -np 64"
+    ],
+    "hardware": "gen8 in request; exact processor and achieved parallelism not recorded",
+    "comparison": "not comparable end-to-end wall time; no measured speedup"
+  },
+  {
+    "log": "raw/Cu2O/fdm_green/Cu2O_bav.txt.gz",
+    "reported_CPU_time": "Total time =  117943.8 s CPU",
+    "resource_request": [
+      "#PBS -l nodes=1:ppn=64:gen8",
+      "#PBS -l walltime=96:00:00",
+      "/home/hjia/parallel_fdmnes/fdmnes_mpi_linux64 -np 16"
+    ],
+    "hardware": "gen8 in request; exact processor and achieved parallelism not recorded",
+    "comparison": "not comparable end-to-end wall time; no measured speedup"
+  },
+  {
+    "log": "raw/Cu2O/fdm_fdm/Cu2O_bav.txt.gz",
+    "reported_CPU_time": "Total time =   14086.3 s CPU",
+    "resource_request": [
+      "#PBS -l nodes=1:ppn=64:gen8",
+      "#PBS -l walltime=96:00:00",
+      "/home/hjia/parallel_fdmnes/fdmnes_mpi_linux64 -np 64"
+    ],
+    "hardware": "gen8 in request; exact processor and achieved parallelism not recorded",
+    "comparison": "not comparable end-to-end wall time; no measured speedup"
+  }
+]

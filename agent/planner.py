@@ -182,6 +182,7 @@ Your only job is to convert the user's natural-language request into one JSON ob
 The Python tools will generate files; do not generate file contents yourself.
 
 Supported actions:
+- audited_training: fit and replay the verified multilabel adsorbate identity workflow on a local cohort export.
 - generate_structure: only build POSCAR/metadata structures.
 - generate_xas: generate relaxation and XAS input folders for a structure.
 - full_workflow: generate structures and XAS inputs.
@@ -231,10 +232,11 @@ Rules:
     - CHO is true formyl, surface-C(H)=O.
     - COH is surface-C-O-H.
     - COOH is carboxyl.
-    - OCCO is the C-C-coupled C2O2 intermediate; COCO is treated as an alias for OCCO by the execution layer.
+    - OCCO is the C-C-coupled C2O2 intermediate; COCO is a legacy input alias for the same bonded template, not a distinct chemical class. The 2CO_adjacent structure is the unbonded comparator.
 21. For OCCO at higher total C-equivalent coverage, do not request multiple OCCO dimers. The deterministic generator keeps one OCCO core and adds spectator CO. Cross-interface OCCO means one C associated with Cu and the other with Au.
 22. Use preferred_binding_element only when the user explicitly requests a preferred metal. Use boundary_margin when the user explicitly gives one.
-23. Return only JSON.
+23. If the user asks to train or fit an adsorbate identity/multilabel model, use action=audited_training. Preserve explicit data_root/export and split_manifest paths. Use fixed_top_two_v4 for the corrected paired fixed-top-two evaluation. The updated_data_v3 recipe is historical automatic-depth selection and must not be described as updating a fixed-top-two benchmark. Use updated_data_v3 when the user asks to check updated/new data and retrain, and motif_holdout_v2 for motif-held-out evaluation. Otherwise use archived_primary by default; requests for scientific extensions or coadsorbate recovery select scientific_extensions_v2; requests for global threshold select training_only_global_threshold.
+24. Return only JSON.
 """.strip()
 
 

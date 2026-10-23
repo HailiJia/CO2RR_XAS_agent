@@ -51,7 +51,9 @@ class LocalIntentParser:
         request_lower = request.lower()
 
         # Determine action
-        if any(word in request_lower for word in ["parse", "read output", "isaac record", "extract", "convert results"]):
+        if ("train" in request_lower or "fit" in request_lower) and any(word in request_lower for word in ["adsorbate", "multilabel", "identity model", "species-presence"]):
+            action = "audited_training"
+        elif any(word in request_lower for word in ["parse", "read output", "isaac record", "extract", "convert results"]):
             action = "parse_results"
         elif any(phrase in request_lower for phrase in ["submit", "monitor", "nersc workflow", "run on nersc"]):
             action = "nersc_workflow"
@@ -84,6 +86,16 @@ class LocalIntentParser:
 
         structure_file = self._extract_structure_file(request)
         parameters: Dict[str, Any] = {}
+
+        if action == "audited_training":
+            for key, pattern in {
+                "data_root": r"(?:data[- ]root|export[- ]root|export root)\s*(?:=|is|:)?\s*[\"']?([^\s\"']+)",
+                "split_manifest": r"(?:split[- ]manifest|fold[- ]manifest)\s*(?:=|is|:)?\s*[\"']?([^\s\"']+)",
+            }.items():
+                match = re.search(pattern, request, re.IGNORECASE)
+                if match:
+                    parameters[key] = match.group(1)
+            parameters["training_recipe"] = "fixed_top_two_v4" if any(t in request_lower for t in ["top-two", "top two", "fixed_top_two_v4"]) else "updated_data_v3" if any(t in request_lower for t in ["updated data", "updated folder", "updated_data_v3", "new data"]) else "motif_holdout_v2" if any(t in request_lower for t in ["motif held out", "motif-held-out", "motif_holdout_v2"]) else "scientific_extensions_v2" if any(t in request_lower for t in ["scientific extensions", "coadsorbate recovery", "scientific_extensions_v2"]) else "training_only_global_threshold" if "global threshold" in request_lower else "archived_primary"
 
         parameters["fdmnes_options"] = self._extract_fdmnes_options(request_lower)
         metadata_overrides = self._extract_ml_metadata(request)
@@ -525,6 +537,14 @@ class CO2RRXASAgent:
             return self._execute_full_workflow(intent)
         if intent.action == "nersc_workflow":
             return self._execute_nersc_workflow(intent)
+        if intent.action == "audited_training":
+            from tools.audited_training import run_audited_training
+            return run_audited_training(
+                data_root=intent.parameters.get("data_root"),
+                output_dir=intent.output_dir,
+                split_manifest=intent.parameters.get("split_manifest"),
+                recipe=intent.parameters.get("training_recipe", "archived_primary"),
+            )
         return self._needs_input(
             f"Unknown action: {intent.action}",
             [{"field": "action", "reason": "The request did not map to a supported workflow action."}],
@@ -734,6 +754,7 @@ class CO2RRXASAgent:
                 intent.parameters.get("fdmnes_energy_range", (-5.0, 0.2, 50.0))
             ).as_fdmnes_range(),
             edge_override=intent.parameters.get("edge_override"),
+            job_manager=intent.parameters.get("job_manager"),
             vasp_method=intent.parameters.get("vasp_method", "PBE"),
             potcar_dir=intent.parameters.get("potcar_dir"),
             vasp_mode=intent.parameters.get("vasp_mode", "trace"),

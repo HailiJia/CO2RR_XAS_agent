@@ -1,0 +1,77 @@
+{
+  "recipe": "archived primary analysis, fresh output and empty cache",
+  "run_location": "external temporary directory; no cache reused",
+  "archived_oof_npz_count": 169,
+  "exact_array_file_matches": 140,
+  "different_array_files": 29,
+  "difference_filenames": [
+    "oof_all_selected_macro.npz",
+    "oof_fold_0_all_selected_macro.npz",
+    "oof_fold_0_model_SVM_macro.npz",
+    "oof_fold_0_model_SVM_micro.npz",
+    "oof_fold_0_model_logistic_macro.npz",
+    "oof_fold_0_model_logistic_micro.npz",
+    "oof_fold_1_model_SVM_macro.npz",
+    "oof_fold_1_model_SVM_micro.npz",
+    "oof_fold_1_model_logistic_macro.npz",
+    "oof_fold_1_model_logistic_micro.npz",
+    "oof_fold_1_model_random_forest_macro.npz",
+    "oof_fold_2_all_selected_macro.npz",
+    "oof_fold_2_model_SVM_macro.npz",
+    "oof_fold_2_model_SVM_micro.npz",
+    "oof_fold_2_model_logistic_macro.npz",
+    "oof_fold_2_model_logistic_micro.npz",
+    "oof_fold_3_model_SVM_macro.npz",
+    "oof_fold_3_model_SVM_micro.npz",
+    "oof_fold_3_model_logistic_macro.npz",
+    "oof_fold_3_model_logistic_micro.npz",
+    "oof_fold_4_model_SVM_macro.npz",
+    "oof_fold_4_model_SVM_micro.npz",
+    "oof_fold_4_model_logistic_macro.npz",
+    "oof_fold_4_model_logistic_micro.npz",
+    "oof_model_SVM_macro.npz",
+    "oof_model_SVM_micro.npz",
+    "oof_model_logistic_macro.npz",
+    "oof_model_logistic_micro.npz",
+    "oof_model_random_forest_macro.npz"
+  ],
+  "primary_arrays_exact": true,
+  "exploratory_fixed_winner_arrays_exact": true,
+  "metric_rows_changed": [
+    {
+      "workflow": "model_random_forest_macro",
+      "archived": {
+        "micro_f1": 0.71,
+        "macro_f1": 0.5954357236965934,
+        "exact_match": 0.5977011494252874
+      },
+      "cold_rerun": {
+        "micro_f1": 0.7135678391959799,
+        "macro_f1": 0.6009453655698715,
+        "exact_match": 0.5977011494252874
+      }
+    }
+  ],
+  "primary_scores": {
+    "micro_f1": 0.7790697674418605,
+    "macro_f1": 0.6382765882765882,
+    "exact_set_accuracy": 0.6896551724137931
+  },
+  "archived_environment": {
+    "python": "3.11.14 | packaged by conda-forge | (main, Jan 27 2026, 00:01:01) [Clang 19.1.7 ]",
+    "numpy": "2.3.5",
+    "pandas": "3.0.1",
+    "scipy": "1.17.0",
+    "sklearn": "1.8.0",
+    "seed": 20261020
+  },
+  "rerun_environment": {
+    "python": "3.11.9 (main, Apr 19 2024, 11:43:47) [Clang 14.0.6 ]",
+    "numpy": "2.4.6",
+    "pandas": "3.0.3",
+    "scipy": "1.17.1",
+    "sklearn": "1.9.0",
+    "seed": 20261020
+  },
+  "interpretation": "Differences occur in logistic/SVM and some random-forest OOF variants under the current dependency versions. They do not alter the archived primary selector result or the exploratory fixed-winner result. Official archive is immutable; this cold repetition is not independent confirmation."
+}

@@ -1,0 +1,3515 @@
+[
+  {
+    "source_file": ".DS_Store",
+    "bytes": 6148,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": ".ipynb_checkpoints/Cu_XAS-checkpoint.ipynb",
+    "bytes": 72,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "260324_export_XAS_Exp_ref_stds.dat",
+    "bytes": 15951,
+    "included": true,
+    "sha256": "e71283b014db4d214bb8970b2c2285ee33f5d37cfff6ff1dccfa5a2e6ee4d0d5",
+    "repository_file": "raw/260324_export_XAS_Exp_ref_stds.dat",
+    "repository_bytes": 15951,
+    "repository_sha256": "e71283b014db4d214bb8970b2c2285ee33f5d37cfff6ff1dccfa5a2e6ee4d0d5"
+  },
+  {
+    "source_file": "Cu/GW/CHG",
+    "bytes": 57375963,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/GW/CHGCAR",
+    "bytes": 86545230,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/GW/CONTCAR",
+    "bytes": 7343,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/GW/DOSCAR",
+    "bytes": 11073,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/GW/EIGENVAL",
+    "bytes": 66749,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/GW/IBZKPT",
+    "bytes": 357,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/GW/INCAR",
+    "bytes": 514,
+    "included": true,
+    "sha256": "8b159953afd23eb2dd880eea2d358ceb4da06ec4154320b31d295f457ea29c42",
+    "repository_file": "raw/Cu/GW/INCAR",
+    "repository_bytes": 514,
+    "repository_sha256": "8b159953afd23eb2dd880eea2d358ceb4da06ec4154320b31d295f457ea29c42"
+  },
+  {
+    "source_file": "Cu/GW/KPOINTS",
+    "bytes": 28,
+    "included": true,
+    "sha256": "9f69ddd8c0a5c53c3cf2688051d9da98486d75255ee90fbe24d082c9a16ed0cc",
+    "repository_file": "raw/Cu/GW/KPOINTS",
+    "repository_bytes": 28,
+    "repository_sha256": "9f69ddd8c0a5c53c3cf2688051d9da98486d75255ee90fbe24d082c9a16ed0cc"
+  },
+  {
+    "source_file": "Cu/GW/OSZICAR",
+    "bytes": 1576,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/GW/OUTCAR",
+    "bytes": 165960,
+    "included": true,
+    "sha256": "4916dc68214f599227fad3c6f0f34aac032051470aa326c64874ce716a3d2836",
+    "repository_file": "raw/Cu/GW/OUTCAR.gz",
+    "repository_bytes": 24939,
+    "repository_sha256": "75bde63e25a1e51ec104102f35e8b8328beb4aff3f4395a98f54fef5eed0bbd7"
+  },
+  {
+    "source_file": "Cu/GW/PCDAT",
+    "bytes": 234,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/GW/POSCAR",
+    "bytes": 4640,
+    "included": true,
+    "sha256": "85c023d9c0638380404a598383c15260824fcee20398cbbd9f056dde163040dc",
+    "repository_file": "raw/Cu/GW/POSCAR",
+    "repository_bytes": 4640,
+    "repository_sha256": "85c023d9c0638380404a598383c15260824fcee20398cbbd9f056dde163040dc"
+  },
+  {
+    "source_file": "Cu/GW/POTCAR",
+    "bytes": 528788,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/GW/REPORT",
+    "bytes": 0,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/GW/WAVECAR",
+    "bytes": 364145344,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/GW/XAS/.feff.error",
+    "bytes": 514,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/GW/XAS/AECCAR0",
+    "bytes": 49943013,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/GW/XAS/AECCAR1",
+    "bytes": 49943013,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/GW/XAS/AECCAR2",
+    "bytes": 49943013,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/GW/XAS/CHG",
+    "bytes": 15244731,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/GW/XAS/CHGCAR",
+    "bytes": 23174286,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/GW/XAS/CONTCAR",
+    "bytes": 7343,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/GW/XAS/CORE_DIELECTRIC_IMAG.dat",
+    "bytes": 836961,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/GW/XAS/DOSCAR",
+    "bytes": 11073,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/GW/XAS/EIGENVAL",
+    "bytes": 1161395,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/GW/XAS/IBZKPT",
+    "bytes": 1107,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/GW/XAS/INCAR",
+    "bytes": 441,
+    "included": true,
+    "sha256": "80d990d72034035bb73b696ce42220a3a3f2f971ad43af421b3bdcf4ff220979",
+    "repository_file": "raw/Cu/GW/XAS/INCAR",
+    "repository_bytes": 441,
+    "repository_sha256": "80d990d72034035bb73b696ce42220a3a3f2f971ad43af421b3bdcf4ff220979"
+  },
+  {
+    "source_file": "Cu/GW/XAS/INCAR_lighshow",
+    "bytes": 318,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/GW/XAS/KPOINTS",
+    "bytes": 28,
+    "included": true,
+    "sha256": "9f69ddd8c0a5c53c3cf2688051d9da98486d75255ee90fbe24d082c9a16ed0cc",
+    "repository_file": "raw/Cu/GW/XAS/KPOINTS",
+    "repository_bytes": 28,
+    "repository_sha256": "9f69ddd8c0a5c53c3cf2688051d9da98486d75255ee90fbe24d082c9a16ed0cc"
+  },
+  {
+    "source_file": "Cu/GW/XAS/OSZICAR",
+    "bytes": 1576,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/GW/XAS/OUTCAR",
+    "bytes": 1742434,
+    "included": true,
+    "sha256": "b5344c2cf05e4e7a9cfe9ab345f718b9ccb70af076c2ade57057d61137f68cfa",
+    "repository_file": "raw/Cu/GW/XAS/OUTCAR.gz",
+    "repository_bytes": 245174,
+    "repository_sha256": "44d9042b634b27f4e7ebe575a960fa2c44ebc34c45f6160e9fb6b125b4f2e31a"
+  },
+  {
+    "source_file": "Cu/GW/XAS/PCDAT",
+    "bytes": 234,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/GW/XAS/POSCAR",
+    "bytes": 7343,
+    "included": true,
+    "sha256": "ae687700cd8ec42d6c0df29b4e4e026e8246d71a326367dd085be789c2dd291a",
+    "repository_file": "raw/Cu/GW/XAS/POSCAR",
+    "repository_bytes": 7343,
+    "repository_sha256": "ae687700cd8ec42d6c0df29b4e4e026e8246d71a326367dd085be789c2dd291a"
+  },
+  {
+    "source_file": "Cu/GW/XAS/POTCAR",
+    "bytes": 528788,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/GW/XAS/REPORT",
+    "bytes": 0,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/GW/XAS/WAVECAR",
+    "bytes": 3683291392,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/GW/XAS/XDATCAR",
+    "bytes": 2652,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/GW/XAS/fort.11",
+    "bytes": 75,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/GW/XAS/job.err",
+    "bytes": 0,
+    "included": true,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "repository_file": "raw/Cu/GW/XAS/job.err",
+    "repository_bytes": 0,
+    "repository_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source_file": "Cu/GW/XAS/job.out",
+    "bytes": 3993,
+    "included": true,
+    "sha256": "f207a80ca1b3c5c2652c9228a12250ef60a9ccd99b71944e0110ac0dae7ca39a",
+    "repository_file": "raw/Cu/GW/XAS/job.out",
+    "repository_bytes": 3993,
+    "repository_sha256": "f207a80ca1b3c5c2652c9228a12250ef60a9ccd99b71944e0110ac0dae7ca39a"
+  },
+  {
+    "source_file": "Cu/GW/XAS/log.dat",
+    "bytes": 124,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/GW/XAS/log6.dat",
+    "bytes": 0,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/GW/XAS/plot_core_imdiel.sh",
+    "bytes": 2391,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/GW/XAS/vasp.pbs",
+    "bytes": 306,
+    "included": true,
+    "sha256": "feba600f759d1e7aea905b5652cdaf08ddd719b9a27553fdc229b340035bb18d",
+    "repository_file": "raw/Cu/GW/XAS/vasp.pbs",
+    "repository_bytes": 306,
+    "repository_sha256": "feba600f759d1e7aea905b5652cdaf08ddd719b9a27553fdc229b340035bb18d"
+  },
+  {
+    "source_file": "Cu/GW/XAS/vaspout.h5",
+    "bytes": 1467787,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/GW/XAS/vasprun.xml",
+    "bytes": 1566040,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/GW/XDATCAR",
+    "bytes": 2652,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/GW/job.err",
+    "bytes": 0,
+    "included": true,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "repository_file": "raw/Cu/GW/job.err",
+    "repository_bytes": 0,
+    "repository_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source_file": "Cu/GW/job.out",
+    "bytes": 2586,
+    "included": true,
+    "sha256": "12c3ecbd83ada7bc9ae73ba716cc935ba45ae1eebd43770704a71e585f69c81a",
+    "repository_file": "raw/Cu/GW/job.out",
+    "repository_bytes": 2586,
+    "repository_sha256": "12c3ecbd83ada7bc9ae73ba716cc935ba45ae1eebd43770704a71e585f69c81a"
+  },
+  {
+    "source_file": "Cu/GW/vasp.pbs",
+    "bytes": 307,
+    "included": true,
+    "sha256": "72ae185d1b2d94978c414a7b6df828eac972f61b333b684660868436a1210acb",
+    "repository_file": "raw/Cu/GW/vasp.pbs",
+    "repository_bytes": 307,
+    "repository_sha256": "72ae185d1b2d94978c414a7b6df828eac972f61b333b684660868436a1210acb"
+  },
+  {
+    "source_file": "Cu/GW/vaspout.h5",
+    "bytes": 986286,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/GW/vasprun.xml",
+    "bytes": 130304,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/PBE/CHG",
+    "bytes": 57375963,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/PBE/CHGCAR",
+    "bytes": 86436302,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/PBE/CONTCAR",
+    "bytes": 7343,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/PBE/DOSCAR",
+    "bytes": 11073,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/PBE/EIGENVAL",
+    "bytes": 66749,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/PBE/IBZKPT",
+    "bytes": 357,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/PBE/INCAR",
+    "bytes": 514,
+    "included": true,
+    "sha256": "8b159953afd23eb2dd880eea2d358ceb4da06ec4154320b31d295f457ea29c42",
+    "repository_file": "raw/Cu/PBE/INCAR",
+    "repository_bytes": 514,
+    "repository_sha256": "8b159953afd23eb2dd880eea2d358ceb4da06ec4154320b31d295f457ea29c42"
+  },
+  {
+    "source_file": "Cu/PBE/KPOINTS",
+    "bytes": 28,
+    "included": true,
+    "sha256": "9f69ddd8c0a5c53c3cf2688051d9da98486d75255ee90fbe24d082c9a16ed0cc",
+    "repository_file": "raw/Cu/PBE/KPOINTS",
+    "repository_bytes": 28,
+    "repository_sha256": "9f69ddd8c0a5c53c3cf2688051d9da98486d75255ee90fbe24d082c9a16ed0cc"
+  },
+  {
+    "source_file": "Cu/PBE/OSZICAR",
+    "bytes": 1855,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/PBE/OUTCAR",
+    "bytes": 164542,
+    "included": true,
+    "sha256": "eb1ad5848a79d08bcc239c7befd1d5d9ce6af5a0cb034778c996bfbfcbf2a20e",
+    "repository_file": "raw/Cu/PBE/OUTCAR.gz",
+    "repository_bytes": 24794,
+    "repository_sha256": "148c2bdd43a836e324e4a965fc74117ba72a5b1575832264ee17424567f48877"
+  },
+  {
+    "source_file": "Cu/PBE/PCDAT",
+    "bytes": 234,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/PBE/POSCAR",
+    "bytes": 4640,
+    "included": true,
+    "sha256": "85c023d9c0638380404a598383c15260824fcee20398cbbd9f056dde163040dc",
+    "repository_file": "raw/Cu/PBE/POSCAR",
+    "repository_bytes": 4640,
+    "repository_sha256": "85c023d9c0638380404a598383c15260824fcee20398cbbd9f056dde163040dc"
+  },
+  {
+    "source_file": "Cu/PBE/POTCAR",
+    "bytes": 378112,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/PBE/REPORT",
+    "bytes": 0,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/PBE/WAVECAR",
+    "bytes": 364145344,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/PBE/XAS/CHG",
+    "bytes": 7173934,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/PBE/XAS/CHGCAR",
+    "bytes": 10925812,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/PBE/XAS/CONTCAR",
+    "bytes": 7343,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/PBE/XAS/CORE_DIELECTRIC_IMAG.dat",
+    "bytes": 21104,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/PBE/XAS/DOSCAR",
+    "bytes": 11073,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/PBE/XAS/EIGENVAL",
+    "bytes": 1161395,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/PBE/XAS/IBZKPT",
+    "bytes": 1107,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/PBE/XAS/INCAR",
+    "bytes": 441,
+    "included": true,
+    "sha256": "80d990d72034035bb73b696ce42220a3a3f2f971ad43af421b3bdcf4ff220979",
+    "repository_file": "raw/Cu/PBE/XAS/INCAR",
+    "repository_bytes": 441,
+    "repository_sha256": "80d990d72034035bb73b696ce42220a3a3f2f971ad43af421b3bdcf4ff220979"
+  },
+  {
+    "source_file": "Cu/PBE/XAS/INCAR_lightshow",
+    "bytes": 318,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/PBE/XAS/KPOINTS",
+    "bytes": 28,
+    "included": true,
+    "sha256": "9f69ddd8c0a5c53c3cf2688051d9da98486d75255ee90fbe24d082c9a16ed0cc",
+    "repository_file": "raw/Cu/PBE/XAS/KPOINTS",
+    "repository_bytes": 28,
+    "repository_sha256": "9f69ddd8c0a5c53c3cf2688051d9da98486d75255ee90fbe24d082c9a16ed0cc"
+  },
+  {
+    "source_file": "Cu/PBE/XAS/OSZICAR",
+    "bytes": 326,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/PBE/XAS/OUTCAR",
+    "bytes": 1712930,
+    "included": true,
+    "sha256": "e640834cd4e0259bed3857a7d73daf1197c47c0fe2e797699dbc3e2850f923d5",
+    "repository_file": "raw/Cu/PBE/XAS/OUTCAR.gz",
+    "repository_bytes": 238552,
+    "repository_sha256": "c7e9417be1b0b88d0156650742955eade453b7663e1ea4b0c97e02914fe3c3f6"
+  },
+  {
+    "source_file": "Cu/PBE/XAS/PCDAT",
+    "bytes": 234,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/PBE/XAS/POSCAR",
+    "bytes": 7343,
+    "included": true,
+    "sha256": "ae687700cd8ec42d6c0df29b4e4e026e8246d71a326367dd085be789c2dd291a",
+    "repository_file": "raw/Cu/PBE/XAS/POSCAR",
+    "repository_bytes": 7343,
+    "repository_sha256": "ae687700cd8ec42d6c0df29b4e4e026e8246d71a326367dd085be789c2dd291a"
+  },
+  {
+    "source_file": "Cu/PBE/XAS/POTCAR",
+    "bytes": 378112,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/PBE/XAS/REPORT",
+    "bytes": 0,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/PBE/XAS/WAVECAR",
+    "bytes": 1957862400,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/PBE/XAS/XDATCAR",
+    "bytes": 2652,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/PBE/XAS/job.err",
+    "bytes": 0,
+    "included": true,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "repository_file": "raw/Cu/PBE/XAS/job.err",
+    "repository_bytes": 0,
+    "repository_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source_file": "Cu/PBE/XAS/job.out",
+    "bytes": 2864,
+    "included": true,
+    "sha256": "c50e5abab5c3f603384bdaa42db06261cf6d9cf5f517334245aeba3f3face61a",
+    "repository_file": "raw/Cu/PBE/XAS/job.out",
+    "repository_bytes": 2864,
+    "repository_sha256": "c50e5abab5c3f603384bdaa42db06261cf6d9cf5f517334245aeba3f3face61a"
+  },
+  {
+    "source_file": "Cu/PBE/XAS/plot_core_imdiel.sh",
+    "bytes": 2391,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/PBE/XAS/vasp.pbs",
+    "bytes": 306,
+    "included": true,
+    "sha256": "a397311b5b494e77e8f0de9d3458bddae63210f708bdb1d35ee05e64358550b2",
+    "repository_file": "raw/Cu/PBE/XAS/vasp.pbs",
+    "repository_bytes": 306,
+    "repository_sha256": "a397311b5b494e77e8f0de9d3458bddae63210f708bdb1d35ee05e64358550b2"
+  },
+  {
+    "source_file": "Cu/PBE/XAS/vaspout.h5",
+    "bytes": 1317111,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/PBE/XAS/vasprun.xml",
+    "bytes": 1561210,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/PBE/XDATCAR",
+    "bytes": 2652,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/PBE/job.err",
+    "bytes": 0,
+    "included": true,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "repository_file": "raw/Cu/PBE/job.err",
+    "repository_bytes": 0,
+    "repository_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source_file": "Cu/PBE/job.out",
+    "bytes": 2790,
+    "included": true,
+    "sha256": "b2e318e6f7aba3d24f01c0db2c82989f91a3a2bc25bb4876010d8984b7e06182",
+    "repository_file": "raw/Cu/PBE/job.out",
+    "repository_bytes": 2790,
+    "repository_sha256": "b2e318e6f7aba3d24f01c0db2c82989f91a3a2bc25bb4876010d8984b7e06182"
+  },
+  {
+    "source_file": "Cu/PBE/vasp.pbs",
+    "bytes": 306,
+    "included": true,
+    "sha256": "a397311b5b494e77e8f0de9d3458bddae63210f708bdb1d35ee05e64358550b2",
+    "repository_file": "raw/Cu/PBE/vasp.pbs",
+    "repository_bytes": 306,
+    "repository_sha256": "a397311b5b494e77e8f0de9d3458bddae63210f708bdb1d35ee05e64358550b2"
+  },
+  {
+    "source_file": "Cu/PBE/vaspout.h5",
+    "bytes": 835610,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/PBE/vasprun.xml",
+    "bytes": 131144,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/fdm_fdm/Cu.txt",
+    "bytes": 7522,
+    "included": true,
+    "sha256": "332c2b2cea69dd4de820d8c948681c2f44662a4b2ed151259b286c8fea2f2498",
+    "repository_file": "raw/Cu/fdm_fdm/Cu.txt",
+    "repository_bytes": 7522,
+    "repository_sha256": "332c2b2cea69dd4de820d8c948681c2f44662a4b2ed151259b286c8fea2f2498"
+  },
+  {
+    "source_file": "Cu/fdm_fdm/Cu_bav.txt",
+    "bytes": 75150,
+    "included": true,
+    "sha256": "9289fdf1511acbdee44eab80e1927019b1a1a2fbd7462947e2e5467a7dc0a01b",
+    "repository_file": "raw/Cu/fdm_fdm/Cu_bav.txt.gz",
+    "repository_bytes": 9914,
+    "repository_sha256": "94acf90743e3520ee7a125f8aac0428b7961c08133f3e8328028f5154f10a6a9"
+  },
+  {
+    "source_file": "Cu/fdm_fdm/Cu_conv.txt",
+    "bytes": 7202,
+    "included": true,
+    "sha256": "634f639482736a2fc5b42a8b3f6f52681bfe3747720fd808d345a8cb35a0c358",
+    "repository_file": "raw/Cu/fdm_fdm/Cu_conv.txt",
+    "repository_bytes": 7202,
+    "repository_sha256": "634f639482736a2fc5b42a8b3f6f52681bfe3747720fd808d345a8cb35a0c358"
+  },
+  {
+    "source_file": "Cu/fdm_fdm/Cu_in.txt",
+    "bytes": 202,
+    "included": true,
+    "sha256": "91b74c75a22d77b4683a646fe3aa45a8d27c33f4155d87a08f86abfe69e114e9",
+    "repository_file": "raw/Cu/fdm_fdm/Cu_in.txt",
+    "repository_bytes": 202,
+    "repository_sha256": "91b74c75a22d77b4683a646fe3aa45a8d27c33f4155d87a08f86abfe69e114e9"
+  },
+  {
+    "source_file": "Cu/fdm_fdm/fdm.pbs",
+    "bytes": 220,
+    "included": true,
+    "sha256": "8b5f88f3e6a95c23b729d51072afe0fcb02b95dbeaca441fa45fd176fa974270",
+    "repository_file": "raw/Cu/fdm_fdm/fdm.pbs",
+    "repository_bytes": 220,
+    "repository_sha256": "8b5f88f3e6a95c23b729d51072afe0fcb02b95dbeaca441fa45fd176fa974270"
+  },
+  {
+    "source_file": "Cu/fdm_fdm/fdmfile.txt",
+    "bytes": 12,
+    "included": true,
+    "sha256": "a5e08865ed335820d1f46005195ab88af2ca5d1f8eeb5a82273fbe4d5af92901",
+    "repository_file": "raw/Cu/fdm_fdm/fdmfile.txt",
+    "repository_bytes": 12,
+    "repository_sha256": "a5e08865ed335820d1f46005195ab88af2ca5d1f8eeb5a82273fbe4d5af92901"
+  },
+  {
+    "source_file": "Cu/fdm_fdm/job.err",
+    "bytes": 169,
+    "included": true,
+    "sha256": "e7389cff1731d137fd0d89902ebcc100787c62bd1c5b0a262d2e1b8942d69960",
+    "repository_file": "raw/Cu/fdm_fdm/job.err",
+    "repository_bytes": 169,
+    "repository_sha256": "e7389cff1731d137fd0d89902ebcc100787c62bd1c5b0a262d2e1b8942d69960"
+  },
+  {
+    "source_file": "Cu/fdm_fdm/job.out",
+    "bytes": 4877,
+    "included": true,
+    "sha256": "8d0e384944338b242cda5b9577723ca839e1554887c885b9aa8cd01916897efb",
+    "repository_file": "raw/Cu/fdm_fdm/job.out",
+    "repository_bytes": 4877,
+    "repository_sha256": "8d0e384944338b242cda5b9577723ca839e1554887c885b9aa8cd01916897efb"
+  },
+  {
+    "source_file": "Cu/fdm_green/Cu.txt",
+    "bytes": 7522,
+    "included": true,
+    "sha256": "c81d496abca19cc70ec04d9cc8d2f48eb5bd1aa82b8ecdf1862fb3699e8c59be",
+    "repository_file": "raw/Cu/fdm_green/Cu.txt",
+    "repository_bytes": 7522,
+    "repository_sha256": "c81d496abca19cc70ec04d9cc8d2f48eb5bd1aa82b8ecdf1862fb3699e8c59be"
+  },
+  {
+    "source_file": "Cu/fdm_green/Cu_bav.txt",
+    "bytes": 3219592,
+    "included": true,
+    "sha256": "6f35a30e662d49ca6a9dbf30c6ba886ca0c1165ecc8ec4408047d323ba65646d",
+    "repository_file": "raw/Cu/fdm_green/Cu_bav.txt.gz",
+    "repository_bytes": 182974,
+    "repository_sha256": "bacdbab4e2178bc432f11da2415380dfaad4e70d45d8c747d7e22014e55e648d"
+  },
+  {
+    "source_file": "Cu/fdm_green/Cu_conv.txt",
+    "bytes": 7202,
+    "included": true,
+    "sha256": "421d6166dd0a9e1fdd7b7cf0f8abafc9bfcfeef75dbe79caa95bcb7b254084a6",
+    "repository_file": "raw/Cu/fdm_green/Cu_conv.txt",
+    "repository_bytes": 7202,
+    "repository_sha256": "421d6166dd0a9e1fdd7b7cf0f8abafc9bfcfeef75dbe79caa95bcb7b254084a6"
+  },
+  {
+    "source_file": "Cu/fdm_green/Cu_in.txt",
+    "bytes": 209,
+    "included": true,
+    "sha256": "d0b659b75a850310d59a868990bf344dd51b80bbbedf1046482afa536e3ae625",
+    "repository_file": "raw/Cu/fdm_green/Cu_in.txt",
+    "repository_bytes": 209,
+    "repository_sha256": "d0b659b75a850310d59a868990bf344dd51b80bbbedf1046482afa536e3ae625"
+  },
+  {
+    "source_file": "Cu/fdm_green/fdm.pbs",
+    "bytes": 220,
+    "included": true,
+    "sha256": "8b5f88f3e6a95c23b729d51072afe0fcb02b95dbeaca441fa45fd176fa974270",
+    "repository_file": "raw/Cu/fdm_green/fdm.pbs",
+    "repository_bytes": 220,
+    "repository_sha256": "8b5f88f3e6a95c23b729d51072afe0fcb02b95dbeaca441fa45fd176fa974270"
+  },
+  {
+    "source_file": "Cu/fdm_green/fdmfile.txt",
+    "bytes": 12,
+    "included": true,
+    "sha256": "a5e08865ed335820d1f46005195ab88af2ca5d1f8eeb5a82273fbe4d5af92901",
+    "repository_file": "raw/Cu/fdm_green/fdmfile.txt",
+    "repository_bytes": 12,
+    "repository_sha256": "a5e08865ed335820d1f46005195ab88af2ca5d1f8eeb5a82273fbe4d5af92901"
+  },
+  {
+    "source_file": "Cu/fdm_green/job.err",
+    "bytes": 0,
+    "included": true,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "repository_file": "raw/Cu/fdm_green/job.err",
+    "repository_bytes": 0,
+    "repository_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source_file": "Cu/fdm_green/job.out",
+    "bytes": 17263,
+    "included": true,
+    "sha256": "97b1c487e7530d928b26a6a8d4bb740098face18c059617d522d502c9a8c4973",
+    "repository_file": "raw/Cu/fdm_green/job.out",
+    "repository_bytes": 17263,
+    "repository_sha256": "97b1c487e7530d928b26a6a8d4bb740098face18c059617d522d502c9a8c4973"
+  },
+  {
+    "source_file": "Cu/feff/.dimensions.dat",
+    "bytes": 25,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/feff/.feff.error",
+    "bytes": 0,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/feff/.scfconvergence-feff",
+    "bytes": 704,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/feff/ATOMS",
+    "bytes": 26351,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/feff/HEADER",
+    "bytes": 341,
+    "included": true,
+    "sha256": "c63010910c3959f476b902419c2ab40d6283fffbfeb509f0c9f752ec1a985e4a",
+    "repository_file": "raw/Cu/feff/HEADER",
+    "repository_bytes": 341,
+    "repository_sha256": "c63010910c3959f476b902419c2ab40d6283fffbfeb509f0c9f752ec1a985e4a"
+  },
+  {
+    "source_file": "Cu/feff/PARAMETERS",
+    "bytes": 122,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/feff/POTENTIALS",
+    "bytes": 300,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/feff/apot.bin",
+    "bytes": 1767215,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/feff/atoms.dat",
+    "bytes": 21084,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/feff/band.inp",
+    "bytes": 203,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/feff/compton.inp",
+    "bytes": 544,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/feff/config.dat",
+    "bytes": 1035,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/feff/dmdw.inp",
+    "bytes": 5,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/feff/eels.inp",
+    "bytes": 530,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/feff/emesh.bin",
+    "bytes": 1964,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/feff/emesh.dat",
+    "bytes": 5683,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/feff/feff.bin",
+    "bytes": 5108,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/feff/feff.inp",
+    "bytes": 27119,
+    "included": true,
+    "sha256": "b472d17a504d29b4e5ef5e652989b91243121ff1103039f78e2ed20ebb25cf05",
+    "repository_file": "raw/Cu/feff/feff.inp",
+    "repository_bytes": 27119,
+    "repository_sha256": "b472d17a504d29b4e5ef5e652989b91243121ff1103039f78e2ed20ebb25cf05"
+  },
+  {
+    "source_file": "Cu/feff/feff.pbs",
+    "bytes": 194,
+    "included": true,
+    "sha256": "b64463937c792d9074286e07ca6a79746270a202b0f04d837b6682d32a74819b",
+    "repository_file": "raw/Cu/feff/feff.pbs",
+    "repository_bytes": 194,
+    "repository_sha256": "b64463937c792d9074286e07ca6a79746270a202b0f04d837b6682d32a74819b"
+  },
+  {
+    "source_file": "Cu/feff/ff2x.inp",
+    "bytes": 372,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/feff/fms.bin",
+    "bytes": 2028,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/feff/fms.inp",
+    "bytes": 258,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/feff/fort.66",
+    "bytes": 43432,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/feff/fpf0.dat",
+    "bytes": 1548,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/feff/genfmt.inp",
+    "bytes": 102,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/feff/geom.dat",
+    "bytes": 19334,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/feff/gg.bin",
+    "bytes": 1315512,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/feff/gg.dat",
+    "bytes": 1315512,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/feff/global.inp",
+    "bytes": 808,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/feff/gtr.dat",
+    "bytes": 6413,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/feff/job.err",
+    "bytes": 99,
+    "included": true,
+    "sha256": "6b944cd1c9da54fa7a628d4df216df40cbdc1de2173227e482a0df3eff98fadb",
+    "repository_file": "raw/Cu/feff/job.err",
+    "repository_bytes": 99,
+    "repository_sha256": "6b944cd1c9da54fa7a628d4df216df40cbdc1de2173227e482a0df3eff98fadb"
+  },
+  {
+    "source_file": "Cu/feff/job.out",
+    "bytes": 11118,
+    "included": true,
+    "sha256": "dc4c0963db9ae90a8703d5194ab0f3e006b6ca2f85182c5f3781afd2717b73ff",
+    "repository_file": "raw/Cu/feff/job.out",
+    "repository_bytes": 11118,
+    "repository_sha256": "dc4c0963db9ae90a8703d5194ab0f3e006b6ca2f85182c5f3781afd2717b73ff"
+  },
+  {
+    "source_file": "Cu/feff/ldos.inp",
+    "bytes": 248,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/feff/list.dat",
+    "bytes": 206,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/feff/log.dat",
+    "bytes": 275,
+    "included": true,
+    "sha256": "8292b1b251e1ba8ee9055b2640405b71c05bf0a5a1c05bfe192e57bb9f5a8d8b",
+    "repository_file": "raw/Cu/feff/log.dat",
+    "repository_bytes": 275,
+    "repository_sha256": "8292b1b251e1ba8ee9055b2640405b71c05bf0a5a1c05bfe192e57bb9f5a8d8b"
+  },
+  {
+    "source_file": "Cu/feff/log1.dat",
+    "bytes": 7102,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/feff/log2.dat",
+    "bytes": 205,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/feff/log3.dat",
+    "bytes": 931,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/feff/log4.dat",
+    "bytes": 379,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/feff/log5.dat",
+    "bytes": 234,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/feff/log6.dat",
+    "bytes": 155,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/feff/logdos.dat",
+    "bytes": 0,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/feff/logeels.dat",
+    "bytes": 0,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/feff/logscrn.dat",
+    "bytes": 43,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/feff/logsfconv.dat",
+    "bytes": 0,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/feff/mpse.dat",
+    "bytes": 15089,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/feff/opcons.inp",
+    "bytes": 408,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/feff/paths.dat",
+    "bytes": 142,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/feff/paths.inp",
+    "bytes": 165,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/feff/phase.bin",
+    "bytes": 63622,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/feff/pot.bin",
+    "bytes": 287102,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/feff/pot.inp",
+    "bytes": 1288,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/feff/reciprocal.inp",
+    "bytes": 11,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/feff/screen.inp",
+    "bytes": 278,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/feff/sfconv.inp",
+    "bytes": 112,
+    "included": true,
+    "sha256": "888673f7619bbe427eac291d2763ffc6b727bbb1a3f8c6c4f70858336d802544",
+    "repository_file": "raw/Cu/feff/sfconv.inp",
+    "repository_bytes": 112,
+    "repository_sha256": "888673f7619bbe427eac291d2763ffc6b727bbb1a3f8c6c4f70858336d802544"
+  },
+  {
+    "source_file": "Cu/feff/vtot.dat",
+    "bytes": 12383,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/feff/wscrn.dat",
+    "bytes": 12417,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/feff/xmu.dat",
+    "bytes": 8078,
+    "included": true,
+    "sha256": "7440caa9ed6e44a6f5d6abb6507af5949308fbbe83f7bed55271ffa938b1f76a",
+    "repository_file": "raw/Cu/feff/xmu.dat",
+    "repository_bytes": 8078,
+    "repository_sha256": "7440caa9ed6e44a6f5d6abb6507af5949308fbbe83f7bed55271ffa938b1f76a"
+  },
+  {
+    "source_file": "Cu/feff/xsect.dat",
+    "bytes": 9131,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu/feff/xsph.inp",
+    "bytes": 517,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu.cif",
+    "bytes": 764,
+    "included": true,
+    "sha256": "c852863c17619f55d4c87580b80c3df73192221edca5489dbbeaf8525e9c7270",
+    "repository_file": "raw/Cu.cif",
+    "repository_bytes": 764,
+    "repository_sha256": "c852863c17619f55d4c87580b80c3df73192221edca5489dbbeaf8525e9c7270"
+  },
+  {
+    "source_file": "Cu2O/.DS_Store",
+    "bytes": 6148,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/GW/.DS_Store",
+    "bytes": 6148,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/GW/CHG",
+    "bytes": 243885526,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/GW/CHGCAR",
+    "bytes": 367722399,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/GW/CONTCAR",
+    "bytes": 18134,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/GW/DOSCAR",
+    "bytes": 18297,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/GW/EIGENVAL",
+    "bytes": 262589,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/GW/IBZKPT",
+    "bytes": 357,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/GW/INCAR",
+    "bytes": 504,
+    "included": true,
+    "sha256": "491799ef61dc8d823cb27b56f8415bc6614e93b43de597b91a05cdd854cf8611",
+    "repository_file": "raw/Cu2O/GW/INCAR",
+    "repository_bytes": 504,
+    "repository_sha256": "491799ef61dc8d823cb27b56f8415bc6614e93b43de597b91a05cdd854cf8611"
+  },
+  {
+    "source_file": "Cu2O/GW/KPOINTS",
+    "bytes": 28,
+    "included": true,
+    "sha256": "b176eff8a22860d83f57d814b9c4b78f44619d005d4a18a2f2a926b824715aad",
+    "repository_file": "raw/Cu2O/GW/KPOINTS",
+    "repository_bytes": 28,
+    "repository_sha256": "b176eff8a22860d83f57d814b9c4b78f44619d005d4a18a2f2a926b824715aad"
+  },
+  {
+    "source_file": "Cu2O/GW/OSZICAR",
+    "bytes": 18705,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/GW/OUTCAR",
+    "bytes": 836183,
+    "included": true,
+    "sha256": "fd728a1cf426b3f36bf88657b0eca035d8ec18ea7f8a9d6e282a4c9e76e52d7b",
+    "repository_file": "raw/Cu2O/GW/OUTCAR.gz",
+    "repository_bytes": 121184,
+    "repository_sha256": "2615229840739508c06f46a22d9afe20e8cfe00833d30399bfac9d1c132915bb"
+  },
+  {
+    "source_file": "Cu2O/GW/PCDAT",
+    "bytes": 234,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/GW/POSCAR",
+    "bytes": 11360,
+    "included": true,
+    "sha256": "a5fb8096eeb54af8231ef18a18c11d758f3b733f0c494ecce8e1d097d6544afc",
+    "repository_file": "raw/Cu2O/GW/POSCAR",
+    "repository_bytes": 11360,
+    "repository_sha256": "a5fb8096eeb54af8231ef18a18c11d758f3b733f0c494ecce8e1d097d6544afc"
+  },
+  {
+    "source_file": "Cu2O/GW/POTCAR",
+    "bytes": 708882,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/GW/REPORT",
+    "bytes": 0,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/GW/WAVECAR",
+    "bytes": 4670809344,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/GW/XAS/INCAR",
+    "bytes": 557,
+    "included": true,
+    "sha256": "aa0f4088f255256dacf5d7a3de4352c19a82143608ca3d1a9ae0387a1d996bc7",
+    "repository_file": "raw/Cu2O/GW/XAS/INCAR",
+    "repository_bytes": 557,
+    "repository_sha256": "aa0f4088f255256dacf5d7a3de4352c19a82143608ca3d1a9ae0387a1d996bc7"
+  },
+  {
+    "source_file": "Cu2O/GW/XAS/KPOINTS",
+    "bytes": 28,
+    "included": true,
+    "sha256": "b176eff8a22860d83f57d814b9c4b78f44619d005d4a18a2f2a926b824715aad",
+    "repository_file": "raw/Cu2O/GW/XAS/KPOINTS",
+    "repository_bytes": 28,
+    "repository_sha256": "b176eff8a22860d83f57d814b9c4b78f44619d005d4a18a2f2a926b824715aad"
+  },
+  {
+    "source_file": "Cu2O/GW/XAS/POSCAR",
+    "bytes": 11360,
+    "included": true,
+    "sha256": "a5fb8096eeb54af8231ef18a18c11d758f3b733f0c494ecce8e1d097d6544afc",
+    "repository_file": "raw/Cu2O/GW/XAS/POSCAR",
+    "repository_bytes": 11360,
+    "repository_sha256": "a5fb8096eeb54af8231ef18a18c11d758f3b733f0c494ecce8e1d097d6544afc"
+  },
+  {
+    "source_file": "Cu2O/GW/XAS/POTCAR",
+    "bytes": 708882,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/GW/XAS/vasp.pbs",
+    "bytes": 308,
+    "included": true,
+    "sha256": "6e4a5221859adeeb3a6e8f1c59dfb8c8ef660a0b680984982f0ddb9ad3da9c5e",
+    "repository_file": "raw/Cu2O/GW/XAS/vasp.pbs",
+    "repository_bytes": 308,
+    "repository_sha256": "6e4a5221859adeeb3a6e8f1c59dfb8c8ef660a0b680984982f0ddb9ad3da9c5e"
+  },
+  {
+    "source_file": "Cu2O/GW/XDATCAR",
+    "bytes": 6387,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/GW/core.30444",
+    "bytes": 162033664,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/GW/core.30447",
+    "bytes": 161267712,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/GW/core.30448",
+    "bytes": 162664448,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/GW/core.30487",
+    "bytes": 178741248,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/GW/job.err",
+    "bytes": 0,
+    "included": true,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "repository_file": "raw/Cu2O/GW/job.err",
+    "repository_bytes": 0,
+    "repository_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source_file": "Cu2O/GW/job.out",
+    "bytes": 22440,
+    "included": true,
+    "sha256": "4f89b6039ed362dfd9fc2607b235ede5da6cac80ca22b00c82945b0de6b2753a",
+    "repository_file": "raw/Cu2O/GW/job.out",
+    "repository_bytes": 22440,
+    "repository_sha256": "4f89b6039ed362dfd9fc2607b235ede5da6cac80ca22b00c82945b0de6b2753a"
+  },
+  {
+    "source_file": "Cu2O/GW/vasp.pbs",
+    "bytes": 308,
+    "included": true,
+    "sha256": "6e4a5221859adeeb3a6e8f1c59dfb8c8ef660a0b680984982f0ddb9ad3da9c5e",
+    "repository_file": "raw/Cu2O/GW/vasp.pbs",
+    "repository_bytes": 308,
+    "repository_sha256": "6e4a5221859adeeb3a6e8f1c59dfb8c8ef660a0b680984982f0ddb9ad3da9c5e"
+  },
+  {
+    "source_file": "Cu2O/GW/vaspout.h5",
+    "bytes": 1797418,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/GW/vasprun.xml",
+    "bytes": 467078,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/PBE/.DS_Store",
+    "bytes": 6148,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/PBE/CHG",
+    "bytes": 243885526,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/PBE/CHGCAR",
+    "bytes": 367354767,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/PBE/CONTCAR",
+    "bytes": 18134,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/PBE/DOSCAR",
+    "bytes": 18297,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/PBE/EIGENVAL",
+    "bytes": 262589,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/PBE/IBZKPT",
+    "bytes": 357,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/PBE/INCAR",
+    "bytes": 504,
+    "included": true,
+    "sha256": "491799ef61dc8d823cb27b56f8415bc6614e93b43de597b91a05cdd854cf8611",
+    "repository_file": "raw/Cu2O/PBE/INCAR",
+    "repository_bytes": 504,
+    "repository_sha256": "491799ef61dc8d823cb27b56f8415bc6614e93b43de597b91a05cdd854cf8611"
+  },
+  {
+    "source_file": "Cu2O/PBE/KPOINTS",
+    "bytes": 28,
+    "included": true,
+    "sha256": "b176eff8a22860d83f57d814b9c4b78f44619d005d4a18a2f2a926b824715aad",
+    "repository_file": "raw/Cu2O/PBE/KPOINTS",
+    "repository_bytes": 28,
+    "repository_sha256": "b176eff8a22860d83f57d814b9c4b78f44619d005d4a18a2f2a926b824715aad"
+  },
+  {
+    "source_file": "Cu2O/PBE/OSZICAR",
+    "bytes": 2058,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/PBE/OUTCAR",
+    "bytes": 447634,
+    "included": true,
+    "sha256": "983acb3e4d921422703349db220908e8d94d0478192df4add05ac4dbe4bfa337",
+    "repository_file": "raw/Cu2O/PBE/OUTCAR.gz",
+    "repository_bytes": 51445,
+    "repository_sha256": "ec471133c9f3abd7f21ee6c2715d899fa297bfae65c6cd9771bb45fbd2befaa5"
+  },
+  {
+    "source_file": "Cu2O/PBE/PCDAT",
+    "bytes": 234,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/PBE/POSCAR",
+    "bytes": 11360,
+    "included": true,
+    "sha256": "a5fb8096eeb54af8231ef18a18c11d758f3b733f0c494ecce8e1d097d6544afc",
+    "repository_file": "raw/Cu2O/PBE/POSCAR",
+    "repository_bytes": 11360,
+    "repository_sha256": "a5fb8096eeb54af8231ef18a18c11d758f3b733f0c494ecce8e1d097d6544afc"
+  },
+  {
+    "source_file": "Cu2O/PBE/POTCAR",
+    "bytes": 518084,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/PBE/REPORT",
+    "bytes": 0,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/PBE/WAVECAR",
+    "bytes": 4670809344,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/PBE/XAS/CHG",
+    "bytes": 243885526,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/PBE/XAS/CHGCAR",
+    "bytes": 367354767,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/PBE/XAS/CONTCAR",
+    "bytes": 18134,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/PBE/XAS/DOSCAR",
+    "bytes": 18297,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/PBE/XAS/EIGENVAL",
+    "bytes": 262589,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/PBE/XAS/IBZKPT",
+    "bytes": 357,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/PBE/XAS/INCAR",
+    "bytes": 504,
+    "included": true,
+    "sha256": "491799ef61dc8d823cb27b56f8415bc6614e93b43de597b91a05cdd854cf8611",
+    "repository_file": "raw/Cu2O/PBE/XAS/INCAR",
+    "repository_bytes": 504,
+    "repository_sha256": "491799ef61dc8d823cb27b56f8415bc6614e93b43de597b91a05cdd854cf8611"
+  },
+  {
+    "source_file": "Cu2O/PBE/XAS/KPOINTS",
+    "bytes": 28,
+    "included": true,
+    "sha256": "b176eff8a22860d83f57d814b9c4b78f44619d005d4a18a2f2a926b824715aad",
+    "repository_file": "raw/Cu2O/PBE/XAS/KPOINTS",
+    "repository_bytes": 28,
+    "repository_sha256": "b176eff8a22860d83f57d814b9c4b78f44619d005d4a18a2f2a926b824715aad"
+  },
+  {
+    "source_file": "Cu2O/PBE/XAS/OSZICAR",
+    "bytes": 343,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/PBE/XAS/OUTCAR",
+    "bytes": 413079,
+    "included": true,
+    "sha256": "bf8b29b4a28f5e0f8437eadd35e0b925d733b321ba81ea5810de1d0bc614ed29",
+    "repository_file": "raw/Cu2O/PBE/XAS/OUTCAR.gz",
+    "repository_bytes": 48062,
+    "repository_sha256": "08c768535b5da6785f98ad781d492826a42315613b7acae2e6b4af947d446824"
+  },
+  {
+    "source_file": "Cu2O/PBE/XAS/PCDAT",
+    "bytes": 234,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/PBE/XAS/POSCAR",
+    "bytes": 11360,
+    "included": true,
+    "sha256": "a5fb8096eeb54af8231ef18a18c11d758f3b733f0c494ecce8e1d097d6544afc",
+    "repository_file": "raw/Cu2O/PBE/XAS/POSCAR",
+    "repository_bytes": 11360,
+    "repository_sha256": "a5fb8096eeb54af8231ef18a18c11d758f3b733f0c494ecce8e1d097d6544afc"
+  },
+  {
+    "source_file": "Cu2O/PBE/XAS/POTCAR",
+    "bytes": 518084,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/PBE/XAS/REPORT",
+    "bytes": 0,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/PBE/XAS/WAVECAR",
+    "bytes": 4670809344,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/PBE/XAS/XDATCAR",
+    "bytes": 6387,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/PBE/XAS/job.err",
+    "bytes": 0,
+    "included": true,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "repository_file": "raw/Cu2O/PBE/XAS/job.err",
+    "repository_bytes": 0,
+    "repository_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source_file": "Cu2O/PBE/XAS/job.out",
+    "bytes": 2827,
+    "included": true,
+    "sha256": "832aea92030d9c504ce47f8435322e32c6ca8a1e6893d86f9e93c622edcb8cf5",
+    "repository_file": "raw/Cu2O/PBE/XAS/job.out",
+    "repository_bytes": 2827,
+    "repository_sha256": "832aea92030d9c504ce47f8435322e32c6ca8a1e6893d86f9e93c622edcb8cf5"
+  },
+  {
+    "source_file": "Cu2O/PBE/XAS/vasp.pbs",
+    "bytes": 313,
+    "included": true,
+    "sha256": "df79e3854f6d19fbd33d757d4162e6644b64e1eed07d95263eceacaba707da22",
+    "repository_file": "raw/Cu2O/PBE/XAS/vasp.pbs",
+    "repository_bytes": 313,
+    "repository_sha256": "df79e3854f6d19fbd33d757d4162e6644b64e1eed07d95263eceacaba707da22"
+  },
+  {
+    "source_file": "Cu2O/PBE/XAS/vaspout.h5",
+    "bytes": 1606620,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/PBE/XAS/vasprun.xml",
+    "bytes": 411638,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/PBE/XDATCAR",
+    "bytes": 6387,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/PBE/job.err",
+    "bytes": 0,
+    "included": true,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "repository_file": "raw/Cu2O/PBE/job.err",
+    "repository_bytes": 0,
+    "repository_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source_file": "Cu2O/PBE/job.out",
+    "bytes": 4434,
+    "included": true,
+    "sha256": "511a4c3e7936127a134fd8d73dc04b06b3230313468ad0ea18655ef6dbad8d03",
+    "repository_file": "raw/Cu2O/PBE/job.out",
+    "repository_bytes": 4434,
+    "repository_sha256": "511a4c3e7936127a134fd8d73dc04b06b3230313468ad0ea18655ef6dbad8d03"
+  },
+  {
+    "source_file": "Cu2O/PBE/vasp.pbs",
+    "bytes": 309,
+    "included": true,
+    "sha256": "cc9cd4ba5938975d4c99c9bdc1735816b0338a337135d208ced3ae49a224fa8a",
+    "repository_file": "raw/Cu2O/PBE/vasp.pbs",
+    "repository_bytes": 309,
+    "repository_sha256": "cc9cd4ba5938975d4c99c9bdc1735816b0338a337135d208ced3ae49a224fa8a"
+  },
+  {
+    "source_file": "Cu2O/PBE/vaspout.h5",
+    "bytes": 1606620,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/PBE/vasprun.xml",
+    "bytes": 416958,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/fdm_fdm/Cu2O.txt",
+    "bytes": 7522,
+    "included": true,
+    "sha256": "e23c9e6aed1c534358e75c0d02fa25223a2f42fbe6ed42a62e465bbb0dc462c4",
+    "repository_file": "raw/Cu2O/fdm_fdm/Cu2O.txt",
+    "repository_bytes": 7522,
+    "repository_sha256": "e23c9e6aed1c534358e75c0d02fa25223a2f42fbe6ed42a62e465bbb0dc462c4"
+  },
+  {
+    "source_file": "Cu2O/fdm_fdm/Cu2O_bav.txt",
+    "bytes": 11268965,
+    "included": true,
+    "sha256": "a93de28df440fd931ed3a16137aea3a478ef9e9068cf25a7c7bed6e2aafff994",
+    "repository_file": "raw/Cu2O/fdm_fdm/Cu2O_bav.txt.gz",
+    "repository_bytes": 673646,
+    "repository_sha256": "1dd50d702bc8170ca3711f719356b647a81aa30d437fece90294e6b3556c7437"
+  },
+  {
+    "source_file": "Cu2O/fdm_fdm/Cu2O_fdm_conv.txt",
+    "bytes": 7202,
+    "included": true,
+    "sha256": "b5de74f09488bed58c5f81a41fda97596c20ce24a6c2d228008704025ca88003",
+    "repository_file": "raw/Cu2O/fdm_fdm/Cu2O_fdm_conv.txt",
+    "repository_bytes": 7202,
+    "repository_sha256": "b5de74f09488bed58c5f81a41fda97596c20ce24a6c2d228008704025ca88003"
+  },
+  {
+    "source_file": "Cu2O/fdm_fdm/Cu2O_in.txt",
+    "bytes": 373,
+    "included": true,
+    "sha256": "eda17be911e23987e5406d0711d978780ce98fafb098afde05fd14a1b24ac672",
+    "repository_file": "raw/Cu2O/fdm_fdm/Cu2O_in.txt",
+    "repository_bytes": 373,
+    "repository_sha256": "eda17be911e23987e5406d0711d978780ce98fafb098afde05fd14a1b24ac672"
+  },
+  {
+    "source_file": "Cu2O/fdm_fdm/fdm.pbs",
+    "bytes": 220,
+    "included": true,
+    "sha256": "eb0556318a6cc0149dd59f1b6c02f59b3ef110e6b82a4a039e4b59c5faf82872",
+    "repository_file": "raw/Cu2O/fdm_fdm/fdm.pbs",
+    "repository_bytes": 220,
+    "repository_sha256": "eb0556318a6cc0149dd59f1b6c02f59b3ef110e6b82a4a039e4b59c5faf82872"
+  },
+  {
+    "source_file": "Cu2O/fdm_fdm/fdmfile.txt",
+    "bytes": 14,
+    "included": true,
+    "sha256": "eeb7b5bc4e5c1ed2d2343c3bb9b6762ed7a8105e9a3e0def521bd2b3058b6440",
+    "repository_file": "raw/Cu2O/fdm_fdm/fdmfile.txt",
+    "repository_bytes": 14,
+    "repository_sha256": "eeb7b5bc4e5c1ed2d2343c3bb9b6762ed7a8105e9a3e0def521bd2b3058b6440"
+  },
+  {
+    "source_file": "Cu2O/fdm_fdm/job.err",
+    "bytes": 0,
+    "included": true,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "repository_file": "raw/Cu2O/fdm_fdm/job.err",
+    "repository_bytes": 0,
+    "repository_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source_file": "Cu2O/fdm_fdm/job.out",
+    "bytes": 103318,
+    "included": true,
+    "sha256": "37cde420729bddd591fc048ac5b861f6661b4541c372f4ee92e5fd5062ffde2d",
+    "repository_file": "raw/Cu2O/fdm_fdm/job.out",
+    "repository_bytes": 103318,
+    "repository_sha256": "37cde420729bddd591fc048ac5b861f6661b4541c372f4ee92e5fd5062ffde2d"
+  },
+  {
+    "source_file": "Cu2O/fdm_green/Cu2O.txt",
+    "bytes": 7522,
+    "included": true,
+    "sha256": "7071526bcd7b63a0d4ec31d26781c43fd12bf9dea3d0fb99d97ebd7ee55b71e8",
+    "repository_file": "raw/Cu2O/fdm_green/Cu2O.txt",
+    "repository_bytes": 7522,
+    "repository_sha256": "7071526bcd7b63a0d4ec31d26781c43fd12bf9dea3d0fb99d97ebd7ee55b71e8"
+  },
+  {
+    "source_file": "Cu2O/fdm_green/Cu2O_bav.txt",
+    "bytes": 11275247,
+    "included": true,
+    "sha256": "26d5ed8cfa9e1d73debf032107856403716e6e359370166eb1d1e6c9a447c7a5",
+    "repository_file": "raw/Cu2O/fdm_green/Cu2O_bav.txt.gz",
+    "repository_bytes": 575363,
+    "repository_sha256": "953972fd5d5da1acc5f51ac3fb692417f5350d18b1310b240367bea14b32581c"
+  },
+  {
+    "source_file": "Cu2O/fdm_green/Cu2O_green_conv.txt",
+    "bytes": 7202,
+    "included": true,
+    "sha256": "f62098d42753796c8412f8b0815dc65372f19107141e31dca9f9ac6fd5868a05",
+    "repository_file": "raw/Cu2O/fdm_green/Cu2O_green_conv.txt",
+    "repository_bytes": 7202,
+    "repository_sha256": "f62098d42753796c8412f8b0815dc65372f19107141e31dca9f9ac6fd5868a05"
+  },
+  {
+    "source_file": "Cu2O/fdm_green/Cu2O_in.txt",
+    "bytes": 366,
+    "included": true,
+    "sha256": "d5f086e7d66888d83306ce2d9e93aed74ddff9cf63705b84c33d0a5b0ee6549e",
+    "repository_file": "raw/Cu2O/fdm_green/Cu2O_in.txt",
+    "repository_bytes": 366,
+    "repository_sha256": "d5f086e7d66888d83306ce2d9e93aed74ddff9cf63705b84c33d0a5b0ee6549e"
+  },
+  {
+    "source_file": "Cu2O/fdm_green/fdm.pbs",
+    "bytes": 222,
+    "included": true,
+    "sha256": "5b2de697a46b09f9d9b1d0e718e9bf94ed55ac98bfded4b58094d6b78cbb947b",
+    "repository_file": "raw/Cu2O/fdm_green/fdm.pbs",
+    "repository_bytes": 222,
+    "repository_sha256": "5b2de697a46b09f9d9b1d0e718e9bf94ed55ac98bfded4b58094d6b78cbb947b"
+  },
+  {
+    "source_file": "Cu2O/fdm_green/fdmfile.txt",
+    "bytes": 14,
+    "included": true,
+    "sha256": "eeb7b5bc4e5c1ed2d2343c3bb9b6762ed7a8105e9a3e0def521bd2b3058b6440",
+    "repository_file": "raw/Cu2O/fdm_green/fdmfile.txt",
+    "repository_bytes": 14,
+    "repository_sha256": "eeb7b5bc4e5c1ed2d2343c3bb9b6762ed7a8105e9a3e0def521bd2b3058b6440"
+  },
+  {
+    "source_file": "Cu2O/fdm_green/job.err",
+    "bytes": 0,
+    "included": true,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "repository_file": "raw/Cu2O/fdm_green/job.err",
+    "repository_bytes": 0,
+    "repository_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source_file": "Cu2O/fdm_green/job.out",
+    "bytes": 103402,
+    "included": true,
+    "sha256": "34f27289d4f2ccf6f3d4207c12f36fc32e3dabb0af097b106ff04104a974ac42",
+    "repository_file": "raw/Cu2O/fdm_green/job.out",
+    "repository_bytes": 103402,
+    "repository_sha256": "34f27289d4f2ccf6f3d4207c12f36fc32e3dabb0af097b106ff04104a974ac42"
+  },
+  {
+    "source_file": "Cu2O/feff/.dimensions.dat",
+    "bytes": 25,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/feff/.feff.error",
+    "bytes": 0,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/feff/.scfconvergence-feff",
+    "bytes": 794,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/feff/ATOMS",
+    "bytes": 23335,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/feff/Cu2O_feff_xmu.dat",
+    "bytes": 8115,
+    "included": true,
+    "sha256": "e187b9f6eb5aaf7cc657a98d9007d4459f106b09007040a3a98cc6bbcfd197e1",
+    "repository_file": "raw/Cu2O/feff/Cu2O_feff_xmu.dat",
+    "repository_bytes": 8115,
+    "repository_sha256": "e187b9f6eb5aaf7cc657a98d9007d4459f106b09007040a3a98cc6bbcfd197e1"
+  },
+  {
+    "source_file": "Cu2O/feff/HEADER",
+    "bytes": 573,
+    "included": true,
+    "sha256": "3e408f022f925dae5e1ac26eae1435c002468f23727cc3ddaa9d7ec8ab6dbdff",
+    "repository_file": "raw/Cu2O/feff/HEADER",
+    "repository_bytes": 573,
+    "repository_sha256": "3e408f022f925dae5e1ac26eae1435c002468f23727cc3ddaa9d7ec8ab6dbdff"
+  },
+  {
+    "source_file": "Cu2O/feff/PARAMETERS",
+    "bytes": 122,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/feff/POTENTIALS",
+    "bytes": 371,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/feff/apot.bin",
+    "bytes": 2088612,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/feff/atoms.dat",
+    "bytes": 17664,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/feff/band.inp",
+    "bytes": 203,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/feff/compton.inp",
+    "bytes": 544,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/feff/config.dat",
+    "bytes": 1467,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/feff/dmdw.inp",
+    "bytes": 5,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/feff/eels.inp",
+    "bytes": 530,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/feff/emesh.bin",
+    "bytes": 1964,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/feff/emesh.dat",
+    "bytes": 5683,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/feff/feff.bin",
+    "bytes": 5119,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/feff/feff.inp",
+    "bytes": 24407,
+    "included": true,
+    "sha256": "c25b451ff9bd41061786a26155d9961e3dc5f00d0fce40a7ebe05b2d8359d11e",
+    "repository_file": "raw/Cu2O/feff/feff.inp",
+    "repository_bytes": 24407,
+    "repository_sha256": "c25b451ff9bd41061786a26155d9961e3dc5f00d0fce40a7ebe05b2d8359d11e"
+  },
+  {
+    "source_file": "Cu2O/feff/feff.pbs",
+    "bytes": 196,
+    "included": true,
+    "sha256": "ed07244cd2378cf8dca5813dd78839369b4a78e5155cec1e3b279a9a0f56883a",
+    "repository_file": "raw/Cu2O/feff/feff.pbs",
+    "repository_bytes": 196,
+    "repository_sha256": "ed07244cd2378cf8dca5813dd78839369b4a78e5155cec1e3b279a9a0f56883a"
+  },
+  {
+    "source_file": "Cu2O/feff/ff2x.inp",
+    "bytes": 372,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/feff/fms.bin",
+    "bytes": 2028,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/feff/fms.inp",
+    "bytes": 262,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/feff/fort.66",
+    "bytes": 65148,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/feff/fpf0.dat",
+    "bytes": 1548,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/feff/genfmt.inp",
+    "bytes": 102,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/feff/geom.dat",
+    "bytes": 16219,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/feff/gg.bin",
+    "bytes": 1315512,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/feff/gg.dat",
+    "bytes": 1315512,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/feff/global.inp",
+    "bytes": 808,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/feff/gtr.dat",
+    "bytes": 6413,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/feff/job.err",
+    "bytes": 99,
+    "included": true,
+    "sha256": "6b944cd1c9da54fa7a628d4df216df40cbdc1de2173227e482a0df3eff98fadb",
+    "repository_file": "raw/Cu2O/feff/job.err",
+    "repository_bytes": 99,
+    "repository_sha256": "6b944cd1c9da54fa7a628d4df216df40cbdc1de2173227e482a0df3eff98fadb"
+  },
+  {
+    "source_file": "Cu2O/feff/job.out",
+    "bytes": 16483,
+    "included": true,
+    "sha256": "24c12d742de237bb7cac65d58532e9b4824b06aef1b5c5702630b3d31b4200ee",
+    "repository_file": "raw/Cu2O/feff/job.out",
+    "repository_bytes": 16483,
+    "repository_sha256": "24c12d742de237bb7cac65d58532e9b4824b06aef1b5c5702630b3d31b4200ee"
+  },
+  {
+    "source_file": "Cu2O/feff/ldos.inp",
+    "bytes": 252,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/feff/list.dat",
+    "bytes": 206,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/feff/log.dat",
+    "bytes": 280,
+    "included": true,
+    "sha256": "222718fada25529ec0f23d70ac8de63d5864676c12f7e96d844395fc5686d57f",
+    "repository_file": "raw/Cu2O/feff/log.dat",
+    "repository_bytes": 280,
+    "repository_sha256": "222718fada25529ec0f23d70ac8de63d5864676c12f7e96d844395fc5686d57f"
+  },
+  {
+    "source_file": "Cu2O/feff/log1.dat",
+    "bytes": 12247,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/feff/log2.dat",
+    "bytes": 248,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/feff/log3.dat",
+    "bytes": 931,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/feff/log4.dat",
+    "bytes": 379,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/feff/log5.dat",
+    "bytes": 234,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/feff/log6.dat",
+    "bytes": 155,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/feff/logdos.dat",
+    "bytes": 0,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/feff/logeels.dat",
+    "bytes": 0,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/feff/logscrn.dat",
+    "bytes": 43,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/feff/logsfconv.dat",
+    "bytes": 0,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/feff/mpse.dat",
+    "bytes": 15089,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/feff/opcons.inp",
+    "bytes": 408,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/feff/paths.dat",
+    "bytes": 142,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/feff/paths.inp",
+    "bytes": 165,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/feff/phase.bin",
+    "bytes": 85468,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/feff/pot.bin",
+    "bytes": 428238,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/feff/pot.inp",
+    "bytes": 1342,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/feff/reciprocal.inp",
+    "bytes": 11,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/feff/screen.inp",
+    "bytes": 278,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/feff/sfconv.inp",
+    "bytes": 112,
+    "included": true,
+    "sha256": "888673f7619bbe427eac291d2763ffc6b727bbb1a3f8c6c4f70858336d802544",
+    "repository_file": "raw/Cu2O/feff/sfconv.inp",
+    "repository_bytes": 112,
+    "repository_sha256": "888673f7619bbe427eac291d2763ffc6b727bbb1a3f8c6c4f70858336d802544"
+  },
+  {
+    "source_file": "Cu2O/feff/vtot.dat",
+    "bytes": 12322,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/feff/wscrn.dat",
+    "bytes": 12356,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/feff/xsect.dat",
+    "bytes": 9166,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O/feff/xsph.inp",
+    "bytes": 540,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "Cu2O.cif",
+    "bytes": 1053,
+    "included": true,
+    "sha256": "1411619bae8ac4db382630d22c4ab2f4a47fe2acc60db699b0c1466dbfe768a7",
+    "repository_file": "raw/Cu2O.cif",
+    "repository_bytes": 1053,
+    "repository_sha256": "1411619bae8ac4db382630d22c4ab2f4a47fe2acc60db699b0c1466dbfe768a7"
+  },
+  {
+    "source_file": "Cu2O.json",
+    "bytes": 789,
+    "included": true,
+    "sha256": "a190a30c2fc625e68ec577a9611301235cad65507ff0063beb7c35df0de97f3e",
+    "repository_file": "raw/Cu2O.json",
+    "repository_bytes": 789,
+    "repository_sha256": "a190a30c2fc625e68ec577a9611301235cad65507ff0063beb7c35df0de97f3e"
+  },
+  {
+    "source_file": "Cu2O_POSCAR",
+    "bytes": 621,
+    "included": true,
+    "sha256": "2ef919d3f4cf9decdc35e85343796c4c4fe55f2cec98f9005717d1eacba4a890",
+    "repository_file": "raw/Cu2O_POSCAR",
+    "repository_bytes": 621,
+    "repository_sha256": "2ef919d3f4cf9decdc35e85343796c4c4fe55f2cec98f9005717d1eacba4a890"
+  },
+  {
+    "source_file": "CuO/.DS_Store",
+    "bytes": 6148,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/GW/.DS_Store",
+    "bytes": 6148,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/GW/CHG",
+    "bytes": 149878508,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/GW/CHGCAR",
+    "bytes": 225996652,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/GW/CONTCAR",
+    "bytes": 14394,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/GW/DOSCAR",
+    "bytes": 18297,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/GW/EIGENVAL",
+    "bytes": 689203,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/GW/IBZKPT",
+    "bytes": 1107,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/GW/INCAR",
+    "bytes": 508,
+    "included": true,
+    "sha256": "09ef4c8291824ea92c438591e20de05b26e638e7fa80b733796ffedc81e77a33",
+    "repository_file": "raw/CuO/GW/INCAR",
+    "repository_bytes": 508,
+    "repository_sha256": "09ef4c8291824ea92c438591e20de05b26e638e7fa80b733796ffedc81e77a33"
+  },
+  {
+    "source_file": "CuO/GW/KPOINTS",
+    "bytes": 28,
+    "included": true,
+    "sha256": "9f69ddd8c0a5c53c3cf2688051d9da98486d75255ee90fbe24d082c9a16ed0cc",
+    "repository_file": "raw/CuO/GW/KPOINTS",
+    "repository_bytes": 28,
+    "repository_sha256": "9f69ddd8c0a5c53c3cf2688051d9da98486d75255ee90fbe24d082c9a16ed0cc"
+  },
+  {
+    "source_file": "CuO/GW/OSZICAR",
+    "bytes": 14055,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/GW/OUTCAR",
+    "bytes": 1167537,
+    "included": true,
+    "sha256": "e91c45d55a72932bd3026bf00aa912e4aeb33f2feca137ef0de507be5faacf97",
+    "repository_file": "raw/CuO/GW/OUTCAR.gz",
+    "repository_bytes": 141461,
+    "repository_sha256": "afc3c449fda32079bbd1fbcf1aee4d077039673b63ae418b1c783186013fb3d2"
+  },
+  {
+    "source_file": "CuO/GW/PCDAT",
+    "bytes": 234,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/GW/POSCAR",
+    "bytes": 9002,
+    "included": true,
+    "sha256": "d2ac268e304a94dc096ed4dd13136255ee2f1bb27e3008f0f0d6d7aeba5472b9",
+    "repository_file": "raw/CuO/GW/POSCAR",
+    "repository_bytes": 9002,
+    "repository_sha256": "d2ac268e304a94dc096ed4dd13136255ee2f1bb27e3008f0f0d6d7aeba5472b9"
+  },
+  {
+    "source_file": "CuO/GW/POTCAR",
+    "bytes": 708882,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/GW/REPORT",
+    "bytes": 0,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/GW/WAVECAR",
+    "bytes": 7637506848,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/GW/XAS/CHG",
+    "bytes": 37640064,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/GW/XAS/CHGCAR",
+    "bytes": 225996652,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/GW/XAS/CONTCAR",
+    "bytes": 14394,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/GW/XAS/DOSCAR",
+    "bytes": 18297,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/GW/XAS/EIGENVAL",
+    "bytes": 2982963,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/GW/XAS/IBZKPT",
+    "bytes": 1107,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/GW/XAS/INCAR",
+    "bytes": 560,
+    "included": true,
+    "sha256": "f8f091f9c43d1ae3ab57bff049216425065171e4523348cdca2f6dbbcc09d1e8",
+    "repository_file": "raw/CuO/GW/XAS/INCAR",
+    "repository_bytes": 560,
+    "repository_sha256": "f8f091f9c43d1ae3ab57bff049216425065171e4523348cdca2f6dbbcc09d1e8"
+  },
+  {
+    "source_file": "CuO/GW/XAS/KPOINTS",
+    "bytes": 28,
+    "included": true,
+    "sha256": "9f69ddd8c0a5c53c3cf2688051d9da98486d75255ee90fbe24d082c9a16ed0cc",
+    "repository_file": "raw/CuO/GW/XAS/KPOINTS",
+    "repository_bytes": 28,
+    "repository_sha256": "9f69ddd8c0a5c53c3cf2688051d9da98486d75255ee90fbe24d082c9a16ed0cc"
+  },
+  {
+    "source_file": "CuO/GW/XAS/OSZICAR",
+    "bytes": 2203,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/GW/XAS/OUTCAR",
+    "bytes": 3896738,
+    "included": true,
+    "sha256": "ff80e8443d2524624996472b57865335d6383b9027d15fdaa4a633e65cc93420",
+    "repository_file": "raw/CuO/GW/XAS/OUTCAR.gz",
+    "repository_bytes": 650927,
+    "repository_sha256": "53fce30ef04d1d072a01667394470c66d08ed7236c18e41697f014c7193ac40b"
+  },
+  {
+    "source_file": "CuO/GW/XAS/PCDAT",
+    "bytes": 234,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/GW/XAS/POSCAR",
+    "bytes": 9002,
+    "included": true,
+    "sha256": "d2ac268e304a94dc096ed4dd13136255ee2f1bb27e3008f0f0d6d7aeba5472b9",
+    "repository_file": "raw/CuO/GW/XAS/POSCAR",
+    "repository_bytes": 9002,
+    "repository_sha256": "d2ac268e304a94dc096ed4dd13136255ee2f1bb27e3008f0f0d6d7aeba5472b9"
+  },
+  {
+    "source_file": "CuO/GW/XAS/POTCAR",
+    "bytes": 708882,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/GW/XAS/REPORT",
+    "bytes": 0,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/GW/XAS/WAVECAR",
+    "bytes": 7637506848,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/GW/XAS/XDATCAR",
+    "bytes": 5095,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/GW/XAS/job.err",
+    "bytes": 0,
+    "included": true,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "repository_file": "raw/CuO/GW/XAS/job.err",
+    "repository_bytes": 0,
+    "repository_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source_file": "CuO/GW/XAS/job.out",
+    "bytes": 6430,
+    "included": true,
+    "sha256": "01a96fff05488395ba5a7ce827135b9226314f70e727aa3e72b47c7866683ff3",
+    "repository_file": "raw/CuO/GW/XAS/job.out",
+    "repository_bytes": 6430,
+    "repository_sha256": "01a96fff05488395ba5a7ce827135b9226314f70e727aa3e72b47c7866683ff3"
+  },
+  {
+    "source_file": "CuO/GW/XAS/vasp.pbs",
+    "bytes": 307,
+    "included": true,
+    "sha256": "1a44f07f012496c1dcbbf87ad6fa4354b5bc84943812f526b5a49d5a7d14d107",
+    "repository_file": "raw/CuO/GW/XAS/vasp.pbs",
+    "repository_bytes": 307,
+    "repository_sha256": "1a44f07f012496c1dcbbf87ad6fa4354b5bc84943812f526b5a49d5a7d14d107"
+  },
+  {
+    "source_file": "CuO/GW/XAS/vaspout.h5",
+    "bytes": 2974572,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/GW/XAS/vasprun.xml",
+    "bytes": 3836121,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/GW/XDATCAR",
+    "bytes": 5095,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/GW/job.err",
+    "bytes": 0,
+    "included": true,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "repository_file": "raw/CuO/GW/job.err",
+    "repository_bytes": 0,
+    "repository_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source_file": "CuO/GW/job.out",
+    "bytes": 16506,
+    "included": true,
+    "sha256": "4f45f574ce24fc331d3cc595e1898a70885273ba76df4364cab1ad02bd309934",
+    "repository_file": "raw/CuO/GW/job.out",
+    "repository_bytes": 16506,
+    "repository_sha256": "4f45f574ce24fc331d3cc595e1898a70885273ba76df4364cab1ad02bd309934"
+  },
+  {
+    "source_file": "CuO/GW/vasp.pbs",
+    "bytes": 307,
+    "included": true,
+    "sha256": "b312414851e92285e604aeae17859284ced037ddaafd03f6539c6131e306386c",
+    "repository_file": "raw/CuO/GW/vasp.pbs",
+    "repository_bytes": 307,
+    "repository_sha256": "b312414851e92285e604aeae17859284ced037ddaafd03f6539c6131e306386c"
+  },
+  {
+    "source_file": "CuO/GW/vaspout.h5",
+    "bytes": 1825132,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/GW/vasprun.xml",
+    "bytes": 920518,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/PBE/.DS_Store",
+    "bytes": 6148,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/PBE/CHG",
+    "bytes": 149878508,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/PBE/CHGCAR",
+    "bytes": 225778796,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/PBE/CONTCAR",
+    "bytes": 14394,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/PBE/DOSCAR",
+    "bytes": 18297,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/PBE/EIGENVAL",
+    "bytes": 689203,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/PBE/IBZKPT",
+    "bytes": 1107,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/PBE/INCAR",
+    "bytes": 508,
+    "included": true,
+    "sha256": "09ef4c8291824ea92c438591e20de05b26e638e7fa80b733796ffedc81e77a33",
+    "repository_file": "raw/CuO/PBE/INCAR",
+    "repository_bytes": 508,
+    "repository_sha256": "09ef4c8291824ea92c438591e20de05b26e638e7fa80b733796ffedc81e77a33"
+  },
+  {
+    "source_file": "CuO/PBE/KPOINTS",
+    "bytes": 28,
+    "included": true,
+    "sha256": "9f69ddd8c0a5c53c3cf2688051d9da98486d75255ee90fbe24d082c9a16ed0cc",
+    "repository_file": "raw/CuO/PBE/KPOINTS",
+    "repository_bytes": 28,
+    "repository_sha256": "9f69ddd8c0a5c53c3cf2688051d9da98486d75255ee90fbe24d082c9a16ed0cc"
+  },
+  {
+    "source_file": "CuO/PBE/OSZICAR",
+    "bytes": 1872,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/PBE/OUTCAR",
+    "bytes": 879339,
+    "included": true,
+    "sha256": "bb47688a704aa37077cddfb53855b2d3ac384cc9e1d7dce58dc2386854ecab90",
+    "repository_file": "raw/CuO/PBE/OUTCAR.gz",
+    "repository_bytes": 104906,
+    "repository_sha256": "29427f98f4a0c046d15998bb71b06c519847ce064dbd51146a1cee273f44c2ca"
+  },
+  {
+    "source_file": "CuO/PBE/PCDAT",
+    "bytes": 234,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/PBE/POSCAR",
+    "bytes": 9002,
+    "included": true,
+    "sha256": "d2ac268e304a94dc096ed4dd13136255ee2f1bb27e3008f0f0d6d7aeba5472b9",
+    "repository_file": "raw/CuO/PBE/POSCAR",
+    "repository_bytes": 9002,
+    "repository_sha256": "d2ac268e304a94dc096ed4dd13136255ee2f1bb27e3008f0f0d6d7aeba5472b9"
+  },
+  {
+    "source_file": "CuO/PBE/POTCAR",
+    "bytes": 518084,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/PBE/REPORT",
+    "bytes": 0,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/PBE/WAVECAR",
+    "bytes": 7637506848,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/PBE/XAS/CHG",
+    "bytes": 0,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/PBE/XAS/CHGCAR",
+    "bytes": 225778796,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/PBE/XAS/CONTCAR",
+    "bytes": 0,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/PBE/XAS/DOSCAR",
+    "bytes": 167,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/PBE/XAS/EIGENVAL",
+    "bytes": 193,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/PBE/XAS/IBZKPT",
+    "bytes": 1107,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/PBE/XAS/INCAR",
+    "bytes": 586,
+    "included": true,
+    "sha256": "7e0c4753d96d90046bc807b698cbd8918643e4f7aa63bc30f06b151de970f7ee",
+    "repository_file": "raw/CuO/PBE/XAS/INCAR",
+    "repository_bytes": 586,
+    "repository_sha256": "7e0c4753d96d90046bc807b698cbd8918643e4f7aa63bc30f06b151de970f7ee"
+  },
+  {
+    "source_file": "CuO/PBE/XAS/KPOINTS",
+    "bytes": 28,
+    "included": true,
+    "sha256": "9f69ddd8c0a5c53c3cf2688051d9da98486d75255ee90fbe24d082c9a16ed0cc",
+    "repository_file": "raw/CuO/PBE/XAS/KPOINTS",
+    "repository_bytes": 28,
+    "repository_sha256": "9f69ddd8c0a5c53c3cf2688051d9da98486d75255ee90fbe24d082c9a16ed0cc"
+  },
+  {
+    "source_file": "CuO/PBE/XAS/OSZICAR",
+    "bytes": 3719,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/PBE/XAS/OUTCAR",
+    "bytes": 69074,
+    "included": true,
+    "sha256": "29cc4ed76e6b96d6c9a5dea7a3bb7517551d58d0a8196a6faf517320c4953754",
+    "repository_file": "raw/CuO/PBE/XAS/OUTCAR.gz",
+    "repository_bytes": 13942,
+    "repository_sha256": "6a410d22e4a3752b17efcdff92b3c3f127df2d71c90c6352266991581a49bc57"
+  },
+  {
+    "source_file": "CuO/PBE/XAS/PCDAT",
+    "bytes": 234,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/PBE/XAS/POSCAR",
+    "bytes": 9002,
+    "included": true,
+    "sha256": "d2ac268e304a94dc096ed4dd13136255ee2f1bb27e3008f0f0d6d7aeba5472b9",
+    "repository_file": "raw/CuO/PBE/XAS/POSCAR",
+    "repository_bytes": 9002,
+    "repository_sha256": "d2ac268e304a94dc096ed4dd13136255ee2f1bb27e3008f0f0d6d7aeba5472b9"
+  },
+  {
+    "source_file": "CuO/PBE/XAS/POTCAR",
+    "bytes": 518084,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/PBE/XAS/REPORT",
+    "bytes": 0,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/PBE/XAS/WAVECAR",
+    "bytes": 7637506848,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/PBE/XAS/XDATCAR",
+    "bytes": 203,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/PBE/XAS/job.err",
+    "bytes": 128,
+    "included": true,
+    "sha256": "374f726fa6f8b32f4698665d71cd30c8a076ed889c206051036136ce48a35b5c",
+    "repository_file": "raw/CuO/PBE/XAS/job.err",
+    "repository_bytes": 128,
+    "repository_sha256": "374f726fa6f8b32f4698665d71cd30c8a076ed889c206051036136ce48a35b5c"
+  },
+  {
+    "source_file": "CuO/PBE/XAS/job.out",
+    "bytes": 5355,
+    "included": true,
+    "sha256": "28baffea060c81b61a575e8095392e6a1b1811424162145e98730be5b4887a65",
+    "repository_file": "raw/CuO/PBE/XAS/job.out",
+    "repository_bytes": 5355,
+    "repository_sha256": "28baffea060c81b61a575e8095392e6a1b1811424162145e98730be5b4887a65"
+  },
+  {
+    "source_file": "CuO/PBE/XAS/vasp.pbs",
+    "bytes": 311,
+    "included": true,
+    "sha256": "87b30c2494e5ad3bf3e109aa3c82da45aa7ee9a9ff4b9f22de4b50a6dc389c53",
+    "repository_file": "raw/CuO/PBE/XAS/vasp.pbs",
+    "repository_bytes": 311,
+    "repository_sha256": "87b30c2494e5ad3bf3e109aa3c82da45aa7ee9a9ff4b9f22de4b50a6dc389c53"
+  },
+  {
+    "source_file": "CuO/PBE/XAS/vaspout.h5",
+    "bytes": 558612,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/PBE/XAS/vasprun.xml",
+    "bytes": 46456,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/PBE/XDATCAR",
+    "bytes": 5095,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/PBE/core.14258",
+    "bytes": 145084416,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/PBE/core.14261",
+    "bytes": 152875008,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/PBE/job.err",
+    "bytes": 0,
+    "included": true,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "repository_file": "raw/CuO/PBE/job.err",
+    "repository_bytes": 0,
+    "repository_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source_file": "CuO/PBE/job.out",
+    "bytes": 4323,
+    "included": true,
+    "sha256": "da4aaa170de5fa3c48ed7cf2c36448572d1edc28212c17144b0d5d24c9963372",
+    "repository_file": "raw/CuO/PBE/job.out",
+    "repository_bytes": 4323,
+    "repository_sha256": "da4aaa170de5fa3c48ed7cf2c36448572d1edc28212c17144b0d5d24c9963372"
+  },
+  {
+    "source_file": "CuO/PBE/vasp.pbs",
+    "bytes": 307,
+    "included": true,
+    "sha256": "1a44f07f012496c1dcbbf87ad6fa4354b5bc84943812f526b5a49d5a7d14d107",
+    "repository_file": "raw/CuO/PBE/vasp.pbs",
+    "repository_bytes": 307,
+    "repository_sha256": "1a44f07f012496c1dcbbf87ad6fa4354b5bc84943812f526b5a49d5a7d14d107"
+  },
+  {
+    "source_file": "CuO/PBE/vaspout.h5",
+    "bytes": 1634334,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/PBE/vasprun.xml",
+    "bytes": 883838,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/fdm_fdm/CuO_fdm_conv.txt",
+    "bytes": 7202,
+    "included": true,
+    "sha256": "2f915cd5ff02a9c8a9571d77930f5e6f481a30f7dc86d68ce50a30f67e5a2c9b",
+    "repository_file": "raw/CuO/fdm_fdm/CuO_fdm_conv.txt",
+    "repository_bytes": 7202,
+    "repository_sha256": "2f915cd5ff02a9c8a9571d77930f5e6f481a30f7dc86d68ce50a30f67e5a2c9b"
+  },
+  {
+    "source_file": "CuO/fdm_fdm/CuO_in.txt",
+    "bytes": 319,
+    "included": true,
+    "sha256": "4d7452ac4c1d2962106a462a1ff2fb0574d7705c0d5f52864e05731f5ec7ca93",
+    "repository_file": "raw/CuO/fdm_fdm/CuO_in.txt",
+    "repository_bytes": 319,
+    "repository_sha256": "4d7452ac4c1d2962106a462a1ff2fb0574d7705c0d5f52864e05731f5ec7ca93"
+  },
+  {
+    "source_file": "CuO/fdm_fdm/Cu_1.txt",
+    "bytes": 7522,
+    "included": true,
+    "sha256": "de599637f7fe3f9e195852efc2162ad021da1c1a8539500645ebc791cbd7d3e5",
+    "repository_file": "raw/CuO/fdm_fdm/Cu_1.txt",
+    "repository_bytes": 7522,
+    "repository_sha256": "de599637f7fe3f9e195852efc2162ad021da1c1a8539500645ebc791cbd7d3e5"
+  },
+  {
+    "source_file": "CuO/fdm_fdm/Cu_2.txt",
+    "bytes": 7522,
+    "included": true,
+    "sha256": "aad91f484e5c29f3ef3a24170a4bdfa5bcfc1d235b5b49fab41ad6c4d92a19b7",
+    "repository_file": "raw/CuO/fdm_fdm/Cu_2.txt",
+    "repository_bytes": 7522,
+    "repository_sha256": "aad91f484e5c29f3ef3a24170a4bdfa5bcfc1d235b5b49fab41ad6c4d92a19b7"
+  },
+  {
+    "source_file": "CuO/fdm_fdm/Cu_bav.txt",
+    "bytes": 22725187,
+    "included": true,
+    "sha256": "b7f16016fd1f1db125689590006c81294fff659f6f427f336600ca9c3d77a706",
+    "repository_file": "raw/CuO/fdm_fdm/Cu_bav.txt.gz",
+    "repository_bytes": 4221153,
+    "repository_sha256": "ca2b926b987aa9347a18486433a917d8b0e87aa221738e3d11bbb2e4672bb5a7"
+  },
+  {
+    "source_file": "CuO/fdm_fdm/fdm.pbs",
+    "bytes": 218,
+    "included": true,
+    "sha256": "551747aecd353a292ccde4449efca2dbcaf4f24cd2d07d9db5c54f271a481cb9",
+    "repository_file": "raw/CuO/fdm_fdm/fdm.pbs",
+    "repository_bytes": 218,
+    "repository_sha256": "551747aecd353a292ccde4449efca2dbcaf4f24cd2d07d9db5c54f271a481cb9"
+  },
+  {
+    "source_file": "CuO/fdm_fdm/fdmfile.txt",
+    "bytes": 13,
+    "included": true,
+    "sha256": "d5e9940ffc4cd47b61011d7cb0adacd79d15d7c66b8b4882a12575ae349d9a2d",
+    "repository_file": "raw/CuO/fdm_fdm/fdmfile.txt",
+    "repository_bytes": 13,
+    "repository_sha256": "d5e9940ffc4cd47b61011d7cb0adacd79d15d7c66b8b4882a12575ae349d9a2d"
+  },
+  {
+    "source_file": "CuO/fdm_fdm/job.err",
+    "bytes": 0,
+    "included": true,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "repository_file": "raw/CuO/fdm_fdm/job.err",
+    "repository_bytes": 0,
+    "repository_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source_file": "CuO/fdm_fdm/job.out",
+    "bytes": 494103,
+    "included": true,
+    "sha256": "6c6f6cc1e05454b30c0b05ecfb216c816aa81afe5a218af7fc81e76f148cfbd2",
+    "repository_file": "raw/CuO/fdm_fdm/job.out",
+    "repository_bytes": 494103,
+    "repository_sha256": "6c6f6cc1e05454b30c0b05ecfb216c816aa81afe5a218af7fc81e76f148cfbd2"
+  },
+  {
+    "source_file": "CuO/fdm_green/CuO_bav.txt",
+    "bytes": 11324438,
+    "included": true,
+    "sha256": "81d9ec15e2f684c7836822a49174644570125d8c9406d739e20bb6e6c9da16e5",
+    "repository_file": "raw/CuO/fdm_green/CuO_bav.txt.gz",
+    "repository_bytes": 1245593,
+    "repository_sha256": "f3125c9dad7f293aabcd2f5b1e522936f0a111a3a8c7909c1331d9d4b7cfd5ed"
+  },
+  {
+    "source_file": "CuO/fdm_green/CuO_green_1.txt",
+    "bytes": 7496,
+    "included": true,
+    "sha256": "51236c0edd01a79c3a965c85e2ddc10b02f39220776efa8098741359bab61264",
+    "repository_file": "raw/CuO/fdm_green/CuO_green_1.txt",
+    "repository_bytes": 7496,
+    "repository_sha256": "51236c0edd01a79c3a965c85e2ddc10b02f39220776efa8098741359bab61264"
+  },
+  {
+    "source_file": "CuO/fdm_green/CuO_in.txt",
+    "bytes": 313,
+    "included": true,
+    "sha256": "afdbce8419654ba5cfd9f47a0b3ace276ecb9ea431ec43c67a850da14bcd9bc6",
+    "repository_file": "raw/CuO/fdm_green/CuO_in.txt",
+    "repository_bytes": 313,
+    "repository_sha256": "afdbce8419654ba5cfd9f47a0b3ace276ecb9ea431ec43c67a850da14bcd9bc6"
+  },
+  {
+    "source_file": "CuO/fdm_green/fdm.pbs",
+    "bytes": 220,
+    "included": true,
+    "sha256": "bfea99f1760f43492add5bfee7e36536428c5e2dd667cb2a123f3b1bb765875b",
+    "repository_file": "raw/CuO/fdm_green/fdm.pbs",
+    "repository_bytes": 220,
+    "repository_sha256": "bfea99f1760f43492add5bfee7e36536428c5e2dd667cb2a123f3b1bb765875b"
+  },
+  {
+    "source_file": "CuO/fdm_green/fdmfile.txt",
+    "bytes": 13,
+    "included": true,
+    "sha256": "d5e9940ffc4cd47b61011d7cb0adacd79d15d7c66b8b4882a12575ae349d9a2d",
+    "repository_file": "raw/CuO/fdm_green/fdmfile.txt",
+    "repository_bytes": 13,
+    "repository_sha256": "d5e9940ffc4cd47b61011d7cb0adacd79d15d7c66b8b4882a12575ae349d9a2d"
+  },
+  {
+    "source_file": "CuO/fdm_green/job.err",
+    "bytes": 59,
+    "included": true,
+    "sha256": "80cae6ade7f92151687a18e51ed2090be3fac57aacbc41828751dceb05f640a2",
+    "repository_file": "raw/CuO/fdm_green/job.err",
+    "repository_bytes": 59,
+    "repository_sha256": "80cae6ade7f92151687a18e51ed2090be3fac57aacbc41828751dceb05f640a2"
+  },
+  {
+    "source_file": "CuO/fdm_green/job.out",
+    "bytes": 246911,
+    "included": true,
+    "sha256": "160e65063bf76247b6f9b7f5efc6e2b0eb58f87ea2bd5c606573ee4483e99917",
+    "repository_file": "raw/CuO/fdm_green/job.out",
+    "repository_bytes": 246911,
+    "repository_sha256": "160e65063bf76247b6f9b7f5efc6e2b0eb58f87ea2bd5c606573ee4483e99917"
+  },
+  {
+    "source_file": "CuO/feff/.dimensions.dat",
+    "bytes": 25,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/feff/.feff.error",
+    "bytes": 0,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/feff/.scfconvergence-feff",
+    "bytes": 898,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/feff/ATOMS",
+    "bytes": 32005,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/feff/CuO_feff_xmu.dat",
+    "bytes": 8115,
+    "included": true,
+    "sha256": "fe1a3ced555663df42c192cbc70d51f9f9443d997ad78fec6fe0859b29ad2804",
+    "repository_file": "raw/CuO/feff/CuO_feff_xmu.dat",
+    "repository_bytes": 8115,
+    "repository_sha256": "fe1a3ced555663df42c192cbc70d51f9f9443d997ad78fec6fe0859b29ad2804"
+  },
+  {
+    "source_file": "CuO/feff/HEADER",
+    "bytes": 478,
+    "included": true,
+    "sha256": "afc645e953344fbef22b9bbac5b3723d356cf8d1eb8faaf782d8f6a7e3ca5834",
+    "repository_file": "raw/CuO/feff/HEADER",
+    "repository_bytes": 478,
+    "repository_sha256": "afc645e953344fbef22b9bbac5b3723d356cf8d1eb8faaf782d8f6a7e3ca5834"
+  },
+  {
+    "source_file": "CuO/feff/PARAMETERS",
+    "bytes": 122,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/feff/POTENTIALS",
+    "bytes": 371,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/feff/apot.bin",
+    "bytes": 2088612,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/feff/atoms.dat",
+    "bytes": 23022,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/feff/band.inp",
+    "bytes": 203,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/feff/compton.inp",
+    "bytes": 544,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/feff/config.dat",
+    "bytes": 1467,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/feff/dmdw.inp",
+    "bytes": 5,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/feff/eels.inp",
+    "bytes": 530,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/feff/emesh.bin",
+    "bytes": 1964,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/feff/emesh.dat",
+    "bytes": 5683,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/feff/feff.bin",
+    "bytes": 5119,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/feff/feff.inp",
+    "bytes": 32982,
+    "included": true,
+    "sha256": "5af6840e6c3d76ec58699403c31eeb101618caae7e4e8d7d119ecaefa682bbdb",
+    "repository_file": "raw/CuO/feff/feff.inp",
+    "repository_bytes": 32982,
+    "repository_sha256": "5af6840e6c3d76ec58699403c31eeb101618caae7e4e8d7d119ecaefa682bbdb"
+  },
+  {
+    "source_file": "CuO/feff/feff.pbs",
+    "bytes": 195,
+    "included": true,
+    "sha256": "3c2f274647ec03893bd257d83939300a684dc5bca53c3af9fb8977ebf97554f6",
+    "repository_file": "raw/CuO/feff/feff.pbs",
+    "repository_bytes": 195,
+    "repository_sha256": "3c2f274647ec03893bd257d83939300a684dc5bca53c3af9fb8977ebf97554f6"
+  },
+  {
+    "source_file": "CuO/feff/ff2x.inp",
+    "bytes": 372,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/feff/fms.bin",
+    "bytes": 2028,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/feff/fms.inp",
+    "bytes": 262,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/feff/fort.66",
+    "bytes": 65148,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/feff/fpf0.dat",
+    "bytes": 1548,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/feff/genfmt.inp",
+    "bytes": 102,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/feff/geom.dat",
+    "bytes": 21107,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/feff/gg.bin",
+    "bytes": 1315512,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/feff/gg.dat",
+    "bytes": 1315512,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/feff/global.inp",
+    "bytes": 808,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/feff/gtr.dat",
+    "bytes": 6413,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/feff/job.err",
+    "bytes": 99,
+    "included": true,
+    "sha256": "6b944cd1c9da54fa7a628d4df216df40cbdc1de2173227e482a0df3eff98fadb",
+    "repository_file": "raw/CuO/feff/job.err",
+    "repository_bytes": 99,
+    "repository_sha256": "6b944cd1c9da54fa7a628d4df216df40cbdc1de2173227e482a0df3eff98fadb"
+  },
+  {
+    "source_file": "CuO/feff/job.out",
+    "bytes": 18408,
+    "included": true,
+    "sha256": "1173d50b0dfce11a140554dc92af77b18b3d560b7dc971b2e64a5d1193b91de9",
+    "repository_file": "raw/CuO/feff/job.out",
+    "repository_bytes": 18408,
+    "repository_sha256": "1173d50b0dfce11a140554dc92af77b18b3d560b7dc971b2e64a5d1193b91de9"
+  },
+  {
+    "source_file": "CuO/feff/ldos.inp",
+    "bytes": 252,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/feff/list.dat",
+    "bytes": 206,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/feff/log.dat",
+    "bytes": 277,
+    "included": true,
+    "sha256": "dc9e5515582a6e5fd2f6061f00bdbad7c4172d515a559c70f28a22b4c0d8b617",
+    "repository_file": "raw/CuO/feff/log.dat",
+    "repository_bytes": 277,
+    "repository_sha256": "dc9e5515582a6e5fd2f6061f00bdbad7c4172d515a559c70f28a22b4c0d8b617"
+  },
+  {
+    "source_file": "CuO/feff/log1.dat",
+    "bytes": 14175,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/feff/log2.dat",
+    "bytes": 248,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/feff/log3.dat",
+    "bytes": 931,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/feff/log4.dat",
+    "bytes": 379,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/feff/log5.dat",
+    "bytes": 234,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/feff/log6.dat",
+    "bytes": 155,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/feff/logdos.dat",
+    "bytes": 0,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/feff/logeels.dat",
+    "bytes": 0,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/feff/logscrn.dat",
+    "bytes": 43,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/feff/logsfconv.dat",
+    "bytes": 0,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/feff/mpse.dat",
+    "bytes": 15089,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/feff/opcons.inp",
+    "bytes": 408,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/feff/paths.dat",
+    "bytes": 142,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/feff/paths.inp",
+    "bytes": 165,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/feff/phase.bin",
+    "bytes": 85468,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/feff/pot.bin",
+    "bytes": 428238,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/feff/pot.inp",
+    "bytes": 1342,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/feff/reciprocal.inp",
+    "bytes": 11,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/feff/screen.inp",
+    "bytes": 278,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/feff/sfconv.inp",
+    "bytes": 112,
+    "included": true,
+    "sha256": "888673f7619bbe427eac291d2763ffc6b727bbb1a3f8c6c4f70858336d802544",
+    "repository_file": "raw/CuO/feff/sfconv.inp",
+    "repository_bytes": 112,
+    "repository_sha256": "888673f7619bbe427eac291d2763ffc6b727bbb1a3f8c6c4f70858336d802544"
+  },
+  {
+    "source_file": "CuO/feff/vtot.dat",
+    "bytes": 12322,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/feff/wscrn.dat",
+    "bytes": 12356,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/feff/xsect.dat",
+    "bytes": 9166,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO/feff/xsph.inp",
+    "bytes": 540,
+    "included": false,
+    "reason": "outside explicit spectroscopy/input/log allowlist; original retained locally"
+  },
+  {
+    "source_file": "CuO.cif",
+    "bytes": 1281,
+    "included": true,
+    "sha256": "6be6fda08454a40780519e8b14f37f0e65603f443feee0332697a3f9b319cf7c",
+    "repository_file": "raw/CuO.cif",
+    "repository_bytes": 1281,
+    "repository_sha256": "6be6fda08454a40780519e8b14f37f0e65603f443feee0332697a3f9b319cf7c"
+  },
+  {
+    "source_file": "CuO.json",
+    "bytes": 2453,
+    "included": true,
+    "sha256": "e54fb1dcac7a1c44494e7eca5041cf7e5e0554a0f225c07695e0f3fa746c3b15",
+    "repository_file": "raw/CuO.json",
+    "repository_bytes": 2453,
+    "repository_sha256": "e54fb1dcac7a1c44494e7eca5041cf7e5e0554a0f225c07695e0f3fa746c3b15"
+  },
+  {
+    "source_file": "CuO_POSCAR",
+    "bytes": 743,
+    "included": true,
+    "sha256": "30db773a5a609a3ca63bc224c3281117c62c3ff5e8d1453ea7f535ad711716d9",
+    "repository_file": "raw/CuO_POSCAR",
+    "repository_bytes": 743,
+    "repository_sha256": "30db773a5a609a3ca63bc224c3281117c62c3ff5e8d1453ea7f535ad711716d9"
+  },
+  {
+    "source_file": "Cu_GW.dat",
+    "bytes": 177781,
+    "included": true,
+    "sha256": "7a5c215fdfcdb535ef8d06dd3d373c59e372552b19e4f903cb4fc52aad0eb910",
+    "repository_file": "raw/Cu_GW.dat",
+    "repository_bytes": 177781,
+    "repository_sha256": "7a5c215fdfcdb535ef8d06dd3d373c59e372552b19e4f903cb4fc52aad0eb910"
+  },
+  {
+    "source_file": "Cu_PBE.dat",
+    "bytes": 0,
+    "included": true,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "repository_file": "raw/Cu_PBE.dat",
+    "repository_bytes": 0,
+    "repository_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source_file": "Cu_XAS.ipynb",
+    "bytes": 155119,
+    "included": true,
+    "sha256": "f0d052403fcec32b8c97e1577d8d8c3f53cd114e24f3a3b00419679251e8d514",
+    "repository_file": "raw/Cu_XAS.ipynb",
+    "repository_bytes": 155119,
+    "repository_sha256": "f0d052403fcec32b8c97e1577d8d8c3f53cd114e24f3a3b00419679251e8d514"
+  },
+  {
+    "source_file": "Cu_xmu.dat",
+    "bytes": 8078,
+    "included": true,
+    "sha256": "7440caa9ed6e44a6f5d6abb6507af5949308fbbe83f7bed55271ffa938b1f76a",
+    "repository_file": "raw/Cu_xmu.dat",
+    "repository_bytes": 8078,
+    "repository_sha256": "7440caa9ed6e44a6f5d6abb6507af5949308fbbe83f7bed55271ffa938b1f76a"
+  }
+]

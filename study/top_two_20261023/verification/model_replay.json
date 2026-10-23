@@ -1,0 +1,614 @@
+{
+  "saved_model_files_verified": 100,
+  "all_score_replays_identical": true,
+  "every_model_depth": "top_2",
+  "scientific_source_hashes_match": true,
+  "old_inner_memberships_preserved_across_cohorts": true,
+  "original_top_two_seed20261020_archived_predictions_match": true,
+  "seed_repeats_are_not_independent_configurations": true,
+  "models": [
+    {
+      "path": "experiments/cohort87_seed20261020/fold0/author_Combined_leaf1.joblib",
+      "sha256": "fc07035a9c4eba16ceaf88e48a30bc81e85ac781dec95d3e587df8e2505b8df0",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort87_seed20261020/fold0/derivative_leaf1.joblib",
+      "sha256": "3ed144214844a2c6e9eefddc349ee037623d83cdbd90c5c2c1b8da839f9c6a28",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort87_seed20261020/fold0/shape_CDF_derivatives_leaf2.joblib",
+      "sha256": "e0266cb419e0c8735a55d87d9e29343c841c4fc61c9bde4967307f77604a5294",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort87_seed20261020/fold1/author_Combined_leaf1.joblib",
+      "sha256": "06b1d86ae93e0505b73855f85ddb9d91a15de04f2acf9bf826c806f72dbe4ca9",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort87_seed20261020/fold1/derivative_leaf1.joblib",
+      "sha256": "baf2bbeeb294958c60588654075f34d807c7194f27f18169965ff032049f5bb9",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort87_seed20261020/fold2/DCT16_leaf1.joblib",
+      "sha256": "8109b400ca14ed34b50b87e88829e174ad02c09843cfc2bb73b7bdadd38e8de3",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort87_seed20261020/fold2/DCT24_leaf1.joblib",
+      "sha256": "ab74281b18ba38ff1cc722a73375dc2944563e70351c2bb2f6a04a162d02a504",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort87_seed20261020/fold2/author_Combined_leaf1.joblib",
+      "sha256": "5730ffa49c1c4beba82b8e021171d901f991c0d51477d23b93d30cd26ab6ace5",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort87_seed20261020/fold2/derivative_leaf1.joblib",
+      "sha256": "53474ce2d7cc1bdd213af4b7f5d70a8a0e9cfc172e2726620a8e12fe32ba594d",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort87_seed20261020/fold3/author_Combined_leaf1.joblib",
+      "sha256": "acdeb459f8f283f3d23308b40b36c060ab84214163a390cd83d72bcd4810605a",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort87_seed20261020/fold3/derivative_leaf1.joblib",
+      "sha256": "c8448320919779f9cdc6af945e2d6a5a9da6b21be668591fa86eff5b18b1d4c8",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort87_seed20261020/fold3/shape_CDF_derivatives_leaf1.joblib",
+      "sha256": "69c5a6d4d2f94aa7475d04f772f6e6ead48d7bac9bdf4150914343dfef0c49ed",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort87_seed20261020/fold4/author_Combined_leaf1.joblib",
+      "sha256": "921329cfc12d2288aed52f34d726f57c5a3f4e9c681fa52b2d646f19dce19183",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort87_seed20261020/fold4/derivative_leaf1.joblib",
+      "sha256": "6c5c14b685660b72b3bd005846f9969dd787028b0c6cd447926c4dff7f8bf8c4",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort87_seed20261020/fold4/shape_CDF_derivatives_leaf1.joblib",
+      "sha256": "b6b10ba0452b436e4d457e35b743331b3e0a8311f39b6ff734cfc0867ae1866d",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort87_seed20261020/fold4/shape_CDF_derivatives_leaf2.joblib",
+      "sha256": "8acfb5c1f7813a685d01ef602d49369b11443e3266e17cf5028f949e6596746c",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort87_seed20261021/fold0/author_Combined_leaf1.joblib",
+      "sha256": "10e75417f30d0161b2304d894fac1eeaefeec04eb75c6faef0c0224310c59eed",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort87_seed20261021/fold0/derivative_leaf1.joblib",
+      "sha256": "97f8a88fb212a46cd3e1965e00e2ec97037d7ec2b97bc3c70190df65066de1a1",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort87_seed20261021/fold0/shape_CDF_derivatives_leaf1.joblib",
+      "sha256": "02e556613ec683a6684171c7dd3709afb39c98e0133530ed3a8b3c07992e0edd",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort87_seed20261021/fold1/author_Combined_leaf1.joblib",
+      "sha256": "f4debba58434628879bb134ebf8bda1f317692899fe6187342f7043f10c46f26",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort87_seed20261021/fold1/derivative_leaf1.joblib",
+      "sha256": "4b543508c797946069bf7a6df012409e42f710d7378c40b7140777ae95eb3317",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort87_seed20261021/fold1/shape_CDF_derivatives_leaf1.joblib",
+      "sha256": "e457b14c8bbe1b0e9a9fd398a44710da98afd249b35dda4eb7d0d8fe01b23043",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort87_seed20261021/fold2/author_Combined_leaf1.joblib",
+      "sha256": "14433b3933b5ae12f0c116e3d5feae67665ad02cf851e0cc1a03fab06af66bf5",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort87_seed20261021/fold2/derivative_leaf1.joblib",
+      "sha256": "e1a51f612fa18da2873ffb3422ec6295565036dd9568291a715a0a634f1faf37",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort87_seed20261021/fold2/derivative_leaf2.joblib",
+      "sha256": "fdcfa87ccecae2b59c9a03d0ae3c22787756b79319d161f86d0986d9c6d9db5b",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort87_seed20261021/fold2/shape_CDF_derivatives_leaf1.joblib",
+      "sha256": "6bdb5d4991e19f5baf6023f9b05104c673ca86bab9004f8194131da412292659",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort87_seed20261021/fold3/author_Combined_leaf1.joblib",
+      "sha256": "1496235a6af342fc637a11c416b6e1e745139c60482d5dc8936b0c2b1cb45bf3",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort87_seed20261021/fold3/derivative_leaf1.joblib",
+      "sha256": "82bc5b38b29721ee12bd9bf648d942d34b7185d89338dd236c9296378e77d9df",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort87_seed20261021/fold3/shape_CDF_derivatives_leaf1.joblib",
+      "sha256": "b0b7c734a836a319c09e56387f20ef03c246c569f120062b95e967db8edaca7b",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort87_seed20261021/fold4/author_Combined_leaf1.joblib",
+      "sha256": "32146d163e2b4b40915c34dc45c9c125580cb856ab4c8f19cbb8e55868e19bb5",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort87_seed20261021/fold4/derivative_leaf1.joblib",
+      "sha256": "b6a88797619af9765a8d981952d82632b344311e01b7baf40b72f4931ca54d9f",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort87_seed20261021/fold4/shape_CDF_derivatives_leaf1.joblib",
+      "sha256": "dd3a0b4b942c8b4d42da113fbb38bf6017e100f260f42baf7ff2a65269d377ad",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort87_seed20261022/fold0/author_Combined_leaf1.joblib",
+      "sha256": "87d8f7bc9c20f429681cca2d6e08ad88ec1488ab0e7fa63c20c580a1ee3fe56e",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort87_seed20261022/fold0/derivative_leaf1.joblib",
+      "sha256": "8ca0c4d0ae4c782acba391a58b4a0cee55cb9ab9f4f887c707f8d6e93ad0768a",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort87_seed20261022/fold0/shape_CDF_derivatives_leaf1.joblib",
+      "sha256": "b538c8ce027f4ece0e8ac9eb8c2b984b69b0e4805cdb3ebf5fdf978fd715056f",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort87_seed20261022/fold1/author_Combined_leaf1.joblib",
+      "sha256": "ae95440d39a59bc95767dc915a88fd44c52edad62aaeda8f7b60363e4f0e7dda",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort87_seed20261022/fold1/derivative_leaf1.joblib",
+      "sha256": "e6db7aca25d8304316285427c21f2b1dab9af2465f54ba86aa971cab5cbdd0aa",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort87_seed20261022/fold1/shape_CDF_derivatives_leaf1.joblib",
+      "sha256": "9f50605cde42ff2a1b551f509cea75c8cafa20ed9a0526df2eee67be196667d2",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort87_seed20261022/fold2/author_Combined_leaf1.joblib",
+      "sha256": "b22064efcb5b3ee1e81b0146ebd829430ff5e831d3bf50fa2f7886946ce30c99",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort87_seed20261022/fold2/derivative_leaf1.joblib",
+      "sha256": "dc337829b525404825fce7c4abe6d7ed8ff34e1ff41c245a84aa86efc7b7ec0e",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort87_seed20261022/fold3/author_Combined_leaf1.joblib",
+      "sha256": "79328b22d48cc6426ddce7a292dfe87ed177cb7dca4a6421b0b7a74b8347fc16",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort87_seed20261022/fold3/derivative_leaf1.joblib",
+      "sha256": "8a6a5aa51f834a7b62c8d6083279e129817d49827640ab031faea74540b267ff",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort87_seed20261022/fold3/shape_CDF_derivatives_leaf1.joblib",
+      "sha256": "d0c3050368c5888287b0fff6eee1fade2e1aec3274526982c8fb15b02805030a",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort87_seed20261022/fold4/author_Combined_leaf1.joblib",
+      "sha256": "d2eaffa13552856595ee92d58b01d3302d64df3364b38049b4327911a20d7590",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort87_seed20261022/fold4/derivative_leaf1.joblib",
+      "sha256": "5616307859f215e657f6d74c898bbe25cb5228bcb43fcf641f8f2c952a35be76",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort87_seed20261022/fold4/shape_CDF_derivatives_leaf1.joblib",
+      "sha256": "f81eccd12849149744f5c30e0dcae452a3381a3a3a35af9c0fffb3e490a6cd78",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort87_seed20261022/fold4/shape_CDF_derivatives_leaf2.joblib",
+      "sha256": "b175d3889e18f353f64ce6b100e154b06aa0f58ce5382e21870bc4829d7f1818",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort90_seed20261020/fold0/author_Combined_leaf1.joblib",
+      "sha256": "b7d67c39985c522155eba7dd86877e1f216d8abc19f6e5dfac311086dd5ef022",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort90_seed20261020/fold0/derivative_leaf1.joblib",
+      "sha256": "e59f95a060fdaab462b1aa37bac57843922becc92705c8c76b89686e0b3d0f25",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort90_seed20261020/fold0/shape_CDF_derivatives_leaf1.joblib",
+      "sha256": "d37337777ae797d9ada688f26907621ffa75b913fa12dde68e04c95d67fc1a70",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort90_seed20261020/fold1/author_Combined_leaf1.joblib",
+      "sha256": "b7566bd143397976cc3596d2d0efc341b08d348131fd1fde6a434322dee3b603",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort90_seed20261020/fold1/derivative_leaf1.joblib",
+      "sha256": "528dcbf9f820bb8aee3ab83df0f82612b3ebab4ef4e487a32deb3a59120d97de",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort90_seed20261020/fold1/shape_CDF_derivatives_leaf1.joblib",
+      "sha256": "1213833d09fcf24b1a5838a3ae245ae3663d9ed759d148a579a59d6bb70ed1e5",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort90_seed20261020/fold1/shape_CDF_derivatives_leaf2.joblib",
+      "sha256": "f455bb4136020b7221146afd0442635ebec8e856a9847fa6e3feb64ceffd0908",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort90_seed20261020/fold2/DCT24_leaf1.joblib",
+      "sha256": "f05d28c25db7617ef165efadb0e5dc7f615acf5fa2426a9742c0de411fffd80c",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort90_seed20261020/fold2/author_Combined_leaf1.joblib",
+      "sha256": "805d1ae9ff6b9f7982c720606a0f0e1e3e7a05b694a8b441dc98df9ea3c8e213",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort90_seed20261020/fold2/derivative_leaf1.joblib",
+      "sha256": "b9b9c1a183b3f9567b92a55d18993cb6bb6c66c8fb16f3125951d651f04617b6",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort90_seed20261020/fold2/shape_CDF_derivatives_leaf2.joblib",
+      "sha256": "a343a1989013ce498eed226954d97ad0ac967d1e531b6a9ae66ca4440076c1d5",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort90_seed20261020/fold3/author_Combined_leaf1.joblib",
+      "sha256": "bd6ccafc8e776dcd9ee56a4a054adbfb5e574bf4e03ecdad1a87497b595a39d6",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort90_seed20261020/fold3/derivative_leaf1.joblib",
+      "sha256": "5c0c04c0b3622967ddb11fe85fda47b104854da504c92cd62d1832012de23aa2",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort90_seed20261020/fold3/shape_CDF_derivatives_leaf1.joblib",
+      "sha256": "a04c46b77b0e7f981b26fc4cb573ff65b269026b67c224cf474707dfd1cd3246",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort90_seed20261020/fold4/author_Combined_leaf1.joblib",
+      "sha256": "5cc5fd80fbd9b95aee0c4dcd6457ea79d4edabb8a4f96bab7a0e498656b6759b",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort90_seed20261020/fold4/derivative_leaf1.joblib",
+      "sha256": "723b437faecf590c22a8a0da1652784cc332f42a0adef5833d0aea9c13b3302f",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort90_seed20261020/fold4/shape_CDF_derivatives_leaf1.joblib",
+      "sha256": "7ac06a8f4fb3c833ea1c43ba5f953b937e5112a5914de60bd2827738755e5d8b",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort90_seed20261020/fold4/shape_CDF_derivatives_leaf2.joblib",
+      "sha256": "fb722da6fbc6354c711865d4770f7bfa73f5115eaa58cfb833d9e14b5d283f8f",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort90_seed20261021/fold0/author_Combined_leaf1.joblib",
+      "sha256": "998bc2c26c26afc1c9ed31be542c33d2d7dfce8cfbef2598cbab0ceea7a39281",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort90_seed20261021/fold0/derivative_leaf1.joblib",
+      "sha256": "8a86e1db055bf8f869b8b3587cb9586d0a7099558191637d432d2b957ea7a902",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort90_seed20261021/fold0/shape_CDF_derivatives_leaf1.joblib",
+      "sha256": "7c2464c9b19737adac793f3d6a3c122831e36526e78baa8f526baf635ec79848",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort90_seed20261021/fold0/shape_CDF_derivatives_leaf4.joblib",
+      "sha256": "29b6834f9801cb933a1d4ec4b734cbe5e88c0d74c930da993551df714f08c58a",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort90_seed20261021/fold1/author_Combined_leaf1.joblib",
+      "sha256": "9a8d5839fc79257e57f367aa66a81038cf09afe6a05f887f8531a3b133dd83b4",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort90_seed20261021/fold1/derivative_leaf1.joblib",
+      "sha256": "9f57d9de0e6669d42a384c4b63bcc1da543b9890a70daeaa7b35f332694ecc19",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort90_seed20261021/fold1/shape_CDF_derivatives_leaf1.joblib",
+      "sha256": "d14b17bf8ca23d2f46acd0df3bf66c1733578e0909f8c00b6a43e453dd78abf5",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort90_seed20261021/fold2/author_Combined_leaf1.joblib",
+      "sha256": "95906b4d4ddb82122727671ecba44aaf635323ed00c599060b020675b2896bdf",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort90_seed20261021/fold2/derivative_leaf1.joblib",
+      "sha256": "b263f73d9b623a924dce42078856e4eead5028311c887d5fb85dc667d8eeffe4",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort90_seed20261021/fold2/shape_CDF_derivatives_leaf1.joblib",
+      "sha256": "36d818539d98123303689101ade2658f3aa08f3ab20b85e177d5cc7a6071b789",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort90_seed20261021/fold3/author_Combined_leaf1.joblib",
+      "sha256": "12ea59b3294a7c5626a825737d8b1f87e72499881d28a33bfbe8e6c4808c2b7f",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort90_seed20261021/fold3/derivative_leaf1.joblib",
+      "sha256": "9db396517306c3ee3e3713dff4a01288a17008a5d0eb4bc3ec61e69917bbb7ea",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort90_seed20261021/fold3/shape_CDF_derivatives_leaf1.joblib",
+      "sha256": "35cea63c42d360c86879f39e7c50045a882ead2f67774aa8c47e74148c42e7de",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort90_seed20261021/fold4/author_Combined_leaf1.joblib",
+      "sha256": "771d449092e977aa756bb688cd59a1fad00ddc29ed0494f01e85ff6761c014f0",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort90_seed20261021/fold4/derivative_leaf1.joblib",
+      "sha256": "5a09eb6f431e092da3d17cf2c0e0b5adcdc6f0ed0af422cb33e213df851835ed",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort90_seed20261021/fold4/shape_CDF_derivatives_leaf1.joblib",
+      "sha256": "7b5de23b9e6ec5046fb7a0cba792cbe3a9ef7426597f4b930ac61369d0d4fd8a",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort90_seed20261021/fold4/shape_CDF_derivatives_leaf2.joblib",
+      "sha256": "256e339a22c3f18fe5fac55593b1824633ceca417d13391c102e7b3ccf6ca780",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort90_seed20261022/fold0/author_Combined_leaf1.joblib",
+      "sha256": "be47cb0f54da43d216fc20e255cb878edafe553ec383fc607d065170f7c39972",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort90_seed20261022/fold0/derivative_leaf1.joblib",
+      "sha256": "872510cde46365dbd63ebcdef0f34209bdce35ab5c934185fa36fd19563ae2af",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort90_seed20261022/fold0/shape_CDF_derivatives_leaf1.joblib",
+      "sha256": "c0e22725736c4514cc8addbc164cae93cdfb4f53c38139dfcfd066d894bd8c0a",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort90_seed20261022/fold1/author_Combined_leaf1.joblib",
+      "sha256": "941ded63dcee2fee87e53bee8857958db9dff079bb76018a010d7735f3d0ef6e",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort90_seed20261022/fold1/derivative_leaf1.joblib",
+      "sha256": "c1a1e113e9100786e08089ebbe9f8cefadefd24d83c117b1ba7e8953049ab580",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort90_seed20261022/fold2/author_Combined_leaf1.joblib",
+      "sha256": "9854658a0b77e5bc000db1f0e26dfbc4f707016c22a92e873d12ce9a4511caa0",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort90_seed20261022/fold2/derivative_leaf1.joblib",
+      "sha256": "87618bee5235816663ab2a35479f8d060a024dc0bb0a34a7ba85e1df2f77f9ba",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort90_seed20261022/fold2/shape_CDF_derivatives_leaf1.joblib",
+      "sha256": "cbf8e6b7014f382d5a27584cb99c1d59079f5813fdeae7bd03bdf2d20a007239",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort90_seed20261022/fold2/shape_CDF_derivatives_leaf2.joblib",
+      "sha256": "aee5b62c68cd874d18ba5ef8bf8bd8b01ab82f256888e61c13050ed0827a8c73",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort90_seed20261022/fold3/author_Combined_leaf1.joblib",
+      "sha256": "89ced15770d2616c69c3dc841e3b7a94d41405d39a0bd42495be48e0fe6d18d3",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort90_seed20261022/fold3/derivative_leaf1.joblib",
+      "sha256": "abf4937520a14475f331d353b47777a7e748bd42799cb3f576cf9994aa6414ad",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort90_seed20261022/fold3/shape_CDF_derivatives_leaf1.joblib",
+      "sha256": "d89da805472a823ee43ab9954370c99c9debce461786f4a5126fe4b9de7bac91",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort90_seed20261022/fold4/author_Combined_leaf1.joblib",
+      "sha256": "9163a61dd23a4245e459cfe2a41e49f8373a0ee64a81534cef7c0af6965bdfcd",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort90_seed20261022/fold4/derivative_leaf1.joblib",
+      "sha256": "93b2650ac8590567222c06735e142e761c0e0fff4d704efb45d63cde7ac90cd2",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "experiments/cohort90_seed20261022/fold4/shape_CDF_derivatives_leaf1.joblib",
+      "sha256": "bf122c6dac5fd656f1e6700c3157238fdadf2b3f5d70a2b6d43a771b954543e9",
+      "score_replay_identical": true,
+      "depth": "top_2"
+    },
+    {
+      "path": "diagnosis/fixed_top_two_old_only/Combined_old87_seed20261020.joblib",
+      "sha256": "1c4382a21d76c8c645d2ba40a2a95860071b6655c72495e4e9320d68234f610c",
+      "score_replay_identical": true,
+      "depth": "top_2",
+      "scope": "old-only three-case diagnostic"
+    },
+    {
+      "path": "diagnosis/fixed_top_two_old_only/Combined_old87_seed20261021.joblib",
+      "sha256": "1862382e8d53f2eb1704990336993499530f2de7aa59b45a4c489abcb0d97ec7",
+      "score_replay_identical": true,
+      "depth": "top_2",
+      "scope": "old-only three-case diagnostic"
+    },
+    {
+      "path": "diagnosis/fixed_top_two_old_only/Combined_old87_seed20261022.joblib",
+      "sha256": "03862ebf02cf7fde40b95cb96be8d3a0ad873c3bc8a172044b59f6125886c151",
+      "score_replay_identical": true,
+      "depth": "top_2",
+      "scope": "old-only three-case diagnostic"
+    }
+  ]
+}

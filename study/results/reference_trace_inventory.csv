@@ -1,0 +1,5 @@
+reference,file,sha256,points,energy_min_eV,energy_max_eV,data_kind,backend,mode,radius_A,core_hole,convergence,broadening,experimental_source,license,normalized_RMSE,pearson_r
+CuO,CuO.txt,962cb5452e13a09a057c64093769f24b417c1105b139b276ec081d8466be26e3,228.0,8974.0,9019.4,raw simulated Cu site output; ensemble provenance unresolved,FDMNES,verify against input/header; no Green keyword,7.0,unresolved,unmeasured,raw; final broadened trace unavailable,unavailable,not supplied; bundle remains local,,
+CuO,CuO_2.txt,0f3fc15ded01a5ca425524e6e4e2e4d7fb902ece90499bd002754add0e557c24,276.0,8974.0,9029.0,raw simulated Cu site output; ensemble provenance unresolved,FDMNES,verify against input/header; no Green keyword,7.0,unresolved,unmeasured,raw; final broadened trace unavailable,unavailable,not supplied; bundle remains local,,
+Cu,,,,,,required reference absent from audited source bundle,,,,,,,unavailable,,,
+Cu2O,,,,,,required reference absent from audited source bundle,,,,,,,unavailable,,,
