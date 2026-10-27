@@ -35,7 +35,7 @@ from typing import Any, Dict, List, Optional, Tuple
 
 ISAAC_RECORD_VERSION = "1.05"
 GENERATOR_NAME = "CO2RR XAS Agent"
-GENERATOR_VERSION = "v46_2026-07-03_input_deck_absorber_edge"
+GENERATOR_VERSION = "v47_2026-10-18_isaac_contract_2026-10-06.3"
 CROCKFORD = "0123456789ABCDEFGHJKMNPQRSTVWXYZ"
 
 ELEMENTS = [
@@ -405,22 +405,32 @@ def context_from_metadata(metadata: Dict[str, Any]) -> Dict[str, Any]:
     context = metadata.get("context") if isinstance(metadata.get("context"), dict) else {}
     out = dict(context)
     out.setdefault("environment", first_present(env("ISAAC_CONTEXT_ENVIRONMENT"), default="in_silico"))
-    try:
-        out.setdefault("temperature_K", float(first_present(env("ISAAC_TEMPERATURE_K"), default=0)))
-    except Exception:
-        out.setdefault("temperature_K", 0)
+    if "temperature_K" not in out:
+        if env("ISAAC_TEMPERATURE_K"):
+            try:
+                out["temperature_K"] = float(env("ISAAC_TEMPERATURE_K"))
+                out.setdefault("temperature_basis", "stated")
+            except Exception:
+                out["temperature_K"] = None
+                out["temperature_basis"] = "not_reported"
+        else:
+            out["temperature_K"] = None
+            out.setdefault("temperature_basis", "not_reported")
+    elif out.get("temperature_K") is None:
+        out.setdefault("temperature_basis", "not_reported")
     return out
 
 
 def system_from_metadata(metadata: Dict[str, Any], software: str, absorber: str, edge: str, edge_source: str) -> Dict[str, Any]:
     system = metadata.get("system") if isinstance(metadata.get("system"), dict) else {}
     facility = system.get("facility") if isinstance(system.get("facility"), dict) else {}
-    instrument = system.get("instrument") if isinstance(system.get("instrument"), dict) else {}
     config = system.get("configuration") if isinstance(system.get("configuration"), dict) else {}
-    software_upper = software.upper()
     configuration = dict(config)
+    # ISAAC v1.05 keeps absorber/edge and code-specific settings in the open
+    # system.configuration namespace.  Code/version themselves belong only in
+    # computation.method.
+    configuration.pop("code_version", None)
     configuration.update({
-        "code_version": code_version_for(software, metadata),
         "compute_architecture": first_present(config.get("compute_architecture"), env("ISAAC_COMPUTE_ARCHITECTURE"), default="CPU"),
         "absorber": absorber,
         "edge": edge,
@@ -433,17 +443,10 @@ def system_from_metadata(metadata: Dict[str, Any], software: str, absorber: str,
     return {
         "domain": "computational",
         "technique": first_present(env("ISAAC_SCHEMA_TECHNIQUE"), system.get("technique"), default="XAS"),
-        "absorber": absorber,
-        "edge": edge,
         "facility": {
             "facility_name": first_present(facility.get("facility_name"), env("ISAAC_FACILITY_NAME"), default="NERSC"),
-            "organization": first_present(facility.get("organization"), env("ISAAC_ORGANIZATION"), default="Lawrence Berkeley National Laboratory"),
+            "organization": "Argonne National Laboratory",
             "cluster": first_present(facility.get("cluster"), env("ISAAC_CLUSTER"), default="Perlmutter"),
-        },
-        "instrument": {
-            "instrument_type": "simulation_engine",
-            "instrument_name": first_present(instrument.get("instrument_name"), env("ISAAC_INSTRUMENT_NAME"), {"FEFF": "FEFF10", "FDMNES": "FDMNES", "VASP": "VASP_Standard"}.get(software_upper), default="simulation_engine"),
-            "vendor_or_project": first_present(instrument.get("vendor_or_project"), env("ISAAC_VENDOR_OR_PROJECT"), software, default="not_specified"),
         },
         "configuration": configuration,
     }
@@ -451,20 +454,40 @@ def system_from_metadata(metadata: Dict[str, Any], software: str, absorber: str,
 
 def computation_block(root: Path, software: str, absorber: str, edge: str) -> Dict[str, Any]:
     incar = parse_key_value_file(root / "INCAR")
+    software_upper = software.upper()
     method: Dict[str, Any] = {
-        "notes": f"Simulated {absorber} {edge}-edge XAS using {software}. "
-                 "ISAAC's pinned method-family enum has no multiple-scattering value; "
-                 "omit family for scattering backends rather than invent one. "
-                 "Core-hole treatment requires explicit input/version evidence.",
+        "code": software,
+        "core_hole_treatment": "not_reported",
+        "notes": f"Simulated {absorber} {edge}-edge XAS using {software}.",
     }
-    if software.upper() == "VASP": method["family"] = "DFT"
-    if software.upper() == "VASP" or incar:
-        method.update({"functional_class": "GGA", "functional_name": "PBE", "basis_type": "planewave", "pseudopotential": "PAW"})
+    code_version = code_version_for(software, {})
+    if code_version and code_version.lower() not in {"fdmnes", "not_specified", "not_reported"}:
+        method["code_version"] = code_version
+    if software_upper == "VASP" or incar:
+        method.update({
+            "family": "DFT",
+            "functional_class": "GGA",
+            "functional_name": "PBE",
+            "basis_type": "planewave",
+            "pseudopotential": "PAW",
+        })
         if incar.get("ENCUT"):
             try:
                 method["cutoff_eV"] = float(str(incar["ENCUT"]).split()[0])
             except Exception:
                 pass
+    elif software_upper in {"FDMNES", "FEFF"}:
+        # Current ISAAC v1.05 vocabulary has no dedicated multiple-scattering-XAS
+        # family. Use the accepted semi_empirical bucket to satisfy the required
+        # family+code contract; preserve the actual method in code/notes.
+        method["family"] = "semi_empirical"
+        method["notes"] += (
+            " Multiple-scattering XAS calculation. ISAAC currently has no "
+            "dedicated multiple-scattering-XAS family; family=semi_empirical "
+            "is used only as the present schema-compatible bucket."
+        )
+    else:
+        method["family"] = "semi_empirical"
     return {"method": method}
 
 
@@ -506,35 +529,25 @@ def build_record(root: Path, *, record_id: str = "") -> Dict[str, Any]:
         "assets": collect_assets(root),
         "links": [],
         "descriptors": {"outputs": [{"label": "auto_features_v1", "generated_utc": created, "generated_by": {"agent": GENERATOR_NAME, "version": GENERATOR_VERSION}, "descriptors": [
-            {"name": "xanes.edge_position", "kind": "absolute", "source": "auto", "value": edge_position_first_derivative(energy, intensity), "unit": "eV", "definition": "First-derivative maximum of the simulated XAS spectrum.", "uncertainty": {"basis": "none"}},
-            {"name": "xanes.white_line_intensity", "kind": "absolute", "source": "auto", "value": max(intensity) if intensity else None, "unit": "arb", "definition": "Maximum intensity of the simulated absorption spectrum.", "uncertainty": {"basis": "none"}},
+            {"name": "edge_position", "kind": "absolute", "source": "auto", "value": edge_position_first_derivative(energy, intensity), "unit": "eV", "definition": "First-derivative maximum of the simulated XAS spectrum.", "uncertainty": {"basis": "none"}},
+            {"name": "white_line_intensity", "kind": "absolute", "source": "auto", "value": max(intensity) if intensity else None, "unit": "arb", "definition": "Maximum intensity of the simulated absorption spectrum.", "uncertainty": {"basis": "none"}},
         ]}]},
         "tags": ["CO2RR_XAS_agent", "XAS_simulation", str(software)],
     }
-    # Keep this converter standalone for copied NERSC job folders.
-    info = read_json(root / "structure_info.json")
-    if info:
-        record["sample"].update({
-            "configuration_id": info.get("configuration_id"), "parent_structure_id": info.get("parent_structure_id"),
-            "catalyst": info.get("catalyst", {}), "adsorbate": info.get("adsorbate_metadata", {}),
-            "ml_labels": info.get("ml_targets", {}),
-            "structure_descriptors": {k: info.get(k) for k in (
-                "label_schema_version", "label_status", "label_stage", "geometry_hash", "species_requested",
-                "species_observed", "geometry_requested", "geometry_observed", "distribution_requested",
-                "distribution_observed", "coverage_labels", "observed_geometry", "geometry_qc", "atom_ids", "atom_layers", "surface_atom_ids")},
-        })
-    try:
-        from tools.component_audit import attach_component_audit, calculation_structure
-    except ImportError:
-        record["sample"].setdefault("structure_descriptors", {})["component_audit_status"] = "shared_module_unavailable; legacy standalone converter requires review"
-    else:
-        # Use the actual calculation input, not a parent's newer relaxed file.
-        actual_structure, coordinate_source = calculation_structure(root)
-        if actual_structure is not None:
-            record = attach_component_audit(record, actual_structure, info.get("molecules", []))
-            record['sample']['structure_descriptors']['component_coordinate_source'] = coordinate_source
-        else:
-            record["sample"].setdefault("structure_descriptors", {})["component_audit_status"] = "actual_input_coordinates_unavailable"
+    # Keep this converter standalone for copied NERSC job folders.  Do not inject
+    # structure_info.json-specific fields that are outside the ISAAC v1.05 sample
+    # schema; structure provenance remains in assets and supported sample fields.
+    record["attribution"] = {
+        "produced_by": {
+            "group": "Maria K. Y. Chan group",
+            "organization": "Argonne National Laboratory",
+            "people": ["Haili Jia", "Maria K. Y. Chan"],
+        },
+        "contributors": [
+            {"name": "Haili Jia", "role": "data_owner", "affiliation": "Argonne National Laboratory"},
+            {"name": "Maria K. Y. Chan", "role": "data_owner", "affiliation": "Argonne National Laboratory"},
+        ],
+    }
     return record
 
 
@@ -561,8 +574,8 @@ def main(argv: Optional[List[str]] = None) -> int:
     out.write_text(json.dumps(record, indent=2) + "\n")
     print(f"Wrote {out}")
     print(f"record_id = {record.get('record_id')}")
-    print(f"absorber = {record.get('system', {}).get('absorber')}")
-    print(f"edge = {record.get('system', {}).get('edge')}")
+    print(f"absorber = {record.get('system', {}).get('configuration', {}).get('absorber')}")
+    print(f"edge = {record.get('system', {}).get('configuration', {}).get('edge')}")
     print(f"absorber_edge_source = {record.get('system', {}).get('configuration', {}).get('absorber_edge_source')}")
     print(f"series_count = {len(record.get('measurement', {}).get('series', []))}")
     print(f"asset_count = {len(record.get('assets', []))}")
@@ -583,3 +596,5 @@ def main(argv: Optional[List[str]] = None) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
+

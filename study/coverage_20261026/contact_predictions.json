@@ -1,0 +1,1082 @@
+[
+  {
+    "configuration": "2CO_adjacent/2CO_adjacent_0p056_AuCu_interface",
+    "contacts_per_CO": [
+      [
+        3,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "cutoff_stable_2p15_2p35": true,
+    "truth_mean_Cu": 1.5,
+    "truth_mean_Au": 0.5,
+    "prediction_mean_Cu": 1.0588107638888893,
+    "prediction_mean_Au": 0.11038773148148166,
+    "baseline_mean_Cu": 1.2310185185185185,
+    "baseline_mean_Au": 0.0650462962962963
+  },
+  {
+    "configuration": "2CO_adjacent/2CO_adjacent_0p056_interior",
+    "contacts_per_CO": [
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        0
+      ]
+    ],
+    "cutoff_stable_2p15_2p35": true,
+    "truth_mean_Cu": 2.5,
+    "truth_mean_Au": 0.0,
+    "prediction_mean_Cu": 1.4863160686728394,
+    "prediction_mean_Au": 0.27029682677469186,
+    "baseline_mean_Cu": 1.150462962962963,
+    "baseline_mean_Au": 0.06921296296296296
+  },
+  {
+    "configuration": "2CO_adjacent/2CO_adjacent_0p056_orientation_alt",
+    "contacts_per_CO": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "cutoff_stable_2p15_2p35": true,
+    "truth_mean_Cu": 1.0,
+    "truth_mean_Au": 0.0,
+    "prediction_mean_Cu": 1.1091820987654317,
+    "prediction_mean_Au": 0.10947145061728392,
+    "baseline_mean_Cu": 1.2560185185185184,
+    "baseline_mean_Au": 0.09560185185185187
+  },
+  {
+    "configuration": "2CO_adjacent/2CO_adjacent_0p111_interface",
+    "contacts_per_CO": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "cutoff_stable_2p15_2p35": true,
+    "truth_mean_Cu": 1.0,
+    "truth_mean_Au": 0.0,
+    "prediction_mean_Cu": 1.347198109567901,
+    "prediction_mean_Au": 0.18722270447530887,
+    "baseline_mean_Cu": 1.150462962962963,
+    "baseline_mean_Au": 0.06921296296296296
+  },
+  {
+    "configuration": "2CO_adjacent/2CO_adjacent_0p111_uniform",
+    "contacts_per_CO": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "cutoff_stable_2p15_2p35": true,
+    "truth_mean_Cu": 1.0,
+    "truth_mean_Au": 0.0,
+    "prediction_mean_Cu": 1.000144675925926,
+    "prediction_mean_Au": 0.003472222222222222,
+    "baseline_mean_Cu": 1.2310185185185185,
+    "baseline_mean_Au": 0.0650462962962963
+  },
+  {
+    "configuration": "2CO_adjacent/2CO_adjacent_0p167_uniform",
+    "contacts_per_CO": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "cutoff_stable_2p15_2p35": true,
+    "truth_mean_Cu": 1.0,
+    "truth_mean_Au": 0.0,
+    "prediction_mean_Cu": 0.9803240740740741,
+    "prediction_mean_Au": 0.06901041666666667,
+    "baseline_mean_Cu": 1.1819444444444445,
+    "baseline_mean_Au": 0.07152777777777777
+  },
+  {
+    "configuration": "CO/CO_0p11/interface_biased",
+    "contacts_per_CO": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "cutoff_stable_2p15_2p35": true,
+    "truth_mean_Cu": 1.0,
+    "truth_mean_Au": 0.0,
+    "prediction_mean_Cu": 0.9843750000000006,
+    "prediction_mean_Au": 0.015624999999999993,
+    "baseline_mean_Cu": 1.2310185185185185,
+    "baseline_mean_Au": 0.0650462962962963
+  },
+  {
+    "configuration": "CO/CO_0p11/interior_biased",
+    "contacts_per_CO": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "cutoff_stable_2p15_2p35": true,
+    "truth_mean_Cu": 1.0,
+    "truth_mean_Au": 0.0,
+    "prediction_mean_Cu": 1.032021604938272,
+    "prediction_mean_Au": 0.053144290123456776,
+    "baseline_mean_Cu": 1.2046296296296295,
+    "baseline_mean_Au": 0.08101851851851852
+  },
+  {
+    "configuration": "CO/CO_0p11/uniform",
+    "contacts_per_CO": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "cutoff_stable_2p15_2p35": true,
+    "truth_mean_Cu": 1.0,
+    "truth_mean_Au": 0.0,
+    "prediction_mean_Cu": 1.000506365740741,
+    "prediction_mean_Au": 0.017216435185185185,
+    "baseline_mean_Cu": 1.2560185185185184,
+    "baseline_mean_Au": 0.09560185185185187
+  },
+  {
+    "configuration": "CO/CO_0p14/interface_biased",
+    "contacts_per_CO": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "cutoff_stable_2p15_2p35": true,
+    "truth_mean_Cu": 1.0,
+    "truth_mean_Au": 0.0,
+    "prediction_mean_Cu": 0.9661458333333346,
+    "prediction_mean_Au": 0.08962673611111124,
+    "baseline_mean_Cu": 1.2046296296296295,
+    "baseline_mean_Au": 0.08101851851851852
+  },
+  {
+    "configuration": "CO/CO_0p14/interior_biased",
+    "contacts_per_CO": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "cutoff_stable_2p15_2p35": true,
+    "truth_mean_Cu": 1.0,
+    "truth_mean_Au": 0.0,
+    "prediction_mean_Cu": 0.998046875,
+    "prediction_mean_Au": 0.006944444444444445,
+    "baseline_mean_Cu": 1.2560185185185184,
+    "baseline_mean_Au": 0.09560185185185187
+  },
+  {
+    "configuration": "CO/CO_0p14/uniform",
+    "contacts_per_CO": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "cutoff_stable_2p15_2p35": true,
+    "truth_mean_Cu": 1.0,
+    "truth_mean_Au": 0.0,
+    "prediction_mean_Cu": 0.9984809027777778,
+    "prediction_mean_Au": 0.0037254050925925927,
+    "baseline_mean_Cu": 1.1819444444444445,
+    "baseline_mean_Au": 0.07152777777777777
+  },
+  {
+    "configuration": "CO/CO_0p14/uniform2",
+    "contacts_per_CO": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "cutoff_stable_2p15_2p35": true,
+    "truth_mean_Cu": 1.0,
+    "truth_mean_Au": 0.0,
+    "prediction_mean_Cu": 0.9976128472222222,
+    "prediction_mean_Au": 0.006727430555555554,
+    "baseline_mean_Cu": 1.2560185185185184,
+    "baseline_mean_Au": 0.09560185185185187
+  },
+  {
+    "configuration": "CO/CO_0p25/interface_biased",
+    "contacts_per_CO": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "cutoff_stable_2p15_2p35": false,
+    "truth_mean_Cu": 1.0,
+    "truth_mean_Au": 0.1111111111111111,
+    "prediction_mean_Cu": 1.0238715277777783,
+    "prediction_mean_Au": 0.06640625000000001,
+    "baseline_mean_Cu": 1.2310185185185185,
+    "baseline_mean_Au": 0.0650462962962963
+  },
+  {
+    "configuration": "CO/CO_0p25/interface_biased2",
+    "contacts_per_CO": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "cutoff_stable_2p15_2p35": true,
+    "truth_mean_Cu": 1.0,
+    "truth_mean_Au": 0.0,
+    "prediction_mean_Cu": 1.02293113425926,
+    "prediction_mean_Au": 0.06727430555555557,
+    "baseline_mean_Cu": 1.2310185185185185,
+    "baseline_mean_Au": 0.0650462962962963
+  },
+  {
+    "configuration": "CO/CO_0p25/interior_biased",
+    "contacts_per_CO": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "cutoff_stable_2p15_2p35": true,
+    "truth_mean_Cu": 1.0,
+    "truth_mean_Au": 0.0,
+    "prediction_mean_Cu": 1.0835021219135803,
+    "prediction_mean_Au": 0.17396074459876557,
+    "baseline_mean_Cu": 1.2560185185185184,
+    "baseline_mean_Au": 0.09560185185185187
+  },
+  {
+    "configuration": "CO/CO_0p25/uniform",
+    "contacts_per_CO": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "cutoff_stable_2p15_2p35": true,
+    "truth_mean_Cu": 1.0,
+    "truth_mean_Au": 0.0,
+    "prediction_mean_Cu": 0.9856047453703703,
+    "prediction_mean_Au": 0.04676649305555556,
+    "baseline_mean_Cu": 1.2046296296296295,
+    "baseline_mean_Au": 0.08101851851851852
+  },
+  {
+    "configuration": "CO/CO_0p5/interface_biased",
+    "contacts_per_CO": [
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        0
+      ]
+    ],
+    "cutoff_stable_2p15_2p35": false,
+    "truth_mean_Cu": 1.7777777777777777,
+    "truth_mean_Au": 0.1111111111111111,
+    "prediction_mean_Cu": 1.7807315779320985,
+    "prediction_mean_Au": 0.1869273244598769,
+    "baseline_mean_Cu": 1.150462962962963,
+    "baseline_mean_Au": 0.06921296296296296
+  },
+  {
+    "configuration": "CO/CO_0p5/interior_biased",
+    "contacts_per_CO": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "cutoff_stable_2p15_2p35": false,
+    "truth_mean_Cu": 2.0,
+    "truth_mean_Au": 0.1111111111111111,
+    "prediction_mean_Cu": 1.974500868055556,
+    "prediction_mean_Au": 0.10942925347222225,
+    "baseline_mean_Cu": 1.1819444444444445,
+    "baseline_mean_Au": 0.07152777777777777
+  },
+  {
+    "configuration": "CO/CO_0p5/uniform",
+    "contacts_per_CO": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "cutoff_stable_2p15_2p35": false,
+    "truth_mean_Cu": 1.2777777777777777,
+    "truth_mean_Au": 0.16666666666666666,
+    "prediction_mean_Cu": 1.0727237654320996,
+    "prediction_mean_Au": 0.14853395061728408,
+    "baseline_mean_Cu": 1.2046296296296295,
+    "baseline_mean_Au": 0.08101851851851852
+  },
+  {
+    "configuration": "CO/CO_0p75/uniform",
+    "contacts_per_CO": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        1
+      ]
+    ],
+    "cutoff_stable_2p15_2p35": false,
+    "truth_mean_Cu": 1.4814814814814814,
+    "truth_mean_Au": 0.37037037037037035,
+    "prediction_mean_Cu": 1.4505570023148138,
+    "prediction_mean_Au": 0.2158383969907406,
+    "baseline_mean_Cu": 1.1819444444444445,
+    "baseline_mean_Au": 0.07152777777777777
+  },
+  {
+    "configuration": "OCCO_CO/OCCO_CO_0p111_Cu_rich",
+    "contacts_per_CO": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "cutoff_stable_2p15_2p35": true,
+    "truth_mean_Cu": 1.0,
+    "truth_mean_Au": 0.0,
+    "prediction_mean_Cu": 0.9793836805555555,
+    "prediction_mean_Au": 0.04832175925925925,
+    "baseline_mean_Cu": 1.1819444444444445,
+    "baseline_mean_Au": 0.07152777777777777
+  },
+  {
+    "configuration": "OCCO_CO/OCCO_CO_0p167_AuCu_interface",
+    "contacts_per_CO": [
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "cutoff_stable_2p15_2p35": true,
+    "truth_mean_Cu": 0.8333333333333334,
+    "truth_mean_Au": 0.16666666666666666,
+    "prediction_mean_Cu": 1.0339506172839505,
+    "prediction_mean_Au": 0.029899691358024692,
+    "baseline_mean_Cu": 1.150462962962963,
+    "baseline_mean_Au": 0.06921296296296296
+  },
+  {
+    "configuration": "OCCO_CO/OCCO_plus_CO_0p222_AuCu_interface",
+    "contacts_per_CO": [
+      [
+        3,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "cutoff_stable_2p15_2p35": true,
+    "truth_mean_Cu": 1.0,
+    "truth_mean_Au": 0.25,
+    "prediction_mean_Cu": 1.24827594521605,
+    "prediction_mean_Au": 0.17349657600308663,
+    "baseline_mean_Cu": 1.150462962962963,
+    "baseline_mean_Au": 0.06921296296296296
+  },
+  {
+    "configuration": "OCCO_CO/OCCO_plus_CO_0p222_Cu_rich",
+    "contacts_per_CO": [
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "cutoff_stable_2p15_2p35": false,
+    "truth_mean_Cu": 1.75,
+    "truth_mean_Au": 0.125,
+    "prediction_mean_Cu": 1.917799961419751,
+    "prediction_mean_Au": 0.16483410493827166,
+    "baseline_mean_Cu": 1.2046296296296295,
+    "baseline_mean_Au": 0.08101851851851852
+  }
+]

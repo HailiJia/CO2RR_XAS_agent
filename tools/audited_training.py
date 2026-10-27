@@ -92,6 +92,32 @@ def run_audited_training(data_root, output_dir, split_manifest=None,
     The export root may be given either as its directory or as its ``data`` child.
     A new, empty output directory is required so cache provenance is unambiguous.
     """
+    if recipe == 'coverage_v1':
+        from .coverage_study import convert, audit
+        from .coverage_inference import run
+        repo=Path(__file__).resolve().parents[1]
+        target=Path(output_dir).resolve()
+        if target.exists() and any(target.iterdir()):raise ValueError('New empty output directory required; archived runs cannot be overwritten')
+        if not data_root:raise ValueError('Local export data_root required')
+        convert(data_root,repo,target)
+        audit(data_root,repo,target)
+        result=run(target)
+        import joblib
+        from .coverage_inference import predict
+        manifest={r['group']:r for r in json.loads((target/'model_configuration_manifest.json').read_text())}
+        expected=pd.read_csv(target/'coverage_heldout_predictions.csv')
+        expected=expected[(expected.protocol=='coverage_configuration_folds')&(expected.model=='nested')].set_index('configuration')
+        replayed=0
+        for path in (target/'models').glob('coverage_fold*.joblib'):
+            model=joblib.load(path)
+            for group in model['test_groups']:
+                r=manifest[group];record=json.loads((target/'records'/r['configuration']/'isaac_record_layers.json').read_text());pop={int(k):v['population'] for k,v in r['layer_evidence'].items()}
+                if not np.isclose(predict(record,model,pop)[0],expected.loc[r['configuration'],'prediction_ML'],rtol=0,atol=1e-11):raise RuntimeError('Coverage saved-model replay mismatch')
+                replayed+=1
+        trace=target/'invocation_trace.json'
+        trace.write_text(json.dumps({'action':'audited_training','recipe':recipe,'scope':'local conversion/audit/fit only','coverage_heldout_records_replayed':replayed,'protocol_sha256':sha256(target/'protocol.json'),'portal_writes':False,'HPC_jobs':False},indent=2)+'\n')
+        result.update(output_dir=str(target),trace=str(trace),prediction_replay_identical=True)
+        return result
     if recipe == 'fixed_top_two_v4':
         from .fixed_top_two import run
         result=run(data_root, output_dir, split_manifest)
@@ -186,7 +212,7 @@ def main(argv=None):
     p.add_argument('--data-root', required=True)
     p.add_argument('--output-dir', required=True)
     p.add_argument('--split-manifest')
-    p.add_argument('--recipe', choices=['archived_primary', 'training_only_global_threshold', 'scientific_extensions_v2', 'motif_holdout_v2', 'updated_data_v3', 'fixed_top_two_v4'], default='archived_primary')
+    p.add_argument('--recipe', choices=['archived_primary', 'training_only_global_threshold', 'scientific_extensions_v2', 'motif_holdout_v2', 'updated_data_v3', 'fixed_top_two_v4', 'coverage_v1'], default='archived_primary')
     a = p.parse_args(argv)
     print(json.dumps(run_audited_training(a.data_root, a.output_dir, a.split_manifest, a.recipe), indent=2))
 

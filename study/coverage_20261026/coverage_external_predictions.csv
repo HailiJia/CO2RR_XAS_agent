@@ -1,0 +1,17 @@
+domain,configuration,truth_ML,prediction_ML,n_CO,surface_sites,CONTCAR_verified,outside_training_coverage
+Cu100_input_geometry_external,Cu100/Cu100_2x2x4_CO_1_4_top,0.25,0.1335905622362771,1,4,False,False
+Cu100_input_geometry_external,Cu100/Cu100_2x2x4_CO_2_4_2top_v2,0.5,0.33373880316491783,2,4,False,True
+Cu100_input_geometry_external,Cu100/Cu100_2x2x4_CO_3_4_2top_1bridge,0.75,0.3469611789479751,3,4,False,True
+Cu100_input_geometry_external,Cu100/Cu100_2x2x4_CO_4_4_2top_2bridge,1.0,0.5087410343867639,4,4,False,True
+CuAu_CO_mixtures_diagnostic,CHO/CHO_0p028_Cu_top,0.014705882352941176,0.052849196754793284,1,68,True,True
+CuAu_CO_mixtures_diagnostic,CHO/CHO_0p056_interface_Cu,0.014705882352941176,0.033817311578180215,1,68,True,True
+CuAu_CO_mixtures_diagnostic,CHO/CHO_0p056_interior_Cu,0.014705882352941176,0.03577459985296151,1,68,True,True
+CuAu_CO_mixtures_diagnostic,CHO/CHO_0p056_uniform,0.014705882352941176,0.05195064589211956,1,68,True,True
+CuAu_CO_mixtures_diagnostic,CHO/CHO_0p111_uniform,0.029411764705882353,0.06224100726701143,2,68,True,False
+CuAu_CO_mixtures_diagnostic,CHO_CO/CO_CHO_0p111_more_CO,0.058823529411764705,0.077743520621427,4,68,True,False
+CuAu_CO_mixtures_diagnostic,CHO_CO/CO_CHO_0p111_uniform,0.04411764705882353,0.06467542460347014,3,68,True,False
+CuAu_CO_mixtures_diagnostic,COCHO/COCHO_0p056_Cu_interface,0.029411764705882353,0.043403378976558285,2,68,True,False
+CuAu_CO_mixtures_diagnostic,CO_H/CO_H_0p083_2CO_1H,0.029411764705882353,0.058076458178625764,2,68,True,False
+CuAu_CO_mixtures_diagnostic,CO_H/CO_H_0p083_2CO_1H_AuCu2,0.029411764705882353,0.05935473827930594,2,68,True,False
+CuAu_CO_mixtures_diagnostic,CO_H/CO_H_0p111_2CO_2H,0.029411764705882353,0.07695111336840149,2,68,True,False
+CuAu_CO_mixtures_diagnostic,CO_OH/CO_OH_0p111_3CO_1OH,0.04411764705882353,0.07251790697026764,3,68,True,False
