@@ -1,0 +1,166 @@
+{
+  "version": "signed-differential-v1",
+  "seed": 20261027,
+  "representations": [
+    "raw_normalized",
+    "corrected_normalized",
+    "raw_physical",
+    "delta",
+    "clean_plus_delta"
+  ],
+  "features": [
+    "Combined",
+    "DCT8",
+    "DCT16",
+    "DCT24"
+  ],
+  "regression_candidates": [
+    [
+      "Combined",
+      "ridge",
+      1.0
+    ],
+    [
+      "Combined",
+      "ridge",
+      10.0
+    ],
+    [
+      "Combined",
+      "ridge",
+      100.0
+    ],
+    [
+      "DCT8",
+      "ridge",
+      1.0
+    ],
+    [
+      "DCT8",
+      "ridge",
+      10.0
+    ],
+    [
+      "DCT8",
+      "ridge",
+      100.0
+    ],
+    [
+      "DCT16",
+      "ridge",
+      1.0
+    ],
+    [
+      "DCT16",
+      "ridge",
+      10.0
+    ],
+    [
+      "DCT16",
+      "ridge",
+      100.0
+    ],
+    [
+      "DCT24",
+      "ridge",
+      1.0
+    ],
+    [
+      "DCT24",
+      "ridge",
+      10.0
+    ],
+    [
+      "DCT24",
+      "ridge",
+      100.0
+    ],
+    [
+      "Combined",
+      "trees",
+      2
+    ],
+    [
+      "DCT16",
+      "trees",
+      2
+    ]
+  ],
+  "identity_candidates": [
+    [
+      "Combined",
+      "logistic",
+      0.1
+    ],
+    [
+      "Combined",
+      "logistic",
+      1.0
+    ],
+    [
+      "DCT8",
+      "logistic",
+      0.1
+    ],
+    [
+      "DCT8",
+      "logistic",
+      1.0
+    ],
+    [
+      "DCT16",
+      "logistic",
+      0.1
+    ],
+    [
+      "DCT16",
+      "logistic",
+      1.0
+    ],
+    [
+      "DCT24",
+      "logistic",
+      0.1
+    ],
+    [
+      "DCT24",
+      "logistic",
+      1.0
+    ],
+    [
+      "Combined",
+      "trees",
+      2
+    ],
+    [
+      "DCT16",
+      "trees",
+      2
+    ]
+  ],
+  "outer": "5-fold GroupKFold, same configuration assignments for all representations",
+  "inner": "3-fold GroupKFold confined to each outer training partition",
+  "pair_population": "one reference/model family in CuAu; shared-reference conditional inference, not unseen-parent validation",
+  "primary": "initial-metal model/constraints matched subset",
+  "secondary": "same-substrate reference sensitivity, initial-parent lineage unproven",
+  "Cu100_joint_differential": "not available: no compatible completed clean Cu100 reference located",
+  "coverage_targets": [
+    "CO/all_top_surface_metals",
+    "CO/surface_Cu_loading",
+    "CO_per_nm2"
+  ],
+  "negative_delta_retained": true,
+  "per_spectrum_delta_normalization": false,
+  "training_only_constant_columns": "drop training peak-to-peak <=1e-12 relative to max(1,absolute feature magnitude); fixed reference blocks cannot act as random-feature padding",
+  "tunable_nuisance_parameters": false,
+  "source_hashes": {
+    "differential_training.py": "5e48e4584642ee570e3d831ac5978b7a28ed501af12621d2f407718b474ac59d",
+    "differential_xas.py": "c9ca84079cf0ad7fc56e2443d75123ec819fdc9fbd9a865a8844011546cd6d9a"
+  },
+  "dependencies": {
+    "python": "3.11.9",
+    "numpy": "2.4.6",
+    "sklearn": "1.9.0"
+  },
+  "confirmation": "exploratory reused configurations; not prospective or experimental validation"
+}

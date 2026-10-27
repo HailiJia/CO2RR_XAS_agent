@@ -85,3 +85,13 @@ CONTCAR
 ldos*.dat
 paths.dat
 *.bak
+
+# Versioned differential artifacts are tracked in verified lossless archives.
+study/differential_v1/scale/reconvolution/
+study/differential_v1/ml/models/
+study/differential_v1/ml/*_inner.npz
+study/differential_v1/geometry/models/
+study/differential_v1/robustness/models/
+study/differential_v1/robustness/*.npz
+study/differential_v1/raw_augmentation/*.joblib
+study/differential_v1/raw_identity_augmentation/*.joblib

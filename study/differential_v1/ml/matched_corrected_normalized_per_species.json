@@ -1,0 +1,79 @@
+[
+  {
+    "species": "CHO",
+    "precision": 0.0,
+    "recall": 0.0,
+    "F1": 0.0,
+    "support": 0
+  },
+  {
+    "species": "CO",
+    "precision": 1.0,
+    "recall": 0.7272727272727273,
+    "F1": 0.8421052631578947,
+    "support": 11
+  },
+  {
+    "species": "CO2",
+    "precision": 0.0,
+    "recall": 0.0,
+    "F1": 0.0,
+    "support": 0
+  },
+  {
+    "species": "COCHO",
+    "precision": 0.0,
+    "recall": 0.0,
+    "F1": 0.0,
+    "support": 0
+  },
+  {
+    "species": "COH",
+    "precision": 0.25,
+    "recall": 0.3333333333333333,
+    "F1": 0.2857142857142857,
+    "support": 3
+  },
+  {
+    "species": "COOH",
+    "precision": 1.0,
+    "recall": 1.0,
+    "F1": 1.0,
+    "support": 3
+  },
+  {
+    "species": "H",
+    "precision": 1.0,
+    "recall": 0.75,
+    "F1": 0.8571428571428571,
+    "support": 12
+  },
+  {
+    "species": "O",
+    "precision": 0.8,
+    "recall": 0.6666666666666666,
+    "F1": 0.7272727272727273,
+    "support": 6
+  },
+  {
+    "species": "OCCOH",
+    "precision": 0.0,
+    "recall": 0.0,
+    "F1": 0.0,
+    "support": 0
+  },
+  {
+    "species": "OCHO",
+    "precision": 0.0,
+    "recall": 0.0,
+    "F1": 0.0,
+    "support": 0
+  },
+  {
+    "species": "OH",
+    "precision": 0.0,
+    "recall": 0.0,
+    "F1": 0.0,
+    "support": 3
+  }
+]

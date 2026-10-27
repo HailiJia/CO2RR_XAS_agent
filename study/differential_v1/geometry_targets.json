@@ -1,0 +1,3187 @@
+[
+  {
+    "configuration": "2CO_adjacent/2CO_adjacent_0p056_AuCu_interface",
+    "pair_index": 0,
+    "group": "49a74bfb4954b31182f8f4b2ad8f2535333d947170e9944de6a88794c8caadcc",
+    "eligible_primary": false,
+    "targets": {
+      "mean_CO_Cu_contacts": 1.5,
+      "mean_CO_Au_contacts": 0.5,
+      "fraction_Cu3": 0.5,
+      "fraction_Cu2Au": 0.0,
+      "fraction_CuAu2": 0.0,
+      "fraction_Au3": 0.0,
+      "fraction_atop": 0.5,
+      "fraction_bridge": 0.0,
+      "mean_C_boundary_distance_A": 1.8935122825191057
+    },
+    "contacts_per_molecule_2p25A": [
+      [
+        3,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "contacts_2p15A": [
+      [
+        3,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "contacts_2p35A": [
+      [
+        3,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "carbon_boundary_distances_A": [
+      2.541177832527884,
+      1.245846732510327
+    ],
+    "target_source": "actual saved XAS geometry; structural quantities never enter XAS predictors"
+  },
+  {
+    "configuration": "2CO_adjacent/2CO_adjacent_0p056_interior",
+    "pair_index": 1,
+    "group": "11ef4dc570dc011fbc86530bbc1a1d5b5828be914781fed6ddad225f843aaab1",
+    "eligible_primary": false,
+    "targets": {
+      "mean_CO_Cu_contacts": 2.5,
+      "mean_CO_Au_contacts": 0.0,
+      "fraction_Cu3": 0.5,
+      "fraction_Cu2Au": 0.0,
+      "fraction_CuAu2": 0.0,
+      "fraction_Au3": 0.0,
+      "fraction_atop": 0.0,
+      "fraction_bridge": 0.5,
+      "mean_C_boundary_distance_A": 2.254260834825401
+    },
+    "contacts_per_molecule_2p25A": [
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        0
+      ]
+    ],
+    "contacts_2p15A": [
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        0
+      ]
+    ],
+    "contacts_2p35A": [
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        0
+      ]
+    ],
+    "carbon_boundary_distances_A": [
+      2.340427565155433,
+      2.168094104495369
+    ],
+    "target_source": "actual saved XAS geometry; structural quantities never enter XAS predictors"
+  },
+  {
+    "configuration": "2CO_adjacent/2CO_adjacent_0p056_orientation_alt",
+    "pair_index": 2,
+    "group": "80b05509d6a0846e268fd32dbd9e150d95985a9044630aed33fa59e21068e14b",
+    "eligible_primary": true,
+    "targets": {
+      "mean_CO_Cu_contacts": 1.0,
+      "mean_CO_Au_contacts": 0.0,
+      "fraction_Cu3": 0.0,
+      "fraction_Cu2Au": 0.0,
+      "fraction_CuAu2": 0.0,
+      "fraction_Au3": 0.0,
+      "fraction_atop": 1.0,
+      "fraction_bridge": 0.0,
+      "mean_C_boundary_distance_A": 2.942317183545535
+    },
+    "contacts_per_molecule_2p25A": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "contacts_2p15A": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "contacts_2p35A": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "carbon_boundary_distances_A": [
+      2.92619196758905,
+      2.9584423995020197
+    ],
+    "target_source": "actual saved XAS geometry; structural quantities never enter XAS predictors"
+  },
+  {
+    "configuration": "2CO_adjacent/2CO_adjacent_0p111_interface",
+    "pair_index": 3,
+    "group": "3253cc48cb10de89658d3e162626e51a68d1ff675a2db4ffc0231934c59f47a3",
+    "eligible_primary": true,
+    "targets": {
+      "mean_CO_Cu_contacts": 1.0,
+      "mean_CO_Au_contacts": 0.0,
+      "fraction_Cu3": 0.0,
+      "fraction_Cu2Au": 0.0,
+      "fraction_CuAu2": 0.0,
+      "fraction_Au3": 0.0,
+      "fraction_atop": 1.0,
+      "fraction_bridge": 0.0,
+      "mean_C_boundary_distance_A": 1.3506874493655427
+    },
+    "contacts_per_molecule_2p25A": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "contacts_2p15A": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "contacts_2p35A": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "carbon_boundary_distances_A": [
+      1.2992970161772208,
+      1.402077882553865,
+      1.2992970161772208,
+      1.402077882553865
+    ],
+    "target_source": "actual saved XAS geometry; structural quantities never enter XAS predictors"
+  },
+  {
+    "configuration": "2CO_adjacent/2CO_adjacent_0p111_uniform",
+    "pair_index": 4,
+    "group": "904360d3207e234f9475a4a6d2c0321c11849f5a442f46ff6b06a7a153368f2c",
+    "eligible_primary": false,
+    "targets": {
+      "mean_CO_Cu_contacts": 1.0,
+      "mean_CO_Au_contacts": 0.0,
+      "fraction_Cu3": 0.0,
+      "fraction_Cu2Au": 0.0,
+      "fraction_CuAu2": 0.0,
+      "fraction_Au3": 0.0,
+      "fraction_atop": 1.0,
+      "fraction_bridge": 0.0,
+      "mean_C_boundary_distance_A": 2.7146015576879425
+    },
+    "contacts_per_molecule_2p25A": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "contacts_2p15A": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "contacts_2p35A": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "carbon_boundary_distances_A": [
+      3.0277004801512883,
+      2.9581097463010217,
+      3.839561729109257,
+      1.033034275190202
+    ],
+    "target_source": "actual saved XAS geometry; structural quantities never enter XAS predictors"
+  },
+  {
+    "configuration": "2CO_adjacent/2CO_adjacent_0p167_uniform",
+    "pair_index": 5,
+    "group": "fbf89a2f124ec511c3a8fb4c60be7394e9eb4b748b19164208c722a4b292418a",
+    "eligible_primary": true,
+    "targets": {
+      "mean_CO_Cu_contacts": 1.0,
+      "mean_CO_Au_contacts": 0.0,
+      "fraction_Cu3": 0.0,
+      "fraction_Cu2Au": 0.0,
+      "fraction_CuAu2": 0.0,
+      "fraction_Au3": 0.0,
+      "fraction_atop": 1.0,
+      "fraction_bridge": 0.0,
+      "mean_C_boundary_distance_A": 2.7921531951782566
+    },
+    "contacts_per_molecule_2p25A": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "contacts_2p15A": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "contacts_2p35A": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "carbon_boundary_distances_A": [
+      3.8405908019815667,
+      1.039952257282954,
+      3.8405908019815667,
+      1.039952257282954,
+      3.4959165262702485,
+      3.4959165262702485
+    ],
+    "target_source": "actual saved XAS geometry; structural quantities never enter XAS predictors"
+  },
+  {
+    "configuration": "CO/CO_0p11/interface_biased",
+    "pair_index": 15,
+    "group": "c6bbc6dfb392ac7a5744db56a3010163054cb7eea145dece3ab6f5d4c9baa049",
+    "eligible_primary": false,
+    "targets": {
+      "mean_CO_Cu_contacts": 1.0,
+      "mean_CO_Au_contacts": 0.0,
+      "fraction_Cu3": 0.0,
+      "fraction_Cu2Au": 0.0,
+      "fraction_CuAu2": 0.0,
+      "fraction_Au3": 0.0,
+      "fraction_atop": 1.0,
+      "fraction_bridge": 0.0,
+      "mean_C_boundary_distance_A": 1.5723443806390915
+    },
+    "contacts_per_molecule_2p25A": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "contacts_2p15A": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "contacts_2p35A": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "carbon_boundary_distances_A": [
+      1.812735027979795,
+      1.5626568807576016,
+      1.3172557189736005,
+      1.5967298948453688
+    ],
+    "target_source": "actual saved XAS geometry; structural quantities never enter XAS predictors"
+  },
+  {
+    "configuration": "CO/CO_0p11/interior_biased",
+    "pair_index": 16,
+    "group": "6e18b28ff174b6d920bf9987c281695e16594be4aff76f83458edde57b90a05b",
+    "eligible_primary": true,
+    "targets": {
+      "mean_CO_Cu_contacts": 1.0,
+      "mean_CO_Au_contacts": 0.0,
+      "fraction_Cu3": 0.0,
+      "fraction_Cu2Au": 0.0,
+      "fraction_CuAu2": 0.0,
+      "fraction_Au3": 0.0,
+      "fraction_atop": 1.0,
+      "fraction_bridge": 0.0,
+      "mean_C_boundary_distance_A": 3.409779843886579
+    },
+    "contacts_per_molecule_2p25A": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "contacts_2p15A": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "contacts_2p35A": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "carbon_boundary_distances_A": [
+      3.2624992280910354,
+      3.517313490487347,
+      3.437434657675285,
+      3.4218719992926494
+    ],
+    "target_source": "actual saved XAS geometry; structural quantities never enter XAS predictors"
+  },
+  {
+    "configuration": "CO/CO_0p11/uniform",
+    "pair_index": 17,
+    "group": "ebe77cd2f9228df384be99b6cfebaea2b4b14412dea4e9411ebdd9a25115de2f",
+    "eligible_primary": true,
+    "targets": {
+      "mean_CO_Cu_contacts": 1.0,
+      "mean_CO_Au_contacts": 0.0,
+      "fraction_Cu3": 0.0,
+      "fraction_Cu2Au": 0.0,
+      "fraction_CuAu2": 0.0,
+      "fraction_Au3": 0.0,
+      "fraction_atop": 1.0,
+      "fraction_bridge": 0.0,
+      "mean_C_boundary_distance_A": 2.325180273905236
+    },
+    "contacts_per_molecule_2p25A": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "contacts_2p15A": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "contacts_2p35A": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "carbon_boundary_distances_A": [
+      1.2817150277734657,
+      3.4054508041681184,
+      3.2371641080997904,
+      1.3763911555795696
+    ],
+    "target_source": "actual saved XAS geometry; structural quantities never enter XAS predictors"
+  },
+  {
+    "configuration": "CO/CO_0p14/interface_biased",
+    "pair_index": 18,
+    "group": "24103adc5eefa36899e4b65c3b57ee6b653387ced03d1edf6d09198e2297300a",
+    "eligible_primary": false,
+    "targets": {
+      "mean_CO_Cu_contacts": 1.0,
+      "mean_CO_Au_contacts": 0.0,
+      "fraction_Cu3": 0.0,
+      "fraction_Cu2Au": 0.0,
+      "fraction_CuAu2": 0.0,
+      "fraction_Au3": 0.0,
+      "fraction_atop": 1.0,
+      "fraction_bridge": 0.0,
+      "mean_C_boundary_distance_A": 1.563462429393792
+    },
+    "contacts_per_molecule_2p25A": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "contacts_2p15A": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "contacts_2p35A": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "carbon_boundary_distances_A": [
+      1.6717885626385747,
+      1.5761560900609453,
+      1.559602005695816,
+      1.3012767235361187,
+      1.7084887650375051
+    ],
+    "target_source": "actual saved XAS geometry; structural quantities never enter XAS predictors"
+  },
+  {
+    "configuration": "CO/CO_0p14/interior_biased",
+    "pair_index": 19,
+    "group": "550f28ea70c36b430d3a922d639339edba96e2165e658870c60565233408c742",
+    "eligible_primary": true,
+    "targets": {
+      "mean_CO_Cu_contacts": 1.0,
+      "mean_CO_Au_contacts": 0.0,
+      "fraction_Cu3": 0.0,
+      "fraction_Cu2Au": 0.0,
+      "fraction_CuAu2": 0.0,
+      "fraction_Au3": 0.0,
+      "fraction_atop": 1.0,
+      "fraction_bridge": 0.0,
+      "mean_C_boundary_distance_A": 3.2850963705517984
+    },
+    "contacts_per_molecule_2p25A": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "contacts_2p15A": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "contacts_2p35A": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "carbon_boundary_distances_A": [
+      3.2777417489101204,
+      3.5234895490707845,
+      3.0254725168186543,
+      3.4355847926645056,
+      3.163193245294929
+    ],
+    "target_source": "actual saved XAS geometry; structural quantities never enter XAS predictors"
+  },
+  {
+    "configuration": "CO/CO_0p14/uniform",
+    "pair_index": 20,
+    "group": "8323c3431eb4d026f20f0242138259015844f8d0b3f6fb64d4e035ac27f372e8",
+    "eligible_primary": true,
+    "targets": {
+      "mean_CO_Cu_contacts": 1.0,
+      "mean_CO_Au_contacts": 0.0,
+      "fraction_Cu3": 0.0,
+      "fraction_Cu2Au": 0.0,
+      "fraction_CuAu2": 0.0,
+      "fraction_Au3": 0.0,
+      "fraction_atop": 1.0,
+      "fraction_bridge": 0.0,
+      "mean_C_boundary_distance_A": 2.551492381418957
+    },
+    "contacts_per_molecule_2p25A": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "contacts_2p15A": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "contacts_2p35A": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "carbon_boundary_distances_A": [
+      1.4494935808875309,
+      3.4286724598233116,
+      3.2125122032661135,
+      1.4255016754963208,
+      3.2412819876215075
+    ],
+    "target_source": "actual saved XAS geometry; structural quantities never enter XAS predictors"
+  },
+  {
+    "configuration": "CO/CO_0p14/uniform2",
+    "pair_index": 21,
+    "group": "950c4a0142fe3312e5d991b3379fd67a0fd468e733622078ff49e2621912a6a0",
+    "eligible_primary": false,
+    "targets": {
+      "mean_CO_Cu_contacts": 1.0,
+      "mean_CO_Au_contacts": 0.0,
+      "fraction_Cu3": 0.0,
+      "fraction_Cu2Au": 0.0,
+      "fraction_CuAu2": 0.0,
+      "fraction_Au3": 0.0,
+      "fraction_atop": 1.0,
+      "fraction_bridge": 0.0,
+      "mean_C_boundary_distance_A": 2.60430828143587
+    },
+    "contacts_per_molecule_2p25A": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "contacts_2p15A": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "contacts_2p35A": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "carbon_boundary_distances_A": [
+      1.5445331027870655,
+      3.2984963032059196,
+      3.3181775632382555,
+      3.280794716286265,
+      1.579539721661842
+    ],
+    "target_source": "actual saved XAS geometry; structural quantities never enter XAS predictors"
+  },
+  {
+    "configuration": "CO/CO_0p25/interface_biased",
+    "pair_index": 22,
+    "group": "6bee48eec9a6cf9ab6a9ac588318a1baf035e65b90559c8392b3b535f2f6bbc8",
+    "eligible_primary": false,
+    "targets": {
+      "mean_CO_Cu_contacts": 1.0,
+      "mean_CO_Au_contacts": 0.1111111111111111,
+      "fraction_Cu3": 0.0,
+      "fraction_Cu2Au": 0.0,
+      "fraction_CuAu2": 0.0,
+      "fraction_Au3": 0.0,
+      "fraction_atop": 0.8888888888888888,
+      "fraction_bridge": 0.1111111111111111,
+      "mean_C_boundary_distance_A": 2.1393854787180895
+    },
+    "contacts_per_molecule_2p25A": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "contacts_2p15A": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "contacts_2p35A": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "carbon_boundary_distances_A": [
+      1.7842878788454677,
+      0.6577584286598944,
+      1.6793359451604088,
+      1.650792116040884,
+      1.7735471260321929,
+      1.7809936894746237,
+      3.1997120271817385,
+      3.3260549132176487,
+      3.4019871838499465
+    ],
+    "target_source": "actual saved XAS geometry; structural quantities never enter XAS predictors"
+  },
+  {
+    "configuration": "CO/CO_0p25/interface_biased2",
+    "pair_index": 23,
+    "group": "142819c5f8e2c8095bb948b36c8ad590188ddec951e6f21966fa4a07b0c2cac0",
+    "eligible_primary": false,
+    "targets": {
+      "mean_CO_Cu_contacts": 1.0,
+      "mean_CO_Au_contacts": 0.0,
+      "fraction_Cu3": 0.0,
+      "fraction_Cu2Au": 0.0,
+      "fraction_CuAu2": 0.0,
+      "fraction_Au3": 0.0,
+      "fraction_atop": 1.0,
+      "fraction_bridge": 0.0,
+      "mean_C_boundary_distance_A": 1.7791190952602665
+    },
+    "contacts_per_molecule_2p25A": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "contacts_2p15A": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "contacts_2p35A": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "carbon_boundary_distances_A": [
+      3.475331743002266,
+      1.2906277808621374,
+      1.4352403242994647,
+      1.3930146715233398,
+      1.319821046998731,
+      1.3700995661507342,
+      1.031191062176405,
+      1.248392319692403,
+      3.448353342636918
+    ],
+    "target_source": "actual saved XAS geometry; structural quantities never enter XAS predictors"
+  },
+  {
+    "configuration": "CO/CO_0p25/interior_biased",
+    "pair_index": 24,
+    "group": "289dd7e6d55fd868993603bf1e67de3734ddbc25e89598615eed27a859c472e3",
+    "eligible_primary": false,
+    "targets": {
+      "mean_CO_Cu_contacts": 1.0,
+      "mean_CO_Au_contacts": 0.0,
+      "fraction_Cu3": 0.0,
+      "fraction_Cu2Au": 0.0,
+      "fraction_CuAu2": 0.0,
+      "fraction_Au3": 0.0,
+      "fraction_atop": 1.0,
+      "fraction_bridge": 0.0,
+      "mean_C_boundary_distance_A": 2.8156290310259218
+    },
+    "contacts_per_molecule_2p25A": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "contacts_2p15A": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "contacts_2p35A": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "carbon_boundary_distances_A": [
+      3.453768360837438,
+      3.453768360837438,
+      3.2553491783821507,
+      3.492977902807801,
+      3.268611610422987,
+      3.492977902807801,
+      1.6111571508023879,
+      1.6111571508023879,
+      1.7008936615329036
+    ],
+    "target_source": "actual saved XAS geometry; structural quantities never enter XAS predictors"
+  },
+  {
+    "configuration": "CO/CO_0p25/uniform",
+    "pair_index": 25,
+    "group": "d51c8ee81f3961c9b717a4a7c541218520e02d6a225db8ad91eb4b4bb68d9525",
+    "eligible_primary": false,
+    "targets": {
+      "mean_CO_Cu_contacts": 1.0,
+      "mean_CO_Au_contacts": 0.0,
+      "fraction_Cu3": 0.0,
+      "fraction_Cu2Au": 0.0,
+      "fraction_CuAu2": 0.0,
+      "fraction_Au3": 0.0,
+      "fraction_atop": 1.0,
+      "fraction_bridge": 0.0,
+      "mean_C_boundary_distance_A": 2.2674041557107874
+    },
+    "contacts_per_molecule_2p25A": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "contacts_2p15A": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "contacts_2p35A": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "carbon_boundary_distances_A": [
+      1.5297279889383542,
+      1.4563650365453067,
+      3.312129935331259,
+      3.3133935241166035,
+      3.500037195504139,
+      3.2453937928564764,
+      1.2832293308664584,
+      1.2475409860276003,
+      1.5188196112108914
+    ],
+    "target_source": "actual saved XAS geometry; structural quantities never enter XAS predictors"
+  },
+  {
+    "configuration": "CO/CO_0p5/interface_biased",
+    "pair_index": 26,
+    "group": "b12e94d17a5cd4b457a43706e7cd68cee9499ee6615103f121c142e84aa5006e",
+    "eligible_primary": false,
+    "targets": {
+      "mean_CO_Cu_contacts": 1.7777777777777777,
+      "mean_CO_Au_contacts": 0.1111111111111111,
+      "fraction_Cu3": 0.3333333333333333,
+      "fraction_Cu2Au": 0.0,
+      "fraction_CuAu2": 0.0,
+      "fraction_Au3": 0.0,
+      "fraction_atop": 0.4444444444444444,
+      "fraction_bridge": 0.2222222222222222,
+      "mean_C_boundary_distance_A": 2.0972643196571847
+    },
+    "contacts_per_molecule_2p25A": [
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        0
+      ]
+    ],
+    "contacts_2p15A": [
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ]
+    ],
+    "contacts_2p35A": [
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        1
+      ]
+    ],
+    "carbon_boundary_distances_A": [
+      2.6155803870454792,
+      1.9805033224089696,
+      0.7033816670939398,
+      1.5509475627699312,
+      2.173132644964637,
+      1.449830113686191,
+      1.2748331908144295,
+      4.5042130972806635,
+      4.209758176608344,
+      3.9116560557882614,
+      4.15156992764726,
+      2.2248846033609073,
+      1.5343737099894184,
+      1.8355185517754775,
+      0.5747604894762874,
+      1.524356155307473,
+      0.6750491111496453,
+      0.856408986662013
+    ],
+    "target_source": "actual saved XAS geometry; structural quantities never enter XAS predictors"
+  },
+  {
+    "configuration": "CO/CO_0p5/interior_biased",
+    "pair_index": 27,
+    "group": "55381e500cc92708dd716c835dabd6f183ae460a0f99f4955624d33804e968ae",
+    "eligible_primary": false,
+    "targets": {
+      "mean_CO_Cu_contacts": 2.0,
+      "mean_CO_Au_contacts": 0.1111111111111111,
+      "fraction_Cu3": 0.3888888888888889,
+      "fraction_Cu2Au": 0.0,
+      "fraction_CuAu2": 0.0,
+      "fraction_Au3": 0.0,
+      "fraction_atop": 0.2777777777777778,
+      "fraction_bridge": 0.3333333333333333,
+      "mean_C_boundary_distance_A": 2.250905989524312
+    },
+    "contacts_per_molecule_2p25A": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "contacts_2p15A": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "contacts_2p35A": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "carbon_boundary_distances_A": [
+      0.3901549207285257,
+      0.6012173024800018,
+      3.615390506610878,
+      2.123252688165494,
+      2.145178237003788,
+      3.9340016973017478,
+      2.923565151510829,
+      1.909267029548447,
+      2.399942685485445,
+      2.6846633362508583,
+      3.7960222060551705,
+      1.9102438913495159,
+      2.0574992406940686,
+      2.6808899119586256,
+      3.934610426076416,
+      2.1754294145455058,
+      0.5729363897374254,
+      0.662042775934879
+    ],
+    "target_source": "actual saved XAS geometry; structural quantities never enter XAS predictors"
+  },
+  {
+    "configuration": "CO/CO_0p5/uniform",
+    "pair_index": 28,
+    "group": "90d678a6a9d44788c59c1931306c2d42179ba52bbcdd9098fc80455808906bf6",
+    "eligible_primary": false,
+    "targets": {
+      "mean_CO_Cu_contacts": 1.2777777777777777,
+      "mean_CO_Au_contacts": 0.16666666666666666,
+      "fraction_Cu3": 0.1111111111111111,
+      "fraction_Cu2Au": 0.0,
+      "fraction_CuAu2": 0.0,
+      "fraction_Au3": 0.0,
+      "fraction_atop": 0.6666666666666666,
+      "fraction_bridge": 0.2222222222222222,
+      "mean_C_boundary_distance_A": 2.1200100071903325
+    },
+    "contacts_per_molecule_2p25A": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "contacts_2p15A": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "contacts_2p35A": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "carbon_boundary_distances_A": [
+      1.4962092405349117,
+      1.166651983390634,
+      1.1136108374833704,
+      0.959494775114557,
+      1.0972953511226136,
+      3.350961751356659,
+      3.363307597291601,
+      3.093429686248505,
+      3.1917617922258867,
+      2.9368966141342066,
+      3.255007242349836,
+      3.0991523021920995,
+      3.287608560387221,
+      3.7704221352628515,
+      0.654345914635536,
+      0.6382258849981988,
+      0.5901626142799715,
+      1.0956358464173286
+    ],
+    "target_source": "actual saved XAS geometry; structural quantities never enter XAS predictors"
+  },
+  {
+    "configuration": "CO/CO_0p75/uniform",
+    "pair_index": 29,
+    "group": "a2af28dc4f76be05edce24795a8265c84c44c175647641a340f72821ec9f4b0f",
+    "eligible_primary": false,
+    "targets": {
+      "mean_CO_Cu_contacts": 1.4814814814814814,
+      "mean_CO_Au_contacts": 0.37037037037037035,
+      "fraction_Cu3": 0.14814814814814814,
+      "fraction_Cu2Au": 0.07407407407407407,
+      "fraction_CuAu2": 0.0,
+      "fraction_Au3": 0.0,
+      "fraction_atop": 0.37037037037037035,
+      "fraction_bridge": 0.4074074074074074,
+      "mean_C_boundary_distance_A": 1.9025516456378275
+    },
+    "contacts_per_molecule_2p25A": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        1
+      ]
+    ],
+    "contacts_2p15A": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "contacts_2p35A": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        1
+      ]
+    ],
+    "carbon_boundary_distances_A": [
+      0.6354100721032857,
+      1.0489977821255914,
+      0.16142406937809567,
+      0.113364429884134,
+      0.29838872512255515,
+      0.5246309999228274,
+      0.7087563306635404,
+      3.4644162213074434,
+      3.1581254843631337,
+      2.4227009729738724,
+      2.805046645077599,
+      3.2342297566859104,
+      3.4219659583721675,
+      3.431232671225647,
+      3.539250105983056,
+      2.6539316887778703,
+      3.8648015480194857,
+      3.4732340210247665,
+      3.1463146608144976,
+      2.9981932088923307,
+      3.082286979241374,
+      0.6770531140982872,
+      0.4595571545612357,
+      0.5980565838942088,
+      0.5247435076007632,
+      0.3563656621082456,
+      0.5664160779994267
+    ],
+    "target_source": "actual saved XAS geometry; structural quantities never enter XAS predictors"
+  },
+  {
+    "configuration": "OCCO_CO/OCCO_CO_0p111_Cu_rich",
+    "pair_index": 81,
+    "group": "2aba681e83104453aa1af16653b7740f1ef3abb62923180239ef46b56371b49b",
+    "eligible_primary": false,
+    "targets": {
+      "mean_CO_Cu_contacts": 1.0,
+      "mean_CO_Au_contacts": 0.0,
+      "fraction_Cu3": 0.0,
+      "fraction_Cu2Au": 0.0,
+      "fraction_CuAu2": 0.0,
+      "fraction_Au3": 0.0,
+      "fraction_atop": 1.0,
+      "fraction_bridge": 0.0,
+      "mean_C_boundary_distance_A": 2.2031625503063546
+    },
+    "contacts_per_molecule_2p25A": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "contacts_2p15A": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "contacts_2p35A": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "carbon_boundary_distances_A": [
+      3.2376526601510607,
+      3.3108876717181044,
+      1.2804906948219474,
+      0.9836191745343061
+    ],
+    "target_source": "actual saved XAS geometry; structural quantities never enter XAS predictors"
+  },
+  {
+    "configuration": "OCCO_CO/OCCO_CO_0p167_AuCu_interface",
+    "pair_index": 82,
+    "group": "88db12b87cdf8a41478c6dd6c8a5d2f7313db58b12aa2b65d1e1459b36671e06",
+    "eligible_primary": false,
+    "targets": {
+      "mean_CO_Cu_contacts": 0.8333333333333334,
+      "mean_CO_Au_contacts": 0.16666666666666666,
+      "fraction_Cu3": 0.0,
+      "fraction_Cu2Au": 0.0,
+      "fraction_CuAu2": 0.0,
+      "fraction_Au3": 0.0,
+      "fraction_atop": 1.0,
+      "fraction_bridge": 0.0,
+      "mean_C_boundary_distance_A": 1.328283849335839
+    },
+    "contacts_per_molecule_2p25A": [
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "contacts_2p15A": [
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "contacts_2p35A": [
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "carbon_boundary_distances_A": [
+      1.7346969346154508,
+      0.961789910377547,
+      1.4676338148124872,
+      1.3877312819048657,
+      1.443702764763425,
+      0.9741483895412573
+    ],
+    "target_source": "actual saved XAS geometry; structural quantities never enter XAS predictors"
+  },
+  {
+    "configuration": "OCCO_CO/OCCO_plus_CO_0p222_AuCu_interface",
+    "pair_index": 83,
+    "group": "570711fc99679d830f235be19b722e560eac9535521d0741f9f938351304a06c",
+    "eligible_primary": false,
+    "targets": {
+      "mean_CO_Cu_contacts": 1.0,
+      "mean_CO_Au_contacts": 0.25,
+      "fraction_Cu3": 0.125,
+      "fraction_Cu2Au": 0.0,
+      "fraction_CuAu2": 0.0,
+      "fraction_Au3": 0.0,
+      "fraction_atop": 0.875,
+      "fraction_bridge": 0.0,
+      "mean_C_boundary_distance_A": 2.797214618194837
+    },
+    "contacts_per_molecule_2p25A": [
+      [
+        3,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "contacts_2p15A": [
+      [
+        3,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "contacts_2p35A": [
+      [
+        3,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "carbon_boundary_distances_A": [
+      2.5283600211080457,
+      1.1655522182549631,
+      1.4472528448810922,
+      3.5397998475944106,
+      3.4402823366281328,
+      3.3534435925123813,
+      3.2814202339901213,
+      3.621605850589546
+    ],
+    "target_source": "actual saved XAS geometry; structural quantities never enter XAS predictors"
+  },
+  {
+    "configuration": "OCCO_CO/OCCO_plus_CO_0p222_Cu_rich",
+    "pair_index": 84,
+    "group": "550b7daf6bc36cae0b9a20092f4e6ee6fd25f349eb418b7cdf7cdc1c2956c923",
+    "eligible_primary": false,
+    "targets": {
+      "mean_CO_Cu_contacts": 1.75,
+      "mean_CO_Au_contacts": 0.125,
+      "fraction_Cu3": 0.375,
+      "fraction_Cu2Au": 0.0,
+      "fraction_CuAu2": 0.0,
+      "fraction_Au3": 0.0,
+      "fraction_atop": 0.5,
+      "fraction_bridge": 0.125,
+      "mean_C_boundary_distance_A": 2.476489506446473
+    },
+    "contacts_per_molecule_2p25A": [
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "contacts_2p15A": [
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "contacts_2p35A": [
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "carbon_boundary_distances_A": [
+      2.577199676502919,
+      2.191381198138878,
+      2.9054117110961326,
+      1.5117897061645666,
+      3.330254656976748,
+      0.5925790716367452,
+      3.417994299958322,
+      3.285305731097473
+    ],
+    "target_source": "actual saved XAS geometry; structural quantities never enter XAS predictors"
+  }
+]
