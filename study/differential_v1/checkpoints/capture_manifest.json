@@ -1,0 +1,902 @@
+[
+  {
+    "source": "/Users/hjia/Downloads/CO2RR_XAS_agent/data/CuAu_dataset/OCCO_H2O/OCCO_2H2O/POSCAR_OCCO_2H2O",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR_XAS_agent/data/CuAu_dataset/OCCO_H2O/OCCO_2H2O/POSCAR_OCCO_2H2O",
+    "bytes": 25855,
+    "sha256": "df44873e70c3c8dc1432f484e9bd9af62f82931d4af34e98da5f687add88be8d",
+    "source_mtime_utc": "2026-10-24T11:55:58.815339+00:00",
+    "captured_utc": "2026-10-27T01:45:06.169934+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/OCCO_noK_POSCARs/POSCAR_01_OCCO_2H2O_baseline",
+    "snapshot": "study/differential_v1/checkpoints/sources/OCCO_noK_POSCARs/POSCAR_01_OCCO_2H2O_baseline",
+    "bytes": 25882,
+    "sha256": "176b22dbd6e427e5c141c71e43b3a00cfe42f88b6776076280ca6a9590337a70",
+    "source_mtime_utc": "2026-10-24T12:06:38+00:00",
+    "captured_utc": "2026-10-27T01:45:06.171397+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/OCCO_noK_POSCARs/POSCAR_02_OCCO_2H2O_water_A",
+    "snapshot": "study/differential_v1/checkpoints/sources/OCCO_noK_POSCARs/POSCAR_02_OCCO_2H2O_water_A",
+    "bytes": 25906,
+    "sha256": "d08b0e26173bfcbc0f8d4410804630d265b434b70408e4e03bb9b665036c1bdb",
+    "source_mtime_utc": "2026-10-24T12:06:38+00:00",
+    "captured_utc": "2026-10-27T01:45:06.172453+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/OCCO_noK_POSCARs/POSCAR_03_OCCO_2H2O_water_B",
+    "snapshot": "study/differential_v1/checkpoints/sources/OCCO_noK_POSCARs/POSCAR_03_OCCO_2H2O_water_B",
+    "bytes": 25906,
+    "sha256": "96649a23af401f91f329183312510b141775c26765cb6c80fd7de1b47efeb960",
+    "source_mtime_utc": "2026-10-24T12:06:38+00:00",
+    "captured_utc": "2026-10-27T01:45:06.173533+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/OCCO_noK_POSCARs/POSCAR_04_OCCO_4H2O_network",
+    "snapshot": "study/differential_v1/checkpoints/sources/OCCO_noK_POSCARs/POSCAR_04_OCCO_4H2O_network",
+    "bytes": 26341,
+    "sha256": "3b025d8189f1e01db7add2f6ead14a08d6c879b26489fa5a5e8bc758b132bbe6",
+    "source_mtime_utc": "2026-10-24T12:06:38+00:00",
+    "captured_utc": "2026-10-27T01:45:06.174777+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/OCCO_noK_POSCARs/POSCAR_05_OCCO_2H2O_atop_bridge",
+    "snapshot": "study/differential_v1/checkpoints/sources/OCCO_noK_POSCARs/POSCAR_05_OCCO_2H2O_atop_bridge",
+    "bytes": 25906,
+    "sha256": "4ca29622811ba48def9ecfb70146dd758c4d626de27cd12adf5bf98428bdde58",
+    "source_mtime_utc": "2026-10-24T12:06:38+00:00",
+    "captured_utc": "2026-10-27T01:45:06.175789+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/OCCO_noK_POSCARs/POSCAR_06_OCCO_2H2O_Cu_interior",
+    "snapshot": "study/differential_v1/checkpoints/sources/OCCO_noK_POSCARs/POSCAR_06_OCCO_2H2O_Cu_interior",
+    "bytes": 25899,
+    "sha256": "38c8b81f962df8d98fbca351be661191224c5f4e66a2eb699c884cf8e16523ff",
+    "source_mtime_utc": "2026-10-24T12:06:38+00:00",
+    "captured_utc": "2026-10-27T01:45:06.176791+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/OCCO_noK_POSCARs/POSCAR_07_2CO_2H2O_reference",
+    "snapshot": "study/differential_v1/checkpoints/sources/OCCO_noK_POSCARs/POSCAR_07_2CO_2H2O_reference",
+    "bytes": 25905,
+    "sha256": "fc98efe39bcb42ae797f42b855ccebc39b73cc04cb0edea319c2b7354f58d29f",
+    "source_mtime_utc": "2026-10-24T12:06:38+00:00",
+    "captured_utc": "2026-10-27T01:45:06.177803+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/OCCO_noK_POSCARs/POSCAR_08_2CO_4H2O_reference",
+    "snapshot": "study/differential_v1/checkpoints/sources/OCCO_noK_POSCARs/POSCAR_08_2CO_4H2O_reference",
+    "bytes": 26353,
+    "sha256": "54b88488edafe0d4d433d1c6b8873991e75da346c8550afacabc0fc8c401f184",
+    "source_mtime_utc": "2026-10-24T12:06:38+00:00",
+    "captured_utc": "2026-10-27T01:45:06.179073+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/OCCO_three_motifs_POSCARs/POSCAR_09_OCCO_2H2O_reversed_atop_bridge",
+    "snapshot": "study/differential_v1/checkpoints/sources/OCCO_three_motifs_POSCARs/POSCAR_09_OCCO_2H2O_reversed_atop_bridge",
+    "bytes": 25895,
+    "sha256": "97c1a05f180bf4c0b282ee6788f3a4059939e2aabbeeda76ed9548c23183f499",
+    "source_mtime_utc": "2026-10-25T02:52:24+00:00",
+    "captured_utc": "2026-10-27T01:45:06.180039+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/OCCO_three_motifs_POSCARs/POSCAR_10_OCCO_2H2O_Cu_interior_atop_bridge",
+    "snapshot": "study/differential_v1/checkpoints/sources/OCCO_three_motifs_POSCARs/POSCAR_10_OCCO_2H2O_Cu_interior_atop_bridge",
+    "bytes": 25908,
+    "sha256": "b2919b9daa6a6128f5c497cc9f782018642972f1b087094131497ff9e78dc9d0",
+    "source_mtime_utc": "2026-10-25T02:52:24+00:00",
+    "captured_utc": "2026-10-27T01:45:06.181054+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/OCCO_three_motifs_POSCARs/POSCAR_11_C_O_bound_C2O2_2H2O",
+    "snapshot": "study/differential_v1/checkpoints/sources/OCCO_three_motifs_POSCARs/POSCAR_11_C_O_bound_C2O2_2H2O",
+    "bytes": 25905,
+    "sha256": "303498347a35e050b750ee246f7e23a5ff26e7ff3a43d9ca4a5c3fc4a8b17dbc",
+    "source_mtime_utc": "2026-10-25T02:52:24+00:00",
+    "captured_utc": "2026-10-27T01:45:06.182065+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/POSCAR_OCCO_2H2O",
+    "snapshot": "study/differential_v1/checkpoints/sources/POSCAR_OCCO_2H2O",
+    "bytes": 25855,
+    "sha256": "df44873e70c3c8dc1432f484e9bd9af62f82931d4af34e98da5f687add88be8d",
+    "source_mtime_utc": "2026-10-24T11:55:58.815339+00:00",
+    "captured_utc": "2026-10-27T01:45:06.183133+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/POSCAR_OCCO_6H2O",
+    "snapshot": "study/differential_v1/checkpoints/sources/POSCAR_OCCO_6H2O",
+    "bytes": 26726,
+    "sha256": "3004f1f744078b0eca33265f7f9fd36f1606fbcca6ac7c48f1a599224e49c059",
+    "source_mtime_utc": "2026-10-24T11:47:49.486586+00:00",
+    "captured_utc": "2026-10-27T01:45:06.184522+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/POSCAR_OCCO_6H2O_K",
+    "snapshot": "study/differential_v1/checkpoints/sources/POSCAR_OCCO_6H2O_K",
+    "bytes": 26807,
+    "sha256": "0ca38268a04a21ec0cea3c86e70d10bbabd4f4dae7a40c3ad52d36a1ec228a9a",
+    "source_mtime_utc": "2026-10-24T11:41:27.214173+00:00",
+    "captured_utc": "2026-10-27T01:45:06.185859+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O/POSCAR",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O/POSCAR",
+    "bytes": 45562,
+    "sha256": "5c43edcfd0c5b7eab7aa57189d108b75a6cb14acec5429900a5f92deb8e2a2f9",
+    "source_mtime_utc": "2026-10-26T21:59:38+00:00",
+    "captured_utc": "2026-10-27T01:45:06.186134+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O/CONTCAR",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O/CONTCAR",
+    "bytes": 45562,
+    "sha256": "5c43edcfd0c5b7eab7aa57189d108b75a6cb14acec5429900a5f92deb8e2a2f9",
+    "source_mtime_utc": "2026-10-26T22:11:03+00:00",
+    "captured_utc": "2026-10-27T01:45:06.186276+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O/OUTCAR",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O/OUTCAR",
+    "bytes": 3104768,
+    "sha256": "c9dd1b5954501142c1fbfe62a03f4db2bfc063fdc3016b69bb32f85aa526d30e",
+    "source_mtime_utc": "2026-10-26T22:11:54+00:00",
+    "captured_utc": "2026-10-27T01:45:06.188496+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O/OSZICAR",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O/OSZICAR",
+    "bytes": 13627,
+    "sha256": "dcae390dd444e3aeb3415684b9cbe59d068a96ac71aef3feddd36740501b3544",
+    "source_mtime_utc": "2026-10-26T22:11:31+00:00",
+    "captured_utc": "2026-10-27T01:45:06.188897+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O/XDATCAR",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O/XDATCAR",
+    "bytes": 213570,
+    "sha256": "f1abcd50d8ed216e0795287b9d94dd984882aac490a61f6451782f27279a902e",
+    "source_mtime_utc": "2026-10-26T22:11:03+00:00",
+    "captured_utc": "2026-10-27T01:45:06.190698+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O/vasprun.xml",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O/vasprun.xml",
+    "bytes": 918024,
+    "sha256": "a478cbf60dc18d545c5c19c96e6f08e279aa23c990488a0e8e8bfe2cf97fb95f",
+    "source_mtime_utc": "2026-10-26T22:11:31+00:00",
+    "captured_utc": "2026-10-27T01:45:06.191653+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O/vaspout.h5",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O/vaspout.h5",
+    "bytes": 2773667,
+    "sha256": "d7366e344b1b20e444637f9ffbe08dbb2dfd332b25f2c7af04974a960144a22d",
+    "source_mtime_utc": "2026-10-26T22:11:54+00:00",
+    "captured_utc": "2026-10-27T01:45:06.193764+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O/INCAR",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O/INCAR",
+    "bytes": 394,
+    "sha256": "8d626f169db742e6c3d71a3bdb954a22e87b81ef3a30db8fd8c780318e97a770",
+    "source_mtime_utc": "2026-10-24T18:19:15+00:00",
+    "captured_utc": "2026-10-27T01:45:06.195875+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O/KPOINTS",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O/KPOINTS",
+    "bytes": 35,
+    "sha256": "ca0d3b09f1f98fa91eebd307459cc62767f1482c2ce736d3d916048a99df30f8",
+    "source_mtime_utc": "2026-10-24T11:55:33+00:00",
+    "captured_utc": "2026-10-27T01:45:06.197223+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O/slurm-60280430.out",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O/slurm-60280430.out",
+    "bytes": 1464,
+    "sha256": "06b557ec8ad4ffad45c091f68ebf5a17622a649685a45564affaccbd2f2f9b2a",
+    "source_mtime_utc": "2026-10-25T21:56:27+00:00",
+    "captured_utc": "2026-10-27T01:45:06.197784+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O/slurm-60314332.out",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O/slurm-60314332.out",
+    "bytes": 2893,
+    "sha256": "ba5fa83855da11558c5db2df1fa0b40f09804a0e2183da03adfd613c031748ce",
+    "source_mtime_utc": "2026-10-26T15:46:45+00:00",
+    "captured_utc": "2026-10-27T01:45:06.198027+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O/slurm-60237851.out",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O/slurm-60237851.out",
+    "bytes": 1391,
+    "sha256": "48679c21d704219b74a73377f402181d0f1cc23c59342d0d1b75c767a5c51280",
+    "source_mtime_utc": "2026-10-25T04:02:47+00:00",
+    "captured_utc": "2026-10-27T01:45:06.198150+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O/slurm-60234046.out",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O/slurm-60234046.out",
+    "bytes": 1464,
+    "sha256": "7528e6e0a41e7575fdcc9bd309975d2bc4fe9c87ef1a5585004e9a2ebd7036f5",
+    "source_mtime_utc": "2026-10-25T02:17:20+00:00",
+    "captured_utc": "2026-10-27T01:45:06.198303+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O/slurm-60234090.out",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O/slurm-60234090.out",
+    "bytes": 1391,
+    "sha256": "0475d42e5c548edd300b8c61d431e27c5b703d7e1ddf2745ee9c1440fe9e3aa3",
+    "source_mtime_utc": "2026-10-25T03:25:08+00:00",
+    "captured_utc": "2026-10-27T01:45:06.198444+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O/slurm-60326904.out",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O/slurm-60326904.out",
+    "bytes": 1464,
+    "sha256": "11f622a2621cbb42b45689bd5e4b805d0349d94cd75b8b7ac0d53f04e1580d16",
+    "source_mtime_utc": "2026-10-26T19:59:54+00:00",
+    "captured_utc": "2026-10-27T01:45:06.198588+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O/slurm-60220434.out",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O/slurm-60220434.out",
+    "bytes": 1464,
+    "sha256": "1ceda786bd2f9ef11eafd01dd9a3065025d4f24bd3e4b1cdd14dd97282d09fae",
+    "source_mtime_utc": "2026-10-24T19:17:20+00:00",
+    "captured_utc": "2026-10-27T01:45:06.198770+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O/slurm-60292526.out",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O/slurm-60292526.out",
+    "bytes": 1391,
+    "sha256": "cfb4e4de26e64efc7389d415b780e991a68d5b30e3326127b353e435a8ae80fe",
+    "source_mtime_utc": "2026-10-26T04:02:31+00:00",
+    "captured_utc": "2026-10-27T01:45:06.198907+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O/slurm-60289853.out",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O/slurm-60289853.out",
+    "bytes": 1464,
+    "sha256": "b3d6e7cfef15828baa84384c234f22362fcb950aca653a99361f2f8078645e1e",
+    "source_mtime_utc": "2026-10-26T02:06:16+00:00",
+    "captured_utc": "2026-10-27T01:45:06.199052+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O/slurm-60262985.out",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O/slurm-60262985.out",
+    "bytes": 1391,
+    "sha256": "476246655ca7f82df3cf68d2c510e6c0a1f646efd363def5f858a020c5607003",
+    "source_mtime_utc": "2026-10-25T14:20:09+00:00",
+    "captured_utc": "2026-10-27T01:45:06.199190+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O/slurm-60288770.out",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O/slurm-60288770.out",
+    "bytes": 1391,
+    "sha256": "661b21fcc88432f64ceaccac572a9c4daca53dbf68265ba3c25ebb0c5393831a",
+    "source_mtime_utc": "2026-10-26T01:02:16+00:00",
+    "captured_utc": "2026-10-27T01:45:06.199321+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O/slurm-60225753.out",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O/slurm-60225753.out",
+    "bytes": 1391,
+    "sha256": "4956cfd5beea72755f0a755426d9bf88ad5f9af3bb228f2c0f03c47cbf7fd3ee",
+    "source_mtime_utc": "2026-10-24T23:02:16+00:00",
+    "captured_utc": "2026-10-27T01:45:06.199471+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O/slurm-60271463.out",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O/slurm-60271463.out",
+    "bytes": 1391,
+    "sha256": "6e485bb010c42acca9f6794efca4fb5a8022030157a7f71c28b452451188df1b",
+    "source_mtime_utc": "2026-10-25T18:37:11+00:00",
+    "captured_utc": "2026-10-27T01:45:06.199599+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O/slurm-60245170.out",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O/slurm-60245170.out",
+    "bytes": 1391,
+    "sha256": "8f2e700e115d3eae45511e39684152b915b1c43a218fa7e6a340ba73702cb56d",
+    "source_mtime_utc": "2026-10-25T05:53:53+00:00",
+    "captured_utc": "2026-10-27T01:45:06.199718+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O/slurm-60225889.out",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O/slurm-60225889.out",
+    "bytes": 1391,
+    "sha256": "8d252ceb97d6b31f3a2efd377ec5b18fb566fbf3f2d07c8d76ead59edd8a09d8",
+    "source_mtime_utc": "2026-10-25T00:02:18+00:00",
+    "captured_utc": "2026-10-27T01:45:06.199841+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O/slurm-60310007.out",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O/slurm-60310007.out",
+    "bytes": 1391,
+    "sha256": "c4390e7bfa3a7ab8539f076857c49640954584774bcca6e814ea492f92d06794",
+    "source_mtime_utc": "2026-10-26T13:29:19+00:00",
+    "captured_utc": "2026-10-27T01:45:06.199965+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O/slurm-60312412.out",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O/slurm-60312412.out",
+    "bytes": 1464,
+    "sha256": "84bf62d979e73886f6d1649404a112167596a51e0538fa22c9b2329e9aecf7f4",
+    "source_mtime_utc": "2026-10-26T14:41:01+00:00",
+    "captured_utc": "2026-10-27T01:45:06.200102+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O/slurm-60207813.out",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O/slurm-60207813.out",
+    "bytes": 1517,
+    "sha256": "796ffa4cd1e60a34273f00431d8d876ca89d79fef7b18ae14098792030b56623",
+    "source_mtime_utc": "2026-10-24T13:06:29+00:00",
+    "captured_utc": "2026-10-27T01:45:06.200236+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O/slurm-60318066.out",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O/slurm-60318066.out",
+    "bytes": 1464,
+    "sha256": "cefb8cdd288ca370b3e2a5fbdeedae264bd3ca5c97d41730efd2d3be8789e84f",
+    "source_mtime_utc": "2026-10-26T16:59:10+00:00",
+    "captured_utc": "2026-10-27T01:45:06.200371+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O/slurm-60337333.out",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O/slurm-60337333.out",
+    "bytes": 1464,
+    "sha256": "d35ca8adf0fac3edb56a6bc1228d33435662cec616c003e179ce3dc07db8ec0b",
+    "source_mtime_utc": "2026-10-26T22:00:31+00:00",
+    "captured_utc": "2026-10-27T01:45:06.200574+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O_atoo_bridge_interior/POSCAR",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O_atoo_bridge_interior/POSCAR",
+    "bytes": 45562,
+    "sha256": "881e0f60aa4fae700c612684d45cfed6946f2603f844fc07849674fd9860878a",
+    "source_mtime_utc": "2026-10-26T22:00:36+00:00",
+    "captured_utc": "2026-10-27T01:45:06.269810+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O_atoo_bridge_interior/CONTCAR",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O_atoo_bridge_interior/CONTCAR",
+    "bytes": 45562,
+    "sha256": "62e4d101827de6d8a15586b081869eaf01f37c932b3073a5068fbda183250549",
+    "source_mtime_utc": "2026-10-26T20:29:42+00:00",
+    "captured_utc": "2026-10-27T01:45:06.270003+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O_atoo_bridge_interior/OUTCAR",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O_atoo_bridge_interior/OUTCAR",
+    "bytes": 425984,
+    "sha256": "be823853fe00bc98070d82abff3e74117cf9ffb275e55d88a73ba43bb12ec973",
+    "source_mtime_utc": "2026-10-26T20:30:09+00:00",
+    "captured_utc": "2026-10-27T01:45:06.270663+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O_atoo_bridge_interior/OSZICAR",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O_atoo_bridge_interior/OSZICAR",
+    "bytes": 3343,
+    "sha256": "091a9e9bff37e909a53965f2da1da25f58254c7e21b1c240379e902302e5c671",
+    "source_mtime_utc": "2026-10-26T20:29:46+00:00",
+    "captured_utc": "2026-10-27T01:45:06.270838+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O_atoo_bridge_interior/XDATCAR",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O_atoo_bridge_interior/XDATCAR",
+    "bytes": 13560,
+    "sha256": "d53dfefed7c0d9341286b64a07d6a02caf28b3f61852ac47c5f974777e7f8130",
+    "source_mtime_utc": "2026-10-26T20:29:42+00:00",
+    "captured_utc": "2026-10-27T01:45:06.271110+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O_atoo_bridge_interior/vasprun.xml",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O_atoo_bridge_interior/vasprun.xml",
+    "bytes": 180224,
+    "sha256": "98bf57198a391022281ea3d0932d129ee1111f463b513d24edae36037e772485",
+    "source_mtime_utc": "2026-10-26T20:29:46+00:00",
+    "captured_utc": "2026-10-27T01:45:06.271561+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O_atoo_bridge_interior/vaspout.h5",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O_atoo_bridge_interior/vaspout.h5",
+    "bytes": 2768067,
+    "sha256": "2f1d9776fc7b821f3140568945ad72360932d1cb75319ff60ef1b1cd38790393",
+    "source_mtime_utc": "2026-10-26T20:30:34+00:00",
+    "captured_utc": "2026-10-27T01:45:06.273957+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O_atoo_bridge_interior/INCAR",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O_atoo_bridge_interior/INCAR",
+    "bytes": 394,
+    "sha256": "8d626f169db742e6c3d71a3bdb954a22e87b81ef3a30db8fd8c780318e97a770",
+    "source_mtime_utc": "2026-10-26T15:40:50+00:00",
+    "captured_utc": "2026-10-27T01:45:06.274269+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O_atoo_bridge_interior/KPOINTS",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O_atoo_bridge_interior/KPOINTS",
+    "bytes": 35,
+    "sha256": "ca0d3b09f1f98fa91eebd307459cc62767f1482c2ce736d3d916048a99df30f8",
+    "source_mtime_utc": "2026-10-25T02:56:31+00:00",
+    "captured_utc": "2026-10-27T01:45:06.274427+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O_atoo_bridge_interior/slurm-60280437.out",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O_atoo_bridge_interior/slurm-60280437.out",
+    "bytes": 1391,
+    "sha256": "4f7c66913999e94dfd3082624e244cd7a88aab605b2312dfe291110cd9e2da9c",
+    "source_mtime_utc": "2026-10-25T22:27:28+00:00",
+    "captured_utc": "2026-10-27T01:45:06.274643+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O_atoo_bridge_interior/slurm-60326543.out",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O_atoo_bridge_interior/slurm-60326543.out",
+    "bytes": 1391,
+    "sha256": "1cd3b9efe11f8dcafc6820fa1ebd3f487034cb018f0d77f1a0614b96df6df397",
+    "source_mtime_utc": "2026-10-26T19:23:32+00:00",
+    "captured_utc": "2026-10-27T01:45:06.274879+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O_atoo_bridge_interior/slurm-60309995.out",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O_atoo_bridge_interior/slurm-60309995.out",
+    "bytes": 1391,
+    "sha256": "c85eb889b2d182cdadd46914ebc5f7f3044ec5384611e706c80025458ad8c2ef",
+    "source_mtime_utc": "2026-10-26T12:58:47+00:00",
+    "captured_utc": "2026-10-27T01:45:06.275114+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O_atoo_bridge_interior/slurm-60318720.out",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O_atoo_bridge_interior/slurm-60318720.out",
+    "bytes": 1391,
+    "sha256": "e2f11d6992e869b2cb0d677572c92d0cd00cb9617b55c1346a4de6d990059009",
+    "source_mtime_utc": "2026-10-26T17:30:12+00:00",
+    "captured_utc": "2026-10-27T01:45:06.275942+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O_atoo_bridge_interior/slurm-60312436.out",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O_atoo_bridge_interior/slurm-60312436.out",
+    "bytes": 1391,
+    "sha256": "95b7839dda19268623ea4c659dee54cb3a2a23bacf0c0dfe2263094d44a37357",
+    "source_mtime_utc": "2026-10-26T15:19:05+00:00",
+    "captured_utc": "2026-10-27T01:45:06.276130+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O_atoo_bridge_interior/slurm-60245319.out",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O_atoo_bridge_interior/slurm-60245319.out",
+    "bytes": 1474,
+    "sha256": "fe6a1a056d070d783c598b9f556cbbb9cdc1405e05f1918b9ceb458025274fea",
+    "source_mtime_utc": "2026-10-25T06:56:20+00:00",
+    "captured_utc": "2026-10-27T01:45:06.276279+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O_atoo_bridge_interior/slurm-60271486.out",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O_atoo_bridge_interior/slurm-60271486.out",
+    "bytes": 1391,
+    "sha256": "ecd48121039b96925babd4f0f540265800d2448a5e804ba618c1062cd3919da2",
+    "source_mtime_utc": "2026-10-25T19:07:37+00:00",
+    "captured_utc": "2026-10-27T01:45:06.276419+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O_atoo_bridge_interior/slurm-60326939.out",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O_atoo_bridge_interior/slurm-60326939.out",
+    "bytes": 1391,
+    "sha256": "d99955ee5480a89a7f83e16542e33de429508e74a1c85f92d89e3cfe71e6a3b9",
+    "source_mtime_utc": "2026-10-26T20:30:41+00:00",
+    "captured_utc": "2026-10-27T01:45:06.276566+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O_atoo_bridge_interior/slurm-60288794.out",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O_atoo_bridge_interior/slurm-60288794.out",
+    "bytes": 1464,
+    "sha256": "ed8fd24a772493deaa0f34329536213394fab0af8e7e36c76ad2ddffc5b67ebf",
+    "source_mtime_utc": "2026-10-26T02:03:45+00:00",
+    "captured_utc": "2026-10-27T01:45:06.276703+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O_atoo_bridge_interior/slurm-60280463.out",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O_atoo_bridge_interior/slurm-60280463.out",
+    "bytes": 1391,
+    "sha256": "effa90a5ce43cbd62c816af743f1ad09dc9581af721e542e58e4e173a8e9a3eb",
+    "source_mtime_utc": "2026-10-25T22:27:28+00:00",
+    "captured_utc": "2026-10-27T01:45:06.276839+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O_atoo_bridge_interior/slurm-60292513.out",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O_atoo_bridge_interior/slurm-60292513.out",
+    "bytes": 1464,
+    "sha256": "9ca2f55f7fec5c15859003922f992c1e1593d85f45d9b51647fd0999d94d6b57",
+    "source_mtime_utc": "2026-10-26T04:02:31+00:00",
+    "captured_utc": "2026-10-27T01:45:06.276971+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O_atoo_bridge_interior/slurm-60292504.out",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O_atoo_bridge_interior/slurm-60292504.out",
+    "bytes": 1391,
+    "sha256": "70cace3f12e96a2159112054a92304c5ae555c1749c1e068f83ce690b8e1525d",
+    "source_mtime_utc": "2026-10-26T03:29:38+00:00",
+    "captured_utc": "2026-10-27T01:45:06.277099+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O_atoo_bridge_interior/slurm-60288789.out",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O_atoo_bridge_interior/slurm-60288789.out",
+    "bytes": 1464,
+    "sha256": "57d1049254a34924befaab6a781fa3e1cfa056427f6032f87061b28432c7d013",
+    "source_mtime_utc": "2026-10-26T01:33:16+00:00",
+    "captured_utc": "2026-10-27T01:45:06.277238+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O_atoo_bridge_interior/slurm-60317731.out",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O_atoo_bridge_interior/slurm-60317731.out",
+    "bytes": 1391,
+    "sha256": "3327c928d7cf72694d7468c633155d60f6ac7f73a085bd67e22a3e9615426e99",
+    "source_mtime_utc": "2026-10-26T16:17:34+00:00",
+    "captured_utc": "2026-10-27T01:45:06.277373+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O_atoo_bridge_interior/slurm-60263003.out",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O_atoo_bridge_interior/slurm-60263003.out",
+    "bytes": 1464,
+    "sha256": "1843128ce5226c86d65cb26d628cce8fe9fc7f86e3c54547071939d87f63ab1c",
+    "source_mtime_utc": "2026-10-25T15:23:19+00:00",
+    "captured_utc": "2026-10-27T01:45:06.277510+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O_atoo_bridge_interior/slurm-60311046.out",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O_atoo_bridge_interior/slurm-60311046.out",
+    "bytes": 1464,
+    "sha256": "7ed02d9504bfd0c0b8d70ca84899f7d0a4b7705e04517b22b6491f4b6e56fa61",
+    "source_mtime_utc": "2026-10-26T14:00:06+00:00",
+    "captured_utc": "2026-10-27T01:45:06.277633+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O_atoo_bridge_interior/slurm-60330307.out",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O_atoo_bridge_interior/slurm-60330307.out",
+    "bytes": 1391,
+    "sha256": "797505512cd45d768e1a49fb4b130f9f777517adeb8b5de96181335a980740af",
+    "source_mtime_utc": "2026-10-26T20:30:41+00:00",
+    "captured_utc": "2026-10-27T01:45:06.277756+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O_atop_bridge/POSCAR",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O_atop_bridge/POSCAR",
+    "bytes": 45562,
+    "sha256": "3bc0b9152e6e7cebce1a0e9694a048662c52b3491adaedd641d805e4a0fbf6f8",
+    "source_mtime_utc": "2026-10-26T21:59:38+00:00",
+    "captured_utc": "2026-10-27T01:45:06.320195+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O_atop_bridge/CONTCAR",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O_atop_bridge/CONTCAR",
+    "bytes": 45562,
+    "sha256": "3bc0b9152e6e7cebce1a0e9694a048662c52b3491adaedd641d805e4a0fbf6f8",
+    "source_mtime_utc": "2026-10-26T22:10:40+00:00",
+    "captured_utc": "2026-10-27T01:45:06.320409+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O_atop_bridge/OUTCAR",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O_atop_bridge/OUTCAR",
+    "bytes": 1771435,
+    "sha256": "c18c7fc14b8c4ace8a065829bd31ba3b042ba4bae446f89af10e71484d7807ad",
+    "source_mtime_utc": "2026-10-26T22:11:46+00:00",
+    "captured_utc": "2026-10-27T01:45:06.321849+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O_atop_bridge/OSZICAR",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O_atop_bridge/OSZICAR",
+    "bytes": 12599,
+    "sha256": "597bd3645ebce3927f5d46638e796957f5f63d2633c741c85b1353511cd6c0d0",
+    "source_mtime_utc": "2026-10-26T22:11:08+00:00",
+    "captured_utc": "2026-10-27T01:45:06.322190+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O_atop_bridge/XDATCAR",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O_atop_bridge/XDATCAR",
+    "bytes": 106898,
+    "sha256": "be4337f7d5312f6519c15b2751db24495dd60c420e17d8dc54d3f8fc5dab3545",
+    "source_mtime_utc": "2026-10-26T22:10:40+00:00",
+    "captured_utc": "2026-10-27T01:45:06.322556+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O_atop_bridge/vasprun.xml",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O_atop_bridge/vasprun.xml",
+    "bytes": 547616,
+    "sha256": "f4025e545203f1178f58cafb90ebcf5813adad85284e512591c18ba5bc6cb03a",
+    "source_mtime_utc": "2026-10-26T22:11:08+00:00",
+    "captured_utc": "2026-10-27T01:45:06.323292+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O_atop_bridge/vaspout.h5",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O_atop_bridge/vaspout.h5",
+    "bytes": 2773667,
+    "sha256": "85e7c0290fda9344e34bf26c0bad493d3a6c74f84bc4ff71a089056875bf50d4",
+    "source_mtime_utc": "2026-10-26T22:11:58+00:00",
+    "captured_utc": "2026-10-27T01:45:06.325470+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O_atop_bridge/INCAR",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O_atop_bridge/INCAR",
+    "bytes": 394,
+    "sha256": "8d626f169db742e6c3d71a3bdb954a22e87b81ef3a30db8fd8c780318e97a770",
+    "source_mtime_utc": "2026-10-24T21:47:29+00:00",
+    "captured_utc": "2026-10-27T01:45:06.325655+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O_atop_bridge/KPOINTS",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O_atop_bridge/KPOINTS",
+    "bytes": 35,
+    "sha256": "ca0d3b09f1f98fa91eebd307459cc62767f1482c2ce736d3d916048a99df30f8",
+    "source_mtime_utc": "2026-10-24T18:24:42+00:00",
+    "captured_utc": "2026-10-27T01:45:06.325785+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O_atop_bridge/slurm-60317777.out",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O_atop_bridge/slurm-60317777.out",
+    "bytes": 1391,
+    "sha256": "1b63d4789b977b2297484577cd72db57a91dda7b917061772bccb4f73dcfd417",
+    "source_mtime_utc": "2026-10-26T16:48:28+00:00",
+    "captured_utc": "2026-10-27T01:45:06.325977+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O_atop_bridge/slurm-60330337.out",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O_atop_bridge/slurm-60330337.out",
+    "bytes": 1391,
+    "sha256": "f0c5da8cd85a14b7a6e70f7224293116df66ac83e10a904a61cf47bef231025a",
+    "source_mtime_utc": "2026-10-26T21:22:20+00:00",
+    "captured_utc": "2026-10-27T01:45:06.327945+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O_atop_bridge/slurm-60312430.out",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O_atop_bridge/slurm-60312430.out",
+    "bytes": 1464,
+    "sha256": "070a05055793b3a888ca7da959c6b39b28f6f95557bc6c1a73179840418a3dc1",
+    "source_mtime_utc": "2026-10-26T15:01:29+00:00",
+    "captured_utc": "2026-10-27T01:45:06.328082+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O_atop_bridge/slurm-60234036.out",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O_atop_bridge/slurm-60234036.out",
+    "bytes": 1464,
+    "sha256": "948ae7cfeafa01a703bb2c49f53c1e2c19bf32edf64e293574f88ae462110dae",
+    "source_mtime_utc": "2026-10-25T02:10:02+00:00",
+    "captured_utc": "2026-10-27T01:45:06.328207+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O_atop_bridge/slurm-60326641.out",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O_atop_bridge/slurm-60326641.out",
+    "bytes": 1391,
+    "sha256": "1a55f3d56be18d9c8c2b102e538ac06963bf23edcc1516f6185c361d3e00a614",
+    "source_mtime_utc": "2026-10-26T19:59:54+00:00",
+    "captured_utc": "2026-10-27T01:45:06.328503+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O_atop_bridge/slurm-60237835.out",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O_atop_bridge/slurm-60237835.out",
+    "bytes": 1391,
+    "sha256": "ead0b76e1ff999d05c14bb124554ca1751c72ff9e6d0f58011f36d094ff00a98",
+    "source_mtime_utc": "2026-10-25T03:33:58+00:00",
+    "captured_utc": "2026-10-27T01:45:06.328695+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O_atop_bridge/slurm-60288778.out",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O_atop_bridge/slurm-60288778.out",
+    "bytes": 1391,
+    "sha256": "dff228c39daf29af1b172b83d9046e4380484b3a3419a0243e4e4061eec5d839",
+    "source_mtime_utc": "2026-10-26T01:02:16+00:00",
+    "captured_utc": "2026-10-27T01:45:06.328855+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O_atop_bridge/slurm-60326531.out",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O_atop_bridge/slurm-60326531.out",
+    "bytes": 1391,
+    "sha256": "ef18b222ca01654a1cb2462caa7e9a4a8c3b1f9f245881343d7ad44bd43a971b",
+    "source_mtime_utc": "2026-10-26T19:23:32+00:00",
+    "captured_utc": "2026-10-27T01:45:06.329005+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O_atop_bridge/slurm-60318636.out",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O_atop_bridge/slurm-60318636.out",
+    "bytes": 1464,
+    "sha256": "9892b705827918038a2569f02728a34df10e3b247d9a0dcc1a1593ea40a36688",
+    "source_mtime_utc": "2026-10-26T17:19:00+00:00",
+    "captured_utc": "2026-10-27T01:45:06.329148+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O_atop_bridge/slurm-60289885.out",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O_atop_bridge/slurm-60289885.out",
+    "bytes": 1391,
+    "sha256": "12f50bbdc8caa3b468a8a8e10fd86b482f4520f1d0c21c8e5bc45302667676f3",
+    "source_mtime_utc": "2026-10-26T02:45:58+00:00",
+    "captured_utc": "2026-10-27T01:45:06.329273+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O_atop_bridge/slurm-60220562.out",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O_atop_bridge/slurm-60220562.out",
+    "bytes": 1517,
+    "sha256": "ba7bcf09962fb01518a31fc2d7db1a264adc09549af21b687133850e15d2ea2a",
+    "source_mtime_utc": "2026-10-24T19:52:12+00:00",
+    "captured_utc": "2026-10-27T01:45:06.329431+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O_atop_bridge/slurm-60311031.out",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O_atop_bridge/slurm-60311031.out",
+    "bytes": 1391,
+    "sha256": "957f7dee2d80eaa76153b5163bb0cdfe8c929d843bd457a129ffd8bbee068ff1",
+    "source_mtime_utc": "2026-10-26T13:42:07+00:00",
+    "captured_utc": "2026-10-27T01:45:06.329590+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O_atop_bridge/slurm-60262974.out",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O_atop_bridge/slurm-60262974.out",
+    "bytes": 1391,
+    "sha256": "51dc61d55237a4903bcd90e0a21a3fae791af9f7f70b4151d678ca764c7593fe",
+    "source_mtime_utc": "2026-10-25T14:20:09+00:00",
+    "captured_utc": "2026-10-27T01:45:06.329747+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O_atop_bridge/slurm-60337342.out",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O_atop_bridge/slurm-60337342.out",
+    "bytes": 2837,
+    "sha256": "5c98e4ad26adcaac9873a84dc2235e6fd712ede5eec51663b8bfcc19f15b2597",
+    "source_mtime_utc": "2026-10-26T22:00:28+00:00",
+    "captured_utc": "2026-10-27T01:45:06.329911+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O_atop_bridge/slurm-60317723.out",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O_atop_bridge/slurm-60317723.out",
+    "bytes": 1391,
+    "sha256": "7df89db0ff81c2e5bb6d1b1b817ac46658dc5cb6cf8c830dedbcb4dd1b7bb768",
+    "source_mtime_utc": "2026-10-26T16:11:03+00:00",
+    "captured_utc": "2026-10-27T01:45:06.330071+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O_atop_bridge/slurm-60225742.out",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O_atop_bridge/slurm-60225742.out",
+    "bytes": 1391,
+    "sha256": "53a7f76fecd273058cdd75fc14f1d1af8350c61c8cab0aedd7dd0efc9cd1f146",
+    "source_mtime_utc": "2026-10-24T23:00:44+00:00",
+    "captured_utc": "2026-10-27T01:45:06.330195+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O_atop_bridge/slurm-60271477.out",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O_atop_bridge/slurm-60271477.out",
+    "bytes": 1391,
+    "sha256": "c3080bdd5c609421bce19e7ccdb2185b268b62ed786c6835c1d9c8540653486d",
+    "source_mtime_utc": "2026-10-25T18:37:11+00:00",
+    "captured_utc": "2026-10-27T01:45:06.330351+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O_atop_bridge/slurm-60309988.out",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O_atop_bridge/slurm-60309988.out",
+    "bytes": 1391,
+    "sha256": "3a1f78bb0804b8e9116d997cbf2734219395dd0bf0fd8ffcce18e60eed8479c1",
+    "source_mtime_utc": "2026-10-26T12:58:47+00:00",
+    "captured_utc": "2026-10-27T01:45:06.330514+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O_atop_bridge/slurm-60245163.out",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O_atop_bridge/slurm-60245163.out",
+    "bytes": 1391,
+    "sha256": "12522ffffe1e4e9e6f2645ed30ef113e577c754a4d2323b6e1a5f45372dbd437",
+    "source_mtime_utc": "2026-10-25T05:52:51+00:00",
+    "captured_utc": "2026-10-27T01:45:06.330641+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O_atop_bridge/slurm-60280407.out",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O_atop_bridge/slurm-60280407.out",
+    "bytes": 1464,
+    "sha256": "f6a48269eafdd2abacdf4420790ee997a8104865534ecb197c900f309d213dbf",
+    "source_mtime_utc": "2026-10-25T21:56:27+00:00",
+    "captured_utc": "2026-10-27T01:45:06.330800+00:00",
+    "stable_read": true
+  },
+  {
+    "source": "/Users/hjia/Downloads/CO2RR/OCCO_H2O/OCCO_2H2O_atop_bridge/slurm-60225864.out",
+    "snapshot": "study/differential_v1/checkpoints/sources/CO2RR/OCCO_H2O/OCCO_2H2O_atop_bridge/slurm-60225864.out",
+    "bytes": 1464,
+    "sha256": "2d6f3925e6ab13bf6ecb73fa30b6b45f48dc3f87cd07c9c6fe8f4a982cf8df57",
+    "source_mtime_utc": "2026-10-24T23:33:00+00:00",
+    "captured_utc": "2026-10-27T01:45:06.330956+00:00",
+    "stable_read": true
+  }
+]
