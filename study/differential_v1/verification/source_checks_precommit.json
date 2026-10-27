@@ -1,6 +1,6 @@
 {
   "scope": "every tracked Python file AST+py_compile and index/working byte/hash equality",
-  "python_files": 176,
+  "python_files": 177,
   "imports": [
     "workflow.nersc_workflow",
     "agent.co2rr_xas_agent",
@@ -15,7 +15,14 @@
     "tools.fixed_top_two",
     "tools.coverage_study",
     "tools.coverage_inference",
-    "tools.cu100_lineage"
+    "tools.cu100_lineage",
+    "tools.differential_xas",
+    "tools.differential_training",
+    "tools.differential_route",
+    "tools.differential_geometry",
+    "tools.differential_robustness",
+    "tools.fdmnes_scale",
+    "tools.prepare_clean_Cu100"
   ],
   "files": [
     {
@@ -205,6 +212,13 @@
       "bytes": 4432,
       "sha256": "ed47d95dcb7719e3146f9cb22bd18c2e9e72847329fff0ba6a430e6d80d1d1b8",
       "git_blob": "78d0f042e0b3db07c2f6ca52709165e5f4c2d8c2",
+      "index_matches_working_bytes": true
+    },
+    {
+      "path": "study/code/differential_mixture_diagnostic.py",
+      "bytes": 2040,
+      "sha256": "20e4bd7bf93955dfa0766310e96a0ffc07deb70b6f42879697329cb504eaf69a",
+      "git_blob": "9d3fcd56baf54ad07701f4b0a3e0e1bb42084472",
       "index_matches_working_bytes": true
     },
     {

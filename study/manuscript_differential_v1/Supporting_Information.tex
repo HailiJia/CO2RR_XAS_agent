@@ -210,6 +210,16 @@ weaker & paired & 0.0140 & 0.0237 & 0.9288\\
 weaker & train mean & 0.0658 & 0.0930 & -0.0967\\
 \bottomrule\end{longtable}\endgroup
 
+An explicit mixture diagnostic applies the mean of the five saved CO-only fold models to four matched CO-containing mixture configurations, absent from every model fit and selection. Physical raw and differential MAE is 0.02021 CO/all surface metal sites, with $R^2=-10.31$. Thus the CO-only predictor does not establish mixture coverage inference; coadsorbates change the spectral response. This frozen-model diagnostic is distinct from mixture-trained cross-validation.
+
+\begin{center}\small\begin{tabular}{lrr}\toprule
+Input & Matched mixtures (4) MAE & Weaker mixtures (12) MAE\\\midrule
+Legacy normalized & 0.01878 & 0.02221\\
+Corrected normalized & 0.01972 & 0.02326\\
+Physical raw & 0.02021 & 0.02546\\
+Signed difference & 0.02021 & 0.02546\\
+Paired & 0.02021 & 0.02546\\
+\bottomrule\end{tabular}\end{center}
 Conditional paired intervals resample configurations 1000 times with seed 20261027. They condition on fixed predictions and do not measure refitting, parent transfer or a prospective test. Repeated use of the existing folds is exploratory. A new fit is not independent confirmation. Configuration-level geometry targets are evaluated separately using fixed DCT16/Ridge(10); primary contact targets are constant, and broader hollow compositions lack CuAu$_2$/Au$_3$ support. Molecular support cannot inflate the configuration sample count.
 
 \section{Cu(100), missing controls and domain scope}

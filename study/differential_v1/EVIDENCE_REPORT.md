@@ -20,7 +20,9 @@ The actual natural-language agent request ran audit→shared declared fit→save
 
 Reference-v3 includes newly located numeric Cu2O PBE and GW-labelled OUTCAR/HDF5 tensors, independent agreement checks and actual PBE+U/core-hole/native-broadening tags. Dataset labels do not establish quasiparticle GW/BSE. Fourteen available calculation slots, two scored views, identical final0–1 arrays and176-point8980–9015eV grid for cosine/Pearson/Spearman. Cu2O display axis8975–9015; no extrapolated pre-window. Notebook Gaussian sigma1eV, no universal extra Lorentzian/double broadening, Cu-specific offsets per method and early feature diagnostics recorded. Finite differences slightly outperform Green for Cu2O Pearson; no universal winner/speedup claim. CuO fdm129600CPU s retained with older-log discrepancy disclosed; VASP SCF/XAS stages and FEFF CPU times are separated.
 
-Main14pages and SI16pages compiled twice and every rendered page visually inspected; final logs have no missing references/overfull boxes. Article, SI, PNGs, editable sources/code/data and complete manuscript ZIP are included. Historical unmatched species-absent contrasts are not used as clean controls.
+Main14pages and SI17pages compiled twice and every rendered page visually inspected; final logs have no missing references/overfull boxes. Article, SI, PNGs, editable sources/code/data and complete manuscript ZIP are included. Historical unmatched species-absent contrasts are not used as clean controls.
+
+Mixture interference diagnostic: frozen five-fold CO-only model ensemble evaluated on four matched and twelve weaker-reference CO-containing mixtures, never present in fit/selection. Physical raw/delta MAE0.020207/0.025461CO/all surface metal sites, negative R². This does not validate mixture coverage. Exact per-configuration and fold-model predictions are saved.
 
 ## Archived evidence (unchanged)
 
