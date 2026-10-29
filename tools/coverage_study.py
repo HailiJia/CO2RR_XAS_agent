@@ -103,7 +103,7 @@ def layer_evidence(folder,layer,s):
         if header[1]!=29 or abs(header[6]-float(cut))>.00051:raise ValueError('Wrong convolution source mapping')
     return {'layer':layer,'population':len(ids),'physical_layers':len(groups),'convolution_log':p.name,'convolution_log_sha256':sha(p),'population_basis':population_basis,'absorber_indices':ids.tolist(),'convolution_source_order':ordered,'convolution_deck_sha256':sha(conv)}
 
-def audit(root,repo,out):
+def audit(root,repo,out,extended_graph=False):
     root=Path(root).resolve();repo=Path(repo).resolve();out=Path(out).resolve();inventory=json.loads((out/'conversion_inventory.json').read_text());rows=[];molecules=[];samples=[];frozen=json.loads((repo/'study/retraining_20261022/historical_lineage.json').read_text())['records_by_legacy_geometry'];archive={};source=[]
     def capture(p):
         if not p.exists():return
@@ -125,7 +125,7 @@ def audit(root,repo,out):
             for l,b in structures.items():
                 if correspondence(s,b)['status']!='matched':raise ValueError('Different layer calculation geometries')
             from .cu100_lineage import snapshot_graph
-            graph=snapshot_graph(s) if row['domain']=='Cu100' else audit_components(s);final=root/alias/'CONTCAR';row.update(graph_status=graph['status'],observed_counts=graph['counts'],connectivity=graph['components'],cutoff_sensitivity=graph['sensitivity_factors'],CONTCAR_available=final.exists())
+            graph=snapshot_graph(s) if row['domain']=='Cu100' or extended_graph else audit_components(s);final=root/alias/'CONTCAR';row.update(graph_status=graph['status'],observed_counts=graph['counts'],connectivity=graph['components'],cutoff_sensitivity=graph['sensitivity_factors'],CONTCAR_available=final.exists())
             if final.exists():
                 link=correspondence(read_poscar(final),s);row['CONTCAR_mapping']=link
                 if link['status']!='matched':

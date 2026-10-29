@@ -1,0 +1,3707 @@
+[
+  {
+    "task": "identity",
+    "cohort": "refresh_CuAu",
+    "rep": "normalized_raw",
+    "fold": 0,
+    "candidates": [
+      [
+        "Combined",
+        "logistic",
+        0.1
+      ],
+      [
+        "Combined",
+        "logistic",
+        1.0
+      ],
+      [
+        "DCT16",
+        "logistic",
+        0.1
+      ],
+      [
+        "DCT16",
+        "logistic",
+        1.0
+      ],
+      [
+        "Combined",
+        "trees",
+        2
+      ],
+      [
+        "DCT16",
+        "trees",
+        2
+      ]
+    ],
+    "inner_micro_F1": [
+      0.6463878326996197,
+      0.64,
+      0.5480769230769231,
+      0.6359447004608295,
+      0.7169811320754716,
+      0.6359447004608295
+    ],
+    "selected": [
+      "Combined",
+      "trees",
+      2
+    ],
+    "thresholds": [
+      0.425,
+      0.425,
+      0.5,
+      0.5,
+      0.425,
+      0.575,
+      0.5,
+      0.475,
+      0.425,
+      0.425,
+      0.5
+    ]
+  },
+  {
+    "task": "identity",
+    "cohort": "refresh_CuAu",
+    "rep": "normalized_raw",
+    "fold": 1,
+    "candidates": [
+      [
+        "Combined",
+        "logistic",
+        0.1
+      ],
+      [
+        "Combined",
+        "logistic",
+        1.0
+      ],
+      [
+        "DCT16",
+        "logistic",
+        0.1
+      ],
+      [
+        "DCT16",
+        "logistic",
+        1.0
+      ],
+      [
+        "Combined",
+        "trees",
+        2
+      ],
+      [
+        "DCT16",
+        "trees",
+        2
+      ]
+    ],
+    "inner_micro_F1": [
+      0.6215139442231076,
+      0.6274509803921569,
+      0.5743589743589743,
+      0.6415094339622641,
+      0.6859903381642513,
+      0.6073298429319371
+    ],
+    "selected": [
+      "Combined",
+      "trees",
+      2
+    ],
+    "thresholds": [
+      0.45,
+      0.4,
+      0.45,
+      0.45,
+      0.45,
+      0.475,
+      0.5,
+      0.45,
+      0.45,
+      0.4,
+      0.45
+    ]
+  },
+  {
+    "task": "identity",
+    "cohort": "refresh_CuAu",
+    "rep": "normalized_raw",
+    "fold": 2,
+    "candidates": [
+      [
+        "Combined",
+        "logistic",
+        0.1
+      ],
+      [
+        "Combined",
+        "logistic",
+        1.0
+      ],
+      [
+        "DCT16",
+        "logistic",
+        0.1
+      ],
+      [
+        "DCT16",
+        "logistic",
+        1.0
+      ],
+      [
+        "Combined",
+        "trees",
+        2
+      ],
+      [
+        "DCT16",
+        "trees",
+        2
+      ]
+    ],
+    "inner_micro_F1": [
+      0.5830258302583026,
+      0.6051660516605166,
+      0.5755395683453237,
+      0.6375545851528385,
+      0.6854460093896714,
+      0.6232558139534884
+    ],
+    "selected": [
+      "Combined",
+      "trees",
+      2
+    ],
+    "thresholds": [
+      0.5,
+      0.5,
+      0.45,
+      0.45,
+      0.4,
+      0.5,
+      0.5,
+      0.45,
+      0.45,
+      0.45,
+      0.4
+    ]
+  },
+  {
+    "task": "identity",
+    "cohort": "refresh_CuAu",
+    "rep": "normalized_raw",
+    "fold": 3,
+    "candidates": [
+      [
+        "Combined",
+        "logistic",
+        0.1
+      ],
+      [
+        "Combined",
+        "logistic",
+        1.0
+      ],
+      [
+        "DCT16",
+        "logistic",
+        0.1
+      ],
+      [
+        "DCT16",
+        "logistic",
+        1.0
+      ],
+      [
+        "Combined",
+        "trees",
+        2
+      ],
+      [
+        "DCT16",
+        "trees",
+        2
+      ]
+    ],
+    "inner_micro_F1": [
+      0.6204081632653061,
+      0.5785123966942148,
+      0.582995951417004,
+      0.6666666666666666,
+      0.7619047619047619,
+      0.72
+    ],
+    "selected": [
+      "Combined",
+      "trees",
+      2
+    ],
+    "thresholds": [
+      0.4,
+      0.475,
+      0.45,
+      0.45,
+      0.45,
+      0.4,
+      0.475,
+      0.45,
+      0.4,
+      0.4,
+      0.4
+    ]
+  },
+  {
+    "task": "identity",
+    "cohort": "refresh_CuAu",
+    "rep": "normalized_raw",
+    "fold": 4,
+    "candidates": [
+      [
+        "Combined",
+        "logistic",
+        0.1
+      ],
+      [
+        "Combined",
+        "logistic",
+        1.0
+      ],
+      [
+        "DCT16",
+        "logistic",
+        0.1
+      ],
+      [
+        "DCT16",
+        "logistic",
+        1.0
+      ],
+      [
+        "Combined",
+        "trees",
+        2
+      ],
+      [
+        "DCT16",
+        "trees",
+        2
+      ]
+    ],
+    "inner_micro_F1": [
+      0.6606334841628959,
+      0.6454545454545455,
+      0.6063829787234043,
+      0.6637554585152838,
+      0.6740331491712708,
+      0.6701030927835051
+    ],
+    "selected": [
+      "Combined",
+      "trees",
+      2
+    ],
+    "thresholds": [
+      0.425,
+      0.5,
+      0.5,
+      0.5,
+      0.425,
+      0.425,
+      0.525,
+      0.5,
+      0.5,
+      0.5,
+      0.425
+    ]
+  },
+  {
+    "task": "identity",
+    "cohort": "refresh_CuAu",
+    "rep": "physical_raw",
+    "fold": 0,
+    "candidates": [
+      [
+        "Combined",
+        "logistic",
+        0.1
+      ],
+      [
+        "Combined",
+        "logistic",
+        1.0
+      ],
+      [
+        "DCT16",
+        "logistic",
+        0.1
+      ],
+      [
+        "DCT16",
+        "logistic",
+        1.0
+      ],
+      [
+        "Combined",
+        "trees",
+        2
+      ],
+      [
+        "DCT16",
+        "trees",
+        2
+      ]
+    ],
+    "inner_micro_F1": [
+      0.6356589147286822,
+      0.626984126984127,
+      0.5615763546798029,
+      0.6261682242990654,
+      0.6839378238341969,
+      0.6359447004608295
+    ],
+    "selected": [
+      "Combined",
+      "trees",
+      2
+    ],
+    "thresholds": [
+      0.55,
+      0.55,
+      0.55,
+      0.55,
+      0.55,
+      0.55,
+      0.55,
+      0.55,
+      0.55,
+      0.55,
+      0.55
+    ]
+  },
+  {
+    "task": "identity",
+    "cohort": "refresh_CuAu",
+    "rep": "physical_raw",
+    "fold": 1,
+    "candidates": [
+      [
+        "Combined",
+        "logistic",
+        0.1
+      ],
+      [
+        "Combined",
+        "logistic",
+        1.0
+      ],
+      [
+        "DCT16",
+        "logistic",
+        0.1
+      ],
+      [
+        "DCT16",
+        "logistic",
+        1.0
+      ],
+      [
+        "Combined",
+        "trees",
+        2
+      ],
+      [
+        "DCT16",
+        "trees",
+        2
+      ]
+    ],
+    "inner_micro_F1": [
+      0.6422764227642277,
+      0.6502057613168725,
+      0.5829145728643216,
+      0.6697674418604651,
+      0.6609442060085837,
+      0.6153846153846154
+    ],
+    "selected": [
+      "DCT16",
+      "logistic",
+      1.0
+    ],
+    "thresholds": [
+      0.7,
+      0.7,
+      0.75,
+      0.75,
+      0.75,
+      0.75,
+      0.7,
+      0.75,
+      0.75,
+      0.7,
+      0.75
+    ]
+  },
+  {
+    "task": "identity",
+    "cohort": "refresh_CuAu",
+    "rep": "physical_raw",
+    "fold": 2,
+    "candidates": [
+      [
+        "Combined",
+        "logistic",
+        0.1
+      ],
+      [
+        "Combined",
+        "logistic",
+        1.0
+      ],
+      [
+        "DCT16",
+        "logistic",
+        0.1
+      ],
+      [
+        "DCT16",
+        "logistic",
+        1.0
+      ],
+      [
+        "Combined",
+        "trees",
+        2
+      ],
+      [
+        "DCT16",
+        "trees",
+        2
+      ]
+    ],
+    "inner_micro_F1": [
+      0.6,
+      0.5904059040590406,
+      0.5693950177935944,
+      0.6260869565217392,
+      0.6851851851851852,
+      0.6027397260273972
+    ],
+    "selected": [
+      "Combined",
+      "trees",
+      2
+    ],
+    "thresholds": [
+      0.4,
+      0.45,
+      0.45,
+      0.45,
+      0.4,
+      0.45,
+      0.45,
+      0.4,
+      0.45,
+      0.45,
+      0.45
+    ]
+  },
+  {
+    "task": "identity",
+    "cohort": "refresh_CuAu",
+    "rep": "physical_raw",
+    "fold": 3,
+    "candidates": [
+      [
+        "Combined",
+        "logistic",
+        0.1
+      ],
+      [
+        "Combined",
+        "logistic",
+        1.0
+      ],
+      [
+        "DCT16",
+        "logistic",
+        0.1
+      ],
+      [
+        "DCT16",
+        "logistic",
+        1.0
+      ],
+      [
+        "Combined",
+        "trees",
+        2
+      ],
+      [
+        "DCT16",
+        "trees",
+        2
+      ]
+    ],
+    "inner_micro_F1": [
+      0.639344262295082,
+      0.6120689655172413,
+      0.5918367346938775,
+      0.6883720930232559,
+      0.7593582887700535,
+      0.68
+    ],
+    "selected": [
+      "Combined",
+      "trees",
+      2
+    ],
+    "thresholds": [
+      0.425,
+      0.525,
+      0.575,
+      0.5,
+      0.425,
+      0.475,
+      0.575,
+      0.425,
+      0.425,
+      0.425,
+      0.475
+    ]
+  },
+  {
+    "task": "identity",
+    "cohort": "refresh_CuAu",
+    "rep": "physical_raw",
+    "fold": 4,
+    "candidates": [
+      [
+        "Combined",
+        "logistic",
+        0.1
+      ],
+      [
+        "Combined",
+        "logistic",
+        1.0
+      ],
+      [
+        "DCT16",
+        "logistic",
+        0.1
+      ],
+      [
+        "DCT16",
+        "logistic",
+        1.0
+      ],
+      [
+        "Combined",
+        "trees",
+        2
+      ],
+      [
+        "DCT16",
+        "trees",
+        2
+      ]
+    ],
+    "inner_micro_F1": [
+      0.6666666666666666,
+      0.6666666666666666,
+      0.6243386243386243,
+      0.683982683982684,
+      0.6927374301675978,
+      0.6702127659574468
+    ],
+    "selected": [
+      "Combined",
+      "trees",
+      2
+    ],
+    "thresholds": [
+      0.425,
+      0.5,
+      0.5,
+      0.5,
+      0.425,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.475,
+      0.475
+    ]
+  },
+  {
+    "task": "identity",
+    "cohort": "refresh_CuAu",
+    "rep": "delta",
+    "fold": 0,
+    "candidates": [
+      [
+        "Combined",
+        "logistic",
+        0.1
+      ],
+      [
+        "Combined",
+        "logistic",
+        1.0
+      ],
+      [
+        "DCT16",
+        "logistic",
+        0.1
+      ],
+      [
+        "DCT16",
+        "logistic",
+        1.0
+      ],
+      [
+        "Combined",
+        "trees",
+        2
+      ],
+      [
+        "DCT16",
+        "trees",
+        2
+      ]
+    ],
+    "inner_micro_F1": [
+      0.6356589147286822,
+      0.626984126984127,
+      0.5615763546798029,
+      0.6261682242990654,
+      0.6839378238341969,
+      0.6359447004608295
+    ],
+    "selected": [
+      "Combined",
+      "trees",
+      2
+    ],
+    "thresholds": [
+      0.55,
+      0.55,
+      0.55,
+      0.55,
+      0.55,
+      0.55,
+      0.55,
+      0.55,
+      0.55,
+      0.55,
+      0.55
+    ]
+  },
+  {
+    "task": "identity",
+    "cohort": "refresh_CuAu",
+    "rep": "delta",
+    "fold": 1,
+    "candidates": [
+      [
+        "Combined",
+        "logistic",
+        0.1
+      ],
+      [
+        "Combined",
+        "logistic",
+        1.0
+      ],
+      [
+        "DCT16",
+        "logistic",
+        0.1
+      ],
+      [
+        "DCT16",
+        "logistic",
+        1.0
+      ],
+      [
+        "Combined",
+        "trees",
+        2
+      ],
+      [
+        "DCT16",
+        "trees",
+        2
+      ]
+    ],
+    "inner_micro_F1": [
+      0.6422764227642277,
+      0.6502057613168725,
+      0.5829145728643216,
+      0.6697674418604651,
+      0.6609442060085837,
+      0.6153846153846154
+    ],
+    "selected": [
+      "DCT16",
+      "logistic",
+      1.0
+    ],
+    "thresholds": [
+      0.7,
+      0.7,
+      0.75,
+      0.75,
+      0.75,
+      0.75,
+      0.7,
+      0.75,
+      0.75,
+      0.7,
+      0.75
+    ]
+  },
+  {
+    "task": "identity",
+    "cohort": "refresh_CuAu",
+    "rep": "delta",
+    "fold": 2,
+    "candidates": [
+      [
+        "Combined",
+        "logistic",
+        0.1
+      ],
+      [
+        "Combined",
+        "logistic",
+        1.0
+      ],
+      [
+        "DCT16",
+        "logistic",
+        0.1
+      ],
+      [
+        "DCT16",
+        "logistic",
+        1.0
+      ],
+      [
+        "Combined",
+        "trees",
+        2
+      ],
+      [
+        "DCT16",
+        "trees",
+        2
+      ]
+    ],
+    "inner_micro_F1": [
+      0.6,
+      0.5904059040590406,
+      0.5693950177935944,
+      0.6260869565217392,
+      0.6851851851851852,
+      0.6027397260273972
+    ],
+    "selected": [
+      "Combined",
+      "trees",
+      2
+    ],
+    "thresholds": [
+      0.4,
+      0.45,
+      0.45,
+      0.45,
+      0.4,
+      0.45,
+      0.45,
+      0.4,
+      0.45,
+      0.45,
+      0.45
+    ]
+  },
+  {
+    "task": "identity",
+    "cohort": "refresh_CuAu",
+    "rep": "delta",
+    "fold": 3,
+    "candidates": [
+      [
+        "Combined",
+        "logistic",
+        0.1
+      ],
+      [
+        "Combined",
+        "logistic",
+        1.0
+      ],
+      [
+        "DCT16",
+        "logistic",
+        0.1
+      ],
+      [
+        "DCT16",
+        "logistic",
+        1.0
+      ],
+      [
+        "Combined",
+        "trees",
+        2
+      ],
+      [
+        "DCT16",
+        "trees",
+        2
+      ]
+    ],
+    "inner_micro_F1": [
+      0.639344262295082,
+      0.6120689655172413,
+      0.5918367346938775,
+      0.6883720930232559,
+      0.7593582887700535,
+      0.68
+    ],
+    "selected": [
+      "Combined",
+      "trees",
+      2
+    ],
+    "thresholds": [
+      0.425,
+      0.525,
+      0.575,
+      0.5,
+      0.425,
+      0.475,
+      0.575,
+      0.425,
+      0.425,
+      0.425,
+      0.475
+    ]
+  },
+  {
+    "task": "identity",
+    "cohort": "refresh_CuAu",
+    "rep": "delta",
+    "fold": 4,
+    "candidates": [
+      [
+        "Combined",
+        "logistic",
+        0.1
+      ],
+      [
+        "Combined",
+        "logistic",
+        1.0
+      ],
+      [
+        "DCT16",
+        "logistic",
+        0.1
+      ],
+      [
+        "DCT16",
+        "logistic",
+        1.0
+      ],
+      [
+        "Combined",
+        "trees",
+        2
+      ],
+      [
+        "DCT16",
+        "trees",
+        2
+      ]
+    ],
+    "inner_micro_F1": [
+      0.6666666666666666,
+      0.6666666666666666,
+      0.6243386243386243,
+      0.683982683982684,
+      0.6927374301675978,
+      0.6702127659574468
+    ],
+    "selected": [
+      "Combined",
+      "trees",
+      2
+    ],
+    "thresholds": [
+      0.425,
+      0.5,
+      0.5,
+      0.5,
+      0.425,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.475,
+      0.475
+    ]
+  },
+  {
+    "task": "identity",
+    "cohort": "refresh_joint",
+    "rep": "normalized_raw",
+    "fold": 0,
+    "candidates": [
+      [
+        "Combined",
+        "logistic",
+        0.1
+      ],
+      [
+        "Combined",
+        "logistic",
+        1.0
+      ],
+      [
+        "DCT16",
+        "logistic",
+        0.1
+      ],
+      [
+        "DCT16",
+        "logistic",
+        1.0
+      ],
+      [
+        "Combined",
+        "trees",
+        2
+      ],
+      [
+        "DCT16",
+        "trees",
+        2
+      ]
+    ],
+    "inner_micro_F1": [
+      0.6064981949458483,
+      0.6408450704225352,
+      0.5228758169934641,
+      0.6255144032921811,
+      0.7705627705627706,
+      0.703862660944206
+    ],
+    "selected": [
+      "Combined",
+      "trees",
+      2
+    ],
+    "thresholds": [
+      0.475,
+      0.4,
+      0.45,
+      0.45,
+      0.45,
+      0.475,
+      0.45,
+      0.45,
+      0.4,
+      0.4,
+      0.45
+    ]
+  },
+  {
+    "task": "identity",
+    "cohort": "refresh_joint",
+    "rep": "normalized_raw",
+    "fold": 1,
+    "candidates": [
+      [
+        "Combined",
+        "logistic",
+        0.1
+      ],
+      [
+        "Combined",
+        "logistic",
+        1.0
+      ],
+      [
+        "DCT16",
+        "logistic",
+        0.1
+      ],
+      [
+        "DCT16",
+        "logistic",
+        1.0
+      ],
+      [
+        "Combined",
+        "trees",
+        2
+      ],
+      [
+        "DCT16",
+        "trees",
+        2
+      ]
+    ],
+    "inner_micro_F1": [
+      0.6174496644295302,
+      0.6254295532646048,
+      0.5303514376996805,
+      0.6048109965635738,
+      0.7634854771784232,
+      0.6956521739130435
+    ],
+    "selected": [
+      "Combined",
+      "trees",
+      2
+    ],
+    "thresholds": [
+      0.45,
+      0.45,
+      0.45,
+      0.45,
+      0.45,
+      0.45,
+      0.45,
+      0.45,
+      0.45,
+      0.45,
+      0.45
+    ]
+  },
+  {
+    "task": "identity",
+    "cohort": "refresh_joint",
+    "rep": "normalized_raw",
+    "fold": 2,
+    "candidates": [
+      [
+        "Combined",
+        "logistic",
+        0.1
+      ],
+      [
+        "Combined",
+        "logistic",
+        1.0
+      ],
+      [
+        "DCT16",
+        "logistic",
+        0.1
+      ],
+      [
+        "DCT16",
+        "logistic",
+        1.0
+      ],
+      [
+        "Combined",
+        "trees",
+        2
+      ],
+      [
+        "DCT16",
+        "trees",
+        2
+      ]
+    ],
+    "inner_micro_F1": [
+      0.6279863481228669,
+      0.6101694915254238,
+      0.528169014084507,
+      0.6104417670682731,
+      0.7109375,
+      0.6475409836065574
+    ],
+    "selected": [
+      "Combined",
+      "trees",
+      2
+    ],
+    "thresholds": [
+      0.35,
+      0.35,
+      0.35,
+      0.35,
+      0.35,
+      0.35,
+      0.35,
+      0.35,
+      0.35,
+      0.35,
+      0.35
+    ]
+  },
+  {
+    "task": "identity",
+    "cohort": "refresh_joint",
+    "rep": "normalized_raw",
+    "fold": 3,
+    "candidates": [
+      [
+        "Combined",
+        "logistic",
+        0.1
+      ],
+      [
+        "Combined",
+        "logistic",
+        1.0
+      ],
+      [
+        "DCT16",
+        "logistic",
+        0.1
+      ],
+      [
+        "DCT16",
+        "logistic",
+        1.0
+      ],
+      [
+        "Combined",
+        "trees",
+        2
+      ],
+      [
+        "DCT16",
+        "trees",
+        2
+      ]
+    ],
+    "inner_micro_F1": [
+      0.5949820788530465,
+      0.5851851851851851,
+      0.5195729537366548,
+      0.5957446808510638,
+      0.6728971962616822,
+      0.6604651162790698
+    ],
+    "selected": [
+      "Combined",
+      "trees",
+      2
+    ],
+    "thresholds": [
+      0.4,
+      0.45,
+      0.4,
+      0.45,
+      0.4,
+      0.475,
+      0.5,
+      0.4,
+      0.475,
+      0.4,
+      0.45
+    ]
+  },
+  {
+    "task": "identity",
+    "cohort": "refresh_joint",
+    "rep": "normalized_raw",
+    "fold": 4,
+    "candidates": [
+      [
+        "Combined",
+        "logistic",
+        0.1
+      ],
+      [
+        "Combined",
+        "logistic",
+        1.0
+      ],
+      [
+        "DCT16",
+        "logistic",
+        0.1
+      ],
+      [
+        "DCT16",
+        "logistic",
+        1.0
+      ],
+      [
+        "Combined",
+        "trees",
+        2
+      ],
+      [
+        "DCT16",
+        "trees",
+        2
+      ]
+    ],
+    "inner_micro_F1": [
+      0.6171003717472119,
+      0.6283524904214559,
+      0.5079365079365079,
+      0.6239316239316239,
+      0.7148936170212766,
+      0.6816479400749064
+    ],
+    "selected": [
+      "Combined",
+      "trees",
+      2
+    ],
+    "thresholds": [
+      0.3,
+      0.4,
+      0.35,
+      0.35,
+      0.4,
+      0.35,
+      0.35,
+      0.35,
+      0.35,
+      0.35,
+      0.35
+    ]
+  },
+  {
+    "task": "identity",
+    "cohort": "refresh_joint",
+    "rep": "physical_raw",
+    "fold": 0,
+    "candidates": [
+      [
+        "Combined",
+        "logistic",
+        0.1
+      ],
+      [
+        "Combined",
+        "logistic",
+        1.0
+      ],
+      [
+        "DCT16",
+        "logistic",
+        0.1
+      ],
+      [
+        "DCT16",
+        "logistic",
+        1.0
+      ],
+      [
+        "Combined",
+        "trees",
+        2
+      ],
+      [
+        "DCT16",
+        "trees",
+        2
+      ]
+    ],
+    "inner_micro_F1": [
+      0.625,
+      0.6330935251798561,
+      0.5374149659863946,
+      0.64,
+      0.7339449541284404,
+      0.6810344827586207
+    ],
+    "selected": [
+      "Combined",
+      "trees",
+      2
+    ],
+    "thresholds": [
+      0.5,
+      0.45,
+      0.45,
+      0.45,
+      0.4,
+      0.5,
+      0.5,
+      0.45,
+      0.4,
+      0.4,
+      0.45
+    ]
+  },
+  {
+    "task": "identity",
+    "cohort": "refresh_joint",
+    "rep": "physical_raw",
+    "fold": 1,
+    "candidates": [
+      [
+        "Combined",
+        "logistic",
+        0.1
+      ],
+      [
+        "Combined",
+        "logistic",
+        1.0
+      ],
+      [
+        "DCT16",
+        "logistic",
+        0.1
+      ],
+      [
+        "DCT16",
+        "logistic",
+        1.0
+      ],
+      [
+        "Combined",
+        "trees",
+        2
+      ],
+      [
+        "DCT16",
+        "trees",
+        2
+      ]
+    ],
+    "inner_micro_F1": [
+      0.6501766784452296,
+      0.6265822784810127,
+      0.5408805031446541,
+      0.6294820717131474,
+      0.7142857142857143,
+      0.6607142857142857
+    ],
+    "selected": [
+      "Combined",
+      "trees",
+      2
+    ],
+    "thresholds": [
+      0.5,
+      0.55,
+      0.55,
+      0.55,
+      0.5,
+      0.5,
+      0.55,
+      0.5,
+      0.55,
+      0.5,
+      0.55
+    ]
+  },
+  {
+    "task": "identity",
+    "cohort": "refresh_joint",
+    "rep": "physical_raw",
+    "fold": 2,
+    "candidates": [
+      [
+        "Combined",
+        "logistic",
+        0.1
+      ],
+      [
+        "Combined",
+        "logistic",
+        1.0
+      ],
+      [
+        "DCT16",
+        "logistic",
+        0.1
+      ],
+      [
+        "DCT16",
+        "logistic",
+        1.0
+      ],
+      [
+        "Combined",
+        "trees",
+        2
+      ],
+      [
+        "DCT16",
+        "trees",
+        2
+      ]
+    ],
+    "inner_micro_F1": [
+      0.6219081272084805,
+      0.6095890410958904,
+      0.5217391304347826,
+      0.6,
+      0.6872246696035242,
+      0.6666666666666666
+    ],
+    "selected": [
+      "Combined",
+      "trees",
+      2
+    ],
+    "thresholds": [
+      0.45,
+      0.5,
+      0.45,
+      0.45,
+      0.45,
+      0.4,
+      0.4,
+      0.45,
+      0.45,
+      0.45,
+      0.5
+    ]
+  },
+  {
+    "task": "identity",
+    "cohort": "refresh_joint",
+    "rep": "physical_raw",
+    "fold": 3,
+    "candidates": [
+      [
+        "Combined",
+        "logistic",
+        0.1
+      ],
+      [
+        "Combined",
+        "logistic",
+        1.0
+      ],
+      [
+        "DCT16",
+        "logistic",
+        0.1
+      ],
+      [
+        "DCT16",
+        "logistic",
+        1.0
+      ],
+      [
+        "Combined",
+        "trees",
+        2
+      ],
+      [
+        "DCT16",
+        "trees",
+        2
+      ]
+    ],
+    "inner_micro_F1": [
+      0.60431654676259,
+      0.5882352941176471,
+      0.5333333333333333,
+      0.6106194690265486,
+      0.73,
+      0.6844444444444444
+    ],
+    "selected": [
+      "Combined",
+      "trees",
+      2
+    ],
+    "thresholds": [
+      0.425,
+      0.5,
+      0.475,
+      0.5,
+      0.425,
+      0.5,
+      0.5,
+      0.425,
+      0.475,
+      0.425,
+      0.475
+    ]
+  },
+  {
+    "task": "identity",
+    "cohort": "refresh_joint",
+    "rep": "physical_raw",
+    "fold": 4,
+    "candidates": [
+      [
+        "Combined",
+        "logistic",
+        0.1
+      ],
+      [
+        "Combined",
+        "logistic",
+        1.0
+      ],
+      [
+        "DCT16",
+        "logistic",
+        0.1
+      ],
+      [
+        "DCT16",
+        "logistic",
+        1.0
+      ],
+      [
+        "Combined",
+        "trees",
+        2
+      ],
+      [
+        "DCT16",
+        "trees",
+        2
+      ]
+    ],
+    "inner_micro_F1": [
+      0.5977859778597786,
+      0.6074074074074074,
+      0.5015873015873016,
+      0.6094420600858369,
+      0.700507614213198,
+      0.6818181818181818
+    ],
+    "selected": [
+      "Combined",
+      "trees",
+      2
+    ],
+    "thresholds": [
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5
+    ]
+  },
+  {
+    "task": "identity",
+    "cohort": "refresh_joint",
+    "rep": "delta",
+    "fold": 0,
+    "candidates": [
+      [
+        "Combined",
+        "logistic",
+        0.1
+      ],
+      [
+        "Combined",
+        "logistic",
+        1.0
+      ],
+      [
+        "DCT16",
+        "logistic",
+        0.1
+      ],
+      [
+        "DCT16",
+        "logistic",
+        1.0
+      ],
+      [
+        "Combined",
+        "trees",
+        2
+      ],
+      [
+        "DCT16",
+        "trees",
+        2
+      ]
+    ],
+    "inner_micro_F1": [
+      0.629757785467128,
+      0.6438356164383562,
+      0.5466666666666666,
+      0.6023166023166023,
+      0.7321428571428571,
+      0.6861924686192469
+    ],
+    "selected": [
+      "Combined",
+      "trees",
+      2
+    ],
+    "thresholds": [
+      0.4,
+      0.4,
+      0.45,
+      0.45,
+      0.4,
+      0.475,
+      0.45,
+      0.4,
+      0.5,
+      0.475,
+      0.45
+    ]
+  },
+  {
+    "task": "identity",
+    "cohort": "refresh_joint",
+    "rep": "delta",
+    "fold": 1,
+    "candidates": [
+      [
+        "Combined",
+        "logistic",
+        0.1
+      ],
+      [
+        "Combined",
+        "logistic",
+        1.0
+      ],
+      [
+        "DCT16",
+        "logistic",
+        0.1
+      ],
+      [
+        "DCT16",
+        "logistic",
+        1.0
+      ],
+      [
+        "Combined",
+        "trees",
+        2
+      ],
+      [
+        "DCT16",
+        "trees",
+        2
+      ]
+    ],
+    "inner_micro_F1": [
+      0.6375838926174496,
+      0.6462585034013606,
+      0.5448504983388704,
+      0.6048387096774194,
+      0.7478260869565218,
+      0.7048458149779736
+    ],
+    "selected": [
+      "Combined",
+      "trees",
+      2
+    ],
+    "thresholds": [
+      0.4,
+      0.475,
+      0.45,
+      0.45,
+      0.4,
+      0.4,
+      0.45,
+      0.4,
+      0.45,
+      0.4,
+      0.45
+    ]
+  },
+  {
+    "task": "identity",
+    "cohort": "refresh_joint",
+    "rep": "delta",
+    "fold": 2,
+    "candidates": [
+      [
+        "Combined",
+        "logistic",
+        0.1
+      ],
+      [
+        "Combined",
+        "logistic",
+        1.0
+      ],
+      [
+        "DCT16",
+        "logistic",
+        0.1
+      ],
+      [
+        "DCT16",
+        "logistic",
+        1.0
+      ],
+      [
+        "Combined",
+        "trees",
+        2
+      ],
+      [
+        "DCT16",
+        "trees",
+        2
+      ]
+    ],
+    "inner_micro_F1": [
+      0.6413793103448275,
+      0.6366782006920415,
+      0.5460992907801419,
+      0.5959183673469388,
+      0.7130434782608696,
+      0.6666666666666666
+    ],
+    "selected": [
+      "Combined",
+      "trees",
+      2
+    ],
+    "thresholds": [
+      0.45,
+      0.45,
+      0.45,
+      0.45,
+      0.475,
+      0.475,
+      0.45,
+      0.45,
+      0.45,
+      0.45,
+      0.475
+    ]
+  },
+  {
+    "task": "identity",
+    "cohort": "refresh_joint",
+    "rep": "delta",
+    "fold": 3,
+    "candidates": [
+      [
+        "Combined",
+        "logistic",
+        0.1
+      ],
+      [
+        "Combined",
+        "logistic",
+        1.0
+      ],
+      [
+        "DCT16",
+        "logistic",
+        0.1
+      ],
+      [
+        "DCT16",
+        "logistic",
+        1.0
+      ],
+      [
+        "Combined",
+        "trees",
+        2
+      ],
+      [
+        "DCT16",
+        "trees",
+        2
+      ]
+    ],
+    "inner_micro_F1": [
+      0.5865724381625441,
+      0.5755395683453237,
+      0.5159010600706714,
+      0.5756457564575646,
+      0.6934673366834171,
+      0.6822429906542056
+    ],
+    "selected": [
+      "Combined",
+      "trees",
+      2
+    ],
+    "thresholds": [
+      0.4,
+      0.475,
+      0.45,
+      0.45,
+      0.45,
+      0.4,
+      0.5,
+      0.4,
+      0.4,
+      0.4,
+      0.45
+    ]
+  },
+  {
+    "task": "identity",
+    "cohort": "refresh_joint",
+    "rep": "delta",
+    "fold": 4,
+    "candidates": [
+      [
+        "Combined",
+        "logistic",
+        0.1
+      ],
+      [
+        "Combined",
+        "logistic",
+        1.0
+      ],
+      [
+        "DCT16",
+        "logistic",
+        0.1
+      ],
+      [
+        "DCT16",
+        "logistic",
+        1.0
+      ],
+      [
+        "Combined",
+        "trees",
+        2
+      ],
+      [
+        "DCT16",
+        "trees",
+        2
+      ]
+    ],
+    "inner_micro_F1": [
+      0.6093189964157706,
+      0.5992779783393501,
+      0.5255972696245734,
+      0.592057761732852,
+      0.7225130890052356,
+      0.7037037037037037
+    ],
+    "selected": [
+      "Combined",
+      "trees",
+      2
+    ],
+    "thresholds": [
+      0.425,
+      0.5,
+      0.5,
+      0.5,
+      0.425,
+      0.575,
+      0.5,
+      0.5,
+      0.5,
+      0.475,
+      0.525
+    ]
+  },
+  {
+    "task": "coverage",
+    "cohort": "baseline99_CuAu",
+    "rep": "normalized_raw",
+    "fold": 0,
+    "candidates": [
+      [
+        "Combined",
+        "ridge",
+        1.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        10.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        100.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        1.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        10.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        100.0
+      ]
+    ],
+    "inner_MAE": [
+      0.01984347748286283,
+      0.019158278810838952,
+      0.01746659645422383,
+      0.014427757180524832,
+      0.01788299338170516,
+      0.03254905259291853
+    ],
+    "selected": [
+      "DCT16",
+      "ridge",
+      1.0
+    ]
+  },
+  {
+    "task": "coverage",
+    "cohort": "baseline99_CuAu",
+    "rep": "normalized_raw",
+    "fold": 1,
+    "candidates": [
+      [
+        "Combined",
+        "ridge",
+        1.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        10.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        100.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        1.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        10.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        100.0
+      ]
+    ],
+    "inner_MAE": [
+      0.016796955331362846,
+      0.016039284817622863,
+      0.015171534492385274,
+      0.015288441642747286,
+      0.01626739944220188,
+      0.037571773797396825
+    ],
+    "selected": [
+      "Combined",
+      "ridge",
+      100.0
+    ]
+  },
+  {
+    "task": "coverage",
+    "cohort": "baseline99_CuAu",
+    "rep": "normalized_raw",
+    "fold": 2,
+    "candidates": [
+      [
+        "Combined",
+        "ridge",
+        1.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        10.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        100.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        1.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        10.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        100.0
+      ]
+    ],
+    "inner_MAE": [
+      0.011379596825678845,
+      0.010597329627974803,
+      0.009005864058068594,
+      0.010073180538466136,
+      0.010168961224563497,
+      0.02632261588675349
+    ],
+    "selected": [
+      "Combined",
+      "ridge",
+      100.0
+    ]
+  },
+  {
+    "task": "coverage",
+    "cohort": "baseline99_CuAu",
+    "rep": "normalized_raw",
+    "fold": 3,
+    "candidates": [
+      [
+        "Combined",
+        "ridge",
+        1.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        10.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        100.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        1.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        10.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        100.0
+      ]
+    ],
+    "inner_MAE": [
+      0.01887680401634726,
+      0.016108132879854877,
+      0.015135105753576412,
+      0.014732761502675737,
+      0.014876267834138897,
+      0.031131607819703363
+    ],
+    "selected": [
+      "DCT16",
+      "ridge",
+      1.0
+    ]
+  },
+  {
+    "task": "coverage",
+    "cohort": "baseline99_CuAu",
+    "rep": "normalized_raw",
+    "fold": 4,
+    "candidates": [
+      [
+        "Combined",
+        "ridge",
+        1.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        10.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        100.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        1.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        10.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        100.0
+      ]
+    ],
+    "inner_MAE": [
+      0.013150384786515434,
+      0.014518453387188152,
+      0.015695589962751683,
+      0.014235529283802145,
+      0.014815442786762115,
+      0.03477042205300116
+    ],
+    "selected": [
+      "Combined",
+      "ridge",
+      1.0
+    ]
+  },
+  {
+    "task": "coverage",
+    "cohort": "refresh_CuAu",
+    "rep": "normalized_raw",
+    "fold": 0,
+    "candidates": [
+      [
+        "Combined",
+        "ridge",
+        1.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        10.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        100.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        1.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        10.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        100.0
+      ]
+    ],
+    "inner_MAE": [
+      0.024936475280634782,
+      0.02278704380900317,
+      0.017246650851771832,
+      0.0169106276043502,
+      0.01665819156008686,
+      0.03493348754862794
+    ],
+    "selected": [
+      "DCT16",
+      "ridge",
+      10.0
+    ]
+  },
+  {
+    "task": "coverage",
+    "cohort": "refresh_CuAu",
+    "rep": "normalized_raw",
+    "fold": 1,
+    "candidates": [
+      [
+        "Combined",
+        "ridge",
+        1.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        10.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        100.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        1.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        10.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        100.0
+      ]
+    ],
+    "inner_MAE": [
+      0.015348650831077969,
+      0.01452707362571363,
+      0.014389580341926838,
+      0.01411556570003592,
+      0.015155321754281324,
+      0.03473940576267296
+    ],
+    "selected": [
+      "DCT16",
+      "ridge",
+      1.0
+    ]
+  },
+  {
+    "task": "coverage",
+    "cohort": "refresh_CuAu",
+    "rep": "normalized_raw",
+    "fold": 2,
+    "candidates": [
+      [
+        "Combined",
+        "ridge",
+        1.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        10.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        100.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        1.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        10.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        100.0
+      ]
+    ],
+    "inner_MAE": [
+      0.011343704164755681,
+      0.011177896054768462,
+      0.01074313994367114,
+      0.009818322602265634,
+      0.011568779305607792,
+      0.028257528625936546
+    ],
+    "selected": [
+      "DCT16",
+      "ridge",
+      1.0
+    ]
+  },
+  {
+    "task": "coverage",
+    "cohort": "refresh_CuAu",
+    "rep": "normalized_raw",
+    "fold": 3,
+    "candidates": [
+      [
+        "Combined",
+        "ridge",
+        1.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        10.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        100.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        1.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        10.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        100.0
+      ]
+    ],
+    "inner_MAE": [
+      0.02041608827644475,
+      0.014035576914640866,
+      0.01178925288176984,
+      0.012727206938463567,
+      0.012748912090888003,
+      0.02804173956755844
+    ],
+    "selected": [
+      "Combined",
+      "ridge",
+      100.0
+    ]
+  },
+  {
+    "task": "coverage",
+    "cohort": "refresh_CuAu",
+    "rep": "normalized_raw",
+    "fold": 4,
+    "candidates": [
+      [
+        "Combined",
+        "ridge",
+        1.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        10.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        100.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        1.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        10.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        100.0
+      ]
+    ],
+    "inner_MAE": [
+      0.013184886910321712,
+      0.011782106014744087,
+      0.011509034638642869,
+      0.010180690561616362,
+      0.013262842748266444,
+      0.03115893352876494
+    ],
+    "selected": [
+      "DCT16",
+      "ridge",
+      1.0
+    ]
+  },
+  {
+    "task": "coverage",
+    "cohort": "refresh_CuAu",
+    "rep": "physical_raw",
+    "fold": 0,
+    "candidates": [
+      [
+        "Combined",
+        "ridge",
+        1.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        10.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        100.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        1.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        10.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        100.0
+      ]
+    ],
+    "inner_MAE": [
+      0.023295469671425185,
+      0.02182931028393485,
+      0.0190883487556974,
+      0.015194498631859404,
+      0.01733037519938198,
+      0.036359867332423815
+    ],
+    "selected": [
+      "DCT16",
+      "ridge",
+      1.0
+    ]
+  },
+  {
+    "task": "coverage",
+    "cohort": "refresh_CuAu",
+    "rep": "physical_raw",
+    "fold": 1,
+    "candidates": [
+      [
+        "Combined",
+        "ridge",
+        1.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        10.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        100.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        1.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        10.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        100.0
+      ]
+    ],
+    "inner_MAE": [
+      0.01726458808159572,
+      0.016844091776455444,
+      0.016625799410022006,
+      0.014084033146195937,
+      0.01570706742159159,
+      0.03770014132994535
+    ],
+    "selected": [
+      "DCT16",
+      "ridge",
+      1.0
+    ]
+  },
+  {
+    "task": "coverage",
+    "cohort": "refresh_CuAu",
+    "rep": "physical_raw",
+    "fold": 2,
+    "candidates": [
+      [
+        "Combined",
+        "ridge",
+        1.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        10.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        100.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        1.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        10.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        100.0
+      ]
+    ],
+    "inner_MAE": [
+      0.011418913381798438,
+      0.01101846478232779,
+      0.010174700000015356,
+      0.009398560806419218,
+      0.011710395783374213,
+      0.029527662427919713
+    ],
+    "selected": [
+      "DCT16",
+      "ridge",
+      1.0
+    ]
+  },
+  {
+    "task": "coverage",
+    "cohort": "refresh_CuAu",
+    "rep": "physical_raw",
+    "fold": 3,
+    "candidates": [
+      [
+        "Combined",
+        "ridge",
+        1.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        10.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        100.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        1.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        10.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        100.0
+      ]
+    ],
+    "inner_MAE": [
+      0.020077412411953835,
+      0.015247865435498378,
+      0.012176105352710105,
+      0.0135237265254149,
+      0.013213261769689509,
+      0.029965176060330445
+    ],
+    "selected": [
+      "Combined",
+      "ridge",
+      100.0
+    ]
+  },
+  {
+    "task": "coverage",
+    "cohort": "refresh_CuAu",
+    "rep": "physical_raw",
+    "fold": 4,
+    "candidates": [
+      [
+        "Combined",
+        "ridge",
+        1.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        10.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        100.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        1.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        10.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        100.0
+      ]
+    ],
+    "inner_MAE": [
+      0.010210865816922564,
+      0.010753586774062391,
+      0.011887556872676069,
+      0.010547192889446071,
+      0.01300420828996033,
+      0.03277946653532664
+    ],
+    "selected": [
+      "Combined",
+      "ridge",
+      1.0
+    ]
+  },
+  {
+    "task": "coverage",
+    "cohort": "refresh_CuAu",
+    "rep": "delta",
+    "fold": 0,
+    "candidates": [
+      [
+        "Combined",
+        "ridge",
+        1.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        10.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        100.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        1.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        10.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        100.0
+      ]
+    ],
+    "inner_MAE": [
+      0.023295469671459436,
+      0.02182931028395966,
+      0.01908834875571506,
+      0.015194498631859454,
+      0.01733037519938188,
+      0.036359867332423856
+    ],
+    "selected": [
+      "DCT16",
+      "ridge",
+      1.0
+    ]
+  },
+  {
+    "task": "coverage",
+    "cohort": "refresh_CuAu",
+    "rep": "delta",
+    "fold": 1,
+    "candidates": [
+      [
+        "Combined",
+        "ridge",
+        1.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        10.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        100.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        1.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        10.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        100.0
+      ]
+    ],
+    "inner_MAE": [
+      0.017264588081587158,
+      0.016844091776448817,
+      0.016625799410019654,
+      0.014084033146195898,
+      0.01570706742159154,
+      0.03770014132994542
+    ],
+    "selected": [
+      "DCT16",
+      "ridge",
+      1.0
+    ]
+  },
+  {
+    "task": "coverage",
+    "cohort": "refresh_CuAu",
+    "rep": "delta",
+    "fold": 2,
+    "candidates": [
+      [
+        "Combined",
+        "ridge",
+        1.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        10.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        100.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        1.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        10.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        100.0
+      ]
+    ],
+    "inner_MAE": [
+      0.011418913381804814,
+      0.011018464782336725,
+      0.010174700000017873,
+      0.009398560806419348,
+      0.011710395783374294,
+      0.029527662427919786
+    ],
+    "selected": [
+      "DCT16",
+      "ridge",
+      1.0
+    ]
+  },
+  {
+    "task": "coverage",
+    "cohort": "refresh_CuAu",
+    "rep": "delta",
+    "fold": 3,
+    "candidates": [
+      [
+        "Combined",
+        "ridge",
+        1.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        10.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        100.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        1.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        10.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        100.0
+      ]
+    ],
+    "inner_MAE": [
+      0.020077412411951354,
+      0.015247865435499134,
+      0.012176105352711315,
+      0.013523726525415204,
+      0.013213261769689694,
+      0.029965176060330515
+    ],
+    "selected": [
+      "Combined",
+      "ridge",
+      100.0
+    ]
+  },
+  {
+    "task": "coverage",
+    "cohort": "refresh_CuAu",
+    "rep": "delta",
+    "fold": 4,
+    "candidates": [
+      [
+        "Combined",
+        "ridge",
+        1.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        10.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        100.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        1.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        10.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        100.0
+      ]
+    ],
+    "inner_MAE": [
+      0.010210865816940662,
+      0.010753586774078337,
+      0.011887556872686424,
+      0.01054719288944621,
+      0.01300420828996024,
+      0.03277946653532661
+    ],
+    "selected": [
+      "Combined",
+      "ridge",
+      1.0
+    ]
+  },
+  {
+    "task": "coverage",
+    "cohort": "refresh_joint",
+    "rep": "normalized_raw",
+    "fold": 0,
+    "candidates": [
+      [
+        "Combined",
+        "ridge",
+        1.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        10.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        100.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        1.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        10.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        100.0
+      ]
+    ],
+    "inner_MAE": [
+      0.02016227246143354,
+      0.019517045692752633,
+      0.022311696947178595,
+      0.020638077117809156,
+      0.02519270429681768,
+      0.07554894557845389
+    ],
+    "selected": [
+      "Combined",
+      "ridge",
+      10.0
+    ]
+  },
+  {
+    "task": "coverage",
+    "cohort": "refresh_joint",
+    "rep": "normalized_raw",
+    "fold": 1,
+    "candidates": [
+      [
+        "Combined",
+        "ridge",
+        1.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        10.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        100.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        1.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        10.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        100.0
+      ]
+    ],
+    "inner_MAE": [
+      0.02182370035668515,
+      0.011178338256484998,
+      0.017059728768217597,
+      0.018536696904476083,
+      0.024957866501275683,
+      0.08053157218593769
+    ],
+    "selected": [
+      "Combined",
+      "ridge",
+      10.0
+    ]
+  },
+  {
+    "task": "coverage",
+    "cohort": "refresh_joint",
+    "rep": "normalized_raw",
+    "fold": 2,
+    "candidates": [
+      [
+        "Combined",
+        "ridge",
+        1.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        10.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        100.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        1.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        10.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        100.0
+      ]
+    ],
+    "inner_MAE": [
+      0.024601530364449883,
+      0.023107274778837512,
+      0.02249242585327536,
+      0.017792101240358512,
+      0.021883969807890303,
+      0.0450715205224505
+    ],
+    "selected": [
+      "DCT16",
+      "ridge",
+      1.0
+    ]
+  },
+  {
+    "task": "coverage",
+    "cohort": "refresh_joint",
+    "rep": "normalized_raw",
+    "fold": 3,
+    "candidates": [
+      [
+        "Combined",
+        "ridge",
+        1.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        10.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        100.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        1.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        10.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        100.0
+      ]
+    ],
+    "inner_MAE": [
+      0.04073084707353693,
+      0.027275449597698932,
+      0.026302839977740678,
+      0.022253702309119536,
+      0.030258115969582382,
+      0.0670839389366515
+    ],
+    "selected": [
+      "DCT16",
+      "ridge",
+      1.0
+    ]
+  },
+  {
+    "task": "coverage",
+    "cohort": "refresh_joint",
+    "rep": "normalized_raw",
+    "fold": 4,
+    "candidates": [
+      [
+        "Combined",
+        "ridge",
+        1.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        10.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        100.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        1.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        10.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        100.0
+      ]
+    ],
+    "inner_MAE": [
+      0.01689268480391059,
+      0.019010859094490663,
+      0.021637804185491414,
+      0.01933758676310593,
+      0.018450433122040807,
+      0.07030898984484199
+    ],
+    "selected": [
+      "Combined",
+      "ridge",
+      1.0
+    ]
+  },
+  {
+    "task": "coverage",
+    "cohort": "refresh_joint",
+    "rep": "physical_raw",
+    "fold": 0,
+    "candidates": [
+      [
+        "Combined",
+        "ridge",
+        1.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        10.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        100.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        1.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        10.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        100.0
+      ]
+    ],
+    "inner_MAE": [
+      0.020899434271325918,
+      0.023405009137147076,
+      0.030411898803441206,
+      0.024581140905614817,
+      0.02489434863827301,
+      0.06901939247733356
+    ],
+    "selected": [
+      "Combined",
+      "ridge",
+      1.0
+    ]
+  },
+  {
+    "task": "coverage",
+    "cohort": "refresh_joint",
+    "rep": "physical_raw",
+    "fold": 1,
+    "candidates": [
+      [
+        "Combined",
+        "ridge",
+        1.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        10.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        100.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        1.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        10.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        100.0
+      ]
+    ],
+    "inner_MAE": [
+      0.02065535306337234,
+      0.01406252277353696,
+      0.025378098636156116,
+      0.01933683379802144,
+      0.018800140595056306,
+      0.0715745897408944
+    ],
+    "selected": [
+      "Combined",
+      "ridge",
+      10.0
+    ]
+  },
+  {
+    "task": "coverage",
+    "cohort": "refresh_joint",
+    "rep": "physical_raw",
+    "fold": 2,
+    "candidates": [
+      [
+        "Combined",
+        "ridge",
+        1.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        10.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        100.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        1.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        10.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        100.0
+      ]
+    ],
+    "inner_MAE": [
+      0.03051757645300022,
+      0.02599836407472808,
+      0.02457853551936713,
+      0.01833599445676456,
+      0.021254955248177786,
+      0.045609649409475414
+    ],
+    "selected": [
+      "DCT16",
+      "ridge",
+      1.0
+    ]
+  },
+  {
+    "task": "coverage",
+    "cohort": "refresh_joint",
+    "rep": "physical_raw",
+    "fold": 3,
+    "candidates": [
+      [
+        "Combined",
+        "ridge",
+        1.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        10.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        100.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        1.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        10.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        100.0
+      ]
+    ],
+    "inner_MAE": [
+      0.03379370377226474,
+      0.03234334313287299,
+      0.03324876785552746,
+      0.025805564003419955,
+      0.028265411232202473,
+      0.05988839291253242
+    ],
+    "selected": [
+      "DCT16",
+      "ridge",
+      1.0
+    ]
+  },
+  {
+    "task": "coverage",
+    "cohort": "refresh_joint",
+    "rep": "physical_raw",
+    "fold": 4,
+    "candidates": [
+      [
+        "Combined",
+        "ridge",
+        1.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        10.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        100.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        1.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        10.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        100.0
+      ]
+    ],
+    "inner_MAE": [
+      0.021281417556761835,
+      0.02530689890634404,
+      0.029495450187587462,
+      0.023919420651142678,
+      0.02022607145896085,
+      0.06515433321023967
+    ],
+    "selected": [
+      "DCT16",
+      "ridge",
+      10.0
+    ]
+  },
+  {
+    "task": "coverage",
+    "cohort": "refresh_joint",
+    "rep": "delta",
+    "fold": 0,
+    "candidates": [
+      [
+        "Combined",
+        "ridge",
+        1.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        10.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        100.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        1.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        10.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        100.0
+      ]
+    ],
+    "inner_MAE": [
+      0.028699240534706617,
+      0.0237691348513794,
+      0.01790590442661925,
+      0.023031692325724534,
+      0.026604674235707785,
+      0.08641568613075216
+    ],
+    "selected": [
+      "Combined",
+      "ridge",
+      100.0
+    ]
+  },
+  {
+    "task": "coverage",
+    "cohort": "refresh_joint",
+    "rep": "delta",
+    "fold": 1,
+    "candidates": [
+      [
+        "Combined",
+        "ridge",
+        1.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        10.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        100.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        1.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        10.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        100.0
+      ]
+    ],
+    "inner_MAE": [
+      0.036836342195835876,
+      0.023975919381605437,
+      0.01756755885228192,
+      0.01860338193200678,
+      0.03010291341580651,
+      0.08943164851106235
+    ],
+    "selected": [
+      "Combined",
+      "ridge",
+      100.0
+    ]
+  },
+  {
+    "task": "coverage",
+    "cohort": "refresh_joint",
+    "rep": "delta",
+    "fold": 2,
+    "candidates": [
+      [
+        "Combined",
+        "ridge",
+        1.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        10.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        100.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        1.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        10.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        100.0
+      ]
+    ],
+    "inner_MAE": [
+      0.022211165336951298,
+      0.021308953419695745,
+      0.02869556836197346,
+      0.020763042349528082,
+      0.029667073622264242,
+      0.049249564603653005
+    ],
+    "selected": [
+      "DCT16",
+      "ridge",
+      1.0
+    ]
+  },
+  {
+    "task": "coverage",
+    "cohort": "refresh_joint",
+    "rep": "delta",
+    "fold": 3,
+    "candidates": [
+      [
+        "Combined",
+        "ridge",
+        1.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        10.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        100.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        1.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        10.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        100.0
+      ]
+    ],
+    "inner_MAE": [
+      0.04613005727672701,
+      0.03230530313169453,
+      0.027276457494516074,
+      0.02149426736459692,
+      0.03653519693526631,
+      0.07134759448436435
+    ],
+    "selected": [
+      "DCT16",
+      "ridge",
+      1.0
+    ]
+  },
+  {
+    "task": "coverage",
+    "cohort": "refresh_joint",
+    "rep": "delta",
+    "fold": 4,
+    "candidates": [
+      [
+        "Combined",
+        "ridge",
+        1.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        10.0
+      ],
+      [
+        "Combined",
+        "ridge",
+        100.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        1.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        10.0
+      ],
+      [
+        "DCT16",
+        "ridge",
+        100.0
+      ]
+    ],
+    "inner_MAE": [
+      0.027705115952984655,
+      0.020504806086101227,
+      0.020229159182700567,
+      0.02441860067272048,
+      0.03038961952921424,
+      0.08395332311453642
+    ],
+    "selected": [
+      "Combined",
+      "ridge",
+      100.0
+    ]
+  }
+]

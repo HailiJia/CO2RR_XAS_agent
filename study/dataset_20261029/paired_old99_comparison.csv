@@ -1,0 +1,10 @@
+stage,seed,n_same_old_cases,delta_micro_F1,conditional_95_low,conditional_95_high,wrong_to_correct,correct_to_wrong,scope
+threshold0p5,20261020,99,0.04427251235761864,-0.0006141865890979806,0.08909362827171237,6,2,paired fixed predictions; excludes refitting/parent transfer uncertainty
+threshold0p5,20261021,99,0.029466829466829547,-0.0216330394254154,0.07829259852496076,9,3,paired fixed predictions; excludes refitting/parent transfer uncertainty
+threshold0p5,20261022,99,0.028815628815628824,-0.011075378305306681,0.06833063089010676,5,2,paired fixed predictions; excludes refitting/parent transfer uncertainty
+transferred_baseline_threshold,20261020,99,0.013819095477386911,-0.03037273516999146,0.05572914644973467,5,4,paired fixed predictions; excludes refitting/parent transfer uncertainty
+transferred_baseline_threshold,20261021,99,0.03951326223680618,-0.0030001162978,0.07895807057382716,9,3,paired fixed predictions; excludes refitting/parent transfer uncertainty
+transferred_baseline_threshold,20261022,99,-0.0011695906432748204,-0.029429024074743425,0.030327673874976986,6,2,paired fixed predictions; excludes refitting/parent transfer uncertainty
+inner_retuned_threshold,20261020,99,0.007009345794392496,-0.04086885838791862,0.05858446186855848,6,6,paired fixed predictions; excludes refitting/parent transfer uncertainty
+inner_retuned_threshold,20261021,99,0.026536027760767467,-0.016379268038846994,0.06950158008099502,6,4,paired fixed predictions; excludes refitting/parent transfer uncertainty
+inner_retuned_threshold,20261022,99,-0.007892004153686405,-0.05166113806479446,0.03408721603508591,9,4,paired fixed predictions; excludes refitting/parent transfer uncertainty

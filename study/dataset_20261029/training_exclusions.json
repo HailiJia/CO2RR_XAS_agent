@@ -1,0 +1,49 @@
+[
+  {
+    "configuration": "Cu100/Cu100_2x2x4_1CO3_1H2O_hollow_flat-1HB",
+    "reason": "unsupported chemistry, not silently dropped labels",
+    "labels": [
+      "CO3",
+      "H2O"
+    ]
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_1CO3_hollow",
+    "reason": "unsupported chemistry, not silently dropped labels",
+    "labels": [
+      "CO3"
+    ]
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_1H2O_1CO_H2Otop_CObridge",
+    "reason": "unsupported chemistry, not silently dropped labels",
+    "labels": [
+      "CO",
+      "H2O"
+    ]
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_1H2O_1OH_H2Otop_OHbridge",
+    "reason": "unsupported chemistry, not silently dropped labels",
+    "labels": [
+      "H2O",
+      "OH"
+    ]
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_1H2O_2OH_H2Otop_OHbridge-top",
+    "reason": "unsupported chemistry, not silently dropped labels",
+    "labels": [
+      "H2O",
+      "OH"
+    ]
+  },
+  {
+    "configuration": "OCCO_H2O/OCCO_2H2O",
+    "reason": "unsupported chemistry, not silently dropped labels",
+    "labels": [
+      "CO",
+      "H2O"
+    ]
+  }
+]

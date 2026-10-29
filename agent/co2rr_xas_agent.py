@@ -51,7 +51,7 @@ class LocalIntentParser:
         request_lower = request.lower()
 
         # Determine action
-        if ("train" in request_lower or "fit" in request_lower) and any(word in request_lower for word in ["adsorbate", "multilabel", "identity model", "species-presence", "co coverage", "co loading", "coverage_v1", "differential xas", "delta mu", "differential_v1", "clean-referenced"]):
+        if ("train" in request_lower or "fit" in request_lower) and any(word in request_lower for word in ["updated data", "updated dataset", "new data", "dataset refresh", "dataset_refresh_v1", "co2rr_1029", "adsorbate", "multilabel", "identity model", "species-presence", "co coverage", "co loading", "coverage_v1", "differential xas", "delta mu", "differential_v1", "clean-referenced"]):
             action = "audited_training"
         elif any(word in request_lower for word in ["parse", "read output", "isaac record", "extract", "convert results"]):
             action = "parse_results"
@@ -95,7 +95,7 @@ class LocalIntentParser:
                 match = re.search(pattern, request, re.IGNORECASE)
                 if match:
                     parameters[key] = match.group(1)
-            parameters["training_recipe"] = "differential_v1" if any(t in request_lower for t in ["differential xas", "delta mu", "differential_v1", "clean-referenced"]) else "coverage_v1" if any(t in request_lower for t in ["co coverage", "co loading", "coverage_v1", "differential xas", "delta mu", "differential_v1", "clean-referenced"]) else "fixed_top_two_v4" if any(t in request_lower for t in ["top-two", "top two", "fixed_top_two_v4"]) else "updated_data_v3" if any(t in request_lower for t in ["updated data", "updated folder", "updated_data_v3", "new data"]) else "motif_holdout_v2" if any(t in request_lower for t in ["motif held out", "motif-held-out", "motif_holdout_v2"]) else "scientific_extensions_v2" if any(t in request_lower for t in ["scientific extensions", "coadsorbate recovery", "scientific_extensions_v2"]) else "training_only_global_threshold" if "global threshold" in request_lower else "archived_primary"
+            parameters["training_recipe"] = "dataset_refresh_v1" if any(t in request_lower for t in ["dataset refresh", "dataset_refresh_v1", "co2rr_1029", "updated dataset", "updated data", "updated folder", "new data"]) else "differential_v1" if any(t in request_lower for t in ["differential xas", "delta mu", "differential_v1", "clean-referenced"]) else "coverage_v1" if any(t in request_lower for t in ["co coverage", "co loading", "coverage_v1", "differential xas", "delta mu", "differential_v1", "clean-referenced"]) else "fixed_top_two_v4" if any(t in request_lower for t in ["top-two", "top two", "fixed_top_two_v4"]) else "updated_data_v3" if "updated_data_v3" in request_lower else "motif_holdout_v2" if any(t in request_lower for t in ["motif held out", "motif-held-out", "motif_holdout_v2"]) else "scientific_extensions_v2" if any(t in request_lower for t in ["scientific extensions", "coadsorbate recovery", "scientific_extensions_v2"]) else "training_only_global_threshold" if "global threshold" in request_lower else "archived_primary"
 
         parameters["fdmnes_options"] = self._extract_fdmnes_options(request_lower)
         metadata_overrides = self._extract_ml_metadata(request)

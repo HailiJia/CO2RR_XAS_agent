@@ -1,0 +1,769 @@
+[
+  {
+    "configuration": "Cu100/Cu100_2x2x4_1CO3_1H2O_hollow_flat-1HB",
+    "domain": "Cu100",
+    "representation": "normalized_raw",
+    "unsupported_species": [
+      "CO3",
+      "H2O"
+    ],
+    "review_required": true,
+    "closed_label_prediction": [
+      "OH"
+    ],
+    "mean_uncalibrated_scores": [
+      0.005666928721174004,
+      0.10799125876230935,
+      0.0,
+      0.012352864616133882,
+      0.0381122018227467,
+      0.0,
+      0.1851754160140804,
+      0.2990837945477937,
+      0.0,
+      0.0057954545454545455,
+      0.5501505450767535
+    ],
+    "fold_votes": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.2,
+      0.0,
+      0.0,
+      0.8
+    ],
+    "actual_full_graph_labels": [
+      "CO3",
+      "H2O"
+    ],
+    "interpretation": "unsupported chemistry/interference query; no full-set accuracy or probability calibration claim"
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_1CO3_1H2O_hollow_flat-1HB",
+    "domain": "Cu100",
+    "representation": "physical_raw",
+    "unsupported_species": [
+      "CO3",
+      "H2O"
+    ],
+    "review_required": true,
+    "closed_label_prediction": [
+      "OH"
+    ],
+    "mean_uncalibrated_scores": [
+      0.0028891509433962266,
+      0.10872145925100032,
+      0.00609375,
+      0.04943830669341716,
+      0.00879397532586425,
+      0.0029775943396226417,
+      0.17533273781337702,
+      0.39668690075522434,
+      0.0,
+      0.002741228070175439,
+      0.5204517010204924
+    ],
+    "fold_votes": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.4,
+      0.0,
+      0.0,
+      0.6
+    ],
+    "actual_full_graph_labels": [
+      "CO3",
+      "H2O"
+    ],
+    "interpretation": "unsupported chemistry/interference query; no full-set accuracy or probability calibration claim"
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_1CO3_1H2O_hollow_flat-1HB",
+    "domain": "Cu100",
+    "representation": "delta",
+    "unsupported_species": [
+      "CO3",
+      "H2O"
+    ],
+    "review_required": true,
+    "closed_label_prediction": [
+      "OH"
+    ],
+    "mean_uncalibrated_scores": [
+      0.05957319092067588,
+      0.24900125681744548,
+      0.003125,
+      0.08642830153513018,
+      0.18901898812168516,
+      0.04907341626147699,
+      0.165019874880595,
+      0.07214767151542725,
+      0.015157546963739627,
+      0.005691787162757892,
+      0.6179708381717061
+    ],
+    "fold_votes": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.8
+    ],
+    "actual_full_graph_labels": [
+      "CO3",
+      "H2O"
+    ],
+    "interpretation": "unsupported chemistry/interference query; no full-set accuracy or probability calibration claim"
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_1CO3_hollow",
+    "domain": "Cu100",
+    "representation": "normalized_raw",
+    "unsupported_species": [
+      "CO3"
+    ],
+    "review_required": true,
+    "closed_label_prediction": [
+      "OH"
+    ],
+    "mean_uncalibrated_scores": [
+      0.014627872747907505,
+      0.1163442267551537,
+      0.0,
+      0.0,
+      0.02663303429730206,
+      0.002886904761904762,
+      0.207972473401374,
+      0.08894827111581918,
+      0.0,
+      0.008716015293118096,
+      0.6890345294173572
+    ],
+    "fold_votes": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "actual_full_graph_labels": [
+      "CO3"
+    ],
+    "interpretation": "unsupported chemistry/interference query; no full-set accuracy or probability calibration claim"
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_1CO3_hollow",
+    "domain": "Cu100",
+    "representation": "physical_raw",
+    "unsupported_species": [
+      "CO3"
+    ],
+    "review_required": true,
+    "closed_label_prediction": [
+      "OH"
+    ],
+    "mean_uncalibrated_scores": [
+      0.0,
+      0.1315334502891332,
+      0.005971200980392157,
+      0.006160338785046729,
+      0.003125,
+      0.0028434684684684685,
+      0.2797684734698944,
+      0.18923166270008007,
+      0.0,
+      0.002741228070175439,
+      0.5514009465165499
+    ],
+    "fold_votes": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.8
+    ],
+    "actual_full_graph_labels": [
+      "CO3"
+    ],
+    "interpretation": "unsupported chemistry/interference query; no full-set accuracy or probability calibration claim"
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_1CO3_hollow",
+    "domain": "Cu100",
+    "representation": "delta",
+    "unsupported_species": [
+      "CO3"
+    ],
+    "review_required": true,
+    "closed_label_prediction": [
+      "OH"
+    ],
+    "mean_uncalibrated_scores": [
+      0.026418532458482656,
+      0.22227557700243422,
+      0.0,
+      0.006190756963162623,
+      0.09407327823338008,
+      0.043463574813170446,
+      0.167887996885887,
+      0.01733650632709441,
+      0.006014129951045839,
+      0.023415575225177884,
+      0.580816544291382
+    ],
+    "fold_votes": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "actual_full_graph_labels": [
+      "CO3"
+    ],
+    "interpretation": "unsupported chemistry/interference query; no full-set accuracy or probability calibration claim"
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_1H2O_1CO_H2Otop_CObridge",
+    "domain": "Cu100",
+    "representation": "normalized_raw",
+    "unsupported_species": [
+      "H2O"
+    ],
+    "review_required": true,
+    "closed_label_prediction": [],
+    "mean_uncalibrated_scores": [
+      0.011376077976689939,
+      0.38520803787347246,
+      0.003125,
+      0.027821677130729798,
+      0.12566673245848722,
+      0.005736169467787116,
+      0.1545288728322517,
+      0.13361490352436384,
+      0.00296875,
+      0.10949691114951705,
+      0.1834900600021258
+    ],
+    "fold_votes": [
+      0.0,
+      0.4,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "actual_full_graph_labels": [
+      "CO",
+      "H2O"
+    ],
+    "interpretation": "unsupported chemistry/interference query; no full-set accuracy or probability calibration claim"
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_1H2O_1CO_H2Otop_CObridge",
+    "domain": "Cu100",
+    "representation": "physical_raw",
+    "unsupported_species": [
+      "H2O"
+    ],
+    "review_required": true,
+    "closed_label_prediction": [],
+    "mean_uncalibrated_scores": [
+      0.011530357757137944,
+      0.4267322390870384,
+      0.002889150943396226,
+      0.06802385317444613,
+      0.09290237118561477,
+      0.01411849854148787,
+      0.23971391676582457,
+      0.1662308412777953,
+      0.009375,
+      0.06319897802196227,
+      0.18854782560006847
+    ],
+    "fold_votes": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "actual_full_graph_labels": [
+      "CO",
+      "H2O"
+    ],
+    "interpretation": "unsupported chemistry/interference query; no full-set accuracy or probability calibration claim"
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_1H2O_1CO_H2Otop_CObridge",
+    "domain": "Cu100",
+    "representation": "delta",
+    "unsupported_species": [
+      "H2O"
+    ],
+    "review_required": true,
+    "closed_label_prediction": [],
+    "mean_uncalibrated_scores": [
+      0.06739607118447165,
+      0.3655372901743821,
+      0.012226927570093459,
+      0.015474051355685987,
+      0.03597941280197496,
+      0.02027154633567744,
+      0.2878200320540993,
+      0.0030024509803921566,
+      0.005833333333333334,
+      0.05700084158546105,
+      0.1306757883701524
+    ],
+    "fold_votes": [
+      0.0,
+      0.2,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "actual_full_graph_labels": [
+      "CO",
+      "H2O"
+    ],
+    "interpretation": "unsupported chemistry/interference query; no full-set accuracy or probability calibration claim"
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_1H2O_1OH_H2Otop_OHbridge",
+    "domain": "Cu100",
+    "representation": "normalized_raw",
+    "unsupported_species": [
+      "H2O"
+    ],
+    "review_required": true,
+    "closed_label_prediction": [
+      "OH"
+    ],
+    "mean_uncalibrated_scores": [
+      0.022830551804267952,
+      0.24906663611991683,
+      0.012377450980392158,
+      0.01854268978134368,
+      0.08302631421376219,
+      0.0055259905923622735,
+      0.22245338912280793,
+      0.07615637351152103,
+      0.0,
+      0.02725860491028273,
+      0.46807205437771876
+    ],
+    "fold_votes": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.8
+    ],
+    "actual_full_graph_labels": [
+      "H2O",
+      "OH"
+    ],
+    "interpretation": "unsupported chemistry/interference query; no full-set accuracy or probability calibration claim"
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_1H2O_1OH_H2Otop_OHbridge",
+    "domain": "Cu100",
+    "representation": "physical_raw",
+    "unsupported_species": [
+      "H2O"
+    ],
+    "review_required": true,
+    "closed_label_prediction": [
+      "OH"
+    ],
+    "mean_uncalibrated_scores": [
+      0.008791928721174003,
+      0.21702605228232855,
+      0.0,
+      0.07723373261950013,
+      0.03378360094037615,
+      0.0055595899637955705,
+      0.2318370862607976,
+      0.11603225822827898,
+      0.00625,
+      0.00868674312153455,
+      0.5364574955899604
+    ],
+    "fold_votes": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.8
+    ],
+    "actual_full_graph_labels": [
+      "H2O",
+      "OH"
+    ],
+    "interpretation": "unsupported chemistry/interference query; no full-set accuracy or probability calibration claim"
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_1H2O_1OH_H2Otop_OHbridge",
+    "domain": "Cu100",
+    "representation": "delta",
+    "unsupported_species": [
+      "H2O"
+    ],
+    "review_required": true,
+    "closed_label_prediction": [],
+    "mean_uncalibrated_scores": [
+      0.09161354811953036,
+      0.23305426860753467,
+      0.02141612991496169,
+      0.006156868811881188,
+      0.032104419228610584,
+      0.05054116567159802,
+      0.30210541782388634,
+      0.008810233999260082,
+      0.011858108108108108,
+      0.09260935603084398,
+      0.3300077078131797
+    ],
+    "fold_votes": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "actual_full_graph_labels": [
+      "H2O",
+      "OH"
+    ],
+    "interpretation": "unsupported chemistry/interference query; no full-set accuracy or probability calibration claim"
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_1H2O_2OH_H2Otop_OHbridge-top",
+    "domain": "Cu100",
+    "representation": "normalized_raw",
+    "unsupported_species": [
+      "H2O"
+    ],
+    "review_required": true,
+    "closed_label_prediction": [
+      "OH"
+    ],
+    "mean_uncalibrated_scores": [
+      0.005634920634920634,
+      0.3022733981739631,
+      0.0,
+      0.0,
+      0.003125,
+      0.0,
+      0.2694657087892614,
+      0.05313750706355437,
+      0.0,
+      0.006045560747663552,
+      0.5634980655977831
+    ],
+    "fold_votes": [
+      0.0,
+      0.2,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.8
+    ],
+    "actual_full_graph_labels": [
+      "H2O",
+      "OH"
+    ],
+    "interpretation": "unsupported chemistry/interference query; no full-set accuracy or probability calibration claim"
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_1H2O_2OH_H2Otop_OHbridge-top",
+    "domain": "Cu100",
+    "representation": "physical_raw",
+    "unsupported_species": [
+      "H2O"
+    ],
+    "review_required": true,
+    "closed_label_prediction": [
+      "OH"
+    ],
+    "mean_uncalibrated_scores": [
+      0.00268640350877193,
+      0.2796789520743094,
+      0.0,
+      0.04931860804910314,
+      0.0,
+      0.0028434684684684685,
+      0.265887994007045,
+      0.05940554134318761,
+      0.002843468468468468,
+      0.0,
+      0.6081795521364963
+    ],
+    "fold_votes": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.8
+    ],
+    "actual_full_graph_labels": [
+      "H2O",
+      "OH"
+    ],
+    "interpretation": "unsupported chemistry/interference query; no full-set accuracy or probability calibration claim"
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_1H2O_2OH_H2Otop_OHbridge-top",
+    "domain": "Cu100",
+    "representation": "delta",
+    "unsupported_species": [
+      "H2O"
+    ],
+    "review_required": true,
+    "closed_label_prediction": [
+      "CO",
+      "OH"
+    ],
+    "mean_uncalibrated_scores": [
+      0.04474586977455879,
+      0.5562144209034374,
+      0.003125,
+      0.030890492412898075,
+      0.03269984609922722,
+      0.026308050637185915,
+      0.27338042487530567,
+      0.026424556641559814,
+      0.021489141737938814,
+      0.006045560747663552,
+      0.4431258288718253
+    ],
+    "fold_votes": [
+      0.0,
+      0.8,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.6
+    ],
+    "actual_full_graph_labels": [
+      "H2O",
+      "OH"
+    ],
+    "interpretation": "unsupported chemistry/interference query; no full-set accuracy or probability calibration claim"
+  },
+  {
+    "configuration": "OCCO_H2O/OCCO_2H2O",
+    "domain": "CuAu",
+    "representation": "normalized_raw",
+    "unsupported_species": [
+      "H2O"
+    ],
+    "review_required": true,
+    "closed_label_prediction": [
+      "CO"
+    ],
+    "mean_uncalibrated_scores": [
+      0.14865413856886783,
+      0.4702908936807132,
+      0.009077380952380951,
+      0.009254151299642648,
+      0.026473639369400746,
+      0.1598472754468066,
+      0.054109414738789996,
+      0.006004901960784313,
+      0.2617991530933837,
+      0.02990414090990858,
+      0.0
+    ],
+    "fold_votes": [
+      0.0,
+      0.6,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "actual_full_graph_labels": [
+      "CO",
+      "H2O"
+    ],
+    "interpretation": "unsupported chemistry/interference query; no full-set accuracy or probability calibration claim"
+  },
+  {
+    "configuration": "OCCO_H2O/OCCO_2H2O",
+    "domain": "CuAu",
+    "representation": "physical_raw",
+    "unsupported_species": [
+      "H2O"
+    ],
+    "review_required": true,
+    "closed_label_prediction": [
+      "CO"
+    ],
+    "mean_uncalibrated_scores": [
+      0.09035723486364552,
+      0.5257268009827876,
+      0.006024774774774775,
+      0.0,
+      0.03755378125909835,
+      0.08110231272729716,
+      0.07781313760150013,
+      0.026220205729086416,
+      0.08302836679420454,
+      0.014718988581710557,
+      0.0
+    ],
+    "fold_votes": [
+      0.0,
+      0.8,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "actual_full_graph_labels": [
+      "CO",
+      "H2O"
+    ],
+    "interpretation": "unsupported chemistry/interference query; no full-set accuracy or probability calibration claim"
+  },
+  {
+    "configuration": "OCCO_H2O/OCCO_2H2O",
+    "domain": "CuAu",
+    "representation": "delta",
+    "unsupported_species": [
+      "H2O"
+    ],
+    "review_required": true,
+    "closed_label_prediction": [
+      "CO"
+    ],
+    "mean_uncalibrated_scores": [
+      0.10871945290201071,
+      0.5100125493530097,
+      0.003125,
+      0.0,
+      0.03494762678139177,
+      0.10154645887455875,
+      0.10163949225722965,
+      0.017595134365051952,
+      0.1005782428496588,
+      0.04708322765496534,
+      0.0
+    ],
+    "fold_votes": [
+      0.0,
+      0.8,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "actual_full_graph_labels": [
+      "CO",
+      "H2O"
+    ],
+    "interpretation": "unsupported chemistry/interference query; no full-set accuracy or probability calibration claim"
+  }
+]

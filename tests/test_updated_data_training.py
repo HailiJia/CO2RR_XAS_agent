@@ -39,4 +39,4 @@ def test_snapshot_folds_and_training_only_inner_partitions():
 def test_updated_data_natural_language_calls_new_versioned_route():
     from agent.co2rr_xas_agent import LocalIntentParser
     p=LocalIntentParser().parse('Audit updated data and retrain the adsorbate identity model, data-root=/tmp/export')
-    assert p.action=='audited_training' and p.parameters['training_recipe']=='updated_data_v3'
+    assert p.action=='audited_training' and p.parameters['training_recipe']=='dataset_refresh_v1'
