@@ -92,6 +92,14 @@ def run_audited_training(data_root, output_dir, split_manifest=None,
     The export root may be given either as its directory or as its ``data`` child.
     A new, empty output directory is required so cache provenance is unambiguous.
     """
+    if recipe == 'relative_identity_v2':
+        # This recipe consumes a prepared audited export, never an arbitrary folder.
+        b=Path(data_root);manifest=json.loads((b/'artifact_sha256.json').read_text())
+        for name in ['training_arrays.npz','training_manifest.json']:
+            if hashlib.sha256((b/name).read_bytes()).hexdigest()!=manifest[name]['sha256']:
+                raise ValueError('Prepared identity export hash mismatch: '+name)
+        from .identity_comparison import train
+        return train(data_root,output_dir)
     if recipe == 'dataset_refresh_v1':
         from .dataset_refresh_training import train
         return train(data_root, output_dir)
@@ -218,7 +226,7 @@ def main(argv=None):
     p.add_argument('--data-root', required=True)
     p.add_argument('--output-dir', required=True)
     p.add_argument('--split-manifest')
-    p.add_argument('--recipe', choices=['archived_primary', 'training_only_global_threshold', 'scientific_extensions_v2', 'motif_holdout_v2', 'updated_data_v3', 'fixed_top_two_v4', 'coverage_v1', 'differential_v1', 'dataset_refresh_v1'], default='archived_primary')
+    p.add_argument('--recipe', choices=['archived_primary', 'training_only_global_threshold', 'scientific_extensions_v2', 'motif_holdout_v2', 'updated_data_v3', 'fixed_top_two_v4', 'coverage_v1', 'differential_v1', 'dataset_refresh_v1', 'relative_identity_v2'], default='archived_primary')
     a = p.parse_args(argv)
     print(json.dumps(run_audited_training(a.data_root, a.output_dir, a.split_manifest, a.recipe), indent=2))
 

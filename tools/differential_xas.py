@@ -1,7 +1,8 @@
 """Signed clean-referenced XAS on an explicit common physical Cu scale.
 
-No per-spectrum min subtraction, area, peak or L2 normalization is permitted on
-Delta mu. Source-weight correction precedes this module; it is not guessed here.
+The physical difference and feature bank preserve amplitude. Optional signed
+shape normalization is an identity-only control in differential_identity; never
+use it for absolute coverage. Source weighting is audited before subtraction.
 """
 from pathlib import Path
 import json,hashlib
@@ -52,7 +53,7 @@ def pair(sample,reference,energy,populations,reference_populations,top_layers,do
     c=reference.get('sample',{}).get('composition',{})
     if 'adsorbate_counts' not in c or any(c['adsorbate_counts'].values()):raise ReferenceError('Reference must be explicitly clean; covered/unknown reference rejected')
     e=np.asarray(energy,float);a=_series(sample,populations,top_layers,e);b=_series(reference,reference_populations,top_layers,e);s=clean_scale(b,e)
-    return {'energy':e,'raw_per_Cu':a,'clean_per_Cu':b,'scale':s,'raw_common_scale':a/s,'clean_common_scale':b/s,'delta':difference(a,b,s),'version':VERSION,'unit':'clean-edge-step units','reference_id':reference['record_id'],'sample_id':sample['record_id'],'physical_domain':domain,'top_layers':top_layers,'scaling_windows_eV':{'pre':PRE,'post':POST}}
+    return {'energy':e,'raw_per_Cu':a,'clean_per_Cu':b,'scale':s,'raw_common_scale':a/s,'clean_common_scale':b/s,'delta':difference(a,b,s),'version':VERSION,'unit':'shared clean near-edge scale units','reference_id':reference['record_id'],'sample_id':sample['record_id'],'physical_domain':domain,'top_layers':top_layers,'scaling_windows_eV':{'pre':PRE,'post':POST}}
 
 def features(delta,energy):
     """S=SG11,3(delta); Dk=d^k SG/dE^k; C=integral delta dE.
@@ -65,7 +66,11 @@ def features(delta,energy):
     step=float(np.median(np.diff(e)));s=savgol_filter(x,11,3,axis=1);d1=savgol_filter(x,11,3,deriv=1,delta=step,axis=1);d2=savgol_filter(x,11,3,deriv=2,delta=step,axis=1);c=cumulative_trapezoid(x,e,axis=1,initial=0);coeff=dct(x,type=2,norm='ortho',axis=1)
     return {'signed':x.copy(),'smoothed':s,'derivative':d1,'d2':d2,'cumulative_difference':c,'Combined':np.concatenate([s,c,d1,d2],axis=1),**{f'DCT{k}':coeff[:,:k] for k in [8,16,24]}}
 
-def experimental_pair(sample,reference,energy,convention):
+def experimental_pair(sample,reference,energy,convention,task="identity"):
+    if task=="identity":
+        from .differential_identity import identity_input
+        return identity_input(sample,reference,energy,convention)
+    if task!="coverage":raise ReferenceError("Unknown experimental task")
     required={'Cu_basis','incident_intensity_correction','thickness_concentration','self_absorption','detection_geometry','reference_residual_coverage','edge_step_rule'}
     if reference is None or not required<=set(convention):raise ReferenceError('Declared compatible experimental reference and calibration/population convention required')
     if convention['Cu_basis']!='same independently calibrated per-Cu basis':raise ReferenceError('Detector gain equality or separate arbitrary normalization is not a physical Cu basis')

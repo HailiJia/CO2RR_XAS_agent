@@ -45,6 +45,11 @@ def train(data_root,output_dir):
 
 def infer(model_path,sample,reference,populations,reference_populations,domain,reference_domain,experimental_convention=None,allow_ood_evaluation=False):
  m=joblib.load(model_path);energy=np.asarray(m['energy']);ood=[]
+ if m.get('input_contract')=='relative-signed-identity-v2':
+  from .differential_identity import infer_identity
+  if experimental_convention is None:raise ReferenceError('Explicit relative identity input convention required')
+  supplied_energy=experimental_convention.get('input_energy_eV',energy)
+  return infer_identity(model_path,sample,reference,supplied_energy,experimental_convention)
  if reference is None:raise ReferenceError('A compatible explicit reference is required; no mean-reference borrowing or silent raw fallback')
  if domain!='CuAu':
   if not allow_ood_evaluation:raise ReferenceError('No validated differential model for this facet/domain')
@@ -56,7 +61,7 @@ def infer(model_path,sample,reference,populations,reference_populations,domain,r
   grids=[np.asarray(experimental_convention.get(k,[]),float) for k in ['sample_energy_eV','reference_energy_eV']]
   if any(len(e)!=len(v) or len(e)<2 or not np.all(np.diff(e)>0) or e[0]>energy[0]+1e-8 or e[-1]<energy[-1]-1e-8 for e,v in zip(grids,[sample,reference])):raise ReferenceError('Experimental pair lacks explicit full trained energy support; no extrapolation')
   sample=np.interp(energy,grids[0],sample);reference=np.interp(energy,grids[1],reference)
-  ex=experimental_pair(sample,reference,energy,experimental_convention);d=np.atleast_2d(ex['delta']/ex['surface_fraction']);c=np.atleast_2d(ex['clean_common_scale']);a=c+d;ood+=['simulation-to-experiment transfer unvalidated','surface fraction independently supplied; stable-background approximation']
+  ex=experimental_pair(sample,reference,energy,experimental_convention,task="coverage");d=np.atleast_2d(ex['delta']/ex['surface_fraction']);c=np.atleast_2d(ex['clean_common_scale']);a=c+d;ood+=['simulation-to-experiment transfer unvalidated','surface fraction independently supplied; stable-background approximation']
   if a.shape[1]!=len(energy):raise ReferenceError('Experimental arrays lack trained energy support')
  else:
   p=pair(sample,reference,energy,populations,reference_populations,m['physical_top_layers'],domain,reference_domain);d=p['delta'][None,:];c=p['clean_common_scale'][None,:];a=p['raw_common_scale'][None,:]

@@ -63,12 +63,12 @@ def test_real_source_reconstructions_and_nonconstant_weight_correction():
  ratio=d.corrected_per_Cu/d.native_aggregate_per_unique_Cu_without_symmetry_correction;assert np.ptp(ratio)>.001
 
 
-def test_experimental_query_cannot_ignore_reference_or_surface_fraction():
+def test_calibrated_coverage_query_cannot_ignore_reference_or_surface_fraction():
  e,a,b=fixture_records();y=np.array(b['measurement']['series'][0]['channels'][0]['values'])
- with pytest.raises(ReferenceError):experimental_pair(y,None,e,{})
+ with pytest.raises(ReferenceError):experimental_pair(y,None,e,{},task="coverage")
  convention={k:'declared' for k in ['incident_intensity_correction','thickness_concentration','self_absorption','detection_geometry','reference_residual_coverage']};convention.update(Cu_basis='same independently calibrated per-Cu basis',edge_step_rule='shared reference-derived scale with fixed documented windows')
- with pytest.raises(ReferenceError,match='fraction'):experimental_pair(y,y,e,convention)
- convention['surface_fraction']=.2;assert np.all(experimental_pair(y,y,e,convention)['delta']==0)
+ with pytest.raises(ReferenceError,match='fraction'):experimental_pair(y,y,e,convention,task="coverage")
+ convention['surface_fraction']=.2;assert np.all(experimental_pair(y,y,e,convention,task="coverage")['delta']==0)
 
 def test_XAS_preparation_cannot_bypass_failed_relaxation(tmp_path):
  (tmp_path/'OUTCAR').write_text('Electronic iterations only; unfinished relaxation')

@@ -1,0 +1,33 @@
+{
+  "pair": {
+    "CONTCAR_2fixed.vasp": "171cc0686c94789cc9df8890db3f859a2ff88fcfe52c30eb0e73b6600cfe4621",
+    "CONTCAR_3fixed.vasp": "3f4d12062b1d1f61fc73b95ffd8bc71e3d12d9be611bd840c5b48ec27078fff4"
+  },
+  "atom_count": 340,
+  "pairing": "same element sequence, cell, and bottom-two anchor layers",
+  "coordinate_difference": "in-plane minimum image; vacuum nonperiodic; no rigid fit",
+  "fixed_masks_verified": true,
+  "conclusion": "Uppermost interlayer spacings change by less than 0.008 A. Au mean surface height shifts by about 0.138 A, so the structures are not identical. No spectral or energy convergence is established by this coordinate comparison.",
+  "rows": [
+    {
+      "element": "Cu",
+      "n_surface": 36,
+      "d54_3fixed_A": 2.106197788566824,
+      "d54_2fixed_A": 2.1108728292805603,
+      "change_d54_A": 0.004675040713736145,
+      "mean_surface_z_shift_A": -0.03128495169618523,
+      "surface_RMS_displacement_A": 0.07665210723784055,
+      "max_surface_displacement_A": 0.10223048396514067
+    },
+    {
+      "element": "Au",
+      "n_surface": 32,
+      "d54_3fixed_A": 2.4814591443493157,
+      "d54_2fixed_A": 2.473850024557386,
+      "change_d54_A": -0.007609119791929686,
+      "mean_surface_z_shift_A": 0.13797865417675947,
+      "surface_RMS_displacement_A": 0.14760784419355596,
+      "max_surface_displacement_A": 0.18651722776737648
+    }
+  ]
+}

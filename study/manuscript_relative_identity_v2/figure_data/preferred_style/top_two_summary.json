@@ -1,0 +1,24 @@
+{
+  "representation": "population-weighted top-two-layer average",
+  "layers": [
+    5,
+    4
+  ],
+  "selector": "depth_top_2",
+  "objective": "micro",
+  "micro_f1": 0.7444444444444445,
+  "macro_f1": 0.6253068197444679,
+  "exact_set_accuracy": 0.6206896551724138,
+  "configurations": 87,
+  "feature_and_threshold_selection": "inner training folds only; depth fixed",
+  "model": "independent binary Extra Trees",
+  "refitted": false,
+  "top_two_minus_four_layer_micro_f1": {
+    "difference": 0.08510378510378513,
+    "conditional_95_interval": [
+      0.025515795473049996,
+      0.1526064820317761
+    ],
+    "resamples": 1500
+  }
+}

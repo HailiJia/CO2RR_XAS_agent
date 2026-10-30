@@ -1,0 +1,52 @@
+{
+  "version": "relative-signed-identity-v2",
+  "seeds": [
+    20261020,
+    20261021,
+    20261022
+  ],
+  "representations": [
+    "native_normalized",
+    "corrected_normalized",
+    "common_raw",
+    "relative_delta",
+    "signed_shape"
+  ],
+  "candidates": [
+    [
+      "signed",
+      "logistic"
+    ],
+    [
+      "signed",
+      "trees"
+    ],
+    [
+      "DCT16",
+      "logistic"
+    ],
+    [
+      "DCT16",
+      "trees"
+    ],
+    [
+      "Combined",
+      "logistic"
+    ],
+    [
+      "Combined",
+      "trees"
+    ]
+  ],
+  "nested": "paired old training inner groups; hash assignment additions; common threshold .3/.4/.5/.6 with .02(t-.5)^2 penalty; fixed.5 also shown",
+  "signed_shape_floor": "max(1e-10,1% of tenth-percentile nonzero training RMS); heuristic not measured detection limit; low inputs stay zero",
+  "augmentation": "one synthetic training copy; shifts\u00b1.2eV, Gaussian sigma.25eV, gain\u00b15%, noise1% native peak; same configuration fold; illustrative ranges without measured noise metadata",
+  "scope": "conditional same-reference simulation; one reference family/domain; no measured experimental validation; no coverage recalibration",
+  "source_hashes": {
+    "study/dataset_20261029/training_arrays.npz": "6ed24b3d345271ad6389d26b6258997bce1a4e1aa9c14b4df01f748e2e3af6ff",
+    "study/dataset_20261029/training_manifest.json": "9390fab26348b6c95c0090600421f53703abdf4d1c576e468e747f3d07a9978b",
+    "/private/tmp/co2rr_pr18_repair/tools/identity_comparison.py": "ecbd97eed54840e30269c254d44dcef8e6d7024e53dbcc859d848f303e1aab83",
+    "/private/tmp/co2rr_pr18_repair/tools/differential_identity.py": "a922026cee25a33eb7cb8450b69acef0cde9788349a85b20a32f3dbbbc987300"
+  },
+  "python": "3.11.9"
+}

@@ -1,0 +1,57 @@
+{
+  "status": "success",
+  "predictions": [
+    {
+      "identity_set": [
+        "CO"
+      ],
+      "scores": {
+        "CHO": 0.0,
+        "CO": 0.827028310746555,
+        "CO2": 0.0,
+        "COCHO": 0.0,
+        "COH": 0.0,
+        "COOH": 0.07445242202338727,
+        "H": 0.1234595687668027,
+        "O": 0.06381642374268647,
+        "OCCOH": 0.0,
+        "OCHO": 0.06951914519312233,
+        "OH": 0.0
+      },
+      "thresholds": {
+        "CHO": 0.25,
+        "CO": 0.25,
+        "CO2": 0.25,
+        "COCHO": 0.25,
+        "COH": 0.25,
+        "COOH": 0.15,
+        "H": 0.15,
+        "O": 0.15,
+        "OCCOH": 0.25,
+        "OCHO": 0.15,
+        "OH": 0.25
+      },
+      "unsupported_calibration_labels": [
+        "CHO",
+        "CO2",
+        "COCHO",
+        "COH",
+        "OCCOH",
+        "OH"
+      ],
+      "supported_minimum_margin": 0.026540431233197298,
+      "review_required": true,
+      "domain_flags": [
+        "unseen exact substrate geometry group; ancestral-parent transfer not established"
+      ],
+      "probability_caveat": "inner-training calibrated where supported; no certified full-set risk"
+    }
+  ],
+  "structural_metadata_used_as_predictors": false,
+  "configuration": "CHO/CHO_0p056_interface_Cu",
+  "heldout_fold": 0,
+  "training_excludes_query": true,
+  "model_sha256": "0975c64bd248f3259a96fe14c3c7c4c839fca7333b8bd6f212695d6442c332af",
+  "request": "Audit and train the adsorbate identity model using scientific extensions v2 for coadsorbate recovery, data-root=<local export>",
+  "route": "CO2RRXASAgent.process_request -> shared audited_training.run -> scientific_extensions.run; saved/reloaded held-out review"
+}

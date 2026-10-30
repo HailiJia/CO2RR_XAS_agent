@@ -1,0 +1,3002 @@
+[
+  {
+    "cohort": "expanded118",
+    "rep": "native_normalized",
+    "family": "logistic",
+    "fold": 0,
+    "candidates": [
+      [
+        "signed",
+        "logistic"
+      ],
+      [
+        "DCT16",
+        "logistic"
+      ],
+      [
+        "Combined",
+        "logistic"
+      ]
+    ],
+    "inner_micro": [
+      0.6071428571428571,
+      0.5912408759124088,
+      0.6048109965635738
+    ],
+    "selected": [
+      "signed",
+      "logistic"
+    ],
+    "threshold": 0.6
+  },
+  {
+    "cohort": "expanded118",
+    "rep": "native_normalized",
+    "family": "logistic",
+    "fold": 1,
+    "candidates": [
+      [
+        "signed",
+        "logistic"
+      ],
+      [
+        "DCT16",
+        "logistic"
+      ],
+      [
+        "Combined",
+        "logistic"
+      ]
+    ],
+    "inner_micro": [
+      0.5815602836879432,
+      0.5963636363636363,
+      0.607773851590106
+    ],
+    "selected": [
+      "Combined",
+      "logistic"
+    ],
+    "threshold": 0.6
+  },
+  {
+    "cohort": "expanded118",
+    "rep": "native_normalized",
+    "family": "logistic",
+    "fold": 2,
+    "candidates": [
+      [
+        "signed",
+        "logistic"
+      ],
+      [
+        "DCT16",
+        "logistic"
+      ],
+      [
+        "Combined",
+        "logistic"
+      ]
+    ],
+    "inner_micro": [
+      0.5567765567765568,
+      0.5755395683453237,
+      0.5422535211267606
+    ],
+    "selected": [
+      "DCT16",
+      "logistic"
+    ],
+    "threshold": 0.6
+  },
+  {
+    "cohort": "expanded118",
+    "rep": "native_normalized",
+    "family": "logistic",
+    "fold": 3,
+    "candidates": [
+      [
+        "signed",
+        "logistic"
+      ],
+      [
+        "DCT16",
+        "logistic"
+      ],
+      [
+        "Combined",
+        "logistic"
+      ]
+    ],
+    "inner_micro": [
+      0.5503875968992248,
+      0.5393258426966292,
+      0.5087108013937283
+    ],
+    "selected": [
+      "signed",
+      "logistic"
+    ],
+    "threshold": 0.6
+  },
+  {
+    "cohort": "expanded118",
+    "rep": "native_normalized",
+    "family": "logistic",
+    "fold": 4,
+    "candidates": [
+      [
+        "signed",
+        "logistic"
+      ],
+      [
+        "DCT16",
+        "logistic"
+      ],
+      [
+        "Combined",
+        "logistic"
+      ]
+    ],
+    "inner_micro": [
+      0.5991902834008097,
+      0.6198347107438017,
+      0.5399239543726235
+    ],
+    "selected": [
+      "DCT16",
+      "logistic"
+    ],
+    "threshold": 0.6
+  },
+  {
+    "cohort": "expanded118",
+    "rep": "native_normalized",
+    "family": "trees",
+    "fold": 0,
+    "candidates": [
+      [
+        "signed",
+        "trees"
+      ],
+      [
+        "DCT16",
+        "trees"
+      ],
+      [
+        "Combined",
+        "trees"
+      ]
+    ],
+    "inner_micro": [
+      0.6576576576576577,
+      0.6181818181818182,
+      0.7063492063492064
+    ],
+    "selected": [
+      "Combined",
+      "trees"
+    ],
+    "threshold": 0.3
+  },
+  {
+    "cohort": "expanded118",
+    "rep": "native_normalized",
+    "family": "trees",
+    "fold": 1,
+    "candidates": [
+      [
+        "signed",
+        "trees"
+      ],
+      [
+        "DCT16",
+        "trees"
+      ],
+      [
+        "Combined",
+        "trees"
+      ]
+    ],
+    "inner_micro": [
+      0.6666666666666666,
+      0.6305418719211823,
+      0.7350427350427351
+    ],
+    "selected": [
+      "Combined",
+      "trees"
+    ],
+    "threshold": 0.3
+  },
+  {
+    "cohort": "expanded118",
+    "rep": "native_normalized",
+    "family": "trees",
+    "fold": 2,
+    "candidates": [
+      [
+        "signed",
+        "trees"
+      ],
+      [
+        "DCT16",
+        "trees"
+      ],
+      [
+        "Combined",
+        "trees"
+      ]
+    ],
+    "inner_micro": [
+      0.5950413223140496,
+      0.6108374384236454,
+      0.6729857819905213
+    ],
+    "selected": [
+      "Combined",
+      "trees"
+    ],
+    "threshold": 0.4
+  },
+  {
+    "cohort": "expanded118",
+    "rep": "native_normalized",
+    "family": "trees",
+    "fold": 3,
+    "candidates": [
+      [
+        "signed",
+        "trees"
+      ],
+      [
+        "DCT16",
+        "trees"
+      ],
+      [
+        "Combined",
+        "trees"
+      ]
+    ],
+    "inner_micro": [
+      0.6396396396396397,
+      0.6432748538011696,
+      0.6976744186046512
+    ],
+    "selected": [
+      "Combined",
+      "trees"
+    ],
+    "threshold": 0.3
+  },
+  {
+    "cohort": "expanded118",
+    "rep": "native_normalized",
+    "family": "trees",
+    "fold": 4,
+    "candidates": [
+      [
+        "signed",
+        "trees"
+      ],
+      [
+        "DCT16",
+        "trees"
+      ],
+      [
+        "Combined",
+        "trees"
+      ]
+    ],
+    "inner_micro": [
+      0.6938775510204082,
+      0.6816143497757847,
+      0.7288888888888889
+    ],
+    "selected": [
+      "Combined",
+      "trees"
+    ],
+    "threshold": 0.3
+  },
+  {
+    "cohort": "expanded118",
+    "rep": "corrected_normalized",
+    "family": "logistic",
+    "fold": 0,
+    "candidates": [
+      [
+        "signed",
+        "logistic"
+      ],
+      [
+        "DCT16",
+        "logistic"
+      ],
+      [
+        "Combined",
+        "logistic"
+      ]
+    ],
+    "inner_micro": [
+      0.597864768683274,
+      0.5869565217391305,
+      0.5938566552901023
+    ],
+    "selected": [
+      "signed",
+      "logistic"
+    ],
+    "threshold": 0.6
+  },
+  {
+    "cohort": "expanded118",
+    "rep": "corrected_normalized",
+    "family": "logistic",
+    "fold": 1,
+    "candidates": [
+      [
+        "signed",
+        "logistic"
+      ],
+      [
+        "DCT16",
+        "logistic"
+      ],
+      [
+        "Combined",
+        "logistic"
+      ]
+    ],
+    "inner_micro": [
+      0.5683453237410072,
+      0.5869565217391305,
+      0.5951557093425606
+    ],
+    "selected": [
+      "Combined",
+      "logistic"
+    ],
+    "threshold": 0.6
+  },
+  {
+    "cohort": "expanded118",
+    "rep": "corrected_normalized",
+    "family": "logistic",
+    "fold": 2,
+    "candidates": [
+      [
+        "signed",
+        "logistic"
+      ],
+      [
+        "DCT16",
+        "logistic"
+      ],
+      [
+        "Combined",
+        "logistic"
+      ]
+    ],
+    "inner_micro": [
+      0.5474452554744526,
+      0.5683453237410072,
+      0.5441696113074205
+    ],
+    "selected": [
+      "DCT16",
+      "logistic"
+    ],
+    "threshold": 0.6
+  },
+  {
+    "cohort": "expanded118",
+    "rep": "corrected_normalized",
+    "family": "logistic",
+    "fold": 3,
+    "candidates": [
+      [
+        "signed",
+        "logistic"
+      ],
+      [
+        "DCT16",
+        "logistic"
+      ],
+      [
+        "Combined",
+        "logistic"
+      ]
+    ],
+    "inner_micro": [
+      0.5440613026819924,
+      0.5413533834586466,
+      0.5106382978723404
+    ],
+    "selected": [
+      "signed",
+      "logistic"
+    ],
+    "threshold": 0.6
+  },
+  {
+    "cohort": "expanded118",
+    "rep": "corrected_normalized",
+    "family": "logistic",
+    "fold": 4,
+    "candidates": [
+      [
+        "signed",
+        "logistic"
+      ],
+      [
+        "DCT16",
+        "logistic"
+      ],
+      [
+        "Combined",
+        "logistic"
+      ]
+    ],
+    "inner_micro": [
+      0.5991902834008097,
+      0.6147540983606558,
+      0.5426356589147286
+    ],
+    "selected": [
+      "DCT16",
+      "logistic"
+    ],
+    "threshold": 0.6
+  },
+  {
+    "cohort": "expanded118",
+    "rep": "corrected_normalized",
+    "family": "trees",
+    "fold": 0,
+    "candidates": [
+      [
+        "signed",
+        "trees"
+      ],
+      [
+        "DCT16",
+        "trees"
+      ],
+      [
+        "Combined",
+        "trees"
+      ]
+    ],
+    "inner_micro": [
+      0.6464646464646465,
+      0.6232558139534884,
+      0.6944444444444444
+    ],
+    "selected": [
+      "Combined",
+      "trees"
+    ],
+    "threshold": 0.4
+  },
+  {
+    "cohort": "expanded118",
+    "rep": "corrected_normalized",
+    "family": "trees",
+    "fold": 1,
+    "candidates": [
+      [
+        "signed",
+        "trees"
+      ],
+      [
+        "DCT16",
+        "trees"
+      ],
+      [
+        "Combined",
+        "trees"
+      ]
+    ],
+    "inner_micro": [
+      0.6666666666666666,
+      0.6301369863013698,
+      0.7094017094017094
+    ],
+    "selected": [
+      "Combined",
+      "trees"
+    ],
+    "threshold": 0.3
+  },
+  {
+    "cohort": "expanded118",
+    "rep": "corrected_normalized",
+    "family": "trees",
+    "fold": 2,
+    "candidates": [
+      [
+        "signed",
+        "trees"
+      ],
+      [
+        "DCT16",
+        "trees"
+      ],
+      [
+        "Combined",
+        "trees"
+      ]
+    ],
+    "inner_micro": [
+      0.5916666666666667,
+      0.5982905982905983,
+      0.6570048309178744
+    ],
+    "selected": [
+      "Combined",
+      "trees"
+    ],
+    "threshold": 0.4
+  },
+  {
+    "cohort": "expanded118",
+    "rep": "corrected_normalized",
+    "family": "trees",
+    "fold": 3,
+    "candidates": [
+      [
+        "signed",
+        "trees"
+      ],
+      [
+        "DCT16",
+        "trees"
+      ],
+      [
+        "Combined",
+        "trees"
+      ]
+    ],
+    "inner_micro": [
+      0.649746192893401,
+      0.6697674418604651,
+      0.6907216494845361
+    ],
+    "selected": [
+      "Combined",
+      "trees"
+    ],
+    "threshold": 0.4
+  },
+  {
+    "cohort": "expanded118",
+    "rep": "corrected_normalized",
+    "family": "trees",
+    "fold": 4,
+    "candidates": [
+      [
+        "signed",
+        "trees"
+      ],
+      [
+        "DCT16",
+        "trees"
+      ],
+      [
+        "Combined",
+        "trees"
+      ]
+    ],
+    "inner_micro": [
+      0.7297297297297297,
+      0.6822429906542056,
+      0.7216494845360825
+    ],
+    "selected": [
+      "signed",
+      "trees"
+    ],
+    "threshold": 0.3
+  },
+  {
+    "cohort": "expanded118",
+    "rep": "common_raw",
+    "family": "logistic",
+    "fold": 0,
+    "candidates": [
+      [
+        "signed",
+        "logistic"
+      ],
+      [
+        "DCT16",
+        "logistic"
+      ],
+      [
+        "Combined",
+        "logistic"
+      ]
+    ],
+    "inner_micro": [
+      0.6064981949458483,
+      0.578397212543554,
+      0.6054421768707483
+    ],
+    "selected": [
+      "signed",
+      "logistic"
+    ],
+    "threshold": 0.6
+  },
+  {
+    "cohort": "expanded118",
+    "rep": "common_raw",
+    "family": "logistic",
+    "fold": 1,
+    "candidates": [
+      [
+        "signed",
+        "logistic"
+      ],
+      [
+        "DCT16",
+        "logistic"
+      ],
+      [
+        "Combined",
+        "logistic"
+      ]
+    ],
+    "inner_micro": [
+      0.6071428571428571,
+      0.5827338129496403,
+      0.5964912280701754
+    ],
+    "selected": [
+      "signed",
+      "logistic"
+    ],
+    "threshold": 0.6
+  },
+  {
+    "cohort": "expanded118",
+    "rep": "common_raw",
+    "family": "logistic",
+    "fold": 2,
+    "candidates": [
+      [
+        "signed",
+        "logistic"
+      ],
+      [
+        "DCT16",
+        "logistic"
+      ],
+      [
+        "Combined",
+        "logistic"
+      ]
+    ],
+    "inner_micro": [
+      0.5815602836879432,
+      0.5579710144927537,
+      0.5551601423487544
+    ],
+    "selected": [
+      "signed",
+      "logistic"
+    ],
+    "threshold": 0.6
+  },
+  {
+    "cohort": "expanded118",
+    "rep": "common_raw",
+    "family": "logistic",
+    "fold": 3,
+    "candidates": [
+      [
+        "signed",
+        "logistic"
+      ],
+      [
+        "DCT16",
+        "logistic"
+      ],
+      [
+        "Combined",
+        "logistic"
+      ]
+    ],
+    "inner_micro": [
+      0.5758754863813229,
+      0.5413533834586466,
+      0.5106382978723404
+    ],
+    "selected": [
+      "signed",
+      "logistic"
+    ],
+    "threshold": 0.6
+  },
+  {
+    "cohort": "expanded118",
+    "rep": "common_raw",
+    "family": "logistic",
+    "fold": 4,
+    "candidates": [
+      [
+        "signed",
+        "logistic"
+      ],
+      [
+        "DCT16",
+        "logistic"
+      ],
+      [
+        "Combined",
+        "logistic"
+      ]
+    ],
+    "inner_micro": [
+      0.6446280991735537,
+      0.6097560975609756,
+      0.5378787878787878
+    ],
+    "selected": [
+      "signed",
+      "logistic"
+    ],
+    "threshold": 0.6
+  },
+  {
+    "cohort": "expanded118",
+    "rep": "common_raw",
+    "family": "trees",
+    "fold": 0,
+    "candidates": [
+      [
+        "signed",
+        "trees"
+      ],
+      [
+        "DCT16",
+        "trees"
+      ],
+      [
+        "Combined",
+        "trees"
+      ]
+    ],
+    "inner_micro": [
+      0.5846153846153846,
+      0.6105263157894737,
+      0.7035175879396985
+    ],
+    "selected": [
+      "Combined",
+      "trees"
+    ],
+    "threshold": 0.5
+  },
+  {
+    "cohort": "expanded118",
+    "rep": "common_raw",
+    "family": "trees",
+    "fold": 1,
+    "candidates": [
+      [
+        "signed",
+        "trees"
+      ],
+      [
+        "DCT16",
+        "trees"
+      ],
+      [
+        "Combined",
+        "trees"
+      ]
+    ],
+    "inner_micro": [
+      0.6358974358974359,
+      0.6346153846153846,
+      0.7219512195121951
+    ],
+    "selected": [
+      "Combined",
+      "trees"
+    ],
+    "threshold": 0.4
+  },
+  {
+    "cohort": "expanded118",
+    "rep": "common_raw",
+    "family": "trees",
+    "fold": 2,
+    "candidates": [
+      [
+        "signed",
+        "trees"
+      ],
+      [
+        "DCT16",
+        "trees"
+      ],
+      [
+        "Combined",
+        "trees"
+      ]
+    ],
+    "inner_micro": [
+      0.5863453815261044,
+      0.6108374384236454,
+      0.6486486486486487
+    ],
+    "selected": [
+      "Combined",
+      "trees"
+    ],
+    "threshold": 0.4
+  },
+  {
+    "cohort": "expanded118",
+    "rep": "common_raw",
+    "family": "trees",
+    "fold": 3,
+    "candidates": [
+      [
+        "signed",
+        "trees"
+      ],
+      [
+        "DCT16",
+        "trees"
+      ],
+      [
+        "Combined",
+        "trees"
+      ]
+    ],
+    "inner_micro": [
+      0.6268656716417911,
+      0.6484018264840182,
+      0.7076923076923077
+    ],
+    "selected": [
+      "Combined",
+      "trees"
+    ],
+    "threshold": 0.4
+  },
+  {
+    "cohort": "expanded118",
+    "rep": "common_raw",
+    "family": "trees",
+    "fold": 4,
+    "candidates": [
+      [
+        "signed",
+        "trees"
+      ],
+      [
+        "DCT16",
+        "trees"
+      ],
+      [
+        "Combined",
+        "trees"
+      ]
+    ],
+    "inner_micro": [
+      0.6666666666666666,
+      0.6697674418604651,
+      0.6839378238341969
+    ],
+    "selected": [
+      "Combined",
+      "trees"
+    ],
+    "threshold": 0.4
+  },
+  {
+    "cohort": "expanded118",
+    "rep": "relative_delta",
+    "family": "logistic",
+    "fold": 0,
+    "candidates": [
+      [
+        "signed",
+        "logistic"
+      ],
+      [
+        "DCT16",
+        "logistic"
+      ],
+      [
+        "Combined",
+        "logistic"
+      ]
+    ],
+    "inner_micro": [
+      0.6064981949458483,
+      0.578397212543554,
+      0.6054421768707483
+    ],
+    "selected": [
+      "signed",
+      "logistic"
+    ],
+    "threshold": 0.6
+  },
+  {
+    "cohort": "expanded118",
+    "rep": "relative_delta",
+    "family": "logistic",
+    "fold": 1,
+    "candidates": [
+      [
+        "signed",
+        "logistic"
+      ],
+      [
+        "DCT16",
+        "logistic"
+      ],
+      [
+        "Combined",
+        "logistic"
+      ]
+    ],
+    "inner_micro": [
+      0.6071428571428571,
+      0.5827338129496403,
+      0.5964912280701754
+    ],
+    "selected": [
+      "signed",
+      "logistic"
+    ],
+    "threshold": 0.6
+  },
+  {
+    "cohort": "expanded118",
+    "rep": "relative_delta",
+    "family": "logistic",
+    "fold": 2,
+    "candidates": [
+      [
+        "signed",
+        "logistic"
+      ],
+      [
+        "DCT16",
+        "logistic"
+      ],
+      [
+        "Combined",
+        "logistic"
+      ]
+    ],
+    "inner_micro": [
+      0.5815602836879432,
+      0.5579710144927537,
+      0.5551601423487544
+    ],
+    "selected": [
+      "signed",
+      "logistic"
+    ],
+    "threshold": 0.6
+  },
+  {
+    "cohort": "expanded118",
+    "rep": "relative_delta",
+    "family": "logistic",
+    "fold": 3,
+    "candidates": [
+      [
+        "signed",
+        "logistic"
+      ],
+      [
+        "DCT16",
+        "logistic"
+      ],
+      [
+        "Combined",
+        "logistic"
+      ]
+    ],
+    "inner_micro": [
+      0.5758754863813229,
+      0.5413533834586466,
+      0.5106382978723404
+    ],
+    "selected": [
+      "signed",
+      "logistic"
+    ],
+    "threshold": 0.6
+  },
+  {
+    "cohort": "expanded118",
+    "rep": "relative_delta",
+    "family": "logistic",
+    "fold": 4,
+    "candidates": [
+      [
+        "signed",
+        "logistic"
+      ],
+      [
+        "DCT16",
+        "logistic"
+      ],
+      [
+        "Combined",
+        "logistic"
+      ]
+    ],
+    "inner_micro": [
+      0.6446280991735537,
+      0.6097560975609756,
+      0.5378787878787878
+    ],
+    "selected": [
+      "signed",
+      "logistic"
+    ],
+    "threshold": 0.6
+  },
+  {
+    "cohort": "expanded118",
+    "rep": "relative_delta",
+    "family": "trees",
+    "fold": 0,
+    "candidates": [
+      [
+        "signed",
+        "trees"
+      ],
+      [
+        "DCT16",
+        "trees"
+      ],
+      [
+        "Combined",
+        "trees"
+      ]
+    ],
+    "inner_micro": [
+      0.5846153846153846,
+      0.6105263157894737,
+      0.7035175879396985
+    ],
+    "selected": [
+      "Combined",
+      "trees"
+    ],
+    "threshold": 0.5
+  },
+  {
+    "cohort": "expanded118",
+    "rep": "relative_delta",
+    "family": "trees",
+    "fold": 1,
+    "candidates": [
+      [
+        "signed",
+        "trees"
+      ],
+      [
+        "DCT16",
+        "trees"
+      ],
+      [
+        "Combined",
+        "trees"
+      ]
+    ],
+    "inner_micro": [
+      0.6358974358974359,
+      0.6346153846153846,
+      0.7219512195121951
+    ],
+    "selected": [
+      "Combined",
+      "trees"
+    ],
+    "threshold": 0.4
+  },
+  {
+    "cohort": "expanded118",
+    "rep": "relative_delta",
+    "family": "trees",
+    "fold": 2,
+    "candidates": [
+      [
+        "signed",
+        "trees"
+      ],
+      [
+        "DCT16",
+        "trees"
+      ],
+      [
+        "Combined",
+        "trees"
+      ]
+    ],
+    "inner_micro": [
+      0.5863453815261044,
+      0.6108374384236454,
+      0.6486486486486487
+    ],
+    "selected": [
+      "Combined",
+      "trees"
+    ],
+    "threshold": 0.4
+  },
+  {
+    "cohort": "expanded118",
+    "rep": "relative_delta",
+    "family": "trees",
+    "fold": 3,
+    "candidates": [
+      [
+        "signed",
+        "trees"
+      ],
+      [
+        "DCT16",
+        "trees"
+      ],
+      [
+        "Combined",
+        "trees"
+      ]
+    ],
+    "inner_micro": [
+      0.6244343891402715,
+      0.6484018264840182,
+      0.7076923076923077
+    ],
+    "selected": [
+      "Combined",
+      "trees"
+    ],
+    "threshold": 0.4
+  },
+  {
+    "cohort": "expanded118",
+    "rep": "relative_delta",
+    "family": "trees",
+    "fold": 4,
+    "candidates": [
+      [
+        "signed",
+        "trees"
+      ],
+      [
+        "DCT16",
+        "trees"
+      ],
+      [
+        "Combined",
+        "trees"
+      ]
+    ],
+    "inner_micro": [
+      0.6666666666666666,
+      0.6697674418604651,
+      0.6839378238341969
+    ],
+    "selected": [
+      "Combined",
+      "trees"
+    ],
+    "threshold": 0.4
+  },
+  {
+    "cohort": "expanded118",
+    "rep": "signed_shape",
+    "family": "logistic",
+    "fold": 0,
+    "candidates": [
+      [
+        "signed",
+        "logistic"
+      ],
+      [
+        "DCT16",
+        "logistic"
+      ],
+      [
+        "Combined",
+        "logistic"
+      ]
+    ],
+    "inner_micro": [
+      0.6594982078853047,
+      0.6844106463878327,
+      0.6552901023890785
+    ],
+    "selected": [
+      "DCT16",
+      "logistic"
+    ],
+    "threshold": 0.6
+  },
+  {
+    "cohort": "expanded118",
+    "rep": "signed_shape",
+    "family": "logistic",
+    "fold": 1,
+    "candidates": [
+      [
+        "signed",
+        "logistic"
+      ],
+      [
+        "DCT16",
+        "logistic"
+      ],
+      [
+        "Combined",
+        "logistic"
+      ]
+    ],
+    "inner_micro": [
+      0.6715328467153284,
+      0.6932270916334662,
+      0.6285714285714286
+    ],
+    "selected": [
+      "DCT16",
+      "logistic"
+    ],
+    "threshold": 0.6
+  },
+  {
+    "cohort": "expanded118",
+    "rep": "signed_shape",
+    "family": "logistic",
+    "fold": 2,
+    "candidates": [
+      [
+        "signed",
+        "logistic"
+      ],
+      [
+        "DCT16",
+        "logistic"
+      ],
+      [
+        "Combined",
+        "logistic"
+      ]
+    ],
+    "inner_micro": [
+      0.6370370370370371,
+      0.6119402985074627,
+      0.5633802816901409
+    ],
+    "selected": [
+      "signed",
+      "logistic"
+    ],
+    "threshold": 0.6
+  },
+  {
+    "cohort": "expanded118",
+    "rep": "signed_shape",
+    "family": "logistic",
+    "fold": 3,
+    "candidates": [
+      [
+        "signed",
+        "logistic"
+      ],
+      [
+        "DCT16",
+        "logistic"
+      ],
+      [
+        "Combined",
+        "logistic"
+      ]
+    ],
+    "inner_micro": [
+      0.6436781609195402,
+      0.6640316205533597,
+      0.5474452554744526
+    ],
+    "selected": [
+      "DCT16",
+      "logistic"
+    ],
+    "threshold": 0.6
+  },
+  {
+    "cohort": "expanded118",
+    "rep": "signed_shape",
+    "family": "logistic",
+    "fold": 4,
+    "candidates": [
+      [
+        "signed",
+        "logistic"
+      ],
+      [
+        "DCT16",
+        "logistic"
+      ],
+      [
+        "Combined",
+        "logistic"
+      ]
+    ],
+    "inner_micro": [
+      0.68,
+      0.7242798353909465,
+      0.5923076923076923
+    ],
+    "selected": [
+      "DCT16",
+      "logistic"
+    ],
+    "threshold": 0.6
+  },
+  {
+    "cohort": "expanded118",
+    "rep": "signed_shape",
+    "family": "trees",
+    "fold": 0,
+    "candidates": [
+      [
+        "signed",
+        "trees"
+      ],
+      [
+        "DCT16",
+        "trees"
+      ],
+      [
+        "Combined",
+        "trees"
+      ]
+    ],
+    "inner_micro": [
+      0.7657657657657657,
+      0.7154471544715447,
+      0.7488584474885844
+    ],
+    "selected": [
+      "signed",
+      "trees"
+    ],
+    "threshold": 0.4
+  },
+  {
+    "cohort": "expanded118",
+    "rep": "signed_shape",
+    "family": "trees",
+    "fold": 1,
+    "candidates": [
+      [
+        "signed",
+        "trees"
+      ],
+      [
+        "DCT16",
+        "trees"
+      ],
+      [
+        "Combined",
+        "trees"
+      ]
+    ],
+    "inner_micro": [
+      0.7238095238095238,
+      0.7105263157894737,
+      0.7532467532467533
+    ],
+    "selected": [
+      "Combined",
+      "trees"
+    ],
+    "threshold": 0.3
+  },
+  {
+    "cohort": "expanded118",
+    "rep": "signed_shape",
+    "family": "trees",
+    "fold": 2,
+    "candidates": [
+      [
+        "signed",
+        "trees"
+      ],
+      [
+        "DCT16",
+        "trees"
+      ],
+      [
+        "Combined",
+        "trees"
+      ]
+    ],
+    "inner_micro": [
+      0.6585365853658537,
+      0.6528925619834711,
+      0.6571428571428571
+    ],
+    "selected": [
+      "signed",
+      "trees"
+    ],
+    "threshold": 0.3
+  },
+  {
+    "cohort": "expanded118",
+    "rep": "signed_shape",
+    "family": "trees",
+    "fold": 3,
+    "candidates": [
+      [
+        "signed",
+        "trees"
+      ],
+      [
+        "DCT16",
+        "trees"
+      ],
+      [
+        "Combined",
+        "trees"
+      ]
+    ],
+    "inner_micro": [
+      0.7474747474747475,
+      0.7368421052631579,
+      0.7244897959183674
+    ],
+    "selected": [
+      "signed",
+      "trees"
+    ],
+    "threshold": 0.4
+  },
+  {
+    "cohort": "expanded118",
+    "rep": "signed_shape",
+    "family": "trees",
+    "fold": 4,
+    "candidates": [
+      [
+        "signed",
+        "trees"
+      ],
+      [
+        "DCT16",
+        "trees"
+      ],
+      [
+        "Combined",
+        "trees"
+      ]
+    ],
+    "inner_micro": [
+      0.7559808612440191,
+      0.7577092511013216,
+      0.7777777777777778
+    ],
+    "selected": [
+      "Combined",
+      "trees"
+    ],
+    "threshold": 0.4
+  },
+  {
+    "cohort": "joint130",
+    "rep": "native_normalized",
+    "family": "logistic",
+    "fold": 0,
+    "candidates": [
+      [
+        "signed",
+        "logistic"
+      ],
+      [
+        "DCT16",
+        "logistic"
+      ],
+      [
+        "Combined",
+        "logistic"
+      ]
+    ],
+    "inner_micro": [
+      0.5420560747663551,
+      0.5227963525835866,
+      0.5575757575757576
+    ],
+    "selected": [
+      "Combined",
+      "logistic"
+    ],
+    "threshold": 0.6
+  },
+  {
+    "cohort": "joint130",
+    "rep": "native_normalized",
+    "family": "logistic",
+    "fold": 1,
+    "candidates": [
+      [
+        "signed",
+        "logistic"
+      ],
+      [
+        "DCT16",
+        "logistic"
+      ],
+      [
+        "Combined",
+        "logistic"
+      ]
+    ],
+    "inner_micro": [
+      0.5427728613569321,
+      0.5276073619631901,
+      0.5470588235294118
+    ],
+    "selected": [
+      "Combined",
+      "logistic"
+    ],
+    "threshold": 0.6
+  },
+  {
+    "cohort": "joint130",
+    "rep": "native_normalized",
+    "family": "logistic",
+    "fold": 2,
+    "candidates": [
+      [
+        "signed",
+        "logistic"
+      ],
+      [
+        "DCT16",
+        "logistic"
+      ],
+      [
+        "Combined",
+        "logistic"
+      ]
+    ],
+    "inner_micro": [
+      0.5015673981191222,
+      0.5396825396825397,
+      0.5295950155763239
+    ],
+    "selected": [
+      "DCT16",
+      "logistic"
+    ],
+    "threshold": 0.6
+  },
+  {
+    "cohort": "joint130",
+    "rep": "native_normalized",
+    "family": "logistic",
+    "fold": 3,
+    "candidates": [
+      [
+        "signed",
+        "logistic"
+      ],
+      [
+        "DCT16",
+        "logistic"
+      ],
+      [
+        "Combined",
+        "logistic"
+      ]
+    ],
+    "inner_micro": [
+      0.50814332247557,
+      0.512987012987013,
+      0.5
+    ],
+    "selected": [
+      "DCT16",
+      "logistic"
+    ],
+    "threshold": 0.6
+  },
+  {
+    "cohort": "joint130",
+    "rep": "native_normalized",
+    "family": "logistic",
+    "fold": 4,
+    "candidates": [
+      [
+        "signed",
+        "logistic"
+      ],
+      [
+        "DCT16",
+        "logistic"
+      ],
+      [
+        "Combined",
+        "logistic"
+      ]
+    ],
+    "inner_micro": [
+      0.5578231292517006,
+      0.5424836601307189,
+      0.5484949832775919
+    ],
+    "selected": [
+      "signed",
+      "logistic"
+    ],
+    "threshold": 0.6
+  },
+  {
+    "cohort": "joint130",
+    "rep": "native_normalized",
+    "family": "trees",
+    "fold": 0,
+    "candidates": [
+      [
+        "signed",
+        "trees"
+      ],
+      [
+        "DCT16",
+        "trees"
+      ],
+      [
+        "Combined",
+        "trees"
+      ]
+    ],
+    "inner_micro": [
+      0.6320754716981132,
+      0.6167400881057269,
+      0.6731707317073171
+    ],
+    "selected": [
+      "Combined",
+      "trees"
+    ],
+    "threshold": 0.5
+  },
+  {
+    "cohort": "joint130",
+    "rep": "native_normalized",
+    "family": "trees",
+    "fold": 1,
+    "candidates": [
+      [
+        "signed",
+        "trees"
+      ],
+      [
+        "DCT16",
+        "trees"
+      ],
+      [
+        "Combined",
+        "trees"
+      ]
+    ],
+    "inner_micro": [
+      0.6716417910447762,
+      0.6216216216216216,
+      0.6923076923076923
+    ],
+    "selected": [
+      "Combined",
+      "trees"
+    ],
+    "threshold": 0.4
+  },
+  {
+    "cohort": "joint130",
+    "rep": "native_normalized",
+    "family": "trees",
+    "fold": 2,
+    "candidates": [
+      [
+        "signed",
+        "trees"
+      ],
+      [
+        "DCT16",
+        "trees"
+      ],
+      [
+        "Combined",
+        "trees"
+      ]
+    ],
+    "inner_micro": [
+      0.5658914728682171,
+      0.5701357466063348,
+      0.616600790513834
+    ],
+    "selected": [
+      "Combined",
+      "trees"
+    ],
+    "threshold": 0.3
+  },
+  {
+    "cohort": "joint130",
+    "rep": "native_normalized",
+    "family": "trees",
+    "fold": 3,
+    "candidates": [
+      [
+        "signed",
+        "trees"
+      ],
+      [
+        "DCT16",
+        "trees"
+      ],
+      [
+        "Combined",
+        "trees"
+      ]
+    ],
+    "inner_micro": [
+      0.6224066390041494,
+      0.6169154228855721,
+      0.6829268292682927
+    ],
+    "selected": [
+      "Combined",
+      "trees"
+    ],
+    "threshold": 0.4
+  },
+  {
+    "cohort": "joint130",
+    "rep": "native_normalized",
+    "family": "trees",
+    "fold": 4,
+    "candidates": [
+      [
+        "signed",
+        "trees"
+      ],
+      [
+        "DCT16",
+        "trees"
+      ],
+      [
+        "Combined",
+        "trees"
+      ]
+    ],
+    "inner_micro": [
+      0.704225352112676,
+      0.6694214876033058,
+      0.710204081632653
+    ],
+    "selected": [
+      "Combined",
+      "trees"
+    ],
+    "threshold": 0.3
+  },
+  {
+    "cohort": "joint130",
+    "rep": "corrected_normalized",
+    "family": "logistic",
+    "fold": 0,
+    "candidates": [
+      [
+        "signed",
+        "logistic"
+      ],
+      [
+        "DCT16",
+        "logistic"
+      ],
+      [
+        "Combined",
+        "logistic"
+      ]
+    ],
+    "inner_micro": [
+      0.5386996904024768,
+      0.5198776758409785,
+      0.5548780487804879
+    ],
+    "selected": [
+      "Combined",
+      "logistic"
+    ],
+    "threshold": 0.6
+  },
+  {
+    "cohort": "joint130",
+    "rep": "corrected_normalized",
+    "family": "logistic",
+    "fold": 1,
+    "candidates": [
+      [
+        "signed",
+        "logistic"
+      ],
+      [
+        "DCT16",
+        "logistic"
+      ],
+      [
+        "Combined",
+        "logistic"
+      ]
+    ],
+    "inner_micro": [
+      0.5427728613569321,
+      0.5227963525835866,
+      0.5411764705882353
+    ],
+    "selected": [
+      "signed",
+      "logistic"
+    ],
+    "threshold": 0.6
+  },
+  {
+    "cohort": "joint130",
+    "rep": "corrected_normalized",
+    "family": "logistic",
+    "fold": 2,
+    "candidates": [
+      [
+        "signed",
+        "logistic"
+      ],
+      [
+        "DCT16",
+        "logistic"
+      ],
+      [
+        "Combined",
+        "logistic"
+      ]
+    ],
+    "inner_micro": [
+      0.5,
+      0.5283018867924528,
+      0.5283018867924528
+    ],
+    "selected": [
+      "DCT16",
+      "logistic"
+    ],
+    "threshold": 0.6
+  },
+  {
+    "cohort": "joint130",
+    "rep": "corrected_normalized",
+    "family": "logistic",
+    "fold": 3,
+    "candidates": [
+      [
+        "signed",
+        "logistic"
+      ],
+      [
+        "DCT16",
+        "logistic"
+      ],
+      [
+        "Combined",
+        "logistic"
+      ]
+    ],
+    "inner_micro": [
+      0.50814332247557,
+      0.50814332247557,
+      0.5093167701863354
+    ],
+    "selected": [
+      "Combined",
+      "logistic"
+    ],
+    "threshold": 0.6
+  },
+  {
+    "cohort": "joint130",
+    "rep": "corrected_normalized",
+    "family": "logistic",
+    "fold": 4,
+    "candidates": [
+      [
+        "signed",
+        "logistic"
+      ],
+      [
+        "DCT16",
+        "logistic"
+      ],
+      [
+        "Combined",
+        "logistic"
+      ]
+    ],
+    "inner_micro": [
+      0.5586206896551724,
+      0.5412541254125413,
+      0.528052805280528
+    ],
+    "selected": [
+      "signed",
+      "logistic"
+    ],
+    "threshold": 0.6
+  },
+  {
+    "cohort": "joint130",
+    "rep": "corrected_normalized",
+    "family": "trees",
+    "fold": 0,
+    "candidates": [
+      [
+        "signed",
+        "trees"
+      ],
+      [
+        "DCT16",
+        "trees"
+      ],
+      [
+        "Combined",
+        "trees"
+      ]
+    ],
+    "inner_micro": [
+      0.6304347826086957,
+      0.6094420600858369,
+      0.6639004149377593
+    ],
+    "selected": [
+      "Combined",
+      "trees"
+    ],
+    "threshold": 0.4
+  },
+  {
+    "cohort": "joint130",
+    "rep": "corrected_normalized",
+    "family": "trees",
+    "fold": 1,
+    "candidates": [
+      [
+        "signed",
+        "trees"
+      ],
+      [
+        "DCT16",
+        "trees"
+      ],
+      [
+        "Combined",
+        "trees"
+      ]
+    ],
+    "inner_micro": [
+      0.6420664206642066,
+      0.6201550387596899,
+      0.6863468634686347
+    ],
+    "selected": [
+      "Combined",
+      "trees"
+    ],
+    "threshold": 0.3
+  },
+  {
+    "cohort": "joint130",
+    "rep": "corrected_normalized",
+    "family": "trees",
+    "fold": 2,
+    "candidates": [
+      [
+        "signed",
+        "trees"
+      ],
+      [
+        "DCT16",
+        "trees"
+      ],
+      [
+        "Combined",
+        "trees"
+      ]
+    ],
+    "inner_micro": [
+      0.5680933852140078,
+      0.5914396887159533,
+      0.6280193236714976
+    ],
+    "selected": [
+      "Combined",
+      "trees"
+    ],
+    "threshold": 0.5
+  },
+  {
+    "cohort": "joint130",
+    "rep": "corrected_normalized",
+    "family": "trees",
+    "fold": 3,
+    "candidates": [
+      [
+        "signed",
+        "trees"
+      ],
+      [
+        "DCT16",
+        "trees"
+      ],
+      [
+        "Combined",
+        "trees"
+      ]
+    ],
+    "inner_micro": [
+      0.6297872340425532,
+      0.6268656716417911,
+      0.6724137931034483
+    ],
+    "selected": [
+      "Combined",
+      "trees"
+    ],
+    "threshold": 0.3
+  },
+  {
+    "cohort": "joint130",
+    "rep": "corrected_normalized",
+    "family": "trees",
+    "fold": 4,
+    "candidates": [
+      [
+        "signed",
+        "trees"
+      ],
+      [
+        "DCT16",
+        "trees"
+      ],
+      [
+        "Combined",
+        "trees"
+      ]
+    ],
+    "inner_micro": [
+      0.6697674418604651,
+      0.636734693877551,
+      0.71900826446281
+    ],
+    "selected": [
+      "Combined",
+      "trees"
+    ],
+    "threshold": 0.3
+  },
+  {
+    "cohort": "joint130",
+    "rep": "common_raw",
+    "family": "logistic",
+    "fold": 0,
+    "candidates": [
+      [
+        "signed",
+        "logistic"
+      ],
+      [
+        "DCT16",
+        "logistic"
+      ],
+      [
+        "Combined",
+        "logistic"
+      ]
+    ],
+    "inner_micro": [
+      0.5443037974683544,
+      0.5259938837920489,
+      0.5393939393939394
+    ],
+    "selected": [
+      "signed",
+      "logistic"
+    ],
+    "threshold": 0.6
+  },
+  {
+    "cohort": "joint130",
+    "rep": "common_raw",
+    "family": "logistic",
+    "fold": 1,
+    "candidates": [
+      [
+        "signed",
+        "logistic"
+      ],
+      [
+        "DCT16",
+        "logistic"
+      ],
+      [
+        "Combined",
+        "logistic"
+      ]
+    ],
+    "inner_micro": [
+      0.547112462006079,
+      0.5521472392638037,
+      0.5481927710843374
+    ],
+    "selected": [
+      "DCT16",
+      "logistic"
+    ],
+    "threshold": 0.6
+  },
+  {
+    "cohort": "joint130",
+    "rep": "common_raw",
+    "family": "logistic",
+    "fold": 2,
+    "candidates": [
+      [
+        "signed",
+        "logistic"
+      ],
+      [
+        "DCT16",
+        "logistic"
+      ],
+      [
+        "Combined",
+        "logistic"
+      ]
+    ],
+    "inner_micro": [
+      0.5454545454545454,
+      0.5189873417721519,
+      0.5239616613418531
+    ],
+    "selected": [
+      "signed",
+      "logistic"
+    ],
+    "threshold": 0.6
+  },
+  {
+    "cohort": "joint130",
+    "rep": "common_raw",
+    "family": "logistic",
+    "fold": 3,
+    "candidates": [
+      [
+        "signed",
+        "logistic"
+      ],
+      [
+        "DCT16",
+        "logistic"
+      ],
+      [
+        "Combined",
+        "logistic"
+      ]
+    ],
+    "inner_micro": [
+      0.5185185185185185,
+      0.5131578947368421,
+      0.5
+    ],
+    "selected": [
+      "signed",
+      "logistic"
+    ],
+    "threshold": 0.6
+  },
+  {
+    "cohort": "joint130",
+    "rep": "common_raw",
+    "family": "logistic",
+    "fold": 4,
+    "candidates": [
+      [
+        "signed",
+        "logistic"
+      ],
+      [
+        "DCT16",
+        "logistic"
+      ],
+      [
+        "Combined",
+        "logistic"
+      ]
+    ],
+    "inner_micro": [
+      0.5743944636678201,
+      0.5620915032679739,
+      0.5304878048780488
+    ],
+    "selected": [
+      "signed",
+      "logistic"
+    ],
+    "threshold": 0.6
+  },
+  {
+    "cohort": "joint130",
+    "rep": "common_raw",
+    "family": "trees",
+    "fold": 0,
+    "candidates": [
+      [
+        "signed",
+        "trees"
+      ],
+      [
+        "DCT16",
+        "trees"
+      ],
+      [
+        "Combined",
+        "trees"
+      ]
+    ],
+    "inner_micro": [
+      0.6008583690987125,
+      0.6016949152542372,
+      0.6752136752136753
+    ],
+    "selected": [
+      "Combined",
+      "trees"
+    ],
+    "threshold": 0.4
+  },
+  {
+    "cohort": "joint130",
+    "rep": "common_raw",
+    "family": "trees",
+    "fold": 1,
+    "candidates": [
+      [
+        "signed",
+        "trees"
+      ],
+      [
+        "DCT16",
+        "trees"
+      ],
+      [
+        "Combined",
+        "trees"
+      ]
+    ],
+    "inner_micro": [
+      0.6356589147286822,
+      0.6159695817490495,
+      0.672566371681416
+    ],
+    "selected": [
+      "Combined",
+      "trees"
+    ],
+    "threshold": 0.4
+  },
+  {
+    "cohort": "joint130",
+    "rep": "common_raw",
+    "family": "trees",
+    "fold": 2,
+    "candidates": [
+      [
+        "signed",
+        "trees"
+      ],
+      [
+        "DCT16",
+        "trees"
+      ],
+      [
+        "Combined",
+        "trees"
+      ]
+    ],
+    "inner_micro": [
+      0.5688073394495413,
+      0.5660377358490566,
+      0.6233766233766234
+    ],
+    "selected": [
+      "Combined",
+      "trees"
+    ],
+    "threshold": 0.4
+  },
+  {
+    "cohort": "joint130",
+    "rep": "common_raw",
+    "family": "trees",
+    "fold": 3,
+    "candidates": [
+      [
+        "signed",
+        "trees"
+      ],
+      [
+        "DCT16",
+        "trees"
+      ],
+      [
+        "Combined",
+        "trees"
+      ]
+    ],
+    "inner_micro": [
+      0.6276150627615062,
+      0.6008583690987125,
+      0.6810344827586207
+    ],
+    "selected": [
+      "Combined",
+      "trees"
+    ],
+    "threshold": 0.3
+  },
+  {
+    "cohort": "joint130",
+    "rep": "common_raw",
+    "family": "trees",
+    "fold": 4,
+    "candidates": [
+      [
+        "signed",
+        "trees"
+      ],
+      [
+        "DCT16",
+        "trees"
+      ],
+      [
+        "Combined",
+        "trees"
+      ]
+    ],
+    "inner_micro": [
+      0.6831275720164609,
+      0.6396761133603239,
+      0.6936936936936937
+    ],
+    "selected": [
+      "Combined",
+      "trees"
+    ],
+    "threshold": 0.4
+  },
+  {
+    "cohort": "joint130",
+    "rep": "relative_delta",
+    "family": "logistic",
+    "fold": 0,
+    "candidates": [
+      [
+        "signed",
+        "logistic"
+      ],
+      [
+        "DCT16",
+        "logistic"
+      ],
+      [
+        "Combined",
+        "logistic"
+      ]
+    ],
+    "inner_micro": [
+      0.577639751552795,
+      0.5292307692307693,
+      0.5740181268882175
+    ],
+    "selected": [
+      "signed",
+      "logistic"
+    ],
+    "threshold": 0.6
+  },
+  {
+    "cohort": "joint130",
+    "rep": "relative_delta",
+    "family": "logistic",
+    "fold": 1,
+    "candidates": [
+      [
+        "signed",
+        "logistic"
+      ],
+      [
+        "DCT16",
+        "logistic"
+      ],
+      [
+        "Combined",
+        "logistic"
+      ]
+    ],
+    "inner_micro": [
+      0.5642633228840125,
+      0.5380116959064327,
+      0.5595238095238095
+    ],
+    "selected": [
+      "signed",
+      "logistic"
+    ],
+    "threshold": 0.6
+  },
+  {
+    "cohort": "joint130",
+    "rep": "relative_delta",
+    "family": "logistic",
+    "fold": 2,
+    "candidates": [
+      [
+        "signed",
+        "logistic"
+      ],
+      [
+        "DCT16",
+        "logistic"
+      ],
+      [
+        "Combined",
+        "logistic"
+      ]
+    ],
+    "inner_micro": [
+      0.5506329113924051,
+      0.5061728395061729,
+      0.5272727272727272
+    ],
+    "selected": [
+      "signed",
+      "logistic"
+    ],
+    "threshold": 0.6
+  },
+  {
+    "cohort": "joint130",
+    "rep": "relative_delta",
+    "family": "logistic",
+    "fold": 3,
+    "candidates": [
+      [
+        "signed",
+        "logistic"
+      ],
+      [
+        "DCT16",
+        "logistic"
+      ],
+      [
+        "Combined",
+        "logistic"
+      ]
+    ],
+    "inner_micro": [
+      0.5328947368421053,
+      0.5066666666666667,
+      0.49846153846153846
+    ],
+    "selected": [
+      "signed",
+      "logistic"
+    ],
+    "threshold": 0.6
+  },
+  {
+    "cohort": "joint130",
+    "rep": "relative_delta",
+    "family": "logistic",
+    "fold": 4,
+    "candidates": [
+      [
+        "signed",
+        "logistic"
+      ],
+      [
+        "DCT16",
+        "logistic"
+      ],
+      [
+        "Combined",
+        "logistic"
+      ]
+    ],
+    "inner_micro": [
+      0.5694915254237288,
+      0.535483870967742,
+      0.5419354838709678
+    ],
+    "selected": [
+      "signed",
+      "logistic"
+    ],
+    "threshold": 0.6
+  },
+  {
+    "cohort": "joint130",
+    "rep": "relative_delta",
+    "family": "trees",
+    "fold": 0,
+    "candidates": [
+      [
+        "signed",
+        "trees"
+      ],
+      [
+        "DCT16",
+        "trees"
+      ],
+      [
+        "Combined",
+        "trees"
+      ]
+    ],
+    "inner_micro": [
+      0.5980392156862745,
+      0.6206896551724138,
+      0.6581196581196581
+    ],
+    "selected": [
+      "Combined",
+      "trees"
+    ],
+    "threshold": 0.4
+  },
+  {
+    "cohort": "joint130",
+    "rep": "relative_delta",
+    "family": "trees",
+    "fold": 1,
+    "candidates": [
+      [
+        "signed",
+        "trees"
+      ],
+      [
+        "DCT16",
+        "trees"
+      ],
+      [
+        "Combined",
+        "trees"
+      ]
+    ],
+    "inner_micro": [
+      0.6351931330472103,
+      0.6196078431372549,
+      0.6844106463878327
+    ],
+    "selected": [
+      "Combined",
+      "trees"
+    ],
+    "threshold": 0.3
+  },
+  {
+    "cohort": "joint130",
+    "rep": "relative_delta",
+    "family": "trees",
+    "fold": 2,
+    "candidates": [
+      [
+        "signed",
+        "trees"
+      ],
+      [
+        "DCT16",
+        "trees"
+      ],
+      [
+        "Combined",
+        "trees"
+      ]
+    ],
+    "inner_micro": [
+      0.5799256505576208,
+      0.5779467680608364,
+      0.6377952755905512
+    ],
+    "selected": [
+      "Combined",
+      "trees"
+    ],
+    "threshold": 0.3
+  },
+  {
+    "cohort": "joint130",
+    "rep": "relative_delta",
+    "family": "trees",
+    "fold": 3,
+    "candidates": [
+      [
+        "signed",
+        "trees"
+      ],
+      [
+        "DCT16",
+        "trees"
+      ],
+      [
+        "Combined",
+        "trees"
+      ]
+    ],
+    "inner_micro": [
+      0.6217616580310881,
+      0.6116504854368932,
+      0.6753246753246753
+    ],
+    "selected": [
+      "Combined",
+      "trees"
+    ],
+    "threshold": 0.3
+  },
+  {
+    "cohort": "joint130",
+    "rep": "relative_delta",
+    "family": "trees",
+    "fold": 4,
+    "candidates": [
+      [
+        "signed",
+        "trees"
+      ],
+      [
+        "DCT16",
+        "trees"
+      ],
+      [
+        "Combined",
+        "trees"
+      ]
+    ],
+    "inner_micro": [
+      0.6611570247933884,
+      0.6694214876033058,
+      0.6912442396313364
+    ],
+    "selected": [
+      "Combined",
+      "trees"
+    ],
+    "threshold": 0.4
+  },
+  {
+    "cohort": "joint130",
+    "rep": "signed_shape",
+    "family": "logistic",
+    "fold": 0,
+    "candidates": [
+      [
+        "signed",
+        "logistic"
+      ],
+      [
+        "DCT16",
+        "logistic"
+      ],
+      [
+        "Combined",
+        "logistic"
+      ]
+    ],
+    "inner_micro": [
+      0.6438356164383562,
+      0.6618705035971223,
+      0.5875
+    ],
+    "selected": [
+      "DCT16",
+      "logistic"
+    ],
+    "threshold": 0.6
+  },
+  {
+    "cohort": "joint130",
+    "rep": "signed_shape",
+    "family": "logistic",
+    "fold": 1,
+    "candidates": [
+      [
+        "signed",
+        "logistic"
+      ],
+      [
+        "DCT16",
+        "logistic"
+      ],
+      [
+        "Combined",
+        "logistic"
+      ]
+    ],
+    "inner_micro": [
+      0.6506849315068494,
+      0.6470588235294118,
+      0.6312292358803987
+    ],
+    "selected": [
+      "signed",
+      "logistic"
+    ],
+    "threshold": 0.6
+  },
+  {
+    "cohort": "joint130",
+    "rep": "signed_shape",
+    "family": "logistic",
+    "fold": 2,
+    "candidates": [
+      [
+        "signed",
+        "logistic"
+      ],
+      [
+        "DCT16",
+        "logistic"
+      ],
+      [
+        "Combined",
+        "logistic"
+      ]
+    ],
+    "inner_micro": [
+      0.6220735785953178,
+      0.604982206405694,
+      0.6032786885245902
+    ],
+    "selected": [
+      "signed",
+      "logistic"
+    ],
+    "threshold": 0.6
+  },
+  {
+    "cohort": "joint130",
+    "rep": "signed_shape",
+    "family": "logistic",
+    "fold": 3,
+    "candidates": [
+      [
+        "signed",
+        "logistic"
+      ],
+      [
+        "DCT16",
+        "logistic"
+      ],
+      [
+        "Combined",
+        "logistic"
+      ]
+    ],
+    "inner_micro": [
+      0.6062717770034843,
+      0.640926640926641,
+      0.5743944636678201
+    ],
+    "selected": [
+      "DCT16",
+      "logistic"
+    ],
+    "threshold": 0.6
+  },
+  {
+    "cohort": "joint130",
+    "rep": "signed_shape",
+    "family": "logistic",
+    "fold": 4,
+    "candidates": [
+      [
+        "signed",
+        "logistic"
+      ],
+      [
+        "DCT16",
+        "logistic"
+      ],
+      [
+        "Combined",
+        "logistic"
+      ]
+    ],
+    "inner_micro": [
+      0.652014652014652,
+      0.6791044776119403,
+      0.5594405594405595
+    ],
+    "selected": [
+      "DCT16",
+      "logistic"
+    ],
+    "threshold": 0.6
+  },
+  {
+    "cohort": "joint130",
+    "rep": "signed_shape",
+    "family": "trees",
+    "fold": 0,
+    "candidates": [
+      [
+        "signed",
+        "trees"
+      ],
+      [
+        "DCT16",
+        "trees"
+      ],
+      [
+        "Combined",
+        "trees"
+      ]
+    ],
+    "inner_micro": [
+      0.711864406779661,
+      0.6844106463878327,
+      0.7142857142857143
+    ],
+    "selected": [
+      "Combined",
+      "trees"
+    ],
+    "threshold": 0.3
+  },
+  {
+    "cohort": "joint130",
+    "rep": "signed_shape",
+    "family": "trees",
+    "fold": 1,
+    "candidates": [
+      [
+        "signed",
+        "trees"
+      ],
+      [
+        "DCT16",
+        "trees"
+      ],
+      [
+        "Combined",
+        "trees"
+      ]
+    ],
+    "inner_micro": [
+      0.7288135593220338,
+      0.7079646017699115,
+      0.7222222222222222
+    ],
+    "selected": [
+      "signed",
+      "trees"
+    ],
+    "threshold": 0.4
+  },
+  {
+    "cohort": "joint130",
+    "rep": "signed_shape",
+    "family": "trees",
+    "fold": 2,
+    "candidates": [
+      [
+        "signed",
+        "trees"
+      ],
+      [
+        "DCT16",
+        "trees"
+      ],
+      [
+        "Combined",
+        "trees"
+      ]
+    ],
+    "inner_micro": [
+      0.6303501945525292,
+      0.6412213740458015,
+      0.6550218340611353
+    ],
+    "selected": [
+      "Combined",
+      "trees"
+    ],
+    "threshold": 0.4
+  },
+  {
+    "cohort": "joint130",
+    "rep": "signed_shape",
+    "family": "trees",
+    "fold": 3,
+    "candidates": [
+      [
+        "signed",
+        "trees"
+      ],
+      [
+        "DCT16",
+        "trees"
+      ],
+      [
+        "Combined",
+        "trees"
+      ]
+    ],
+    "inner_micro": [
+      0.6923076923076923,
+      0.7121951219512195,
+      0.702928870292887
+    ],
+    "selected": [
+      "DCT16",
+      "trees"
+    ],
+    "threshold": 0.4
+  },
+  {
+    "cohort": "joint130",
+    "rep": "signed_shape",
+    "family": "trees",
+    "fold": 4,
+    "candidates": [
+      [
+        "signed",
+        "trees"
+      ],
+      [
+        "DCT16",
+        "trees"
+      ],
+      [
+        "Combined",
+        "trees"
+      ]
+    ],
+    "inner_micro": [
+      0.7414634146341463,
+      0.7727272727272727,
+      0.7416666666666667
+    ],
+    "selected": [
+      "DCT16",
+      "trees"
+    ],
+    "threshold": 0.4
+  }
+]
