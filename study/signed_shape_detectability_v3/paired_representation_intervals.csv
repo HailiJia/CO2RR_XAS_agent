@@ -1,0 +1,10 @@
+domain,metric,relative_delta,signed_shape,difference,lower,upper,scope
+all,micro_f1,0.6939655172413793,0.7601626016260162,0.0661970843846369,0.022190004592642528,0.11347706027190836,conditional fixed-model group bootstrap; no refit or unseen-parent interval
+all,macro_f1,0.4424123061252719,0.6162504783964908,0.17383817227121895,0.08429639619519756,0.25969314855677433,conditional fixed-model group bootstrap; no refit or unseen-parent interval
+all,exact_set_accuracy,0.5564516129032258,0.6532258064516129,0.09677419354838712,0.03629032258064513,0.16129032258064513,conditional fixed-model group bootstrap; no refit or unseen-parent interval
+CuAu,micro_f1,0.7089201877934272,0.7633928571428571,0.05447266934942985,0.00873943861329716,0.10502781355457169,conditional fixed-model group bootstrap; no refit or unseen-parent interval
+CuAu,macro_f1,0.45356642294441335,0.6205176402544824,0.16695121731006907,0.0749348810872207,0.25871519846324226,conditional fixed-model group bootstrap; no refit or unseen-parent interval
+CuAu,exact_set_accuracy,0.5714285714285714,0.6517857142857143,0.0803571428571429,0.013392857142857206,0.1473214285714285,conditional fixed-model group bootstrap; no refit or unseen-parent interval
+Cu100,micro_f1,0.5263157894736842,0.7272727272727273,0.2009569377990431,-0.004347826086956497,0.46524064171123,conditional fixed-model group bootstrap; no refit or unseen-parent interval
+Cu100,macro_f1,0.14935064935064934,0.21125541125541128,0.061904761904761935,-6.938893903906834e-19,0.15456611570247922,conditional fixed-model group bootstrap; no refit or unseen-parent interval
+Cu100,exact_set_accuracy,0.4166666666666667,0.6666666666666666,0.24999999999999994,0.0,0.5,conditional fixed-model group bootstrap; no refit or unseen-parent interval

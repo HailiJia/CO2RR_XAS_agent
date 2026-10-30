@@ -1,0 +1,619 @@
+{
+  "archive_sha256": "6c8177e123f4b8338772979f934d084b8b4c2fe015a2fd4ca3553679ae236d3a",
+  "bytes": 23027464,
+  "parts": [
+    {
+      "path": "models.tar.gz.part000",
+      "bytes": 12582912,
+      "sha256": "625e70250aee8c45bf13afd16e08ed84a90d451c12007ce2232d9988cf157597"
+    },
+    {
+      "path": "models.tar.gz.part001",
+      "bytes": 10444552,
+      "sha256": "4086526ec5f60816e9bb9364b63e428aa3248d73f9dbcefc1ec41d5310f131c7"
+    }
+  ],
+  "files": {
+    "ml/models/curve_logistic_0.5_20261020_fold0.joblib": {
+      "bytes": 117458,
+      "sha256": "b80c0eaaa268f44974956a4237973cd132a54948573bd6c129a9c93bdf5d4892"
+    },
+    "ml/models/curve_logistic_0.5_20261020_fold1.joblib": {
+      "bytes": 108813,
+      "sha256": "5b7ce1e382eda5bdb2b6a1a293fa864f2aeb63457d96d42760d246f01692040d"
+    },
+    "ml/models/curve_logistic_0.5_20261020_fold2.joblib": {
+      "bytes": 125863,
+      "sha256": "f2d50a3034c4063ba5f4c255c125b7aac542dec1700e2cf03a6ecbd78a04600a"
+    },
+    "ml/models/curve_logistic_0.5_20261020_fold3.joblib": {
+      "bytes": 117419,
+      "sha256": "1dab0e34d74b188b454dd7c25fc64ad1e58b2cfb854dc07e8b68a740b4ae94b9"
+    },
+    "ml/models/curve_logistic_0.5_20261020_fold4.joblib": {
+      "bytes": 108869,
+      "sha256": "6f44b2fd86bd7ce84c7d6a66519b1492447c0b07b3cb2e903574d1b68e11164a"
+    },
+    "ml/models/curve_logistic_0.5_20261021_fold0.joblib": {
+      "bytes": 108986,
+      "sha256": "03352e9fceebda1bf6e62d65e3c52a0d836bbb09f516d3d7c52595633468d758"
+    },
+    "ml/models/curve_logistic_0.5_20261021_fold1.joblib": {
+      "bytes": 125830,
+      "sha256": "b5ce4d3d28b90b3f243af3ea1a8e9b4a0502b656c28ec263dbc3e25cd58c1aa9"
+    },
+    "ml/models/curve_logistic_0.5_20261021_fold2.joblib": {
+      "bytes": 117565,
+      "sha256": "0db278f4ba1b19539cc3fa3c4ee2c23cadf2b710175feb524019ae4699472e61"
+    },
+    "ml/models/curve_logistic_0.5_20261021_fold3.joblib": {
+      "bytes": 117473,
+      "sha256": "43cc2df96d4ed979515954978a68c9361ff0fc6f0a732466d8f3a87507916412"
+    },
+    "ml/models/curve_logistic_0.5_20261021_fold4.joblib": {
+      "bytes": 108707,
+      "sha256": "d5c66248e17fe796ffde94fc7b5cf6d409dae88310e3f1b887a2b28c17487901"
+    },
+    "ml/models/curve_logistic_0.5_20261022_fold0.joblib": {
+      "bytes": 117571,
+      "sha256": "f3139064bb6a99af12cb88f87947c80ebf7f07c20d930c561c82183d5e23e031"
+    },
+    "ml/models/curve_logistic_0.5_20261022_fold1.joblib": {
+      "bytes": 108881,
+      "sha256": "d58697a56a029143ac29db2f1dae629ad3e3ea2944303b711cc0b794d824e91b"
+    },
+    "ml/models/curve_logistic_0.5_20261022_fold2.joblib": {
+      "bytes": 125992,
+      "sha256": "afede7358976bc71b63f323564d512cc207527304004f5ceec54df0a26add1d7"
+    },
+    "ml/models/curve_logistic_0.5_20261022_fold3.joblib": {
+      "bytes": 125875,
+      "sha256": "85305c183c563fe1dc0432500739b13eb3769e07ae93f982dda294012fbd1cbf"
+    },
+    "ml/models/curve_logistic_0.5_20261022_fold4.joblib": {
+      "bytes": 108819,
+      "sha256": "111f3614ec37266910d110160c8c09cc7111844df312915357aab6738a73502e"
+    },
+    "ml/models/curve_logistic_0.75_20261020_fold0.joblib": {
+      "bytes": 127193,
+      "sha256": "af54c5ecb615d2b393f726e4eed681978fa600747f0827e3260da028f4855294"
+    },
+    "ml/models/curve_logistic_0.75_20261020_fold1.joblib": {
+      "bytes": 118711,
+      "sha256": "354b4334dcb38b1dcc600f40ddb5d953fb54bfac7833befbf72a35a42f5b411b"
+    },
+    "ml/models/curve_logistic_0.75_20261020_fold2.joblib": {
+      "bytes": 127170,
+      "sha256": "a4c1f0a9cbe11169767db7351bfd8c061675a54c44144a2a6f404cfb1db2df66"
+    },
+    "ml/models/curve_logistic_0.75_20261020_fold3.joblib": {
+      "bytes": 118538,
+      "sha256": "fd92b53dc04ac6f40e96b79c92229c47df8d15633ad82097cad3286a08c2989f"
+    },
+    "ml/models/curve_logistic_0.75_20261020_fold4.joblib": {
+      "bytes": 118556,
+      "sha256": "a697e396c2785a448eeb4ef6848853fa788901019f992593ae7c2bf9ed2df153"
+    },
+    "ml/models/curve_logistic_0.75_20261021_fold0.joblib": {
+      "bytes": 127201,
+      "sha256": "221f3a0f8ca900783db72ee8a8fd0db0bf9c62de6efb3fe415625087c9a963e1"
+    },
+    "ml/models/curve_logistic_0.75_20261021_fold1.joblib": {
+      "bytes": 127145,
+      "sha256": "059b55dd10318e5b0a0f732e3b8edcd64908a5d0ceee59b77ca6bfef8336b130"
+    },
+    "ml/models/curve_logistic_0.75_20261021_fold2.joblib": {
+      "bytes": 127113,
+      "sha256": "dcaa7ce6d8cd1a688042a1ae7335ad6af23782677fd483310f3f2a24fa5370a0"
+    },
+    "ml/models/curve_logistic_0.75_20261021_fold3.joblib": {
+      "bytes": 126981,
+      "sha256": "576562df6b9b1ce2957b30af9d7bd77e420a74deaec3f061696a0c9fe0957fc5"
+    },
+    "ml/models/curve_logistic_0.75_20261021_fold4.joblib": {
+      "bytes": 118518,
+      "sha256": "3ebc69b2360c41daf2c815968753a2ce137d66140bf42dbdd25e2b672bae3f4e"
+    },
+    "ml/models/curve_logistic_0.75_20261022_fold0.joblib": {
+      "bytes": 118735,
+      "sha256": "be6d982c26c21b84c4a3c223d9c1f6b0be807973ee0c3068908fc8f67f3f7826"
+    },
+    "ml/models/curve_logistic_0.75_20261022_fold1.joblib": {
+      "bytes": 127213,
+      "sha256": "6a51f7d77c7667817df7a566bfc4bd64e23584bc6be364acaa0a8a1cabf8a98b"
+    },
+    "ml/models/curve_logistic_0.75_20261022_fold2.joblib": {
+      "bytes": 127255,
+      "sha256": "f1ae90537c728d42da395dc76ecbc382b555aa136b1c76804e4b44fcb61df4f0"
+    },
+    "ml/models/curve_logistic_0.75_20261022_fold3.joblib": {
+      "bytes": 127084,
+      "sha256": "62e5ea95dd9a6f39762552ed02cc11e7c9e14c2476ee3abc844c4f27b0f8efe2"
+    },
+    "ml/models/curve_logistic_0.75_20261022_fold4.joblib": {
+      "bytes": 118534,
+      "sha256": "b84474b206e1db0cfd39bc164863f31fa8cdb5e89902fe55d51bdf4782a95ecd"
+    },
+    "ml/models/curve_logistic_1.0_20261020_fold0.joblib": {
+      "bytes": 128372,
+      "sha256": "b619f08ef2f45f834f1ee7ebeacd665bb30fb7fd986d3fe5f8fde25fa2d03a0d"
+    },
+    "ml/models/curve_logistic_1.0_20261020_fold1.joblib": {
+      "bytes": 128451,
+      "sha256": "f550144a7f24e818fd2df85648d380d743dcf2521bb1b5035e61e9ecb5e7b5fa"
+    },
+    "ml/models/curve_logistic_1.0_20261020_fold2.joblib": {
+      "bytes": 128361,
+      "sha256": "add7f13f0c3f8d2a708697f2a39f2a2fe3dd0e4adeea74f7e0b77d830ba90f9b"
+    },
+    "ml/models/curve_logistic_1.0_20261020_fold3.joblib": {
+      "bytes": 128198,
+      "sha256": "af5f0c6bd3b6cbbb7f5388435f5aacbc36a885227f2c48b0b074e8c7b28fac35"
+    },
+    "ml/models/curve_logistic_1.0_20261020_fold4.joblib": {
+      "bytes": 119604,
+      "sha256": "d0f45e515f0275ecc5678325dd65e249049b4ca94fa31a639d9cbe857ad22897"
+    },
+    "ml/models/curve_logistic_1.0_20261021_fold0.joblib": {
+      "bytes": 128372,
+      "sha256": "0579c0aae3ae5fed1cbd71584464d88c2e27922600d2a7385fd4fd1809e21bc3"
+    },
+    "ml/models/curve_logistic_1.0_20261021_fold1.joblib": {
+      "bytes": 128451,
+      "sha256": "67096bf2b91bac27e6d599f372d86c29ba01bde7a55c1b423f24e9e69de09f85"
+    },
+    "ml/models/curve_logistic_1.0_20261021_fold2.joblib": {
+      "bytes": 128361,
+      "sha256": "1ca634a730f09117d3463af32e9fc33b9ddde69f0460523b1ca4a298cf731270"
+    },
+    "ml/models/curve_logistic_1.0_20261021_fold3.joblib": {
+      "bytes": 128198,
+      "sha256": "d93aa17c1b6ddecb6338e8a91c2dc4569924b71d516100b1cde01bb5fdd69fac"
+    },
+    "ml/models/curve_logistic_1.0_20261021_fold4.joblib": {
+      "bytes": 119604,
+      "sha256": "c34130f2640434a1b298d8d1167f8a7559fb2ab9db45574c90f74c28746842a8"
+    },
+    "ml/models/curve_logistic_1.0_20261022_fold0.joblib": {
+      "bytes": 128372,
+      "sha256": "40aa9ba3c3f10f74d1eb9da9ed41fb0a11a6f6eb79d24d9ad649d94f10379660"
+    },
+    "ml/models/curve_logistic_1.0_20261022_fold1.joblib": {
+      "bytes": 128451,
+      "sha256": "4125b614810dbe5aaa692d2e10bba2e0ef8d678dcaa3fbf9cdaeeb6a0a07632a"
+    },
+    "ml/models/curve_logistic_1.0_20261022_fold2.joblib": {
+      "bytes": 128361,
+      "sha256": "bf08e3c567fb3ed9b0471b00d03c8ad850025ead020576c05c8569d6590b68ed"
+    },
+    "ml/models/curve_logistic_1.0_20261022_fold3.joblib": {
+      "bytes": 128197,
+      "sha256": "b133585021dd73d04949fb43021a69f61bb61540939fe636a7929fe272bfd062"
+    },
+    "ml/models/curve_logistic_1.0_20261022_fold4.joblib": {
+      "bytes": 119604,
+      "sha256": "fbdd233692f6687fca33cd67e9918c8a9efb4f03b6f4c1ba4fc423b219f9b4bd"
+    },
+    "ml/models/curve_trees_0.5_20261020_fold0.joblib": {
+      "bytes": 113277,
+      "sha256": "14023b14a6356b27fd875add8e79c620d5e7a165be04c644e4d34abd2ee8939c"
+    },
+    "ml/models/curve_trees_0.5_20261020_fold1.joblib": {
+      "bytes": 90906,
+      "sha256": "545c14cd7d2220557f553f1ee8a4d71b63856c37d2a8cacca44c42f11399ffb9"
+    },
+    "ml/models/curve_trees_0.5_20261020_fold2.joblib": {
+      "bytes": 116061,
+      "sha256": "395513ea9fe55c0ceda1e5b6ae47f339d8adb75af8da6a305f7ac5e67db4ad78"
+    },
+    "ml/models/curve_trees_0.5_20261020_fold3.joblib": {
+      "bytes": 107227,
+      "sha256": "9ccb6454d916b5536eeeeace1a7663682bb15d6daedbc3faf30b22db9197a770"
+    },
+    "ml/models/curve_trees_0.5_20261020_fold4.joblib": {
+      "bytes": 117958,
+      "sha256": "c8380ec57bf2bb941ae2e1e4ec73d8e422be7afbb08ba306f10d63163a789dcc"
+    },
+    "ml/models/curve_trees_0.5_20261021_fold0.joblib": {
+      "bytes": 96737,
+      "sha256": "d0390a92735aa9ef648e044dcf5d61f73e51f88f9474ada24c3009f114f04fdd"
+    },
+    "ml/models/curve_trees_0.5_20261021_fold1.joblib": {
+      "bytes": 110653,
+      "sha256": "b9cd7e30fb8270f923912d182b5c195b1c2e7ffe85775bff27b3feab79811621"
+    },
+    "ml/models/curve_trees_0.5_20261021_fold2.joblib": {
+      "bytes": 120607,
+      "sha256": "cddd02fb1d1097fe7afbdae990134cf3432c8cdf1ae434aa6a5faeb14b52a401"
+    },
+    "ml/models/curve_trees_0.5_20261021_fold3.joblib": {
+      "bytes": 112770,
+      "sha256": "7f3cf84476becaf8f768074e8bc3753119c3d3aea65c30fba83425e3b4dbba84"
+    },
+    "ml/models/curve_trees_0.5_20261021_fold4.joblib": {
+      "bytes": 108512,
+      "sha256": "611cd668c6a8f618f5b1813735ea8744974608001f00fc2663a75799c85238e5"
+    },
+    "ml/models/curve_trees_0.5_20261022_fold0.joblib": {
+      "bytes": 112883,
+      "sha256": "45f095da49ee0e3915ab7a558e601d8d28118e222d0ce130933e5fcf1a4f3e5b"
+    },
+    "ml/models/curve_trees_0.5_20261022_fold1.joblib": {
+      "bytes": 105140,
+      "sha256": "90e7d980fdfd6a6b476fefbf71718acf5c8fc28dc0be7740b209ce4ae80b5b55"
+    },
+    "ml/models/curve_trees_0.5_20261022_fold2.joblib": {
+      "bytes": 133048,
+      "sha256": "ee5d87790dd1f5e6aa1a9140988776ed25b35b1608c45c03de8a32c9f1c1d6aa"
+    },
+    "ml/models/curve_trees_0.5_20261022_fold3.joblib": {
+      "bytes": 116068,
+      "sha256": "8fcbe5914c623eb0af0ac730e35f4a143bec992f61ae62b3a0eec88c10861266"
+    },
+    "ml/models/curve_trees_0.5_20261022_fold4.joblib": {
+      "bytes": 113084,
+      "sha256": "1d890f263dace60a63da1cea3b8517e5b8075208d912e73eed2195f6d021bb98"
+    },
+    "ml/models/curve_trees_0.75_20261020_fold0.joblib": {
+      "bytes": 180854,
+      "sha256": "901e59fee529f98304bfdf2604ef977411abea75be477a5088968e0eff54e01e"
+    },
+    "ml/models/curve_trees_0.75_20261020_fold1.joblib": {
+      "bytes": 162660,
+      "sha256": "d515ad233a24ac21af6017537a2be9c1b954df8d9eaf8726e8202d1868c26434"
+    },
+    "ml/models/curve_trees_0.75_20261020_fold2.joblib": {
+      "bytes": 172284,
+      "sha256": "962d3719bc5901d7f885f780c6b5124b8ab0dd1391e7da3dc3304405468614ee"
+    },
+    "ml/models/curve_trees_0.75_20261020_fold3.joblib": {
+      "bytes": 149042,
+      "sha256": "a8ea787f701fa7e7fa8a39483ad40d3cc9451e7e52ed9b954c26a1d07badca6e"
+    },
+    "ml/models/curve_trees_0.75_20261020_fold4.joblib": {
+      "bytes": 172724,
+      "sha256": "e4c89cda040ccc2c66de2d6e8ffca04ced4ba78ebbac59ee8dd8c92644f19484"
+    },
+    "ml/models/curve_trees_0.75_20261021_fold0.joblib": {
+      "bytes": 181365,
+      "sha256": "2a2d4d2129de52f0a063f8aae913229d899b96ece43e645f2655d2de4846d6e3"
+    },
+    "ml/models/curve_trees_0.75_20261021_fold1.joblib": {
+      "bytes": 161055,
+      "sha256": "c555724cbf9bbbddda1b42ee4c754ee3707c4e1a40e84427ef5656baaedb7acd"
+    },
+    "ml/models/curve_trees_0.75_20261021_fold2.joblib": {
+      "bytes": 179571,
+      "sha256": "5a0d726ed17e0e6dc04cb6e0c2ab9005ee17977a958cec766eab233f93e4c90f"
+    },
+    "ml/models/curve_trees_0.75_20261021_fold3.joblib": {
+      "bytes": 167290,
+      "sha256": "c0a6ecdb264e7498d38964edb497f0c0258c826c901c4faa6d01955b0eb19631"
+    },
+    "ml/models/curve_trees_0.75_20261021_fold4.joblib": {
+      "bytes": 152354,
+      "sha256": "fec5a364fa6fe0402c614761e842781d84851dddbb90081cb9e4ad1cc77b3b3a"
+    },
+    "ml/models/curve_trees_0.75_20261022_fold0.joblib": {
+      "bytes": 165475,
+      "sha256": "776752b6d3e4e71a8470c53110bf0c3c31966844c1ac8915081e386e68811958"
+    },
+    "ml/models/curve_trees_0.75_20261022_fold1.joblib": {
+      "bytes": 163857,
+      "sha256": "71ab32a9b6084cf75b15b6e6679452c09bd5d8bc584962cbb81acdacc520cad2"
+    },
+    "ml/models/curve_trees_0.75_20261022_fold2.joblib": {
+      "bytes": 208200,
+      "sha256": "d0c2ad44f02c43eefe452e0d9a406af5d6f88a408571a4348d917785879620df"
+    },
+    "ml/models/curve_trees_0.75_20261022_fold3.joblib": {
+      "bytes": 163679,
+      "sha256": "436d99db43558a6410098c407af72e7c76182b8f72774e86a7cb595abade12ac"
+    },
+    "ml/models/curve_trees_0.75_20261022_fold4.joblib": {
+      "bytes": 147054,
+      "sha256": "2297bef0b7259d14de46b311e9f909b4cf031b21553886a354d70ab4987debe2"
+    },
+    "ml/models/curve_trees_1.0_20261020_fold0.joblib": {
+      "bytes": 243523,
+      "sha256": "a1dea70c170ddedd63ff23531b7c052be18d1ed8a097c26dc7133405f9bfdc6b"
+    },
+    "ml/models/curve_trees_1.0_20261020_fold1.joblib": {
+      "bytes": 228621,
+      "sha256": "e8b26070f66f870629067fd86eb72acee5ada1779c88343f9fa845c7be0b1417"
+    },
+    "ml/models/curve_trees_1.0_20261020_fold2.joblib": {
+      "bytes": 237409,
+      "sha256": "14c6a168beb4088cf9ca5fe62c61e96502f911aa9ec6bd8c3bcf33093adc0284"
+    },
+    "ml/models/curve_trees_1.0_20261020_fold3.joblib": {
+      "bytes": 208063,
+      "sha256": "2b18eaf83ebedb0cc88d3ddfc6cd3b9c12f7c9544ed9862bd57dbfb919f4270b"
+    },
+    "ml/models/curve_trees_1.0_20261020_fold4.joblib": {
+      "bytes": 199704,
+      "sha256": "376f518c6d77ddfa7698baab4916b8fee37d082961a5653ff6ce39cbe371d672"
+    },
+    "ml/models/curve_trees_1.0_20261021_fold0.joblib": {
+      "bytes": 249143,
+      "sha256": "eef00d5d40f3d02717aec516c274d25532aab94a2dcb3026f8a7feedce5f1823"
+    },
+    "ml/models/curve_trees_1.0_20261021_fold1.joblib": {
+      "bytes": 233414,
+      "sha256": "78ae94ba9e5dac9572040282d3acdff790211885db271d3f726a0731e6558bc7"
+    },
+    "ml/models/curve_trees_1.0_20261021_fold2.joblib": {
+      "bytes": 241533,
+      "sha256": "6b080fdfe20a58f0749f0c74908b5c6bcb1db021e631e8df1c18c36d053eeb7f"
+    },
+    "ml/models/curve_trees_1.0_20261021_fold3.joblib": {
+      "bytes": 212812,
+      "sha256": "fcc5975f692f3f449623e40488407c23dac365bb38d73255854a637bc9666985"
+    },
+    "ml/models/curve_trees_1.0_20261021_fold4.joblib": {
+      "bytes": 200329,
+      "sha256": "aca278fca9ebd45b73ca9ae38a9b41023b523c8ca6243f6e6439d655fc2af6d7"
+    },
+    "ml/models/curve_trees_1.0_20261022_fold0.joblib": {
+      "bytes": 247343,
+      "sha256": "c4b9bd85d34e7a8cbd7d4fba6b3e3295749a59b8d2f73ad36a8d8ca41d529964"
+    },
+    "ml/models/curve_trees_1.0_20261022_fold1.joblib": {
+      "bytes": 229777,
+      "sha256": "c8833fc1ad208cd159f48af53b09b56d84f207255bd645253bbc156cd70d72a6"
+    },
+    "ml/models/curve_trees_1.0_20261022_fold2.joblib": {
+      "bytes": 245052,
+      "sha256": "f4c78d3e9dea5ba1d9f7dc00ab56fe8f6a75a7b4d114eb2353c9031c4ba49b58"
+    },
+    "ml/models/curve_trees_1.0_20261022_fold3.joblib": {
+      "bytes": 209096,
+      "sha256": "3f93eb7f92b8d037aada88f1dfd6b4c99c5dee34be7c342c2311ac3ee1bc1c25"
+    },
+    "ml/models/curve_trees_1.0_20261022_fold4.joblib": {
+      "bytes": 202911,
+      "sha256": "4b0365d053f093fd616252767e447c055c7bd10e80d532e2177426d3e8b8257e"
+    },
+    "ml/models/size_logistic_expanded118_20261020_fold0.joblib": {
+      "bytes": 128370,
+      "sha256": "099b676b897ab60a4a232b5819491e973e9b44c86df59f0de328a3bc00e5ca7d"
+    },
+    "ml/models/size_logistic_expanded118_20261020_fold1.joblib": {
+      "bytes": 128450,
+      "sha256": "9c2b5d91c87f58fecb414657b4de4b16f6cda7a6f106c221d9322852b985b116"
+    },
+    "ml/models/size_logistic_expanded118_20261020_fold2.joblib": {
+      "bytes": 128358,
+      "sha256": "25bbed62c7467d00dc166e545b8d5fb4ea5427b83765d55edfbe764721e9b915"
+    },
+    "ml/models/size_logistic_expanded118_20261020_fold3.joblib": {
+      "bytes": 128199,
+      "sha256": "7e67e6487c2df31d16c2ecb2ef1b2d0f312e61d78ccbf6e2ca5540b0d5f22485"
+    },
+    "ml/models/size_logistic_expanded118_20261020_fold4.joblib": {
+      "bytes": 119603,
+      "sha256": "854619ff3c2ab81fcf061eef45124134db1510fd0a012f353be75df974f508d2"
+    },
+    "ml/models/size_logistic_expanded118_20261021_fold0.joblib": {
+      "bytes": 128370,
+      "sha256": "e2f8073cf4b3a28e6cf891ac8a2637c17147d3afa40b09532578fb8aa39fb92b"
+    },
+    "ml/models/size_logistic_expanded118_20261021_fold1.joblib": {
+      "bytes": 128450,
+      "sha256": "89c4687ea84ee1d32a437d76f00cd51fdd7220b64d92966ad93b75418d95a6f8"
+    },
+    "ml/models/size_logistic_expanded118_20261021_fold2.joblib": {
+      "bytes": 128358,
+      "sha256": "5ba66416cdd925fa6dc94b14f75a634a29d87b52210977c2b1821864e178ea7c"
+    },
+    "ml/models/size_logistic_expanded118_20261021_fold3.joblib": {
+      "bytes": 128199,
+      "sha256": "7453514baa091629f8081f4ff2775835f20272311e8d31d77cd3ba111cd038b7"
+    },
+    "ml/models/size_logistic_expanded118_20261021_fold4.joblib": {
+      "bytes": 119603,
+      "sha256": "00e8abea074d2339a20f7c66331b1cb833ab66cab46f8e0192f1b1d0b269c0dd"
+    },
+    "ml/models/size_logistic_expanded118_20261022_fold0.joblib": {
+      "bytes": 128370,
+      "sha256": "da796203e593346be8256ef5ec87802d975f6420f8a58a90b3c16470ff8e6490"
+    },
+    "ml/models/size_logistic_expanded118_20261022_fold1.joblib": {
+      "bytes": 128450,
+      "sha256": "a6277e37aadafc305cc32601da5b427cae5bb06e691f2e48d841c35c6f121ef8"
+    },
+    "ml/models/size_logistic_expanded118_20261022_fold2.joblib": {
+      "bytes": 128358,
+      "sha256": "b562e3c53e2cb4dd14bf9d5c33f2ab361562ec59b688277bc08466b407ac5b64"
+    },
+    "ml/models/size_logistic_expanded118_20261022_fold3.joblib": {
+      "bytes": 128198,
+      "sha256": "95ef8263a259dbdc14d4e4ec414dcd292f39861f1b623d8e1716039b648dada5"
+    },
+    "ml/models/size_logistic_expanded118_20261022_fold4.joblib": {
+      "bytes": 119603,
+      "sha256": "e2d8356c07c5b780e044c22755752be08f679e23863692097e464b816b685ec4"
+    },
+    "ml/models/size_logistic_old99_20261020_fold0.joblib": {
+      "bytes": 127634,
+      "sha256": "96557b9361cdc6a47623871a87c4bc6ee9426c3287ce4802c21e1558f912cb4e"
+    },
+    "ml/models/size_logistic_old99_20261020_fold1.joblib": {
+      "bytes": 127657,
+      "sha256": "cafab9de874929eea909c33e3a8b491fb6c35ddd675f4afb6aece0a13183aa30"
+    },
+    "ml/models/size_logistic_old99_20261020_fold2.joblib": {
+      "bytes": 127640,
+      "sha256": "6b61b3c5587da57fdf89f2b97360fb53e4cae11bfce3c7b1ba81e0ba573bafdf"
+    },
+    "ml/models/size_logistic_old99_20261020_fold3.joblib": {
+      "bytes": 127646,
+      "sha256": "692bcc6a3350aa18d66b1a94c238cde775fdbed4d6468026a9690ea83a2a3b90"
+    },
+    "ml/models/size_logistic_old99_20261020_fold4.joblib": {
+      "bytes": 119155,
+      "sha256": "579268ddeccdbcdc5c82087b9cfb93c561bbe3fefcee5207ba16aa8e36940685"
+    },
+    "ml/models/size_logistic_old99_20261021_fold0.joblib": {
+      "bytes": 127634,
+      "sha256": "0e6ea60017c4d85cec95fd2eb5f02eefaa31a3dbcd2f09bc26ce3215253a3648"
+    },
+    "ml/models/size_logistic_old99_20261021_fold1.joblib": {
+      "bytes": 127657,
+      "sha256": "8a9685e61945cec6709a329e839b498e1b6a223dcdaed62f38dfb760885a89ae"
+    },
+    "ml/models/size_logistic_old99_20261021_fold2.joblib": {
+      "bytes": 127640,
+      "sha256": "5a440982225f235ee38c8c5387b9760c43323048a874d50e48c4450f24004326"
+    },
+    "ml/models/size_logistic_old99_20261021_fold3.joblib": {
+      "bytes": 127647,
+      "sha256": "fb164dd015fbe64300ae51e1bed368a310d16082551ed0df81dd0a056d6d9a2f"
+    },
+    "ml/models/size_logistic_old99_20261021_fold4.joblib": {
+      "bytes": 119155,
+      "sha256": "2ab446fe24a4676e620017e3f6b5ccba40942175294de8dd778362cf86d9861c"
+    },
+    "ml/models/size_logistic_old99_20261022_fold0.joblib": {
+      "bytes": 127634,
+      "sha256": "b1a276096ad9248e2f65d7cde7eeed78e8020bcefd9ca6231e3af9a8e4e9ac82"
+    },
+    "ml/models/size_logistic_old99_20261022_fold1.joblib": {
+      "bytes": 127657,
+      "sha256": "17b956072a0c31a393322c317734a54ae33250d49ed8f8ab64978d93c9de1b1d"
+    },
+    "ml/models/size_logistic_old99_20261022_fold2.joblib": {
+      "bytes": 127642,
+      "sha256": "99a60caed28768dc85a5d34213b3caf244af29edf3c618c2e62268835555bb2b"
+    },
+    "ml/models/size_logistic_old99_20261022_fold3.joblib": {
+      "bytes": 127647,
+      "sha256": "d7357f135ff679d41861c6914474070eac7ce4148ffd15b1ec29f1c745496246"
+    },
+    "ml/models/size_logistic_old99_20261022_fold4.joblib": {
+      "bytes": 119155,
+      "sha256": "466392e9fc5c2151197c605f7f4af15a2fa0b5be78c889dd108eaf2bf317d12e"
+    },
+    "ml/models/size_trees_expanded118_20261020_fold0.joblib": {
+      "bytes": 243524,
+      "sha256": "a192b387daead0b5e3ca83e923929a97a255bd467a3e31c7d73a6d09bd2bc18f"
+    },
+    "ml/models/size_trees_expanded118_20261020_fold1.joblib": {
+      "bytes": 228618,
+      "sha256": "d6b528d6d3da917dd3a003b5e326eb24eda81db81824098bd7c19665fb6abbf3"
+    },
+    "ml/models/size_trees_expanded118_20261020_fold2.joblib": {
+      "bytes": 237411,
+      "sha256": "9403a6ac9eeaf31965755e555bd5de0130dfcae5e94b0e46afc9452d4e84e815"
+    },
+    "ml/models/size_trees_expanded118_20261020_fold3.joblib": {
+      "bytes": 208064,
+      "sha256": "5753bab581a06c22296460817dd920e1c7e1323d3226f154427f114d221d1d0f"
+    },
+    "ml/models/size_trees_expanded118_20261020_fold4.joblib": {
+      "bytes": 199704,
+      "sha256": "a6a9920a3b75874994b8c7c8e0018b04963e748c585c5fa3a786f68ad56e7271"
+    },
+    "ml/models/size_trees_expanded118_20261021_fold0.joblib": {
+      "bytes": 249143,
+      "sha256": "2c146d308a4f91cc17896f97832ed8a5b083d52a25904835c886562ca04b98e5"
+    },
+    "ml/models/size_trees_expanded118_20261021_fold1.joblib": {
+      "bytes": 233414,
+      "sha256": "ce3f237269c9d0db15330530a682e6fd09dcb1282d015a1475666846d0d4b1f5"
+    },
+    "ml/models/size_trees_expanded118_20261021_fold2.joblib": {
+      "bytes": 241534,
+      "sha256": "aafc00e2152b359971bb1a7635d8570af085d6a17a92d318eb5f866172cdf5c1"
+    },
+    "ml/models/size_trees_expanded118_20261021_fold3.joblib": {
+      "bytes": 212813,
+      "sha256": "29549ae2efd4a79d4f2464de965dcff0a75b8c75517580c0718c0c5b1268e2a7"
+    },
+    "ml/models/size_trees_expanded118_20261021_fold4.joblib": {
+      "bytes": 200326,
+      "sha256": "19dd46f72d71a0d56282c955a88e5569f6e1b83dc39cb6eeee51445920c9ed7a"
+    },
+    "ml/models/size_trees_expanded118_20261022_fold0.joblib": {
+      "bytes": 247344,
+      "sha256": "907f0184d2c45a8debcae9373f23280c11cbdbd5586e93b87e565b15003a7bff"
+    },
+    "ml/models/size_trees_expanded118_20261022_fold1.joblib": {
+      "bytes": 229777,
+      "sha256": "35f4ec1181bde627892ebf4c66c6b28169feab5199deefd9e434db4d2123196e"
+    },
+    "ml/models/size_trees_expanded118_20261022_fold2.joblib": {
+      "bytes": 245052,
+      "sha256": "2ea848c185104117394a299b5919457796f77dfa9621a381e8656d4b3cdda5ba"
+    },
+    "ml/models/size_trees_expanded118_20261022_fold3.joblib": {
+      "bytes": 209096,
+      "sha256": "f52ec4a9cc102dc7984e8a722bbb73d4c41d0efd00054cdb163e72ce2230ba8b"
+    },
+    "ml/models/size_trees_expanded118_20261022_fold4.joblib": {
+      "bytes": 202910,
+      "sha256": "89bb93b31eaa1202a05817d995fd373d8030315b56517db9d815a6fb746557f4"
+    },
+    "ml/models/size_trees_old99_20261020_fold0.joblib": {
+      "bytes": 200637,
+      "sha256": "0d50f6ebd07a7e7add7352411bfe9606852691b6d001868674d556232ff8d680"
+    },
+    "ml/models/size_trees_old99_20261020_fold1.joblib": {
+      "bytes": 188072,
+      "sha256": "24c8d412fe3e2bb0ce2aea00cf89f222e0af3af23a4061df0e36c29c8fd07dde"
+    },
+    "ml/models/size_trees_old99_20261020_fold2.joblib": {
+      "bytes": 204733,
+      "sha256": "ab0f2e389f48bac19c7bd6abf5fa6199f91374b781f3139d70bfc2c8f5b60fe3"
+    },
+    "ml/models/size_trees_old99_20261020_fold3.joblib": {
+      "bytes": 190692,
+      "sha256": "8936f18ea404ea4ef196a959bbb4ddc7ddc29b44376bf42230d789b25a037975"
+    },
+    "ml/models/size_trees_old99_20261020_fold4.joblib": {
+      "bytes": 184782,
+      "sha256": "cc7e3d261da82fab569c4f26e80f914d75741871f4b557e9c8869562956ad5e0"
+    },
+    "ml/models/size_trees_old99_20261021_fold0.joblib": {
+      "bytes": 204608,
+      "sha256": "c2962e969c0dfd76e402bcd3321d34be194d3b40dfa7a83028e1732e30065eec"
+    },
+    "ml/models/size_trees_old99_20261021_fold1.joblib": {
+      "bytes": 192577,
+      "sha256": "919d5e804d28a602fca719e104548c72c28c5bfa5db700b2ad71f8e6053146c5"
+    },
+    "ml/models/size_trees_old99_20261021_fold2.joblib": {
+      "bytes": 208447,
+      "sha256": "9b4575b6e0df65f10cd29da510754f72e9c1e5e21ddee7b6f4512adeba1fdf5e"
+    },
+    "ml/models/size_trees_old99_20261021_fold3.joblib": {
+      "bytes": 193750,
+      "sha256": "01050d6a42af739f249fe531681611266b235f373bf04ab21b44c9343f33a688"
+    },
+    "ml/models/size_trees_old99_20261021_fold4.joblib": {
+      "bytes": 184403,
+      "sha256": "5a9c6881d67fdab0db156b2b90949e995b666ddf6e17a50413cd83977596e49c"
+    },
+    "ml/models/size_trees_old99_20261022_fold0.joblib": {
+      "bytes": 201388,
+      "sha256": "73a9402848373cd95f0934a20ce37e5de0eb9af5094ef36474a89b8ceb774f65"
+    },
+    "ml/models/size_trees_old99_20261022_fold1.joblib": {
+      "bytes": 188230,
+      "sha256": "57160c5a872572c559653178c8ff30904a0b43c9f1369d6d7965c6a774418097"
+    },
+    "ml/models/size_trees_old99_20261022_fold2.joblib": {
+      "bytes": 205682,
+      "sha256": "2b4631cc00821ef37248d288353b2b364d2e97cde9b4c512c3d3fc7d71868262"
+    },
+    "ml/models/size_trees_old99_20261022_fold3.joblib": {
+      "bytes": 189485,
+      "sha256": "0d0daa307f3b6a5c99ab28d16322255f75bc3576d0eda2b6c4605de9311693e0"
+    },
+    "ml/models/size_trees_old99_20261022_fold4.joblib": {
+      "bytes": 185741,
+      "sha256": "fbd05b8c3f4e582c8b3ca6ebaaa202dacde9418bba55a169f0652b0097ca1488"
+    }
+  },
+  "excluded": "no source records or historical archives changed"
+}

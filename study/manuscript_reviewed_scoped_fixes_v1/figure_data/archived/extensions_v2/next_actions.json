@@ -1,0 +1,50 @@
+[
+  {
+    "rank": 1,
+    "type": "scientific_priority_control",
+    "configuration": "matched relaxed clean parents and two-CO/intact-OCCO controls",
+    "reason": "isolate actual chemical contrasts; missing spectra are not repaired by ML"
+  },
+  {
+    "rank": 2,
+    "type": "scientific_priority_control",
+    "configuration": "matched CO/H mixtures at fixed parent/site/loading",
+    "reason": "frozen H mixture recall 0/8 versus 14/14 single H"
+  },
+  {
+    "rank": 3,
+    "type": "scientific_priority_control",
+    "configuration": "new independent hydrogenated C1/C2 configurations; lock confirmation subset",
+    "reason": "rare supports and missing-positive training folds"
+  },
+  {
+    "rank": 4,
+    "type": "heldout_model_disagreement_review",
+    "configuration": "CHO/CHO_0p056_interior_Cu",
+    "reason": "OOF score disagreement 0.0877; existing case review, not a new independent positive"
+  },
+  {
+    "rank": 5,
+    "type": "heldout_model_disagreement_review",
+    "configuration": "COH/CHO_0p028_interface_Cu3",
+    "reason": "OOF score disagreement 0.0821; existing case review, not a new independent positive"
+  },
+  {
+    "rank": 6,
+    "type": "heldout_model_disagreement_review",
+    "configuration": "COOH/COOH_0p111_AuCu_interface",
+    "reason": "OOF score disagreement 0.0808; existing case review, not a new independent positive"
+  },
+  {
+    "rank": 7,
+    "type": "heldout_model_disagreement_review",
+    "configuration": "COCHO/COCHO_0p056_Cu_interior",
+    "reason": "OOF score disagreement 0.0785; existing case review, not a new independent positive"
+  },
+  {
+    "rank": 8,
+    "type": "heldout_model_disagreement_review",
+    "configuration": "OCHO/03_1OCHO_CuCu_interior",
+    "reason": "OOF score disagreement 0.0778; existing case review, not a new independent positive"
+  }
+]

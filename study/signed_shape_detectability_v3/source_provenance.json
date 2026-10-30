@@ -1,0 +1,21 @@
+{
+  "reviewed_start": "638e3cb87cd1aac40157db38d52a5fac00aec56d",
+  "current_code_sha256": {
+    "tools/differential_identity.py": "33106d21410590514f1ee38585f13e5660df802c21b1b6cb5c4f717a06adfe96",
+    "tools/signed_shape_size.py": "15b2a579135a39ad7bfd05a01d891f11f7a011140f48a1747349ff54d4a1321c",
+    "tools/spectral_label_decoder.py": "fc060799220141c9100ccf6d1369f688e4e4ef1d1ec4bfddf81f7b61ab0973e8",
+    "tools/audited_training.py": "0b1936d4beb3fe68a25788e767dcae5e9460299155af82dd0ff94941adfbe7a4",
+    "tools/differential_route.py": "966ce6b0e9c415e46f31d5f6a94611f1602d1605ac5cc161a8585f0f842127e1",
+    "tools/identity_comparison.py": "23822596770e8d1fc184d5a6c680e09d13f7b0798b0aa985420cc0fdf53ed6a1",
+    "tools/grouped_identity_learning.py": "97b3df1d9e5ead25571684e0ff682379188ba9237dff96bf4a197fd69eaf92a2",
+    "tools/fixed_top_two.py": "67f32e27cc557d7b6e990fefd953d3c0be304640882ebb60fc25668e33f40758",
+    "agent/co2rr_xas_agent.py": "fe9ff53bd8bd477c641bdf5b73cbe40278b6abfe402ac11f97b91b6936fd5d81",
+    "agent/schemas.py": "78aec4e1c29c04fea8c576da1a169ddc7c731ddf2ade275c2bd257888348ba48",
+    "agent/planner.py": "e7c593f4e6d7932c521b907aae1c46abc07b00b5de11556b6e20f46f88bb8eb6",
+    "web_app/ml_pages/multilabel_presence.py": "feb883df837c9181e6127705b669b003f8b1e48748da403fed5cd484e72a2c77"
+  },
+  "training_as_run": "ml/protocol.json records original hashes; code/training_source_snapshots/differential_identity.py matches the recorded inference dependency bytes. Training transforms remain AST-identical; only inference detectability changed afterward.",
+  "training_implementation_unchanged_after_run": true,
+  "input_arrays_identical_to_guarded_study": true,
+  "absolute_paths_in_protocol": "historical as-run locations; portable relative dependencies listed here"
+}

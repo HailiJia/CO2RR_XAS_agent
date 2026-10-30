@@ -41,8 +41,8 @@ def test_unit_signed_query_preserves_identity_scores_but_needs_signal_evidence(t
  from tools.identity_comparison import fit_model,transform
  from tools.differential_identity import infer_identity,VERSION
  e=np.linspace(8974,9029,276);xx=np.array([np.sin(e+i/4) for i in range(8)]);yy=np.array([[i%2] for i in range(8)]);m=fit_model(transform(xx,e,'signed_shape','DCT16',1e-6),yy,'logistic',17);p=tmp_path/'m.joblib';joblib.dump(dict(input_contract=VERSION,energy=e,representation='signed_shape',feature='DCT16',floor=1e-6,model=m,thresholds=np.array([.5]),species=['CO'],domains=['CuAu']),p)
- c=conv('precomputed_difference');a=infer_identity(p,xx[0],None,e,c);b=infer_identity(p,19*xx[0],None,e,c);assert a['predicted_identity_set']==b['predicted_identity_set'];np.testing.assert_allclose(list(a['scores'].values()),list(b['scores'].values()),atol=1e-12)
- c['normalization']='signed_rms';assert infer_identity(p,xx[0],None,e,c)['status']=='abstain_unresolved_signal_floor';c['pre_normalization_signal_to_noise']=10;assert 'scores' in infer_identity(p,xx[0],None,e,c)
+ c={**conv('precomputed_difference'),'pre_normalization_signal_to_noise':10};a=infer_identity(p,xx[0],None,e,c);b=infer_identity(p,19*xx[0],None,e,c);assert a['predicted_identity_set']==b['predicted_identity_set'];np.testing.assert_allclose(list(a['scores'].values()),list(b['scores'].values()),atol=1e-12)
+ c.pop('pre_normalization_signal_to_noise');c['normalization']='signed_rms';unit=xx[0]/np.sqrt(np.mean(xx[0]**2));assert infer_identity(p,unit,None,e,c)['status']=='review_required_detectability';c['pre_normalization_signal_to_noise']=10;assert 'scores' in infer_identity(p,unit,None,e,c)
 
 def test_shared_training_rejects_modified_prepared_export_before_fit(tmp_path):
  import json,hashlib

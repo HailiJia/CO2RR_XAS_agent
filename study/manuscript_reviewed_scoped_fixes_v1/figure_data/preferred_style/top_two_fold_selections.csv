@@ -1,0 +1,6 @@
+fold,selector,objective,id,depth,feature,model,decoder,inner_score,thresholds
+0,depth_top_2,micro,114,top_2,derivative,independent_trees,shrunk,0.6901408450704225,"[0.35, 0.35, 0.35, 0.35, 0.35, 0.4, 0.35, 0.4, 0.35, 0.35, 0.35]"
+1,depth_top_2,micro,114,top_2,derivative,independent_trees,shrunk,0.7272727272727273,"[0.35, 0.35, 0.35, 0.35, 0.3, 0.35, 0.4, 0.4, 0.35, 0.3, 0.35]"
+2,depth_top_2,micro,124,top_2,DCT24,independent_trees,shrunk,0.7402597402597403,"[0.35, 0.4, 0.35, 0.35, 0.35, 0.4, 0.3, 0.3, 0.35, 0.35, 0.3]"
+3,depth_top_2,micro,119,top_2,shape_CDF_derivatives,independent_trees,global,0.7246376811594203,"[0.45, 0.45, 0.45, 0.45, 0.45, 0.45, 0.45, 0.45, 0.45, 0.45, 0.45]"
+4,depth_top_2,micro,119,top_2,shape_CDF_derivatives,independent_trees,shrunk,0.7368421052631579,"[0.45, 0.45, 0.45, 0.45, 0.4, 0.45, 0.4, 0.45, 0.45, 0.5, 0.45]"

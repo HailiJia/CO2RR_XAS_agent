@@ -1,0 +1,2348 @@
+{
+  "queries": [
+    {
+      "representation": "relative_delta",
+      "configuration": "CHO/CHO_0p056_AuCu_bidentate",
+      "fold": 0,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "CHO_CO/CO_CHO_0p111_more_CO",
+      "fold": 0,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "CO/CO_0p14/interface_biased",
+      "fold": 0,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "CO/CO_0p25/interface_biased",
+      "fold": 0,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "CO/CO_0p25/interface_biased2",
+      "fold": 0,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "CO/CO_0p5/interface_biased",
+      "fold": 0,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "CO/CO_0p5/interior_biased",
+      "fold": 0,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "CO/CO_0p5/uniform",
+      "fold": 0,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "CO2/CO2_0p056_interface_biased_activated",
+      "fold": 0,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "COH/COH_0p056_interface_Cu3",
+      "fold": 0,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "COOH/COOH_0p056_Cu_interface",
+      "fold": 0,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "COOH/COOH_0p056_mixed_Au_Cu",
+      "fold": 0,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "COOH/COOH_0p111_AuCu_interface",
+      "fold": 0,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "COOH/COOH_0p111_Au_top",
+      "fold": 0,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "CO_OH/CO_OH_0p111_3CO_1OH",
+      "fold": 0,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "Cu100/Cu100_2x2x4_H_3_4_1bridge_2hollow_config_1",
+      "fold": 0,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "Cu100/Cu100_2x2x4_OH_3_4_mixed_1bridge_2hollow",
+      "fold": 0,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "Cu100/Cu100_2x2x4_OH_4_4_mixed_2top_2bridge",
+      "fold": 0,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "H/H_0p25/interface_biased2",
+      "fold": 0,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "H/H_0p75/0p88_mixed",
+      "fold": 0,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "O/O_0p056_2O_Cu3_distributed",
+      "fold": 0,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "OCCO_CO/OCCO_CO_0p111_Cu_rich",
+      "fold": 0,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "OCCO_CO/OCCO_CO_0p167_AuCu_interface",
+      "fold": 0,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "OCHO/04_2OCHO_CuCu_interface_plus_interior",
+      "fold": 0,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "2CO_adjacent/2CO_adjacent_0p056_interface",
+      "fold": 1,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "2CO_adjacent/2CO_adjacent_0p111_uniform",
+      "fold": 1,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "2CO_adjacent/2CO_adjacent_0p167_uniform",
+      "fold": 1,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "CHO/CHO_0p111_uniform",
+      "fold": 1,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "CO/CO_0p11/interface_biased",
+      "fold": 1,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "CO/CO_0p11/uniform",
+      "fold": 1,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "CO/CO_0p14/interior_biased",
+      "fold": 1,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "CO/CO_0p25/uniform",
+      "fold": 1,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "CO2/CO2_0p056_uniform_activated",
+      "fold": 1,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "COH/COH_0p056_uniform",
+      "fold": 1,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "COH/COH_0p167_uniform",
+      "fold": 1,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "COOH/COOH_0p056_Au_top",
+      "fold": 1,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "COOH/COOH_0p111_Cu_interface",
+      "fold": 1,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "CO_H/CO_H_0p083_2CO_1H_AuCu2",
+      "fold": 1,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "CO_H/CO_H_0p111_2CO_2H",
+      "fold": 1,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "Cu100/Cu100_2x2x4_CO_1_4_top",
+      "fold": 1,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "H/H_0p25/Au",
+      "fold": 1,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "H/H_0p5/interior_biased",
+      "fold": 1,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "OCCOH/OCCOH_0p056_AuCu_interface",
+      "fold": 1,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "OCHO/02_1OCHO_AuCu_across",
+      "fold": 1,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "OH/OH_0p125_interior_biased",
+      "fold": 1,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "OH/OH_0p125_uniform_high5Cu",
+      "fold": 1,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "plain",
+      "fold": 1,
+      "old_status": "abstain_low_signal",
+      "new_status": "abstain_low_signal",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "2CO_adjacent/2CO_adjacent_0p056_interior",
+      "fold": 2,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "CHO/CHO_0p028_Cu_top",
+      "fold": 2,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "CO/CO_0p25/interior_biased",
+      "fold": 2,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "CO/CO_0p75/uniform",
+      "fold": 2,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "CO2/CO2_0p028_interface_biased_activated",
+      "fold": 2,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "CO2/CO2_0p056_mixed",
+      "fold": 2,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "COH/CHO_0p111_interface_Cu3",
+      "fold": 2,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "COH/COH_0p056_AuCuCu",
+      "fold": 2,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "COOH/COOH_0p056_Cu_uniform",
+      "fold": 2,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "Cu100/Cu100_2x2x4_CO_2_4_2top_v2",
+      "fold": 2,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "Cu100/Cu100_2x2x4_CO_4_4_2top_2bridge",
+      "fold": 2,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "Cu100/Cu100_2x2x4_OH_2_4_hollow_config_2",
+      "fold": 2,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "H/H_0p5/Au",
+      "fold": 2,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "H/H_0p5/uniform",
+      "fold": 2,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "H/H_0p75/uniform",
+      "fold": 2,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "OCCOH/OCCOH_0p056_Cu_interior",
+      "fold": 2,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "OCCO_CO/OCCO_CO_0p167_Cu_rich",
+      "fold": 2,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "OCCO_CO/OCCO_plus_CO_0p222_Cu_rich",
+      "fold": 2,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "OCHO/01_1OCHO_CuCu_interface",
+      "fold": 2,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "OCHO/05_2OCHO_CuCu_interface_plus_AuCu",
+      "fold": 2,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "OCHO/06_2OCHO_2CuCu_interface",
+      "fold": 2,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "OCHO/08_3OCHO_1CuCu_interface_plus_2interior",
+      "fold": 2,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "OH/OH_0p25_interface_Au",
+      "fold": 2,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "OH/OH_0p25_interior_biased",
+      "fold": 2,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "OH/OH_0p50_interface_Au",
+      "fold": 2,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "2CO_adjacent/2CO_adjacent_0p111_interface",
+      "fold": 3,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "CHO/CHO_0p056_CuCu_bidentate",
+      "fold": 3,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "CHO/CHO_0p056_interface_Cu",
+      "fold": 3,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "CHO/CHO_0p056_interior_Cu",
+      "fold": 3,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "CHO/CHO_0p111_CuCu_bidentate",
+      "fold": 3,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "CO/CO_0p14/uniform",
+      "fold": 3,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "COCHO/COCHO_0p056_Cu_interface",
+      "fold": 3,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "COH/CHO_0p056_AuAuCu",
+      "fold": 3,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "COH/CHO_0p111_uniform",
+      "fold": 3,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "COH/COH_0p056_interior",
+      "fold": 3,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "COOH/COOH_0p028_AuCu_interface",
+      "fold": 3,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "COOH/COOH_0p056_AuCu_interface",
+      "fold": 3,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "CO_H/CO_H_0p083_2CO_1H",
+      "fold": 3,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "Cu100/Cu100_2x2x4_CO_3_4_2top_1bridge",
+      "fold": 3,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "Cu100/Cu100_2x2x4_H_1_4_hollow",
+      "fold": 3,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "Cu100/Cu100_2x2x4_H_4_4_4bridge_config_4",
+      "fold": 3,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "Cu100/Cu100_2x2x4_O_1_4_hollow",
+      "fold": 3,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "H/H_0p25/interface_biased",
+      "fold": 3,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "H/H_0p5/interface_biased",
+      "fold": 3,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "H/H_0p5/interface_biased2",
+      "fold": 3,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "H/H_0p75/Au",
+      "fold": 3,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "H/H_0p75/interface_biased",
+      "fold": 3,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "H/H_0p75/mixed",
+      "fold": 3,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "O/O_0p028_1O_AuCu2",
+      "fold": 3,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "O/O_0p083_3O_interface_weighted_Cu3_AuCu2",
+      "fold": 3,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "OCHO/03_1OCHO_CuCu_interior",
+      "fold": 3,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "OCHO/07_3OCHO_2CuCu_interface_plus_interior",
+      "fold": 3,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "OH/OH_0p125_uniform_low4Cu",
+      "fold": 3,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "OH/OH_0p25_uniform",
+      "fold": 3,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "OH/OH_0p50_interior_biased",
+      "fold": 3,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "2CO_adjacent/2CO_adjacent_0p056_AuCu_interface",
+      "fold": 4,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "2CO_adjacent/2CO_adjacent_0p056_orientation_alt",
+      "fold": 4,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "CHO/CHO_0p056_uniform",
+      "fold": 4,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "CHO/CHO_0p167_uniform",
+      "fold": 4,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "CHO_CO/CO_CHO_0p111_uniform",
+      "fold": 4,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "CO/CO_0p11/interior_biased",
+      "fold": 4,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "CO/CO_0p14/uniform2",
+      "fold": 4,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "CO2/CO2_0p028_linear_Cu_top",
+      "fold": 4,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "COCHO/COCHO_0p056_AuCu_interface",
+      "fold": 4,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "COCHO/COCHO_0p056_AuCu_interface2",
+      "fold": 4,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "COCHO/COCHO_0p056_Cu_interior",
+      "fold": 4,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "COH/CHO_0p111_AuCuCu",
+      "fold": 4,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "COH/COH_0p028_interface_Cu3",
+      "fold": 4,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "CO_OH/CO_OH_0p111_3CO_1OH_AuCu2",
+      "fold": 4,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "CO_OH/CO_OH_0p222_5CO_3OH",
+      "fold": 4,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "Cu100/Cu100_2x2x4_OH_1_4_hollow",
+      "fold": 4,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "H/H_0p25/interior_biased",
+      "fold": 4,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "H/H_0p25/uniform",
+      "fold": 4,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "H/H_0p75/interface_biased2",
+      "fold": 4,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "H/H_0p75/interior_biased",
+      "fold": 4,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "O/O_0p028_1O_Cu3",
+      "fold": 4,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "O/O_0p056_2O_AuCu2",
+      "fold": 4,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "O/O_0p056_2O_mixed_Cu3_AuCu2",
+      "fold": 4,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "O/O_0p083_3O_Cu3_AuCu2",
+      "fold": 4,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "OCCOH/OCCOH_0p056_Cu_interface",
+      "fold": 4,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "OCCO_CO/OCCO_plus_CO_0p222_AuCu_interface",
+      "fold": 4,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "OCCO_CO/OCCO_plus_CO_0p333_Cu_rich",
+      "fold": 4,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "relative_delta",
+      "configuration": "OH/OH_0p125_interface_Au",
+      "fold": 4,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "CHO/CHO_0p056_AuCu_bidentate",
+      "fold": 0,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "CHO_CO/CO_CHO_0p111_more_CO",
+      "fold": 0,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "CO/CO_0p14/interface_biased",
+      "fold": 0,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "CO/CO_0p25/interface_biased",
+      "fold": 0,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "CO/CO_0p25/interface_biased2",
+      "fold": 0,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "CO/CO_0p5/interface_biased",
+      "fold": 0,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "CO/CO_0p5/interior_biased",
+      "fold": 0,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "CO/CO_0p5/uniform",
+      "fold": 0,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "CO2/CO2_0p056_interface_biased_activated",
+      "fold": 0,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "COH/COH_0p056_interface_Cu3",
+      "fold": 0,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "COOH/COOH_0p056_Cu_interface",
+      "fold": 0,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "COOH/COOH_0p056_mixed_Au_Cu",
+      "fold": 0,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "COOH/COOH_0p111_AuCu_interface",
+      "fold": 0,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "COOH/COOH_0p111_Au_top",
+      "fold": 0,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "CO_OH/CO_OH_0p111_3CO_1OH",
+      "fold": 0,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "Cu100/Cu100_2x2x4_H_3_4_1bridge_2hollow_config_1",
+      "fold": 0,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "Cu100/Cu100_2x2x4_OH_3_4_mixed_1bridge_2hollow",
+      "fold": 0,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "Cu100/Cu100_2x2x4_OH_4_4_mixed_2top_2bridge",
+      "fold": 0,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "H/H_0p25/interface_biased2",
+      "fold": 0,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "H/H_0p75/0p88_mixed",
+      "fold": 0,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "O/O_0p056_2O_Cu3_distributed",
+      "fold": 0,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "OCCO_CO/OCCO_CO_0p111_Cu_rich",
+      "fold": 0,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "OCCO_CO/OCCO_CO_0p167_AuCu_interface",
+      "fold": 0,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "OCHO/04_2OCHO_CuCu_interface_plus_interior",
+      "fold": 0,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "2CO_adjacent/2CO_adjacent_0p056_interface",
+      "fold": 1,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "2CO_adjacent/2CO_adjacent_0p111_uniform",
+      "fold": 1,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "2CO_adjacent/2CO_adjacent_0p167_uniform",
+      "fold": 1,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "CHO/CHO_0p111_uniform",
+      "fold": 1,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "CO/CO_0p11/interface_biased",
+      "fold": 1,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "CO/CO_0p11/uniform",
+      "fold": 1,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "CO/CO_0p14/interior_biased",
+      "fold": 1,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "CO/CO_0p25/uniform",
+      "fold": 1,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "CO2/CO2_0p056_uniform_activated",
+      "fold": 1,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "COH/COH_0p056_uniform",
+      "fold": 1,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "COH/COH_0p167_uniform",
+      "fold": 1,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "COOH/COOH_0p056_Au_top",
+      "fold": 1,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "COOH/COOH_0p111_Cu_interface",
+      "fold": 1,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "CO_H/CO_H_0p083_2CO_1H_AuCu2",
+      "fold": 1,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "CO_H/CO_H_0p111_2CO_2H",
+      "fold": 1,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "Cu100/Cu100_2x2x4_CO_1_4_top",
+      "fold": 1,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "H/H_0p25/Au",
+      "fold": 1,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "H/H_0p5/interior_biased",
+      "fold": 1,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "OCCOH/OCCOH_0p056_AuCu_interface",
+      "fold": 1,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "OCHO/02_1OCHO_AuCu_across",
+      "fold": 1,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "OH/OH_0p125_interior_biased",
+      "fold": 1,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "OH/OH_0p125_uniform_high5Cu",
+      "fold": 1,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "plain",
+      "fold": 1,
+      "old_status": "abstain_low_signal",
+      "new_status": "abstain_low_signal",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "2CO_adjacent/2CO_adjacent_0p056_interior",
+      "fold": 2,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "CHO/CHO_0p028_Cu_top",
+      "fold": 2,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "CO/CO_0p25/interior_biased",
+      "fold": 2,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "CO/CO_0p75/uniform",
+      "fold": 2,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "CO2/CO2_0p028_interface_biased_activated",
+      "fold": 2,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "CO2/CO2_0p056_mixed",
+      "fold": 2,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "COH/CHO_0p111_interface_Cu3",
+      "fold": 2,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "COH/COH_0p056_AuCuCu",
+      "fold": 2,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "COOH/COOH_0p056_Cu_uniform",
+      "fold": 2,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "Cu100/Cu100_2x2x4_CO_2_4_2top_v2",
+      "fold": 2,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "Cu100/Cu100_2x2x4_CO_4_4_2top_2bridge",
+      "fold": 2,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "Cu100/Cu100_2x2x4_OH_2_4_hollow_config_2",
+      "fold": 2,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "H/H_0p5/Au",
+      "fold": 2,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "H/H_0p5/uniform",
+      "fold": 2,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "H/H_0p75/uniform",
+      "fold": 2,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "OCCOH/OCCOH_0p056_Cu_interior",
+      "fold": 2,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "OCCO_CO/OCCO_CO_0p167_Cu_rich",
+      "fold": 2,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "OCCO_CO/OCCO_plus_CO_0p222_Cu_rich",
+      "fold": 2,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "OCHO/01_1OCHO_CuCu_interface",
+      "fold": 2,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "OCHO/05_2OCHO_CuCu_interface_plus_AuCu",
+      "fold": 2,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "OCHO/06_2OCHO_2CuCu_interface",
+      "fold": 2,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "OCHO/08_3OCHO_1CuCu_interface_plus_2interior",
+      "fold": 2,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "OH/OH_0p25_interface_Au",
+      "fold": 2,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "OH/OH_0p25_interior_biased",
+      "fold": 2,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "OH/OH_0p50_interface_Au",
+      "fold": 2,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "2CO_adjacent/2CO_adjacent_0p111_interface",
+      "fold": 3,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "CHO/CHO_0p056_CuCu_bidentate",
+      "fold": 3,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "CHO/CHO_0p056_interface_Cu",
+      "fold": 3,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "CHO/CHO_0p056_interior_Cu",
+      "fold": 3,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "CHO/CHO_0p111_CuCu_bidentate",
+      "fold": 3,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "CO/CO_0p14/uniform",
+      "fold": 3,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "COCHO/COCHO_0p056_Cu_interface",
+      "fold": 3,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "COH/CHO_0p056_AuAuCu",
+      "fold": 3,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "COH/CHO_0p111_uniform",
+      "fold": 3,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "COH/COH_0p056_interior",
+      "fold": 3,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "COOH/COOH_0p028_AuCu_interface",
+      "fold": 3,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "COOH/COOH_0p056_AuCu_interface",
+      "fold": 3,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "CO_H/CO_H_0p083_2CO_1H",
+      "fold": 3,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "Cu100/Cu100_2x2x4_CO_3_4_2top_1bridge",
+      "fold": 3,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "Cu100/Cu100_2x2x4_H_1_4_hollow",
+      "fold": 3,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "Cu100/Cu100_2x2x4_H_4_4_4bridge_config_4",
+      "fold": 3,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "Cu100/Cu100_2x2x4_O_1_4_hollow",
+      "fold": 3,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "H/H_0p25/interface_biased",
+      "fold": 3,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "H/H_0p5/interface_biased",
+      "fold": 3,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "H/H_0p5/interface_biased2",
+      "fold": 3,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "H/H_0p75/Au",
+      "fold": 3,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "H/H_0p75/interface_biased",
+      "fold": 3,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "H/H_0p75/mixed",
+      "fold": 3,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "O/O_0p028_1O_AuCu2",
+      "fold": 3,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "O/O_0p083_3O_interface_weighted_Cu3_AuCu2",
+      "fold": 3,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "OCHO/03_1OCHO_CuCu_interior",
+      "fold": 3,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "OCHO/07_3OCHO_2CuCu_interface_plus_interior",
+      "fold": 3,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "OH/OH_0p125_uniform_low4Cu",
+      "fold": 3,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "OH/OH_0p25_uniform",
+      "fold": 3,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "OH/OH_0p50_interior_biased",
+      "fold": 3,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "2CO_adjacent/2CO_adjacent_0p056_AuCu_interface",
+      "fold": 4,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "2CO_adjacent/2CO_adjacent_0p056_orientation_alt",
+      "fold": 4,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "CHO/CHO_0p056_uniform",
+      "fold": 4,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "CHO/CHO_0p167_uniform",
+      "fold": 4,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "CHO_CO/CO_CHO_0p111_uniform",
+      "fold": 4,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "CO/CO_0p11/interior_biased",
+      "fold": 4,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "CO/CO_0p14/uniform2",
+      "fold": 4,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "CO2/CO2_0p028_linear_Cu_top",
+      "fold": 4,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "COCHO/COCHO_0p056_AuCu_interface",
+      "fold": 4,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "COCHO/COCHO_0p056_AuCu_interface2",
+      "fold": 4,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "COCHO/COCHO_0p056_Cu_interior",
+      "fold": 4,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "COH/CHO_0p111_AuCuCu",
+      "fold": 4,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "COH/COH_0p028_interface_Cu3",
+      "fold": 4,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "CO_OH/CO_OH_0p111_3CO_1OH_AuCu2",
+      "fold": 4,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "CO_OH/CO_OH_0p222_5CO_3OH",
+      "fold": 4,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "Cu100/Cu100_2x2x4_OH_1_4_hollow",
+      "fold": 4,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "H/H_0p25/interior_biased",
+      "fold": 4,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "H/H_0p25/uniform",
+      "fold": 4,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "H/H_0p75/interface_biased2",
+      "fold": 4,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "H/H_0p75/interior_biased",
+      "fold": 4,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "O/O_0p028_1O_Cu3",
+      "fold": 4,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "O/O_0p056_2O_AuCu2",
+      "fold": 4,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "O/O_0p056_2O_mixed_Cu3_AuCu2",
+      "fold": 4,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "O/O_0p083_3O_Cu3_AuCu2",
+      "fold": 4,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "OCCOH/OCCOH_0p056_Cu_interface",
+      "fold": 4,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "OCCO_CO/OCCO_plus_CO_0p222_AuCu_interface",
+      "fold": 4,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "OCCO_CO/OCCO_plus_CO_0p333_Cu_rich",
+      "fold": 4,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    },
+    {
+      "representation": "signed_shape",
+      "configuration": "OH/OH_0p125_interface_Au",
+      "fold": 4,
+      "old_status": "conditional_prediction",
+      "new_status": "conditional_prediction",
+      "identity_set_unchanged": true,
+      "max_score_change": 0.0
+    }
+  ],
+  "n": 260,
+  "decision_changes": 0,
+  "max_score_change": 0.0,
+  "scope": "declared original audited simulation units; unknown experimental detectability deliberately not claimed"
+}
