@@ -1,0 +1,15 @@
+{
+  "Figure_4_differential_ML.png": [
+    "ml/identity_metrics.csv",
+    "ml/coverage_metrics.csv",
+    "paired_arrays.npz",
+    "figure4e_provenance.json",
+    "archived layer_sensitivity.csv",
+    "archived feature_model_depth_performance.csv"
+  ],
+  "Figure_5_robustness_transfer.png": [
+    "robustness/metrics.csv",
+    "raw_augmentation/heldout.csv"
+  ],
+  "independent_samples": "configurations only; no energy-point p-values or molecular pseudo-replication"
+}

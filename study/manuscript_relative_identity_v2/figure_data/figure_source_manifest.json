@@ -1,0 +1,30 @@
+{
+  "source_commit": "798e2c81b7a9afa684dc2a5625607ec866430163",
+  "Figure_1_framework.png": "unchanged circular design from supplied prior manuscript",
+  "Figure_2_dataset.png": [
+    "preferred_style substrate coordinates and schematics",
+    "dataset_20261029/scale_manifest_compact.json"
+  ],
+  "Figure_3_spectroscopy.png": [
+    "reference_plotted_arrays.csv",
+    "similarity_metrics.csv",
+    "Figure3_logged_CPU_provenance.csv",
+    "layer_differential_arrays.csv"
+  ],
+  "Figure_4_ML.png": {
+    "a_c_d": "archived 87-configuration preferred_style tables",
+    "b": "dataset_20261029/ml/identity_refresh_CuAu_delta_compact_nested_20261027.npz",
+    "e": [
+      "dataset_20261029/training_arrays.npz",
+      "dataset_20261029/reference_compatibility.csv",
+      "Figure4e_membership.csv"
+    ]
+  },
+  "Figure_5_reference_and_transfer.png": [
+    "dataset_20261029/ml/metrics.csv",
+    "dataset_20261029/ml/identity_refresh_joint_*_compact_nested_20261027.npz",
+    "dataset_20261029/ml/CO_coverage_refresh_joint_delta_compact_nested_20261027.npz",
+    "dataset_20261029/review_paired_identity.csv"
+  ],
+  "independence": "configurations, not layer spectra, molecules or energy points"
+}

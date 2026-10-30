@@ -5,7 +5,9 @@ import json,re,hashlib,sys,time,warnings
 import numpy as np
 import pandas as pd
 import matplotlib
-matplotlib.use('module://matplotlib_inline.backend_inline')
+# This program writes figures to files and is also invoked by the portable CLI.
+# Do not require a notebook-only backend for headless reproduction.
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from scipy.signal import savgol_filter
 from scipy.integrate import cumulative_trapezoid
@@ -17,11 +19,33 @@ from sklearn.svm import SVC
 from sklearn.ensemble import RandomForestClassifier,ExtraTreesClassifier
 from sklearn.model_selection import KFold
 from sklearn.metrics import f1_score,precision_recall_fscore_support,multilabel_confusion_matrix
-from IPython.display import display,Markdown
+try:
+    from IPython.display import display,Markdown
+except ImportError:  # CLI replay does not require notebook presentation helpers.
+    def display(value):
+        print(value)
+    Markdown=lambda value:value
 import sklearn,scipy
-DATA=Path('/Users/hjia/Downloads/CO2RR')
-OUT=Path.cwd()
-if OUT.name!='updated_dataset_20261020':OUT=DATA/'CO2RR_ML/updated_dataset_20261020'
+import argparse, os
+BASE=Path(__file__).resolve().parent if '__file__' in globals() else Path.cwd()
+REPO=Path(os.environ['CO2RR_REPO_ROOT']).expanduser().resolve() if os.environ.get('CO2RR_REPO_ROOT') else next((p for p in [BASE,*BASE.parents] if (p/'tools/spectral_multilabel.py').is_file()),None)
+if REPO is None:raise RuntimeError('Run this analysis inside the repository checkout')
+BASE=REPO/'CO2RR_ML/updated_dataset_20261020'
+if str(REPO) not in sys.path:sys.path.insert(0,str(REPO))
+from tools.spectral_multilabel import feature_bank, implementation_fingerprint, validate_fit_cache
+from tools.component_audit import _components as shared_components, write_metadata_correction
+from tools.layer_population import verify_layer_population
+parser=argparse.ArgumentParser(description='Versioned full benchmark rerun; archived outputs remain immutable')
+parser.add_argument('--data-root',default=os.environ.get('CO2RR_DATA_ROOT'))
+parser.add_argument('--output-dir',default=os.environ.get('CO2RR_OUTPUT_DIR'))
+parser.add_argument('--split-manifest',default=os.environ.get('CO2RR_SPLIT_MANIFEST',str(BASE/'cv_manifest.csv')))
+parser.add_argument('--audit-only',action='store_true')
+args,_unknown=parser.parse_known_args()
+if not args.data_root or not args.output_dir:raise ValueError('Set --data-root and --output-dir (or CO2RR_DATA_ROOT/CO2RR_OUTPUT_DIR)')
+DATA=Path(args.data_root).expanduser().resolve();OUT=Path(args.output_dir).expanduser().resolve()
+if OUT==BASE:raise ValueError('Choose a NEW output directory; the archived benchmark is immutable')
+OUT.mkdir(parents=True,exist_ok=True)
+SPLIT_MANIFEST=Path(args.split_manifest).expanduser().resolve()
 FIG=OUT/'figures';FIG.mkdir(exist_ok=True,parents=True)
 CACHE=OUT/'cache';CACHE.mkdir(exist_ok=True)
 SEED=20261020;LAYERS=[2,3,4,5]
@@ -43,28 +67,8 @@ def load_structure(p):
     sh=hashlib.sha256(json.dumps([np.round(lattice,7).tolist(),canonical]).encode()).hexdigest()
     return dict(species=sp,frac=frac,cart=cart,lattice=lattice,height=cart@normal,hash=sh)
 def components(struct,factor=1.):
-    sp=struct['species'];idx=np.where(np.isin(sp,['C','O','H']))[0];ss=sp[idx];xyz=struct['frac'][idx]
-    delta=xyz[:,None,:]-xyz[None,:,:];delta-=np.rint(delta);dist=np.linalg.norm(delta@struct['lattice'],axis=2)
-    adj=np.zeros(dist.shape,bool)
-    for i in range(len(idx)):
-        for j in range(i):adj[i,j]=adj[j,i]=dist[i,j]<factor*CUT.get(tuple(sorted([ss[i],ss[j]])),0)
-    seen=set();result=[]
-    for i in range(len(idx)):
-        if i in seen:continue
-        todo=[i];seen.add(i);group={i}
-        while todo:
-            a=todo.pop()
-            for b in np.where(adj[a])[0]:
-                if b not in seen:seen.add(b);group.add(b);todo.append(b)
-        co=Counter(ss[list(group)]);c,o,h=(co[x] for x in ['C','O','H'])
-        oh=any(adj[a,b] and set([ss[a],ss[b]])=={'H','O'} for a in group for b in group)
-        if (c,o,h)==(1,1,1):label='COH' if oh else 'CHO'
-        elif (c,o,h)==(1,2,1):label='COOH' if oh else 'OCHO'
-        elif (c,o,h)==(2,2,1):label='OCCOH' if oh else 'COCHO'
-        else:label={(1,1,0):'CO',(1,2,0):'CO2',(2,2,0):'OCCO',(0,1,1):'OH',(0,0,1):'H',(0,1,0):'O'}.get((c,o,h))
-        if label is None:label='unresolved:'+''.join(k+(str(co[k]) if co[k]>1 else '') for k in sorted(co))
-        result.append(dict(species=label,formula=dict(co),indices=[int(idx[x]+1) for x in sorted(group)]))
-    return result
+    structure=dict(atoms=struct['species'].tolist(),positions=struct['cart'],cell=struct['lattice'])
+    return [dict(species=x['species'] or 'unresolved',formula=x['formula'],indices=x['atom_indices']) for x in shared_components(structure,factor)]
 def molecular_counts(struct):return dict(Counter(c['species'] for c in components(struct)))
 def label_set(counts):return tuple(sorted(k for k,v in counts.items() if v>0)) or ('clean',)
 def combo(labels):return ' + '.join(labels)
@@ -102,15 +106,15 @@ def audit_or_correct_count_records(apply=False):
             if (source/'POSCAR').is_file():c['poscar_count_crosscheck']='match' if molecular_counts(load_structure(source/'POSCAR'))==counts else 'mismatch'
             for site,component in zip(d['sample']['geometry']['adsorption_sites'],co):site['adsorbate']=component['species']
             d['sample']['material']['notes']+=f' Identity/count correction {stamp}: relaxed molecular connectivity and component formulas verified; spectra unchanged. Backup: {backup}.'
-            p.write_text(json.dumps(d,indent=2,ensure_ascii=False)+'\n')
+            write_metadata_correction(p,d,OUT/'corrections',apply=True)
             assert hashlib.sha256(json.dumps(json.loads(p.read_text())['measurement'],sort_keys=True).encode()).hexdigest()==before
             log.append(dict(record=str(p.relative_to(DATA)),before=old,after=c,components=co,measurement_sha256=before))
         (OUT/f'correction_log_{stamp}.json').write_text(json.dumps(log,indent=2))
     print('Modern count-schema records verified:',checked,'new corrections required:',len(proposals))
     return proposals
 audit_or_correct_count_records(apply=False)
-if (OUT/'record_corrections.json').exists():
-    prior_corrections=json.loads((OUT/'record_corrections.json').read_text())
+if (BASE/'record_corrections.json').exists():
+    prior_corrections=json.loads((BASE/'record_corrections.json').read_text())
     display(pd.DataFrame([dict(record=r['record'],before=r['before']['adsorbate_counts'],after=r['after']['adsorbate_counts']) for r in prior_corrections['changes']]))
 
 # %% INVENTORY
@@ -151,11 +155,15 @@ if cuo.exists() and not any(r['configuration'].startswith('CuO') for r in invent
     assert 'Crystal' in cuo.read_text()
     inventory.append(dict(configuration='CuO/green',has_record=False,source=str(cuo.relative_to(DATA)),source_status='FDMNES_reference',structure_hash='CuO:'+hashlib.sha256(cuo.read_bytes()).hexdigest(),labels='CuO',counts=json.dumps({'CuO':1}),combo='CuO',poscar_labels='',relaxation_changed=False))
 inventory=pd.DataFrame(inventory)
+export_protocol=DATA.parent/'protocol/all_structure_folders.csv'
+if (DATA.parent/'dataset_manifest.json').exists() and export_protocol.exists():
+    inventory=pd.read_csv(export_protocol)
+    print('Full inventory loaded from frozen export provenance; raw-coordinate audit scope is the 87-configuration cohort')
 # Group physical duplicates, retaining aliases in a separate audit table.
 preferred_old={}
-prior_file=OUT/'prior_fold_assignments.csv'
+prior_file=SPLIT_MANIFEST
 if not prior_file.exists():
-    pd.read_csv(DATA/'CO2RR_ML/cv_manifest.csv')[['configuration','fold']].to_csv(prior_file,index=False)
+    raise FileNotFoundError('Frozen split manifest is required')
 old_manifest=pd.read_csv(prior_file)
 old_folds=dict(zip(old_manifest.configuration,old_manifest.fold))
 groups=[]
@@ -174,28 +182,13 @@ display(unique_inventory.groupby('combo').size().rename('unique_structures').to_
 # %% RECORD AUDIT
 # Validate final convolution separately from a subset recalculation deck.
 def verify_full_layer_convolution(folder,layer,indices):
-    stem=f'Cu_layer{layer}'
-    log=(folder/'fdmnes.out').read_text()
-    entries=re.findall(r'Gamma_hole\s*=.*?E_cut\s*=\s*([-\d.]+).*?site\s+(\d+)',log)
-    ordered=sorted(map(int,indices));assert [int(site) for cut,site in entries]==list(range(1,len(ordered)+1)), 'convolution site count does not cover full layer'
-    actual=sorted(int(q.stem.rsplit('_',1)[1]) for q in folder.glob(stem+'_[0-9]*.txt'))
-    assert actual==ordered, 'site files do not cover exact full layer'
-    reference=None
-    for atom,(cut,site) in zip(ordered,entries):
-        path=folder/f'{stem}_{atom}.txt';header=list(map(float,path.read_text().splitlines()[0].split('=')[0].split()))
-        assert abs(header[6]-float(cut))<=.00051, 'convolution E_cut differs from source site'
-        assert header[1]==29 and header[13]==1, 'unexpected site element or multiplicity'
-        raw=np.loadtxt(path,skiprows=2);assert np.isfinite(raw).all() and raw.shape[1]==2 and len(raw)>20
-        if reference is None:reference=raw[:,0]
-        else:assert np.array_equal(reference,raw[:,0]), 'inconsistent raw site grids'
-    conv=(folder/f'{stem}_convolution_in.txt').read_text()
-    assert re.search(r'(?im)^Calculation\s*\n\s*'+stem+r'\s*$',conv), 'wrong convolution source'
-    assert re.search(r'(?im)^Conv_out\s*\n\s*'+stem+r'_conv\s*$',conv), 'wrong convolution destination'
-    return len(entries)
+    info=verify_layer_population(folder,layer)
+    assert info['population']==len(indices)
+    return info['population']
 record_audit=[];valid=[];layer_rows=[]
 for p in record_paths:
     config=str(p.parent.parent.parent.parent.relative_to(DATA));d=json.loads(p.read_text());c=d['sample']['composition']
-    row=dict(record=str(p.relative_to(DATA)),configuration=config,status='usable',label_format='counts' if 'adsorbate_counts' in c else 'legacy_or_missing')
+    row=dict(record=str(p.relative_to(DATA)),configuration=config,status='usable',reason='',label_format='counts' if 'adsorbate_counts' in c else 'legacy_or_missing')
     try:
         if 'CuO' in p.relative_to(DATA).parts:raise ValueError('CuO excluded from identity benchmark')
         q=p.parent/'layer_5/CONTCAR';struct=load_structure(q);counts=molecular_counts(struct);labels=label_set(counts)
@@ -296,6 +289,10 @@ energy=samples[0]['energy'];assert all(np.array_equal(s['energy'],energy) for s 
 print('Usable unique configurations:',len(samples),'layer spectra:',4*len(samples))
 display(record_audit.status.value_counts().rename('records').to_frame());display(record_audit[record_audit.status=='excluded'][['record','reason']])
 # %% FOLDS AND FEATURES
+from tools.study_cohort import load_cohort
+shared_cohort=load_cohort(DATA,SPLIT_MANIFEST)
+assert [s['configuration'] for s in samples]==shared_cohort['split'].configuration.tolist(), 'Audited cohort differs from frozen protocol; create a new version/report'
+assert all(np.array_equal(s['stack'],np.array([[r['channels'][0]['values'] for r in d['measurement']['series'] if r['series_id']==f'Cu_K_layer_{l}'][0] for l in LAYERS])) for s,d in zip(samples,shared_cohort['records']))
 mlb=MultiLabelBinarizer();Y=mlb.fit_transform([s['labels'] for s in samples]);SPECIES=mlb.classes_.astype(str);N=len(Y)
 structure_to_group=unique_inventory.set_index('structure_hash')
 fold_id=np.full(N,-1,int)
@@ -320,11 +317,7 @@ print('Preserved prior folds:',N-len(new),'new unique configurations assigned:',
 DEPTHS={'layer_5':[5],'layer_4':[4],'layer_3':[3],'layer_2':[2],'top_2':[5,4],'top_3':[5,4,3],'all_4':[5,4,3,2]}
 stack=np.array([s['stack'] for s in samples]);population=np.array([s['pop'] for s in samples])
 RAW={key:np.array([np.average(a[np.array(ls)-2],axis=0,weights=w[np.array(ls)-2]) for a,w in zip(stack,population)]) for key,ls in DEPTHS.items()}
-def features(x):
-    z=x-x.min(axis=1,keepdims=True);z/=np.trapezoid(z,energy,axis=1)[:,None];de=float(np.median(np.diff(energy)))
-    smooth=savgol_filter(z,11,3,axis=1);d1=savgol_filter(z,11,3,deriv=1,delta=de,axis=1);d2=savgol_filter(z,11,3,deriv=2,delta=de,axis=1)
-    cdf=cumulative_trapezoid(z,energy,axis=1,initial=0)
-    return dict(normalized=z,CDF=cdf,derivative=d1,shape_CDF_derivatives=np.hstack([smooth,cdf,d1,d2]),DCT24=dct(z,type=2,norm='ortho',axis=1)[:,:24])
+def features(x):return feature_bank(x,energy)
 BANK={depth:features(x) for depth,x in RAW.items()}
 # Separate depth channels preserve relative amplitudes using only each sample's top area.
 pos=stack-stack.min(axis=2,keepdims=True);common_scaled=pos/np.trapezoid(pos[:,3,:],energy,axis=1)[:,None,None]
@@ -342,10 +335,10 @@ for feature in BANK['depth_channels']:
     for model in ['extra_trees','independent_trees']:CANDIDATES.append(dict(depth='depth_channels',feature=feature,model=model))
 for i,s in enumerate(CANDIDATES):s['id']=i
 THRESHOLDS=np.array([.15,.25,.35,.45,.5,.55,.65,.75])
-RUN_CONFIG=dict(seed=SEED,manifest_hash=hashlib.sha256((OUT/'cv_manifest.csv').read_bytes()).hexdigest(),candidates=CANDIDATES,thresholds=THRESHOLDS.tolist(),tree_counts={'random_forest':96,'extra_trees':96,'independent_trees':64},primary='independent_selected',label_version='new_count_schema_verified',features='per-sample fixed; scalers training-only')
+RUN_CONFIG=dict(implementation=implementation_fingerprint(),analysis_source_sha256=hashlib.sha256((BASE/'analysis.py').read_bytes()).hexdigest(),seed=SEED,manifest_hash=hashlib.sha256((OUT/'cv_manifest.csv').read_bytes()).hexdigest(),candidates=CANDIDATES,thresholds=THRESHOLDS.tolist(),tree_counts={'random_forest':96,'extra_trees':96,'independent_trees':64},primary='independent_selected',label_version='new_count_schema_verified',features='per-sample fixed; scalers training-only')
 TAG=hashlib.sha256(json.dumps(RUN_CONFIG,sort_keys=True).encode()).hexdigest()[:12]
 RUN_CONFIG['tag']=TAG;(OUT/'run_config.json').write_text(json.dumps(RUN_CONFIG,indent=2))
-if '--audit-only' in sys.argv:raise SystemExit(0)
+if args.audit_only:raise SystemExit(0)
 # %% TRAINING
 
 def fit_scores(spec,tr,te):
@@ -392,6 +385,16 @@ def inner_folds(y,fold):
         if best is None or loss<best[0]:best=(loss,splits)
     return best[1]
 
+# Fingerprint executed functions as well as source files: editing a notebook
+# model cell cannot silently reuse a script's earlier fit cache. Exclude only
+# filenames/line numbers so the parallel runner and notebook share keys.
+import types
+def executed_code_signature(code):
+    return dict(bytecode=code.co_code.hex(),names=code.co_names,variables=code.co_varnames,constants=[executed_code_signature(c) if isinstance(c,types.CodeType) else repr(c) for c in code.co_consts])
+RUN_CONFIG.pop('tag',None)
+RUN_CONFIG['executed_recipe_sha256']=hashlib.sha256(json.dumps({name:executed_code_signature(globals()[name].__code__) for name in ['fit_scores','features','shape_block','threshold_fit']},sort_keys=True).encode()).hexdigest()
+TAG=hashlib.sha256(json.dumps(RUN_CONFIG,sort_keys=True).encode()).hexdigest()[:12]
+RUN_CONFIG['tag']=TAG;(OUT/'run_config.json').write_text(json.dumps(RUN_CONFIG,indent=2))
 all_selections=[];all_fixed=[];start=time.time()
 for fold,(tr,te) in enumerate(FOLDS):
     inner=inner_folds(Y[tr],fold);assign=np.full(len(tr),-1)
@@ -401,12 +404,12 @@ for fold,(tr,te) in enumerate(FOLDS):
     for spec in CANDIDATES:
         cache=CACHE/f'{TAG}_{fold}_{spec["id"]}.npz'
         if cache.exists():
-            z=np.load(cache);inside=z['inner_score'];outside=z['test_score']
+            inside,outside=validate_fit_cache(cache,tr,te,TAG)
         else:
             inside=np.zeros((len(tr),Y.shape[1]))
             for a,b in inner:inside[b]=fit_scores(spec,tr[a],tr[b])
             outside=fit_scores(spec,tr,te)
-            np.savez_compressed(cache,inner_score=inside,test_score=outside,train_indices=tr,test_indices=te)
+            np.savez_compressed(cache,inner_score=inside,test_score=outside,train_indices=tr,test_indices=te,fingerprint=TAG)
         for objective in ['micro','macro']:
             q,threshold,decoder=threshold_fit(Y[tr],inside,objective,False)
             qs,ts,ds=threshold_fit(Y[tr],inside,objective,True)

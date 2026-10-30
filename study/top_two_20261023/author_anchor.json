@@ -1,0 +1,19 @@
+{
+  "source": "Author clarification in this session, 23 October 2026",
+  "feature": "shape_CDF_derivatives",
+  "display": "Combined spectrum/CDF/derivatives",
+  "depth": "fixed raw population-weighted layers 5+4 only",
+  "leaf_size": 1,
+  "seeds": [
+    20261020,
+    20261021,
+    20261022
+  ],
+  "fixed_threshold_controls": [
+    "constant 0.5",
+    "old-87 training-only thresholds transferred unchanged to 90"
+  ],
+  "separate_retuned_control": "Combined feature fixed, thresholds selected anew using inner-training data only",
+  "extraction": "Core experiment computes and freezes all candidate OOF scores and training-only thresholds. Author anchor is extracted without consulting outer outcomes; d1 control remains secondary. Combined outer models are saved/replayed independently against those already frozen scores.",
+  "not_used": "no depth selection, test-label feature choice, or best-seed selection"
+}

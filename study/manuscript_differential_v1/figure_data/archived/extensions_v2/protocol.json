@@ -1,0 +1,164 @@
+{
+  "version": "scientific-extensions-v2",
+  "seed": 20261022,
+  "features": [
+    "normalized",
+    "CDF",
+    "derivative",
+    "descriptors",
+    "DCT8",
+    "DCT16",
+    "DCT24",
+    "DCT32",
+    "PCA8",
+    "PCA16"
+  ],
+  "descriptor_windows_eV": [
+    [
+      8976,
+      8985
+    ],
+    [
+      8985,
+      8998
+    ],
+    [
+      8998,
+      9012
+    ],
+    [
+      9012,
+      9027
+    ]
+  ],
+  "descriptor_window_source": "fixed edge-relative near/post-edge intervals; frozen before reading outer-test scores, not selected from Figure 3c",
+  "families": {
+    "nearest_neighbor": [
+      {
+        "k": 1,
+        "distance": "cosine"
+      },
+      {
+        "k": 1,
+        "distance": "euclidean"
+      },
+      {
+        "k": 3,
+        "distance": "cosine"
+      },
+      {
+        "k": 3,
+        "distance": "euclidean"
+      },
+      {
+        "k": 5,
+        "distance": "cosine"
+      },
+      {
+        "k": 5,
+        "distance": "euclidean"
+      }
+    ],
+    "independent_trees": [
+      {
+        "leaf": 2,
+        "order": "canonical",
+        "depth": 2,
+        "rounds": 48,
+        "regularization": 5
+      },
+      {
+        "leaf": 4,
+        "order": "training_prevalence",
+        "depth": 3,
+        "rounds": 80,
+        "regularization": 10
+      }
+    ],
+    "classifier_chain": [
+      {
+        "leaf": 2,
+        "order": "canonical",
+        "depth": 2,
+        "rounds": 48,
+        "regularization": 5
+      },
+      {
+        "leaf": 4,
+        "order": "training_prevalence",
+        "depth": 3,
+        "rounds": 80,
+        "regularization": 10
+      }
+    ],
+    "xgboost": [
+      {
+        "leaf": 2,
+        "order": "canonical",
+        "depth": 2,
+        "rounds": 48,
+        "regularization": 5
+      },
+      {
+        "leaf": 4,
+        "order": "training_prevalence",
+        "depth": 3,
+        "rounds": 80,
+        "regularization": 10
+      }
+    ]
+  },
+  "chain_variant": "sequential probability chain trained on group-OOF independent predecessor proxies; not true-label/in-sample predecessor features",
+  "outer_folds": "frozen 87-configuration cv_manifest.csv",
+  "inner_folds": "GroupKFold(3) within each outer-training partition",
+  "early_stopping": "none; compact fixed round counts selected inside training",
+  "calibration": "Platt logistic on inner grouped OOF scores; unavailable with <5 positives or negatives or constant scores",
+  "thresholds": [
+    0.15,
+    0.25,
+    0.35,
+    0.45,
+    0.5,
+    0.55,
+    0.65,
+    0.75
+  ],
+  "stress_scenarios": [
+    "clean",
+    "shift:-2.0",
+    "shift:-1.0",
+    "shift:-0.5",
+    "shift:-0.2",
+    "shift:0.2",
+    "shift:0.5",
+    "shift:1.0",
+    "shift:2.0",
+    "gaussian:0.25",
+    "gaussian:0.5",
+    "gaussian:1.0",
+    "noise:0.01",
+    "noise:0.02",
+    "noise:0.05"
+  ],
+  "augmentation": "one additional combined \u00b10.5 eV shift, sigma0.5 eV Gaussian and 2% peak noise per training configuration; no new independent positives",
+  "common_predictor_window_eV": [
+    8976,
+    9027
+  ],
+  "native_window_eV": [
+    8974.0,
+    9029.0
+  ],
+  "crop_reason": "all \u00b12 eV tests have complete support; no extrapolation",
+  "structural_metadata_in_predictors": false,
+  "prospective_confirmation": "not available; repeatedly examined folds; reserve new configurations before inspection",
+  "source_hash": "4a01bd50ed9a1d9dfd3c3e8eb3f5ffa7076566813ada94e9739beef0ca5a22d9",
+  "split_sha256": "14f57ef4a6e8a62e80a67e0bbcdd6a65dc672740cf8d1bf3bd6463e7b195fa3f",
+  "dependencies": {
+    "python": "3.11.9 (main, Apr 19 2024, 11:43:47) [Clang 14.0.6 ]",
+    "numpy": "2.4.6",
+    "sklearn": "1.9.0",
+    "scipy": "1.17.1",
+    "xgboost": "2.1.1"
+  }
+}

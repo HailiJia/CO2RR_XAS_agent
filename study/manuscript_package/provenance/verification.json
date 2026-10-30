@@ -1,0 +1,19 @@
+{
+  "oof_independent_selected_micro.npz": {
+    "micro_f1": 0.7790697674418605,
+    "macro_f1": 0.6382765882765882,
+    "exact_match": 0.6896551724137931
+  },
+  "oof_provisional_best.npz": {
+    "micro_f1": 0.7978142076502732,
+    "macro_f1": 0.6597402597402597,
+    "exact_match": 0.7011494252873564
+  },
+  "counts": {
+    "unique_inventory": 155,
+    "configurations": 87,
+    "layer_spectra": 348,
+    "mixed_configurations": 9
+  },
+  "verification": "Saved predictions and plotted data checked; no retraining or raw-HPC audit performed."
+}

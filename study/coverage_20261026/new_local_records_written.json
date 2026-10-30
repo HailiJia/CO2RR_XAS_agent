@@ -1,0 +1,218 @@
+[
+  {
+    "path": "CHO/CHO_0p056_uniform/XAS/FDMNES/green/isaac_record_layers.json",
+    "sha256": "5ed032f84a37fe429fb3f2b8ac64d45f4204ad0d516420a1e17c5e4e4c80b29c",
+    "geometry_eligible": true,
+    "geometry_status": "audited"
+  },
+  {
+    "path": "CHO_CO/CO_CHO_0p111_more_CO/XAS/FDMNES/green/isaac_record_layers.json",
+    "sha256": "2907cd9a862d43eed0a4a20eb455a3da3bb294fb9ed8b20cefb8137c70c43a67",
+    "geometry_eligible": true,
+    "geometry_status": "audited"
+  },
+  {
+    "path": "CHO_CO/CO_CHO_0p111_uniform/XAS/FDMNES/green/isaac_record_layers.json",
+    "sha256": "87011221305148d4cb64375ec2c365196f80d7977a5996c63f6e3486ee86d9cd",
+    "geometry_eligible": true,
+    "geometry_status": "audited"
+  },
+  {
+    "path": "CO/CO_0p11/uniform/XAS/FDMNES/green/isaac_record_layers.json",
+    "sha256": "e4045b8c809afa0d2bedbfa3695cbb6f9d96fa5b34bb3045cab02b17ed029a0f",
+    "geometry_eligible": true,
+    "geometry_status": "audited"
+  },
+  {
+    "path": "CO2/CO2_0p056_interface_biased_activated/XAS/FDMNES/green/isaac_record_layers.json",
+    "sha256": "d2d5ae99e311b7ed2520e35f462d45cd06653dd673f9fee307b8755bf6acad7e",
+    "geometry_eligible": false,
+    "geometry_status": "Missing top-two physical layers"
+  },
+  {
+    "path": "COH/CHO_0p111_interface_Cu3/XAS/FDMNES/green/isaac_record_layers.json",
+    "sha256": "f2253ccf87f1241ce8f482de2052e077c6a0905af756ceb3b2d486333fcf10fe",
+    "geometry_eligible": true,
+    "geometry_status": "audited"
+  },
+  {
+    "path": "COOH/COOH_0p111_Cu_interface/XAS/FDMNES/green/isaac_record_layers.json",
+    "sha256": "2a218d5366971dd652d9db6d940ba9ef9f6c1ac62b2ecb97fcdd9cfa8e304676",
+    "geometry_eligible": true,
+    "geometry_status": "audited"
+  },
+  {
+    "path": "Cu100/Cu100_2x2x4_1CO3_1H2O_hollow_flat-1HB/XAS/FDMNES/green/isaac_record_layers.json",
+    "sha256": "8dd08a7ff1b644008d5645652514e291afd658e2de36594a7951370c1d10d52b",
+    "geometry_eligible": true,
+    "geometry_status": "input_geometry_only_CONTCAR_pending"
+  },
+  {
+    "path": "Cu100/Cu100_2x2x4_1CO3_hollow/XAS/FDMNES/green/isaac_record_layers.json",
+    "sha256": "d9d268b1f6ab71b8a5f6e912c4818b13aad48b3eddb13e38a0ecdad11e6118f8",
+    "geometry_eligible": true,
+    "geometry_status": "input_geometry_only_CONTCAR_pending"
+  },
+  {
+    "path": "Cu100/Cu100_2x2x4_1H2O_1CO_H2Otop_CObridge/XAS/FDMNES/green/isaac_record_layers.json",
+    "sha256": "ff00ac7cf98f6438aedead7da126577bc4470adb9da19a4654a36db3ec78a5a9",
+    "geometry_eligible": true,
+    "geometry_status": "input_geometry_only_CONTCAR_pending"
+  },
+  {
+    "path": "Cu100/Cu100_2x2x4_1H2O_1OH_H2Otop_OHbridge/XAS/FDMNES/green/isaac_record_layers.json",
+    "sha256": "2f1e523f93ed688a0dc85cbcaec35e705364a39e2a0f504f312641b5245da796",
+    "geometry_eligible": true,
+    "geometry_status": "input_geometry_only_CONTCAR_pending"
+  },
+  {
+    "path": "Cu100/Cu100_2x2x4_1H2O_2OH_H2Otop_OHbridge-top/XAS/FDMNES/green/isaac_record_layers.json",
+    "sha256": "077fe56b4e23e8078e238926a261e8acb3005cf75ae29e78df4ec40389708c6d",
+    "geometry_eligible": true,
+    "geometry_status": "input_geometry_only_CONTCAR_pending"
+  },
+  {
+    "path": "Cu100/Cu100_2x2x4_CO_1_4_top/XAS/FDMNES/green/isaac_record_layers.json",
+    "sha256": "9189a737976130520be3e67882bb55ec99b3c6ee54e8faf4fa3a606bf7431543",
+    "geometry_eligible": true,
+    "geometry_status": "input_geometry_only_CONTCAR_pending"
+  },
+  {
+    "path": "Cu100/Cu100_2x2x4_CO_2_4_2top_v2/XAS/FDMNES/green/isaac_record_layers.json",
+    "sha256": "1af79502a3a65a5ec6f62cd5898bdff344ab42e3f21fa7901bb913e49f6285b7",
+    "geometry_eligible": true,
+    "geometry_status": "input_geometry_only_CONTCAR_pending"
+  },
+  {
+    "path": "Cu100/Cu100_2x2x4_CO_3_4_2top_1bridge/XAS/FDMNES/green/isaac_record_layers.json",
+    "sha256": "6fbd1b44ebab31e01714cd55a68ec36cf44f34b988036016401db9e3a0ff5443",
+    "geometry_eligible": true,
+    "geometry_status": "input_geometry_only_CONTCAR_pending"
+  },
+  {
+    "path": "Cu100/Cu100_2x2x4_CO_4_4_2top_2bridge/XAS/FDMNES/green/isaac_record_layers.json",
+    "sha256": "caa80b03b0c828e96f18841928f9c390a04158e571b4a303d997b90be12d782c",
+    "geometry_eligible": true,
+    "geometry_status": "input_geometry_only_CONTCAR_pending"
+  },
+  {
+    "path": "Cu100/Cu100_2x2x4_H_1_4_hollow/XAS/FDMNES/green/isaac_record_layers.json",
+    "sha256": "3702851d4399dd9d8fdcbf13215e9263e366cdd04926bacc3559d8e0f8e991f0",
+    "geometry_eligible": true,
+    "geometry_status": "input_geometry_only_CONTCAR_pending"
+  },
+  {
+    "path": "Cu100/Cu100_2x2x4_H_3_4_1bridge_2hollow_config_1/XAS/FDMNES/green/isaac_record_layers.json",
+    "sha256": "949d654a796ea429e370da65e296792196464a67bf5b34facb78c070bec0a8db",
+    "geometry_eligible": true,
+    "geometry_status": "input_geometry_only_CONTCAR_pending"
+  },
+  {
+    "path": "Cu100/Cu100_2x2x4_H_4_4_4bridge_config_4/XAS/FDMNES/green/isaac_record_layers.json",
+    "sha256": "1d01b3916a4b9100eca45f798026f847db1c1e7ce6f4129bc337185a226b536a",
+    "geometry_eligible": true,
+    "geometry_status": "input_geometry_only_CONTCAR_pending"
+  },
+  {
+    "path": "Cu100/Cu100_2x2x4_OH_1_4_hollow/XAS/FDMNES/green/isaac_record_layers.json",
+    "sha256": "9ffcc72d6cefa98983f68d578d2bd46a75efafeb115e2fdf55d024478f2c9476",
+    "geometry_eligible": true,
+    "geometry_status": "input_geometry_only_CONTCAR_pending"
+  },
+  {
+    "path": "Cu100/Cu100_2x2x4_OH_2_4_hollow_config_2/XAS/FDMNES/green/isaac_record_layers.json",
+    "sha256": "a803e43c703e6525f9a10ab3d2e19b17cf0ae4914b684df63a558a90dc16c4cb",
+    "geometry_eligible": true,
+    "geometry_status": "input_geometry_only_CONTCAR_pending"
+  },
+  {
+    "path": "Cu100/Cu100_2x2x4_OH_3_4_mixed_1bridge_2hollow/XAS/FDMNES/green/isaac_record_layers.json",
+    "sha256": "ca5086513071f88e6ccc21175e4c045e2f51a102b21122b439db027c09b48404",
+    "geometry_eligible": true,
+    "geometry_status": "input_geometry_only_CONTCAR_pending"
+  },
+  {
+    "path": "Cu100/Cu100_2x2x4_OH_4_4_mixed_2top_2bridge/XAS/FDMNES/green/isaac_record_layers.json",
+    "sha256": "75ce2770438617be683748aa1c04315816f11ad8909e8f9294442ff7021897d9",
+    "geometry_eligible": true,
+    "geometry_status": "input_geometry_only_CONTCAR_pending"
+  },
+  {
+    "path": "Cu100/Cu100_2x2x4_O_1_4_hollow/XAS/FDMNES/green/isaac_record_layers.json",
+    "sha256": "faf205d29c4c22a1c798650587dfd162ca77ff7999dfef932d70f3dc45618d72",
+    "geometry_eligible": true,
+    "geometry_status": "input_geometry_only_CONTCAR_pending"
+  },
+  {
+    "path": "H/H_0p25/interface_biased/XAS/FDMNES/green/isaac_record_layers.json",
+    "sha256": "efd5bdb9e1af3fb322bb7b2b1c0c3dc5c292a59e1111ba7670b22aef879ff132",
+    "geometry_eligible": false,
+    "geometry_status": "Missing top-two physical layers"
+  },
+  {
+    "path": "H/H_0p75/interface_biased2/XAS/FDMNES/green/isaac_record_layers.json",
+    "sha256": "3391fbe733fe5e4b9e02db241212c7ceec6c58840666e05fd558be6b7752e2bc",
+    "geometry_eligible": false,
+    "geometry_status": "Missing top-two physical layers"
+  },
+  {
+    "path": "H/H_0p75/interior_biased/XAS/FDMNES/green/isaac_record_layers.json",
+    "sha256": "5e498399a8a8a6415166f6eeadbdc33967d2e76385f3bc0aeb2a86cd7f1381b7",
+    "geometry_eligible": false,
+    "geometry_status": "Missing top-two physical layers"
+  },
+  {
+    "path": "OCCOH/OCCOH_0p056_AuCu_interface/XAS/FDMNES/green/isaac_record_layers.json",
+    "sha256": "bf4eed4be51585247ce6f189c0ecc708b0d38e1d0a42f34ae908dd2f6b4f33ea",
+    "geometry_eligible": true,
+    "geometry_status": "audited"
+  },
+  {
+    "path": "OCCO_CO/OCCO_CO_0p167_AuCu_interface/XAS/FDMNES/green/isaac_record_layers.json",
+    "sha256": "578999522c8c1d1c87153fbc2c13eccf036d6764ed824e8b01615272f9331b84",
+    "geometry_eligible": true,
+    "geometry_status": "audited"
+  },
+  {
+    "path": "OH/OH_0p125_interface_Au/XAS/FDMNES/green/isaac_record_layers.json",
+    "sha256": "2111235a6148e165baebd278e8740ffb237067ef654fdfc9f0c8453b175bb0e9",
+    "geometry_eligible": false,
+    "geometry_status": "Unresolved root CONTCAR / calculation-input mismatch"
+  },
+  {
+    "path": "OH/OH_0p125_uniform_high5Cu/XAS/FDMNES/green/isaac_record_layers.json",
+    "sha256": "f074407b7b9806a518b493f33bbd68a7a6df2c79c9f1c1352b44398886d897cb",
+    "geometry_eligible": true,
+    "geometry_status": "audited"
+  },
+  {
+    "path": "OH/OH_0p125_uniform_low4Cu/XAS/FDMNES/green/isaac_record_layers.json",
+    "sha256": "d73c6a4d52979e541481ed9c1044327a6068e5c40f44e11ebed8b2632358d0fb",
+    "geometry_eligible": false,
+    "geometry_status": "Missing top-two physical layers"
+  },
+  {
+    "path": "OH/OH_0p50_interface_Au/XAS/FDMNES/green/isaac_record_layers.json",
+    "sha256": "46b64a9f955dc0aaecfcc8eb25cabb7cf6428144776e037f5a5c91056df972a1",
+    "geometry_eligible": false,
+    "geometry_status": "Missing top-two physical layers"
+  },
+  {
+    "path": "OH/OH_0p50_interior_biased/XAS/FDMNES/green/isaac_record_layers.json",
+    "sha256": "b9a9f15b7ba421114516fe94d6091b75b892307b086c83944fb8d6b4a756b4f7",
+    "geometry_eligible": false,
+    "geometry_status": "Missing top-two physical layers"
+  },
+  {
+    "path": "OH/OH_0p50_uniform/XAS/FDMNES/green/isaac_record_layers.json",
+    "sha256": "53437aae2001eae5139d88b26714fc4013249560d74587e5dcfd0f8b47d81318",
+    "geometry_eligible": false,
+    "geometry_status": "Missing top-two physical layers"
+  },
+  {
+    "path": "plain/XAS/FDMNES/green/isaac_record_layers.json",
+    "sha256": "70024966c38dffa4f6fc6c0f355292384f308e8cba5e44579a801205bbc8d3b6",
+    "geometry_eligible": true,
+    "geometry_status": "audited"
+  }
+]

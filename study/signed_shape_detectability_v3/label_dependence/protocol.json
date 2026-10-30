@@ -1,0 +1,7 @@
+{
+  "settings": "pair-log-lift from train labels only; independent smoothed prior strength50, clip+-2; lambda0/.25 selected by inner micro F1; fixed.25 sensitivity never used to select a primary method",
+  "seed": 20261020,
+  "not_independent_confirmation": true,
+  "source_sha256": "01223abe024fb60aedd7c9ae8894df7fe49a11da4923222698f8f9a962244a01",
+  "decoder_source_sha256": "fc060799220141c9100ccf6d1369f688e4e4ef1d1ec4bfddf81f7b61ab0973e8"
+}

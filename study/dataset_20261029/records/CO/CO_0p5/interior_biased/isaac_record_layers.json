@@ -1,0 +1,5789 @@
+{
+  "isaac_record_version": "1.05",
+  "record_id": "co2rr-20261029-55381e500cc92708dd716c83",
+  "record_type": "evidence",
+  "record_domain": "simulation",
+  "source_type": "computation",
+  "timestamps": {
+    "created_utc": "2026-10-29T13:08:26Z"
+  },
+  "sample": {
+    "material": {
+      "name": "interior_biased",
+      "formula": "Cu180Au160C18O18",
+      "provenance": "theoretical",
+      "notes": "Actual XAS-used geometry; exact CONTCAR/ASE correspondence and convergence limitations are reported separately.",
+      "identifiers": [
+        {
+          "scheme": "internal",
+          "value": "CO2RR_1029/CO/CO_0p5/interior_biased"
+        }
+      ]
+    },
+    "sample_form": "slab_model",
+    "composition": {
+      "atom_counts": {
+        "Au": 160,
+        "C": 18,
+        "Cu": 180,
+        "O": 18
+      },
+      "total_atoms": 376,
+      "adsorbate_counts": {
+        "CO": 18
+      },
+      "adsorbate_count_total": 18,
+      "adsorbate_identities": [
+        "CO"
+      ],
+      "adsorbate_count_source": "CONTCAR_connectivity",
+      "poscar_count_crosscheck": "match",
+      "path_count_hint_status": "not_available",
+      "path_identity_hint_status": "not_available"
+    },
+    "geometry": {
+      "lattice_vectors_A": [
+        [
+          23.03718538,
+          0.0,
+          0.0
+        ],
+        [
+          1.15385759662588e-15,
+          18.84392459,
+          0.0
+        ],
+        [
+          1.4624187866873088e-15,
+          1.4624187866873088e-15,
+          23.88311124
+        ]
+      ],
+      "structure_source": "actual FDMNES Crystal; CONTCAR/ASE correspondence reported separately",
+      "structure_sha256": "55381e500cc92708dd716c835dabd6f183ae460a0f99f4955624d33804e968ae",
+      "component_audit": {
+        "version": "slab-components-v1",
+        "index_base": 1,
+        "pbc": [
+          true,
+          true,
+          false
+        ],
+        "cutoffs_A": {
+          "C:C": 1.85,
+          "C:O": 1.7,
+          "C:H": 1.3,
+          "H:O": 1.2,
+          "H:H": 0.9,
+          "O:O": 1.65
+        },
+        "components": [
+          {
+            "species": "CO",
+            "formula": {
+              "C": 1,
+              "O": 1
+            },
+            "atom_indices": [
+              341,
+              359
+            ],
+            "bonds": [
+              [
+                341,
+                359
+              ]
+            ]
+          },
+          {
+            "species": "CO",
+            "formula": {
+              "C": 1,
+              "O": 1
+            },
+            "atom_indices": [
+              342,
+              360
+            ],
+            "bonds": [
+              [
+                342,
+                360
+              ]
+            ]
+          },
+          {
+            "species": "CO",
+            "formula": {
+              "C": 1,
+              "O": 1
+            },
+            "atom_indices": [
+              343,
+              361
+            ],
+            "bonds": [
+              [
+                343,
+                361
+              ]
+            ]
+          },
+          {
+            "species": "CO",
+            "formula": {
+              "C": 1,
+              "O": 1
+            },
+            "atom_indices": [
+              344,
+              362
+            ],
+            "bonds": [
+              [
+                344,
+                362
+              ]
+            ]
+          },
+          {
+            "species": "CO",
+            "formula": {
+              "C": 1,
+              "O": 1
+            },
+            "atom_indices": [
+              345,
+              363
+            ],
+            "bonds": [
+              [
+                345,
+                363
+              ]
+            ]
+          },
+          {
+            "species": "CO",
+            "formula": {
+              "C": 1,
+              "O": 1
+            },
+            "atom_indices": [
+              346,
+              364
+            ],
+            "bonds": [
+              [
+                346,
+                364
+              ]
+            ]
+          },
+          {
+            "species": "CO",
+            "formula": {
+              "O": 1,
+              "C": 1
+            },
+            "atom_indices": [
+              347,
+              365
+            ],
+            "bonds": [
+              [
+                347,
+                365
+              ]
+            ]
+          },
+          {
+            "species": "CO",
+            "formula": {
+              "O": 1,
+              "C": 1
+            },
+            "atom_indices": [
+              348,
+              366
+            ],
+            "bonds": [
+              [
+                348,
+                366
+              ]
+            ]
+          },
+          {
+            "species": "CO",
+            "formula": {
+              "C": 1,
+              "O": 1
+            },
+            "atom_indices": [
+              349,
+              367
+            ],
+            "bonds": [
+              [
+                349,
+                367
+              ]
+            ]
+          },
+          {
+            "species": "CO",
+            "formula": {
+              "C": 1,
+              "O": 1
+            },
+            "atom_indices": [
+              350,
+              368
+            ],
+            "bonds": [
+              [
+                350,
+                368
+              ]
+            ]
+          },
+          {
+            "species": "CO",
+            "formula": {
+              "C": 1,
+              "O": 1
+            },
+            "atom_indices": [
+              351,
+              369
+            ],
+            "bonds": [
+              [
+                351,
+                369
+              ]
+            ]
+          },
+          {
+            "species": "CO",
+            "formula": {
+              "C": 1,
+              "O": 1
+            },
+            "atom_indices": [
+              352,
+              370
+            ],
+            "bonds": [
+              [
+                352,
+                370
+              ]
+            ]
+          },
+          {
+            "species": "CO",
+            "formula": {
+              "C": 1,
+              "O": 1
+            },
+            "atom_indices": [
+              353,
+              371
+            ],
+            "bonds": [
+              [
+                353,
+                371
+              ]
+            ]
+          },
+          {
+            "species": "CO",
+            "formula": {
+              "C": 1,
+              "O": 1
+            },
+            "atom_indices": [
+              354,
+              372
+            ],
+            "bonds": [
+              [
+                354,
+                372
+              ]
+            ]
+          },
+          {
+            "species": "CO",
+            "formula": {
+              "O": 1,
+              "C": 1
+            },
+            "atom_indices": [
+              355,
+              373
+            ],
+            "bonds": [
+              [
+                355,
+                373
+              ]
+            ]
+          },
+          {
+            "species": "CO",
+            "formula": {
+              "O": 1,
+              "C": 1
+            },
+            "atom_indices": [
+              356,
+              374
+            ],
+            "bonds": [
+              [
+                356,
+                374
+              ]
+            ]
+          },
+          {
+            "species": "CO",
+            "formula": {
+              "C": 1,
+              "O": 1
+            },
+            "atom_indices": [
+              357,
+              375
+            ],
+            "bonds": [
+              [
+                357,
+                375
+              ]
+            ]
+          },
+          {
+            "species": "CO",
+            "formula": {
+              "C": 1,
+              "O": 1
+            },
+            "atom_indices": [
+              358,
+              376
+            ],
+            "bonds": [
+              [
+                358,
+                376
+              ]
+            ]
+          }
+        ],
+        "counts": {
+          "CO": 18
+        },
+        "identities": [
+          "CO"
+        ],
+        "status": "verified",
+        "sensitivity_factors": [],
+        "mapping_formula_review_required": false,
+        "mapping_evidence": [],
+        "method": "legacy connectivity fallback",
+        "extension": "water = two O-H bonds; CO3 = three C-O bonds; formal charge not inferred"
+      },
+      "observed_components_and_contacts": [
+        {
+          "species": "CO",
+          "formula": {
+            "C": 1,
+            "O": 1
+          },
+          "atom_indices": [
+            341,
+            359
+          ],
+          "bonds": [
+            [
+              341,
+              359
+            ]
+          ],
+          "CH_distances_A": [],
+          "OH_distances_A": [],
+          "metal_contacts_under_3A": [
+            [
+              341,
+              145,
+              "Cu",
+              1.935544517179672
+            ],
+            [
+              341,
+              333,
+              "Au",
+              2.7103362322514997
+            ],
+            [
+              341,
+              340,
+              "Au",
+              2.3241085873384124
+            ]
+          ],
+          "interface_distance_A": null,
+          "interface_method": "minimum adsorbate distance to periodic top-row Cu/Au boundaries; 0.6 A row/layer tolerance"
+        },
+        {
+          "species": "CO",
+          "formula": {
+            "C": 1,
+            "O": 1
+          },
+          "atom_indices": [
+            342,
+            360
+          ],
+          "bonds": [
+            [
+              342,
+              360
+            ]
+          ],
+          "CH_distances_A": [],
+          "OH_distances_A": [],
+          "metal_contacts_under_3A": [
+            [
+              342,
+              149,
+              "Cu",
+              1.9208405002666717
+            ],
+            [
+              342,
+              336,
+              "Au",
+              2.2455395805797114
+            ]
+          ],
+          "interface_distance_A": null,
+          "interface_method": "minimum adsorbate distance to periodic top-row Cu/Au boundaries; 0.6 A row/layer tolerance"
+        },
+        {
+          "species": "CO",
+          "formula": {
+            "C": 1,
+            "O": 1
+          },
+          "atom_indices": [
+            343,
+            361
+          ],
+          "bonds": [
+            [
+              343,
+              361
+            ]
+          ],
+          "CH_distances_A": [],
+          "OH_distances_A": [],
+          "metal_contacts_under_3A": [
+            [
+              343,
+              154,
+              "Cu",
+              1.9968686424656987
+            ],
+            [
+              343,
+              162,
+              "Cu",
+              1.9968644362000347
+            ],
+            [
+              343,
+              163,
+              "Cu",
+              2.356709223974122
+            ],
+            [
+              361,
+              154,
+              "Cu",
+              2.9759783430852798
+            ],
+            [
+              361,
+              162,
+              "Cu",
+              2.9857151609208024
+            ]
+          ],
+          "interface_distance_A": null,
+          "interface_method": "minimum adsorbate distance to periodic top-row Cu/Au boundaries; 0.6 A row/layer tolerance"
+        },
+        {
+          "species": "CO",
+          "formula": {
+            "C": 1,
+            "O": 1
+          },
+          "atom_indices": [
+            344,
+            362
+          ],
+          "bonds": [
+            [
+              344,
+              362
+            ]
+          ],
+          "CH_distances_A": [],
+          "OH_distances_A": [],
+          "metal_contacts_under_3A": [
+            [
+              344,
+              146,
+              "Cu",
+              1.9562200342260208
+            ],
+            [
+              344,
+              147,
+              "Cu",
+              2.476198267524824
+            ],
+            [
+              344,
+              154,
+              "Cu",
+              2.906128309468535
+            ],
+            [
+              344,
+              155,
+              "Cu",
+              2.032810541617613
+            ],
+            [
+              362,
+              146,
+              "Cu",
+              2.9894590368606018
+            ],
+            [
+              362,
+              155,
+              "Cu",
+              2.991987795927915
+            ]
+          ],
+          "interface_distance_A": null,
+          "interface_method": "minimum adsorbate distance to periodic top-row Cu/Au boundaries; 0.6 A row/layer tolerance"
+        },
+        {
+          "species": "CO",
+          "formula": {
+            "C": 1,
+            "O": 1
+          },
+          "atom_indices": [
+            345,
+            363
+          ],
+          "bonds": [
+            [
+              345,
+              363
+            ]
+          ],
+          "CH_distances_A": [],
+          "OH_distances_A": [],
+          "metal_contacts_under_3A": [
+            [
+              345,
+              147,
+              "Cu",
+              2.083247836914904
+            ],
+            [
+              345,
+              148,
+              "Cu",
+              1.9922205401745146
+            ],
+            [
+              345,
+              156,
+              "Cu",
+              2.0799008158440677
+            ],
+            [
+              363,
+              148,
+              "Cu",
+              2.988861059789548
+            ]
+          ],
+          "interface_distance_A": null,
+          "interface_method": "minimum adsorbate distance to periodic top-row Cu/Au boundaries; 0.6 A row/layer tolerance"
+        },
+        {
+          "species": "CO",
+          "formula": {
+            "C": 1,
+            "O": 1
+          },
+          "atom_indices": [
+            346,
+            364
+          ],
+          "bonds": [
+            [
+              346,
+              364
+            ]
+          ],
+          "CH_distances_A": [],
+          "OH_distances_A": [],
+          "metal_contacts_under_3A": [
+            [
+              346,
+              157,
+              "Cu",
+              1.8655673143143485
+            ],
+            [
+              346,
+              158,
+              "Cu",
+              2.9589272958790684
+            ],
+            [
+              346,
+              167,
+              "Cu",
+              2.8461525166567916
+            ]
+          ],
+          "interface_distance_A": null,
+          "interface_method": "minimum adsorbate distance to periodic top-row Cu/Au boundaries; 0.6 A row/layer tolerance"
+        },
+        {
+          "species": "CO",
+          "formula": {
+            "O": 1,
+            "C": 1
+          },
+          "atom_indices": [
+            347,
+            365
+          ],
+          "bonds": [
+            [
+              347,
+              365
+            ]
+          ],
+          "CH_distances_A": [],
+          "OH_distances_A": [],
+          "metal_contacts_under_3A": [
+            [
+              347,
+              150,
+              "Cu",
+              2.019487694678785
+            ],
+            [
+              347,
+              158,
+              "Cu",
+              2.067946298343175
+            ],
+            [
+              347,
+              159,
+              "Cu",
+              2.040289841492895
+            ],
+            [
+              365,
+              150,
+              "Cu",
+              2.986636564227155
+            ],
+            [
+              365,
+              159,
+              "Cu",
+              2.998775269761299
+            ]
+          ],
+          "interface_distance_A": null,
+          "interface_method": "minimum adsorbate distance to periodic top-row Cu/Au boundaries; 0.6 A row/layer tolerance"
+        },
+        {
+          "species": "CO",
+          "formula": {
+            "O": 1,
+            "C": 1
+          },
+          "atom_indices": [
+            348,
+            366
+          ],
+          "bonds": [
+            [
+              348,
+              366
+            ]
+          ],
+          "CH_distances_A": [],
+          "OH_distances_A": [],
+          "metal_contacts_under_3A": [
+            [
+              348,
+              151,
+              "Cu",
+              2.023024237671822
+            ],
+            [
+              348,
+              152,
+              "Cu",
+              2.0711216083660218
+            ],
+            [
+              348,
+              160,
+              "Cu",
+              2.069671560368389
+            ],
+            [
+              366,
+              151,
+              "Cu",
+              2.9903972226989177
+            ]
+          ],
+          "interface_distance_A": null,
+          "interface_method": "minimum adsorbate distance to periodic top-row Cu/Au boundaries; 0.6 A row/layer tolerance"
+        },
+        {
+          "species": "CO",
+          "formula": {
+            "C": 1,
+            "O": 1
+          },
+          "atom_indices": [
+            349,
+            367
+          ],
+          "bonds": [
+            [
+              349,
+              367
+            ]
+          ],
+          "CH_distances_A": [],
+          "OH_distances_A": [],
+          "metal_contacts_under_3A": [
+            [
+              349,
+              153,
+              "Cu",
+              2.024720781407273
+            ],
+            [
+              349,
+              161,
+              "Cu",
+              1.97538568182942
+            ],
+            [
+              349,
+              162,
+              "Cu",
+              2.35089273789338
+            ],
+            [
+              367,
+              153,
+              "Cu",
+              2.997938698723966
+            ],
+            [
+              367,
+              161,
+              "Cu",
+              2.9801933486327936
+            ]
+          ],
+          "interface_distance_A": null,
+          "interface_method": "minimum adsorbate distance to periodic top-row Cu/Au boundaries; 0.6 A row/layer tolerance"
+        },
+        {
+          "species": "CO",
+          "formula": {
+            "C": 1,
+            "O": 1
+          },
+          "atom_indices": [
+            350,
+            368
+          ],
+          "bonds": [
+            [
+              350,
+              368
+            ]
+          ],
+          "CH_distances_A": [],
+          "OH_distances_A": [],
+          "metal_contacts_under_3A": [
+            [
+              350,
+              163,
+              "Cu",
+              2.135539098871524
+            ],
+            [
+              350,
+              164,
+              "Cu",
+              2.0908112352937773
+            ],
+            [
+              350,
+              172,
+              "Cu",
+              1.9510466276384382
+            ],
+            [
+              368,
+              172,
+              "Cu",
+              2.9558472636949342
+            ]
+          ],
+          "interface_distance_A": null,
+          "interface_method": "minimum adsorbate distance to periodic top-row Cu/Au boundaries; 0.6 A row/layer tolerance"
+        },
+        {
+          "species": "CO",
+          "formula": {
+            "C": 1,
+            "O": 1
+          },
+          "atom_indices": [
+            351,
+            369
+          ],
+          "bonds": [
+            [
+              351,
+              369
+            ]
+          ],
+          "CH_distances_A": [],
+          "OH_distances_A": [],
+          "metal_contacts_under_3A": [
+            [
+              351,
+              155,
+              "Cu",
+              2.888452127631494
+            ],
+            [
+              351,
+              165,
+              "Cu",
+              1.8605488290645453
+            ]
+          ],
+          "interface_distance_A": null,
+          "interface_method": "minimum adsorbate distance to periodic top-row Cu/Au boundaries; 0.6 A row/layer tolerance"
+        },
+        {
+          "species": "CO",
+          "formula": {
+            "C": 1,
+            "O": 1
+          },
+          "atom_indices": [
+            352,
+            370
+          ],
+          "bonds": [
+            [
+              352,
+              370
+            ]
+          ],
+          "CH_distances_A": [],
+          "OH_distances_A": [],
+          "metal_contacts_under_3A": [
+            [
+              352,
+              166,
+              "Cu",
+              2.0853396746208492
+            ],
+            [
+              352,
+              174,
+              "Cu",
+              1.996100492063211
+            ],
+            [
+              352,
+              175,
+              "Cu",
+              2.059324824787713
+            ],
+            [
+              370,
+              166,
+              "Cu",
+              2.990370067994277
+            ],
+            [
+              370,
+              174,
+              "Cu",
+              2.980396516319279
+            ]
+          ],
+          "interface_distance_A": null,
+          "interface_method": "minimum adsorbate distance to periodic top-row Cu/Au boundaries; 0.6 A row/layer tolerance"
+        },
+        {
+          "species": "CO",
+          "formula": {
+            "C": 1,
+            "O": 1
+          },
+          "atom_indices": [
+            353,
+            371
+          ],
+          "bonds": [
+            [
+              353,
+              371
+            ]
+          ],
+          "CH_distances_A": [],
+          "OH_distances_A": [],
+          "metal_contacts_under_3A": [
+            [
+              353,
+              167,
+              "Cu",
+              2.012093748747478
+            ],
+            [
+              353,
+              168,
+              "Cu",
+              2.84363722343471
+            ],
+            [
+              353,
+              175,
+              "Cu",
+              2.5384026832590587
+            ],
+            [
+              353,
+              176,
+              "Cu",
+              1.9546758638011668
+            ],
+            [
+              371,
+              167,
+              "Cu",
+              2.9767344844248282
+            ],
+            [
+              371,
+              176,
+              "Cu",
+              2.9805518713446295
+            ]
+          ],
+          "interface_distance_A": null,
+          "interface_method": "minimum adsorbate distance to periodic top-row Cu/Au boundaries; 0.6 A row/layer tolerance"
+        },
+        {
+          "species": "CO",
+          "formula": {
+            "C": 1,
+            "O": 1
+          },
+          "atom_indices": [
+            354,
+            372
+          ],
+          "bonds": [
+            [
+              354,
+              372
+            ]
+          ],
+          "CH_distances_A": [],
+          "OH_distances_A": [],
+          "metal_contacts_under_3A": [
+            [
+              354,
+              168,
+              "Cu",
+              2.0576954247182586
+            ],
+            [
+              354,
+              169,
+              "Cu",
+              2.045868273144347
+            ],
+            [
+              354,
+              177,
+              "Cu",
+              2.0223313286357425
+            ],
+            [
+              372,
+              168,
+              "Cu",
+              2.9948802116655187
+            ],
+            [
+              372,
+              169,
+              "Cu",
+              2.9972127386680416
+            ],
+            [
+              372,
+              177,
+              "Cu",
+              2.9795834490801894
+            ]
+          ],
+          "interface_distance_A": null,
+          "interface_method": "minimum adsorbate distance to periodic top-row Cu/Au boundaries; 0.6 A row/layer tolerance"
+        },
+        {
+          "species": "CO",
+          "formula": {
+            "O": 1,
+            "C": 1
+          },
+          "atom_indices": [
+            355,
+            373
+          ],
+          "bonds": [
+            [
+              355,
+              373
+            ]
+          ],
+          "CH_distances_A": [],
+          "OH_distances_A": [],
+          "metal_contacts_under_3A": [
+            [
+              355,
+              160,
+              "Cu",
+              2.844018070997687
+            ],
+            [
+              355,
+              170,
+              "Cu",
+              1.8660790626315393
+            ]
+          ],
+          "interface_distance_A": null,
+          "interface_method": "minimum adsorbate distance to periodic top-row Cu/Au boundaries; 0.6 A row/layer tolerance"
+        },
+        {
+          "species": "CO",
+          "formula": {
+            "O": 1,
+            "C": 1
+          },
+          "atom_indices": [
+            356,
+            374
+          ],
+          "bonds": [
+            [
+              356,
+              374
+            ]
+          ],
+          "CH_distances_A": [],
+          "OH_distances_A": [],
+          "metal_contacts_under_3A": [
+            [
+              356,
+              171,
+              "Cu",
+              2.0657591900953496
+            ],
+            [
+              356,
+              179,
+              "Cu",
+              2.0436980124433446
+            ],
+            [
+              356,
+              180,
+              "Cu",
+              2.013721128085478
+            ],
+            [
+              374,
+              171,
+              "Cu",
+              2.987168270373937
+            ],
+            [
+              374,
+              179,
+              "Cu",
+              2.9942579024186604
+            ],
+            [
+              374,
+              180,
+              "Cu",
+              2.97119157770506
+            ]
+          ],
+          "interface_distance_A": null,
+          "interface_method": "minimum adsorbate distance to periodic top-row Cu/Au boundaries; 0.6 A row/layer tolerance"
+        },
+        {
+          "species": "CO",
+          "formula": {
+            "C": 1,
+            "O": 1
+          },
+          "atom_indices": [
+            357,
+            375
+          ],
+          "bonds": [
+            [
+              357,
+              375
+            ]
+          ],
+          "CH_distances_A": [],
+          "OH_distances_A": [],
+          "metal_contacts_under_3A": [
+            [
+              357,
+              173,
+              "Cu",
+              1.924688619209451
+            ],
+            [
+              357,
+              310,
+              "Au",
+              2.264545925219542
+            ]
+          ],
+          "interface_distance_A": null,
+          "interface_method": "minimum adsorbate distance to periodic top-row Cu/Au boundaries; 0.6 A row/layer tolerance"
+        },
+        {
+          "species": "CO",
+          "formula": {
+            "C": 1,
+            "O": 1
+          },
+          "atom_indices": [
+            358,
+            376
+          ],
+          "bonds": [
+            [
+              358,
+              376
+            ]
+          ],
+          "CH_distances_A": [],
+          "OH_distances_A": [],
+          "metal_contacts_under_3A": [
+            [
+              358,
+              178,
+              "Cu",
+              1.9319931295757518
+            ],
+            [
+              358,
+              179,
+              "Cu",
+              2.843486912575294
+            ],
+            [
+              358,
+              315,
+              "Au",
+              2.214442750477331
+            ]
+          ],
+          "interface_distance_A": null,
+          "interface_method": "minimum adsorbate distance to periodic top-row Cu/Au boundaries; 0.6 A row/layer tolerance"
+        }
+      ],
+      "vacuum_periodic": false,
+      "contact_definition": "minimum-image in-plane metal distances listed below3A; no pure-Cu atop/bridge relabeled Cu3 hollow"
+    },
+    "structure_descriptors": {
+      "component_audit": {
+        "version": "slab-components-v1",
+        "index_base": 1,
+        "pbc": [
+          true,
+          true,
+          false
+        ],
+        "cutoffs_A": {
+          "C:C": 1.85,
+          "C:O": 1.7,
+          "C:H": 1.3,
+          "H:O": 1.2,
+          "H:H": 0.9,
+          "O:O": 1.65
+        },
+        "components": [
+          {
+            "species": "CO",
+            "formula": {
+              "C": 1,
+              "O": 1
+            },
+            "atom_indices": [
+              341,
+              359
+            ],
+            "bonds": [
+              [
+                341,
+                359
+              ]
+            ]
+          },
+          {
+            "species": "CO",
+            "formula": {
+              "C": 1,
+              "O": 1
+            },
+            "atom_indices": [
+              342,
+              360
+            ],
+            "bonds": [
+              [
+                342,
+                360
+              ]
+            ]
+          },
+          {
+            "species": "CO",
+            "formula": {
+              "C": 1,
+              "O": 1
+            },
+            "atom_indices": [
+              343,
+              361
+            ],
+            "bonds": [
+              [
+                343,
+                361
+              ]
+            ]
+          },
+          {
+            "species": "CO",
+            "formula": {
+              "C": 1,
+              "O": 1
+            },
+            "atom_indices": [
+              344,
+              362
+            ],
+            "bonds": [
+              [
+                344,
+                362
+              ]
+            ]
+          },
+          {
+            "species": "CO",
+            "formula": {
+              "C": 1,
+              "O": 1
+            },
+            "atom_indices": [
+              345,
+              363
+            ],
+            "bonds": [
+              [
+                345,
+                363
+              ]
+            ]
+          },
+          {
+            "species": "CO",
+            "formula": {
+              "C": 1,
+              "O": 1
+            },
+            "atom_indices": [
+              346,
+              364
+            ],
+            "bonds": [
+              [
+                346,
+                364
+              ]
+            ]
+          },
+          {
+            "species": "CO",
+            "formula": {
+              "O": 1,
+              "C": 1
+            },
+            "atom_indices": [
+              347,
+              365
+            ],
+            "bonds": [
+              [
+                347,
+                365
+              ]
+            ]
+          },
+          {
+            "species": "CO",
+            "formula": {
+              "O": 1,
+              "C": 1
+            },
+            "atom_indices": [
+              348,
+              366
+            ],
+            "bonds": [
+              [
+                348,
+                366
+              ]
+            ]
+          },
+          {
+            "species": "CO",
+            "formula": {
+              "C": 1,
+              "O": 1
+            },
+            "atom_indices": [
+              349,
+              367
+            ],
+            "bonds": [
+              [
+                349,
+                367
+              ]
+            ]
+          },
+          {
+            "species": "CO",
+            "formula": {
+              "C": 1,
+              "O": 1
+            },
+            "atom_indices": [
+              350,
+              368
+            ],
+            "bonds": [
+              [
+                350,
+                368
+              ]
+            ]
+          },
+          {
+            "species": "CO",
+            "formula": {
+              "C": 1,
+              "O": 1
+            },
+            "atom_indices": [
+              351,
+              369
+            ],
+            "bonds": [
+              [
+                351,
+                369
+              ]
+            ]
+          },
+          {
+            "species": "CO",
+            "formula": {
+              "C": 1,
+              "O": 1
+            },
+            "atom_indices": [
+              352,
+              370
+            ],
+            "bonds": [
+              [
+                352,
+                370
+              ]
+            ]
+          },
+          {
+            "species": "CO",
+            "formula": {
+              "C": 1,
+              "O": 1
+            },
+            "atom_indices": [
+              353,
+              371
+            ],
+            "bonds": [
+              [
+                353,
+                371
+              ]
+            ]
+          },
+          {
+            "species": "CO",
+            "formula": {
+              "C": 1,
+              "O": 1
+            },
+            "atom_indices": [
+              354,
+              372
+            ],
+            "bonds": [
+              [
+                354,
+                372
+              ]
+            ]
+          },
+          {
+            "species": "CO",
+            "formula": {
+              "O": 1,
+              "C": 1
+            },
+            "atom_indices": [
+              355,
+              373
+            ],
+            "bonds": [
+              [
+                355,
+                373
+              ]
+            ]
+          },
+          {
+            "species": "CO",
+            "formula": {
+              "O": 1,
+              "C": 1
+            },
+            "atom_indices": [
+              356,
+              374
+            ],
+            "bonds": [
+              [
+                356,
+                374
+              ]
+            ]
+          },
+          {
+            "species": "CO",
+            "formula": {
+              "C": 1,
+              "O": 1
+            },
+            "atom_indices": [
+              357,
+              375
+            ],
+            "bonds": [
+              [
+                357,
+                375
+              ]
+            ]
+          },
+          {
+            "species": "CO",
+            "formula": {
+              "C": 1,
+              "O": 1
+            },
+            "atom_indices": [
+              358,
+              376
+            ],
+            "bonds": [
+              [
+                358,
+                376
+              ]
+            ]
+          }
+        ],
+        "counts": {
+          "CO": 18
+        },
+        "identities": [
+          "CO"
+        ],
+        "status": "verified",
+        "sensitivity_factors": [],
+        "mapping_formula_review_required": false,
+        "mapping_evidence": [],
+        "method": "legacy connectivity fallback",
+        "extension": "water = two O-H bonds; CO3 = three C-O bonds; formal charge not inferred"
+      }
+    }
+  },
+  "context": {
+    "environment": "in_silico",
+    "temperature_K": null,
+    "temperature_basis": "not_reported"
+  },
+  "system": {
+    "domain": "computational",
+    "technique": "XAS",
+    "facility": {
+      "facility_name": "NERSC",
+      "organization": "Argonne National Laboratory",
+      "cluster": "Perlmutter"
+    },
+    "configuration": {
+      "compute_architecture": "CPU",
+      "absorber": "Cu",
+      "edge": "K",
+      "absorber_edge_source": "layer_resolved_dataset_definition",
+      "generator_name": "CO2RR XAS Agent",
+      "generator_version": "v47_2026-10-18_isaac_contract_2026-10-06.3",
+      "fdmnes_input_parse_status": "complete_4_layers",
+      "fdmnes_settings_json": "{\"common\":{\"calculation_mode\":\"green_function_multiple_scattering\",\"edge\":\"K\",\"energpho\":true,\"energy_range\":[-5.0,0.2,50.0],\"green\":true,\"memory_save\":true,\"perdew\":true,\"radius_A\":6.0,\"scf\":true},\"input_files\":{\"layer_2\":\"layer_2/Cu_layer2_in.txt\",\"layer_3\":\"layer_3/Cu_layer3_in.txt\",\"layer_4\":\"layer_4/Cu_layer4_in.txt\",\"layer_5\":\"layer_5/Cu_layer5_in.txt\"},\"layer_specific\":{\"layer_2\":{\"filout\":\"Cu_layer2\"},\"layer_3\":{\"filout\":\"Cu_layer3\"},\"layer_4\":{\"filout\":\"Cu_layer4\"},\"layer_5\":{\"filout\":\"Cu_layer5\"}}}",
+      "fdmnes_convolution_input_parse_status": "complete_4_layers",
+      "fdmnes_convolution_settings_json": "{\"common\":{\"convolution\":true},\"input_files\":{\"layer_2\":\"layer_2/Cu_layer2_convolution_in.txt\",\"layer_3\":\"layer_3/Cu_layer3_convolution_in.txt\",\"layer_4\":\"layer_4/Cu_layer4_convolution_in.txt\",\"layer_5\":\"layer_5/Cu_layer5_convolution_in.txt\"},\"layer_specific\":{}}"
+    }
+  },
+  "computation": {
+    "method": {
+      "code": "FDMNES",
+      "core_hole_treatment": "not_reported",
+      "notes": "Simulated Cu K-edge XAS using FDMNES. Multiple-scattering XAS calculation. ISAAC currently has no dedicated multiple-scattering-XAS family; family=semi_empirical is used only as the present schema-compatible bucket. FDMNES settings parsed from 4 main layer input deck(s). Convolution settings parsed from 4 auxiliary input deck(s). Calculation mode: green_function_multiple_scattering.",
+      "family": "semi_empirical"
+    }
+  },
+  "measurement": {
+    "processing": {
+      "type": "simulated_spectrum_broadened",
+      "recipe_link": {
+        "rel": "processing_recipe",
+        "target": "repo://CO2RR_XAS_agent/xas_simulation"
+      }
+    },
+    "series": [
+      {
+        "series_id": "Cu_K_layer_2",
+        "independent_variables": [
+          {
+            "name": "energy",
+            "unit": "eV",
+            "values": [
+              8974.0,
+              8974.2,
+              8974.4,
+              8974.6,
+              8974.8,
+              8975.0,
+              8975.2,
+              8975.4,
+              8975.6,
+              8975.8,
+              8976.0,
+              8976.2,
+              8976.4,
+              8976.6,
+              8976.8,
+              8977.0,
+              8977.2,
+              8977.4,
+              8977.6,
+              8977.8,
+              8978.0,
+              8978.2,
+              8978.4,
+              8978.6,
+              8978.8,
+              8979.0,
+              8979.2,
+              8979.4,
+              8979.6,
+              8979.8,
+              8980.0,
+              8980.2,
+              8980.4,
+              8980.6,
+              8980.8,
+              8981.0,
+              8981.2,
+              8981.4,
+              8981.6,
+              8981.8,
+              8982.0,
+              8982.2,
+              8982.4,
+              8982.6,
+              8982.8,
+              8983.0,
+              8983.2,
+              8983.4,
+              8983.6,
+              8983.8,
+              8984.0,
+              8984.2,
+              8984.4,
+              8984.6,
+              8984.8,
+              8985.0,
+              8985.2,
+              8985.4,
+              8985.6,
+              8985.8,
+              8986.0,
+              8986.2,
+              8986.4,
+              8986.6,
+              8986.8,
+              8987.0,
+              8987.2,
+              8987.4,
+              8987.6,
+              8987.8,
+              8988.0,
+              8988.2,
+              8988.4,
+              8988.6,
+              8988.8,
+              8989.0,
+              8989.2,
+              8989.4,
+              8989.6,
+              8989.8,
+              8990.0,
+              8990.2,
+              8990.4,
+              8990.6,
+              8990.8,
+              8991.0,
+              8991.2,
+              8991.4,
+              8991.6,
+              8991.8,
+              8992.0,
+              8992.2,
+              8992.4,
+              8992.6,
+              8992.8,
+              8993.0,
+              8993.2,
+              8993.4,
+              8993.6,
+              8993.8,
+              8994.0,
+              8994.2,
+              8994.4,
+              8994.6,
+              8994.8,
+              8995.0,
+              8995.2,
+              8995.4,
+              8995.6,
+              8995.8,
+              8996.0,
+              8996.2,
+              8996.4,
+              8996.6,
+              8996.8,
+              8997.0,
+              8997.2,
+              8997.4,
+              8997.6,
+              8997.8,
+              8998.0,
+              8998.2,
+              8998.4,
+              8998.6,
+              8998.8,
+              8999.0,
+              8999.2,
+              8999.4,
+              8999.6,
+              8999.8,
+              9000.0,
+              9000.2,
+              9000.4,
+              9000.6,
+              9000.8,
+              9001.0,
+              9001.2,
+              9001.4,
+              9001.6,
+              9001.8,
+              9002.0,
+              9002.2,
+              9002.4,
+              9002.6,
+              9002.8,
+              9003.0,
+              9003.2,
+              9003.4,
+              9003.6,
+              9003.8,
+              9004.0,
+              9004.2,
+              9004.4,
+              9004.6,
+              9004.8,
+              9005.0,
+              9005.2,
+              9005.4,
+              9005.6,
+              9005.8,
+              9006.0,
+              9006.2,
+              9006.4,
+              9006.6,
+              9006.8,
+              9007.0,
+              9007.2,
+              9007.4,
+              9007.6,
+              9007.8,
+              9008.0,
+              9008.2,
+              9008.4,
+              9008.6,
+              9008.8,
+              9009.0,
+              9009.2,
+              9009.4,
+              9009.6,
+              9009.8,
+              9010.0,
+              9010.2,
+              9010.4,
+              9010.6,
+              9010.8,
+              9011.0,
+              9011.2,
+              9011.4,
+              9011.6,
+              9011.8,
+              9012.0,
+              9012.2,
+              9012.4,
+              9012.6,
+              9012.8,
+              9013.0,
+              9013.2,
+              9013.4,
+              9013.6,
+              9013.8,
+              9014.0,
+              9014.2,
+              9014.4,
+              9014.6,
+              9014.8,
+              9015.0,
+              9015.2,
+              9015.4,
+              9015.6,
+              9015.8,
+              9016.0,
+              9016.2,
+              9016.4,
+              9016.6,
+              9016.8,
+              9017.0,
+              9017.2,
+              9017.4,
+              9017.6,
+              9017.8,
+              9018.0,
+              9018.2,
+              9018.4,
+              9018.6,
+              9018.8,
+              9019.0,
+              9019.2,
+              9019.4,
+              9019.6,
+              9019.8,
+              9020.0,
+              9020.2,
+              9020.4,
+              9020.6,
+              9020.8,
+              9021.0,
+              9021.2,
+              9021.4,
+              9021.6,
+              9021.8,
+              9022.0,
+              9022.2,
+              9022.4,
+              9022.6,
+              9022.8,
+              9023.0,
+              9023.2,
+              9023.4,
+              9023.6,
+              9023.8,
+              9024.0,
+              9024.2,
+              9024.4,
+              9024.6,
+              9024.8,
+              9025.0,
+              9025.2,
+              9025.4,
+              9025.6,
+              9025.8,
+              9026.0,
+              9026.2,
+              9026.4,
+              9026.6,
+              9026.8,
+              9027.0,
+              9027.2,
+              9027.4,
+              9027.6,
+              9027.8,
+              9028.0,
+              9028.2,
+              9028.4,
+              9028.6,
+              9028.8,
+              9029.0
+            ]
+          }
+        ],
+        "channels": [
+          {
+            "name": "absorption_cross_section",
+            "unit": "arb",
+            "role": "simulated_observable",
+            "values": [
+              0.031561062,
+              0.032431931,
+              0.033814382,
+              0.035320026,
+              0.036994035,
+              0.038875357,
+              0.040982121,
+              0.043358868,
+              0.046063506,
+              0.049171601,
+              0.052783277,
+              0.057033132,
+              0.062104246,
+              0.068246686,
+              0.075797892,
+              0.085193612,
+              0.096943008,
+              0.11153146,
+              0.12923622,
+              0.1499211,
+              0.17293383,
+              0.19720128,
+              0.22150374,
+              0.24478928,
+              0.26634681,
+              0.28581088,
+              0.30310095,
+              0.31835919,
+              0.33188274,
+              0.34404547,
+              0.35521997,
+              0.365715,
+              0.37573781,
+              0.38538291,
+              0.39464311,
+              0.40343614,
+              0.41163933,
+              0.41912469,
+              0.42578805,
+              0.43156853,
+              0.43645714,
+              0.4404958,
+              0.44376983,
+              0.44639754,
+              0.44851943,
+              0.45028873,
+              0.4518635,
+              0.45340001,
+              0.45504712,
+              0.45694147,
+              0.45920325,
+              0.46193302,
+              0.46520974,
+              0.46909032,
+              0.47361054,
+              0.47878732,
+              0.48462205,
+              0.49110467,
+              0.49821826,
+              0.50594357,
+              0.51426326,
+              0.52316539,
+              0.53264601,
+              0.54271042,
+              0.55337302,
+              0.56465565,
+              0.57658424,
+              0.58918422,
+              0.60247478,
+              0.6164628,
+              0.63113704,
+              0.64646319,
+              0.66238049,
+              0.6788002,
+              0.69560634,
+              0.71265857,
+              0.72979694,
+              0.74684824,
+              0.76363306,
+              0.77997328,
+              0.79569896,
+              0.81065454,
+              0.82470368,
+              0.83773289,
+              0.84965387,
+              0.86040458,
+              0.8699494,
+              0.87827841,
+              0.88540586,
+              0.89136808,
+              0.8962208,
+              0.90003608,
+              0.9028989,
+              0.90490359,
+              0.90615033,
+              0.90674185,
+              0.90678042,
+              0.90636535,
+              0.9055909,
+              0.90454472,
+              0.90330662,
+              0.9019478,
+              0.90053028,
+              0.89910669,
+              0.89772027,
+              0.89640507,
+              0.8951864,
+              0.89408142,
+              0.8930999,
+              0.89224507,
+              0.89151457,
+              0.89090137,
+              0.89039477,
+              0.88998127,
+              0.88964541,
+              0.88937048,
+              0.88913921,
+              0.88893421,
+              0.88873844,
+              0.88853552,
+              0.88830995,
+              0.88804728,
+              0.88773425,
+              0.88735883,
+              0.88691032,
+              0.88637931,
+              0.88575774,
+              0.88503889,
+              0.88421729,
+              0.88328872,
+              0.88225013,
+              0.88109947,
+              0.87983566,
+              0.87845843,
+              0.87696816,
+              0.87536581,
+              0.8736528,
+              0.8718309,
+              0.86990218,
+              0.86786901,
+              0.86573399,
+              0.86349998,
+              0.86117017,
+              0.85874807,
+              0.85623762,
+              0.85364322,
+              0.85096979,
+              0.84822286,
+              0.84540859,
+              0.8425338,
+              0.83960601,
+              0.83663341,
+              0.83362486,
+              0.83058983,
+              0.82753833,
+              0.82448089,
+              0.82142838,
+              0.81839198,
+              0.81538303,
+              0.81241295,
+              0.80949311,
+              0.80663471,
+              0.80384874,
+              0.80114583,
+              0.79853622,
+              0.79602966,
+              0.79363541,
+              0.79136212,
+              0.78921787,
+              0.78721011,
+              0.78534562,
+              0.78363054,
+              0.78207029,
+              0.78066961,
+              0.77943252,
+              0.77836234,
+              0.77746163,
+              0.77673226,
+              0.77617534,
+              0.77579128,
+              0.77557978,
+              0.77553986,
+              0.77566989,
+              0.7759676,
+              0.77643015,
+              0.77705416,
+              0.77783577,
+              0.77877068,
+              0.77985422,
+              0.78108139,
+              0.78244694,
+              0.78394536,
+              0.78557102,
+              0.7873181,
+              0.78918072,
+              0.79115289,
+              0.79322857,
+              0.79540167,
+              0.79766602,
+              0.80001544,
+              0.80244363,
+              0.80494425,
+              0.80751084,
+              0.81013684,
+              0.81281556,
+              0.81554016,
+              0.81830365,
+              0.82109889,
+              0.82391856,
+              0.82675519,
+              0.82960114,
+              0.83244864,
+              0.83528979,
+              0.83811661,
+              0.84092103,
+              0.84369492,
+              0.84643017,
+              0.84911867,
+              0.8517524,
+              0.8543234,
+              0.85682387,
+              0.85924617,
+              0.86158287,
+              0.86382681,
+              0.86597109,
+              0.86800913,
+              0.86993472,
+              0.87174204,
+              0.87342571,
+              0.87498079,
+              0.87640286,
+              0.87768802,
+              0.87883294,
+              0.87983487,
+              0.88069164,
+              0.88140176,
+              0.88196432,
+              0.88237909,
+              0.88264649,
+              0.88276755,
+              0.88274395,
+              0.88257799,
+              0.88227254,
+              0.88183102,
+              0.88125741,
+              0.88055615,
+              0.87973214,
+              0.87879067,
+              0.87773742,
+              0.87657835,
+              0.87531971,
+              0.873968,
+              0.87252988,
+              0.87101217,
+              0.86942182,
+              0.86776583,
+              0.86605127,
+              0.86428523,
+              0.8624748,
+              0.86062702,
+              0.85874888,
+              0.85684731,
+              0.85492911,
+              0.853001,
+              0.8510695,
+              0.84914101,
+              0.84722171,
+              0.84531756,
+              0.84343427,
+              0.84157724,
+              0.83975158,
+              0.83796202,
+              0.83621291,
+              0.83450815,
+              0.8328512,
+              0.83124502
+            ]
+          }
+        ]
+      },
+      {
+        "series_id": "Cu_K_layer_3",
+        "independent_variables": [
+          {
+            "name": "energy",
+            "unit": "eV",
+            "values": [
+              8974.0,
+              8974.2,
+              8974.4,
+              8974.6,
+              8974.8,
+              8975.0,
+              8975.2,
+              8975.4,
+              8975.6,
+              8975.8,
+              8976.0,
+              8976.2,
+              8976.4,
+              8976.6,
+              8976.8,
+              8977.0,
+              8977.2,
+              8977.4,
+              8977.6,
+              8977.8,
+              8978.0,
+              8978.2,
+              8978.4,
+              8978.6,
+              8978.8,
+              8979.0,
+              8979.2,
+              8979.4,
+              8979.6,
+              8979.8,
+              8980.0,
+              8980.2,
+              8980.4,
+              8980.6,
+              8980.8,
+              8981.0,
+              8981.2,
+              8981.4,
+              8981.6,
+              8981.8,
+              8982.0,
+              8982.2,
+              8982.4,
+              8982.6,
+              8982.8,
+              8983.0,
+              8983.2,
+              8983.4,
+              8983.6,
+              8983.8,
+              8984.0,
+              8984.2,
+              8984.4,
+              8984.6,
+              8984.8,
+              8985.0,
+              8985.2,
+              8985.4,
+              8985.6,
+              8985.8,
+              8986.0,
+              8986.2,
+              8986.4,
+              8986.6,
+              8986.8,
+              8987.0,
+              8987.2,
+              8987.4,
+              8987.6,
+              8987.8,
+              8988.0,
+              8988.2,
+              8988.4,
+              8988.6,
+              8988.8,
+              8989.0,
+              8989.2,
+              8989.4,
+              8989.6,
+              8989.8,
+              8990.0,
+              8990.2,
+              8990.4,
+              8990.6,
+              8990.8,
+              8991.0,
+              8991.2,
+              8991.4,
+              8991.6,
+              8991.8,
+              8992.0,
+              8992.2,
+              8992.4,
+              8992.6,
+              8992.8,
+              8993.0,
+              8993.2,
+              8993.4,
+              8993.6,
+              8993.8,
+              8994.0,
+              8994.2,
+              8994.4,
+              8994.6,
+              8994.8,
+              8995.0,
+              8995.2,
+              8995.4,
+              8995.6,
+              8995.8,
+              8996.0,
+              8996.2,
+              8996.4,
+              8996.6,
+              8996.8,
+              8997.0,
+              8997.2,
+              8997.4,
+              8997.6,
+              8997.8,
+              8998.0,
+              8998.2,
+              8998.4,
+              8998.6,
+              8998.8,
+              8999.0,
+              8999.2,
+              8999.4,
+              8999.6,
+              8999.8,
+              9000.0,
+              9000.2,
+              9000.4,
+              9000.6,
+              9000.8,
+              9001.0,
+              9001.2,
+              9001.4,
+              9001.6,
+              9001.8,
+              9002.0,
+              9002.2,
+              9002.4,
+              9002.6,
+              9002.8,
+              9003.0,
+              9003.2,
+              9003.4,
+              9003.6,
+              9003.8,
+              9004.0,
+              9004.2,
+              9004.4,
+              9004.6,
+              9004.8,
+              9005.0,
+              9005.2,
+              9005.4,
+              9005.6,
+              9005.8,
+              9006.0,
+              9006.2,
+              9006.4,
+              9006.6,
+              9006.8,
+              9007.0,
+              9007.2,
+              9007.4,
+              9007.6,
+              9007.8,
+              9008.0,
+              9008.2,
+              9008.4,
+              9008.6,
+              9008.8,
+              9009.0,
+              9009.2,
+              9009.4,
+              9009.6,
+              9009.8,
+              9010.0,
+              9010.2,
+              9010.4,
+              9010.6,
+              9010.8,
+              9011.0,
+              9011.2,
+              9011.4,
+              9011.6,
+              9011.8,
+              9012.0,
+              9012.2,
+              9012.4,
+              9012.6,
+              9012.8,
+              9013.0,
+              9013.2,
+              9013.4,
+              9013.6,
+              9013.8,
+              9014.0,
+              9014.2,
+              9014.4,
+              9014.6,
+              9014.8,
+              9015.0,
+              9015.2,
+              9015.4,
+              9015.6,
+              9015.8,
+              9016.0,
+              9016.2,
+              9016.4,
+              9016.6,
+              9016.8,
+              9017.0,
+              9017.2,
+              9017.4,
+              9017.6,
+              9017.8,
+              9018.0,
+              9018.2,
+              9018.4,
+              9018.6,
+              9018.8,
+              9019.0,
+              9019.2,
+              9019.4,
+              9019.6,
+              9019.8,
+              9020.0,
+              9020.2,
+              9020.4,
+              9020.6,
+              9020.8,
+              9021.0,
+              9021.2,
+              9021.4,
+              9021.6,
+              9021.8,
+              9022.0,
+              9022.2,
+              9022.4,
+              9022.6,
+              9022.8,
+              9023.0,
+              9023.2,
+              9023.4,
+              9023.6,
+              9023.8,
+              9024.0,
+              9024.2,
+              9024.4,
+              9024.6,
+              9024.8,
+              9025.0,
+              9025.2,
+              9025.4,
+              9025.6,
+              9025.8,
+              9026.0,
+              9026.2,
+              9026.4,
+              9026.6,
+              9026.8,
+              9027.0,
+              9027.2,
+              9027.4,
+              9027.6,
+              9027.8,
+              9028.0,
+              9028.2,
+              9028.4,
+              9028.6,
+              9028.8,
+              9029.0
+            ]
+          }
+        ],
+        "channels": [
+          {
+            "name": "absorption_cross_section",
+            "unit": "arb",
+            "role": "simulated_observable",
+            "values": [
+              0.032284972,
+              0.03323661,
+              0.034661763,
+              0.036298243,
+              0.038122042,
+              0.040160715,
+              0.042456385,
+              0.04506291,
+              0.048050129,
+              0.05150998,
+              0.055565386,
+              0.060383192,
+              0.066192746,
+              0.073311232,
+              0.082173292,
+              0.09334966,
+              0.10750788,
+              0.12522671,
+              0.14661246,
+              0.17090451,
+              0.19649627,
+              0.22151193,
+              0.24448256,
+              0.26464224,
+              0.28186368,
+              0.29647178,
+              0.30905216,
+              0.32028162,
+              0.33079349,
+              0.34108659,
+              0.35147745,
+              0.36208865,
+              0.37286456,
+              0.38360772,
+              0.39402955,
+              0.40380866,
+              0.41264802,
+              0.42032171,
+              0.42670384,
+              0.43177654,
+              0.43562002,
+              0.43839071,
+              0.44029486,
+              0.44156321,
+              0.44243033,
+              0.44311997,
+              0.44383581,
+              0.44475623,
+              0.44603204,
+              0.44778587,
+              0.45011279,
+              0.45308152,
+              0.45673598,
+              0.46109719,
+              0.46616563,
+              0.47192454,
+              0.47834447,
+              0.4853893,
+              0.49302309,
+              0.50121694,
+              0.5099545,
+              0.51923522,
+              0.52907466,
+              0.53950182,
+              0.55055394,
+              0.56226977,
+              0.57468214,
+              0.58781116,
+              0.60165854,
+              0.61620373,
+              0.6314019,
+              0.64718376,
+              0.66345681,
+              0.68010765,
+              0.69700516,
+              0.71400396,
+              0.73094823,
+              0.74767552,
+              0.76402063,
+              0.77981962,
+              0.7949138,
+              0.80915405,
+              0.82240506,
+              0.83454972,
+              0.84549318,
+              0.85516633,
+              0.86352839,
+              0.87056838,
+              0.87630513,
+              0.88078602,
+              0.88408433,
+              0.88629554,
+              0.88753285,
+              0.88792217,
+              0.88759707,
+              0.8866938,
+              0.88534684,
+              0.88368496,
+              0.88182799,
+              0.8798844,
+              0.87794957,
+              0.87610472,
+              0.87441651,
+              0.87293717,
+              0.87170505,
+              0.87074546,
+              0.8700719,
+              0.86968726,
+              0.86958528,
+              0.86975195,
+              0.87016696,
+              0.87080506,
+              0.87163736,
+              0.87263255,
+              0.87375801,
+              0.87498071,
+              0.87626806,
+              0.8775886,
+              0.87891247,
+              0.88021184,
+              0.88146118,
+              0.88263742,
+              0.88372007,
+              0.88469117,
+              0.88553528,
+              0.88623935,
+              0.88679261,
+              0.88718632,
+              0.88741363,
+              0.88746931,
+              0.88734951,
+              0.88705154,
+              0.88657361,
+              0.88591471,
+              0.88507435,
+              0.88405256,
+              0.88284973,
+              0.88146666,
+              0.87990455,
+              0.87816507,
+              0.87625045,
+              0.8741636,
+              0.87190821,
+              0.86948885,
+              0.8669111,
+              0.86418163,
+              0.86130827,
+              0.85830006,
+              0.85516723,
+              0.85192124,
+              0.8485747,
+              0.84514134,
+              0.84163586,
+              0.83807384,
+              0.8344716,
+              0.83084602,
+              0.8272144,
+              0.82359425,
+              0.82000312,
+              0.81645842,
+              0.81297727,
+              0.80957631,
+              0.80627158,
+              0.80307836,
+              0.80001107,
+              0.79708317,
+              0.79430706,
+              0.79169405,
+              0.78925426,
+              0.78699661,
+              0.78492882,
+              0.78305739,
+              0.7813876,
+              0.77992355,
+              0.77866821,
+              0.77762344,
+              0.77679005,
+              0.77616786,
+              0.7757558,
+              0.77555193,
+              0.77555352,
+              0.77575713,
+              0.77615867,
+              0.77675346,
+              0.7775363,
+              0.77850149,
+              0.77964293,
+              0.7809541,
+              0.78242815,
+              0.78405792,
+              0.78583596,
+              0.78775455,
+              0.78980574,
+              0.79198136,
+              0.79427304,
+              0.79667225,
+              0.79917027,
+              0.80175828,
+              0.80442733,
+              0.80716838,
+              0.80997237,
+              0.81283017,
+              0.81573269,
+              0.81867087,
+              0.82163572,
+              0.82461838,
+              0.82761011,
+              0.83060237,
+              0.83358681,
+              0.83655531,
+              0.83950002,
+              0.84241335,
+              0.84528798,
+              0.84811691,
+              0.85089341,
+              0.85361103,
+              0.85626363,
+              0.85884531,
+              0.86135045,
+              0.86377367,
+              0.86610979,
+              0.86835388,
+              0.87050118,
+              0.87254713,
+              0.87448737,
+              0.8763177,
+              0.87803413,
+              0.87963288,
+              0.88111036,
+              0.88246327,
+              0.88368854,
+              0.88478343,
+              0.88574553,
+              0.88657281,
+              0.88726364,
+              0.88781687,
+              0.88823178,
+              0.88850821,
+              0.88864651,
+              0.8886476,
+              0.88851295,
+              0.88824461,
+              0.88784523,
+              0.88731799,
+              0.88666662,
+              0.88589541,
+              0.88500909,
+              0.8840129,
+              0.88291245,
+              0.88171375,
+              0.88042313,
+              0.87904718,
+              0.87759271,
+              0.8760667,
+              0.87447624,
+              0.87282851,
+              0.8711307,
+              0.86938996,
+              0.86761342,
+              0.8658081,
+              0.86398089,
+              0.86213855,
+              0.86028764,
+              0.85843456,
+              0.85658547,
+              0.85474629,
+              0.85292271,
+              0.85112012,
+              0.84934364,
+              0.84759803,
+              0.84588773,
+              0.84421679,
+              0.84258885,
+              0.84100713,
+              0.83947437,
+              0.83799286
+            ]
+          }
+        ]
+      },
+      {
+        "series_id": "Cu_K_layer_4",
+        "independent_variables": [
+          {
+            "name": "energy",
+            "unit": "eV",
+            "values": [
+              8974.0,
+              8974.2,
+              8974.4,
+              8974.6,
+              8974.8,
+              8975.0,
+              8975.2,
+              8975.4,
+              8975.6,
+              8975.8,
+              8976.0,
+              8976.2,
+              8976.4,
+              8976.6,
+              8976.8,
+              8977.0,
+              8977.2,
+              8977.4,
+              8977.6,
+              8977.8,
+              8978.0,
+              8978.2,
+              8978.4,
+              8978.6,
+              8978.8,
+              8979.0,
+              8979.2,
+              8979.4,
+              8979.6,
+              8979.8,
+              8980.0,
+              8980.2,
+              8980.4,
+              8980.6,
+              8980.8,
+              8981.0,
+              8981.2,
+              8981.4,
+              8981.6,
+              8981.8,
+              8982.0,
+              8982.2,
+              8982.4,
+              8982.6,
+              8982.8,
+              8983.0,
+              8983.2,
+              8983.4,
+              8983.6,
+              8983.8,
+              8984.0,
+              8984.2,
+              8984.4,
+              8984.6,
+              8984.8,
+              8985.0,
+              8985.2,
+              8985.4,
+              8985.6,
+              8985.8,
+              8986.0,
+              8986.2,
+              8986.4,
+              8986.6,
+              8986.8,
+              8987.0,
+              8987.2,
+              8987.4,
+              8987.6,
+              8987.8,
+              8988.0,
+              8988.2,
+              8988.4,
+              8988.6,
+              8988.8,
+              8989.0,
+              8989.2,
+              8989.4,
+              8989.6,
+              8989.8,
+              8990.0,
+              8990.2,
+              8990.4,
+              8990.6,
+              8990.8,
+              8991.0,
+              8991.2,
+              8991.4,
+              8991.6,
+              8991.8,
+              8992.0,
+              8992.2,
+              8992.4,
+              8992.6,
+              8992.8,
+              8993.0,
+              8993.2,
+              8993.4,
+              8993.6,
+              8993.8,
+              8994.0,
+              8994.2,
+              8994.4,
+              8994.6,
+              8994.8,
+              8995.0,
+              8995.2,
+              8995.4,
+              8995.6,
+              8995.8,
+              8996.0,
+              8996.2,
+              8996.4,
+              8996.6,
+              8996.8,
+              8997.0,
+              8997.2,
+              8997.4,
+              8997.6,
+              8997.8,
+              8998.0,
+              8998.2,
+              8998.4,
+              8998.6,
+              8998.8,
+              8999.0,
+              8999.2,
+              8999.4,
+              8999.6,
+              8999.8,
+              9000.0,
+              9000.2,
+              9000.4,
+              9000.6,
+              9000.8,
+              9001.0,
+              9001.2,
+              9001.4,
+              9001.6,
+              9001.8,
+              9002.0,
+              9002.2,
+              9002.4,
+              9002.6,
+              9002.8,
+              9003.0,
+              9003.2,
+              9003.4,
+              9003.6,
+              9003.8,
+              9004.0,
+              9004.2,
+              9004.4,
+              9004.6,
+              9004.8,
+              9005.0,
+              9005.2,
+              9005.4,
+              9005.6,
+              9005.8,
+              9006.0,
+              9006.2,
+              9006.4,
+              9006.6,
+              9006.8,
+              9007.0,
+              9007.2,
+              9007.4,
+              9007.6,
+              9007.8,
+              9008.0,
+              9008.2,
+              9008.4,
+              9008.6,
+              9008.8,
+              9009.0,
+              9009.2,
+              9009.4,
+              9009.6,
+              9009.8,
+              9010.0,
+              9010.2,
+              9010.4,
+              9010.6,
+              9010.8,
+              9011.0,
+              9011.2,
+              9011.4,
+              9011.6,
+              9011.8,
+              9012.0,
+              9012.2,
+              9012.4,
+              9012.6,
+              9012.8,
+              9013.0,
+              9013.2,
+              9013.4,
+              9013.6,
+              9013.8,
+              9014.0,
+              9014.2,
+              9014.4,
+              9014.6,
+              9014.8,
+              9015.0,
+              9015.2,
+              9015.4,
+              9015.6,
+              9015.8,
+              9016.0,
+              9016.2,
+              9016.4,
+              9016.6,
+              9016.8,
+              9017.0,
+              9017.2,
+              9017.4,
+              9017.6,
+              9017.8,
+              9018.0,
+              9018.2,
+              9018.4,
+              9018.6,
+              9018.8,
+              9019.0,
+              9019.2,
+              9019.4,
+              9019.6,
+              9019.8,
+              9020.0,
+              9020.2,
+              9020.4,
+              9020.6,
+              9020.8,
+              9021.0,
+              9021.2,
+              9021.4,
+              9021.6,
+              9021.8,
+              9022.0,
+              9022.2,
+              9022.4,
+              9022.6,
+              9022.8,
+              9023.0,
+              9023.2,
+              9023.4,
+              9023.6,
+              9023.8,
+              9024.0,
+              9024.2,
+              9024.4,
+              9024.6,
+              9024.8,
+              9025.0,
+              9025.2,
+              9025.4,
+              9025.6,
+              9025.8,
+              9026.0,
+              9026.2,
+              9026.4,
+              9026.6,
+              9026.8,
+              9027.0,
+              9027.2,
+              9027.4,
+              9027.6,
+              9027.8,
+              9028.0,
+              9028.2,
+              9028.4,
+              9028.6,
+              9028.8,
+              9029.0
+            ]
+          }
+        ],
+        "channels": [
+          {
+            "name": "absorption_cross_section",
+            "unit": "arb",
+            "role": "simulated_observable",
+            "values": [
+              0.032371461,
+              0.033440454,
+              0.034889214,
+              0.036528084,
+              0.03836537,
+              0.040419747,
+              0.042732035,
+              0.045355863,
+              0.048360641,
+              0.05183754,
+              0.055908181,
+              0.06073726,
+              0.066550652,
+              0.073660118,
+              0.082492416,
+              0.093608915,
+              0.10767392,
+              0.12529422,
+              0.14667793,
+              0.17124832,
+              0.19758329,
+              0.22387509,
+              0.24856221,
+              0.27067447,
+              0.28985307,
+              0.30622515,
+              0.32023585,
+              0.3324775,
+              0.34354455,
+              0.35393144,
+              0.36397489,
+              0.37383284,
+              0.38349134,
+              0.39279418,
+              0.40149249,
+              0.40930927,
+              0.4160078,
+              0.42144784,
+              0.42561478,
+              0.42861632,
+              0.43065367,
+              0.43198129,
+              0.43286843,
+              0.43356971,
+              0.43430636,
+              0.43525667,
+              0.43655367,
+              0.4382887,
+              0.44051899,
+              0.44327733,
+              0.4465813,
+              0.45044087,
+              0.454864,
+              0.45986091,
+              0.46544713,
+              0.47164485,
+              0.47848219,
+              0.48599014,
+              0.49419781,
+              0.50312698,
+              0.51278751,
+              0.52317449,
+              0.53426769,
+              0.54603283,
+              0.55842431,
+              0.57138835,
+              0.5848662,
+              0.59879669,
+              0.61311764,
+              0.62776601,
+              0.64267684,
+              0.65778153,
+              0.67300616,
+              0.68827044,
+              0.70348762,
+              0.71856536,
+              0.73340734,
+              0.74791536,
+              0.76199149,
+              0.77554036,
+              0.78847118,
+              0.80069966,
+              0.81214982,
+              0.82275558,
+              0.83246233,
+              0.84122823,
+              0.84902542,
+              0.85584089,
+              0.86167709,
+              0.86655209,
+              0.87049935,
+              0.87356696,
+              0.87581644,
+              0.87732098,
+              0.87816334,
+              0.87843337,
+              0.87822536,
+              0.87763526,
+              0.87675803,
+              0.87568515,
+              0.87450241,
+              0.8732881,
+              0.87211162,
+              0.87103246,
+              0.87009967,
+              0.86935168,
+              0.8688164,
+              0.86851167,
+              0.86844587,
+              0.86861874,
+              0.86902226,
+              0.86964169,
+              0.87045657,
+              0.87144181,
+              0.87256874,
+              0.87380615,
+              0.8751213,
+              0.87648086,
+              0.87785178,
+              0.87920206,
+              0.88050142,
+              0.88172181,
+              0.8828378,
+              0.88382683,
+              0.88466932,
+              0.88534865,
+              0.88585106,
+              0.88616548,
+              0.88628328,
+              0.88619802,
+              0.88590522,
+              0.88540217,
+              0.88468767,
+              0.88376194,
+              0.88262647,
+              0.88128398,
+              0.87973831,
+              0.87799447,
+              0.87605856,
+              0.87393782,
+              0.87164056,
+              0.8691762,
+              0.86655522,
+              0.86378913,
+              0.86089041,
+              0.85787247,
+              0.85474953,
+              0.85153652,
+              0.84824902,
+              0.84490305,
+              0.841515,
+              0.83810141,
+              0.83467888,
+              0.83126383,
+              0.82787243,
+              0.82452034,
+              0.82122267,
+              0.81799376,
+              0.81484715,
+              0.81179544,
+              0.80885025,
+              0.80602217,
+              0.80332075,
+              0.80075448,
+              0.79833082,
+              0.79605625,
+              0.79393626,
+              0.79197545,
+              0.79017757,
+              0.78854556,
+              0.78708163,
+              0.78578732,
+              0.78466353,
+              0.78371061,
+              0.78292837,
+              0.78231613,
+              0.78187277,
+              0.78159676,
+              0.78148616,
+              0.78153866,
+              0.78175156,
+              0.7821218,
+              0.78264597,
+              0.78332026,
+              0.78414052,
+              0.78510221,
+              0.78620039,
+              0.78742978,
+              0.7887847,
+              0.7902591,
+              0.79184661,
+              0.79354052,
+              0.79533381,
+              0.79721923,
+              0.7991893,
+              0.80123638,
+              0.80335273,
+              0.80553054,
+              0.80776201,
+              0.8100394,
+              0.81235509,
+              0.81470162,
+              0.81707174,
+              0.81945845,
+              0.82185506,
+              0.82425516,
+              0.8266527,
+              0.82904196,
+              0.83141758,
+              0.83377453,
+              0.83610815,
+              0.83841409,
+              0.84068832,
+              0.84292709,
+              0.84512694,
+              0.84728462,
+              0.84939711,
+              0.85146153,
+              0.85347517,
+              0.8554354,
+              0.85733965,
+              0.8591854,
+              0.86097011,
+              0.86269123,
+              0.86434614,
+              0.86593218,
+              0.8674466,
+              0.86888658,
+              0.87024924,
+              0.87153164,
+              0.87273083,
+              0.87384387,
+              0.87486785,
+              0.87579999,
+              0.87663763,
+              0.87737832,
+              0.87801985,
+              0.87856034,
+              0.87899826,
+              0.87933246,
+              0.87956228,
+              0.87968749,
+              0.87970839,
+              0.87962579,
+              0.87944104,
+              0.87915598,
+              0.87877299,
+              0.87829493,
+              0.87772511,
+              0.8770673,
+              0.87632562,
+              0.87550456,
+              0.87460891,
+              0.87364368,
+              0.87261414,
+              0.87152567,
+              0.87038379,
+              0.8691941,
+              0.86796223,
+              0.86669384,
+              0.86539454,
+              0.86406992,
+              0.8627255,
+              0.86136671,
+              0.85999888,
+              0.85862722,
+              0.85725678,
+              0.85589247,
+              0.85453899,
+              0.85320083,
+              0.85188226,
+              0.85058724,
+              0.84931944,
+              0.8480822,
+              0.84687847,
+              0.84571082
+            ]
+          }
+        ]
+      },
+      {
+        "series_id": "Cu_K_layer_5",
+        "independent_variables": [
+          {
+            "name": "energy",
+            "unit": "eV",
+            "values": [
+              8974.0,
+              8974.2,
+              8974.4,
+              8974.6,
+              8974.8,
+              8975.0,
+              8975.2,
+              8975.4,
+              8975.6,
+              8975.8,
+              8976.0,
+              8976.2,
+              8976.4,
+              8976.6,
+              8976.8,
+              8977.0,
+              8977.2,
+              8977.4,
+              8977.6,
+              8977.8,
+              8978.0,
+              8978.2,
+              8978.4,
+              8978.6,
+              8978.8,
+              8979.0,
+              8979.2,
+              8979.4,
+              8979.6,
+              8979.8,
+              8980.0,
+              8980.2,
+              8980.4,
+              8980.6,
+              8980.8,
+              8981.0,
+              8981.2,
+              8981.4,
+              8981.6,
+              8981.8,
+              8982.0,
+              8982.2,
+              8982.4,
+              8982.6,
+              8982.8,
+              8983.0,
+              8983.2,
+              8983.4,
+              8983.6,
+              8983.8,
+              8984.0,
+              8984.2,
+              8984.4,
+              8984.6,
+              8984.8,
+              8985.0,
+              8985.2,
+              8985.4,
+              8985.6,
+              8985.8,
+              8986.0,
+              8986.2,
+              8986.4,
+              8986.6,
+              8986.8,
+              8987.0,
+              8987.2,
+              8987.4,
+              8987.6,
+              8987.8,
+              8988.0,
+              8988.2,
+              8988.4,
+              8988.6,
+              8988.8,
+              8989.0,
+              8989.2,
+              8989.4,
+              8989.6,
+              8989.8,
+              8990.0,
+              8990.2,
+              8990.4,
+              8990.6,
+              8990.8,
+              8991.0,
+              8991.2,
+              8991.4,
+              8991.6,
+              8991.8,
+              8992.0,
+              8992.2,
+              8992.4,
+              8992.6,
+              8992.8,
+              8993.0,
+              8993.2,
+              8993.4,
+              8993.6,
+              8993.8,
+              8994.0,
+              8994.2,
+              8994.4,
+              8994.6,
+              8994.8,
+              8995.0,
+              8995.2,
+              8995.4,
+              8995.6,
+              8995.8,
+              8996.0,
+              8996.2,
+              8996.4,
+              8996.6,
+              8996.8,
+              8997.0,
+              8997.2,
+              8997.4,
+              8997.6,
+              8997.8,
+              8998.0,
+              8998.2,
+              8998.4,
+              8998.6,
+              8998.8,
+              8999.0,
+              8999.2,
+              8999.4,
+              8999.6,
+              8999.8,
+              9000.0,
+              9000.2,
+              9000.4,
+              9000.6,
+              9000.8,
+              9001.0,
+              9001.2,
+              9001.4,
+              9001.6,
+              9001.8,
+              9002.0,
+              9002.2,
+              9002.4,
+              9002.6,
+              9002.8,
+              9003.0,
+              9003.2,
+              9003.4,
+              9003.6,
+              9003.8,
+              9004.0,
+              9004.2,
+              9004.4,
+              9004.6,
+              9004.8,
+              9005.0,
+              9005.2,
+              9005.4,
+              9005.6,
+              9005.8,
+              9006.0,
+              9006.2,
+              9006.4,
+              9006.6,
+              9006.8,
+              9007.0,
+              9007.2,
+              9007.4,
+              9007.6,
+              9007.8,
+              9008.0,
+              9008.2,
+              9008.4,
+              9008.6,
+              9008.8,
+              9009.0,
+              9009.2,
+              9009.4,
+              9009.6,
+              9009.8,
+              9010.0,
+              9010.2,
+              9010.4,
+              9010.6,
+              9010.8,
+              9011.0,
+              9011.2,
+              9011.4,
+              9011.6,
+              9011.8,
+              9012.0,
+              9012.2,
+              9012.4,
+              9012.6,
+              9012.8,
+              9013.0,
+              9013.2,
+              9013.4,
+              9013.6,
+              9013.8,
+              9014.0,
+              9014.2,
+              9014.4,
+              9014.6,
+              9014.8,
+              9015.0,
+              9015.2,
+              9015.4,
+              9015.6,
+              9015.8,
+              9016.0,
+              9016.2,
+              9016.4,
+              9016.6,
+              9016.8,
+              9017.0,
+              9017.2,
+              9017.4,
+              9017.6,
+              9017.8,
+              9018.0,
+              9018.2,
+              9018.4,
+              9018.6,
+              9018.8,
+              9019.0,
+              9019.2,
+              9019.4,
+              9019.6,
+              9019.8,
+              9020.0,
+              9020.2,
+              9020.4,
+              9020.6,
+              9020.8,
+              9021.0,
+              9021.2,
+              9021.4,
+              9021.6,
+              9021.8,
+              9022.0,
+              9022.2,
+              9022.4,
+              9022.6,
+              9022.8,
+              9023.0,
+              9023.2,
+              9023.4,
+              9023.6,
+              9023.8,
+              9024.0,
+              9024.2,
+              9024.4,
+              9024.6,
+              9024.8,
+              9025.0,
+              9025.2,
+              9025.4,
+              9025.6,
+              9025.8,
+              9026.0,
+              9026.2,
+              9026.4,
+              9026.6,
+              9026.8,
+              9027.0,
+              9027.2,
+              9027.4,
+              9027.6,
+              9027.8,
+              9028.0,
+              9028.2,
+              9028.4,
+              9028.6,
+              9028.8,
+              9029.0
+            ]
+          }
+        ],
+        "channels": [
+          {
+            "name": "absorption_cross_section",
+            "unit": "arb",
+            "role": "simulated_observable",
+            "values": [
+              0.034345999,
+              0.035370263,
+              0.037055791,
+              0.038948137,
+              0.041079688,
+              0.043490088,
+              0.046235723,
+              0.049393742,
+              0.053066212,
+              0.057390273,
+              0.062552901,
+              0.068811912,
+              0.076523735,
+              0.086172814,
+              0.09837879,
+              0.11381612,
+              0.13294655,
+              0.1555861,
+              0.18065989,
+              0.2065095,
+              0.23152123,
+              0.25455316,
+              0.27503037,
+              0.29285107,
+              0.30821649,
+              0.3214702,
+              0.33299969,
+              0.34318931,
+              0.35239108,
+              0.36089893,
+              0.36892916,
+              0.37661273,
+              0.38400088,
+              0.39108063,
+              0.39779496,
+              0.40406319,
+              0.40979918,
+              0.41492683,
+              0.41939377,
+              0.42318396,
+              0.42632965,
+              0.42892123,
+              0.43111146,
+              0.43310981,
+              0.43516408,
+              0.43753132,
+              0.44044322,
+              0.44407298,
+              0.44851037,
+              0.45375077,
+              0.45970161,
+              0.46620636,
+              0.47308056,
+              0.48015023,
+              0.48728173,
+              0.49439601,
+              0.50146773,
+              0.50851461,
+              0.51558386,
+              0.5227398,
+              0.53005399,
+              0.53759748,
+              0.54543481,
+              0.55361972,
+              0.56219279,
+              0.57118113,
+              0.5805998,
+              0.59045437,
+              0.60074395,
+              0.61146384,
+              0.62260746,
+              0.63416714,
+              0.64613399,
+              0.65849689,
+              0.67124098,
+              0.68434585,
+              0.69778361,
+              0.71151715,
+              0.72549871,
+              0.739669,
+              0.75395709,
+              0.76828116,
+              0.78255015,
+              0.79666625,
+              0.81052802,
+              0.82403387,
+              0.83708571,
+              0.84959242,
+              0.86147295,
+              0.87265883,
+              0.8830961,
+              0.89274643,
+              0.90158762,
+              0.90961335,
+              0.91683235,
+              0.92326703,
+              0.92895162,
+              0.93392996,
+              0.93825314,
+              0.94197699,
+              0.94515966,
+              0.94785933,
+              0.95013229,
+              0.95203128,
+              0.95360433,
+              0.95489395,
+              0.95593681,
+              0.95676369,
+              0.95739978,
+              0.9578652,
+              0.95817566,
+              0.95834314,
+              0.95837663,
+              0.95828278,
+              0.95806645,
+              0.95773123,
+              0.9572797,
+              0.9567138,
+              0.95603487,
+              0.95524384,
+              0.95434125,
+              0.95332728,
+              0.95220178,
+              0.95096429,
+              0.94961413,
+              0.94815041,
+              0.94657216,
+              0.94487845,
+              0.94306843,
+              0.94114153,
+              0.93909747,
+              0.93693641,
+              0.93465895,
+              0.9322662,
+              0.92975974,
+              0.92714164,
+              0.92441441,
+              0.92158096,
+              0.91864456,
+              0.91560885,
+              0.91247777,
+              0.90925559,
+              0.90594689,
+              0.90255663,
+              0.89909016,
+              0.89555323,
+              0.8919521,
+              0.8882935,
+              0.8845847,
+              0.88083353,
+              0.87704834,
+              0.873238,
+              0.86941184,
+              0.86557962,
+              0.86175141,
+              0.85793752,
+              0.8541484,
+              0.85039454,
+              0.84668633,
+              0.84303401,
+              0.83944751,
+              0.83593641,
+              0.83250983,
+              0.8291764,
+              0.82594416,
+              0.82282055,
+              0.81981237,
+              0.81692577,
+              0.81416624,
+              0.81153859,
+              0.80904699,
+              0.80669497,
+              0.80448539,
+              0.80242054,
+              0.80050209,
+              0.79873114,
+              0.79710823,
+              0.79563334,
+              0.79430598,
+              0.79312511,
+              0.79208926,
+              0.79119647,
+              0.79044438,
+              0.7898302,
+              0.7893508,
+              0.78900266,
+              0.78878198,
+              0.78868463,
+              0.78870626,
+              0.78884227,
+              0.78908785,
+              0.78943802,
+              0.78988769,
+              0.7904316,
+              0.79106444,
+              0.79178082,
+              0.79257532,
+              0.7934425,
+              0.79437693,
+              0.79537321,
+              0.79642598,
+              0.79752994,
+              0.7986799,
+              0.79987073,
+              0.80109742,
+              0.8023551,
+              0.80363899,
+              0.80494447,
+              0.80626706,
+              0.80760241,
+              0.80894633,
+              0.81029479,
+              0.81164387,
+              0.81298984,
+              0.8143291,
+              0.81565818,
+              0.81697375,
+              0.81827261,
+              0.81955168,
+              0.82080799,
+              0.82203867,
+              0.82324095,
+              0.82441215,
+              0.82554965,
+              0.82665091,
+              0.82771346,
+              0.82873487,
+              0.82971275,
+              0.8306448,
+              0.83152872,
+              0.83236226,
+              0.83314323,
+              0.83386947,
+              0.83453888,
+              0.83514939,
+              0.83569903,
+              0.83618587,
+              0.83660808,
+              0.83696393,
+              0.8372518,
+              0.83747022,
+              0.83761785,
+              0.83769355,
+              0.83769638,
+              0.8376256,
+              0.83748074,
+              0.83726159,
+              0.83696824,
+              0.83660108,
+              0.83616083,
+              0.83564857,
+              0.83506574,
+              0.83441411,
+              0.83369587,
+              0.83291354,
+              0.83207004,
+              0.83116861,
+              0.83021285,
+              0.8292067,
+              0.82815437,
+              0.82706036,
+              0.82592941,
+              0.82476648,
+              0.82357667,
+              0.82236525,
+              0.82113752,
+              0.81989886,
+              0.8186546,
+              0.81741,
+              0.8161702,
+              0.81494015,
+              0.81372454,
+              0.81252778,
+              0.81135392,
+              0.81020661,
+              0.80908909
+            ]
+          }
+        ]
+      }
+    ],
+    "qc": {
+      "status": "valid"
+    }
+  },
+  "assets": [
+    {
+      "asset_id": "asset_002_layer_2_CONTCAR",
+      "content_role": "input_structure",
+      "uri": "layer_2/CONTCAR",
+      "media_type": "text/plain",
+      "sha256": "d43fcfc3ae27d53a152b78f31098a857e033b3270dcb79bc2f5e0e5cba42f2a6",
+      "notes": "Collected from layer_2/CONTCAR."
+    },
+    {
+      "asset_id": "asset_039_layer_2_Cu_layer2_bav_txt",
+      "content_role": "raw_data_pointer",
+      "uri": "layer_2/Cu_layer2_bav.txt",
+      "media_type": "text/plain",
+      "sha256": "87de62fba1eec3b21affa8866827ce854be06d40de18906b26a1c9b8cc15c987",
+      "notes": "Collected from layer_2/Cu_layer2_bav.txt."
+    },
+    {
+      "asset_id": "asset_040_layer_2_Cu_layer2_conv_txt",
+      "content_role": "reduction_product",
+      "uri": "layer_2/Cu_layer2_conv.txt",
+      "media_type": "text/plain",
+      "sha256": "d124306934ebd7ae8769cede98cb861c2de66b4287c0255fa5be736ce5ae62fe",
+      "notes": "Collected from layer_2/Cu_layer2_conv.txt."
+    },
+    {
+      "asset_id": "asset_041_layer_2_Cu_layer2_convolution_in_txt",
+      "content_role": "workflow_recipe",
+      "uri": "layer_2/Cu_layer2_convolution_in.txt",
+      "media_type": "text/plain",
+      "sha256": "25c5e292a2ce79644dc0242473d83db85fcd85c37eff39acfcaf2d532c2cebb3",
+      "notes": "Collected from layer_2/Cu_layer2_convolution_in.txt."
+    },
+    {
+      "asset_id": "asset_042_layer_2_Cu_layer2_in_txt",
+      "content_role": "workflow_recipe",
+      "uri": "layer_2/Cu_layer2_in.txt",
+      "media_type": "text/plain",
+      "sha256": "7b0f6af53da8c95975f4217fa9a1899657e0c0e51ddf1bcec708ff989fe229f4",
+      "notes": "Collected from layer_2/Cu_layer2_in.txt."
+    },
+    {
+      "asset_id": "asset_045_layer_2_fdmfile_txt",
+      "content_role": "workflow_recipe",
+      "uri": "layer_2/fdmfile.txt",
+      "media_type": "text/plain",
+      "sha256": "872ee77098b1d3f20a639301f0f22be4c4347b7b28a2e91eaaeed18b924b8ac9",
+      "notes": "Collected from layer_2/fdmfile.txt."
+    },
+    {
+      "asset_id": "asset_051_layer_2_submit_sh",
+      "content_role": "workflow_recipe",
+      "uri": "layer_2/submit.sh",
+      "media_type": "text/plain",
+      "sha256": "a206800f6ef40d0d0a3d258610f62f2f6f6b41a249aa28196115f03cc9998f82",
+      "notes": "Collected from layer_2/submit.sh."
+    },
+    {
+      "asset_id": "asset_052_layer_3_CONTCAR",
+      "content_role": "input_structure",
+      "uri": "layer_3/CONTCAR",
+      "media_type": "text/plain",
+      "sha256": "d43fcfc3ae27d53a152b78f31098a857e033b3270dcb79bc2f5e0e5cba42f2a6",
+      "notes": "Collected from layer_3/CONTCAR."
+    },
+    {
+      "asset_id": "asset_089_layer_3_Cu_layer3_bav_txt",
+      "content_role": "raw_data_pointer",
+      "uri": "layer_3/Cu_layer3_bav.txt",
+      "media_type": "text/plain",
+      "sha256": "3c433383287bf5c95a6fc298258922279814b48fd0ac4e4f0e980afda95d76f0",
+      "notes": "Collected from layer_3/Cu_layer3_bav.txt."
+    },
+    {
+      "asset_id": "asset_090_layer_3_Cu_layer3_conv_txt",
+      "content_role": "reduction_product",
+      "uri": "layer_3/Cu_layer3_conv.txt",
+      "media_type": "text/plain",
+      "sha256": "c5177565e6ad40231e9d1d04517537a56a0734481fef9d0d247ed00894addc0f",
+      "notes": "Collected from layer_3/Cu_layer3_conv.txt."
+    },
+    {
+      "asset_id": "asset_091_layer_3_Cu_layer3_convolution_in_txt",
+      "content_role": "workflow_recipe",
+      "uri": "layer_3/Cu_layer3_convolution_in.txt",
+      "media_type": "text/plain",
+      "sha256": "bf1a4248a218616b0f2f957d6df624beb4c4835789fd3ad994d7e5b4e9c923c9",
+      "notes": "Collected from layer_3/Cu_layer3_convolution_in.txt."
+    },
+    {
+      "asset_id": "asset_092_layer_3_Cu_layer3_in_txt",
+      "content_role": "workflow_recipe",
+      "uri": "layer_3/Cu_layer3_in.txt",
+      "media_type": "text/plain",
+      "sha256": "abdacb615a260683018a017d378410659bdad5cab99c3db456f93a7ce5cfb0cf",
+      "notes": "Collected from layer_3/Cu_layer3_in.txt."
+    },
+    {
+      "asset_id": "asset_095_layer_3_fdmfile_txt",
+      "content_role": "workflow_recipe",
+      "uri": "layer_3/fdmfile.txt",
+      "media_type": "text/plain",
+      "sha256": "32e084a8ee06ce54a663b7a1b5c4a82ced094414e928d0ac55ea0c8ae4012e85",
+      "notes": "Collected from layer_3/fdmfile.txt."
+    },
+    {
+      "asset_id": "asset_101_layer_3_submit_sh",
+      "content_role": "workflow_recipe",
+      "uri": "layer_3/submit.sh",
+      "media_type": "text/plain",
+      "sha256": "a190b02bd3de649893e9bff36b4090c17d0f0f5eda2754a66017b6e2c42c2822",
+      "notes": "Collected from layer_3/submit.sh."
+    },
+    {
+      "asset_id": "asset_102_layer_4_CONTCAR",
+      "content_role": "input_structure",
+      "uri": "layer_4/CONTCAR",
+      "media_type": "text/plain",
+      "sha256": "d43fcfc3ae27d53a152b78f31098a857e033b3270dcb79bc2f5e0e5cba42f2a6",
+      "notes": "Collected from layer_4/CONTCAR."
+    },
+    {
+      "asset_id": "asset_139_layer_4_Cu_layer4_bav_txt",
+      "content_role": "raw_data_pointer",
+      "uri": "layer_4/Cu_layer4_bav.txt",
+      "media_type": "text/plain",
+      "sha256": "9906f037e9871ff1735b5a2b6b3efb3081544adf24330c402b6461f87b2aba2f",
+      "notes": "Collected from layer_4/Cu_layer4_bav.txt."
+    },
+    {
+      "asset_id": "asset_140_layer_4_Cu_layer4_conv_txt",
+      "content_role": "reduction_product",
+      "uri": "layer_4/Cu_layer4_conv.txt",
+      "media_type": "text/plain",
+      "sha256": "1f9faa644405eb3a872684739813a27c4fcf5b46aa0ed3c910f33723d6d3d527",
+      "notes": "Collected from layer_4/Cu_layer4_conv.txt."
+    },
+    {
+      "asset_id": "asset_141_layer_4_Cu_layer4_convolution_in_txt",
+      "content_role": "workflow_recipe",
+      "uri": "layer_4/Cu_layer4_convolution_in.txt",
+      "media_type": "text/plain",
+      "sha256": "2bbfbb2d1b4e0bc8e623804010f51266f81662a7afe27810b6cc8c781c33d361",
+      "notes": "Collected from layer_4/Cu_layer4_convolution_in.txt."
+    },
+    {
+      "asset_id": "asset_142_layer_4_Cu_layer4_in_txt",
+      "content_role": "workflow_recipe",
+      "uri": "layer_4/Cu_layer4_in.txt",
+      "media_type": "text/plain",
+      "sha256": "52df63b496f17b380ac196fb17df0030e3144d4b7bbf6b2e2f312aab20981bc7",
+      "notes": "Collected from layer_4/Cu_layer4_in.txt."
+    },
+    {
+      "asset_id": "asset_143_layer_4_Cu_layer4_resume_in_txt",
+      "content_role": "workflow_recipe",
+      "uri": "layer_4/Cu_layer4_resume_in.txt",
+      "media_type": "text/plain",
+      "sha256": "8fcea3a65a53c1c8144e5642503f8adfc82a8b133d37b395d655513be57c05c8",
+      "notes": "Collected from layer_4/Cu_layer4_resume_in.txt."
+    },
+    {
+      "asset_id": "asset_146_layer_4_fdmfile_txt",
+      "content_role": "workflow_recipe",
+      "uri": "layer_4/fdmfile.txt",
+      "media_type": "text/plain",
+      "sha256": "030996e8280b736846b4b20f7c41b1550841330926bd958c52895baa10bb1e6e",
+      "notes": "Collected from layer_4/fdmfile.txt."
+    },
+    {
+      "asset_id": "asset_155_layer_4_submit_sh",
+      "content_role": "workflow_recipe",
+      "uri": "layer_4/submit.sh",
+      "media_type": "text/plain",
+      "sha256": "90cc64175c50eae8072bc2bf46b57d34e6057fcd25ac8dd14059bce834342d69",
+      "notes": "Collected from layer_4/submit.sh."
+    },
+    {
+      "asset_id": "asset_156_layer_5_CONTCAR",
+      "content_role": "input_structure",
+      "uri": "layer_5/CONTCAR",
+      "media_type": "text/plain",
+      "sha256": "d43fcfc3ae27d53a152b78f31098a857e033b3270dcb79bc2f5e0e5cba42f2a6",
+      "notes": "Collected from layer_5/CONTCAR."
+    },
+    {
+      "asset_id": "asset_193_layer_5_Cu_layer5_bav_txt",
+      "content_role": "raw_data_pointer",
+      "uri": "layer_5/Cu_layer5_bav.txt",
+      "media_type": "text/plain",
+      "sha256": "ac2974166bbae348ca9af9103fb46600f0cd505a42ee53562d78557e0289fb8a",
+      "notes": "Collected from layer_5/Cu_layer5_bav.txt."
+    },
+    {
+      "asset_id": "asset_194_layer_5_Cu_layer5_conv_txt",
+      "content_role": "reduction_product",
+      "uri": "layer_5/Cu_layer5_conv.txt",
+      "media_type": "text/plain",
+      "sha256": "d03b9e54d2f909354df4f8a658d8359d2a97bcc67be2794ce1ced122fb962fbd",
+      "notes": "Collected from layer_5/Cu_layer5_conv.txt."
+    },
+    {
+      "asset_id": "asset_195_layer_5_Cu_layer5_convolution_in_txt",
+      "content_role": "workflow_recipe",
+      "uri": "layer_5/Cu_layer5_convolution_in.txt",
+      "media_type": "text/plain",
+      "sha256": "47daef821b6792eb6d382c40ad3a88972ae8ea14cbd6c7b80c46bec170924dab",
+      "notes": "Collected from layer_5/Cu_layer5_convolution_in.txt."
+    },
+    {
+      "asset_id": "asset_196_layer_5_Cu_layer5_in_txt",
+      "content_role": "workflow_recipe",
+      "uri": "layer_5/Cu_layer5_in.txt",
+      "media_type": "text/plain",
+      "sha256": "fbd685261e0c3ef2e6a7f00798add1ba71758853dd73006cf5c383051e2a1589",
+      "notes": "Collected from layer_5/Cu_layer5_in.txt."
+    },
+    {
+      "asset_id": "asset_197_layer_5_Cu_layer5_resume_in_txt",
+      "content_role": "workflow_recipe",
+      "uri": "layer_5/Cu_layer5_resume_in.txt",
+      "media_type": "text/plain",
+      "sha256": "be5e960f907be3a4183f4ad9eb889b8dad0bd167936e3240dbbe39ad724baa85",
+      "notes": "Collected from layer_5/Cu_layer5_resume_in.txt."
+    },
+    {
+      "asset_id": "asset_200_layer_5_fdmfile_txt",
+      "content_role": "workflow_recipe",
+      "uri": "layer_5/fdmfile.txt",
+      "media_type": "text/plain",
+      "sha256": "4571077ff099c5a3c802d6c70698b3a202854482fccfb0e94c1e5f838cc10b2d",
+      "notes": "Collected from layer_5/fdmfile.txt."
+    },
+    {
+      "asset_id": "asset_209_layer_5_submit_sh",
+      "content_role": "workflow_recipe",
+      "uri": "layer_5/submit.sh",
+      "media_type": "text/plain",
+      "sha256": "f48a0e21c2a4e8030169ccc31c385163dcdaf6a01dc87df01dcb15374d4a6581",
+      "notes": "Collected from layer_5/submit.sh."
+    },
+    {
+      "asset_id": "relaxed_structure_contcar",
+      "content_role": "input_structure",
+      "uri": "../../../CONTCAR",
+      "media_type": "chemical/x-poscar",
+      "sha256": "d43fcfc3ae27d53a152b78f31098a857e033b3270dcb79bc2f5e0e5cba42f2a6",
+      "notes": "Single relaxed CONTCAR shared by all four layer-resolved Cu K-edge spectra; used for adsorption-site assignment."
+    },
+    {
+      "asset_id": "initial_structure_poscar",
+      "content_role": "input_structure",
+      "uri": "../../../POSCAR",
+      "media_type": "chemical/x-poscar",
+      "sha256": "1ca6f9ce99eab7df378bbca2e4f7e27c4cafbbf616e5e60b00a1760e8ee32ed5",
+      "notes": "Initial POSCAR used only to cross-check adsorbate composition/count against the relaxed CONTCAR."
+    }
+  ],
+  "links": [
+    {
+      "rel": "source_export",
+      "target": "CO/CO_0p5/interior_biased/XAS/FDMNES/green"
+    }
+  ],
+  "descriptors": {
+    "outputs": []
+  },
+  "tags": [
+    "CO2RR_XAS_agent",
+    "XAS_simulation",
+    "FDMNES",
+    "layer_resolved",
+    "CONTCAR_structure"
+  ],
+  "attribution": {
+    "produced_by": {
+      "group": "Maria K. Y. Chan group",
+      "organization": "Argonne National Laboratory",
+      "people": [
+        "Haili Jia",
+        "Maria K. Y. Chan"
+      ]
+    },
+    "contributors": [
+      {
+        "name": "Haili Jia",
+        "role": "data_owner",
+        "affiliation": "Argonne National Laboratory"
+      },
+      {
+        "name": "Maria K. Y. Chan",
+        "role": "data_owner",
+        "affiliation": "Argonne National Laboratory"
+      }
+    ]
+  },
+  "conversion_provenance": {
+    "version": "dataset-refresh-20261029",
+    "route": "author_layer_shell",
+    "relaxed_structure_status": "requires_independent_audit",
+    "original_record_sha256": "3057e8338bcbeee519cfa16f6eb11de26685dc7a6b876fd375e623fb9b597f0c",
+    "native_files": {
+      "2": {
+        "path": "CO/CO_0p5/interior_biased/XAS/FDMNES/green/layer_2/Cu_layer2_conv.txt",
+        "sha256": "d124306934ebd7ae8769cede98cb861c2de66b4287c0255fa5be736ce5ae62fe"
+      },
+      "3": {
+        "path": "CO/CO_0p5/interior_biased/XAS/FDMNES/green/layer_3/Cu_layer3_conv.txt",
+        "sha256": "c5177565e6ad40231e9d1d04517537a56a0734481fef9d0d247ed00894addc0f"
+      },
+      "4": {
+        "path": "CO/CO_0p5/interior_biased/XAS/FDMNES/green/layer_4/Cu_layer4_conv.txt",
+        "sha256": "1f9faa644405eb3a872684739813a27c4fcf5b46aa0ed3c910f33723d6d3d527"
+      },
+      "5": {
+        "path": "CO/CO_0p5/interior_biased/XAS/FDMNES/green/layer_5/Cu_layer5_conv.txt",
+        "sha256": "d03b9e54d2f909354df4f8a658d8359d2a97bcc67be2794ce1ced122fb962fbd"
+      }
+    }
+  },
+  "geometry_provenance": {
+    "basis": "actual_FDMNES_Crystal",
+    "CONTCAR_verified": true,
+    "ASE_lineage": null,
+    "relaxation_status": "saved_CONTCAR_with_explicit_lineage_audit",
+    "geometry_sha256": "55381e500cc92708dd716c835dabd6f183ae460a0f99f4955624d33804e968ae",
+    "top_two_layers": [
+      4,
+      5
+    ],
+    "top_two_populations": {
+      "4": 36,
+      "5": 36
+    },
+    "current_export": "CO2RR_1029",
+    "source_record_sha256": "3057e8338bcbeee519cfa16f6eb11de26685dc7a6b876fd375e623fb9b597f0c",
+    "CONTCAR_or_ASE_mapping": {
+      "status": "matched",
+      "max_distance_A": 1.7813272010091395e-09,
+      "rms_distance_A": 1.037880715832813e-09,
+      "one_based_mapping": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          8,
+          8
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          11,
+          11
+        ],
+        [
+          12,
+          12
+        ],
+        [
+          13,
+          13
+        ],
+        [
+          14,
+          14
+        ],
+        [
+          15,
+          15
+        ],
+        [
+          16,
+          16
+        ],
+        [
+          17,
+          17
+        ],
+        [
+          18,
+          18
+        ],
+        [
+          19,
+          19
+        ],
+        [
+          20,
+          20
+        ],
+        [
+          21,
+          21
+        ],
+        [
+          22,
+          22
+        ],
+        [
+          23,
+          23
+        ],
+        [
+          24,
+          24
+        ],
+        [
+          25,
+          25
+        ],
+        [
+          26,
+          26
+        ],
+        [
+          27,
+          27
+        ],
+        [
+          28,
+          28
+        ],
+        [
+          29,
+          29
+        ],
+        [
+          30,
+          30
+        ],
+        [
+          31,
+          31
+        ],
+        [
+          32,
+          32
+        ],
+        [
+          33,
+          33
+        ],
+        [
+          34,
+          34
+        ],
+        [
+          35,
+          35
+        ],
+        [
+          36,
+          36
+        ],
+        [
+          37,
+          37
+        ],
+        [
+          38,
+          38
+        ],
+        [
+          39,
+          39
+        ],
+        [
+          40,
+          40
+        ],
+        [
+          41,
+          41
+        ],
+        [
+          42,
+          42
+        ],
+        [
+          43,
+          43
+        ],
+        [
+          44,
+          44
+        ],
+        [
+          45,
+          45
+        ],
+        [
+          46,
+          46
+        ],
+        [
+          47,
+          47
+        ],
+        [
+          48,
+          48
+        ],
+        [
+          49,
+          49
+        ],
+        [
+          50,
+          50
+        ],
+        [
+          51,
+          51
+        ],
+        [
+          52,
+          52
+        ],
+        [
+          53,
+          53
+        ],
+        [
+          54,
+          54
+        ],
+        [
+          55,
+          55
+        ],
+        [
+          56,
+          56
+        ],
+        [
+          57,
+          57
+        ],
+        [
+          58,
+          58
+        ],
+        [
+          59,
+          59
+        ],
+        [
+          60,
+          60
+        ],
+        [
+          61,
+          61
+        ],
+        [
+          62,
+          62
+        ],
+        [
+          63,
+          63
+        ],
+        [
+          64,
+          64
+        ],
+        [
+          65,
+          65
+        ],
+        [
+          66,
+          66
+        ],
+        [
+          67,
+          67
+        ],
+        [
+          68,
+          68
+        ],
+        [
+          69,
+          69
+        ],
+        [
+          70,
+          70
+        ],
+        [
+          71,
+          71
+        ],
+        [
+          72,
+          72
+        ],
+        [
+          73,
+          73
+        ],
+        [
+          74,
+          74
+        ],
+        [
+          75,
+          75
+        ],
+        [
+          76,
+          76
+        ],
+        [
+          77,
+          77
+        ],
+        [
+          78,
+          78
+        ],
+        [
+          79,
+          79
+        ],
+        [
+          80,
+          80
+        ],
+        [
+          81,
+          81
+        ],
+        [
+          82,
+          82
+        ],
+        [
+          83,
+          83
+        ],
+        [
+          84,
+          84
+        ],
+        [
+          85,
+          85
+        ],
+        [
+          86,
+          86
+        ],
+        [
+          87,
+          87
+        ],
+        [
+          88,
+          88
+        ],
+        [
+          89,
+          89
+        ],
+        [
+          90,
+          90
+        ],
+        [
+          91,
+          91
+        ],
+        [
+          92,
+          92
+        ],
+        [
+          93,
+          93
+        ],
+        [
+          94,
+          94
+        ],
+        [
+          95,
+          95
+        ],
+        [
+          96,
+          96
+        ],
+        [
+          97,
+          97
+        ],
+        [
+          98,
+          98
+        ],
+        [
+          99,
+          99
+        ],
+        [
+          100,
+          100
+        ],
+        [
+          101,
+          101
+        ],
+        [
+          102,
+          102
+        ],
+        [
+          103,
+          103
+        ],
+        [
+          104,
+          104
+        ],
+        [
+          105,
+          105
+        ],
+        [
+          106,
+          106
+        ],
+        [
+          107,
+          107
+        ],
+        [
+          108,
+          108
+        ],
+        [
+          109,
+          109
+        ],
+        [
+          110,
+          110
+        ],
+        [
+          111,
+          111
+        ],
+        [
+          112,
+          112
+        ],
+        [
+          113,
+          113
+        ],
+        [
+          114,
+          114
+        ],
+        [
+          115,
+          115
+        ],
+        [
+          116,
+          116
+        ],
+        [
+          117,
+          117
+        ],
+        [
+          118,
+          118
+        ],
+        [
+          119,
+          119
+        ],
+        [
+          120,
+          120
+        ],
+        [
+          121,
+          121
+        ],
+        [
+          122,
+          122
+        ],
+        [
+          123,
+          123
+        ],
+        [
+          124,
+          124
+        ],
+        [
+          125,
+          125
+        ],
+        [
+          126,
+          126
+        ],
+        [
+          127,
+          127
+        ],
+        [
+          128,
+          128
+        ],
+        [
+          129,
+          129
+        ],
+        [
+          130,
+          130
+        ],
+        [
+          131,
+          131
+        ],
+        [
+          132,
+          132
+        ],
+        [
+          133,
+          133
+        ],
+        [
+          134,
+          134
+        ],
+        [
+          135,
+          135
+        ],
+        [
+          136,
+          136
+        ],
+        [
+          137,
+          137
+        ],
+        [
+          138,
+          138
+        ],
+        [
+          139,
+          139
+        ],
+        [
+          140,
+          140
+        ],
+        [
+          141,
+          141
+        ],
+        [
+          142,
+          142
+        ],
+        [
+          143,
+          143
+        ],
+        [
+          144,
+          144
+        ],
+        [
+          145,
+          145
+        ],
+        [
+          146,
+          146
+        ],
+        [
+          147,
+          147
+        ],
+        [
+          148,
+          148
+        ],
+        [
+          149,
+          149
+        ],
+        [
+          150,
+          150
+        ],
+        [
+          151,
+          151
+        ],
+        [
+          152,
+          152
+        ],
+        [
+          153,
+          153
+        ],
+        [
+          154,
+          154
+        ],
+        [
+          155,
+          155
+        ],
+        [
+          156,
+          156
+        ],
+        [
+          157,
+          157
+        ],
+        [
+          158,
+          158
+        ],
+        [
+          159,
+          159
+        ],
+        [
+          160,
+          160
+        ],
+        [
+          161,
+          161
+        ],
+        [
+          162,
+          162
+        ],
+        [
+          163,
+          163
+        ],
+        [
+          164,
+          164
+        ],
+        [
+          165,
+          165
+        ],
+        [
+          166,
+          166
+        ],
+        [
+          167,
+          167
+        ],
+        [
+          168,
+          168
+        ],
+        [
+          169,
+          169
+        ],
+        [
+          170,
+          170
+        ],
+        [
+          171,
+          171
+        ],
+        [
+          172,
+          172
+        ],
+        [
+          173,
+          173
+        ],
+        [
+          174,
+          174
+        ],
+        [
+          175,
+          175
+        ],
+        [
+          176,
+          176
+        ],
+        [
+          177,
+          177
+        ],
+        [
+          178,
+          178
+        ],
+        [
+          179,
+          179
+        ],
+        [
+          180,
+          180
+        ],
+        [
+          181,
+          181
+        ],
+        [
+          182,
+          182
+        ],
+        [
+          183,
+          183
+        ],
+        [
+          184,
+          184
+        ],
+        [
+          185,
+          185
+        ],
+        [
+          186,
+          186
+        ],
+        [
+          187,
+          187
+        ],
+        [
+          188,
+          188
+        ],
+        [
+          189,
+          189
+        ],
+        [
+          190,
+          190
+        ],
+        [
+          191,
+          191
+        ],
+        [
+          192,
+          192
+        ],
+        [
+          193,
+          193
+        ],
+        [
+          194,
+          194
+        ],
+        [
+          195,
+          195
+        ],
+        [
+          196,
+          196
+        ],
+        [
+          197,
+          197
+        ],
+        [
+          198,
+          198
+        ],
+        [
+          199,
+          199
+        ],
+        [
+          200,
+          200
+        ],
+        [
+          201,
+          201
+        ],
+        [
+          202,
+          202
+        ],
+        [
+          203,
+          203
+        ],
+        [
+          204,
+          204
+        ],
+        [
+          205,
+          205
+        ],
+        [
+          206,
+          206
+        ],
+        [
+          207,
+          207
+        ],
+        [
+          208,
+          208
+        ],
+        [
+          209,
+          209
+        ],
+        [
+          210,
+          210
+        ],
+        [
+          211,
+          211
+        ],
+        [
+          212,
+          212
+        ],
+        [
+          213,
+          213
+        ],
+        [
+          214,
+          214
+        ],
+        [
+          215,
+          215
+        ],
+        [
+          216,
+          216
+        ],
+        [
+          217,
+          217
+        ],
+        [
+          218,
+          218
+        ],
+        [
+          219,
+          219
+        ],
+        [
+          220,
+          220
+        ],
+        [
+          221,
+          221
+        ],
+        [
+          222,
+          222
+        ],
+        [
+          223,
+          223
+        ],
+        [
+          224,
+          224
+        ],
+        [
+          225,
+          225
+        ],
+        [
+          226,
+          226
+        ],
+        [
+          227,
+          227
+        ],
+        [
+          228,
+          228
+        ],
+        [
+          229,
+          229
+        ],
+        [
+          230,
+          230
+        ],
+        [
+          231,
+          231
+        ],
+        [
+          232,
+          232
+        ],
+        [
+          233,
+          233
+        ],
+        [
+          234,
+          234
+        ],
+        [
+          235,
+          235
+        ],
+        [
+          236,
+          236
+        ],
+        [
+          237,
+          237
+        ],
+        [
+          238,
+          238
+        ],
+        [
+          239,
+          239
+        ],
+        [
+          240,
+          240
+        ],
+        [
+          241,
+          241
+        ],
+        [
+          242,
+          242
+        ],
+        [
+          243,
+          243
+        ],
+        [
+          244,
+          244
+        ],
+        [
+          245,
+          245
+        ],
+        [
+          246,
+          246
+        ],
+        [
+          247,
+          247
+        ],
+        [
+          248,
+          248
+        ],
+        [
+          249,
+          249
+        ],
+        [
+          250,
+          250
+        ],
+        [
+          251,
+          251
+        ],
+        [
+          252,
+          252
+        ],
+        [
+          253,
+          253
+        ],
+        [
+          254,
+          254
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          257,
+          257
+        ],
+        [
+          258,
+          258
+        ],
+        [
+          259,
+          259
+        ],
+        [
+          260,
+          260
+        ],
+        [
+          261,
+          261
+        ],
+        [
+          262,
+          262
+        ],
+        [
+          263,
+          263
+        ],
+        [
+          264,
+          264
+        ],
+        [
+          265,
+          265
+        ],
+        [
+          266,
+          266
+        ],
+        [
+          267,
+          267
+        ],
+        [
+          268,
+          268
+        ],
+        [
+          269,
+          269
+        ],
+        [
+          270,
+          270
+        ],
+        [
+          271,
+          271
+        ],
+        [
+          272,
+          272
+        ],
+        [
+          273,
+          273
+        ],
+        [
+          274,
+          274
+        ],
+        [
+          275,
+          275
+        ],
+        [
+          276,
+          276
+        ],
+        [
+          277,
+          277
+        ],
+        [
+          278,
+          278
+        ],
+        [
+          279,
+          279
+        ],
+        [
+          280,
+          280
+        ],
+        [
+          281,
+          281
+        ],
+        [
+          282,
+          282
+        ],
+        [
+          283,
+          283
+        ],
+        [
+          284,
+          284
+        ],
+        [
+          285,
+          285
+        ],
+        [
+          286,
+          286
+        ],
+        [
+          287,
+          287
+        ],
+        [
+          288,
+          288
+        ],
+        [
+          289,
+          289
+        ],
+        [
+          290,
+          290
+        ],
+        [
+          291,
+          291
+        ],
+        [
+          292,
+          292
+        ],
+        [
+          293,
+          293
+        ],
+        [
+          294,
+          294
+        ],
+        [
+          295,
+          295
+        ],
+        [
+          296,
+          296
+        ],
+        [
+          297,
+          297
+        ],
+        [
+          298,
+          298
+        ],
+        [
+          299,
+          299
+        ],
+        [
+          300,
+          300
+        ],
+        [
+          301,
+          301
+        ],
+        [
+          302,
+          302
+        ],
+        [
+          303,
+          303
+        ],
+        [
+          304,
+          304
+        ],
+        [
+          305,
+          305
+        ],
+        [
+          306,
+          306
+        ],
+        [
+          307,
+          307
+        ],
+        [
+          308,
+          308
+        ],
+        [
+          309,
+          309
+        ],
+        [
+          310,
+          310
+        ],
+        [
+          311,
+          311
+        ],
+        [
+          312,
+          312
+        ],
+        [
+          313,
+          313
+        ],
+        [
+          314,
+          314
+        ],
+        [
+          315,
+          315
+        ],
+        [
+          316,
+          316
+        ],
+        [
+          317,
+          317
+        ],
+        [
+          318,
+          318
+        ],
+        [
+          319,
+          319
+        ],
+        [
+          320,
+          320
+        ],
+        [
+          321,
+          321
+        ],
+        [
+          322,
+          322
+        ],
+        [
+          323,
+          323
+        ],
+        [
+          324,
+          324
+        ],
+        [
+          325,
+          325
+        ],
+        [
+          326,
+          326
+        ],
+        [
+          327,
+          327
+        ],
+        [
+          328,
+          328
+        ],
+        [
+          329,
+          329
+        ],
+        [
+          330,
+          330
+        ],
+        [
+          331,
+          331
+        ],
+        [
+          332,
+          332
+        ],
+        [
+          333,
+          333
+        ],
+        [
+          334,
+          334
+        ],
+        [
+          335,
+          335
+        ],
+        [
+          336,
+          336
+        ],
+        [
+          337,
+          337
+        ],
+        [
+          338,
+          338
+        ],
+        [
+          339,
+          339
+        ],
+        [
+          340,
+          340
+        ],
+        [
+          341,
+          341
+        ],
+        [
+          342,
+          342
+        ],
+        [
+          343,
+          343
+        ],
+        [
+          344,
+          344
+        ],
+        [
+          345,
+          345
+        ],
+        [
+          346,
+          346
+        ],
+        [
+          347,
+          347
+        ],
+        [
+          348,
+          348
+        ],
+        [
+          349,
+          349
+        ],
+        [
+          350,
+          350
+        ],
+        [
+          351,
+          351
+        ],
+        [
+          352,
+          352
+        ],
+        [
+          353,
+          353
+        ],
+        [
+          354,
+          354
+        ],
+        [
+          355,
+          355
+        ],
+        [
+          356,
+          356
+        ],
+        [
+          357,
+          357
+        ],
+        [
+          358,
+          358
+        ],
+        [
+          359,
+          359
+        ],
+        [
+          360,
+          360
+        ],
+        [
+          361,
+          361
+        ],
+        [
+          362,
+          362
+        ],
+        [
+          363,
+          363
+        ],
+        [
+          364,
+          364
+        ],
+        [
+          365,
+          365
+        ],
+        [
+          366,
+          366
+        ],
+        [
+          367,
+          367
+        ],
+        [
+          368,
+          368
+        ],
+        [
+          369,
+          369
+        ],
+        [
+          370,
+          370
+        ],
+        [
+          371,
+          371
+        ],
+        [
+          372,
+          372
+        ],
+        [
+          373,
+          373
+        ],
+        [
+          374,
+          374
+        ],
+        [
+          375,
+          375
+        ],
+        [
+          376,
+          376
+        ]
+      ],
+      "index_reordered": false,
+      "mapping_caveat": "Element-wise nearest-coordinate assignment verifies exact geometry copies. For changed relaxed geometries it is not a trajectory-based proof of atom exchange or reordering.",
+      "same_index_max_displacement_A": 1.7813272010091395e-09
+    },
+    "label_status": "verified",
+    "eligible_for_model": true,
+    "exclusion": null,
+    "relaxation_termination": "not independently established by a CONTCAR file alone"
+  }
+}

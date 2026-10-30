@@ -1,0 +1,10 @@
+{
+  "root": "CO2RR_1029",
+  "source_bytes_selected": 282856932,
+  "selected_files": 26198,
+  "new_files": 4549,
+  "reused_exact_source_bytes": 21649,
+  "new_compressed_bytes": 16663500,
+  "exclusions": "wavefunctions, charge densities, licensed POTCAR contents, executable binaries, hidden files, verbose BAV/raw-run/relaxation logs and trajectories redundant to retained exact CONTCAR/inputs/raw per-site electronic spectra/final convolution logs; benchmark files above50MB excluded from this ML refresh package (prior benchmark sources remain archived); no new calculation or portal write",
+  "source_packages_are_not_all_completed_training_examples": true
+}

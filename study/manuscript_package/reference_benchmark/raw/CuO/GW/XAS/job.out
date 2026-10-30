@@ -1,0 +1,98 @@
+ ----------------------------------------------------
+    OOO  PPPP  EEEEE N   N M   M PPPP
+   O   O P   P E     NN  N MM MM P   P
+   O   O PPPP  EEEEE N N N M M M PPPP   -- VERSION
+   O   O P     E     N  NN M   M P
+    OOO  P     EEEEE N   N M   M P
+ ----------------------------------------------------
+ running   64 mpi-ranks, with    1 threads/rank
+ distrk:  each k-point on   64 cores,    1 groups
+ distr:  one band on    1 cores,   64 groups
+ vasp.6.3.2 27Jun22 (build May 28 2024 15:01:12) complex                        
+  
+ POSCAR found type information on POSCAR CuCuO 
+ POSCAR found :  3 types and     128 ions
+ Reading from existing POTCAR
+ -----------------------------------------------------------------------------
+|                                                                             |
+|           W    W    AA    RRRRR   N    N  II  N    N   GGGG   !!!           |
+|           W    W   A  A   R    R  NN   N  II  NN   N  G    G  !!!           |
+|           W    W  A    A  R    R  N N  N  II  N N  N  G       !!!           |
+|           W WW W  AAAAAA  RRRRR   N  N N  II  N  N N  G  GGG   !            |
+|           WW  WW  A    A  R   R   N   NN  II  N   NN  G    G                |
+|           W    W  A    A  R    R  N    N  II  N    N   GGGG   !!!           |
+|                                                                             |
+|     You use a magnetic or noncollinear calculation, but did not specify     |
+|     the initial magnetic moment with the MAGMOM tag. Note that a            |
+|     default of 1 will be used for all atoms. This ferromagnetic setup       |
+|     may break the symmetry of the crystal, in particular it may rule        |
+|     out finding an antiferromagnetic solution. Thence, we recommend         |
+|     setting the initial magnetic moment manually or verifying carefully     |
+|     that this magnetic setup is desired.                                    |
+|                                                                             |
+ -----------------------------------------------------------------------------
+
+ scaLAPACK will be used
+ Reading from existing POTCAR
+ LDA part: xc-table for Pade appr. of Perdew
+ -----------------------------------------------------------------------------
+|                                                                             |
+|           W    W    AA    RRRRR   N    N  II  N    N   GGGG   !!!           |
+|           W    W   A  A   R    R  NN   N  II  NN   N  G    G  !!!           |
+|           W    W  A    A  R    R  N N  N  II  N N  N  G       !!!           |
+|           W WW W  AAAAAA  RRRRR   N  N N  II  N  N N  G  GGG   !            |
+|           WW  WW  A    A  R   R   N   NN  II  N   NN  G    G                |
+|           W    W  A    A  R    R  N    N  II  N    N   GGGG   !!!           |
+|                                                                             |
+|     The number of bands has been changed from the values supplied in        |
+|     the INCAR file. This is a result of running the parallel version.       |
+|     The orbitals not found in the WAVECAR file will be initialized with     |
+|     random numbers, which is usually adequate. For correlated               |
+|     calculations, however, you should redo the groundstate calculation.     |
+|     I found NBANDS = 3312. Now, NBANDS = 3328.                              |
+|                                                                             |
+ -----------------------------------------------------------------------------
+
+ found WAVECAR, reading the header
+  number of bands has changed, file:   768 present:  3328
+  trying to continue reading WAVECAR, but it might fail
+ WAVECAR: different cutoff or change in lattice found
+ POSCAR, INCAR and KPOINTS ok, starting setup
+ FFT: planning ... GRIDC
+ FFT: planning ... GRID_SOFT
+ FFT: planning ... GRID
+ reading WAVECAR
+ random initialization beyond band          768
+ the WAVECAR file was read successfully
+ initial charge from wavefunction
+ entering main loop
+       N       E                     dE             d eps       ncg     rms          rms(c)
+DAV:   1    -0.709906661158E+03   -0.70991E+03   -0.12790E+02186368   0.457E+01BRMIX: very serious problems
+ the old and the new charge density differ
+ old charge density:  1088.00097 new 1089.00099
+    0.371E+02
+RMM:   2    -0.666526218357E+03    0.43380E+02   -0.79483E+01351674   0.204E+00    0.785E+01
+RMM:   3    -0.682893720403E+03   -0.16368E+02   -0.73601E+00337799   0.125E+00    0.116E+02
+RMM:   4    -0.657235069957E+03    0.25659E+02   -0.27589E+00330381   0.831E-01    0.763E+01
+RMM:   5    -0.653720897332E+03    0.35142E+01   -0.32312E-01336591   0.299E-01    0.622E+01
+RMM:   6    -0.654066763910E+03   -0.34587E+00   -0.10900E-01330909   0.176E-01    0.538E+01
+RMM:   7    -0.655141954778E+03   -0.10752E+01   -0.20087E-01338058   0.239E-01    0.493E+01
+RMM:   8    -0.655265392786E+03   -0.12344E+00   -0.41623E-01331138   0.360E-01    0.376E+01
+RMM:   9    -0.655459614107E+03   -0.19422E+00   -0.14505E-01343536   0.201E-01    0.314E+01
+RMM:  10    -0.655877168333E+03   -0.41755E+00   -0.15378E-01327762   0.201E-01    0.252E+01
+RMM:  11    -0.656112938993E+03   -0.23577E+00   -0.12029E-01337326   0.172E-01    0.209E+01
+RMM:  12    -0.656230151995E+03   -0.11721E+00   -0.10049E-01329829   0.159E-01    0.175E+01
+RMM:  13    -0.656279523952E+03   -0.49372E-01   -0.33575E-02336942   0.956E-02    0.130E+01
+RMM:  14    -0.656248392300E+03    0.31132E-01   -0.32460E-02328387   0.906E-02    0.686E+00
+RMM:  15    -0.656234631805E+03    0.13760E-01   -0.99358E-03336350   0.535E-02    0.401E+00
+RMM:  16    -0.656234205075E+03    0.42673E-03   -0.29918E-03336694   0.251E-02    0.210E+00
+RMM:  17    -0.656236036115E+03   -0.18310E-02   -0.26193E-03323469   0.255E-02    0.111E+00
+RMM:  18    -0.656236064286E+03   -0.28171E-04   -0.62494E-04336235   0.120E-02    0.492E-01
+RMM:  19    -0.656236336740E+03   -0.27245E-03   -0.18124E-04332780   0.660E-03    0.349E-01
+RMM:  20    -0.656236347714E+03   -0.10975E-04   -0.10532E-04329024   0.505E-03    0.226E-01
+RMM:  21    -0.656236334068E+03    0.13646E-04   -0.35786E-05317273   0.318E-03    0.130E-01
+RMM:  22    -0.656236339780E+03   -0.57122E-05   -0.25977E-05309364   0.273E-03
+   1 F= -.65623634E+03 E0= -.65622656E+03  d E =-.195512E-01  mag=    56.8267
+ writing wavefunctions
+ Starting Core_Hole_Spec
+ Ending Core_Hole_Spec

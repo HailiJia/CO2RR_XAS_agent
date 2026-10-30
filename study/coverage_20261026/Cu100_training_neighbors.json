@@ -1,0 +1,461 @@
+[
+  {
+    "configuration": "Cu100/Cu100_2x2x4_1CO3_1H2O_hollow_flat-1HB",
+    "neighbors": [
+      {
+        "configuration": "CO/CO_0p5/interior_biased",
+        "distance_unit_area_L2": 0.007928908554361916,
+        "labels": [
+          "CO"
+        ]
+      },
+      {
+        "configuration": "H/H_0p5/Au",
+        "distance_unit_area_L2": 0.008223297447274548,
+        "labels": [
+          "H"
+        ]
+      },
+      {
+        "configuration": "H/H_0p75/mixed",
+        "distance_unit_area_L2": 0.00827437121961904,
+        "labels": [
+          "H"
+        ]
+      }
+    ],
+    "domain": "Cu100; facet/composition/cell/layer-population change; no validated parent transfer"
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_1CO3_hollow",
+    "neighbors": [
+      {
+        "configuration": "OH/OH_0p25_interface_Au",
+        "distance_unit_area_L2": 0.006625450964092793,
+        "labels": [
+          "OH"
+        ]
+      },
+      {
+        "configuration": "CO/CO_0p5/interior_biased",
+        "distance_unit_area_L2": 0.006678593054072959,
+        "labels": [
+          "CO"
+        ]
+      },
+      {
+        "configuration": "OH/OH_0p25_interior_biased",
+        "distance_unit_area_L2": 0.006851391992565505,
+        "labels": [
+          "OH"
+        ]
+      }
+    ],
+    "domain": "Cu100; facet/composition/cell/layer-population change; no validated parent transfer"
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_1H2O_1CO_H2Otop_CObridge",
+    "neighbors": [
+      {
+        "configuration": "OCCO_CO/OCCO_plus_CO_0p222_Cu_rich",
+        "distance_unit_area_L2": 0.004948808598782709,
+        "labels": [
+          "CO"
+        ]
+      },
+      {
+        "configuration": "COH/CHO_0p111_interface_Cu3",
+        "distance_unit_area_L2": 0.0050874841804245206,
+        "labels": [
+          "COH"
+        ]
+      },
+      {
+        "configuration": "COH/COH_0p167_uniform",
+        "distance_unit_area_L2": 0.00508982492824379,
+        "labels": [
+          "COH"
+        ]
+      }
+    ],
+    "domain": "Cu100; facet/composition/cell/layer-population change; no validated parent transfer"
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_1H2O_1OH_H2Otop_OHbridge",
+    "neighbors": [
+      {
+        "configuration": "OH/OH_0p25_uniform",
+        "distance_unit_area_L2": 0.005306799713835751,
+        "labels": [
+          "OH"
+        ]
+      },
+      {
+        "configuration": "OH/OH_0p125_interior_biased",
+        "distance_unit_area_L2": 0.00539505523427784,
+        "labels": [
+          "OH"
+        ]
+      },
+      {
+        "configuration": "OH/OH_0p25_interior_biased",
+        "distance_unit_area_L2": 0.005421759565488801,
+        "labels": [
+          "OH"
+        ]
+      }
+    ],
+    "domain": "Cu100; facet/composition/cell/layer-population change; no validated parent transfer"
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_1H2O_2OH_H2Otop_OHbridge-top",
+    "neighbors": [
+      {
+        "configuration": "CO/CO_0p5/interior_biased",
+        "distance_unit_area_L2": 0.006826105391626465,
+        "labels": [
+          "CO"
+        ]
+      },
+      {
+        "configuration": "H/H_0p75/uniform",
+        "distance_unit_area_L2": 0.007316311923138381,
+        "labels": [
+          "H"
+        ]
+      },
+      {
+        "configuration": "H/H_0p75/0p88_mixed",
+        "distance_unit_area_L2": 0.007429071212678966,
+        "labels": [
+          "H"
+        ]
+      }
+    ],
+    "domain": "Cu100; facet/composition/cell/layer-population change; no validated parent transfer"
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_CO_1_4_top",
+    "neighbors": [
+      {
+        "configuration": "CO/CO_0p25/interior_biased",
+        "distance_unit_area_L2": 0.0063610142779132565,
+        "labels": [
+          "CO"
+        ]
+      },
+      {
+        "configuration": "OCCO_CO/OCCO_plus_CO_0p222_AuCu_interface",
+        "distance_unit_area_L2": 0.006614803436822753,
+        "labels": [
+          "CO"
+        ]
+      },
+      {
+        "configuration": "CO/CO_0p11/interior_biased",
+        "distance_unit_area_L2": 0.006764354552807446,
+        "labels": [
+          "CO"
+        ]
+      }
+    ],
+    "domain": "Cu100; facet/composition/cell/layer-population change; no validated parent transfer"
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_CO_2_4_2top_v2",
+    "neighbors": [
+      {
+        "configuration": "H/H_0p5/interface_biased",
+        "distance_unit_area_L2": 0.010074207624697736,
+        "labels": [
+          "H"
+        ]
+      },
+      {
+        "configuration": "H/H_0p5/uniform",
+        "distance_unit_area_L2": 0.010248623317198377,
+        "labels": [
+          "H"
+        ]
+      },
+      {
+        "configuration": "H/H_0p5/interior_biased",
+        "distance_unit_area_L2": 0.010325093176351023,
+        "labels": [
+          "H"
+        ]
+      }
+    ],
+    "domain": "Cu100; facet/composition/cell/layer-population change; no validated parent transfer"
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_CO_3_4_2top_1bridge",
+    "neighbors": [
+      {
+        "configuration": "CO/CO_0p5/interior_biased",
+        "distance_unit_area_L2": 0.01075152758989717,
+        "labels": [
+          "CO"
+        ]
+      },
+      {
+        "configuration": "CO/CO_0p75/uniform",
+        "distance_unit_area_L2": 0.010978086338820962,
+        "labels": [
+          "CO"
+        ]
+      },
+      {
+        "configuration": "CO/CO_0p5/interface_biased",
+        "distance_unit_area_L2": 0.0111308654760817,
+        "labels": [
+          "CO"
+        ]
+      }
+    ],
+    "domain": "Cu100; facet/composition/cell/layer-population change; no validated parent transfer"
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_CO_4_4_2top_2bridge",
+    "neighbors": [
+      {
+        "configuration": "CO/CO_0p75/uniform",
+        "distance_unit_area_L2": 0.014070479654919255,
+        "labels": [
+          "CO"
+        ]
+      },
+      {
+        "configuration": "H/H_0p75/Au",
+        "distance_unit_area_L2": 0.014094864697661209,
+        "labels": [
+          "H"
+        ]
+      },
+      {
+        "configuration": "H/H_0p5/interface_biased",
+        "distance_unit_area_L2": 0.01411354358860575,
+        "labels": [
+          "H"
+        ]
+      }
+    ],
+    "domain": "Cu100; facet/composition/cell/layer-population change; no validated parent transfer"
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_H_1_4_hollow",
+    "neighbors": [
+      {
+        "configuration": "OH/OH_0p125_interior_biased",
+        "distance_unit_area_L2": 0.0036647352237416638,
+        "labels": [
+          "OH"
+        ]
+      },
+      {
+        "configuration": "OCHO/08_3OCHO_1CuCu_interface_plus_2interior",
+        "distance_unit_area_L2": 0.004069349580880231,
+        "labels": [
+          "OCHO"
+        ]
+      },
+      {
+        "configuration": "OH/OH_0p125_uniform_high5Cu",
+        "distance_unit_area_L2": 0.004123349952977853,
+        "labels": [
+          "OH"
+        ]
+      }
+    ],
+    "domain": "Cu100; facet/composition/cell/layer-population change; no validated parent transfer"
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_H_3_4_1bridge_2hollow_config_1",
+    "neighbors": [
+      {
+        "configuration": "H/H_0p25/interface_biased2",
+        "distance_unit_area_L2": 0.005719518969176564,
+        "labels": [
+          "H"
+        ]
+      },
+      {
+        "configuration": "OH/OH_0p125_interior_biased",
+        "distance_unit_area_L2": 0.005865815791123073,
+        "labels": [
+          "OH"
+        ]
+      },
+      {
+        "configuration": "H/H_0p25/uniform",
+        "distance_unit_area_L2": 0.0058752964592631626,
+        "labels": [
+          "H"
+        ]
+      }
+    ],
+    "domain": "Cu100; facet/composition/cell/layer-population change; no validated parent transfer"
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_H_4_4_4bridge_config_4",
+    "neighbors": [
+      {
+        "configuration": "H/H_0p75/0p88_mixed",
+        "distance_unit_area_L2": 0.022432423029668053,
+        "labels": [
+          "H"
+        ]
+      },
+      {
+        "configuration": "H/H_0p75/Au",
+        "distance_unit_area_L2": 0.0229220912127612,
+        "labels": [
+          "H"
+        ]
+      },
+      {
+        "configuration": "H/H_0p75/uniform",
+        "distance_unit_area_L2": 0.02312423709214767,
+        "labels": [
+          "H"
+        ]
+      }
+    ],
+    "domain": "Cu100; facet/composition/cell/layer-population change; no validated parent transfer"
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_OH_1_4_hollow",
+    "neighbors": [
+      {
+        "configuration": "OH/OH_0p125_uniform_high5Cu",
+        "distance_unit_area_L2": 0.008085084289517666,
+        "labels": [
+          "OH"
+        ]
+      },
+      {
+        "configuration": "OH/OH_0p125_interior_biased",
+        "distance_unit_area_L2": 0.008107411841397556,
+        "labels": [
+          "OH"
+        ]
+      },
+      {
+        "configuration": "OH/OH_0p25_uniform",
+        "distance_unit_area_L2": 0.008216916566617428,
+        "labels": [
+          "OH"
+        ]
+      }
+    ],
+    "domain": "Cu100; facet/composition/cell/layer-population change; no validated parent transfer"
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_OH_2_4_hollow_config_2",
+    "neighbors": [
+      {
+        "configuration": "OH/OH_0p25_uniform",
+        "distance_unit_area_L2": 0.01206042478228423,
+        "labels": [
+          "OH"
+        ]
+      },
+      {
+        "configuration": "OH/OH_0p25_interior_biased",
+        "distance_unit_area_L2": 0.01243780032585755,
+        "labels": [
+          "OH"
+        ]
+      },
+      {
+        "configuration": "OH/OH_0p25_interface_Au",
+        "distance_unit_area_L2": 0.012602949939186809,
+        "labels": [
+          "OH"
+        ]
+      }
+    ],
+    "domain": "Cu100; facet/composition/cell/layer-population change; no validated parent transfer"
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_OH_3_4_mixed_1bridge_2hollow",
+    "neighbors": [
+      {
+        "configuration": "OH/OH_0p25_uniform",
+        "distance_unit_area_L2": 0.012920729598126865,
+        "labels": [
+          "OH"
+        ]
+      },
+      {
+        "configuration": "OH/OH_0p25_interface_Au",
+        "distance_unit_area_L2": 0.012956064939870827,
+        "labels": [
+          "OH"
+        ]
+      },
+      {
+        "configuration": "OH/OH_0p25_interior_biased",
+        "distance_unit_area_L2": 0.013284174706826241,
+        "labels": [
+          "OH"
+        ]
+      }
+    ],
+    "domain": "Cu100; facet/composition/cell/layer-population change; no validated parent transfer"
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_OH_4_4_mixed_2top_2bridge",
+    "neighbors": [
+      {
+        "configuration": "H/H_0p75/0p88_mixed",
+        "distance_unit_area_L2": 0.011611946797554633,
+        "labels": [
+          "H"
+        ]
+      },
+      {
+        "configuration": "H/H_0p75/Au",
+        "distance_unit_area_L2": 0.012022441450106553,
+        "labels": [
+          "H"
+        ]
+      },
+      {
+        "configuration": "H/H_0p5/uniform",
+        "distance_unit_area_L2": 0.012179441597648917,
+        "labels": [
+          "H"
+        ]
+      }
+    ],
+    "domain": "Cu100; facet/composition/cell/layer-population change; no validated parent transfer"
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_O_1_4_hollow",
+    "neighbors": [
+      {
+        "configuration": "H/H_0p75/0p88_mixed",
+        "distance_unit_area_L2": 0.006472660045747723,
+        "labels": [
+          "H"
+        ]
+      },
+      {
+        "configuration": "H/H_0p75/Au",
+        "distance_unit_area_L2": 0.00679675448771893,
+        "labels": [
+          "H"
+        ]
+      },
+      {
+        "configuration": "H/H_0p75/mixed",
+        "distance_unit_area_L2": 0.0068513384214152736,
+        "labels": [
+          "H"
+        ]
+      }
+    ],
+    "domain": "Cu100; facet/composition/cell/layer-population change; no validated parent transfer"
+  }
+]

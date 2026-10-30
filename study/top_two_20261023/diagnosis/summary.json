@@ -1,0 +1,262 @@
+{
+  "query": "2CO_adjacent/2CO_adjacent_0p056_AuCu_interface",
+  "original_missed_model": {
+    "depth": "depth_channels",
+    "feature": "multiscale",
+    "scores": {
+      "CHO": {
+        "score": 0.015625,
+        "threshold": 0.3
+      },
+      "CO": {
+        "score": 0.15625,
+        "threshold": 0.35
+      },
+      "CO2": {
+        "score": 0.0,
+        "threshold": 0.35
+      },
+      "COCHO": {
+        "score": 0.015625,
+        "threshold": 0.35
+      },
+      "COH": {
+        "score": 0.25,
+        "threshold": 0.35
+      },
+      "COOH": {
+        "score": 0.09375,
+        "threshold": 0.3
+      },
+      "H": {
+        "score": 0.0625,
+        "threshold": 0.35
+      },
+      "O": {
+        "score": 0.203125,
+        "threshold": 0.3
+      },
+      "OCCOH": {
+        "score": 0.03125,
+        "threshold": 0.35
+      },
+      "OCHO": {
+        "score": 0.171875,
+        "threshold": 0.4
+      },
+      "OH": {
+        "score": 0.0,
+        "threshold": 0.3
+      }
+    }
+  },
+  "comparison": "all 87 old configurations, excluding all three additions/recovered cases",
+  "query_geometry": {
+    "index": 0,
+    "configuration": "2CO_adjacent/2CO_adjacent_0p056_AuCu_interface",
+    "geometry_sha256": "5fedf8ff3eef9c52ae3a20e6a432413990add1f51ffaadfc904b7c098fbf267a",
+    "initial_sha256": "01cdeb732b89e82a43be0e469666d01066cab25101a0bd3befbdd67f8d3bd373",
+    "initial_parent_group": "08042e3f67c7b5af820e1aada834d2fccc2c8c0f8a144bac787a3387003b87e1",
+    "counts": {
+      "CO": 2
+    },
+    "identities": [
+      "CO"
+    ],
+    "CO_molecules": 2,
+    "surface_Cu_sites": 36,
+    "CO_coverage_per_surface_Cu": 0.05555555555555555,
+    "interface_distance_A": 0.5822561311870839,
+    "C_metal_contacts_by_cutoff": {
+      "341": {
+        "2.0": [],
+        "2.25": [
+          {
+            "metal_index": 166,
+            "element": "Cu",
+            "distance_A": 2.041643335852279
+          },
+          {
+            "metal_index": 167,
+            "element": "Cu",
+            "distance_A": 2.028516062131916
+          },
+          {
+            "metal_index": 175,
+            "element": "Cu",
+            "distance_A": 2.04174404434091
+          }
+        ],
+        "2.5": [
+          {
+            "metal_index": 166,
+            "element": "Cu",
+            "distance_A": 2.041643335852279
+          },
+          {
+            "metal_index": 167,
+            "element": "Cu",
+            "distance_A": 2.028516062131916
+          },
+          {
+            "metal_index": 175,
+            "element": "Cu",
+            "distance_A": 2.04174404434091
+          }
+        ],
+        "2.75": [
+          {
+            "metal_index": 166,
+            "element": "Cu",
+            "distance_A": 2.041643335852279
+          },
+          {
+            "metal_index": 167,
+            "element": "Cu",
+            "distance_A": 2.028516062131916
+          },
+          {
+            "metal_index": 175,
+            "element": "Cu",
+            "distance_A": 2.04174404434091
+          }
+        ]
+      },
+      "342": {
+        "2.0": [],
+        "2.25": [
+          {
+            "metal_index": 312,
+            "element": "Au",
+            "distance_A": 2.0119781791572917
+          }
+        ],
+        "2.5": [
+          {
+            "metal_index": 312,
+            "element": "Au",
+            "distance_A": 2.0119781791572917
+          }
+        ],
+        "2.75": [
+          {
+            "metal_index": 312,
+            "element": "Au",
+            "distance_A": 2.0119781791572917
+          }
+        ]
+      }
+    },
+    "geometry_file": "study/top_two_20261023/diagnosis/geometries/0.vasp"
+  },
+  "closest_matched_CO_coverage": [
+    {
+      "representation": "normalized",
+      "training_configuration": "2CO_adjacent/2CO_adjacent_0p056_interior",
+      "training_index": 1,
+      "cosine_distance": 4.23223494638858e-06,
+      "euclidean_distance": 0.0009349096487270546,
+      "same_initial_parent_group": false,
+      "same_CO_count": true,
+      "CO_only": true,
+      "CO_molecules": 2,
+      "CO_coverage_per_surface_Cu": 0.05555555555555555,
+      "interface_distance_A": 2.078096869348891,
+      "query_nearest_distance_percentile_vs_training_LOO": 20.689655172413794,
+      "pearson_r": 0.9999645147885621
+    },
+    {
+      "representation": "normalized",
+      "training_configuration": "2CO_adjacent/2CO_adjacent_0p056_orientation_alt",
+      "training_index": 2,
+      "cosine_distance": 6.846895525991492e-06,
+      "euclidean_distance": 0.0011936055832643027,
+      "same_initial_parent_group": false,
+      "same_CO_count": true,
+      "CO_only": true,
+      "CO_molecules": 2,
+      "CO_coverage_per_surface_Cu": 0.05555555555555555,
+      "interface_distance_A": 0.20887127084145185,
+      "query_nearest_distance_percentile_vs_training_LOO": 20.689655172413794,
+      "pearson_r": 0.9999465379996555
+    },
+    {
+      "representation": "normalized",
+      "training_configuration": "OCCOH/OCCOH_0p056_Cu_interface",
+      "training_index": 73,
+      "cosine_distance": 9.59231781783032e-07,
+      "euclidean_distance": 0.0004445479208421396,
+      "same_initial_parent_group": false,
+      "same_CO_count": false,
+      "CO_only": false,
+      "CO_molecules": 0,
+      "CO_coverage_per_surface_Cu": 0.0,
+      "interface_distance_A": NaN,
+      "query_nearest_distance_percentile_vs_training_LOO": 20.689655172413794,
+      "pearson_r": 0.9999917929386963
+    },
+    {
+      "representation": "normalized",
+      "training_configuration": "O/O_0p028_1O_AuCu2",
+      "training_index": 66,
+      "cosine_distance": 1.2129772767321967e-06,
+      "euclidean_distance": 0.0004999605172805947,
+      "same_initial_parent_group": false,
+      "same_CO_count": false,
+      "CO_only": false,
+      "CO_molecules": 0,
+      "CO_coverage_per_surface_Cu": 0.0,
+      "interface_distance_A": NaN,
+      "query_nearest_distance_percentile_vs_training_LOO": 20.689655172413794,
+      "pearson_r": 0.9999896664785626
+    },
+    {
+      "representation": "normalized",
+      "training_configuration": "OCHO/05_2OCHO_CuCu_interface_plus_AuCu",
+      "training_index": 82,
+      "cosine_distance": 1.4185729023674654e-06,
+      "euclidean_distance": 0.000542330453130753,
+      "same_initial_parent_group": false,
+      "same_CO_count": false,
+      "CO_only": false,
+      "CO_molecules": 0,
+      "CO_coverage_per_surface_Cu": 0.0,
+      "interface_distance_A": 0.5578431725430536,
+      "query_nearest_distance_percentile_vs_training_LOO": 20.689655172413794,
+      "pearson_r": 0.9999885524141845
+    },
+    {
+      "representation": "normalized",
+      "training_configuration": "CHO/CHO_0p056_CuCu_bidentate",
+      "training_index": 8,
+      "cosine_distance": 1.7479759766292347e-06,
+      "euclidean_distance": 0.000598480497511869,
+      "same_initial_parent_group": false,
+      "same_CO_count": false,
+      "CO_only": false,
+      "CO_molecules": 0,
+      "CO_coverage_per_surface_Cu": 0.0,
+      "interface_distance_A": 1.337180082818005,
+      "query_nearest_distance_percentile_vs_training_LOO": 20.689655172413794,
+      "pearson_r": 0.9999843874155767
+    }
+  ],
+  "weak_Cu_perturbation": "not established; compatible clean-parent spectrum is absent, so adsorbate-induced amplitude cannot be isolated",
+  "unfamiliar_environment": "spectral distances and geometric descriptors are descriptive; they do not establish a cause of the missed label",
+  "difference_plot": "independently unit-area-normalized descriptive query-neighbor difference; not an adsorbate-minus-clean physical contrast",
+  "failed_multiscale_nearest_distance_percentile": 11.494252873563218,
+  "query_contact_signature_2p25A": [
+    [
+      0,
+      1
+    ],
+    [
+      3,
+      0
+    ]
+  ],
+  "same_CO_coverage_training_cases": 2,
+  "exact_contact_signature_matches": 0,
+  "contact_signature_caveat": "count of nearby Cu/Au at explicit distance cutoff, not a binding-energy or electronic-bond assignment",
+  "initial_parent_caveat": "exact initial coordinate keys are not verified independent ancestral parents"
+}

@@ -19,7 +19,7 @@ The stripe generator accepts the following generic regions. M1 and M2 are the or
 | `M1_side_interface_dimer_along_x`, `M2_side_interface_dimer_along_x` | Same-side OCCO along the interface |
 | `M1_side_interface_dimer_row0_row1`, `M2_side_interface_dimer_row0_row1` | OCCO spanning two same-side row classes |
 
-Unsupported facets, missing region metals, unknown regions, and unavailable sites raise errors. OCCO placement preserves its coupled C–C geometry rather than stretching it to metal-site separation. `COCO` remains a legacy input alias for OCCO in the dictionary generator. The methyl template has tetrahedral H–C–H geometry.
+Unsupported facets, missing region metals, unknown regions, and unavailable sites raise errors. OCCO placement preserves its coupled C–C geometry rather than stretching it to metal-site separation. `COCO` remains a legacy input alias for the same bonded OCCO template in the dictionary generator; it is not a chemically distinct class. `2CO_adjacent` is the unbonded two-CO comparator. Assign chemical identity from final molecular connectivity and atom mapping, not from a filename or legacy alias. The methyl template has tetrahedral H–C–H geometry.
 
 ```python
 from tools.structure_generator import StructureGenerator

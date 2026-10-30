@@ -462,6 +462,12 @@ if len(train_rows) < 2:
     st.info("Need at least two plottable labeled spectra for ML setup.")
     st.stop()
 
+inference_route = st.radio('Inference workflow', ['General categorical classification / regression', 'Audited adsorbate presence (multilabel)'])
+if inference_route == 'Audited adsorbate presence (multilabel)':
+    from web_app.ml_pages.multilabel_presence import render
+    render()
+    st.stop()
+
 prepare_ml_target_metadata(train_rows)
 label_candidates = ml_label_candidates(train_rows)
 if not label_candidates:

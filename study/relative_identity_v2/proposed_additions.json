@@ -1,0 +1,38 @@
+[
+  {
+    "rank": 1,
+    "proposal": "Independent pure CHO and COCHO environments",
+    "reason": "CHO9 positives but only2 pure; COCHO1 positive cannot support held-out positive learning",
+    "controls": "verify H-C vs H-O and isolated CO+H; varied independent parents"
+  },
+  {
+    "rank": 2,
+    "proposal": "Matched CO+H versus CHO/COH",
+    "reason": "omitted coadsorbates and hydrogenation confusion",
+    "controls": "same parent, loading, site, setting; relaxed connectivity"
+  },
+  {
+    "rank": 3,
+    "proposal": "Mixture composition at fixed total loading",
+    "reason": "composition/coverage confounding",
+    "controls": "CO/H/OH sweeps and clean control, no synthetic positives"
+  },
+  {
+    "rank": 4,
+    "proposal": "Independent clean/covered parents and batches",
+    "reason": "one reference family per domain cannot establish new-parent transfer",
+    "controls": "independent CuAu and Cu100 controls; replicated measurement references"
+  },
+  {
+    "rank": 5,
+    "proposal": "Supported CO/OCHO coordination and proximity sweeps",
+    "reason": "interface proximity differs from hollow composition; CuAu2/Au3 support absent",
+    "controls": "atop/bridge/hollow explicitly separated; no pure-Cu-to-Cu3 relabel"
+  },
+  {
+    "rank": 6,
+    "proposal": "More Cu100 loading/motif controls",
+    "reason": "four CO cases confound loading with motif",
+    "controls": "separate coverage and motif variation; no pooled-R2 transfer claim"
+  }
+]

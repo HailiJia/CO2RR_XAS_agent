@@ -1,0 +1,12 @@
+workflow,species,precision,recall,f1,support
+independent_selected_micro,CHO,0.5,0.2,0.2857142857142857,5
+independent_selected_micro,CO,1.0,0.8666666666666667,0.9285714285714286,30
+independent_selected_micro,CO2,0.6666666666666666,0.6666666666666666,0.6666666666666666,3
+independent_selected_micro,COCHO,0.0,0.0,0.0,1
+independent_selected_micro,COH,1.0,0.5,0.6666666666666666,6
+independent_selected_micro,COOH,0.7142857142857143,0.625,0.6666666666666666,8
+independent_selected_micro,H,0.9333333333333332,0.6363636363636364,0.7567567567567568,22
+independent_selected_micro,O,1.0,0.7142857142857143,0.8333333333333334,7
+independent_selected_micro,OCCOH,1.0,0.5,0.6666666666666666,4
+independent_selected_micro,OCHO,0.8571428571428571,0.75,0.8,8
+independent_selected_micro,OH,1.0,0.6,0.75,5

@@ -1,0 +1,16 @@
+{
+  "status": "NOT CALCULATED; NOT SUBMITTED",
+  "source_ASE": "Cu-Ox_updated_structures/100/CO/1_4/top/Cu100_2x2x4_CO_1_4_top.json",
+  "source_sha256": "acaa10b5f744b332f0bf7bc75f6c8b5815a37cbab0ce3adb499af7b98e02e26b",
+  "initial_guess": "adsorbates removed from covered metal snapshot; subsequent clean relaxation required",
+  "not_a_completed_relaxed_clean_reference": true,
+  "physical_populations": {
+    "3": 4,
+    "4": 4
+  },
+  "source_covered_snapshot_not_relaxed_clean": true,
+  "planned_XAS": "same 4-layer cell, top layers3+4, Green/SCF/Perdew/radius6; current validated per-source equal-physical-Cu convention",
+  "potential": "Use licensed Cu PAW consistent with source relaxation and verify convergence; no potential supplied",
+  "constraints": "bottom 8 Cu fixed, top 8 free; constraints remain visible",
+  "k_mesh": "6x6x1 proposed; verify against available parent relaxation settings before treating controls as quantitatively matched"
+}

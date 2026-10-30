@@ -1,0 +1,26 @@
+{
+  "scope": "user-authorized author/affiliation and Figure2b Cu100 count fixes only; no new scientific prose, captions, bibliography or performance edits",
+  "baseline_files_verified": 303,
+  "baseline_inventory": "../signed_shape_detectability_v3/manuscript_baseline_inventory.json",
+  "changed_existing_paths": [
+    "Supporting_Information.pdf",
+    "Supporting_Information.tex",
+    "code/rebuild_requested_figures.py",
+    "figure_data/preferred_style/Figure_2a_surface_render.json",
+    "figures/Figure_2_dataset.png",
+    "manuscript.pdf",
+    "manuscript.tex"
+  ],
+  "compiled_twice": true,
+  "visual_inspection": "all 16 main and 26 SI rendered pages reviewed; updated Figure2 additionally inspected at full size",
+  "authors": [
+    "Haili Jia",
+    "Pooja Basera",
+    "Dimosthenis Sokaras",
+    "Maria K. Y. Chan"
+  ],
+  "corresponding_author": "Maria K. Y. Chan",
+  "preserved_figure1_sha256": "84b103291738e3ca10e81532afe64f0ae69a80d5c0ffc712f667253a96984738",
+  "preserved_figure3_sha256": "2278f15a99c37f43dd24b978dd4dbdacd0dfa8e9cabfebbac259d9362962fea0",
+  "preexisting_warnings": "SI duplicate PDF table/figure destinations and underfull reference line persist from the supplied TeX; no missing references or layout defects observed. Scientific source left unchanged."
+}

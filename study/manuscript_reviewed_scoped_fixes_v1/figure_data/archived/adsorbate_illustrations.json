@@ -1,0 +1,393 @@
+{
+  "CO": {
+    "atoms": [
+      "C",
+      "O"
+    ],
+    "xy": [
+      [
+        0,
+        -0.4
+      ],
+      [
+        0,
+        0.5
+      ]
+    ],
+    "bonds": [
+      [
+        0,
+        1
+      ]
+    ],
+    "status": "schematic connectivity illustration; not a calculated geometry"
+  },
+  "CO2": {
+    "atoms": [
+      "O",
+      "C",
+      "O"
+    ],
+    "xy": [
+      [
+        -0.8,
+        0.35
+      ],
+      [
+        0,
+        -0.1
+      ],
+      [
+        0.8,
+        0.35
+      ]
+    ],
+    "bonds": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ]
+    ],
+    "status": "schematic connectivity illustration; not a calculated geometry"
+  },
+  "CHO": {
+    "atoms": [
+      "C",
+      "O",
+      "H"
+    ],
+    "xy": [
+      [
+        0,
+        -0.25
+      ],
+      [
+        0.25,
+        0.65
+      ],
+      [
+        -0.75,
+        -0.5
+      ]
+    ],
+    "bonds": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ]
+    ],
+    "status": "schematic connectivity illustration; not a calculated geometry"
+  },
+  "COH": {
+    "atoms": [
+      "C",
+      "O",
+      "H"
+    ],
+    "xy": [
+      [
+        -0.3,
+        -0.55
+      ],
+      [
+        0,
+        0.35
+      ],
+      [
+        0.8,
+        0.6
+      ]
+    ],
+    "bonds": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ]
+    ],
+    "status": "schematic connectivity illustration; not a calculated geometry"
+  },
+  "COOH": {
+    "atoms": [
+      "C",
+      "O",
+      "O",
+      "H"
+    ],
+    "xy": [
+      [
+        0,
+        0
+      ],
+      [
+        0.9,
+        0
+      ],
+      [
+        -0.55,
+        0.78
+      ],
+      [
+        -1.1,
+        0.55
+      ]
+    ],
+    "bonds": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        2,
+        3
+      ]
+    ],
+    "status": "schematic connectivity illustration; not a calculated geometry"
+  },
+  "OCHO": {
+    "atoms": [
+      "C",
+      "O",
+      "O",
+      "H"
+    ],
+    "xy": [
+      [
+        0,
+        0
+      ],
+      [
+        -0.8,
+        -0.4
+      ],
+      [
+        0.8,
+        -0.4
+      ],
+      [
+        0,
+        0.85
+      ]
+    ],
+    "bonds": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ]
+    ],
+    "status": "schematic connectivity illustration; not a calculated geometry"
+  },
+  "COCHO": {
+    "atoms": [
+      "C",
+      "C",
+      "O",
+      "O",
+      "H"
+    ],
+    "xy": [
+      [
+        -0.5,
+        0
+      ],
+      [
+        0.5,
+        0
+      ],
+      [
+        -0.8,
+        0.9
+      ],
+      [
+        0.9,
+        0.9
+      ],
+      [
+        0.9,
+        -0.7
+      ]
+    ],
+    "bonds": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        4
+      ]
+    ],
+    "status": "schematic connectivity illustration; not a calculated geometry"
+  },
+  "OCCOH": {
+    "atoms": [
+      "O",
+      "C",
+      "C",
+      "O",
+      "H"
+    ],
+    "xy": [
+      [
+        -0.8,
+        0.7
+      ],
+      [
+        -0.5,
+        -0.2
+      ],
+      [
+        0.5,
+        -0.2
+      ],
+      [
+        0.8,
+        0.7
+      ],
+      [
+        1.5,
+        0.7
+      ]
+    ],
+    "bonds": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        4
+      ]
+    ],
+    "status": "schematic connectivity illustration; not a calculated geometry"
+  },
+  "OCCO": {
+    "atoms": [
+      "O",
+      "C",
+      "C",
+      "O"
+    ],
+    "xy": [
+      [
+        -0.6,
+        0.65
+      ],
+      [
+        -0.6,
+        -0.3
+      ],
+      [
+        0.6,
+        -0.3
+      ],
+      [
+        0.6,
+        0.65
+      ]
+    ],
+    "bonds": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        3
+      ]
+    ],
+    "status": "schematic connectivity illustration; not a calculated geometry"
+  },
+  "H": {
+    "atoms": [
+      "H"
+    ],
+    "xy": [
+      [
+        0,
+        0
+      ]
+    ],
+    "bonds": [],
+    "status": "schematic connectivity illustration; not a calculated geometry"
+  },
+  "O": {
+    "atoms": [
+      "O"
+    ],
+    "xy": [
+      [
+        0,
+        0
+      ]
+    ],
+    "bonds": [],
+    "status": "schematic connectivity illustration; not a calculated geometry"
+  },
+  "OH": {
+    "atoms": [
+      "O",
+      "H"
+    ],
+    "xy": [
+      [
+        0,
+        -0.3
+      ],
+      [
+        0.3,
+        0.5
+      ]
+    ],
+    "bonds": [
+      [
+        0,
+        1
+      ]
+    ],
+    "status": "schematic connectivity illustration; not a calculated geometry"
+  }
+}

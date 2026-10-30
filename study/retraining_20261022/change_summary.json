@@ -1,0 +1,37 @@
+{
+  "configurations": 90,
+  "layer_spectra": 360,
+  "prior_configurations": 87,
+  "new_or_recovered_configurations": [
+    "2CO_adjacent/2CO_adjacent_0p056_AuCu_interface",
+    "2CO_adjacent/2CO_adjacent_0p167_uniform",
+    "CO/CO_0p11/uniform"
+  ],
+  "supplied_record_attempts": 90,
+  "raw_without_record_attempts": 1,
+  "statuses": {
+    "eligible": 90,
+    "excluded": 1
+  },
+  "frozen_archive_changed": false,
+  "source_mutated": false,
+  "training_groups_are_independent_geometries": true,
+  "prior_output_arrays_byte_identical": 87,
+  "prior_folds_preserved": 87,
+  "renamed_retained_aliases": 19,
+  "same_declared_FDMNES_controls_for_all_configurations": true,
+  "raw_recovered_vs_new": "two newly completed supplied 2CO records and one recovered existing raw CO calculation; no new HPC work by agent",
+  "new_supports": {
+    "CHO": 5,
+    "CO": 33,
+    "CO2": 3,
+    "COCHO": 1,
+    "COH": 6,
+    "COOH": 8,
+    "H": 22,
+    "O": 7,
+    "OCCOH": 4,
+    "OCHO": 8,
+    "OH": 5
+  }
+}

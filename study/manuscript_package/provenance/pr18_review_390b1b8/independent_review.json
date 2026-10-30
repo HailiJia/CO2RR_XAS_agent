@@ -1,0 +1,37 @@
+{
+  "head": "390b1b899c4dca43685fda1380a494b1d5019fcd",
+  "tracked_python_compile": {
+    "passed": 106,
+    "failed": 0
+  },
+  "runtime_imports": {
+    "passed": 6,
+    "failed": 0
+  },
+  "focused_tests": {
+    "passed": 101,
+    "failed": 0,
+    "warnings": 3,
+    "seconds": 7.37
+  },
+  "independent_environment": {
+    "python": "3.12.14"
+  },
+  "benchmark_original_and_stored_hashes_verified": 165,
+  "benchmark_source_inventory_files": 503,
+  "recomputed_RMSE_rows": 46,
+  "maximum_RMSE_tolerance": 1e-10,
+  "notebook_saved_code_cells": 4,
+  "notebook_saved_errors": 0,
+  "new_training_fit": false,
+  "new_HPC_or_portal_writes": false,
+  "plotting_source_correction": "Figure 4b index gs[1] corrected to gs[0,1] in delivered package; source-only placement fix, metrics unchanged",
+  "fit_window_limit": "PR shift scan permits variable intersection support >=20 points; common-offset reported comparisons all use full 201 points",
+  "raw_reference_processing_reproduced": {
+    "rows": 46,
+    "max_RMSE_difference": 9.992007221626409e-16,
+    "max_shift_difference_eV": 2.0321522242738865e-12,
+    "method": "portable process.py executed in separate copied tree; original archive unchanged",
+    "ML_training_fit_performed": false
+  }
+}

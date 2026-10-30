@@ -1,0 +1,16 @@
+material,method,numeric_spectrum_available,logged_scf_CPU_s,logged_XAS_CPU_s,source,scope
+Cu,fdmnes_green,True,,7165.2,raw/Cu/fdm_green/Cu_bav.txt.gz,code-reported CPU; cross-code aggregation/hardware not harmonized
+Cu,fdmnes_fdm,True,,16349.2,raw/Cu/fdm_fdm/Cu_bav.txt.gz,code-reported CPU; cross-code aggregation/hardware not harmonized
+Cu,feff,True,,1368.616713069379,raw/Cu/feff/job.out,code-reported CPU; cross-code aggregation/hardware not harmonized
+Cu,vasp_pbe,True,139.563,95.148,raw/Cu/PBE/XAS/OUTCAR.gz,code-reported CPU; cross-code aggregation/hardware not harmonized
+Cu,vasp_gw,True,150.584,847.926,raw/Cu/GW/XAS/OUTCAR.gz,code-reported CPU; cross-code aggregation/hardware not harmonized
+Cu2O,fdmnes_green,True,,14086.3,raw/Cu2O/fdm_fdm/Cu2O_bav.txt.gz,code-reported CPU; cross-code aggregation/hardware not harmonized
+Cu2O,fdmnes_fdm,True,,117943.8,raw/Cu2O/fdm_green/Cu2O_bav.txt.gz,code-reported CPU; cross-code aggregation/hardware not harmonized
+Cu2O,feff,True,,1202.306494351477,raw/Cu2O/feff/job.out,code-reported CPU; cross-code aggregation/hardware not harmonized
+Cu2O,vasp_pbe,True,2400.813,7149.952,benchmark/Cu2O/PBE/XAS/OUTCAR,code-reported CPU; cross-code aggregation/hardware not harmonized
+Cu2O,vasp_gw,True,21585.344,8539.898,benchmark/Cu2O/GW/XAS/OUTCAR,code-reported CPU; cross-code aggregation/hardware not harmonized
+CuO,fdmnes_green,True,,91018.9,raw/CuO/fdm_fdm/Cu_bav.txt.gz,code-reported CPU; cross-code aggregation/hardware not harmonized
+CuO,fdmnes_fdm,True,,129600.0,author-supplied corrected CPU time,code-reported CPU; cross-code aggregation/hardware not harmonized
+CuO,feff,True,,2872.231206599618,raw/CuO/feff/job.out,code-reported CPU; cross-code aggregation/hardware not harmonized
+CuO,vasp_pbe,False,5241.338,,benchmark/CuO/PBE/XAS/OUTCAR,code-reported CPU; cross-code aggregation/hardware not harmonized
+CuO,vasp_gw,True,17093.088,4614.561,raw/CuO/GW/XAS/OUTCAR.gz,code-reported CPU; cross-code aggregation/hardware not harmonized

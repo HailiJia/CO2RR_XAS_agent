@@ -1,0 +1,7 @@
+material,method,stage,reported_cpu_s,wall_s,source,source_sha256,evidence
+Cu,vasp_pbe,preceding calculation,139.563,145.736,raw/Cu/PBE/OUTCAR.gz,148c2bdd43a836e324e4a965fc74117ba72a5b1575832264ee17424567f48877,Total CPU time used (sec):      139.563; Elapsed time (sec):      145.736
+Cu,vasp_gw,preceding calculation,150.584,155.848,raw/Cu/GW/OUTCAR.gz,75bde63e25a1e51ec104102f35e8b8328beb4aff3f4395a98f54fef5eed0bbd7,Total CPU time used (sec):      150.584; Elapsed time (sec):      155.848
+Cu2O,vasp_pbe,preceding calculation,1659.135,1669.824,raw/Cu2O/PBE/OUTCAR.gz,ec471133c9f3abd7f21ee6c2715d899fa297bfae65c6cd9771bb45fbd2befaa5,Total CPU time used (sec):     1659.135; Elapsed time (sec):     1669.824
+Cu2O,vasp_gw,preceding calculation,13177.242,13219.827,raw/Cu2O/GW/OUTCAR.gz,2615229840739508c06f46a22d9afe20e8cfe00833d30399bfac9d1c132915bb,Total CPU time used (sec):    13177.242; Elapsed time (sec):    13219.827
+CuO,vasp_pbe,preceding calculation,2304.958,2316.236,raw/CuO/PBE/OUTCAR.gz,29427f98f4a0c046d15998bb71b06c519847ce064dbd51146a1cee273f44c2ca,Total CPU time used (sec):     2304.958; Elapsed time (sec):     2316.236
+CuO,vasp_gw,preceding calculation,17093.088,17148.553,raw/CuO/GW/OUTCAR.gz,afc3c449fda32079bbd1fbcf1aee4d077039673b63ae418b1c783186013fb3d2,Total CPU time used (sec):    17093.088; Elapsed time (sec):    17148.553

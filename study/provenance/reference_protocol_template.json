@@ -1,0 +1,21 @@
+{
+  "status": "planned_unmeasured",
+  "data_kind": "raw_numeric",
+  "source": null,
+  "license": null,
+  "backend": null,
+  "mode": null,
+  "version": null,
+  "structure": null,
+  "core_hole": null,
+  "convergence": null,
+  "broadening": null,
+  "energy_calibration": null,
+  "interval_eV": null,
+  "allowed_shift_eV": null,
+  "allowed_scale": null,
+  "allowed_offset": null,
+  "comparison_function": "tools.reference_benchmark.compare_reference",
+  "normalization": "RMSE divided by experimental signal range within the fixed interval",
+  "alignment": "report unshifted shift=0 scale=1 offset=0 separately from bounded fitted shift/scale/offset; no extrapolation"
+}

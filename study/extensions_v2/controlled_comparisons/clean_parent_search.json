@@ -1,0 +1,33 @@
+{
+  "clean_controls": [
+    {
+      "configuration": "plain",
+      "relaxed_path": "plain/CONTCAR",
+      "sha256": "3f4d12062b1d1f61fc73b95ffd8bc71e3d12d9be611bd840c5b48ec27078fff4",
+      "observed_counts": {},
+      "parent_key": "5a37c9c9750f1494cf408477c8dcc1ea3394922de19a49490cc53ede2b25309d",
+      "raw_spectral_outputs": [],
+      "matching_adsorbed_initial_parent_count": 41,
+      "status": "relaxed clean structure exists; no numeric clean XAS output located in expanded search",
+      "missing_artifacts": [
+        "Cu K-edge layer/site spectra, actual XAS deck, absorber population and convolution lineage"
+      ]
+    },
+    {
+      "configuration": "plain/2fixed",
+      "relaxed_path": "plain/2fixed/CONTCAR",
+      "sha256": "171cc0686c94789cc9df8890db3f859a2ff88fcfe52c30eb0e73b6600cfe4621",
+      "observed_counts": {},
+      "parent_key": "9bbf959eac2c74ab252d0a0253849304153243aad12bf7e5faf1c686f82bf70b",
+      "raw_spectral_outputs": [],
+      "matching_adsorbed_initial_parent_count": 0,
+      "status": "relaxed clean structure exists; no numeric clean XAS output located in expanded search",
+      "missing_artifacts": [
+        "Cu K-edge layer/site spectra, actual XAS deck, absorber population and convolution lineage"
+      ]
+    }
+  ],
+  "other_clean_XAS_geometry_copies": [],
+  "adsorbate_minus_clean_pairs": 0,
+  "species_absent_mean_is_not_clean": true
+}

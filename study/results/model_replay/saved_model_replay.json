@@ -1,0 +1,65 @@
+{
+  "folds": [
+    {
+      "fold": 0,
+      "heldout_configurations": 17,
+      "export_import_scores_identical": true,
+      "archived_predictions_identical": true,
+      "missing_positive_training": [],
+      "model_sha256": "25814970d1d2425c81657b161af44063f744a442f2044703ed1a5c29fe1be480"
+    },
+    {
+      "fold": 1,
+      "heldout_configurations": 17,
+      "export_import_scores_identical": true,
+      "archived_predictions_identical": true,
+      "missing_positive_training": [],
+      "model_sha256": "cfe051f296ce4ba6e0edc9244b5f4e728bb7fa79de85621f22607434ef19cbb4"
+    },
+    {
+      "fold": 2,
+      "heldout_configurations": 17,
+      "export_import_scores_identical": true,
+      "archived_predictions_identical": true,
+      "missing_positive_training": [
+        "COCHO"
+      ],
+      "model_sha256": "3d2a3dc5c2d4c6d717a79ede8e63df4f6d10a4665bed91c3d75387fe5872af8f"
+    },
+    {
+      "fold": 3,
+      "heldout_configurations": 18,
+      "export_import_scores_identical": true,
+      "archived_predictions_identical": true,
+      "missing_positive_training": [],
+      "model_sha256": "6339963d918746a905e8dd91a15d608890c0edba133d90d62eec068dbbdf844f"
+    },
+    {
+      "fold": 4,
+      "heldout_configurations": 18,
+      "export_import_scores_identical": true,
+      "archived_predictions_identical": true,
+      "missing_positive_training": [],
+      "model_sha256": "80303d2b816f114f11362218e67d85707fda8d485732c917709e31a535110edd"
+    }
+  ],
+  "metrics": {
+    "micro_f1": 0.7790697674418605,
+    "macro_f1": 0.6382765882765882,
+    "exact_set_accuracy": 0.6896551724137931
+  },
+  "fingerprint": {
+    "code": {
+      "spectral_multilabel.py": "6033efa3c55e8e6dcdcb87ca086b498d3de6acf144f62ad6de1e37428ae54f14",
+      "component_audit.py": "1bfff5b1b823feb7a72815221f1f264940a408330835704f7dee87e929e0255c",
+      "layer_population.py": "9ed517ee86375e45bc90ef6f427c71187a3ff31d4f530e89c633b3feb91d043b"
+    },
+    "dependencies": {
+      "python": "3.11.14",
+      "numpy": "2.3.5",
+      "scipy": "1.17.0",
+      "sklearn": "1.8.0",
+      "joblib": "1.5.3"
+    }
+  }
+}

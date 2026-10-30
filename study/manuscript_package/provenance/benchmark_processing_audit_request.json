@@ -1,0 +1,21 @@
+{
+  "status": "Processing audit and Codex repair requirements; no corrected benchmark reprocessing or new similarity scores claimed.",
+  "display_all_traces_unit_maximum": true,
+  "negative_display_series": [
+    {
+      "material": "CuO",
+      "method": "fdmnes_fdm",
+      "min": -0.2091108542882679,
+      "max": 1.0
+    }
+  ],
+  "CuO_fdm_raw_min": 6.3485139e-05,
+  "cause_identified": "Substantive negative calculated absorption appears after local background subtraction, not in raw CuO FDMNES fdm intensity.",
+  "vasp_processing_discrepancy": "Notebook Gaussian sigma=1 eV, exploratory +120/+125 eV; current primary adds Lorentzian FWHM=1.55 eV and shares fitted backend offset. Correct physical treatment requires source/tag/energy-axis audit.",
+  "requested_metrics": [
+    "cosine_similarity",
+    "pearson_r",
+    "spearman_rho"
+  ],
+  "required_next_step": "Versioned corrected processing, identical declared normalization/grid for every calculation and experiment, visible metric tables and regenerated manuscript figures."
+}

@@ -1,0 +1,11 @@
+{
+  "n_same_old_configurations": 25,
+  "baseline_MAE": 0.013971357484434628,
+  "expanded_MAE": 0.011444377885744603,
+  "MAE_difference": -0.0025269795986900233,
+  "conditional_95_interval": [
+    -0.006057159824249296,
+    0.0003438916335071046
+  ],
+  "scope": "fixed predictions, configuration resampling; excludes refitting and parent transfer uncertainty"
+}

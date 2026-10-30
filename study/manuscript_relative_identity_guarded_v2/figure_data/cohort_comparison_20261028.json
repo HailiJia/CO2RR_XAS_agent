@@ -1,0 +1,77 @@
+{
+  "analyses": [
+    {
+      "analysis": "old_87_fixed_top_two",
+      "n": 87,
+      "micro_F1": 0.7444444444444445,
+      "macro_F1": 0.6253068197444679,
+      "exact_set_accuracy": 0.6206896551724138
+    },
+    {
+      "analysis": "current_98_physical_top_two",
+      "n": 98,
+      "micro_F1": 0.7425742574257426,
+      "macro_F1": 0.6072065367107382,
+      "exact_set_accuracy": 0.6224489795918368
+    }
+  ],
+  "supports": [
+    {
+      "species": "CHO",
+      "old_87_support": 5,
+      "current_98_support": 7
+    },
+    {
+      "species": "CO",
+      "old_87_support": 30,
+      "current_98_support": 37
+    },
+    {
+      "species": "CO2",
+      "old_87_support": 3,
+      "current_98_support": 3
+    },
+    {
+      "species": "COCHO",
+      "old_87_support": 1,
+      "current_98_support": 1
+    },
+    {
+      "species": "COH",
+      "old_87_support": 6,
+      "current_98_support": 7
+    },
+    {
+      "species": "COOH",
+      "old_87_support": 8,
+      "current_98_support": 9
+    },
+    {
+      "species": "H",
+      "old_87_support": 22,
+      "current_98_support": 25
+    },
+    {
+      "species": "O",
+      "old_87_support": 7,
+      "current_98_support": 7
+    },
+    {
+      "species": "OCCOH",
+      "old_87_support": 4,
+      "current_98_support": 5
+    },
+    {
+      "species": "OCHO",
+      "old_87_support": 8,
+      "current_98_support": 8
+    },
+    {
+      "species": "OH",
+      "old_87_support": 5,
+      "current_98_support": 6
+    }
+  ],
+  "interpretation": "Not a controlled training-size experiment: cohort, intensity reconstruction, candidate models and validation protocol differ. No causal attribution to adding data.",
+  "identity_mapping_caution": "Only 68 paths match literally; other paths include renamed H and COH cases. Group hashes use different conventions. Do not interpret unmatched paths as newly added physical structures without coordinate-based reconciliation."
+}

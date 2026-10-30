@@ -1,0 +1,36 @@
+{
+  "version": "reference-v3",
+  "window_eV": [
+    8980,
+    9015
+  ],
+  "display_axis_eV": [
+    8975,
+    9015
+  ],
+  "unplotted_8975_8980": "outside full common support after calibration; no extrapolation or padded intensities",
+  "Gaussian_for_VASP_sigma_eV": 1.0,
+  "source_of_Gaussian": "author Cu_XAS.ipynb, fixed prescription not fitted instrument resolution",
+  "native_CH_SIGMA": "0.1 eV where logged; no universal Lorentzian added",
+  "feature_rules": "Cu/Cu2O first local maximum; CuO first rising-edge derivative maximum, not late white line",
+  "experimental_anchors_eV": {
+    "Cu": 8993.0452,
+    "Cu2O": 8981.2919,
+    "CuO": 8983.2926
+  },
+  "Cu_calibration_offsets_eV": {
+    "fdmnes_green": 0.0452000000004773,
+    "fdmnes_fdm": 3.0452000000004773,
+    "feff": -7.720799999999144,
+    "vasp_pbe": 124.72175020769464,
+    "vasp_gw": 125.06489704171872
+  },
+  "main_view": "separate first-feature shape diagnostic, with transferable offsets also scored and retained",
+  "CuO_fdm_CPU_time_s": 129600,
+  "FEFF_module_times": "CPU times, not wall time",
+  "normalization": "same fixed-interval minmax for every trace; no unsupported pre-edge subtraction",
+  "no_negative_absorption_masking": "raw calculation negativity is checked; raw experimental baseline/noise retained; minmax is a declared relative-intensity comparison",
+  "metrics": "all scores use exact plotted grid and arrays; no independent-energy-point p-values",
+  "timing_CPU_conventions": "CuO FDMNES fdm 129600 s retained; FEFF module values are CPU time; VASP SCF and XAS stage CPU times are separate, allocated-core-time estimates are not measured CPU",
+  "GW_label": "GW-PAW is a dataset/folder label; current Cu2O independent-particle PBE+U response is not established quasiparticle GW or BSE"
+}

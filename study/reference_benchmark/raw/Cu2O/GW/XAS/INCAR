@@ -1,0 +1,35 @@
+ALGO   = Fast
+EDIFF  = 1E-5
+ISMEAR = 0
+SIGMA  = 0.1
+LREAL  = A
+NSW    = 0
+IBRION = -1
+ISYM   = 0
+
+ISPIN = 2
+LDAU      = .TRUE.
+LDAUTYPE  = 2
+LDAUL   = 2 2 -1
+LDAUU   = 6 6 0.0
+LDAUJ   = 0.0 0.0 0.0
+LMAXMIX   = 4
+
+NBANDS = 5127
+
+# --- core hole (Cu K-edge = 1s) ---
+ICORELEVEL = 2
+CLNT = 1     # Cu* species (must be single-atom type!)
+CLN  = 1
+CLL  = 0
+CLZ  = 1.0
+CH_AMPLIFICATION = 108
+
+# --- spectrum ---
+CH_LSPEC = .TRUE.
+CH_NEDOS = 2000
+CH_SIGMA = 0.1
+
+# keep restart files (so you can do ALGO=None spectrum-only reruns)
+LWAVE  = .TRUE.
+LCHARG = .TRUE.

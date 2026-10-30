@@ -1,0 +1,113 @@
+{
+  "status": "complete",
+  "recipe": "archived_primary_nested_selector invoked through the natural-language agent; fresh empty output/cache",
+  "dataset_export_manifest_sha256": "11356d3efe89792d4aef0f52b745164068b99d8536fa1cce31e855e8e79a595e",
+  "configuration_count": 87,
+  "geometry_group_count": 87,
+  "layer_spectra": 348,
+  "fit_cache_files_recomputed": 895,
+  "archived_oof_npz_files_compared": 169,
+  "exact_oof_array_files": 140,
+  "differing_oof_array_files": [
+    "oof_all_selected_macro.npz",
+    "oof_fold_0_all_selected_macro.npz",
+    "oof_fold_0_model_SVM_macro.npz",
+    "oof_fold_0_model_SVM_micro.npz",
+    "oof_fold_0_model_logistic_macro.npz",
+    "oof_fold_0_model_logistic_micro.npz",
+    "oof_fold_1_model_SVM_macro.npz",
+    "oof_fold_1_model_SVM_micro.npz",
+    "oof_fold_1_model_logistic_macro.npz",
+    "oof_fold_1_model_logistic_micro.npz",
+    "oof_fold_1_model_random_forest_macro.npz",
+    "oof_fold_2_all_selected_macro.npz",
+    "oof_fold_2_model_SVM_macro.npz",
+    "oof_fold_2_model_SVM_micro.npz",
+    "oof_fold_2_model_logistic_macro.npz",
+    "oof_fold_2_model_logistic_micro.npz",
+    "oof_fold_3_model_SVM_macro.npz",
+    "oof_fold_3_model_SVM_micro.npz",
+    "oof_fold_3_model_logistic_macro.npz",
+    "oof_fold_3_model_logistic_micro.npz",
+    "oof_fold_4_model_SVM_macro.npz",
+    "oof_fold_4_model_SVM_micro.npz",
+    "oof_fold_4_model_logistic_macro.npz",
+    "oof_fold_4_model_logistic_micro.npz",
+    "oof_model_SVM_macro.npz",
+    "oof_model_SVM_micro.npz",
+    "oof_model_logistic_macro.npz",
+    "oof_model_logistic_micro.npz",
+    "oof_model_random_forest_macro.npz"
+  ],
+  "primary_prediction_arrays_exact": true,
+  "exploratory_fixed_winner_arrays_exact": true,
+  "primary_metrics": {
+    "micro_f1": 0.7790697674418605,
+    "macro_f1": 0.6382765882765882,
+    "exact_set_accuracy": 0.6896551724137931
+  },
+  "primary_fold_models": [
+    {
+      "fold": 0,
+      "heldout_configurations": 17,
+      "export_import_scores_identical": true,
+      "archived_predictions_identical": true,
+      "missing_positive_training": [],
+      "model_sha256": "b2fa231fc7810b9bfcaf0efb6f028f6d82f3280d6e3862979499ab25e6fbd75a"
+    },
+    {
+      "fold": 1,
+      "heldout_configurations": 17,
+      "export_import_scores_identical": true,
+      "archived_predictions_identical": true,
+      "missing_positive_training": [],
+      "model_sha256": "8fc3c4621aa11105bb8d5f4546fff75abd7a09faeee3a2a5f9aa7088b16bfc7b"
+    },
+    {
+      "fold": 2,
+      "heldout_configurations": 17,
+      "export_import_scores_identical": true,
+      "archived_predictions_identical": true,
+      "missing_positive_training": [
+        "COCHO"
+      ],
+      "model_sha256": "9ca4a8cc3ebcdee5c07b0e0232153227d567cae48a7d69db84e0bf535cfe5cc2"
+    },
+    {
+      "fold": 3,
+      "heldout_configurations": 18,
+      "export_import_scores_identical": true,
+      "archived_predictions_identical": true,
+      "missing_positive_training": [],
+      "model_sha256": "3ee623c3143e0cfb0081b50c756e1f38fc497e038007cdd99ffe79187f4d95f6"
+    },
+    {
+      "fold": 4,
+      "heldout_configurations": 18,
+      "export_import_scores_identical": true,
+      "archived_predictions_identical": true,
+      "missing_positive_training": [],
+      "model_sha256": "77fd05bb05595d40d049fb5ca5a12a436e66ba0dfd168cd4a8b979b9a23fa5b5"
+    }
+  ],
+  "export_import_heldout_predictions_identical": true,
+  "current_rerun_environment": {
+    "python": "3.11.9",
+    "pandas": "3.0.3",
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "sklearn": "1.9.0",
+    "joblib": "1.5.3"
+  },
+  "archived_environment": {
+    "python": "3.11.14 | packaged by conda-forge | (main, Jan 27 2026, 00:01:01) [Clang 19.1.7 ]",
+    "numpy": "2.3.5",
+    "pandas": "3.0.1",
+    "scipy": "1.17.0",
+    "sklearn": "1.8.0",
+    "seed": 20261020
+  },
+  "dependency_difference_note": "The current repeat differs from archived logistic/SVM and selected random-forest variants under newer dependency versions; the fixed primary selection and post-hoc exploratory winner arrays remain exact. A random-forest macro aggregate changes slightly. This repeated cohort run is not independent confirmation.",
+  "archive_mutated": false,
+  "credentials_included": false
+}

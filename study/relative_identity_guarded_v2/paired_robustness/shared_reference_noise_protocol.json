@@ -1,0 +1,13 @@
+{
+  "reference_error": "one independently drawn reference vector shared by every query in an outer fold",
+  "common_incident_component": "same vector in both pair members, cancels separately",
+  "reaction_noise": "independent per query",
+  "sigma": "1% of each native per-common-scale peak; reference1% clean peak",
+  "window": [
+    8975.0,
+    9028.0
+  ],
+  "scope": "same fixed models, no tuning/refit; illustrates shared-reference covariance and low-SNR abstention, not experimental uncertainty",
+  "seed": 921,
+  "source_sha256": "60cfeb4e9316567e93c22e97f89b87515450518d04c9e5358363c5ff11ed7987"
+}

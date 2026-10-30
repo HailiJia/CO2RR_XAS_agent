@@ -51,7 +51,9 @@ class LocalIntentParser:
         request_lower = request.lower()
 
         # Determine action
-        if any(word in request_lower for word in ["parse", "read output", "isaac record", "extract", "convert results"]):
+        if ("train" in request_lower or "fit" in request_lower) and any(word in request_lower for word in ["updated data", "updated dataset", "new data", "dataset refresh", "dataset_refresh_v1", "co2rr_1029", "adsorbate", "multilabel", "identity model", "species-presence", "co coverage", "co loading", "coverage_v1", "differential xas", "delta mu", "differential_v1", "clean-referenced", "relative_identity_v2", "normalized signed", "relative differential", "signed_shape_size_v3", "signed-shape training-size", "signed shape training size"]):
+            action = "audited_training"
+        elif any(word in request_lower for word in ["parse", "read output", "isaac record", "extract", "convert results"]):
             action = "parse_results"
         elif any(phrase in request_lower for phrase in ["submit", "monitor", "nersc workflow", "run on nersc"]):
             action = "nersc_workflow"
@@ -84,6 +86,16 @@ class LocalIntentParser:
 
         structure_file = self._extract_structure_file(request)
         parameters: Dict[str, Any] = {}
+
+        if action == "audited_training":
+            for key, pattern in {
+                "data_root": r"(?:data[- ]root|export[- ]root|export root)\s*(?:=|is|:)?\s*[\"']?([^\s\"']+)",
+                "split_manifest": r"(?:split[- ]manifest|fold[- ]manifest)\s*(?:=|is|:)?\s*[\"']?([^\s\"']+)",
+            }.items():
+                match = re.search(pattern, request, re.IGNORECASE)
+                if match:
+                    parameters[key] = match.group(1)
+            parameters["training_recipe"] = "signed_shape_size_v3" if any(t in request_lower for t in ["signed_shape_size_v3", "signed-shape training-size", "signed shape training size"]) else "relative_identity_v2" if any(t in request_lower for t in ["relative_identity_v2", "normalized signed", "relative differential", "signed_shape_size_v3", "signed-shape training-size", "signed shape training size"]) else "dataset_refresh_v1" if any(t in request_lower for t in ["dataset refresh", "dataset_refresh_v1", "co2rr_1029", "updated dataset", "updated data", "updated folder", "new data"]) else "differential_v1" if any(t in request_lower for t in ["differential xas", "delta mu", "differential_v1", "clean-referenced", "relative_identity_v2", "normalized signed", "relative differential", "signed_shape_size_v3", "signed-shape training-size", "signed shape training size"]) else "coverage_v1" if any(t in request_lower for t in ["co coverage", "co loading", "coverage_v1", "differential xas", "delta mu", "differential_v1", "clean-referenced", "relative_identity_v2", "normalized signed", "relative differential", "signed_shape_size_v3", "signed-shape training-size", "signed shape training size"]) else "fixed_top_two_v4" if any(t in request_lower for t in ["top-two", "top two", "fixed_top_two_v4"]) else "updated_data_v3" if "updated_data_v3" in request_lower else "motif_holdout_v2" if any(t in request_lower for t in ["motif held out", "motif-held-out", "motif_holdout_v2"]) else "scientific_extensions_v2" if any(t in request_lower for t in ["scientific extensions", "coadsorbate recovery", "scientific_extensions_v2"]) else "training_only_global_threshold" if "global threshold" in request_lower else "archived_primary"
 
         parameters["fdmnes_options"] = self._extract_fdmnes_options(request_lower)
         metadata_overrides = self._extract_ml_metadata(request)
@@ -525,6 +537,14 @@ class CO2RRXASAgent:
             return self._execute_full_workflow(intent)
         if intent.action == "nersc_workflow":
             return self._execute_nersc_workflow(intent)
+        if intent.action == "audited_training":
+            from tools.audited_training import run_audited_training
+            return run_audited_training(
+                data_root=intent.parameters.get("data_root"),
+                output_dir=intent.output_dir,
+                split_manifest=intent.parameters.get("split_manifest"),
+                recipe=intent.parameters.get("training_recipe", "archived_primary"),
+            )
         return self._needs_input(
             f"Unknown action: {intent.action}",
             [{"field": "action", "reason": "The request did not map to a supported workflow action."}],
@@ -734,6 +754,7 @@ class CO2RRXASAgent:
                 intent.parameters.get("fdmnes_energy_range", (-5.0, 0.2, 50.0))
             ).as_fdmnes_range(),
             edge_override=intent.parameters.get("edge_override"),
+            job_manager=intent.parameters.get("job_manager"),
             vasp_method=intent.parameters.get("vasp_method", "PBE"),
             potcar_dir=intent.parameters.get("potcar_dir"),
             vasp_mode=intent.parameters.get("vasp_mode", "trace"),

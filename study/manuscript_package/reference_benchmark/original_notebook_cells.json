@@ -1,0 +1,60 @@
+[
+  {
+    "index": 0,
+    "type": "code",
+    "source": "from pathlib import Path\nimport pandas as pd\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom scipy.ndimage import gaussian_filter1d",
+    "execution_count": 6,
+    "output_types": []
+  },
+  {
+    "index": 1,
+    "type": "code",
+    "source": "data = np.loadtxt(\"Cu_GW.dat\")\n\nenergy_GW = data[:, 0]\nintensity = data[:, 1]\n\n# Gaussian broadening width in eV\nsigma_eV = 1\n\n# convert from eV to number of points\ndE = energy_GW[1] - energy_GW[0]\nsigma_pts = sigma_eV / dE\n\nintensity_broad = gaussian_filter1d(intensity, sigma=sigma_pts)\n\n# plt.plot(energy, intensity, label=\"raw\")\nplt.plot(energy_GW+120, intensity_broad, label=f\"Gaussian broadened ({sigma_eV} eV)\")\nplt.xlabel(\"Energy (eV)\")\nplt.ylabel(\"Intensity\")\nplt.xlim(8970, 9020)\nplt.legend()\nplt.tight_layout()\nplt.show()",
+    "execution_count": 25,
+    "output_types": [
+      "display_data"
+    ]
+  },
+  {
+    "index": 2,
+    "type": "code",
+    "source": "data = np.loadtxt(\"Cu_PBE.dat\")\n\nenergy = data[:, 0]\nintensity = data[:, 1]\n\n# Gaussian broadening width in eV\nsigma_eV = 1\n\n# convert from eV to number of points\ndE = energy[1] - energy[0]\nsigma_pts = sigma_eV / dE\n\nintensity_broad = gaussian_filter1d(intensity, sigma=sigma_pts)\n\n# plt.plot(energy, intensity, label=\"raw\")\nplt.plot(energy+120, intensity_broad, label=f\"Gaussian broadened ({sigma_eV} eV)\")\nplt.xlabel(\"Energy (eV)\")\nplt.ylabel(\"Intensity\")\nplt.xlim(8970, 9010)\nplt.legend()\nplt.tight_layout()\nplt.show()",
+    "execution_count": 26,
+    "output_types": [
+      "stream",
+      "error"
+    ]
+  },
+  {
+    "index": 3,
+    "type": "code",
+    "source": "data = np.loadtxt(\"Cu_xmu.dat\", comments=\"#\")\nomega = data[:, 0]\nmu = data[:, 3]\n\nplt.plot(energy+125, intensity_broad/max(intensity_broad), label=f\"Gaussian broadened ({sigma_eV} eV)\")\nplt.plot(omega-8, mu/max(mu), label=\"feff\")\nplt.xlabel(\"Energy (eV)\")\nplt.ylabel(\"Intensity (a.u.)\")\nplt.xlim(8970, 9010)\nplt.tight_layout()\nplt.show()",
+    "execution_count": 4,
+    "output_types": [
+      "display_data"
+    ]
+  },
+  {
+    "index": 4,
+    "type": "code",
+    "source": "df = pd.read_csv(\"260324_export_XAS_Exp_ref_stds.dat\", sep=\"\\t\")",
+    "execution_count": 7,
+    "output_types": []
+  },
+  {
+    "index": 5,
+    "type": "code",
+    "source": "# Keep the first 4 columns only for this plot\nenergy_exp = df.iloc[:, 0]\ncu = df.iloc[:, 1]\ncu2o = df.iloc[:, 2]\ncuo = df.iloc[:, 3]\n\n# Plot\nplt.figure(figsize=(8, 5))\nplt.plot(energy_exp, cu, label=\"Cu\")\n# plt.plot(energy_exp, cu2o, label=\"Cu2O\")\n# plt.plot(energy_exp, cuo, label=\"CuO\")\n\n\nplt.plot(energy_GW+124, intensity_broad/max(intensity_broad), label=\"GW\")\nplt.plot(omega-9, mu/max(mu), label=\"FEFF\")\n\n\nplt.xlabel(\"Energy\")\nplt.ylabel(\"Intensity\")\nplt.xlim([8950, 9030])\nplt.legend()\nplt.grid(True)\nplt.tight_layout()\nplt.show()",
+    "execution_count": 27,
+    "output_types": [
+      "display_data"
+    ]
+  },
+  {
+    "index": 6,
+    "type": "code",
+    "source": "",
+    "execution_count": null,
+    "output_types": []
+  }
+]

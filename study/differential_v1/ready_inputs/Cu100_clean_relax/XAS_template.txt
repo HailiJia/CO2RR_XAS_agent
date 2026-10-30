@@ -1,0 +1,18 @@
+Filout
+  Cu_layer{layer}
+Range
+  -5. 0.2 50.
+Radius
+  6.0
+Energpho
+Memory_save
+SCF
+Green
+Perdew
+Crystal
+  {validated_relaxed_cell_and_coordinates}
+Absorber
+  {full_unique_layer_indices}
+Edge
+  K
+End

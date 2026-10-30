@@ -1,0 +1,7 @@
+representation,training_pair_augmentation,scenario,n_queries,micro_f1,macro_f1,exact_set_accuracy
+corrected_normalized,False,shared_reference_noise1pct,118,0.34285714285714286,0.33380511156529535,0.025423728813559324
+corrected_normalized,True,shared_reference_noise1pct,118,0.4016393442622951,0.3528965526810366,0.1694915254237288
+relative_delta,False,shared_reference_noise1pct,118,0.4331450094161959,0.357357892717505,0.1694915254237288
+relative_delta,True,shared_reference_noise1pct,118,0.4132841328413284,0.36010975074136026,0.13559322033898305
+signed_shape,False,shared_reference_noise1pct,118,0.28169014084507044,0.25191098629313735,0.19491525423728814
+signed_shape,True,shared_reference_noise1pct,118,0.3979591836734694,0.35728361351315213,0.23728813559322035

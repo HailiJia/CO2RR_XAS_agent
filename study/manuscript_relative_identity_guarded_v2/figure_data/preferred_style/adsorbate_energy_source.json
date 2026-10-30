@@ -1,0 +1,17 @@
+{
+  "source_repository": "HailiJia/CO2RR_XAS_agent",
+  "source_commit": "ce85ed6d340c835459a6f68493f57390a3ce3eab",
+  "source_path": "study/retraining_20261022/refit/dataset/cohort.npz",
+  "source_git_blob": "c98609c78e0704171e27451191c15f085f8f88b9",
+  "source_sha256": "0ec6a9a450fffa0f29991f2ac15753ab5a042f4db5992368ab93c56110cad15a",
+  "exported_sha256": "ddd2cdd263ba26859560ee36a7fb24a275da78dc81116dc81128b413c56efa0d",
+  "configurations": 87,
+  "new_configurations_included": 0,
+  "layers": [
+    4,
+    5
+  ],
+  "matching": "archived ML group hashes; frozen configuration IDs, targets, folds and surface spectra exactly reproduced; renamed paths retained as source aliases",
+  "group_hash_conventions": "ML grouping hashes and the later manifest geometry hashes are separate conventions; both retained, not asserted identical",
+  "population_validation": "all 87 layer-4/5 counts match the frozen layer_population_audit.csv"
+}

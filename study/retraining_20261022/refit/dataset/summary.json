@@ -1,0 +1,19 @@
+{
+  "configurations": 90,
+  "layer_spectra": 360,
+  "prior_configurations": 87,
+  "new_or_recovered_configurations": [
+    "2CO_adjacent/2CO_adjacent_0p056_AuCu_interface",
+    "2CO_adjacent/2CO_adjacent_0p167_uniform",
+    "CO/CO_0p11/uniform"
+  ],
+  "supplied_record_attempts": 90,
+  "raw_without_record_attempts": 1,
+  "statuses": {
+    "eligible": 90,
+    "excluded": 1
+  },
+  "frozen_archive_changed": false,
+  "source_mutated": false,
+  "training_groups_are_independent_geometries": true
+}

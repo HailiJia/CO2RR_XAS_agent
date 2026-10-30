@@ -1,0 +1,51 @@
+{
+  "compiler": "Tectonic with locally supplied TeX resource bundle",
+  "resource_bundle_sha256": "958bd5511a1d30bdbc67f3ab30206eeee72a95ce87544cafd9ac1630f58bcdd1",
+  "both_documents_compiled_twice": true,
+  "authors": [
+    "Haili Jia",
+    "Pooja Basera",
+    "Dimosthenis Sokaras",
+    "Maria K. Y. Chan"
+  ],
+  "corresponding_author": "Maria K. Y. Chan",
+  "figures_PNG_only": true,
+  "new_performance_replacement": false,
+  "scope": "author-supplied revised package; older scientific scopes retained; new controlled analysis is separately versioned",
+  "documents": {
+    "manuscript": {
+      "pages": 16,
+      "sha256": "480ce8ec3ddad8d9f7fd11dfe6723014ac4c87c9b3ed2c6c5b4469c78f4f07f0",
+      "every_page_rendered_and_visually_inspected": true,
+      "final_render_pixel_identical_to_inspected_pages": true
+    },
+    "Supporting_Information": {
+      "pages": 26,
+      "sha256": "37b589669b9efd9efc197f523acdfcd3e6088c6e00c79b83b9f05db649a528e2",
+      "every_page_rendered_and_visually_inspected": true,
+      "final_render_pixel_identical_to_inspected_pages": true
+    }
+  },
+  "preserved_files": {
+    "figures/Figure_1_framework.png": {
+      "supplied": "84b103291738e3ca10e81532afe64f0ae69a80d5c0ffc712f667253a96984738",
+      "current": "84b103291738e3ca10e81532afe64f0ae69a80d5c0ffc712f667253a96984738"
+    },
+    "figures/Figure_2_dataset.png": {
+      "supplied": "b0317d75a1ba058dd004656aadc166eb9bf6438976a094f012028cafcc3a39bd",
+      "current": "b0317d75a1ba058dd004656aadc166eb9bf6438976a094f012028cafcc3a39bd"
+    },
+    "figures/Figure_3_spectroscopy.png": {
+      "supplied": "2278f15a99c37f43dd24b978dd4dbdacd0dfa8e9cabfebbac259d9362962fea0",
+      "current": "2278f15a99c37f43dd24b978dd4dbdacd0dfa8e9cabfebbac259d9362962fea0"
+    },
+    "figure_data/Figure2b_current_counts.csv": {
+      "supplied": "8a480a57cd9591ea9c5bd2535e2148c4b7907b6abe85112ccb87024ce0a81c7e",
+      "current": "8a480a57cd9591ea9c5bd2535e2148c4b7907b6abe85112ccb87024ce0a81c7e"
+    },
+    "figure_data/Figure3_logged_CPU_provenance.csv": {
+      "supplied": "5cc9fa0b7c0aea82c162d6db13ecc5f47cabaa19036f64fe7681ee106f115a45",
+      "current": "5cc9fa0b7c0aea82c162d6db13ecc5f47cabaa19036f64fe7681ee106f115a45"
+    }
+  }
+}

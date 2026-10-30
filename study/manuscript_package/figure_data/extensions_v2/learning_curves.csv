@@ -1,0 +1,61 @@
+outer_fold,seed,training_configurations,fraction,recipe,micro_f1,macro_f1,exact_set_accuracy,missing_positive_training
+0,11,17,0.25,"predeclared DCT16, independent trees leaf2, threshold0.5; no full-training hyperparameters reused",0.5128205128205128,0.3093434343434343,0.29411764705882354,"[""CO2"", ""COCHO"", ""O"", ""OCCOH""]"
+0,11,35,0.5,"predeclared DCT16, independent trees leaf2, threshold0.5; no full-training hyperparameters reused",0.5882352941176471,0.33278236914600545,0.5882352941176471,"[""CO2"", ""COCHO""]"
+0,11,52,0.75,"predeclared DCT16, independent trees leaf2, threshold0.5; no full-training hyperparameters reused",0.6666666666666666,0.356060606060606,0.5882352941176471,"[""CO2""]"
+0,11,70,1.0,"predeclared DCT16, independent trees leaf2, threshold0.5; no full-training hyperparameters reused",0.7222222222222222,0.5736914600550964,0.7647058823529411,[]
+0,23,17,0.25,"predeclared DCT16, independent trees leaf2, threshold0.5; no full-training hyperparameters reused",0.5405405405405406,0.28732782369146004,0.47058823529411764,"[""CO2""]"
+0,23,35,0.5,"predeclared DCT16, independent trees leaf2, threshold0.5; no full-training hyperparameters reused",0.625,0.3615702479338843,0.5294117647058824,"[""CO2""]"
+0,23,52,0.75,"predeclared DCT16, independent trees leaf2, threshold0.5; no full-training hyperparameters reused",0.6666666666666666,0.45909090909090905,0.6470588235294118,[]
+0,23,70,1.0,"predeclared DCT16, independent trees leaf2, threshold0.5; no full-training hyperparameters reused",0.7428571428571429,0.6039944903581268,0.7647058823529411,[]
+0,47,17,0.25,"predeclared DCT16, independent trees leaf2, threshold0.5; no full-training hyperparameters reused",0.5294117647058824,0.27823691460055094,0.5294117647058824,"[""CHO"", ""CO2"", ""COH"", ""O""]"
+0,47,35,0.5,"predeclared DCT16, independent trees leaf2, threshold0.5; no full-training hyperparameters reused",0.6470588235294118,0.38333333333333336,0.6470588235294118,"[""CO2"", ""O""]"
+0,47,52,0.75,"predeclared DCT16, independent trees leaf2, threshold0.5; no full-training hyperparameters reused",0.7058823529411765,0.48939393939393944,0.7058823529411765,[]
+0,47,70,1.0,"predeclared DCT16, independent trees leaf2, threshold0.5; no full-training hyperparameters reused",0.7222222222222222,0.5736914600550964,0.7647058823529411,[]
+1,11,17,0.25,"predeclared DCT16, independent trees leaf2, threshold0.5; no full-training hyperparameters reused",0.46511627906976744,0.2842712842712843,0.29411764705882354,"[""CO2"", ""COCHO"", ""O"", ""OCCOH"", ""OH""]"
+1,11,35,0.5,"predeclared DCT16, independent trees leaf2, threshold0.5; no full-training hyperparameters reused",0.6,0.41558441558441556,0.35294117647058826,"[""CO2"", ""COCHO""]"
+1,11,52,0.75,"predeclared DCT16, independent trees leaf2, threshold0.5; no full-training hyperparameters reused",0.7692307692307693,0.628099173553719,0.5294117647058824,"[""CO2"", ""COCHO""]"
+1,11,70,1.0,"predeclared DCT16, independent trees leaf2, threshold0.5; no full-training hyperparameters reused",0.8108108108108109,0.6787878787878788,0.7058823529411765,[]
+1,23,17,0.25,"predeclared DCT16, independent trees leaf2, threshold0.5; no full-training hyperparameters reused",0.5555555555555556,0.3909090909090909,0.35294117647058826,"[""COCHO"", ""COOH"", ""O""]"
+1,23,35,0.5,"predeclared DCT16, independent trees leaf2, threshold0.5; no full-training hyperparameters reused",0.7058823529411765,0.5050505050505051,0.47058823529411764,"[""COCHO""]"
+1,23,52,0.75,"predeclared DCT16, independent trees leaf2, threshold0.5; no full-training hyperparameters reused",0.7428571428571429,0.5696969696969697,0.5294117647058824,[]
+1,23,70,1.0,"predeclared DCT16, independent trees leaf2, threshold0.5; no full-training hyperparameters reused",0.8108108108108109,0.6787878787878788,0.7058823529411765,[]
+1,47,17,0.25,"predeclared DCT16, independent trees leaf2, threshold0.5; no full-training hyperparameters reused",0.3783783783783784,0.2701298701298701,0.17647058823529413,"[""CHO"", ""COCHO"", ""O""]"
+1,47,35,0.5,"predeclared DCT16, independent trees leaf2, threshold0.5; no full-training hyperparameters reused",0.7567567567567568,0.5436835891381345,0.47058823529411764,[]
+1,47,52,0.75,"predeclared DCT16, independent trees leaf2, threshold0.5; no full-training hyperparameters reused",0.8333333333333334,0.6826446280991735,0.6470588235294118,[]
+1,47,70,1.0,"predeclared DCT16, independent trees leaf2, threshold0.5; no full-training hyperparameters reused",0.8108108108108109,0.6787878787878788,0.7058823529411765,[]
+2,11,17,0.25,"predeclared DCT16, independent trees leaf2, threshold0.5; no full-training hyperparameters reused",0.5882352941176471,0.2505827505827506,0.47058823529411764,"[""COCHO"", ""O"", ""OCCOH""]"
+2,11,35,0.5,"predeclared DCT16, independent trees leaf2, threshold0.5; no full-training hyperparameters reused",0.6875,0.37575757575757573,0.47058823529411764,"[""COCHO"", ""OCCOH""]"
+2,11,52,0.75,"predeclared DCT16, independent trees leaf2, threshold0.5; no full-training hyperparameters reused",0.6875,0.3939393939393939,0.47058823529411764,"[""COCHO"", ""OCCOH""]"
+2,11,70,1.0,"predeclared DCT16, independent trees leaf2, threshold0.5; no full-training hyperparameters reused",0.6,0.2545454545454545,0.47058823529411764,"[""COCHO""]"
+2,23,17,0.25,"predeclared DCT16, independent trees leaf2, threshold0.5; no full-training hyperparameters reused",0.6153846153846154,0.3371628371628372,0.47058823529411764,"[""COCHO"", ""OCCOH""]"
+2,23,35,0.5,"predeclared DCT16, independent trees leaf2, threshold0.5; no full-training hyperparameters reused",0.75,0.42121212121212115,0.5882352941176471,"[""COCHO"", ""OCCOH""]"
+2,23,52,0.75,"predeclared DCT16, independent trees leaf2, threshold0.5; no full-training hyperparameters reused",0.6470588235294118,0.3333333333333333,0.5294117647058824,"[""COCHO""]"
+2,23,70,1.0,"predeclared DCT16, independent trees leaf2, threshold0.5; no full-training hyperparameters reused",0.6206896551724138,0.2545454545454545,0.47058823529411764,"[""COCHO""]"
+2,47,17,0.25,"predeclared DCT16, independent trees leaf2, threshold0.5; no full-training hyperparameters reused",0.5161290322580645,0.19173553719008266,0.4117647058823529,"[""CHO"", ""COCHO"", ""O""]"
+2,47,35,0.5,"predeclared DCT16, independent trees leaf2, threshold0.5; no full-training hyperparameters reused",0.5625,0.2644628099173554,0.4117647058823529,"[""COCHO"", ""O""]"
+2,47,52,0.75,"predeclared DCT16, independent trees leaf2, threshold0.5; no full-training hyperparameters reused",0.7428571428571429,0.4393939393939394,0.6470588235294118,"[""COCHO""]"
+2,47,70,1.0,"predeclared DCT16, independent trees leaf2, threshold0.5; no full-training hyperparameters reused",0.6,0.2545454545454545,0.47058823529411764,"[""COCHO""]"
+3,11,17,0.25,"predeclared DCT16, independent trees leaf2, threshold0.5; no full-training hyperparameters reused",0.5333333333333333,0.1933066933066933,0.2777777777777778,"[""CO2"", ""COCHO"", ""OH""]"
+3,11,34,0.5,"predeclared DCT16, independent trees leaf2, threshold0.5; no full-training hyperparameters reused",0.7368421052631579,0.35537190082644626,0.6666666666666666,"[""CO2""]"
+3,11,51,0.75,"predeclared DCT16, independent trees leaf2, threshold0.5; no full-training hyperparameters reused",0.7368421052631579,0.28870523415977956,0.6666666666666666,"[""CO2""]"
+3,11,69,1.0,"predeclared DCT16, independent trees leaf2, threshold0.5; no full-training hyperparameters reused",0.7567567567567568,0.4089849544394999,0.7222222222222222,[]
+3,23,17,0.25,"predeclared DCT16, independent trees leaf2, threshold0.5; no full-training hyperparameters reused",0.6829268292682927,0.3484848484848485,0.6111111111111112,"[""CO2"", ""COCHO"", ""OH""]"
+3,23,34,0.5,"predeclared DCT16, independent trees leaf2, threshold0.5; no full-training hyperparameters reused",0.7777777777777778,0.4089849544394999,0.7222222222222222,"[""CO2""]"
+3,23,51,0.75,"predeclared DCT16, independent trees leaf2, threshold0.5; no full-training hyperparameters reused",0.7777777777777778,0.4089849544394999,0.7222222222222222,[]
+3,23,69,1.0,"predeclared DCT16, independent trees leaf2, threshold0.5; no full-training hyperparameters reused",0.7777777777777778,0.4089849544394999,0.7222222222222222,[]
+3,47,17,0.25,"predeclared DCT16, independent trees leaf2, threshold0.5; no full-training hyperparameters reused",0.5405405405405406,0.20936639118457298,0.4444444444444444,"[""COCHO"", ""OCCOH""]"
+3,47,34,0.5,"predeclared DCT16, independent trees leaf2, threshold0.5; no full-training hyperparameters reused",0.6111111111111112,0.16056670602125148,0.5555555555555556,[]
+3,47,51,0.75,"predeclared DCT16, independent trees leaf2, threshold0.5; no full-training hyperparameters reused",0.7777777777777778,0.4089849544394999,0.7222222222222222,[]
+3,47,69,1.0,"predeclared DCT16, independent trees leaf2, threshold0.5; no full-training hyperparameters reused",0.7777777777777778,0.4089849544394999,0.7222222222222222,[]
+4,11,17,0.25,"predeclared DCT16, independent trees leaf2, threshold0.5; no full-training hyperparameters reused",0.45454545454545453,0.24079254079254078,0.2222222222222222,"[""CO2"", ""COCHO"", ""OH""]"
+4,11,34,0.5,"predeclared DCT16, independent trees leaf2, threshold0.5; no full-training hyperparameters reused",0.7222222222222222,0.5242424242424243,0.6666666666666666,"[""CO2"", ""COCHO""]"
+4,11,51,0.75,"predeclared DCT16, independent trees leaf2, threshold0.5; no full-training hyperparameters reused",0.7027027027027027,0.5176308539944904,0.6666666666666666,"[""CO2"", ""COCHO""]"
+4,11,69,1.0,"predeclared DCT16, independent trees leaf2, threshold0.5; no full-training hyperparameters reused",0.7647058823529411,0.5393939393939394,0.7222222222222222,[]
+4,23,17,0.25,"predeclared DCT16, independent trees leaf2, threshold0.5; no full-training hyperparameters reused",0.5714285714285714,0.22727272727272727,0.4444444444444444,"[""CHO"", ""CO2"", ""COCHO""]"
+4,23,34,0.5,"predeclared DCT16, independent trees leaf2, threshold0.5; no full-training hyperparameters reused",0.6111111111111112,0.33581267217630856,0.6111111111111112,"[""CO2"", ""COCHO""]"
+4,23,51,0.75,"predeclared DCT16, independent trees leaf2, threshold0.5; no full-training hyperparameters reused",0.6666666666666666,0.3878787878787879,0.6111111111111112,[]
+4,23,69,1.0,"predeclared DCT16, independent trees leaf2, threshold0.5; no full-training hyperparameters reused",0.8,0.5696969696969697,0.7777777777777778,[]
+4,47,17,0.25,"predeclared DCT16, independent trees leaf2, threshold0.5; no full-training hyperparameters reused",0.5789473684210527,0.26813590449954083,0.5,"[""COCHO"", ""OCCOH""]"
+4,47,34,0.5,"predeclared DCT16, independent trees leaf2, threshold0.5; no full-training hyperparameters reused",0.7777777777777778,0.4834710743801653,0.6666666666666666,[]
+4,47,51,0.75,"predeclared DCT16, independent trees leaf2, threshold0.5; no full-training hyperparameters reused",0.7567567567567568,0.5272727272727272,0.6111111111111112,[]
+4,47,69,1.0,"predeclared DCT16, independent trees leaf2, threshold0.5; no full-training hyperparameters reused",0.8,0.5493112947658403,0.7222222222222222,[]
