@@ -1,0 +1,52 @@
+{
+  "compiler": "Tectonic with locally supplied TeX resource bundle",
+  "resource_bundle_sha256": "958bd5511a1d30bdbc67f3ab30206eeee72a95ce87544cafd9ac1630f58bcdd1",
+  "both_documents_compiled_twice": true,
+  "authors": [
+    "Haili Jia",
+    "Pooja Basera",
+    "Dimosthenis Sokaras",
+    "Maria K. Y. Chan"
+  ],
+  "corresponding_author": "Maria K. Y. Chan",
+  "figures_PNG_only": true,
+  "new_performance_replacement": false,
+  "scope": "author-supplied revised package; older scientific scopes retained; new controlled analysis is separately versioned",
+  "documents": {
+    "manuscript": {
+      "pages": 16,
+      "sha256": "badc37c6fe5d43dcd4eb5f6f1f41ead866a0a6b8fd48b7bf2c032cd411d4667e",
+      "every_page_rendered_and_visually_inspected": true,
+      "final_render_pixel_identical_to_inspected_pages": true
+    },
+    "Supporting_Information": {
+      "pages": 29,
+      "sha256": "e2df51ce9cca35b97282d616036e72526073fb049020d78a596f085146e1bf8a",
+      "every_page_rendered_and_visually_inspected": true,
+      "final_render_pixel_identical_to_inspected_pages": true
+    }
+  },
+  "preserved_files": {
+    "figures/Figure_1_framework.png": {
+      "supplied": "84b103291738e3ca10e81532afe64f0ae69a80d5c0ffc712f667253a96984738",
+      "current": "84b103291738e3ca10e81532afe64f0ae69a80d5c0ffc712f667253a96984738"
+    },
+    "figures/Figure_3_spectroscopy.png": {
+      "supplied": "2278f15a99c37f43dd24b978dd4dbdacd0dfa8e9cabfebbac259d9362962fea0",
+      "current": "2278f15a99c37f43dd24b978dd4dbdacd0dfa8e9cabfebbac259d9362962fea0"
+    },
+    "figure_data/Figure2b_current_counts.csv": {
+      "supplied": "8a480a57cd9591ea9c5bd2535e2148c4b7907b6abe85112ccb87024ce0a81c7e",
+      "current": "8a480a57cd9591ea9c5bd2535e2148c4b7907b6abe85112ccb87024ce0a81c7e"
+    },
+    "figure_data/Figure3_logged_CPU_provenance.csv": {
+      "supplied": "5cc9fa0b7c0aea82c162d6db13ecc5f47cabaa19036f64fe7681ee106f115a45",
+      "current": "5cc9fa0b7c0aea82c162d6db13ecc5f47cabaa19036f64fe7681ee106f115a45"
+    }
+  },
+  "Figure2_change": {
+    "supplied_sha256": "b0317d75a1ba058dd004656aadc166eb9bf6438976a094f012028cafcc3a39bd",
+    "current_sha256": "2d6bf9e65afc14ba29ae52f69a5eeaa93cbd112bc7831f430a827b20a36e5d60",
+    "reason": "supplied PNG lacked explicit Cu100 count column; added unchanged numeric counts and corrected axis to Configuration records; structural views and layout retained"
+  }
+}

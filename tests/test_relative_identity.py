@@ -28,6 +28,8 @@ def test_real_shared_route_rejects_missing_energy_and_abstains_null(tmp_path):
  e=np.linspace(8974,9029,276);p=tmp_path/'model.joblib';joblib.dump(dict(input_contract=VERSION,energy=e,representation='signed_shape',floor=.001),p)
  r=infer(p,np.zeros(len(e)),None,{},{},'CuAu','CuAu',experimental_convention={**conv('precomputed_difference'),'input_energy_eV':e.tolist()});assert r['status']=='abstain_low_signal';assert r['predicted_identity_set'] is None
  with pytest.raises(ReferenceError,match='support'):infer(p,np.zeros(275),None,{},{},'CuAu','CuAu',experimental_convention={**conv('precomputed_difference'),'input_energy_eV':e[1:].tolist()})
+ with pytest.raises(ReferenceError,match='Cross-domain'):infer(p,np.ones(len(e)),np.ones(len(e)),{},{},'CuAu','Cu100',experimental_convention=conv())
+ with pytest.raises(ReferenceError,match='disagree'):infer(p,np.zeros(len(e)),None,{},{},'Cu100','Cu100',experimental_convention=conv('precomputed_difference'))
 
 def test_agent_selects_explicit_relative_identity_recipe():
  from agent.co2rr_xas_agent import LocalIntentParser

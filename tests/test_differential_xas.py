@@ -69,6 +69,9 @@ def test_calibrated_coverage_query_cannot_ignore_reference_or_surface_fraction()
  convention={k:'declared' for k in ['incident_intensity_correction','thickness_concentration','self_absorption','detection_geometry','reference_residual_coverage']};convention.update(Cu_basis='same independently calibrated per-Cu basis',edge_step_rule='shared reference-derived scale with fixed documented windows')
  with pytest.raises(ReferenceError,match='fraction'):experimental_pair(y,y,e,convention,task="coverage")
  convention['surface_fraction']=.2;assert np.all(experimental_pair(y,y,e,convention,task="coverage")['delta']==0)
+ for invalid in [-.2,0.,1.2,np.inf,np.nan]:
+  convention['surface_fraction']=invalid
+  with pytest.raises(ReferenceError,match='fraction'):experimental_pair(y,y,e,convention,task='coverage')
 
 def test_XAS_preparation_cannot_bypass_failed_relaxation(tmp_path):
  (tmp_path/'OUTCAR').write_text('Electronic iterations only; unfinished relaxation')

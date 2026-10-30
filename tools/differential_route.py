@@ -48,6 +48,8 @@ def infer(model_path,sample,reference,populations,reference_populations,domain,r
  if m.get('input_contract')=='relative-signed-identity-v2':
   from .differential_identity import infer_identity
   if experimental_convention is None:raise ReferenceError('Explicit relative identity input convention required')
+  if experimental_convention.get('domain')!=domain:raise ReferenceError('Identity convention and query domain disagree')
+  if experimental_convention.get('input_kind')=='reaction_reference_pair' and domain!=reference_domain:raise ReferenceError('Cross-domain experimental reference substitution is forbidden')
   supplied_energy=experimental_convention.get('input_energy_eV',energy)
   return infer_identity(model_path,sample,reference,supplied_energy,experimental_convention)
  if reference is None:raise ReferenceError('A compatible explicit reference is required; no mean-reference borrowing or silent raw fallback')

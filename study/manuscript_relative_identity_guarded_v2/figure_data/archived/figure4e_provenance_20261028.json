@@ -1,0 +1,6116 @@
+[
+  {
+    "configuration": "2CO_adjacent/2CO_adjacent_0p111_interface",
+    "domain": "CuAu",
+    "group": "3253cc48cb10de89658d3e162626e51a68d1ff675a2db4ffc0231934c59f47a3",
+    "labels": [
+      "CO"
+    ],
+    "n_CO": 4,
+    "coverage_metal": 0.058823529411764705,
+    "coverage_Cu_loading": 0.1111111111111111,
+    "CO_per_nm2": 0.9214233564259695,
+    "CO_only": true,
+    "sample_corrected_record_sha256": "9e5847127b5b0f424f59e61356344791727b64faf4e809c16c49112b9a9a2303",
+    "reference_corrected_record_sha256": "71de5b796825471041d279a95b172d3acdca6c269223d393c8fc180da950ec2f",
+    "source_record_id": "01M5X6QYN4WMJBZNAV3N2W5C47",
+    "corrected_record": "corrected_records/2CO_adjacent/2CO_adjacent_0p111_interface/isaac_record_layers.json",
+    "reference_id": "01M5X70RDEB3BYSSS1C51KF5FV",
+    "reference_record": "corrected_records/plain/isaac_record_layers.json",
+    "physical_top_layers": [
+      4,
+      5
+    ],
+    "populations": {
+      "4": {
+        "layer": 4,
+        "population": 36,
+        "main_deck_population": 36,
+        "provenance": "final_convolution",
+        "convolution_log": "fdmnes_convolution-59746452.out",
+        "convolution_log_sha256": "0c2551def23c4a26de0d4ca5b07925ce61cbd8af1107941543a4eb8b91ee73f1",
+        "population_basis": "unique physical Cu atom indices, not sum of source symmetry multiplicities",
+        "E_cut_tolerance_eV": 0.00051,
+        "mean_height_A": 6.605706796666668,
+        "output_sha256": "33702822981a56cd374dfcda21b78ec46520dd12759c460c2ca7852bc4db970d",
+        "sites": [
+          {
+            "atom_index": 109,
+            "convolution_site": 1,
+            "E_cut_difference_eV": 0.0003111000000000086,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_109.txt",
+            "sha256": "5ec9a12f08c66e7ade45ea8a7b64d21ed7f681e370133c85dce31f340189d658"
+          },
+          {
+            "atom_index": 110,
+            "convolution_site": 2,
+            "E_cut_difference_eV": 9.440000000005e-05,
+            "source_symmetry_multiplicity": 2.0,
+            "source": "Cu_layer4_110.txt",
+            "sha256": "7345a22426efc70cc45975be45e7e11eae7c34cf0ba90e380ef7e6f452455a6d"
+          },
+          {
+            "atom_index": 111,
+            "convolution_site": 3,
+            "E_cut_difference_eV": 0.000304000000000082,
+            "source_symmetry_multiplicity": 2.0,
+            "source": "Cu_layer4_111.txt",
+            "sha256": "141fb575e0efb977a8907e86400167d4d648c395e8882203225df409d35ccf70"
+          },
+          {
+            "atom_index": 112,
+            "convolution_site": 4,
+            "E_cut_difference_eV": 0.0001385999999998777,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_112.txt",
+            "sha256": "65c2e548df5a0d11e0f44c8c087d048974031c7c95bba743b9af361aedfd1d8b"
+          },
+          {
+            "atom_index": 113,
+            "convolution_site": 5,
+            "E_cut_difference_eV": 2.4000000000024002e-05,
+            "source_symmetry_multiplicity": 2.0,
+            "source": "Cu_layer4_113.txt",
+            "sha256": "2fbf53fcd7700f6e30c3efe7be1e3c6d204a640e5359d2dbfcfcff6dbdec27c7"
+          },
+          {
+            "atom_index": 114,
+            "convolution_site": 6,
+            "E_cut_difference_eV": 0.00021479999999995947,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_114.txt",
+            "sha256": "a617b833efad5c505f5750adb96449faee22704dcacc1762cdafab6f5975ae1f"
+          },
+          {
+            "atom_index": 115,
+            "convolution_site": 7,
+            "E_cut_difference_eV": 0.0002431000000000516,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_115.txt",
+            "sha256": "8dc92832af1166318dcda26261e38c714f2522189f1ac484ad6464fc37654f9f"
+          },
+          {
+            "atom_index": 116,
+            "convolution_site": 8,
+            "E_cut_difference_eV": 0.0004811000000000121,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_116.txt",
+            "sha256": "a7e52a6243e8d95f9f563645307b7344c10154ff26e5ab8663097b6015247810"
+          },
+          {
+            "atom_index": 117,
+            "convolution_site": 9,
+            "E_cut_difference_eV": 7.869999999998711e-05,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_117.txt",
+            "sha256": "41d263b14e418e0f7d1c36f2b8a1b7937e9f65b9475373c38cd6f3d400825208"
+          },
+          {
+            "atom_index": 118,
+            "convolution_site": 10,
+            "E_cut_difference_eV": 0.0001842999999999151,
+            "source_symmetry_multiplicity": 2.0,
+            "source": "Cu_layer4_118.txt",
+            "sha256": "fb1e36885ad677854cef7cef36565f82a2d1387cf25a35e446ff542da5d80fd7"
+          },
+          {
+            "atom_index": 119,
+            "convolution_site": 11,
+            "E_cut_difference_eV": 0.00048250000000016335,
+            "source_symmetry_multiplicity": 2.0,
+            "source": "Cu_layer4_119.txt",
+            "sha256": "20b1680c4d5515c50d4ad729a27a68b6b52ba7c2a51de86b4b120d440eb00f85"
+          },
+          {
+            "atom_index": 120,
+            "convolution_site": 12,
+            "E_cut_difference_eV": 0.00048589999999992806,
+            "source_symmetry_multiplicity": 2.0,
+            "source": "Cu_layer4_120.txt",
+            "sha256": "3ffa0117855b90cc61d20ee1c06b8c9c7b77ed26ed6d1155b5dd3e6eac4e80d0"
+          },
+          {
+            "atom_index": 121,
+            "convolution_site": 13,
+            "E_cut_difference_eV": 4.619999999988522e-05,
+            "source_symmetry_multiplicity": 2.0,
+            "source": "Cu_layer4_121.txt",
+            "sha256": "fd707cd37b14c652f8322fe6bd842e04e8839bf736608a080739bda6c19db1bf"
+          },
+          {
+            "atom_index": 122,
+            "convolution_site": 14,
+            "E_cut_difference_eV": 2.700000000022129e-06,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_122.txt",
+            "sha256": "40f1226e8e1e088d064feb1a1ae8da4eabb6e3ba920edd6ccc0965905388b1cc"
+          },
+          {
+            "atom_index": 123,
+            "convolution_site": 15,
+            "E_cut_difference_eV": 0.00011149999999982008,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_123.txt",
+            "sha256": "2f4aa32b747f70aa516ea14b62d0fda24d3ea946a430788780a017486f14a711"
+          },
+          {
+            "atom_index": 124,
+            "convolution_site": 16,
+            "E_cut_difference_eV": 0.0001246999999999776,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_124.txt",
+            "sha256": "d1fc37c97b52ccdc7389b60dec5df720ee6dc549793d02998074fb48a1819858"
+          },
+          {
+            "atom_index": 125,
+            "convolution_site": 17,
+            "E_cut_difference_eV": 0.00014289999999994585,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_125.txt",
+            "sha256": "74d86ea276f393b83f78d1da44e7318eddb332ad7da4b804b882e798515f5d65"
+          },
+          {
+            "atom_index": 126,
+            "convolution_site": 18,
+            "E_cut_difference_eV": 1.3500000000110646e-05,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_126.txt",
+            "sha256": "9b18fd0969ab6707d19125766ea679a3fbfbe9b99f7055fe096f8fc86e87a997"
+          },
+          {
+            "atom_index": 127,
+            "convolution_site": 19,
+            "E_cut_difference_eV": 0.00015180000000003524,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_127.txt",
+            "sha256": "c67bb9e7e2e0361cf99c6c002d1feb5d2f9f9a8c609229126563af17e4e339bf"
+          },
+          {
+            "atom_index": 128,
+            "convolution_site": 20,
+            "E_cut_difference_eV": 0.0003037999999999652,
+            "source_symmetry_multiplicity": 2.0,
+            "source": "Cu_layer4_128.txt",
+            "sha256": "fe13a9a23173eab90699ca50ba246e1326eb90c058f1a297171ff5fe2a7916b4"
+          },
+          {
+            "atom_index": 129,
+            "convolution_site": 21,
+            "E_cut_difference_eV": 3.219999999992673e-05,
+            "source_symmetry_multiplicity": 2.0,
+            "source": "Cu_layer4_129.txt",
+            "sha256": "cde8509c0c1b7b67b8844de52fff7661a54849443a1007e4b8c44ec66665dc86"
+          },
+          {
+            "atom_index": 130,
+            "convolution_site": 22,
+            "E_cut_difference_eV": 0.0001564000000000565,
+            "source_symmetry_multiplicity": 2.0,
+            "source": "Cu_layer4_130.txt",
+            "sha256": "7802df5e1d5e90a52c3e4c9fe9482684e8ae1685f0291ed90f9f579605490729"
+          },
+          {
+            "atom_index": 131,
+            "convolution_site": 23,
+            "E_cut_difference_eV": 0.0001484000000000485,
+            "source_symmetry_multiplicity": 2.0,
+            "source": "Cu_layer4_131.txt",
+            "sha256": "18cfbcd0fa2816b23ad8c42432c8d5ad9f039e133cfe9b2fa21e5f4e95c38637"
+          },
+          {
+            "atom_index": 132,
+            "convolution_site": 24,
+            "E_cut_difference_eV": 0.00037330000000013186,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_132.txt",
+            "sha256": "fb10424b63c32b4fe1a16368b89ee392710a64d99bacdd1c6f0cebf151322335"
+          },
+          {
+            "atom_index": 133,
+            "convolution_site": 25,
+            "E_cut_difference_eV": 7.719999999999949e-05,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_133.txt",
+            "sha256": "d3f52361c19ebf79fcb17af881408beb1c702a64ed4418ad01f7d75aca0701fb"
+          },
+          {
+            "atom_index": 134,
+            "convolution_site": 26,
+            "E_cut_difference_eV": 0.00011359999999993597,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_134.txt",
+            "sha256": "933adc56335be8f4c473da4596e9f72b68c83eb5a0d56211d3aa2a4f7be03747"
+          },
+          {
+            "atom_index": 135,
+            "convolution_site": 27,
+            "E_cut_difference_eV": 0.0003990000000000382,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_135.txt",
+            "sha256": "8f4d35a5ad74070683a2ec0095fa931b57a4c14e226dae5e2735055c2b21b683"
+          },
+          {
+            "atom_index": 136,
+            "convolution_site": 28,
+            "E_cut_difference_eV": 6.729999999999237e-05,
+            "source_symmetry_multiplicity": 2.0,
+            "source": "Cu_layer4_136.txt",
+            "sha256": "6a7049cc044874d7f743fdefaa5bed5cbef504d43ca9fda96094c661aa9d5aec"
+          },
+          {
+            "atom_index": 137,
+            "convolution_site": 29,
+            "E_cut_difference_eV": 0.0003187000000000051,
+            "source_symmetry_multiplicity": 2.0,
+            "source": "Cu_layer4_137.txt",
+            "sha256": "487d3133afadad14b8f658df34e5b8515665bad7deb9076978aed54b167d4a37"
+          },
+          {
+            "atom_index": 138,
+            "convolution_site": 30,
+            "E_cut_difference_eV": 0.00010390000000004562,
+            "source_symmetry_multiplicity": 2.0,
+            "source": "Cu_layer4_138.txt",
+            "sha256": "673621ecde3df5b327033d0c4ba922883912e94904b8def45ce7d0e760df67ac"
+          },
+          {
+            "atom_index": 139,
+            "convolution_site": 31,
+            "E_cut_difference_eV": 0.00021919999999986395,
+            "source_symmetry_multiplicity": 2.0,
+            "source": "Cu_layer4_139.txt",
+            "sha256": "25cb66c6204276db50e9291bf82d986ef8e6b1fb5bf6a08c7ad82a5b198a75cb"
+          },
+          {
+            "atom_index": 140,
+            "convolution_site": 32,
+            "E_cut_difference_eV": 0.00027190000000021364,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_140.txt",
+            "sha256": "bcb6b8bbe661be8bf0f0fe46fddfb11ad2b28207ddeca0edf721d798f0ff58f4"
+          },
+          {
+            "atom_index": 141,
+            "convolution_site": 33,
+            "E_cut_difference_eV": 0.00033709999999986806,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_141.txt",
+            "sha256": "c3b6306e7d7fd960171fe66d2a30d6ab677a9c4fae3e7788061a2022030f869f"
+          },
+          {
+            "atom_index": 142,
+            "convolution_site": 34,
+            "E_cut_difference_eV": 0.00021519999999997097,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_142.txt",
+            "sha256": "81da669decce0d0646d8ce014133a4e6faef791f31f82c88138e65059fc3de21"
+          },
+          {
+            "atom_index": 143,
+            "convolution_site": 35,
+            "E_cut_difference_eV": 0.00033930000000004235,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_143.txt",
+            "sha256": "8018a7b2c405ac55b138087fa3f6ba2b9a453382bcc0f7789ed4a79aee4b47fc"
+          },
+          {
+            "atom_index": 144,
+            "convolution_site": 36,
+            "E_cut_difference_eV": 0.00046080000000015,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_144.txt",
+            "sha256": "1014bf09a0f141d20ae4bf03e084f1f0e7be5731f0291a13566429f04def9f2f"
+          }
+        ],
+        "fdmnes_cell_parameters": [
+          23.03718538,
+          18.84392459,
+          23.88311124,
+          90.0,
+          90.0,
+          90.0
+        ],
+        "cell_length_tolerance_A": 2e-05,
+        "cell_angle_tolerance_deg": 2e-05,
+        "coordinate_frame": "fractional coordinates in matching six-parameter cell; in-plane PBC only"
+      },
+      "5": {
+        "layer": 5,
+        "population": 36,
+        "main_deck_population": 36,
+        "provenance": "final_convolution",
+        "convolution_log": "fdmnes_convolution-59740510.out",
+        "convolution_log_sha256": "82efb96961f611190928e4b4e179b8363f548400288260a085c0cc68c525dc0b",
+        "population_basis": "unique physical Cu atom indices, not sum of source symmetry multiplicities",
+        "E_cut_tolerance_eV": 0.00051,
+        "mean_height_A": 8.715061211944441,
+        "output_sha256": "36f7ec563b8cb776cee4710e6975808320b5f5906af666fc8b9f3bff2c25dde0",
+        "sites": [
+          {
+            "atom_index": 145,
+            "convolution_site": 1,
+            "E_cut_difference_eV": 0.00023119999999998697,
+            "source_symmetry_multiplicity": 2.0,
+            "source": "Cu_layer5_145.txt",
+            "sha256": "6c2a451582ad9735a431bbab78ed6a20be5ed38a32627560cebe15674d05e897"
+          },
+          {
+            "atom_index": 146,
+            "convolution_site": 2,
+            "E_cut_difference_eV": 1.3899999999900103e-05,
+            "source_symmetry_multiplicity": 2.0,
+            "source": "Cu_layer5_146.txt",
+            "sha256": "e5aabba82df47c4bc6c27f9fe7c24c86becea9b74c7054696293cac1a072cda0"
+          },
+          {
+            "atom_index": 147,
+            "convolution_site": 3,
+            "E_cut_difference_eV": 0.00022940000000004623,
+            "source_symmetry_multiplicity": 2.0,
+            "source": "Cu_layer5_147.txt",
+            "sha256": "133e64eed47f048acdfb73089608de87286ef920ea27e67e22da1bc688cc48d9"
+          },
+          {
+            "atom_index": 148,
+            "convolution_site": 4,
+            "E_cut_difference_eV": 0.00048589999999992806,
+            "source_symmetry_multiplicity": 2.0,
+            "source": "Cu_layer5_148.txt",
+            "sha256": "ca5243273eb44a7d0035b6970ae5de006dc7bdfc5c043904e1922de079ce8f5d"
+          },
+          {
+            "atom_index": 149,
+            "convolution_site": 5,
+            "E_cut_difference_eV": 7.179999999995523e-05,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_149.txt",
+            "sha256": "b659bde8927529eb391cb055ac7ccb69d9db315789309a03fd380af2eb2440d1"
+          },
+          {
+            "atom_index": 150,
+            "convolution_site": 6,
+            "E_cut_difference_eV": 0.00036220000000009023,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_150.txt",
+            "sha256": "de5ea71435727f1e02c3d0d6ce41c11e9e26b8a66659cbbeb6613451ea6c1c9f"
+          },
+          {
+            "atom_index": 151,
+            "convolution_site": 7,
+            "E_cut_difference_eV": 0.0002505999999999897,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_151.txt",
+            "sha256": "11139dedbc81a9f999eba97faa0a1857fc94451372f41e37639e510e4b50c0b1"
+          },
+          {
+            "atom_index": 152,
+            "convolution_site": 8,
+            "E_cut_difference_eV": 6.94999999999446e-05,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_152.txt",
+            "sha256": "12ecf12dd388d1c290b8ceae2308656b83ae9e4262736864d67a9ae895b130d5"
+          },
+          {
+            "atom_index": 153,
+            "convolution_site": 9,
+            "E_cut_difference_eV": 0.00020839999999999748,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_153.txt",
+            "sha256": "80f6ab89493f5e20716e2839aaa7b9498c3fcf540cc1508c2bcefd291c79b7db"
+          },
+          {
+            "atom_index": 154,
+            "convolution_site": 10,
+            "E_cut_difference_eV": 0.00012100000000003774,
+            "source_symmetry_multiplicity": 2.0,
+            "source": "Cu_layer5_154.txt",
+            "sha256": "e59a2db80ff25ec90e93f3475998eef804f72003ca78eecb1c9afaeaabfe9789"
+          },
+          {
+            "atom_index": 155,
+            "convolution_site": 11,
+            "E_cut_difference_eV": 0.00012020000000001474,
+            "source_symmetry_multiplicity": 2.0,
+            "source": "Cu_layer5_155.txt",
+            "sha256": "cb384bb3cfb3312e348bb3ad2a412caa1f96ac2a84bdd15bee239ed9d34a00eb"
+          },
+          {
+            "atom_index": 156,
+            "convolution_site": 12,
+            "E_cut_difference_eV": 0.0003413999999999362,
+            "source_symmetry_multiplicity": 2.0,
+            "source": "Cu_layer5_156.txt",
+            "sha256": "5b534ca1a7f04d42e4f2625724236e73732b6cea4960501993d301e96972199f"
+          },
+          {
+            "atom_index": 157,
+            "convolution_site": 13,
+            "E_cut_difference_eV": 0.0004188999999998888,
+            "source_symmetry_multiplicity": 2.0,
+            "source": "Cu_layer5_157.txt",
+            "sha256": "b862b962a1a76bbd02088e4f6b68b442fbd27a163efe45cad41657bb3313a0c4"
+          },
+          {
+            "atom_index": 158,
+            "convolution_site": 14,
+            "E_cut_difference_eV": 2.4599999999930233e-05,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_158.txt",
+            "sha256": "6bdc9d0a3a2295a6704eed660a07af60f54b577680437661b4b5e459f1ea770d"
+          },
+          {
+            "atom_index": 159,
+            "convolution_site": 15,
+            "E_cut_difference_eV": 0.0002727000000000146,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_159.txt",
+            "sha256": "5da3a0a4538dfe2e52d3d74e35fb29f846766a17bca423d1f7fc36825c43d241"
+          },
+          {
+            "atom_index": 160,
+            "convolution_site": 16,
+            "E_cut_difference_eV": 0.0003668999999999478,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_160.txt",
+            "sha256": "09eb938999eb028af9de0bc32bd6e79b3df121bafd4cb44d8364e41b97155fb2"
+          },
+          {
+            "atom_index": 161,
+            "convolution_site": 17,
+            "E_cut_difference_eV": 8.220000000003225e-05,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_161.txt",
+            "sha256": "94a1c74ec0d569db691da85cf285c13b26fdba71cdb156d3c7312ddf687970a2"
+          },
+          {
+            "atom_index": 162,
+            "convolution_site": 18,
+            "E_cut_difference_eV": 0.0003003000000001421,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_162.txt",
+            "sha256": "ee07c86df9e476b503def21b77957b4d9ce3edcb2d400594539b24eca95777f6"
+          },
+          {
+            "atom_index": 163,
+            "convolution_site": 19,
+            "E_cut_difference_eV": 0.00030780000000008023,
+            "source_symmetry_multiplicity": 2.0,
+            "source": "Cu_layer5_163.txt",
+            "sha256": "62e9dcad9191085b5d0024e254eb8b27453cb81dff5fe1b275ae02d40bc81a19"
+          },
+          {
+            "atom_index": 164,
+            "convolution_site": 20,
+            "E_cut_difference_eV": 0.0003014999999999546,
+            "source_symmetry_multiplicity": 2.0,
+            "source": "Cu_layer5_164.txt",
+            "sha256": "f4fac78567ba3e5ddb2fcce9300a0937b8c7b714326c56365b0abd6ab3690ad3"
+          },
+          {
+            "atom_index": 165,
+            "convolution_site": 21,
+            "E_cut_difference_eV": 7.340000000000124e-05,
+            "source_symmetry_multiplicity": 2.0,
+            "source": "Cu_layer5_165.txt",
+            "sha256": "e9a5c182348b6c5771f0fe9649fadcd029f853f8dd21362daa0963f6e6bd8ca4"
+          },
+          {
+            "atom_index": 166,
+            "convolution_site": 22,
+            "E_cut_difference_eV": 0.00018909999999983107,
+            "source_symmetry_multiplicity": 2.0,
+            "source": "Cu_layer5_166.txt",
+            "sha256": "61a0bbbadacebda7c15cfe0b1580780d37aeefcff89fb26bb90f3b15afcdfcaf"
+          },
+          {
+            "atom_index": 167,
+            "convolution_site": 23,
+            "E_cut_difference_eV": 0.00022220000000006124,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_167.txt",
+            "sha256": "0bfcb9b0531f0ebdb41e896f32f97d7268eb959ba2ec354f0397c6925ac7c94c"
+          },
+          {
+            "atom_index": 168,
+            "convolution_site": 24,
+            "E_cut_difference_eV": 9.209999999981733e-05,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_168.txt",
+            "sha256": "caae884111c65702e80af36e515ed03307e340589c819d3ed16137dae1c26039"
+          },
+          {
+            "atom_index": 169,
+            "convolution_site": 25,
+            "E_cut_difference_eV": 0.00040160000000000196,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_169.txt",
+            "sha256": "29e562e66e452ad78aa50122128e351909947aa6068873d2e4fe574c73fdbb8c"
+          },
+          {
+            "atom_index": 170,
+            "convolution_site": 26,
+            "E_cut_difference_eV": 3.8900000000063883e-05,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_170.txt",
+            "sha256": "1421ac5975a844c4b0ea37d5b9d3b89263fa83ed2132c5f7ef21347803f6d839"
+          },
+          {
+            "atom_index": 171,
+            "convolution_site": 27,
+            "E_cut_difference_eV": 0.0003614000000000672,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_171.txt",
+            "sha256": "0afc828bb89c409e4d2aa250a0f4eb8e6892a37d71f9e0ea5c2fab92f4e6b5bc"
+          },
+          {
+            "atom_index": 172,
+            "convolution_site": 28,
+            "E_cut_difference_eV": 0.0001357000000001829,
+            "source_symmetry_multiplicity": 2.0,
+            "source": "Cu_layer5_172.txt",
+            "sha256": "f325cc20fff77b47671dc056bed2b1b964d943c299f4dd9a6ed19417d4b86083"
+          },
+          {
+            "atom_index": 173,
+            "convolution_site": 29,
+            "E_cut_difference_eV": 0.00013669999999987859,
+            "source_symmetry_multiplicity": 2.0,
+            "source": "Cu_layer5_173.txt",
+            "sha256": "3558086c1535202287c6cf08d0c0a388b53a5ce5b24e33929f73c27e9d7a8148"
+          },
+          {
+            "atom_index": 174,
+            "convolution_site": 30,
+            "E_cut_difference_eV": 7.159999999983846e-05,
+            "source_symmetry_multiplicity": 2.0,
+            "source": "Cu_layer5_174.txt",
+            "sha256": "882924722cfe129f37fd4476a0afe313f98f00c274efcfb33af84a9147ceafdf"
+          },
+          {
+            "atom_index": 175,
+            "convolution_site": 31,
+            "E_cut_difference_eV": 0.0002492000000000605,
+            "source_symmetry_multiplicity": 2.0,
+            "source": "Cu_layer5_175.txt",
+            "sha256": "6f76f6f1f638fb45b68d45a104089d67630fed1c721b8043dc55f67451fb5dc7"
+          },
+          {
+            "atom_index": 176,
+            "convolution_site": 32,
+            "E_cut_difference_eV": 5.350000000015065e-05,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_176.txt",
+            "sha256": "3387748c7a4e03ba771fda8e41995f50605dfd9a9fd351c547af0c1052769b63"
+          },
+          {
+            "atom_index": 177,
+            "convolution_site": 33,
+            "E_cut_difference_eV": 0.00019740000000001423,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_177.txt",
+            "sha256": "f54b3ef7ef78133b71402dd8fba258361423d288e90c6845aa541f956192d994"
+          },
+          {
+            "atom_index": 178,
+            "convolution_site": 34,
+            "E_cut_difference_eV": 0.0003610000000000557,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_178.txt",
+            "sha256": "d3a2f154ca7d733b1365f448ab9da0ddcd39ee9101fee7f1adb32dbde3f30d42"
+          },
+          {
+            "atom_index": 179,
+            "convolution_site": 35,
+            "E_cut_difference_eV": 8.150000000006763e-05,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_179.txt",
+            "sha256": "57ca24529d5c0f1e073a43f175fb70f10491ed306d8d6aad881af7b2ef5587c3"
+          },
+          {
+            "atom_index": 180,
+            "convolution_site": 36,
+            "E_cut_difference_eV": 0.0003925999999998542,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_180.txt",
+            "sha256": "02c6ef7206f6553578410a068ce67ca2456155b49c784c6ee2ecdd69d4cbd0f2"
+          }
+        ],
+        "fdmnes_cell_parameters": [
+          23.03718538,
+          18.84392459,
+          23.88311124,
+          90.0,
+          90.0,
+          90.0
+        ],
+        "cell_length_tolerance_A": 2e-05,
+        "cell_angle_tolerance_deg": 2e-05,
+        "coordinate_frame": "fractional coordinates in matching six-parameter cell; in-plane PBC only"
+      }
+    },
+    "initial_parent_match": true,
+    "eligible_primary": true,
+    "core_hole_convention": "not_reported; no version-default inference",
+    "broadening": "saved native energy-dependent convolution; numerical raw-source reconstruction verified",
+    "absolute_energy_convention": "Energpho photon energy; no independently fitted adsorbed/clean shifts",
+    "common_grid_window_eV": [
+      8974.0,
+      9029.0
+    ],
+    "facet": "Cu-Au (111) model",
+    "slab_Cu_layers": 5,
+    "initial_metal_correspondence": {
+      "status": "matched",
+      "max_distance_A": 1.7763568394002505e-15,
+      "rms_distance_A": 2.724807007039127e-16,
+      "one_based_mapping": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          8,
+          8
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          11,
+          11
+        ],
+        [
+          12,
+          12
+        ],
+        [
+          13,
+          13
+        ],
+        [
+          14,
+          14
+        ],
+        [
+          15,
+          15
+        ],
+        [
+          16,
+          16
+        ],
+        [
+          17,
+          17
+        ],
+        [
+          18,
+          18
+        ],
+        [
+          19,
+          19
+        ],
+        [
+          20,
+          20
+        ],
+        [
+          21,
+          21
+        ],
+        [
+          22,
+          22
+        ],
+        [
+          23,
+          23
+        ],
+        [
+          24,
+          24
+        ],
+        [
+          25,
+          25
+        ],
+        [
+          26,
+          26
+        ],
+        [
+          27,
+          27
+        ],
+        [
+          28,
+          28
+        ],
+        [
+          29,
+          29
+        ],
+        [
+          30,
+          30
+        ],
+        [
+          31,
+          31
+        ],
+        [
+          32,
+          32
+        ],
+        [
+          33,
+          33
+        ],
+        [
+          34,
+          34
+        ],
+        [
+          35,
+          35
+        ],
+        [
+          36,
+          36
+        ],
+        [
+          37,
+          37
+        ],
+        [
+          38,
+          38
+        ],
+        [
+          39,
+          39
+        ],
+        [
+          40,
+          40
+        ],
+        [
+          41,
+          41
+        ],
+        [
+          42,
+          42
+        ],
+        [
+          43,
+          43
+        ],
+        [
+          44,
+          44
+        ],
+        [
+          45,
+          45
+        ],
+        [
+          46,
+          46
+        ],
+        [
+          47,
+          47
+        ],
+        [
+          48,
+          48
+        ],
+        [
+          49,
+          49
+        ],
+        [
+          50,
+          50
+        ],
+        [
+          51,
+          51
+        ],
+        [
+          52,
+          52
+        ],
+        [
+          53,
+          53
+        ],
+        [
+          54,
+          54
+        ],
+        [
+          55,
+          55
+        ],
+        [
+          56,
+          56
+        ],
+        [
+          57,
+          57
+        ],
+        [
+          58,
+          58
+        ],
+        [
+          59,
+          59
+        ],
+        [
+          60,
+          60
+        ],
+        [
+          61,
+          61
+        ],
+        [
+          62,
+          62
+        ],
+        [
+          63,
+          63
+        ],
+        [
+          64,
+          64
+        ],
+        [
+          65,
+          65
+        ],
+        [
+          66,
+          66
+        ],
+        [
+          67,
+          67
+        ],
+        [
+          68,
+          68
+        ],
+        [
+          69,
+          69
+        ],
+        [
+          70,
+          70
+        ],
+        [
+          71,
+          71
+        ],
+        [
+          72,
+          72
+        ],
+        [
+          73,
+          73
+        ],
+        [
+          74,
+          74
+        ],
+        [
+          75,
+          75
+        ],
+        [
+          76,
+          76
+        ],
+        [
+          77,
+          77
+        ],
+        [
+          78,
+          78
+        ],
+        [
+          79,
+          79
+        ],
+        [
+          80,
+          80
+        ],
+        [
+          81,
+          81
+        ],
+        [
+          82,
+          82
+        ],
+        [
+          83,
+          83
+        ],
+        [
+          84,
+          84
+        ],
+        [
+          85,
+          85
+        ],
+        [
+          86,
+          86
+        ],
+        [
+          87,
+          87
+        ],
+        [
+          88,
+          88
+        ],
+        [
+          89,
+          89
+        ],
+        [
+          90,
+          90
+        ],
+        [
+          91,
+          91
+        ],
+        [
+          92,
+          92
+        ],
+        [
+          93,
+          93
+        ],
+        [
+          94,
+          94
+        ],
+        [
+          95,
+          95
+        ],
+        [
+          96,
+          96
+        ],
+        [
+          97,
+          97
+        ],
+        [
+          98,
+          98
+        ],
+        [
+          99,
+          99
+        ],
+        [
+          100,
+          100
+        ],
+        [
+          101,
+          101
+        ],
+        [
+          102,
+          102
+        ],
+        [
+          103,
+          103
+        ],
+        [
+          104,
+          104
+        ],
+        [
+          105,
+          105
+        ],
+        [
+          106,
+          106
+        ],
+        [
+          107,
+          107
+        ],
+        [
+          108,
+          108
+        ],
+        [
+          109,
+          109
+        ],
+        [
+          110,
+          110
+        ],
+        [
+          111,
+          111
+        ],
+        [
+          112,
+          112
+        ],
+        [
+          113,
+          113
+        ],
+        [
+          114,
+          114
+        ],
+        [
+          115,
+          115
+        ],
+        [
+          116,
+          116
+        ],
+        [
+          117,
+          117
+        ],
+        [
+          118,
+          118
+        ],
+        [
+          119,
+          119
+        ],
+        [
+          120,
+          120
+        ],
+        [
+          121,
+          121
+        ],
+        [
+          122,
+          122
+        ],
+        [
+          123,
+          123
+        ],
+        [
+          124,
+          124
+        ],
+        [
+          125,
+          125
+        ],
+        [
+          126,
+          126
+        ],
+        [
+          127,
+          127
+        ],
+        [
+          128,
+          128
+        ],
+        [
+          129,
+          129
+        ],
+        [
+          130,
+          130
+        ],
+        [
+          131,
+          131
+        ],
+        [
+          132,
+          132
+        ],
+        [
+          133,
+          133
+        ],
+        [
+          134,
+          134
+        ],
+        [
+          135,
+          135
+        ],
+        [
+          136,
+          136
+        ],
+        [
+          137,
+          137
+        ],
+        [
+          138,
+          138
+        ],
+        [
+          139,
+          139
+        ],
+        [
+          140,
+          140
+        ],
+        [
+          141,
+          141
+        ],
+        [
+          142,
+          142
+        ],
+        [
+          143,
+          143
+        ],
+        [
+          144,
+          144
+        ],
+        [
+          145,
+          145
+        ],
+        [
+          146,
+          146
+        ],
+        [
+          147,
+          147
+        ],
+        [
+          148,
+          148
+        ],
+        [
+          149,
+          149
+        ],
+        [
+          150,
+          150
+        ],
+        [
+          151,
+          151
+        ],
+        [
+          152,
+          152
+        ],
+        [
+          153,
+          153
+        ],
+        [
+          154,
+          154
+        ],
+        [
+          155,
+          155
+        ],
+        [
+          156,
+          156
+        ],
+        [
+          157,
+          157
+        ],
+        [
+          158,
+          158
+        ],
+        [
+          159,
+          159
+        ],
+        [
+          160,
+          160
+        ],
+        [
+          161,
+          161
+        ],
+        [
+          162,
+          162
+        ],
+        [
+          163,
+          163
+        ],
+        [
+          164,
+          164
+        ],
+        [
+          165,
+          165
+        ],
+        [
+          166,
+          166
+        ],
+        [
+          167,
+          167
+        ],
+        [
+          168,
+          168
+        ],
+        [
+          169,
+          169
+        ],
+        [
+          170,
+          170
+        ],
+        [
+          171,
+          171
+        ],
+        [
+          172,
+          172
+        ],
+        [
+          173,
+          173
+        ],
+        [
+          174,
+          174
+        ],
+        [
+          175,
+          175
+        ],
+        [
+          176,
+          176
+        ],
+        [
+          177,
+          177
+        ],
+        [
+          178,
+          178
+        ],
+        [
+          179,
+          179
+        ],
+        [
+          180,
+          180
+        ],
+        [
+          181,
+          181
+        ],
+        [
+          182,
+          182
+        ],
+        [
+          183,
+          183
+        ],
+        [
+          184,
+          184
+        ],
+        [
+          185,
+          185
+        ],
+        [
+          186,
+          186
+        ],
+        [
+          187,
+          187
+        ],
+        [
+          188,
+          188
+        ],
+        [
+          189,
+          189
+        ],
+        [
+          190,
+          190
+        ],
+        [
+          191,
+          191
+        ],
+        [
+          192,
+          192
+        ],
+        [
+          193,
+          193
+        ],
+        [
+          194,
+          194
+        ],
+        [
+          195,
+          195
+        ],
+        [
+          196,
+          196
+        ],
+        [
+          197,
+          197
+        ],
+        [
+          198,
+          198
+        ],
+        [
+          199,
+          199
+        ],
+        [
+          200,
+          200
+        ],
+        [
+          201,
+          201
+        ],
+        [
+          202,
+          202
+        ],
+        [
+          203,
+          203
+        ],
+        [
+          204,
+          204
+        ],
+        [
+          205,
+          205
+        ],
+        [
+          206,
+          206
+        ],
+        [
+          207,
+          207
+        ],
+        [
+          208,
+          208
+        ],
+        [
+          209,
+          209
+        ],
+        [
+          210,
+          210
+        ],
+        [
+          211,
+          211
+        ],
+        [
+          212,
+          212
+        ],
+        [
+          213,
+          213
+        ],
+        [
+          214,
+          214
+        ],
+        [
+          215,
+          215
+        ],
+        [
+          216,
+          216
+        ],
+        [
+          217,
+          217
+        ],
+        [
+          218,
+          218
+        ],
+        [
+          219,
+          219
+        ],
+        [
+          220,
+          220
+        ],
+        [
+          221,
+          221
+        ],
+        [
+          222,
+          222
+        ],
+        [
+          223,
+          223
+        ],
+        [
+          224,
+          224
+        ],
+        [
+          225,
+          225
+        ],
+        [
+          226,
+          226
+        ],
+        [
+          227,
+          227
+        ],
+        [
+          228,
+          228
+        ],
+        [
+          229,
+          229
+        ],
+        [
+          230,
+          230
+        ],
+        [
+          231,
+          231
+        ],
+        [
+          232,
+          232
+        ],
+        [
+          233,
+          233
+        ],
+        [
+          234,
+          234
+        ],
+        [
+          235,
+          235
+        ],
+        [
+          236,
+          236
+        ],
+        [
+          237,
+          237
+        ],
+        [
+          238,
+          238
+        ],
+        [
+          239,
+          239
+        ],
+        [
+          240,
+          240
+        ],
+        [
+          241,
+          241
+        ],
+        [
+          242,
+          242
+        ],
+        [
+          243,
+          243
+        ],
+        [
+          244,
+          244
+        ],
+        [
+          245,
+          245
+        ],
+        [
+          246,
+          246
+        ],
+        [
+          247,
+          247
+        ],
+        [
+          248,
+          248
+        ],
+        [
+          249,
+          249
+        ],
+        [
+          250,
+          250
+        ],
+        [
+          251,
+          251
+        ],
+        [
+          252,
+          252
+        ],
+        [
+          253,
+          253
+        ],
+        [
+          254,
+          254
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          257,
+          257
+        ],
+        [
+          258,
+          258
+        ],
+        [
+          259,
+          259
+        ],
+        [
+          260,
+          260
+        ],
+        [
+          261,
+          261
+        ],
+        [
+          262,
+          262
+        ],
+        [
+          263,
+          263
+        ],
+        [
+          264,
+          264
+        ],
+        [
+          265,
+          265
+        ],
+        [
+          266,
+          266
+        ],
+        [
+          267,
+          267
+        ],
+        [
+          268,
+          268
+        ],
+        [
+          269,
+          269
+        ],
+        [
+          270,
+          270
+        ],
+        [
+          271,
+          271
+        ],
+        [
+          272,
+          272
+        ],
+        [
+          273,
+          273
+        ],
+        [
+          274,
+          274
+        ],
+        [
+          275,
+          275
+        ],
+        [
+          276,
+          276
+        ],
+        [
+          277,
+          277
+        ],
+        [
+          278,
+          278
+        ],
+        [
+          279,
+          279
+        ],
+        [
+          280,
+          280
+        ],
+        [
+          281,
+          281
+        ],
+        [
+          282,
+          282
+        ],
+        [
+          283,
+          283
+        ],
+        [
+          284,
+          284
+        ],
+        [
+          285,
+          285
+        ],
+        [
+          286,
+          286
+        ],
+        [
+          287,
+          287
+        ],
+        [
+          288,
+          288
+        ],
+        [
+          289,
+          289
+        ],
+        [
+          290,
+          290
+        ],
+        [
+          291,
+          291
+        ],
+        [
+          292,
+          292
+        ],
+        [
+          293,
+          293
+        ],
+        [
+          294,
+          294
+        ],
+        [
+          295,
+          295
+        ],
+        [
+          296,
+          296
+        ],
+        [
+          297,
+          297
+        ],
+        [
+          298,
+          298
+        ],
+        [
+          299,
+          299
+        ],
+        [
+          300,
+          300
+        ],
+        [
+          301,
+          301
+        ],
+        [
+          302,
+          302
+        ],
+        [
+          303,
+          303
+        ],
+        [
+          304,
+          304
+        ],
+        [
+          305,
+          305
+        ],
+        [
+          306,
+          306
+        ],
+        [
+          307,
+          307
+        ],
+        [
+          308,
+          308
+        ],
+        [
+          309,
+          309
+        ],
+        [
+          310,
+          310
+        ],
+        [
+          311,
+          311
+        ],
+        [
+          312,
+          312
+        ],
+        [
+          313,
+          313
+        ],
+        [
+          314,
+          314
+        ],
+        [
+          315,
+          315
+        ],
+        [
+          316,
+          316
+        ],
+        [
+          317,
+          317
+        ],
+        [
+          318,
+          318
+        ],
+        [
+          319,
+          319
+        ],
+        [
+          320,
+          320
+        ],
+        [
+          321,
+          321
+        ],
+        [
+          322,
+          322
+        ],
+        [
+          323,
+          323
+        ],
+        [
+          324,
+          324
+        ],
+        [
+          325,
+          325
+        ],
+        [
+          326,
+          326
+        ],
+        [
+          327,
+          327
+        ],
+        [
+          328,
+          328
+        ],
+        [
+          329,
+          329
+        ],
+        [
+          330,
+          330
+        ],
+        [
+          331,
+          331
+        ],
+        [
+          332,
+          332
+        ],
+        [
+          333,
+          333
+        ],
+        [
+          334,
+          334
+        ],
+        [
+          335,
+          335
+        ],
+        [
+          336,
+          336
+        ],
+        [
+          337,
+          337
+        ],
+        [
+          338,
+          338
+        ],
+        [
+          339,
+          339
+        ],
+        [
+          340,
+          340
+        ]
+      ],
+      "index_reordered": false,
+      "mapping_caveat": "Element-wise nearest-coordinate assignment verifies exact geometry copies. For changed relaxed geometries it is not a trajectory-based proof of atom exchange or reordering.",
+      "same_index_max_displacement_A": 1.7763568394002505e-15
+    },
+    "constraints_match": true,
+    "pair_scale": 0.022518758719618052,
+    "reference_match_level": "initial metal coordinates + composition/cell/constraints matched; independent ancestral lineage not proven",
+    "pair_index": 3,
+    "metal_relaxation_retained": "adsorbed final substrate coordinates are allowed to change; subtraction includes the substrate response",
+    "independent_clean_parent_families": 1
+  },
+  {
+    "configuration": "CO/CO_0p11/interior_biased",
+    "domain": "CuAu",
+    "group": "6e18b28ff174b6d920bf9987c281695e16594be4aff76f83458edde57b90a05b",
+    "labels": [
+      "CO"
+    ],
+    "n_CO": 4,
+    "coverage_metal": 0.058823529411764705,
+    "coverage_Cu_loading": 0.1111111111111111,
+    "CO_per_nm2": 0.9214233564259695,
+    "CO_only": true,
+    "sample_corrected_record_sha256": "d17a7a6a4bb66bcc7a0d30bfc1f8e5f33e0b0bc58bcdc0184902840e778b6030",
+    "reference_corrected_record_sha256": "71de5b796825471041d279a95b172d3acdca6c269223d393c8fc180da950ec2f",
+    "source_record_id": "01M5X6R5XEGXET75E7QN5NH4A3",
+    "corrected_record": "corrected_records/CO/CO_0p11/interior_biased/isaac_record_layers.json",
+    "reference_id": "01M5X70RDEB3BYSSS1C51KF5FV",
+    "reference_record": "corrected_records/plain/isaac_record_layers.json",
+    "physical_top_layers": [
+      4,
+      5
+    ],
+    "populations": {
+      "4": {
+        "layer": 4,
+        "population": 36,
+        "main_deck_population": 3,
+        "provenance": "final_convolution",
+        "convolution_log": "fdmnes.out",
+        "convolution_log_sha256": "b6902aa7ac199ddd48f5d37936863b90d2302668d50b1e871273cd2c5df55d78",
+        "population_basis": "unique physical Cu atom indices, not sum of source symmetry multiplicities",
+        "E_cut_tolerance_eV": 0.00051,
+        "mean_height_A": 6.605996292222222,
+        "output_sha256": "07faabc5d7596befdaad8afd46b7cf15d85c73af4e3f9cfb694bb6ebd701e7ce",
+        "sites": [
+          {
+            "atom_index": 109,
+            "convolution_site": 1,
+            "E_cut_difference_eV": 0.00011830000000001561,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_109.txt",
+            "sha256": "169a975ab3fab1a9137c77a51653094f98e4394480ed660bb236bf47ca968af6"
+          },
+          {
+            "atom_index": 110,
+            "convolution_site": 2,
+            "E_cut_difference_eV": 0.00028239999999990495,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_110.txt",
+            "sha256": "f2f1f1dc2d6b43f5a5e5901469d09a59ad19e5835925c4637a5ef5372563a39b"
+          },
+          {
+            "atom_index": 111,
+            "convolution_site": 3,
+            "E_cut_difference_eV": 0.00044869999999996857,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_111.txt",
+            "sha256": "8343bec232e2cb0e90c77742fcb1fa5825b090ce7586bbeac4c25528fe281bb1"
+          },
+          {
+            "atom_index": 112,
+            "convolution_site": 4,
+            "E_cut_difference_eV": 0.000261600000000195,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_112.txt",
+            "sha256": "c31c88b491a35adad9041d6293ad6c28f8fdffb7b8b90756bbc0e04beed79542"
+          },
+          {
+            "atom_index": 113,
+            "convolution_site": 5,
+            "E_cut_difference_eV": 0.0004230000000000622,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_113.txt",
+            "sha256": "b686ce9dddb19e793a86bdca886ad3dd3a2a8056709627a2d477375e73e48630"
+          },
+          {
+            "atom_index": 114,
+            "convolution_site": 6,
+            "E_cut_difference_eV": 0.0002723000000000031,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_114.txt",
+            "sha256": "c2577657ea1c1b329c837ccf17864e43f56e81fb8921eaef32a6b0d7201aebbe"
+          },
+          {
+            "atom_index": 115,
+            "convolution_site": 7,
+            "E_cut_difference_eV": 0.00039129999999998333,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_115.txt",
+            "sha256": "2e4eb0ba0aee268b666ddfaa422821790f08e16c58fb6cac1a4ed56f2013a84d"
+          },
+          {
+            "atom_index": 116,
+            "convolution_site": 8,
+            "E_cut_difference_eV": 0.0003870999999999736,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_116.txt",
+            "sha256": "783f918d5f17766dffb6482a64d0926ee3564b21b8a73e05f1cf515c64edc207"
+          },
+          {
+            "atom_index": 117,
+            "convolution_site": 9,
+            "E_cut_difference_eV": 6.600000000078765e-06,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_117.txt",
+            "sha256": "83620293c633b3e88f09c3b9d48aab80e446e913b388b33299d183ea78fa7307"
+          },
+          {
+            "atom_index": 118,
+            "convolution_site": 10,
+            "E_cut_difference_eV": 0.0002267000000000241,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_118.txt",
+            "sha256": "94312d68a1906ac54efcf17d367a0636ed9559031b75c82aa0a489223a1e3e46"
+          },
+          {
+            "atom_index": 119,
+            "convolution_site": 11,
+            "E_cut_difference_eV": 0.00020489999999995234,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_119.txt",
+            "sha256": "da61e8f8e34774e0ad7c9bfb2dcdb8a27188c9a4066fba5d3671884bf3143df6"
+          },
+          {
+            "atom_index": 120,
+            "convolution_site": 12,
+            "E_cut_difference_eV": 0.00013170000000006787,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_120.txt",
+            "sha256": "4e6ad8a4e1fd6c057254603f3fbd708ff3859e4f1f8f98cec9e25de7bff18097"
+          },
+          {
+            "atom_index": 121,
+            "convolution_site": 13,
+            "E_cut_difference_eV": 3.850000000005238e-05,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_121.txt",
+            "sha256": "379971a9a177337e3c51419b8c05225d095d584db5c91b8cc3617775fb2d4c5f"
+          },
+          {
+            "atom_index": 122,
+            "convolution_site": 14,
+            "E_cut_difference_eV": 0.0003564999999998708,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_122.txt",
+            "sha256": "ccd3a0fb99975a8262f495b150502f8065601f98d4f1a221c253e8a284dff238"
+          },
+          {
+            "atom_index": 123,
+            "convolution_site": 15,
+            "E_cut_difference_eV": 0.00012539999999994222,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_123.txt",
+            "sha256": "45a1dd6887da6f83e881b9b682f5b96153177128f07f69348f855732367f77a8"
+          },
+          {
+            "atom_index": 124,
+            "convolution_site": 16,
+            "E_cut_difference_eV": 0.000126400000000082,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_124.txt",
+            "sha256": "e147179c27e7134c4348a74a6d74aac2b52f6fcffc7fd7313a1f12e2386ae71d"
+          },
+          {
+            "atom_index": 125,
+            "convolution_site": 17,
+            "E_cut_difference_eV": 0.00013250000000009088,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_125.txt",
+            "sha256": "60c5f81bd1ac6ad6dde12bd18766cafc99c58c81a60aa9467600516d6ddf49a2"
+          },
+          {
+            "atom_index": 126,
+            "convolution_site": 18,
+            "E_cut_difference_eV": 0.0004797999999999192,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_126.txt",
+            "sha256": "a4f577e27a422dfd1a759fcba336e12a1869bbb63783ab2f042a154c97b76980"
+          },
+          {
+            "atom_index": 127,
+            "convolution_site": 19,
+            "E_cut_difference_eV": 3.5899999999866594e-05,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_127.txt",
+            "sha256": "d48569fa02b7323d46992c856759804215fae0adc637ee57c2826234ceb1b4e3"
+          },
+          {
+            "atom_index": 128,
+            "convolution_site": 20,
+            "E_cut_difference_eV": 0.0004984999999999573,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_128.txt",
+            "sha256": "8faef5fd613557fffcd99d50ef112d27b1f6c1eea7dad422544a650d47e50c9f"
+          },
+          {
+            "atom_index": 129,
+            "convolution_site": 21,
+            "E_cut_difference_eV": 0.0004618000000000677,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_129.txt",
+            "sha256": "4fc672e459d654fdb7652205668c1ba7a0437f74e516f79b8e292a2a04946a2e"
+          },
+          {
+            "atom_index": 130,
+            "convolution_site": 22,
+            "E_cut_difference_eV": 0.0003801999999999417,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_130.txt",
+            "sha256": "68f177dac4bf2b685f23a5d711c9c4719dc0cd1d6fcc5b10a6e93815a7aab4b3"
+          },
+          {
+            "atom_index": 131,
+            "convolution_site": 23,
+            "E_cut_difference_eV": 0.00031359999999991395,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_131.txt",
+            "sha256": "1cacdaae6bbe6843c02072d647d73dc2db2fddf8640984e84b645abb5285135a"
+          },
+          {
+            "atom_index": 132,
+            "convolution_site": 24,
+            "E_cut_difference_eV": 0.00016700000000002824,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_132.txt",
+            "sha256": "f051b733f704a9089558094eb410e8f014c7bcb932f09d758b05f07b84f0832f"
+          },
+          {
+            "atom_index": 133,
+            "convolution_site": 25,
+            "E_cut_difference_eV": 0.00046779999999979616,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_133.txt",
+            "sha256": "a0f44dbda9dfbcce77437fea626b0963ba57b5b9db0c9fcac9de3d274465113f"
+          },
+          {
+            "atom_index": 134,
+            "convolution_site": 26,
+            "E_cut_difference_eV": 0.00031530000000001834,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_134.txt",
+            "sha256": "85be6adba2dddcdbbdb52fe05ffd83c85f8304ee01c2206a6901a322db2c5915"
+          },
+          {
+            "atom_index": 135,
+            "convolution_site": 27,
+            "E_cut_difference_eV": 8.390000000013664e-05,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_135.txt",
+            "sha256": "514c9175287099b10397b1050f3c9d4ee464a4a57e6e163bb4d3b31daba137e1"
+          },
+          {
+            "atom_index": 136,
+            "convolution_site": 28,
+            "E_cut_difference_eV": 0.0003351000000000326,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_136.txt",
+            "sha256": "3392bd521bc9cccf4797253810c34910e906167ca435d99a7e89810f807d1165"
+          },
+          {
+            "atom_index": 137,
+            "convolution_site": 29,
+            "E_cut_difference_eV": 0.0003317999999998822,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_137.txt",
+            "sha256": "45152fac949cc708e0f1eb341318e67d844266549d0159343fe263988eb92a39"
+          },
+          {
+            "atom_index": 138,
+            "convolution_site": 30,
+            "E_cut_difference_eV": 0.00041960000000007547,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_138.txt",
+            "sha256": "e660fb9bab41503a1aa492339b9d64da7602afcdf66a063d928d56773ff13e0e"
+          },
+          {
+            "atom_index": 139,
+            "convolution_site": 31,
+            "E_cut_difference_eV": 9.800000000170783e-06,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_139.txt",
+            "sha256": "f02184d61b2de616eca05a97f14ef0625b5d96ca01f3cae3e8e3bb7da50feeae"
+          },
+          {
+            "atom_index": 140,
+            "convolution_site": 32,
+            "E_cut_difference_eV": 0.00045149999999982704,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_140.txt",
+            "sha256": "814b35f146dd97a04d0f3e9119fb647f34de1e46d8b77850626227cab4d8f74d"
+          },
+          {
+            "atom_index": 141,
+            "convolution_site": 33,
+            "E_cut_difference_eV": 0.0004793999999999077,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_141.txt",
+            "sha256": "243e5694e305b97770124c5a59c02c04fcb59790743527062da328362c42d6e5"
+          },
+          {
+            "atom_index": 142,
+            "convolution_site": 34,
+            "E_cut_difference_eV": 0.00013580000000001924,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_142.txt",
+            "sha256": "ec67f7b8978c350fe9f68c4ea11bec370ea0176fc775e3d83046b05e20f2e951"
+          },
+          {
+            "atom_index": 143,
+            "convolution_site": 35,
+            "E_cut_difference_eV": 9.410000000009688e-05,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_143.txt",
+            "sha256": "4f4f7b2d55c15207446b935c4c1f9c3bf8c1053faa2a51144781df6b685269a3"
+          },
+          {
+            "atom_index": 144,
+            "convolution_site": 36,
+            "E_cut_difference_eV": 0.00021249999999994884,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_144.txt",
+            "sha256": "6fa61688180a55352ed73f22da5adc353b44fe552a7719ba3b6040b8b69a887c"
+          }
+        ],
+        "fdmnes_cell_parameters": [
+          23.03718538,
+          18.84392459,
+          23.88311124,
+          90.0,
+          90.0,
+          90.0
+        ],
+        "cell_length_tolerance_A": 2e-05,
+        "cell_angle_tolerance_deg": 2e-05,
+        "coordinate_frame": "fractional coordinates in matching six-parameter cell; in-plane PBC only"
+      },
+      "5": {
+        "layer": 5,
+        "population": 36,
+        "main_deck_population": 3,
+        "provenance": "final_convolution",
+        "convolution_log": "fdmnes.out",
+        "convolution_log_sha256": "9ea2b05ba656fadc36afecc6bd14c3c7163c3f82d7264dc6d70338f980476b7e",
+        "population_basis": "unique physical Cu atom indices, not sum of source symmetry multiplicities",
+        "E_cut_tolerance_eV": 0.00051,
+        "mean_height_A": 8.705839640833332,
+        "output_sha256": "c11c700a7ff4e66ffb0dbe7b13f189458211de6c7aa387dc8fa31fb06ae61144",
+        "sites": [
+          {
+            "atom_index": 145,
+            "convolution_site": 1,
+            "E_cut_difference_eV": 0.00023170000000005686,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_145.txt",
+            "sha256": "ae476edd3c524d6c8b92bd62706db47d90a7fd430a502caf7c3744f49176884a"
+          },
+          {
+            "atom_index": 146,
+            "convolution_site": 2,
+            "E_cut_difference_eV": 0.00018300000000004424,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_146.txt",
+            "sha256": "64d85ea5134de95419f4453168c187c553477f1e42d9f6cecda1c0725e87b630"
+          },
+          {
+            "atom_index": 147,
+            "convolution_site": 3,
+            "E_cut_difference_eV": 0.0004948000000000174,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_147.txt",
+            "sha256": "e0dda149df8faa25a64599f57c2c0cfdfff25216d7cb1c1fade68f54827758dd"
+          },
+          {
+            "atom_index": 148,
+            "convolution_site": 4,
+            "E_cut_difference_eV": 0.00034810000000007335,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_148.txt",
+            "sha256": "f4eea2545fb92ccfd6a98f5726bd50f70ea5391027de1d610717d49709760f29"
+          },
+          {
+            "atom_index": 149,
+            "convolution_site": 5,
+            "E_cut_difference_eV": 0.00027620000000005973,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_149.txt",
+            "sha256": "20789122538a25bab327a0525a6a0d43be17d6a55752accdf3c607d35523e613"
+          },
+          {
+            "atom_index": 150,
+            "convolution_site": 6,
+            "E_cut_difference_eV": 0.00039169999999999483,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_150.txt",
+            "sha256": "9e533e168981c33f99d4580ccb3e9c8c4e9b44a869255b2a277f24633b727b03"
+          },
+          {
+            "atom_index": 151,
+            "convolution_site": 7,
+            "E_cut_difference_eV": 8.000000000230045e-07,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_151.txt",
+            "sha256": "c2e5a90d51ec2a91300f5a1c0078c1e331dfae5afa85d88cfa6dfbf6d8b6b7f5"
+          },
+          {
+            "atom_index": 152,
+            "convolution_site": 8,
+            "E_cut_difference_eV": 0.0004799000000001996,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_152.txt",
+            "sha256": "b16ca9b17975b8f56f6a21b4edfd66153923a87ad56b465ef6b8a15e855d1eb5"
+          },
+          {
+            "atom_index": 153,
+            "convolution_site": 9,
+            "E_cut_difference_eV": 0.00045509999999993056,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_153.txt",
+            "sha256": "d37f220669ee07a4156f12ae65344d533941af61c9796859dfc78cf283dae46e"
+          },
+          {
+            "atom_index": 154,
+            "convolution_site": 10,
+            "E_cut_difference_eV": 0.0004839000000000926,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_154.txt",
+            "sha256": "502659b6645758674c4c64bf36cb2ceb2fe65f5bc0617398a0f9b8dfe44e5a8b"
+          },
+          {
+            "atom_index": 155,
+            "convolution_site": 11,
+            "E_cut_difference_eV": 0.0003587000000000451,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_155.txt",
+            "sha256": "23169411cc8231876b6ce4ec97092347245a84cf98c53392b4b6b34c28421300"
+          },
+          {
+            "atom_index": 156,
+            "convolution_site": 12,
+            "E_cut_difference_eV": 0.00036559999999985493,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_156.txt",
+            "sha256": "fed0e55ad1322babd6ccf52ee8cabf106dd3f06f644337dff1c73f34df430ef1"
+          },
+          {
+            "atom_index": 157,
+            "convolution_site": 13,
+            "E_cut_difference_eV": 9.049999999999336e-05,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_157.txt",
+            "sha256": "7a881e04992abfcdf1f129f0c087617833e63ed277c5847eeec90e59bc860715"
+          },
+          {
+            "atom_index": 158,
+            "convolution_site": 14,
+            "E_cut_difference_eV": 0.00031349999999985556,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_158.txt",
+            "sha256": "81b41d8c863c75e2cb817bc96d516ace9fdc9cbd933140b5606e8738d8b17d95"
+          },
+          {
+            "atom_index": 159,
+            "convolution_site": 15,
+            "E_cut_difference_eV": 0.00041650000000004184,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_159.txt",
+            "sha256": "6f5608533c179958090039235ad5fd6a05159d6b9f74691268d886a618089f27"
+          },
+          {
+            "atom_index": 160,
+            "convolution_site": 16,
+            "E_cut_difference_eV": 0.0003780000000002115,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_160.txt",
+            "sha256": "9e12ff91d69beaef7a482bbed1b316d877c1d20e1a16924e0a04b1ec554932b3"
+          },
+          {
+            "atom_index": 161,
+            "convolution_site": 17,
+            "E_cut_difference_eV": 4.089999999989935e-05,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_161.txt",
+            "sha256": "aed90f0ad2990334f4ef4b388c11949c347cb45e8153bcb53cfa761f4d8d19fb"
+          },
+          {
+            "atom_index": 162,
+            "convolution_site": 18,
+            "E_cut_difference_eV": 0.00029719999999988644,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_162.txt",
+            "sha256": "f96c6b675f4f001d5ebcfc87e28655c93257ea2aa9618447c694cecae1b97534"
+          },
+          {
+            "atom_index": 163,
+            "convolution_site": 19,
+            "E_cut_difference_eV": 0.0004538000000000597,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_163.txt",
+            "sha256": "a67772550fce3a8f70cb7a47802a51fec83664e14a72f58ff0c47c886d9eb3b5"
+          },
+          {
+            "atom_index": 164,
+            "convolution_site": 20,
+            "E_cut_difference_eV": 0.0001964000000000965,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_164.txt",
+            "sha256": "aaca7024b10247ae32cf26eb4f81312626b698d69b93dba0d2989608381b272a"
+          },
+          {
+            "atom_index": 165,
+            "convolution_site": 21,
+            "E_cut_difference_eV": 4.5899999999932106e-05,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_165.txt",
+            "sha256": "6bdd20568c49fbe0d012fef2e5222d96705328276f777a234cceef56a9319356"
+          },
+          {
+            "atom_index": 166,
+            "convolution_site": 22,
+            "E_cut_difference_eV": 3.1899999999973616e-05,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_166.txt",
+            "sha256": "e183f1055fe9b907354636e934092b36b63f0c5f324fba2d82f80ad70f61a8c1"
+          },
+          {
+            "atom_index": 167,
+            "convolution_site": 23,
+            "E_cut_difference_eV": 0.0003900999999999488,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_167.txt",
+            "sha256": "6413272fdf1c41725ef54736e4c7cce06a571de482896f2dcdd9f84acb8769a9"
+          },
+          {
+            "atom_index": 168,
+            "convolution_site": 24,
+            "E_cut_difference_eV": 0.0002478999999999676,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_168.txt",
+            "sha256": "0fc1e3fe827f78d34e3ef282d04be03993e83b4ab7629ebd937bbc386269a0c0"
+          },
+          {
+            "atom_index": 169,
+            "convolution_site": 25,
+            "E_cut_difference_eV": 0.00020590000000009212,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_169.txt",
+            "sha256": "052d79470ac42cdc902f0ed8ff250b2bf5498992abe050daa8cd8b7888001d07"
+          },
+          {
+            "atom_index": 170,
+            "convolution_site": 26,
+            "E_cut_difference_eV": 7.259999999997824e-05,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_170.txt",
+            "sha256": "206f43b2a40c7788b71591c46bac4b8329e4e884d87d563faaff1e841e6b8cc9"
+          },
+          {
+            "atom_index": 171,
+            "convolution_site": 27,
+            "E_cut_difference_eV": 0.00042800000000009497,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_171.txt",
+            "sha256": "e3250dd72286413d6b3a7cd0da59c27cc068d27d4b2820de9c0550924f459312"
+          },
+          {
+            "atom_index": 172,
+            "convolution_site": 28,
+            "E_cut_difference_eV": 0.0004633999999998917,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_172.txt",
+            "sha256": "79b71e658ea286c67dfa22e2f5b10ad5c0cc68191e11fb638da8dcae10fcf376"
+          },
+          {
+            "atom_index": 173,
+            "convolution_site": 29,
+            "E_cut_difference_eV": 6.20000000000065e-05,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_173.txt",
+            "sha256": "d43e06440661446c82e1871e241062502172c654c040666de6c2bd05908873d8"
+          },
+          {
+            "atom_index": 174,
+            "convolution_site": 30,
+            "E_cut_difference_eV": 0.00019599999999986295,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_174.txt",
+            "sha256": "21ef9585d2df64990da84fa8fa5540352f03f4f3e01949fdbcde2389232bc3da"
+          },
+          {
+            "atom_index": 175,
+            "convolution_site": 31,
+            "E_cut_difference_eV": 0.00022739999999998872,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_175.txt",
+            "sha256": "fa064ab42088c3067c682cbe51a50a699ec3fd0bb44cea0be96a7ca3e24dfee2"
+          },
+          {
+            "atom_index": 176,
+            "convolution_site": 32,
+            "E_cut_difference_eV": 0.00012500000000015277,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_176.txt",
+            "sha256": "55631b1716063f24eaf59b2d84fbac1db88655c3e4c93127a8c968bc06bc2fee"
+          },
+          {
+            "atom_index": 177,
+            "convolution_site": 33,
+            "E_cut_difference_eV": 0.00029839999999992095,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_177.txt",
+            "sha256": "7f4678c17ef9af9c09457a0b92287e207068ceb4fb8ec3c205f255b4720e74c4"
+          },
+          {
+            "atom_index": 178,
+            "convolution_site": 34,
+            "E_cut_difference_eV": 0.00021019999999993821,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_178.txt",
+            "sha256": "f6459b5be7fbc8f0f945606eef5325eed1300f69efce8b8f2d162484d5672784"
+          },
+          {
+            "atom_index": 179,
+            "convolution_site": 35,
+            "E_cut_difference_eV": 0.00032450000000006085,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_179.txt",
+            "sha256": "6f42d3846ef2649933c4f2616fdec489a21bc6e570eb168790b3b6c740e022c9"
+          },
+          {
+            "atom_index": 180,
+            "convolution_site": 36,
+            "E_cut_difference_eV": 0.00021369999999998335,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_180.txt",
+            "sha256": "595dab6c7c7b42b789853480cdbc7514e85ff181d8aff3dc7005f366447c4871"
+          }
+        ],
+        "fdmnes_cell_parameters": [
+          23.03718538,
+          18.84392459,
+          23.88311124,
+          90.0,
+          90.0,
+          90.0
+        ],
+        "cell_length_tolerance_A": 2e-05,
+        "cell_angle_tolerance_deg": 2e-05,
+        "coordinate_frame": "fractional coordinates in matching six-parameter cell; in-plane PBC only"
+      }
+    },
+    "initial_parent_match": true,
+    "eligible_primary": true,
+    "core_hole_convention": "not_reported; no version-default inference",
+    "broadening": "saved native energy-dependent convolution; numerical raw-source reconstruction verified",
+    "absolute_energy_convention": "Energpho photon energy; no independently fitted adsorbed/clean shifts",
+    "common_grid_window_eV": [
+      8974.0,
+      9029.0
+    ],
+    "facet": "Cu-Au (111) model",
+    "slab_Cu_layers": 5,
+    "initial_metal_correspondence": {
+      "status": "matched",
+      "max_distance_A": 1.7763568394002505e-15,
+      "rms_distance_A": 2.724807007039127e-16,
+      "one_based_mapping": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          8,
+          8
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          11,
+          11
+        ],
+        [
+          12,
+          12
+        ],
+        [
+          13,
+          13
+        ],
+        [
+          14,
+          14
+        ],
+        [
+          15,
+          15
+        ],
+        [
+          16,
+          16
+        ],
+        [
+          17,
+          17
+        ],
+        [
+          18,
+          18
+        ],
+        [
+          19,
+          19
+        ],
+        [
+          20,
+          20
+        ],
+        [
+          21,
+          21
+        ],
+        [
+          22,
+          22
+        ],
+        [
+          23,
+          23
+        ],
+        [
+          24,
+          24
+        ],
+        [
+          25,
+          25
+        ],
+        [
+          26,
+          26
+        ],
+        [
+          27,
+          27
+        ],
+        [
+          28,
+          28
+        ],
+        [
+          29,
+          29
+        ],
+        [
+          30,
+          30
+        ],
+        [
+          31,
+          31
+        ],
+        [
+          32,
+          32
+        ],
+        [
+          33,
+          33
+        ],
+        [
+          34,
+          34
+        ],
+        [
+          35,
+          35
+        ],
+        [
+          36,
+          36
+        ],
+        [
+          37,
+          37
+        ],
+        [
+          38,
+          38
+        ],
+        [
+          39,
+          39
+        ],
+        [
+          40,
+          40
+        ],
+        [
+          41,
+          41
+        ],
+        [
+          42,
+          42
+        ],
+        [
+          43,
+          43
+        ],
+        [
+          44,
+          44
+        ],
+        [
+          45,
+          45
+        ],
+        [
+          46,
+          46
+        ],
+        [
+          47,
+          47
+        ],
+        [
+          48,
+          48
+        ],
+        [
+          49,
+          49
+        ],
+        [
+          50,
+          50
+        ],
+        [
+          51,
+          51
+        ],
+        [
+          52,
+          52
+        ],
+        [
+          53,
+          53
+        ],
+        [
+          54,
+          54
+        ],
+        [
+          55,
+          55
+        ],
+        [
+          56,
+          56
+        ],
+        [
+          57,
+          57
+        ],
+        [
+          58,
+          58
+        ],
+        [
+          59,
+          59
+        ],
+        [
+          60,
+          60
+        ],
+        [
+          61,
+          61
+        ],
+        [
+          62,
+          62
+        ],
+        [
+          63,
+          63
+        ],
+        [
+          64,
+          64
+        ],
+        [
+          65,
+          65
+        ],
+        [
+          66,
+          66
+        ],
+        [
+          67,
+          67
+        ],
+        [
+          68,
+          68
+        ],
+        [
+          69,
+          69
+        ],
+        [
+          70,
+          70
+        ],
+        [
+          71,
+          71
+        ],
+        [
+          72,
+          72
+        ],
+        [
+          73,
+          73
+        ],
+        [
+          74,
+          74
+        ],
+        [
+          75,
+          75
+        ],
+        [
+          76,
+          76
+        ],
+        [
+          77,
+          77
+        ],
+        [
+          78,
+          78
+        ],
+        [
+          79,
+          79
+        ],
+        [
+          80,
+          80
+        ],
+        [
+          81,
+          81
+        ],
+        [
+          82,
+          82
+        ],
+        [
+          83,
+          83
+        ],
+        [
+          84,
+          84
+        ],
+        [
+          85,
+          85
+        ],
+        [
+          86,
+          86
+        ],
+        [
+          87,
+          87
+        ],
+        [
+          88,
+          88
+        ],
+        [
+          89,
+          89
+        ],
+        [
+          90,
+          90
+        ],
+        [
+          91,
+          91
+        ],
+        [
+          92,
+          92
+        ],
+        [
+          93,
+          93
+        ],
+        [
+          94,
+          94
+        ],
+        [
+          95,
+          95
+        ],
+        [
+          96,
+          96
+        ],
+        [
+          97,
+          97
+        ],
+        [
+          98,
+          98
+        ],
+        [
+          99,
+          99
+        ],
+        [
+          100,
+          100
+        ],
+        [
+          101,
+          101
+        ],
+        [
+          102,
+          102
+        ],
+        [
+          103,
+          103
+        ],
+        [
+          104,
+          104
+        ],
+        [
+          105,
+          105
+        ],
+        [
+          106,
+          106
+        ],
+        [
+          107,
+          107
+        ],
+        [
+          108,
+          108
+        ],
+        [
+          109,
+          109
+        ],
+        [
+          110,
+          110
+        ],
+        [
+          111,
+          111
+        ],
+        [
+          112,
+          112
+        ],
+        [
+          113,
+          113
+        ],
+        [
+          114,
+          114
+        ],
+        [
+          115,
+          115
+        ],
+        [
+          116,
+          116
+        ],
+        [
+          117,
+          117
+        ],
+        [
+          118,
+          118
+        ],
+        [
+          119,
+          119
+        ],
+        [
+          120,
+          120
+        ],
+        [
+          121,
+          121
+        ],
+        [
+          122,
+          122
+        ],
+        [
+          123,
+          123
+        ],
+        [
+          124,
+          124
+        ],
+        [
+          125,
+          125
+        ],
+        [
+          126,
+          126
+        ],
+        [
+          127,
+          127
+        ],
+        [
+          128,
+          128
+        ],
+        [
+          129,
+          129
+        ],
+        [
+          130,
+          130
+        ],
+        [
+          131,
+          131
+        ],
+        [
+          132,
+          132
+        ],
+        [
+          133,
+          133
+        ],
+        [
+          134,
+          134
+        ],
+        [
+          135,
+          135
+        ],
+        [
+          136,
+          136
+        ],
+        [
+          137,
+          137
+        ],
+        [
+          138,
+          138
+        ],
+        [
+          139,
+          139
+        ],
+        [
+          140,
+          140
+        ],
+        [
+          141,
+          141
+        ],
+        [
+          142,
+          142
+        ],
+        [
+          143,
+          143
+        ],
+        [
+          144,
+          144
+        ],
+        [
+          145,
+          145
+        ],
+        [
+          146,
+          146
+        ],
+        [
+          147,
+          147
+        ],
+        [
+          148,
+          148
+        ],
+        [
+          149,
+          149
+        ],
+        [
+          150,
+          150
+        ],
+        [
+          151,
+          151
+        ],
+        [
+          152,
+          152
+        ],
+        [
+          153,
+          153
+        ],
+        [
+          154,
+          154
+        ],
+        [
+          155,
+          155
+        ],
+        [
+          156,
+          156
+        ],
+        [
+          157,
+          157
+        ],
+        [
+          158,
+          158
+        ],
+        [
+          159,
+          159
+        ],
+        [
+          160,
+          160
+        ],
+        [
+          161,
+          161
+        ],
+        [
+          162,
+          162
+        ],
+        [
+          163,
+          163
+        ],
+        [
+          164,
+          164
+        ],
+        [
+          165,
+          165
+        ],
+        [
+          166,
+          166
+        ],
+        [
+          167,
+          167
+        ],
+        [
+          168,
+          168
+        ],
+        [
+          169,
+          169
+        ],
+        [
+          170,
+          170
+        ],
+        [
+          171,
+          171
+        ],
+        [
+          172,
+          172
+        ],
+        [
+          173,
+          173
+        ],
+        [
+          174,
+          174
+        ],
+        [
+          175,
+          175
+        ],
+        [
+          176,
+          176
+        ],
+        [
+          177,
+          177
+        ],
+        [
+          178,
+          178
+        ],
+        [
+          179,
+          179
+        ],
+        [
+          180,
+          180
+        ],
+        [
+          181,
+          181
+        ],
+        [
+          182,
+          182
+        ],
+        [
+          183,
+          183
+        ],
+        [
+          184,
+          184
+        ],
+        [
+          185,
+          185
+        ],
+        [
+          186,
+          186
+        ],
+        [
+          187,
+          187
+        ],
+        [
+          188,
+          188
+        ],
+        [
+          189,
+          189
+        ],
+        [
+          190,
+          190
+        ],
+        [
+          191,
+          191
+        ],
+        [
+          192,
+          192
+        ],
+        [
+          193,
+          193
+        ],
+        [
+          194,
+          194
+        ],
+        [
+          195,
+          195
+        ],
+        [
+          196,
+          196
+        ],
+        [
+          197,
+          197
+        ],
+        [
+          198,
+          198
+        ],
+        [
+          199,
+          199
+        ],
+        [
+          200,
+          200
+        ],
+        [
+          201,
+          201
+        ],
+        [
+          202,
+          202
+        ],
+        [
+          203,
+          203
+        ],
+        [
+          204,
+          204
+        ],
+        [
+          205,
+          205
+        ],
+        [
+          206,
+          206
+        ],
+        [
+          207,
+          207
+        ],
+        [
+          208,
+          208
+        ],
+        [
+          209,
+          209
+        ],
+        [
+          210,
+          210
+        ],
+        [
+          211,
+          211
+        ],
+        [
+          212,
+          212
+        ],
+        [
+          213,
+          213
+        ],
+        [
+          214,
+          214
+        ],
+        [
+          215,
+          215
+        ],
+        [
+          216,
+          216
+        ],
+        [
+          217,
+          217
+        ],
+        [
+          218,
+          218
+        ],
+        [
+          219,
+          219
+        ],
+        [
+          220,
+          220
+        ],
+        [
+          221,
+          221
+        ],
+        [
+          222,
+          222
+        ],
+        [
+          223,
+          223
+        ],
+        [
+          224,
+          224
+        ],
+        [
+          225,
+          225
+        ],
+        [
+          226,
+          226
+        ],
+        [
+          227,
+          227
+        ],
+        [
+          228,
+          228
+        ],
+        [
+          229,
+          229
+        ],
+        [
+          230,
+          230
+        ],
+        [
+          231,
+          231
+        ],
+        [
+          232,
+          232
+        ],
+        [
+          233,
+          233
+        ],
+        [
+          234,
+          234
+        ],
+        [
+          235,
+          235
+        ],
+        [
+          236,
+          236
+        ],
+        [
+          237,
+          237
+        ],
+        [
+          238,
+          238
+        ],
+        [
+          239,
+          239
+        ],
+        [
+          240,
+          240
+        ],
+        [
+          241,
+          241
+        ],
+        [
+          242,
+          242
+        ],
+        [
+          243,
+          243
+        ],
+        [
+          244,
+          244
+        ],
+        [
+          245,
+          245
+        ],
+        [
+          246,
+          246
+        ],
+        [
+          247,
+          247
+        ],
+        [
+          248,
+          248
+        ],
+        [
+          249,
+          249
+        ],
+        [
+          250,
+          250
+        ],
+        [
+          251,
+          251
+        ],
+        [
+          252,
+          252
+        ],
+        [
+          253,
+          253
+        ],
+        [
+          254,
+          254
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          257,
+          257
+        ],
+        [
+          258,
+          258
+        ],
+        [
+          259,
+          259
+        ],
+        [
+          260,
+          260
+        ],
+        [
+          261,
+          261
+        ],
+        [
+          262,
+          262
+        ],
+        [
+          263,
+          263
+        ],
+        [
+          264,
+          264
+        ],
+        [
+          265,
+          265
+        ],
+        [
+          266,
+          266
+        ],
+        [
+          267,
+          267
+        ],
+        [
+          268,
+          268
+        ],
+        [
+          269,
+          269
+        ],
+        [
+          270,
+          270
+        ],
+        [
+          271,
+          271
+        ],
+        [
+          272,
+          272
+        ],
+        [
+          273,
+          273
+        ],
+        [
+          274,
+          274
+        ],
+        [
+          275,
+          275
+        ],
+        [
+          276,
+          276
+        ],
+        [
+          277,
+          277
+        ],
+        [
+          278,
+          278
+        ],
+        [
+          279,
+          279
+        ],
+        [
+          280,
+          280
+        ],
+        [
+          281,
+          281
+        ],
+        [
+          282,
+          282
+        ],
+        [
+          283,
+          283
+        ],
+        [
+          284,
+          284
+        ],
+        [
+          285,
+          285
+        ],
+        [
+          286,
+          286
+        ],
+        [
+          287,
+          287
+        ],
+        [
+          288,
+          288
+        ],
+        [
+          289,
+          289
+        ],
+        [
+          290,
+          290
+        ],
+        [
+          291,
+          291
+        ],
+        [
+          292,
+          292
+        ],
+        [
+          293,
+          293
+        ],
+        [
+          294,
+          294
+        ],
+        [
+          295,
+          295
+        ],
+        [
+          296,
+          296
+        ],
+        [
+          297,
+          297
+        ],
+        [
+          298,
+          298
+        ],
+        [
+          299,
+          299
+        ],
+        [
+          300,
+          300
+        ],
+        [
+          301,
+          301
+        ],
+        [
+          302,
+          302
+        ],
+        [
+          303,
+          303
+        ],
+        [
+          304,
+          304
+        ],
+        [
+          305,
+          305
+        ],
+        [
+          306,
+          306
+        ],
+        [
+          307,
+          307
+        ],
+        [
+          308,
+          308
+        ],
+        [
+          309,
+          309
+        ],
+        [
+          310,
+          310
+        ],
+        [
+          311,
+          311
+        ],
+        [
+          312,
+          312
+        ],
+        [
+          313,
+          313
+        ],
+        [
+          314,
+          314
+        ],
+        [
+          315,
+          315
+        ],
+        [
+          316,
+          316
+        ],
+        [
+          317,
+          317
+        ],
+        [
+          318,
+          318
+        ],
+        [
+          319,
+          319
+        ],
+        [
+          320,
+          320
+        ],
+        [
+          321,
+          321
+        ],
+        [
+          322,
+          322
+        ],
+        [
+          323,
+          323
+        ],
+        [
+          324,
+          324
+        ],
+        [
+          325,
+          325
+        ],
+        [
+          326,
+          326
+        ],
+        [
+          327,
+          327
+        ],
+        [
+          328,
+          328
+        ],
+        [
+          329,
+          329
+        ],
+        [
+          330,
+          330
+        ],
+        [
+          331,
+          331
+        ],
+        [
+          332,
+          332
+        ],
+        [
+          333,
+          333
+        ],
+        [
+          334,
+          334
+        ],
+        [
+          335,
+          335
+        ],
+        [
+          336,
+          336
+        ],
+        [
+          337,
+          337
+        ],
+        [
+          338,
+          338
+        ],
+        [
+          339,
+          339
+        ],
+        [
+          340,
+          340
+        ]
+      ],
+      "index_reordered": false,
+      "mapping_caveat": "Element-wise nearest-coordinate assignment verifies exact geometry copies. For changed relaxed geometries it is not a trajectory-based proof of atom exchange or reordering.",
+      "same_index_max_displacement_A": 1.7763568394002505e-15
+    },
+    "constraints_match": true,
+    "pair_scale": 0.022518758719618052,
+    "reference_match_level": "initial metal coordinates + composition/cell/constraints matched; independent ancestral lineage not proven",
+    "pair_index": 16,
+    "metal_relaxation_retained": "adsorbed final substrate coordinates are allowed to change; subtraction includes the substrate response",
+    "independent_clean_parent_families": 1
+  },
+  {
+    "configuration": "CO/CO_0p11/uniform",
+    "domain": "CuAu",
+    "group": "ebe77cd2f9228df384be99b6cfebaea2b4b14412dea4e9411ebdd9a25115de2f",
+    "labels": [
+      "CO"
+    ],
+    "n_CO": 4,
+    "coverage_metal": 0.058823529411764705,
+    "coverage_Cu_loading": 0.1111111111111111,
+    "CO_per_nm2": 0.9214233564259695,
+    "CO_only": true,
+    "sample_corrected_record_sha256": "33918972186c8ce3e362155a87cb1065e816d2b3f5383dc7f940f11c0fabb49f",
+    "reference_corrected_record_sha256": "71de5b796825471041d279a95b172d3acdca6c269223d393c8fc180da950ec2f",
+    "source_record_id": "01M5X6YHJVM3WE3EH6XH26X0TS",
+    "corrected_record": "corrected_records/CO/CO_0p11/uniform/isaac_record_layers.json",
+    "reference_id": "01M5X70RDEB3BYSSS1C51KF5FV",
+    "reference_record": "corrected_records/plain/isaac_record_layers.json",
+    "physical_top_layers": [
+      4,
+      5
+    ],
+    "populations": {
+      "4": {
+        "layer": 4,
+        "population": 36,
+        "main_deck_population": 36,
+        "provenance": "final_convolution",
+        "convolution_log": "fdmnes_convolution-58838909.out",
+        "convolution_log_sha256": "7928418e6454235f5268fe9f39a17593f02488e09d5f6f639df6c30d4557d937",
+        "population_basis": "unique physical Cu atom indices, not sum of source symmetry multiplicities",
+        "E_cut_tolerance_eV": 0.00051,
+        "mean_height_A": 6.609218457222222,
+        "output_sha256": "e43ce45779550d7b2aaeb03372f76220a3e6cd7ef7023528b19da91d000f8cff",
+        "sites": [
+          {
+            "atom_index": 109,
+            "convolution_site": 1,
+            "E_cut_difference_eV": 0.00029009999999995983,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_109.txt",
+            "sha256": "79820d435da4fdedec3dbf2200795174b1cca2e9b26375164121ef68e131a677"
+          },
+          {
+            "atom_index": 110,
+            "convolution_site": 2,
+            "E_cut_difference_eV": 0.0003595000000000681,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_110.txt",
+            "sha256": "7419949fe94bea987e5b50471b44c376774c3646154de15b33b6582159ae2078"
+          },
+          {
+            "atom_index": 111,
+            "convolution_site": 3,
+            "E_cut_difference_eV": 2.1700000000013375e-05,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_111.txt",
+            "sha256": "09cdf25e7137b09776c77292d67a95147d42a3ab8a7d93cae36c29d1fdf1d03b"
+          },
+          {
+            "atom_index": 112,
+            "convolution_site": 4,
+            "E_cut_difference_eV": 0.00016020000000005474,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_112.txt",
+            "sha256": "388e29f44c776112407fb95e5d9bf3a30ef3db069841ac974d1ebad284a134ef"
+          },
+          {
+            "atom_index": 113,
+            "convolution_site": 5,
+            "E_cut_difference_eV": 8.97000000001924e-05,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_113.txt",
+            "sha256": "84d0609cd8d20c3efb90113774cadca9e06869e85fbe8514c5c104cc713255e4"
+          },
+          {
+            "atom_index": 114,
+            "convolution_site": 6,
+            "E_cut_difference_eV": 0.000328800000000129,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_114.txt",
+            "sha256": "3b1d9124f69b2993956b0b02f8916ddbf3266f61c3c749481fd3f606d91adc60"
+          },
+          {
+            "atom_index": 115,
+            "convolution_site": 7,
+            "E_cut_difference_eV": 0.00019879999999994347,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_115.txt",
+            "sha256": "8cbe4dcc33294e0685deffed5518f53704c615606683538b2f334540f609d5a1"
+          },
+          {
+            "atom_index": 116,
+            "convolution_site": 8,
+            "E_cut_difference_eV": 0.0004205999999999932,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_116.txt",
+            "sha256": "59c12b688b3b7228c053c0d22a313fd526467aa886b083d990c5f916acf3ffa8"
+          },
+          {
+            "atom_index": 117,
+            "convolution_site": 9,
+            "E_cut_difference_eV": 0.0003115000000000201,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_117.txt",
+            "sha256": "eab45f0cdfc927adc800e806bc3e3a3508c49aff231a3ee9b5f16caa0f1e6998"
+          },
+          {
+            "atom_index": 118,
+            "convolution_site": 10,
+            "E_cut_difference_eV": 0.00021369999999998335,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_118.txt",
+            "sha256": "1329c57c1b0565f62611b1c6749ec878d3b6de34cd2e8de72493ec0be1296f7e"
+          },
+          {
+            "atom_index": 119,
+            "convolution_site": 11,
+            "E_cut_difference_eV": 0.00032520000000002547,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_119.txt",
+            "sha256": "ad4d0b83e0f561b93c5f49223bcc3100987a5ff931c80e8761646bd0e84691ae"
+          },
+          {
+            "atom_index": 120,
+            "convolution_site": 12,
+            "E_cut_difference_eV": 0.0002515000000000711,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_120.txt",
+            "sha256": "0950d966446851e34e9bcfa46624a495aac360d6f005c5f05bee8cebf35260e3"
+          },
+          {
+            "atom_index": 121,
+            "convolution_site": 13,
+            "E_cut_difference_eV": 0.00016789999999988758,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_121.txt",
+            "sha256": "ed30117c0dc997e43fb857aed0943ff164bac3730e0ec7224fb3a536075e2b73"
+          },
+          {
+            "atom_index": 122,
+            "convolution_site": 14,
+            "E_cut_difference_eV": 0.000496800000000075,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_122.txt",
+            "sha256": "0e1b1906a1d2f220a5881803f13e8a6fdfed7dcb3b931f7b14ec0cb26250a765"
+          },
+          {
+            "atom_index": 123,
+            "convolution_site": 15,
+            "E_cut_difference_eV": 0.0002493999999999552,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_123.txt",
+            "sha256": "d39ad6488344974d4b3513da6429ce73fbeed225ae47314014740da25cd038bd"
+          },
+          {
+            "atom_index": 124,
+            "convolution_site": 16,
+            "E_cut_difference_eV": 0.0004530000000000367,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_124.txt",
+            "sha256": "ca910ee9f20cf8da82bac3cbae0215c8a12480885d206d6af27b329b157f3d02"
+          },
+          {
+            "atom_index": 125,
+            "convolution_site": 17,
+            "E_cut_difference_eV": 2.4099999999860344e-05,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_125.txt",
+            "sha256": "0aff9a8bd59954c910fc2f6f66646a3881ee64d41decbc6c8423fb8b390481a1"
+          },
+          {
+            "atom_index": 126,
+            "convolution_site": 18,
+            "E_cut_difference_eV": 0.00014880000000006,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_126.txt",
+            "sha256": "d49f7bb0b7ff6e53458fe3e076f86213102138a68228328195ae771571efee84"
+          },
+          {
+            "atom_index": 127,
+            "convolution_site": 19,
+            "E_cut_difference_eV": 0.00031639999999999446,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_127.txt",
+            "sha256": "6ed62d13a07d2e5926c72c87368de3c4530632864d9074548cec66ea11303cf2"
+          },
+          {
+            "atom_index": 128,
+            "convolution_site": 20,
+            "E_cut_difference_eV": 6.400000000184036e-06,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_128.txt",
+            "sha256": "b89af67c12cbae0c0e57c811e4d812faf1264894f96dfb2217053d0224c5db19"
+          },
+          {
+            "atom_index": 129,
+            "convolution_site": 21,
+            "E_cut_difference_eV": 0.0003162999999999361,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_129.txt",
+            "sha256": "6d80db578a53cfeac26b6ed62908fefc937cbc79f42e42bd4ce2a8fa8f21731d"
+          },
+          {
+            "atom_index": 130,
+            "convolution_site": 22,
+            "E_cut_difference_eV": 0.0003803000000000001,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_130.txt",
+            "sha256": "e1d2a51644cf5a0aa4bb58a4a413fb29cf54db1ade1c818b334cc2e147dbe6b7"
+          },
+          {
+            "atom_index": 131,
+            "convolution_site": 23,
+            "E_cut_difference_eV": 0.0003406999999999716,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_131.txt",
+            "sha256": "e69cf3353972f75773bdff1c9ce3a627a81d74c4a1eccc806305ebcbb9ef9b23"
+          },
+          {
+            "atom_index": 132,
+            "convolution_site": 24,
+            "E_cut_difference_eV": 5.699999999997374e-06,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_132.txt",
+            "sha256": "da7877ef861d081e0ef5ddceef872bb282386855cba9a576684cd76052c4bb69"
+          },
+          {
+            "atom_index": 133,
+            "convolution_site": 25,
+            "E_cut_difference_eV": 0.00045730000000010484,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_133.txt",
+            "sha256": "49a2b5ca7ae470741718f6377978505d45d93947eaaa8e139e343d24dd665ff6"
+          },
+          {
+            "atom_index": 134,
+            "convolution_site": 26,
+            "E_cut_difference_eV": 0.0003173999999999122,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_134.txt",
+            "sha256": "6dec3f7f5c43c6b54b2a5b732cf86e78b91355a70d69781acd4cc381dedb182f"
+          },
+          {
+            "atom_index": 135,
+            "convolution_site": 27,
+            "E_cut_difference_eV": 0.00046730000000017036,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_135.txt",
+            "sha256": "0d95fef2676d97b6595cac7eaf0cec8cdce36820d0b7b55219f5c5a4ba65a32f"
+          },
+          {
+            "atom_index": 136,
+            "convolution_site": 28,
+            "E_cut_difference_eV": 0.00027489999999996684,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_136.txt",
+            "sha256": "042aae61aeaf80f8d98b997c8f5a2d2f218a9d095c2b4f5394f0fc02f11a151a"
+          },
+          {
+            "atom_index": 137,
+            "convolution_site": 29,
+            "E_cut_difference_eV": 0.0001697999999998867,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_137.txt",
+            "sha256": "f3ebe61e464cdea0f91a08dd451d89ef4c3481835ece11c61cd06e55a9b60a29"
+          },
+          {
+            "atom_index": 138,
+            "convolution_site": 30,
+            "E_cut_difference_eV": 4.400000000126525e-06,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_138.txt",
+            "sha256": "d2b9ed57aa3ebc08ed6c20f1ce60fa099cfcd05ad082e2377f3ab2c3a65bce59"
+          },
+          {
+            "atom_index": 139,
+            "convolution_site": 31,
+            "E_cut_difference_eV": 0.00032079999999989894,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_139.txt",
+            "sha256": "ac2e12f5c3c4b3c2ba82ecac4276751544b1a58ddde7a92029a990c5f34a77d9"
+          },
+          {
+            "atom_index": 140,
+            "convolution_site": 32,
+            "E_cut_difference_eV": 0.0004907000000000661,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_140.txt",
+            "sha256": "3ad80161505410f3698cc1ac10a489fa4acd8a9a4ca45bb29a177d2b43a2206f"
+          },
+          {
+            "atom_index": 141,
+            "convolution_site": 33,
+            "E_cut_difference_eV": 0.0004524999999999668,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_141.txt",
+            "sha256": "a5d9f20ec27f4ac479bb2407bb81c4169de1426ab4977edb1f50bb06c5bede8d"
+          },
+          {
+            "atom_index": 142,
+            "convolution_site": 34,
+            "E_cut_difference_eV": 0.0003374000000000432,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_142.txt",
+            "sha256": "e0d716c430d2093ae2d7052f4fcb2bc804860571011211b48afb9668910edbc1"
+          },
+          {
+            "atom_index": 143,
+            "convolution_site": 35,
+            "E_cut_difference_eV": 0.0004556999999998368,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_143.txt",
+            "sha256": "64c8e41447e8cd33885d8bba6361a02f38f23ef0b40d180a85b2c29f7755f06a"
+          },
+          {
+            "atom_index": 144,
+            "convolution_site": 36,
+            "E_cut_difference_eV": 0.0003883000000000081,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer4_144.txt",
+            "sha256": "ffd377985a88cdc3d82365363797280824afe2513f04d09f330af9b8bd3aa5f7"
+          }
+        ],
+        "fdmnes_cell_parameters": [
+          23.03718538,
+          18.84392459,
+          23.88311124,
+          90.0,
+          90.0,
+          90.0
+        ],
+        "cell_length_tolerance_A": 2e-05,
+        "cell_angle_tolerance_deg": 2e-05,
+        "coordinate_frame": "fractional coordinates in matching six-parameter cell; in-plane PBC only"
+      },
+      "5": {
+        "layer": 5,
+        "population": 36,
+        "main_deck_population": 3,
+        "provenance": "final_convolution",
+        "convolution_log": "fdmnes.out",
+        "convolution_log_sha256": "24233117d7ffd40b2a38839105797dcf75d6855323ba3267a7c6543457a67eff",
+        "population_basis": "unique physical Cu atom indices, not sum of source symmetry multiplicities",
+        "E_cut_tolerance_eV": 0.00051,
+        "mean_height_A": 8.71430244,
+        "output_sha256": "abf3f47359187159663cb0e90955dcca40ab6d1f019db14d2340641d4d3d1798",
+        "sites": [
+          {
+            "atom_index": 145,
+            "convolution_site": 1,
+            "E_cut_difference_eV": 0.00010930000000008988,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_145.txt",
+            "sha256": "dfdbeda898517fffc5e01555454cb5583826a53c1da816a6489eea60efd32121"
+          },
+          {
+            "atom_index": 146,
+            "convolution_site": 2,
+            "E_cut_difference_eV": 0.0002283000000000701,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_146.txt",
+            "sha256": "fdcfb36de1150b82fc17681ab54687297883f79c315e4e200f1f5606a7ceed6c"
+          },
+          {
+            "atom_index": 147,
+            "convolution_site": 3,
+            "E_cut_difference_eV": 0.00022230000000011962,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_147.txt",
+            "sha256": "84778dcbfb1c27f4a098f1309440229b2694f463ca938b41d3aaba8d566dc924"
+          },
+          {
+            "atom_index": 148,
+            "convolution_site": 4,
+            "E_cut_difference_eV": 0.00018329999999999735,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_148.txt",
+            "sha256": "c894b066eecee131ccdaad8c1658ddd313c6ae63f2b368eff25e138a41b797da"
+          },
+          {
+            "atom_index": 149,
+            "convolution_site": 5,
+            "E_cut_difference_eV": 0.0004081999999998587,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_149.txt",
+            "sha256": "f6739f9bcd9f504f0c9b4342c15cfd90b4af0c926a267ed6b5fb2fc116e45d7d"
+          },
+          {
+            "atom_index": 150,
+            "convolution_site": 6,
+            "E_cut_difference_eV": 0.00031800000000004047,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_150.txt",
+            "sha256": "085da7dea49f71cf6a5ea6c4f1c63b92047b7152ad167cf37dce1c7b8b8ea9a9"
+          },
+          {
+            "atom_index": 151,
+            "convolution_site": 7,
+            "E_cut_difference_eV": 0.0004494999999999916,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_151.txt",
+            "sha256": "909c52857efaad42d439353430a80e4673664b0a470cfbf026b83b0b2e799d6e"
+          },
+          {
+            "atom_index": 152,
+            "convolution_site": 8,
+            "E_cut_difference_eV": 0.00047850000000004833,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_152.txt",
+            "sha256": "09dbb386949e5b81bc820ba123ba0eef31d7de9a41bfd0125fa8d36d4c1b316d"
+          },
+          {
+            "atom_index": 153,
+            "convolution_site": 9,
+            "E_cut_difference_eV": 0.00018329999999999735,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_153.txt",
+            "sha256": "a9b97d5c275edff8f6e99c9415a1007384228f7c2dedabf20b3ee1ddc95b4d30"
+          },
+          {
+            "atom_index": 154,
+            "convolution_site": 10,
+            "E_cut_difference_eV": 6.349999999999412e-05,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_154.txt",
+            "sha256": "c754a9efa480b75114010ecbc61baf1173ac319a371625f93a371c737d521efb"
+          },
+          {
+            "atom_index": 155,
+            "convolution_site": 11,
+            "E_cut_difference_eV": 0.0003972000000000975,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_155.txt",
+            "sha256": "615900be2c2efe78a768e7670b16bbb06672e89ec22a7d2fc6583a188eee19ec"
+          },
+          {
+            "atom_index": 156,
+            "convolution_site": 12,
+            "E_cut_difference_eV": 0.00019449999999987533,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_156.txt",
+            "sha256": "a28405e9cbd66a56cc149438c2d47f4ba0ff276c073db654988a9aa0e4bd91b6"
+          },
+          {
+            "atom_index": 157,
+            "convolution_site": 13,
+            "E_cut_difference_eV": 0.00025479999999999947,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_157.txt",
+            "sha256": "96b5e74c07e2c82f2c6f262973ea751fc1281e0bfe8435ec55dc1bae0a475178"
+          },
+          {
+            "atom_index": 158,
+            "convolution_site": 14,
+            "E_cut_difference_eV": 0.00029189999999990057,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_158.txt",
+            "sha256": "6d2eb0c7a3c1064d623cb40a9c84ed3bb0bff8f936e0506bb4c83b936fc7246a"
+          },
+          {
+            "atom_index": 159,
+            "convolution_site": 15,
+            "E_cut_difference_eV": 0.00043599999999988093,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_159.txt",
+            "sha256": "b82093718fb0f832356519b806ea923baa0b6122f600e6bd3055bd83239e766d"
+          },
+          {
+            "atom_index": 160,
+            "convolution_site": 16,
+            "E_cut_difference_eV": 4.1199999999852466e-05,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_160.txt",
+            "sha256": "3a4103f7dd7783f9c32300a3f477f353d61d587b8b9d1d0f1bced5e8c23ce9f5"
+          },
+          {
+            "atom_index": 161,
+            "convolution_site": 17,
+            "E_cut_difference_eV": 6.680000000014452e-05,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_161.txt",
+            "sha256": "015472689771f6836535046f6c011ac3818c2b79cb12516a222d7ec5e6124c86"
+          },
+          {
+            "atom_index": 162,
+            "convolution_site": 18,
+            "E_cut_difference_eV": 7.570000000001187e-05,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_162.txt",
+            "sha256": "5609771cb1af7f3ed3285284a4f5ae04407aebe8c64830efb68d31ef51e87031"
+          },
+          {
+            "atom_index": 163,
+            "convolution_site": 19,
+            "E_cut_difference_eV": 0.0002401999999999127,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_163.txt",
+            "sha256": "cd124976aec7b2fe36cfc0542a85f6098d4657793c78697867752dde6a5d8b30"
+          },
+          {
+            "atom_index": 164,
+            "convolution_site": 20,
+            "E_cut_difference_eV": 0.0002941999999999112,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_164.txt",
+            "sha256": "f01b02a6a468ceee742c5620bde3306b59ea2d4747aad9755dd7f50c2a906cbc"
+          },
+          {
+            "atom_index": 165,
+            "convolution_site": 21,
+            "E_cut_difference_eV": 0.00010599999999993948,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_165.txt",
+            "sha256": "b534d6735ffe79730035c7f0986f31556d014379c28bd49d082cc6b8943195d1"
+          },
+          {
+            "atom_index": 166,
+            "convolution_site": 22,
+            "E_cut_difference_eV": 0.00047619999999981566,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_166.txt",
+            "sha256": "9949862e581cf1a2447d6b1508b780bcc1708f6ab8782979c9dae31651c932ff"
+          },
+          {
+            "atom_index": 167,
+            "convolution_site": 23,
+            "E_cut_difference_eV": 0.00041570000000001883,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_167.txt",
+            "sha256": "36fea24d3f52e130609d55a680aad0ae2f49cca96efffa4e02b6a689fd805c4d"
+          },
+          {
+            "atom_index": 168,
+            "convolution_site": 24,
+            "E_cut_difference_eV": 0.00034439999999991144,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_168.txt",
+            "sha256": "457144723af0645cc1a748e0dd8996f787b5bdf3f1bf751f0ead43088ed79b6a"
+          },
+          {
+            "atom_index": 169,
+            "convolution_site": 25,
+            "E_cut_difference_eV": 0.0003514000000000017,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_169.txt",
+            "sha256": "dc9fb20b42f3ff72d0e945b955f7e445543def8f21e68c665e9b5412c0aa6151"
+          },
+          {
+            "atom_index": 170,
+            "convolution_site": 26,
+            "E_cut_difference_eV": 0.0004119999999998569,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_170.txt",
+            "sha256": "2b24f998bf80bb6f945039999a502a9c6ee58b74b05c2d7d861689cf4fd8ec14"
+          },
+          {
+            "atom_index": 171,
+            "convolution_site": 27,
+            "E_cut_difference_eV": 0.00017500000000003624,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_171.txt",
+            "sha256": "bdc02a24fef6c8e30dbde495d2dc7a49f3875ee155201f400654a3bcb43e2005"
+          },
+          {
+            "atom_index": 172,
+            "convolution_site": 28,
+            "E_cut_difference_eV": 0.0003187000000000051,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_172.txt",
+            "sha256": "24d94c07524743cab1f55d965b9840663d8c8cda4777b87ffbba9af459930848"
+          },
+          {
+            "atom_index": 173,
+            "convolution_site": 29,
+            "E_cut_difference_eV": 0.00010460000000001024,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_173.txt",
+            "sha256": "3d233d840c66c98ae38c324f6be464250d1e0a2023a8fba0b0579edffe0cb847"
+          },
+          {
+            "atom_index": 174,
+            "convolution_site": 30,
+            "E_cut_difference_eV": 0.00014559999999996798,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_174.txt",
+            "sha256": "6e8c7cab0842b9e8cf7d0fd3a25f6d1a8f6ff8b1498f0fe68e0dadc620b30533"
+          },
+          {
+            "atom_index": 175,
+            "convolution_site": 31,
+            "E_cut_difference_eV": 5.849999999996136e-05,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_175.txt",
+            "sha256": "327e85f4704da0cecddd72cff54461970470dafd025ef65e17fa374c7ed57e2c"
+          },
+          {
+            "atom_index": 176,
+            "convolution_site": 32,
+            "E_cut_difference_eV": 0.00014590000000014314,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_176.txt",
+            "sha256": "1d583d577806054665c78820f112c208a62ceee20a619d5c1761aead47258a58"
+          },
+          {
+            "atom_index": 177,
+            "convolution_site": 33,
+            "E_cut_difference_eV": 0.00047739999999985017,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_177.txt",
+            "sha256": "4f2499f195a0c04d93a52b386fa64aff222f42b6b59b9064f246a0eba45f47cf"
+          },
+          {
+            "atom_index": 178,
+            "convolution_site": 34,
+            "E_cut_difference_eV": 0.0003379000000001131,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_178.txt",
+            "sha256": "e26cf803db09dee085c7d5d2fa17b643bc73433cf9af1cdc391858f1c51eaaea"
+          },
+          {
+            "atom_index": 179,
+            "convolution_site": 35,
+            "E_cut_difference_eV": 0.0004329999999999057,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_179.txt",
+            "sha256": "8a02e95f00638c6803c5291caa295b6f237d08fbc0a4596abb8afae51dcb5939"
+          },
+          {
+            "atom_index": 180,
+            "convolution_site": 36,
+            "E_cut_difference_eV": 0.00022870000000008162,
+            "source_symmetry_multiplicity": 1.0,
+            "source": "Cu_layer5_180.txt",
+            "sha256": "8a7bb6c887f95b821d4e6cf7148f78026bb09d87e7ee18ad626b4e7ae974d1e3"
+          }
+        ],
+        "fdmnes_cell_parameters": [
+          23.03718538,
+          18.84392459,
+          23.88311124,
+          90.0,
+          90.0,
+          90.0
+        ],
+        "cell_length_tolerance_A": 2e-05,
+        "cell_angle_tolerance_deg": 2e-05,
+        "coordinate_frame": "fractional coordinates in matching six-parameter cell; in-plane PBC only"
+      }
+    },
+    "initial_parent_match": true,
+    "eligible_primary": true,
+    "core_hole_convention": "not_reported; no version-default inference",
+    "broadening": "saved native energy-dependent convolution; numerical raw-source reconstruction verified",
+    "absolute_energy_convention": "Energpho photon energy; no independently fitted adsorbed/clean shifts",
+    "common_grid_window_eV": [
+      8974.0,
+      9029.0
+    ],
+    "facet": "Cu-Au (111) model",
+    "slab_Cu_layers": 5,
+    "initial_metal_correspondence": {
+      "status": "matched",
+      "max_distance_A": 1.7763568394002505e-15,
+      "rms_distance_A": 2.724807007039127e-16,
+      "one_based_mapping": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          8,
+          8
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          11,
+          11
+        ],
+        [
+          12,
+          12
+        ],
+        [
+          13,
+          13
+        ],
+        [
+          14,
+          14
+        ],
+        [
+          15,
+          15
+        ],
+        [
+          16,
+          16
+        ],
+        [
+          17,
+          17
+        ],
+        [
+          18,
+          18
+        ],
+        [
+          19,
+          19
+        ],
+        [
+          20,
+          20
+        ],
+        [
+          21,
+          21
+        ],
+        [
+          22,
+          22
+        ],
+        [
+          23,
+          23
+        ],
+        [
+          24,
+          24
+        ],
+        [
+          25,
+          25
+        ],
+        [
+          26,
+          26
+        ],
+        [
+          27,
+          27
+        ],
+        [
+          28,
+          28
+        ],
+        [
+          29,
+          29
+        ],
+        [
+          30,
+          30
+        ],
+        [
+          31,
+          31
+        ],
+        [
+          32,
+          32
+        ],
+        [
+          33,
+          33
+        ],
+        [
+          34,
+          34
+        ],
+        [
+          35,
+          35
+        ],
+        [
+          36,
+          36
+        ],
+        [
+          37,
+          37
+        ],
+        [
+          38,
+          38
+        ],
+        [
+          39,
+          39
+        ],
+        [
+          40,
+          40
+        ],
+        [
+          41,
+          41
+        ],
+        [
+          42,
+          42
+        ],
+        [
+          43,
+          43
+        ],
+        [
+          44,
+          44
+        ],
+        [
+          45,
+          45
+        ],
+        [
+          46,
+          46
+        ],
+        [
+          47,
+          47
+        ],
+        [
+          48,
+          48
+        ],
+        [
+          49,
+          49
+        ],
+        [
+          50,
+          50
+        ],
+        [
+          51,
+          51
+        ],
+        [
+          52,
+          52
+        ],
+        [
+          53,
+          53
+        ],
+        [
+          54,
+          54
+        ],
+        [
+          55,
+          55
+        ],
+        [
+          56,
+          56
+        ],
+        [
+          57,
+          57
+        ],
+        [
+          58,
+          58
+        ],
+        [
+          59,
+          59
+        ],
+        [
+          60,
+          60
+        ],
+        [
+          61,
+          61
+        ],
+        [
+          62,
+          62
+        ],
+        [
+          63,
+          63
+        ],
+        [
+          64,
+          64
+        ],
+        [
+          65,
+          65
+        ],
+        [
+          66,
+          66
+        ],
+        [
+          67,
+          67
+        ],
+        [
+          68,
+          68
+        ],
+        [
+          69,
+          69
+        ],
+        [
+          70,
+          70
+        ],
+        [
+          71,
+          71
+        ],
+        [
+          72,
+          72
+        ],
+        [
+          73,
+          73
+        ],
+        [
+          74,
+          74
+        ],
+        [
+          75,
+          75
+        ],
+        [
+          76,
+          76
+        ],
+        [
+          77,
+          77
+        ],
+        [
+          78,
+          78
+        ],
+        [
+          79,
+          79
+        ],
+        [
+          80,
+          80
+        ],
+        [
+          81,
+          81
+        ],
+        [
+          82,
+          82
+        ],
+        [
+          83,
+          83
+        ],
+        [
+          84,
+          84
+        ],
+        [
+          85,
+          85
+        ],
+        [
+          86,
+          86
+        ],
+        [
+          87,
+          87
+        ],
+        [
+          88,
+          88
+        ],
+        [
+          89,
+          89
+        ],
+        [
+          90,
+          90
+        ],
+        [
+          91,
+          91
+        ],
+        [
+          92,
+          92
+        ],
+        [
+          93,
+          93
+        ],
+        [
+          94,
+          94
+        ],
+        [
+          95,
+          95
+        ],
+        [
+          96,
+          96
+        ],
+        [
+          97,
+          97
+        ],
+        [
+          98,
+          98
+        ],
+        [
+          99,
+          99
+        ],
+        [
+          100,
+          100
+        ],
+        [
+          101,
+          101
+        ],
+        [
+          102,
+          102
+        ],
+        [
+          103,
+          103
+        ],
+        [
+          104,
+          104
+        ],
+        [
+          105,
+          105
+        ],
+        [
+          106,
+          106
+        ],
+        [
+          107,
+          107
+        ],
+        [
+          108,
+          108
+        ],
+        [
+          109,
+          109
+        ],
+        [
+          110,
+          110
+        ],
+        [
+          111,
+          111
+        ],
+        [
+          112,
+          112
+        ],
+        [
+          113,
+          113
+        ],
+        [
+          114,
+          114
+        ],
+        [
+          115,
+          115
+        ],
+        [
+          116,
+          116
+        ],
+        [
+          117,
+          117
+        ],
+        [
+          118,
+          118
+        ],
+        [
+          119,
+          119
+        ],
+        [
+          120,
+          120
+        ],
+        [
+          121,
+          121
+        ],
+        [
+          122,
+          122
+        ],
+        [
+          123,
+          123
+        ],
+        [
+          124,
+          124
+        ],
+        [
+          125,
+          125
+        ],
+        [
+          126,
+          126
+        ],
+        [
+          127,
+          127
+        ],
+        [
+          128,
+          128
+        ],
+        [
+          129,
+          129
+        ],
+        [
+          130,
+          130
+        ],
+        [
+          131,
+          131
+        ],
+        [
+          132,
+          132
+        ],
+        [
+          133,
+          133
+        ],
+        [
+          134,
+          134
+        ],
+        [
+          135,
+          135
+        ],
+        [
+          136,
+          136
+        ],
+        [
+          137,
+          137
+        ],
+        [
+          138,
+          138
+        ],
+        [
+          139,
+          139
+        ],
+        [
+          140,
+          140
+        ],
+        [
+          141,
+          141
+        ],
+        [
+          142,
+          142
+        ],
+        [
+          143,
+          143
+        ],
+        [
+          144,
+          144
+        ],
+        [
+          145,
+          145
+        ],
+        [
+          146,
+          146
+        ],
+        [
+          147,
+          147
+        ],
+        [
+          148,
+          148
+        ],
+        [
+          149,
+          149
+        ],
+        [
+          150,
+          150
+        ],
+        [
+          151,
+          151
+        ],
+        [
+          152,
+          152
+        ],
+        [
+          153,
+          153
+        ],
+        [
+          154,
+          154
+        ],
+        [
+          155,
+          155
+        ],
+        [
+          156,
+          156
+        ],
+        [
+          157,
+          157
+        ],
+        [
+          158,
+          158
+        ],
+        [
+          159,
+          159
+        ],
+        [
+          160,
+          160
+        ],
+        [
+          161,
+          161
+        ],
+        [
+          162,
+          162
+        ],
+        [
+          163,
+          163
+        ],
+        [
+          164,
+          164
+        ],
+        [
+          165,
+          165
+        ],
+        [
+          166,
+          166
+        ],
+        [
+          167,
+          167
+        ],
+        [
+          168,
+          168
+        ],
+        [
+          169,
+          169
+        ],
+        [
+          170,
+          170
+        ],
+        [
+          171,
+          171
+        ],
+        [
+          172,
+          172
+        ],
+        [
+          173,
+          173
+        ],
+        [
+          174,
+          174
+        ],
+        [
+          175,
+          175
+        ],
+        [
+          176,
+          176
+        ],
+        [
+          177,
+          177
+        ],
+        [
+          178,
+          178
+        ],
+        [
+          179,
+          179
+        ],
+        [
+          180,
+          180
+        ],
+        [
+          181,
+          181
+        ],
+        [
+          182,
+          182
+        ],
+        [
+          183,
+          183
+        ],
+        [
+          184,
+          184
+        ],
+        [
+          185,
+          185
+        ],
+        [
+          186,
+          186
+        ],
+        [
+          187,
+          187
+        ],
+        [
+          188,
+          188
+        ],
+        [
+          189,
+          189
+        ],
+        [
+          190,
+          190
+        ],
+        [
+          191,
+          191
+        ],
+        [
+          192,
+          192
+        ],
+        [
+          193,
+          193
+        ],
+        [
+          194,
+          194
+        ],
+        [
+          195,
+          195
+        ],
+        [
+          196,
+          196
+        ],
+        [
+          197,
+          197
+        ],
+        [
+          198,
+          198
+        ],
+        [
+          199,
+          199
+        ],
+        [
+          200,
+          200
+        ],
+        [
+          201,
+          201
+        ],
+        [
+          202,
+          202
+        ],
+        [
+          203,
+          203
+        ],
+        [
+          204,
+          204
+        ],
+        [
+          205,
+          205
+        ],
+        [
+          206,
+          206
+        ],
+        [
+          207,
+          207
+        ],
+        [
+          208,
+          208
+        ],
+        [
+          209,
+          209
+        ],
+        [
+          210,
+          210
+        ],
+        [
+          211,
+          211
+        ],
+        [
+          212,
+          212
+        ],
+        [
+          213,
+          213
+        ],
+        [
+          214,
+          214
+        ],
+        [
+          215,
+          215
+        ],
+        [
+          216,
+          216
+        ],
+        [
+          217,
+          217
+        ],
+        [
+          218,
+          218
+        ],
+        [
+          219,
+          219
+        ],
+        [
+          220,
+          220
+        ],
+        [
+          221,
+          221
+        ],
+        [
+          222,
+          222
+        ],
+        [
+          223,
+          223
+        ],
+        [
+          224,
+          224
+        ],
+        [
+          225,
+          225
+        ],
+        [
+          226,
+          226
+        ],
+        [
+          227,
+          227
+        ],
+        [
+          228,
+          228
+        ],
+        [
+          229,
+          229
+        ],
+        [
+          230,
+          230
+        ],
+        [
+          231,
+          231
+        ],
+        [
+          232,
+          232
+        ],
+        [
+          233,
+          233
+        ],
+        [
+          234,
+          234
+        ],
+        [
+          235,
+          235
+        ],
+        [
+          236,
+          236
+        ],
+        [
+          237,
+          237
+        ],
+        [
+          238,
+          238
+        ],
+        [
+          239,
+          239
+        ],
+        [
+          240,
+          240
+        ],
+        [
+          241,
+          241
+        ],
+        [
+          242,
+          242
+        ],
+        [
+          243,
+          243
+        ],
+        [
+          244,
+          244
+        ],
+        [
+          245,
+          245
+        ],
+        [
+          246,
+          246
+        ],
+        [
+          247,
+          247
+        ],
+        [
+          248,
+          248
+        ],
+        [
+          249,
+          249
+        ],
+        [
+          250,
+          250
+        ],
+        [
+          251,
+          251
+        ],
+        [
+          252,
+          252
+        ],
+        [
+          253,
+          253
+        ],
+        [
+          254,
+          254
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          257,
+          257
+        ],
+        [
+          258,
+          258
+        ],
+        [
+          259,
+          259
+        ],
+        [
+          260,
+          260
+        ],
+        [
+          261,
+          261
+        ],
+        [
+          262,
+          262
+        ],
+        [
+          263,
+          263
+        ],
+        [
+          264,
+          264
+        ],
+        [
+          265,
+          265
+        ],
+        [
+          266,
+          266
+        ],
+        [
+          267,
+          267
+        ],
+        [
+          268,
+          268
+        ],
+        [
+          269,
+          269
+        ],
+        [
+          270,
+          270
+        ],
+        [
+          271,
+          271
+        ],
+        [
+          272,
+          272
+        ],
+        [
+          273,
+          273
+        ],
+        [
+          274,
+          274
+        ],
+        [
+          275,
+          275
+        ],
+        [
+          276,
+          276
+        ],
+        [
+          277,
+          277
+        ],
+        [
+          278,
+          278
+        ],
+        [
+          279,
+          279
+        ],
+        [
+          280,
+          280
+        ],
+        [
+          281,
+          281
+        ],
+        [
+          282,
+          282
+        ],
+        [
+          283,
+          283
+        ],
+        [
+          284,
+          284
+        ],
+        [
+          285,
+          285
+        ],
+        [
+          286,
+          286
+        ],
+        [
+          287,
+          287
+        ],
+        [
+          288,
+          288
+        ],
+        [
+          289,
+          289
+        ],
+        [
+          290,
+          290
+        ],
+        [
+          291,
+          291
+        ],
+        [
+          292,
+          292
+        ],
+        [
+          293,
+          293
+        ],
+        [
+          294,
+          294
+        ],
+        [
+          295,
+          295
+        ],
+        [
+          296,
+          296
+        ],
+        [
+          297,
+          297
+        ],
+        [
+          298,
+          298
+        ],
+        [
+          299,
+          299
+        ],
+        [
+          300,
+          300
+        ],
+        [
+          301,
+          301
+        ],
+        [
+          302,
+          302
+        ],
+        [
+          303,
+          303
+        ],
+        [
+          304,
+          304
+        ],
+        [
+          305,
+          305
+        ],
+        [
+          306,
+          306
+        ],
+        [
+          307,
+          307
+        ],
+        [
+          308,
+          308
+        ],
+        [
+          309,
+          309
+        ],
+        [
+          310,
+          310
+        ],
+        [
+          311,
+          311
+        ],
+        [
+          312,
+          312
+        ],
+        [
+          313,
+          313
+        ],
+        [
+          314,
+          314
+        ],
+        [
+          315,
+          315
+        ],
+        [
+          316,
+          316
+        ],
+        [
+          317,
+          317
+        ],
+        [
+          318,
+          318
+        ],
+        [
+          319,
+          319
+        ],
+        [
+          320,
+          320
+        ],
+        [
+          321,
+          321
+        ],
+        [
+          322,
+          322
+        ],
+        [
+          323,
+          323
+        ],
+        [
+          324,
+          324
+        ],
+        [
+          325,
+          325
+        ],
+        [
+          326,
+          326
+        ],
+        [
+          327,
+          327
+        ],
+        [
+          328,
+          328
+        ],
+        [
+          329,
+          329
+        ],
+        [
+          330,
+          330
+        ],
+        [
+          331,
+          331
+        ],
+        [
+          332,
+          332
+        ],
+        [
+          333,
+          333
+        ],
+        [
+          334,
+          334
+        ],
+        [
+          335,
+          335
+        ],
+        [
+          336,
+          336
+        ],
+        [
+          337,
+          337
+        ],
+        [
+          338,
+          338
+        ],
+        [
+          339,
+          339
+        ],
+        [
+          340,
+          340
+        ]
+      ],
+      "index_reordered": false,
+      "mapping_caveat": "Element-wise nearest-coordinate assignment verifies exact geometry copies. For changed relaxed geometries it is not a trajectory-based proof of atom exchange or reordering.",
+      "same_index_max_displacement_A": 1.7763568394002505e-15
+    },
+    "constraints_match": true,
+    "pair_scale": 0.022518758719618052,
+    "reference_match_level": "initial metal coordinates + composition/cell/constraints matched; independent ancestral lineage not proven",
+    "pair_index": 17,
+    "metal_relaxation_retained": "adsorbed final substrate coordinates are allowed to change; subtraction includes the substrate response",
+    "independent_clean_parent_families": 1
+  }
+]

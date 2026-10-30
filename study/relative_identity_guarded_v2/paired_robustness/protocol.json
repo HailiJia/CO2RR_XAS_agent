@@ -1,0 +1,27 @@
+{
+  "scope": "synthetic paired stress; no measured experimental uncertainty supplied",
+  "energy_eV": [
+    8975.0,
+    9028.0
+  ],
+  "n_points": 266,
+  "crop_eV": 1,
+  "normalization": "same corrected-normalized raw vs relative delta vs signed-shape conventions, recomputed on same supported interior window",
+  "training": "DCT16 C1 logistic, threshold.5; one paired augmentation, all views in original group",
+  "noise": "1% of each query peak; one shared reference vector plus independent sample/reference noise; shared component cancels in subtraction",
+  "shared_reference": "same simulated reference per domain; noise common across test queries within fold; not independent references",
+  "gain": "common acquisition gain changes shared divisor too and cancels; sample-only residual gain and processed divisor error separate",
+  "broadening": "additional Gaussian sigma.25 eV on native pair, reflect finite-grid kernel; no removal of lifetime broadening",
+  "augmentation": "shared\u00b1.2 eV plus residual\u00b1.2 eV; extra Gaussian sigma.25 eV; sample gain\u00b15%; shared+independent noise1%; fixed illustrative settings",
+  "scenarios": [
+    "native",
+    "shared_shift0p2",
+    "residual_shift0p2",
+    "gaussian_sigma0p25",
+    "pair_noise1pct",
+    "common_acquisition_gain5pct",
+    "relative_sample_gain5pct",
+    "processed_scale_error5pct"
+  ],
+  "source_sha256": "135d83f9a7ae80cfb6c158b1b9cfe87ea067b2c88e816b41029407e8b6c7ac4b"
+}

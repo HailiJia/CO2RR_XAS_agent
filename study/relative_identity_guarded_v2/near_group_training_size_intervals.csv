@@ -1,0 +1,4 @@
+threshold,old_mean,expanded_same_old_queries_mean,mean_difference,lower,upper,seed_difference_SD,n_query_near_groups,uncertainty
+fixed0p5,0.7130349066019189,0.7251700826898541,0.012135176087935204,-0.023418803386927197,0.049503398820604005,0.015125495696781056,96,near-geometry group bootstrap jointly across fixed seed predictions; equal group weights; refit/seed SD separate
+transferred,0.7190970605480538,0.7295150325838438,0.010417972035789943,-0.018998129828379926,0.04248124517360767,0.014773444706570701,96,near-geometry group bootstrap jointly across fixed seed predictions; equal group weights; refit/seed SD separate
+common,0.7190970605480538,0.7311264035795704,0.012029343031516518,-0.015676716906068318,0.04152904914262847,0.02966783793374251,96,near-geometry group bootstrap jointly across fixed seed predictions; equal group weights; refit/seed SD separate

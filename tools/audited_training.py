@@ -99,7 +99,12 @@ def run_audited_training(data_root, output_dir, split_manifest=None,
             if hashlib.sha256((b/name).read_bytes()).hexdigest()!=manifest[name]['sha256']:
                 raise ValueError('Prepared identity export hash mismatch: '+name)
         from .identity_comparison import train
-        return train(data_root,output_dir)
+        families=json.loads((Path(__file__).resolve().parents[1]/'study/relative_identity_guarded_v2/near_duplicate_family_map.json').read_text())
+        if families['training_manifest_sha256']!=hashlib.sha256((b/'training_manifest.json').read_bytes()).hexdigest() or families['geometry_sha256']!=hashlib.sha256((b/'geometry_arrays.json').read_bytes()).hexdigest():raise ValueError('Near-family audit belongs to another export')
+        result=train(data_root,output_dir,family_map=families)
+        from .grouped_identity_learning import run as group_learning
+        result.update(group_learning(output_dir))
+        return result
     if recipe == 'dataset_refresh_v1':
         from .dataset_refresh_training import train
         return train(data_root, output_dir)

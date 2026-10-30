@@ -39,13 +39,22 @@ def common_threshold(y,s):
  # One threshold for all labels, restrained toward .5; no per-label rare-class fitting.
  return float(ts[int(np.argmax(q))])
 
-def train(data_root,output_dir):
+def train(data_root,output_dir,family_map=None):
  B=Path(data_root);O=Path(output_dir);O.mkdir(parents=True,exist_ok=True)
  if any(O.iterdir()):raise ValueError('Use a new empty output directory')
  M=O/'models';M.mkdir();r=json.load(open(B/'training_manifest.json'));z=np.load(B/'training_arrays.npz');e=z['energy'];y=encode_labels([a['identity_labels'] for a in r]);g=np.array([a['group'] for a in r]);fold=np.array([a['fold'] for a in r]);old=np.array([a['old99'] for a in r]);dom=np.array([a['domain'] for a in r]);cohorts={'old99':np.flatnonzero(old),'expanded118':np.flatnonzero(dom=='CuAu'),'joint130':np.arange(len(r))};arrays={k:z[v] for k,v in [('native_normalized','raw_native'),('corrected_normalized','raw_physical'),('common_raw','raw_physical'),('relative_delta','delta'),('signed_shape','delta')]};metrics=[];per=[];strata=[];splits=[];selections=[];replay=[];bootstrap=[];thresholds=[];saved={};curve=[];policies=[];stress=[]
- dump(O/'source_manifest.json',r);np.savez_compressed(O/'inputs.npz',**{k:z[k] for k in z.files});np.savez_compressed(O/'targets_folds.npz',truth=y,fold=fold,groups=g,old99=old,domain=dom)
+ families=np.array([family_map['families'][a['configuration']] if family_map else a['group'] for a in r]);outer_context=[None]
+ def guard(tr,te,outer=False):
+  tr=np.asarray(tr,int);te=np.asarray(te,int)
+  if outer:outer_context[0]=int(fold[te[0]]) if len(te) and len(set(fold[te]))==1 else None
+  if not family_map:return tr
+  blocked=set(families[te]);seen=set();keep=[]
+  for i in sorted(tr,key=lambda i:(not old[i],r[i]['configuration'])):
+   if families[i] not in blocked and families[i] not in seen:keep.append(int(i));seen.add(families[i])
+  return np.array(sorted(keep),int)
+ dump(O/'family_map.json',family_map or {'status':'legacy exact groups only'});dump(O/'source_manifest.json',r);np.savez_compressed(O/'inputs.npz',**{k:z[k] for k in z.files});np.savez_compressed(O/'targets_folds.npz',truth=y,fold=fold,groups=g,old99=old,domain=dom)
  def inner(tr):
-  oo=np.array([i for i in tr if old[i]]);assignment={}
+  oo=np.flatnonzero(old & (fold!=outer_context[0])) if outer_context[0] is not None else np.array([i for i in tr if old[i]]);assignment={}
   if len(oo)>=3:
    for k,(_,v) in enumerate(GroupKFold(3).split(oo,groups=g[oo])):
     for i in oo[v]:assignment[int(i)]=k
@@ -53,7 +62,7 @@ def train(data_root,output_dir):
    if int(i) not in assignment:assignment[int(i)]=int(hashlib.sha256(g[i].encode()).hexdigest()[:8],16)%3
   return [(np.array([i for i in tr if assignment[int(i)]!=k]),np.array([i for i in tr if assignment[int(i)]==k])) for k in range(3)]
  def fit_recipe(rep,feature,kind,tr,te,seed,augment=False):
-  floor=shape_floor(z['delta'][tr]);a=arrays[rep][tr];yy=y[tr]
+  tr=guard(tr,te);floor=shape_floor(z['delta'][tr]);a=arrays[rep][tr];yy=y[tr]
   if augment:
    rng=np.random.default_rng(seed);copies=[]
    for x in a:
@@ -66,7 +75,7 @@ def train(data_root,output_dir):
    if len(a) and len(v):out[[loc[int(i)] for i in v]]=fit_recipe(rep,*recipe,a,v,seed,aug)[1]
   return out
  def save(name,rep,recipe,tr,te,seed,model,sc,floor,th):
-  p=M/(name+'.joblib');bundle={'input_contract':VERSION,'representation':rep,'feature':recipe[0],'kind':recipe[1],'model':model,'floor':floor,'thresholds':np.full(len(SPECIES),th),'energy':e,'species':SPECIES,'domains':sorted(set(dom[tr])),'train_indices':tr,'test_indices':te,'train_groups':g[tr].tolist(),'test_groups':g[te].tolist(),'reference_ids':sorted({r[i]['reference_id'] for i in tr}),'normalization':'signed-shape RMS after training floor' if rep=='signed_shape' else 'shared simulated reference near-edge divisor; not validated experimental full edge jump','seed':seed};joblib.dump(bundle,p,compress=3);mm=joblib.load(p);assert np.array_equal(score_model(mm['model'],transform(arrays[rep][te],e,rep,recipe[0],floor)),sc);replay.append({'path':str(p.relative_to(O)),'sha256':sha(p),'exact_reload':True});return bundle
+  tr=guard(tr,te);p=M/(name+'.joblib');bundle={'input_contract':VERSION,'representation':rep,'feature':recipe[0],'kind':recipe[1],'model':model,'floor':floor,'thresholds':np.full(len(SPECIES),th),'energy':e,'species':SPECIES,'domains':sorted(set(dom[tr])),'train_indices':tr,'test_indices':te,'train_groups':g[tr].tolist(),'test_groups':g[te].tolist(),'train_families':families[tr].tolist(),'test_families':families[te].tolist(),'reference_ids':sorted({r[i]['reference_id'] for i in tr}),'normalization':'signed-shape RMS after training floor' if rep=='signed_shape' else 'shared simulated reference near-edge divisor; not validated experimental full edge jump','seed':seed};joblib.dump(bundle,p,compress=3);mm=joblib.load(p);assert np.array_equal(score_model(mm['model'],transform(arrays[rep][te],e,rep,recipe[0],floor)),sc);replay.append({'path':str(p.relative_to(O)),'sha256':sha(p),'exact_reload':True});return bundle
  def record(name,ids,s,p,meta):
   np.savez_compressed(O/(name+'.npz'),indices=ids,truth=y[ids],score=s,prediction=p,fold=fold[ids]);saved[name]=(ids,s,p);metrics.append({**meta,'name':name,'subset':'all','n':len(ids),**f1_metrics(y[ids],p)})
   masks={'old99':old[ids],'new_only':~old[ids],'single':np.array([len(r[i]['identity_labels'])==1 for i in ids]),'mixed':np.array([len(r[i]['identity_labels'])>1 for i in ids]),'clean':y[ids].sum(axis=1)==0,'CuAu':dom[ids]=='CuAu','Cu100':dom[ids]=='Cu100'}
@@ -93,7 +102,7 @@ def train(data_root,output_dir):
    for family in ['logistic','trees']:
     recipes=[c for c in CANDIDATES if c[1]==family];scores=np.zeros_like(y[ids],float);pred=np.zeros_like(y[ids]);p5=np.zeros_like(pred)
     for f in range(5):
-     tr=ids[fold[ids]!=f];te=ids[fold[ids]==f];pos=np.flatnonzero(fold[ids]==f);qs=[];ii=[];ths=[]
+     tr=ids[fold[ids]!=f];te=ids[fold[ids]==f];pos=np.flatnonzero(fold[ids]==f);tr=guard(tr,te,outer=True);qs=[];ii=[];ths=[]
      for recipe in recipes:
       ss=inside(rep,recipe,tr,SEEDS[0]);th=common_threshold(y[tr],ss);qs.append(f1_metrics(y[tr],(ss>=th).astype(int))['micro_f1']);ii.append(ss);ths.append(th)
      win=int(np.argmax(qs));rec=recipes[win];m,s,floor=fit_recipe(rep,*rec,tr,te,SEEDS[0]);th=ths[win];scores[pos]=s;pred[pos]=s>=th;p5[pos]=s>=.5;save(f'nested_{cohort}_{rep}_{family}_{f}',rep,rec,tr,te,SEEDS[0],m,s,floor,th)
@@ -106,7 +115,7 @@ def train(data_root,output_dir):
   for cohort in ['old99','expanded118']:
    ids=cohorts[cohort];scores=np.zeros_like(y[ids],float);pp={k:np.zeros_like(y[ids]) for k in ['fixed0p5','transferred','common']}
    for f in range(5):
-    tr=ids[fold[ids]!=f];te=ids[fold[ids]==f];pos=np.flatnonzero(fold[ids]==f);ip=inside('relative_delta',('Combined','trees'),tr,seed);th=common_threshold(y[tr],ip)
+    tr=ids[fold[ids]!=f];te=ids[fold[ids]==f];pos=np.flatnonzero(fold[ids]==f);tr=guard(tr,te,outer=True);ip=inside('relative_delta',('Combined','trees'),tr,seed);th=common_threshold(y[tr],ip)
     if cohort=='old99':transferred[seed,f]=th
     m,s,floor=fit_recipe('relative_delta','Combined','trees',tr,te,seed);scores[pos]=s
     for stage,t in [('fixed0p5',.5),('transferred',transferred[seed,f]),('common',th)]:pp[stage][pos]=s>=t
@@ -117,7 +126,7 @@ def train(data_root,output_dir):
   for fraction in [.5,.75,1.]:
    scores=np.zeros_like(y[query],float)
    for f in range(5):
-    tr=ids[fold[ids]!=f];rng=np.random.default_rng(seed+f);tr=rng.permutation(tr)[:max(3,int(len(tr)*fraction))];te=query[fold[query]==f];pos=np.flatnonzero(fold[query]==f);m,s,floor=fit_recipe('relative_delta','Combined','trees',tr,te,seed);scores[pos]=s;save(f'curve_{fraction}_{seed}_{f}','relative_delta',('Combined','trees'),tr,te,seed,m,s,floor,.5);curve.append({'fraction':fraction,'seed':seed,'fold':f,'n_training_groups':len(tr),'train_indices':tr.tolist(),'query_indices':te.tolist(),'missing_positive':[SPECIES[j] for j in np.flatnonzero(y[tr].sum(axis=0)==0)]})
+    tr=ids[fold[ids]!=f];rng=np.random.default_rng(seed+f);tr=rng.permutation(tr)[:max(3,int(len(tr)*fraction))];te=query[fold[query]==f];pos=np.flatnonzero(fold[query]==f);tr=guard(tr,te,outer=True);m,s,floor=fit_recipe('relative_delta','Combined','trees',tr,te,seed);scores[pos]=s;save(f'curve_{fraction}_{seed}_{f}','relative_delta',('Combined','trees'),tr,te,seed,m,s,floor,.5);curve.append({'fraction':fraction,'seed':seed,'fold':f,'n_training_groups':len(tr),'train_indices':tr.tolist(),'query_indices':te.tolist(),'missing_positive':[SPECIES[j] for j in np.flatnonzero(y[tr].sum(axis=0)==0)]})
    record(f'curve_{fraction}_{seed}',query,scores,(scores>=.5).astype(int),{'protocol':'learning_curve','seed':seed,'fraction':fraction,'cohort':'old99_queries','representation':'relative_delta'})
   for stage in ['fixed0p5','transferred','common']:
    ia,sa,pa=saved[f'size_old99_{seed}_{stage}'];ib,sb,pb=saved[f'size_expanded118_{seed}_{stage}'];lookup={int(i):j for j,i in enumerate(ib)};pb=pb[[lookup[int(i)] for i in ia]];diff=f1_metrics(y[ia],pb)['micro_f1']-f1_metrics(y[ia],pa)['micro_f1'];rng=np.random.default_rng(930+seed);vals=[]
@@ -127,7 +136,7 @@ def train(data_root,output_dir):
   print('size/curve complete',seed,flush=True)
  # Entire-domain holdout, not a new-parent validation; common4 + full11 saved.
  for target in ['Cu100','CuAu']:
-  tr=np.flatnonzero(dom!=target);te=np.flatnonzero(dom==target)
+  tr=np.flatnonzero(dom!=target);te=np.flatnonzero(dom==target);tr=guard(tr,te,outer=True)
   for rep in ['corrected_normalized','relative_delta','signed_shape']:
    m,s,floor=fit_recipe(rep,'DCT16','logistic',tr,te,SEEDS[0]);th=common_threshold(y[tr],inside(rep,('DCT16','logistic'),tr,SEEDS[0]));save(f'domain_{target}_{rep}',rep,('DCT16','logistic'),tr,te,SEEDS[0],m,s,floor,th);record(f'domain_{target}_{rep}',te,s,(s>=th).astype(int),{'protocol':'domain_holdout','cohort':target,'representation':rep,'seed':SEEDS[0]});splits.append({'protocol':'domain_holdout','target':target,'train':tr.tolist(),'test':te.tolist(),'missing_positive':[SPECIES[j] for j in np.flatnonzero(y[tr].sum(axis=0)==0)]})
  # Predeclared training-only augmentation, paired raw/delta stress on identical crops.
@@ -136,7 +145,7 @@ def train(data_root,output_dir):
   for aug in [False,True]:
    aggregate={name:np.zeros_like(y[ids],float) for name in ['clean','shift+0p2','relative_shift+0p2','broadening0p25','noise1pct','gain5pct']};low=np.zeros(len(ids),bool)
    for f in range(5):
-    tr=ids[fold[ids]!=f];te=ids[fold[ids]==f];pos=np.flatnonzero(fold[ids]==f);rec=('DCT16','logistic');m,s,floor=fit_recipe(rep,*rec,tr,te,SEEDS[0],aug);save(f'augment_{rep}_{aug}_{f}',rep,rec,tr,te,SEEDS[0],m,s,floor,.5)
+    tr=ids[fold[ids]!=f];te=ids[fold[ids]==f];pos=np.flatnonzero(fold[ids]==f);tr=guard(tr,te,outer=True);rec=('DCT16','logistic');m,s,floor=fit_recipe(rep,*rec,tr,te,SEEDS[0],aug);save(f'augment_{rep}_{aug}_{f}',rep,rec,tr,te,SEEDS[0],m,s,floor,.5)
     # Perturb pair members before subtraction: shared shift/gain and residual sample-only shift.
     for name in aggregate:
      a=z['raw_physical'][te].copy();b=z['clean'][te].copy();rng=np.random.default_rng(746+f)
@@ -162,5 +171,5 @@ def train(data_root,output_dir):
     te=ids[fold[ids]==f];pos=np.flatnonzero(fold[ids]==f);m=joblib.load(M/f'augment_{rep}_False_{f}.joblib');scores[pos]=score_model(m['model'],transform(z['delta'][te]*fraction,e,rep,'DCT16',m['floor']))
    record(f'dilution_{rep}_{fraction}',ids,scores,(scores>=.5).astype(int),{'protocol':'synthetic_dilution','representation':rep,'surface_fraction':fraction,'cohort':'expanded118'})
  pd.DataFrame(metrics).to_csv(O/'metrics.csv',index=False);pd.DataFrame(per).to_csv(O/'per_label.csv',index=False);pd.DataFrame(policies).to_csv(O/'review_policy.csv',index=False);pd.DataFrame(bootstrap).to_csv(O/'paired_bootstrap.csv',index=False);dump(O/'splits.json',splits);dump(O/'selection.json',selections);dump(O/'thresholds.json',thresholds);dump(O/'learning_membership.json',curve);dump(O/'stress_protocol.json',stress);dump(O/'model_replay.json',replay)
- dump(O/'protocol.json',{'version':VERSION,'seeds':SEEDS,'representations':REPS,'candidates':CANDIDATES,'nested':'paired old training inner groups; hash assignment additions; common threshold .3/.4/.5/.6 with .02(t-.5)^2 penalty; fixed.5 also shown','signed_shape_floor':'max(1e-10,1% of tenth-percentile nonzero training RMS); heuristic not measured detection limit; low inputs stay zero','augmentation':'one synthetic training copy; shifts±.2eV, Gaussian sigma.25eV, gain±5%, noise1% native peak; same configuration fold; illustrative ranges without measured noise metadata','scope':'conditional same-reference simulation; one reference family/domain; no measured experimental validation; no coverage recalibration','source_hashes':{str(p):sha(p) for p in [B/'training_arrays.npz',B/'training_manifest.json',Path(__file__),Path(__file__).with_name('differential_identity.py')]},'python':platform.python_version()})
+ dump(O/'protocol.json',{'near_family_guard':family_map,'version':VERSION,'seeds':SEEDS,'representations':REPS,'candidates':CANDIDATES,'nested':'paired old training inner groups; hash assignment additions; common threshold .3/.4/.5/.6 with .02(t-.5)^2 penalty; fixed.5 also shown','signed_shape_floor':'max(1e-10,1% of tenth-percentile nonzero training RMS); heuristic not measured detection limit; low inputs stay zero','augmentation':'one synthetic training copy; shifts±.2eV, Gaussian sigma.25eV, gain±5%, noise1% native peak; same configuration fold; illustrative ranges without measured noise metadata','scope':'conditional same-reference simulation; one reference family/domain; no measured experimental validation; no coverage recalibration','source_hashes':{str(p):sha(p) for p in [B/'training_arrays.npz',B/'training_manifest.json',Path(__file__),Path(__file__).with_name('differential_identity.py')]},'python':platform.python_version()})
  return {'status':'success','output_dir':str(O),'metrics':str(O/'metrics.csv'),'models':len(replay),'prediction_replay_identical':True,'trace':str(O/'protocol.json')}
