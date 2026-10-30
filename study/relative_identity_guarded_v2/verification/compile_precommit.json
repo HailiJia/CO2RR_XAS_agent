@@ -1,6 +1,6 @@
 {
   "scope": "every tracked Python file AST+py_compile and index/working byte/hash equality",
-  "python_files": 276,
+  "python_files": 278,
   "imports": [
     "workflow.nersc_workflow",
     "agent.co2rr_xas_agent",
@@ -694,6 +694,13 @@
       "index_matches_working_bytes": true
     },
     {
+      "path": "study/manuscript_relative_identity_guarded_v2/code/package_editable.py",
+      "bytes": 1421,
+      "sha256": "6db65661ae4d5a1ab3ce2451c75cb451eef386dcadf1df24109b71d83165d71b",
+      "git_blob": "5e4222c224d995cd3551bb6948142190debc9147",
+      "index_matches_working_bytes": true
+    },
+    {
       "path": "study/manuscript_relative_identity_guarded_v2/code/preferred_style_helpers.py",
       "bytes": 36103,
       "sha256": "5cb128544f90ab7ccadefb5b584e55785a8ca531ebb84b8b8108e60bee8dfa5e",
@@ -1244,6 +1251,13 @@
       "bytes": 6012,
       "sha256": "130bac07ce40ff22e23294c28f45d75b32de41972beb950399ab7f7bd62095bc",
       "git_blob": "960a084afea7fb53de4a1ae278b5a1dd31679a02",
+      "index_matches_working_bytes": true
+    },
+    {
+      "path": "tests/test_editable_package.py",
+      "bytes": 1275,
+      "sha256": "c4af4350e874e4d02f08b6355878c58ac8f0bd904de9a43724ed6e990d7798df",
+      "git_blob": "7ed13ae7c8b886449592f5567662ab2d35292c56",
       "index_matches_working_bytes": true
     },
     {

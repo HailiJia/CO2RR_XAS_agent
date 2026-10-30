@@ -1,3 +1,28 @@
-{"saved_models": 341, "original_heldout_models": 311, "paired_robustness_models": 30, "paired_robustness_fold_scenarios": 240, "exact_scores": true, "group_disjoint": true, "source_hashes_match": true, "not_refitting": true}
-{"guarded_models_including_strict_cutoff": 371, "near_family_leakage": false, "source_code_hashes_match": true, "exact_reloaded_scores": true}
-{"total_guarded_and_group_learning_models": 416, "true_group_subsampling": true, "exact_reloaded_scores": true}
+{
+  "replay_stages": [
+    {
+      "saved_models": 341,
+      "original_heldout_models": 311,
+      "paired_robustness_models": 30,
+      "paired_robustness_fold_scenarios": 240,
+      "exact_scores": true,
+      "group_disjoint": true,
+      "source_hashes_match": true,
+      "not_refitting": true
+    },
+    {
+      "guarded_models_including_strict_cutoff": 371,
+      "near_family_leakage": false,
+      "source_code_hashes_match": true,
+      "exact_reloaded_scores": true
+    },
+    {
+      "total_guarded_and_group_learning_models": 416,
+      "true_group_subsampling": true,
+      "exact_reloaded_scores": true
+    }
+  ],
+  "new_models_total": 416,
+  "exact_reloaded_scores": true,
+  "scope": "actual precommit replay stages, not independent confirmation"
+}

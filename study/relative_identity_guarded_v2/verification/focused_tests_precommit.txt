@@ -1,6 +1,6 @@
 ........................................................................ [ 43%]
 ........................................................................ [ 87%]
-....................                                                     [100%]
+.....................                                                    [100%]
 =============================== warnings summary ===============================
 tests/test_grouped_xas_ml.py::test_manual_fit_keeps_all_replicates_together_and_fits_scaler_on_train_only
   /Users/hjia/miniconda3/envs/co2rr_agent/lib/python3.11/site-packages/sklearn/metrics/_classification.py:614: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
@@ -19,4 +19,4 @@ tests/test_label_workflow_integration.py::test_native_slab_route_writes_molecule
     warnings.warn("Lightshow not available. Using fallback FEFF parameter generation.")
 
 -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
-164 passed, 4 warnings in 7.58s
+165 passed, 4 warnings in 7.00s
