@@ -1,0 +1,632 @@
+[
+  {
+    "seed": 20261020,
+    "fold": 0,
+    "protocol": "all_views64",
+    "candidate": 0,
+    "recipe": [
+      "Combined",
+      1,
+      64
+    ],
+    "threshold": 0.3,
+    "inner_quality": 0.7335173431734318,
+    "outer_model": "models/seed20261020_fold0_candidate0.joblib"
+  },
+  {
+    "seed": 20261020,
+    "fold": 0,
+    "protocol": "all_views256",
+    "candidate": 6,
+    "recipe": [
+      "Combined",
+      1,
+      256
+    ],
+    "threshold": 0.4,
+    "inner_quality": 0.7416032786885246,
+    "outer_model": "models/seed20261020_fold0_candidate6.joblib"
+  },
+  {
+    "seed": 20261020,
+    "fold": 0,
+    "protocol": "nested",
+    "candidate": 6,
+    "recipe": [
+      "Combined",
+      1,
+      256
+    ],
+    "threshold": 0.4,
+    "inner_quality": 0.7416032786885246,
+    "outer_model": "models/seed20261020_fold0_candidate6.joblib"
+  },
+  {
+    "seed": 20261020,
+    "fold": 1,
+    "protocol": "all_views64",
+    "candidate": 0,
+    "recipe": [
+      "Combined",
+      1,
+      64
+    ],
+    "threshold": 0.4,
+    "inner_quality": 0.7518661157024794,
+    "outer_model": "models/seed20261020_fold1_candidate0.joblib"
+  },
+  {
+    "seed": 20261020,
+    "fold": 1,
+    "protocol": "all_views256",
+    "candidate": 6,
+    "recipe": [
+      "Combined",
+      1,
+      256
+    ],
+    "threshold": 0.4,
+    "inner_quality": 0.7540372881355932,
+    "outer_model": "models/seed20261020_fold1_candidate6.joblib"
+  },
+  {
+    "seed": 20261020,
+    "fold": 1,
+    "protocol": "nested",
+    "candidate": 3,
+    "recipe": [
+      "DCT16",
+      1,
+      64
+    ],
+    "threshold": 0.4,
+    "inner_quality": 0.7587098532494759,
+    "outer_model": "models/seed20261020_fold1_candidate3.joblib"
+  },
+  {
+    "seed": 20261020,
+    "fold": 2,
+    "protocol": "all_views64",
+    "candidate": 0,
+    "recipe": [
+      "Combined",
+      1,
+      64
+    ],
+    "threshold": 0.4,
+    "inner_quality": 0.691158024691358,
+    "outer_model": "models/seed20261020_fold2_candidate0.joblib"
+  },
+  {
+    "seed": 20261020,
+    "fold": 2,
+    "protocol": "all_views256",
+    "candidate": 6,
+    "recipe": [
+      "Combined",
+      1,
+      256
+    ],
+    "threshold": 0.3,
+    "inner_quality": 0.6670571428571428,
+    "outer_model": "models/seed20261020_fold2_candidate6.joblib"
+  },
+  {
+    "seed": 20261020,
+    "fold": 2,
+    "protocol": "nested",
+    "candidate": 0,
+    "recipe": [
+      "Combined",
+      1,
+      64
+    ],
+    "threshold": 0.4,
+    "inner_quality": 0.691158024691358,
+    "outer_model": "models/seed20261020_fold2_candidate0.joblib"
+  },
+  {
+    "seed": 20261020,
+    "fold": 3,
+    "protocol": "all_views64",
+    "candidate": 0,
+    "recipe": [
+      "Combined",
+      1,
+      64
+    ],
+    "threshold": 0.3,
+    "inner_quality": 0.7545816046966731,
+    "outer_model": "models/seed20261020_fold3_candidate0.joblib"
+  },
+  {
+    "seed": 20261020,
+    "fold": 3,
+    "protocol": "all_views256",
+    "candidate": 6,
+    "recipe": [
+      "Combined",
+      1,
+      256
+    ],
+    "threshold": 0.4,
+    "inner_quality": 0.7724269315673289,
+    "outer_model": "models/seed20261020_fold3_candidate6.joblib"
+  },
+  {
+    "seed": 20261020,
+    "fold": 3,
+    "protocol": "nested",
+    "candidate": 6,
+    "recipe": [
+      "Combined",
+      1,
+      256
+    ],
+    "threshold": 0.4,
+    "inner_quality": 0.7724269315673289,
+    "outer_model": "models/seed20261020_fold3_candidate6.joblib"
+  },
+  {
+    "seed": 20261020,
+    "fold": 4,
+    "protocol": "all_views64",
+    "candidate": 0,
+    "recipe": [
+      "Combined",
+      1,
+      64
+    ],
+    "threshold": 0.4,
+    "inner_quality": 0.7645058823529411,
+    "outer_model": "models/seed20261020_fold4_candidate0.joblib"
+  },
+  {
+    "seed": 20261020,
+    "fold": 4,
+    "protocol": "all_views256",
+    "candidate": 6,
+    "recipe": [
+      "Combined",
+      1,
+      256
+    ],
+    "threshold": 0.3,
+    "inner_quality": 0.7646784240150094,
+    "outer_model": "models/seed20261020_fold4_candidate6.joblib"
+  },
+  {
+    "seed": 20261020,
+    "fold": 4,
+    "protocol": "nested",
+    "candidate": 6,
+    "recipe": [
+      "Combined",
+      1,
+      256
+    ],
+    "threshold": 0.3,
+    "inner_quality": 0.7646784240150094,
+    "outer_model": "models/seed20261020_fold4_candidate6.joblib"
+  },
+  {
+    "seed": 20261021,
+    "fold": 0,
+    "protocol": "all_views64",
+    "candidate": 0,
+    "recipe": [
+      "Combined",
+      1,
+      64
+    ],
+    "threshold": 0.4,
+    "inner_quality": 0.7358,
+    "outer_model": "models/seed20261021_fold0_candidate0.joblib"
+  },
+  {
+    "seed": 20261021,
+    "fold": 0,
+    "protocol": "all_views256",
+    "candidate": 6,
+    "recipe": [
+      "Combined",
+      1,
+      256
+    ],
+    "threshold": 0.3,
+    "inner_quality": 0.7288296296296296,
+    "outer_model": "models/seed20261021_fold0_candidate6.joblib"
+  },
+  {
+    "seed": 20261021,
+    "fold": 0,
+    "protocol": "nested",
+    "candidate": 1,
+    "recipe": [
+      "Combined",
+      2,
+      64
+    ],
+    "threshold": 0.4,
+    "inner_quality": 0.7360204724409449,
+    "outer_model": "models/seed20261021_fold0_candidate1.joblib"
+  },
+  {
+    "seed": 20261021,
+    "fold": 1,
+    "protocol": "all_views64",
+    "candidate": 0,
+    "recipe": [
+      "Combined",
+      1,
+      64
+    ],
+    "threshold": 0.4,
+    "inner_quality": 0.7615107942973524,
+    "outer_model": "models/seed20261021_fold1_candidate0.joblib"
+  },
+  {
+    "seed": 20261021,
+    "fold": 1,
+    "protocol": "all_views256",
+    "candidate": 6,
+    "recipe": [
+      "Combined",
+      1,
+      256
+    ],
+    "threshold": 0.4,
+    "inner_quality": 0.7428997876857749,
+    "outer_model": "models/seed20261021_fold1_candidate6.joblib"
+  },
+  {
+    "seed": 20261021,
+    "fold": 1,
+    "protocol": "nested",
+    "candidate": 0,
+    "recipe": [
+      "Combined",
+      1,
+      64
+    ],
+    "threshold": 0.4,
+    "inner_quality": 0.7615107942973524,
+    "outer_model": "models/seed20261021_fold1_candidate0.joblib"
+  },
+  {
+    "seed": 20261021,
+    "fold": 2,
+    "protocol": "all_views64",
+    "candidate": 0,
+    "recipe": [
+      "Combined",
+      1,
+      64
+    ],
+    "threshold": 0.3,
+    "inner_quality": 0.6870306878306878,
+    "outer_model": "models/seed20261021_fold2_candidate0.joblib"
+  },
+  {
+    "seed": 20261021,
+    "fold": 2,
+    "protocol": "all_views256",
+    "candidate": 6,
+    "recipe": [
+      "Combined",
+      1,
+      256
+    ],
+    "threshold": 0.5,
+    "inner_quality": 0.6697247706422018,
+    "outer_model": "models/seed20261021_fold2_candidate6.joblib"
+  },
+  {
+    "seed": 20261021,
+    "fold": 2,
+    "protocol": "nested",
+    "candidate": 3,
+    "recipe": [
+      "DCT16",
+      1,
+      64
+    ],
+    "threshold": 0.4,
+    "inner_quality": 0.6880591093117409,
+    "outer_model": "models/seed20261021_fold2_candidate3.joblib"
+  },
+  {
+    "seed": 20261021,
+    "fold": 3,
+    "protocol": "all_views64",
+    "candidate": 0,
+    "recipe": [
+      "Combined",
+      1,
+      64
+    ],
+    "threshold": 0.3,
+    "inner_quality": 0.7730095238095238,
+    "outer_model": "models/seed20261021_fold3_candidate0.joblib"
+  },
+  {
+    "seed": 20261021,
+    "fold": 3,
+    "protocol": "all_views256",
+    "candidate": 6,
+    "recipe": [
+      "Combined",
+      1,
+      256
+    ],
+    "threshold": 0.3,
+    "inner_quality": 0.7696590818363274,
+    "outer_model": "models/seed20261021_fold3_candidate6.joblib"
+  },
+  {
+    "seed": 20261021,
+    "fold": 3,
+    "protocol": "nested",
+    "candidate": 0,
+    "recipe": [
+      "Combined",
+      1,
+      64
+    ],
+    "threshold": 0.3,
+    "inner_quality": 0.7730095238095238,
+    "outer_model": "models/seed20261021_fold3_candidate0.joblib"
+  },
+  {
+    "seed": 20261021,
+    "fold": 4,
+    "protocol": "all_views64",
+    "candidate": 0,
+    "recipe": [
+      "Combined",
+      1,
+      64
+    ],
+    "threshold": 0.4,
+    "inner_quality": 0.7503241090146751,
+    "outer_model": "models/seed20261021_fold4_candidate0.joblib"
+  },
+  {
+    "seed": 20261021,
+    "fold": 4,
+    "protocol": "all_views256",
+    "candidate": 6,
+    "recipe": [
+      "Combined",
+      1,
+      256
+    ],
+    "threshold": 0.3,
+    "inner_quality": 0.7511083969465648,
+    "outer_model": "models/seed20261021_fold4_candidate6.joblib"
+  },
+  {
+    "seed": 20261021,
+    "fold": 4,
+    "protocol": "nested",
+    "candidate": 6,
+    "recipe": [
+      "Combined",
+      1,
+      256
+    ],
+    "threshold": 0.3,
+    "inner_quality": 0.7511083969465648,
+    "outer_model": "models/seed20261021_fold4_candidate6.joblib"
+  },
+  {
+    "seed": 20261022,
+    "fold": 0,
+    "protocol": "all_views64",
+    "candidate": 0,
+    "recipe": [
+      "Combined",
+      1,
+      64
+    ],
+    "threshold": 0.4,
+    "inner_quality": 0.7402255319148936,
+    "outer_model": "models/seed20261022_fold0_candidate0.joblib"
+  },
+  {
+    "seed": 20261022,
+    "fold": 0,
+    "protocol": "all_views256",
+    "candidate": 6,
+    "recipe": [
+      "Combined",
+      1,
+      256
+    ],
+    "threshold": 0.3,
+    "inner_quality": 0.7315420074349442,
+    "outer_model": "models/seed20261022_fold0_candidate6.joblib"
+  },
+  {
+    "seed": 20261022,
+    "fold": 0,
+    "protocol": "nested",
+    "candidate": 2,
+    "recipe": [
+      "Combined",
+      4,
+      64
+    ],
+    "threshold": 0.5,
+    "inner_quality": 0.7463312368972747,
+    "outer_model": "models/seed20261022_fold0_candidate2.joblib"
+  },
+  {
+    "seed": 20261022,
+    "fold": 1,
+    "protocol": "all_views64",
+    "candidate": 0,
+    "recipe": [
+      "Combined",
+      1,
+      64
+    ],
+    "threshold": 0.4,
+    "inner_quality": 0.7595535934291582,
+    "outer_model": "models/seed20261022_fold1_candidate0.joblib"
+  },
+  {
+    "seed": 20261022,
+    "fold": 1,
+    "protocol": "all_views256",
+    "candidate": 6,
+    "recipe": [
+      "Combined",
+      1,
+      256
+    ],
+    "threshold": 0.4,
+    "inner_quality": 0.7498,
+    "outer_model": "models/seed20261022_fold1_candidate6.joblib"
+  },
+  {
+    "seed": 20261022,
+    "fold": 1,
+    "protocol": "nested",
+    "candidate": 3,
+    "recipe": [
+      "DCT16",
+      1,
+      64
+    ],
+    "threshold": 0.3,
+    "inner_quality": 0.7621629629629629,
+    "outer_model": "models/seed20261022_fold1_candidate3.joblib"
+  },
+  {
+    "seed": 20261022,
+    "fold": 2,
+    "protocol": "all_views64",
+    "candidate": 0,
+    "recipe": [
+      "Combined",
+      1,
+      64
+    ],
+    "threshold": 0.3,
+    "inner_quality": 0.6852254083484574,
+    "outer_model": "models/seed20261022_fold2_candidate0.joblib"
+  },
+  {
+    "seed": 20261022,
+    "fold": 2,
+    "protocol": "all_views256",
+    "candidate": 6,
+    "recipe": [
+      "Combined",
+      1,
+      256
+    ],
+    "threshold": 0.4,
+    "inner_quality": 0.6845599164926931,
+    "outer_model": "models/seed20261022_fold2_candidate6.joblib"
+  },
+  {
+    "seed": 20261022,
+    "fold": 2,
+    "protocol": "nested",
+    "candidate": 2,
+    "recipe": [
+      "Combined",
+      4,
+      64
+    ],
+    "threshold": 0.5,
+    "inner_quality": 0.6857142857142857,
+    "outer_model": "models/seed20261022_fold2_candidate2.joblib"
+  },
+  {
+    "seed": 20261022,
+    "fold": 3,
+    "protocol": "all_views64",
+    "candidate": 0,
+    "recipe": [
+      "Combined",
+      1,
+      64
+    ],
+    "threshold": 0.4,
+    "inner_quality": 0.7683589519650655,
+    "outer_model": "models/seed20261022_fold3_candidate0.joblib"
+  },
+  {
+    "seed": 20261022,
+    "fold": 3,
+    "protocol": "all_views256",
+    "candidate": 6,
+    "recipe": [
+      "Combined",
+      1,
+      256
+    ],
+    "threshold": 0.3,
+    "inner_quality": 0.7743004016064257,
+    "outer_model": "models/seed20261022_fold3_candidate6.joblib"
+  },
+  {
+    "seed": 20261022,
+    "fold": 3,
+    "protocol": "nested",
+    "candidate": 6,
+    "recipe": [
+      "Combined",
+      1,
+      256
+    ],
+    "threshold": 0.3,
+    "inner_quality": 0.7743004016064257,
+    "outer_model": "models/seed20261022_fold3_candidate6.joblib"
+  },
+  {
+    "seed": 20261022,
+    "fold": 4,
+    "protocol": "all_views64",
+    "candidate": 0,
+    "recipe": [
+      "Combined",
+      1,
+      64
+    ],
+    "threshold": 0.4,
+    "inner_quality": 0.7871684210526316,
+    "outer_model": "models/seed20261022_fold4_candidate0.joblib"
+  },
+  {
+    "seed": 20261022,
+    "fold": 4,
+    "protocol": "all_views256",
+    "candidate": 6,
+    "recipe": [
+      "Combined",
+      1,
+      256
+    ],
+    "threshold": 0.4,
+    "inner_quality": 0.7904976744186046,
+    "outer_model": "models/seed20261022_fold4_candidate6.joblib"
+  },
+  {
+    "seed": 20261022,
+    "fold": 4,
+    "protocol": "nested",
+    "candidate": 6,
+    "recipe": [
+      "Combined",
+      1,
+      256
+    ],
+    "threshold": 0.4,
+    "inner_quality": 0.7904976744186046,
+    "outer_model": "models/seed20261022_fold4_candidate6.joblib"
+  }
+]

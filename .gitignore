@@ -110,3 +110,7 @@ study/dataset_20261101/scale/corrected_records/
 study/dataset_20261101/scale/reconvolution/
 study/dataset_20261101/ml/models/
 study/dataset_20261101/source_evidence.tar
+
+# Full-cohort tuning model bytes are stored in verified lossless archive parts.
+study/full_cohort_model_tuning_20261101/results/models/
+study/full_cohort_model_tuning_20261101/final_models/*.joblib
