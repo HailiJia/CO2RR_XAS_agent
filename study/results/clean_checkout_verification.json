@@ -1,0 +1,44 @@
+{
+  "tested_sha": "d64d26825427d4110a18c4e80bee5d4f1d788973",
+  "tree": "a96a5300508d1118ff4fa9e1d406d7684ba9792f",
+  "checkout": "fresh detached worktree from independently downloaded Git pack after push",
+  "python": "3.11.9 (main, Apr 19 2024, 11:43:47) [Clang 14.0.6 ]",
+  "tracked_python_AST_compile": {
+    "passed": 106,
+    "failed": 0
+  },
+  "runtime_imports": {
+    "passed": [
+      "workflow.nersc_workflow",
+      "agent.co2rr_xas_agent",
+      "tools.audited_training",
+      "tools.component_audit",
+      "tools.layer_population",
+      "tools.execution_evidence"
+    ],
+    "failed": 0
+  },
+  "python_source_hashes_match_committed_manifest": true,
+  "release_zip_crc_and_all_manifest_hashes_match_current_checkout": true,
+  "raw_benchmark_original_hashes_verified": 165,
+  "scientific_training_fit_rerun": false,
+  "focused_suite": {
+    "passed": 101,
+    "failed": 0,
+    "warnings": 4,
+    "seconds": 5.43,
+    "files": [
+      "tests/test_geometry_labels.py",
+      "tests/test_grouped_xas_ml.py",
+      "tests/test_xas_ml_peak_descriptors.py",
+      "tests/test_nersc_workflow.py",
+      "tests/test_web_nersc_workflow_integration.py",
+      "tests/test_nersc_prompt_regressions.py",
+      "tests/test_label_workflow_integration.py",
+      "tests/test_study_reconciliation.py"
+    ],
+    "log_sha256": "413b53584b663e1c2d8967ddb978e112701186a79776c436e9750ae250f34ef6"
+  },
+  "tracked_checkout_clean_after_checks": true,
+  "saved_OOF_replay": "primary 0.7790697674/0.6382765883, exact-set 0.6896551724; exploratory 0.7978142077/0.6597402597, exact-set 0.7011494253; saved-array replay, not a new fit"
+}

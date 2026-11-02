@@ -1,0 +1,7 @@
+priority,target,current_independent_positive_geometries,requested_new_count,rationale,selection_rule
+1,clean,0.0,,No eligible clean controls; needed to measure false positives against no adsorbate,"Independent final geometry, not extra layers/sites; reserve confirmation before inspection"
+2,CO2,3.0,,Three positives; reserve new independent groups for both training and confirmation,"Independent final geometry, not extra layers/sites; reserve confirmation before inspection"
+2,COCHO,1.0,,One positive; a held-out fold has zero training positives,"Independent final geometry, not extra layers/sites; reserve confirmation before inspection"
+2,OCCOH,4.0,,Four positives; sparse independent confirmation,"Independent final geometry, not extra layers/sites; reserve confirmation before inspection"
+3,CO+H / CO / CO+OH,,,Matched parent/site/loading comparisons isolate coadsorbate omissions,"Independent final geometry, not extra layers/sites; reserve confirmation before inspection"
+3,intact OCCO / two CO,0.0,,No eligible intact OCCO positives; verify final connectivity and matched parents,"Independent final geometry, not extra layers/sites; reserve confirmation before inspection"

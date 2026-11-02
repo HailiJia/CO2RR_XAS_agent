@@ -1,0 +1,39 @@
+{
+  "date_UTC": "2026-10-29",
+  "reviewed_GitHub_commit": "798e2c81b7a9afa684dc2a5625607ec866430163",
+  "main": {
+    "pages": 16,
+    "sha256": "f0a06fc4680a705c453f789356d3ccc0795f6f24f0220b52658fd61482b399d1",
+    "last_compile_log": "main_build_8.txt"
+  },
+  "SI": {
+    "pages": 26,
+    "sha256": "e62a3e65e21fbf26bab86e57d52a8fb7da6366fcc25bb438f621c12cba9025b1",
+    "last_compile_log": "SI_build_7.txt"
+  },
+  "both_documents_compiled_twice": true,
+  "final_compile_errors_undefined_references_overfull_boxes": false,
+  "all_42_pages_rendered_and_visually_inspected": true,
+  "figures_png_only": true,
+  "Figure1_unchanged_hash_verified": true,
+  "independent_checks": {
+    "saved_prediction_files_checked": 25,
+    "signed_difference_verified": true,
+    "common_multiplicative_scale_cancels": true,
+    "CuAu_raw_delta_identity_identical_coverage_equal_within_1e12": true,
+    "reference_metric_triplets": 28,
+    "max_reference_metric_error": 5.551115123125783e-16,
+    "cohorts": {
+      "CuAu_closed_label": 118,
+      "Cu100_closed_label": 12,
+      "source_scaled": 137,
+      "versioned_records_source_report": 146,
+      "native_series_source_report": 553
+    },
+    "Figure2b_counts_verified": true,
+    "Figure4b_support_verified": true,
+    "Figure4e_membership_verified": true,
+    "source_CSV_553_exact_flags": true
+  },
+  "scope": "No new ML training, complete model replay, full repository suite, HPC jobs or GitHub writes performed in this review. Source verification counts are attributed separately."
+}

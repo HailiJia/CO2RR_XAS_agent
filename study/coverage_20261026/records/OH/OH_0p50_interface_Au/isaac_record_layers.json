@@ -1,0 +1,1275 @@
+{
+  "isaac_record_version": "1.05",
+  "record_id": "01M5X70QQV18GMMTWKTH0QVA2Z",
+  "record_type": "evidence",
+  "record_domain": "simulation",
+  "source_type": "computation",
+  "timestamps": {
+    "acquired_start_utc": "2026-10-26T22:59:07Z",
+    "acquired_end_utc": "2026-10-26T22:59:07Z",
+    "created_utc": "2026-10-26T22:59:07Z"
+  },
+  "sample": {
+    "material": {
+      "name": "FDMNES",
+      "formula": "not_specified",
+      "provenance": "theoretical",
+      "notes": "Static 0 K electronic structure unless otherwise specified."
+    },
+    "sample_form": "slab_model",
+    "structure_descriptors": {
+      "component_audit": {
+        "version": "slab-components-v1",
+        "index_base": 1,
+        "pbc": [
+          true,
+          true,
+          false
+        ],
+        "cutoffs_A": {
+          "C:C": 1.85,
+          "C:O": 1.7,
+          "C:H": 1.3,
+          "H:O": 1.2,
+          "H:H": 0.9,
+          "O:O": 1.65
+        },
+        "components": [
+          {
+            "species": "OH",
+            "formula": {
+              "O": 1,
+              "H": 1
+            },
+            "atom_indices": [
+              341,
+              361
+            ],
+            "bonds": [
+              [
+                341,
+                361
+              ]
+            ]
+          },
+          {
+            "species": "OH",
+            "formula": {
+              "O": 1,
+              "H": 1
+            },
+            "atom_indices": [
+              342,
+              362
+            ],
+            "bonds": [
+              [
+                342,
+                362
+              ]
+            ]
+          },
+          {
+            "species": "OH",
+            "formula": {
+              "O": 1,
+              "H": 1
+            },
+            "atom_indices": [
+              343,
+              363
+            ],
+            "bonds": [
+              [
+                343,
+                363
+              ]
+            ]
+          },
+          {
+            "species": "OH",
+            "formula": {
+              "O": 1,
+              "H": 1
+            },
+            "atom_indices": [
+              344,
+              364
+            ],
+            "bonds": [
+              [
+                344,
+                364
+              ]
+            ]
+          },
+          {
+            "species": "OH",
+            "formula": {
+              "H": 1,
+              "O": 1
+            },
+            "atom_indices": [
+              345,
+              365
+            ],
+            "bonds": [
+              [
+                345,
+                365
+              ]
+            ]
+          },
+          {
+            "species": "OH",
+            "formula": {
+              "H": 1,
+              "O": 1
+            },
+            "atom_indices": [
+              346,
+              366
+            ],
+            "bonds": [
+              [
+                346,
+                366
+              ]
+            ]
+          },
+          {
+            "species": "OH",
+            "formula": {
+              "H": 1,
+              "O": 1
+            },
+            "atom_indices": [
+              347,
+              367
+            ],
+            "bonds": [
+              [
+                347,
+                367
+              ]
+            ]
+          },
+          {
+            "species": "OH",
+            "formula": {
+              "H": 1,
+              "O": 1
+            },
+            "atom_indices": [
+              348,
+              368
+            ],
+            "bonds": [
+              [
+                348,
+                368
+              ]
+            ]
+          },
+          {
+            "species": "OH",
+            "formula": {
+              "O": 1,
+              "H": 1
+            },
+            "atom_indices": [
+              349,
+              369
+            ],
+            "bonds": [
+              [
+                349,
+                369
+              ]
+            ]
+          },
+          {
+            "species": "OH",
+            "formula": {
+              "O": 1,
+              "H": 1
+            },
+            "atom_indices": [
+              350,
+              370
+            ],
+            "bonds": [
+              [
+                350,
+                370
+              ]
+            ]
+          },
+          {
+            "species": "OH",
+            "formula": {
+              "O": 1,
+              "H": 1
+            },
+            "atom_indices": [
+              351,
+              371
+            ],
+            "bonds": [
+              [
+                351,
+                371
+              ]
+            ]
+          },
+          {
+            "species": "OH",
+            "formula": {
+              "O": 1,
+              "H": 1
+            },
+            "atom_indices": [
+              352,
+              372
+            ],
+            "bonds": [
+              [
+                352,
+                372
+              ]
+            ]
+          },
+          {
+            "species": "OH",
+            "formula": {
+              "H": 1,
+              "O": 1
+            },
+            "atom_indices": [
+              353,
+              373
+            ],
+            "bonds": [
+              [
+                353,
+                373
+              ]
+            ]
+          },
+          {
+            "species": "OH",
+            "formula": {
+              "H": 1,
+              "O": 1
+            },
+            "atom_indices": [
+              354,
+              374
+            ],
+            "bonds": [
+              [
+                354,
+                374
+              ]
+            ]
+          },
+          {
+            "species": "OH",
+            "formula": {
+              "H": 1,
+              "O": 1
+            },
+            "atom_indices": [
+              355,
+              375
+            ],
+            "bonds": [
+              [
+                355,
+                375
+              ]
+            ]
+          },
+          {
+            "species": "OH",
+            "formula": {
+              "H": 1,
+              "O": 1
+            },
+            "atom_indices": [
+              356,
+              376
+            ],
+            "bonds": [
+              [
+                356,
+                376
+              ]
+            ]
+          },
+          {
+            "species": "OH",
+            "formula": {
+              "O": 1,
+              "H": 1
+            },
+            "atom_indices": [
+              357,
+              377
+            ],
+            "bonds": [
+              [
+                357,
+                377
+              ]
+            ]
+          },
+          {
+            "species": "OH",
+            "formula": {
+              "O": 1,
+              "H": 1
+            },
+            "atom_indices": [
+              358,
+              378
+            ],
+            "bonds": [
+              [
+                358,
+                378
+              ]
+            ]
+          },
+          {
+            "species": "OH",
+            "formula": {
+              "O": 1,
+              "H": 1
+            },
+            "atom_indices": [
+              359,
+              379
+            ],
+            "bonds": [
+              [
+                359,
+                379
+              ]
+            ]
+          },
+          {
+            "species": "OH",
+            "formula": {
+              "O": 1,
+              "H": 1
+            },
+            "atom_indices": [
+              360,
+              380
+            ],
+            "bonds": [
+              [
+                360,
+                380
+              ]
+            ]
+          }
+        ],
+        "counts": {
+          "OH": 20
+        },
+        "identities": [
+          "OH"
+        ],
+        "status": "verified",
+        "sensitivity_factors": [],
+        "mapping_formula_review_required": false,
+        "mapping_evidence": [],
+        "method": "legacy connectivity fallback"
+      }
+    },
+    "composition": {
+      "adsorbate_counts": {
+        "OH": 20
+      },
+      "adsorbate_identities": [
+        "OH"
+      ],
+      "adsorbate_count_total": 20
+    }
+  },
+  "context": {
+    "environment": "in_silico",
+    "temperature_K": null,
+    "temperature_basis": "not_reported"
+  },
+  "system": {
+    "domain": "computational",
+    "technique": "XAS",
+    "facility": {
+      "facility_name": "NERSC",
+      "organization": "Argonne National Laboratory",
+      "cluster": "Perlmutter"
+    },
+    "configuration": {
+      "compute_architecture": "CPU",
+      "absorber": "Cu",
+      "edge": "K",
+      "absorber_edge_source": "metadata_or_environment",
+      "generator_name": "CO2RR XAS Agent",
+      "generator_version": "v47_2026-10-18_isaac_contract_2026-10-06.3"
+    }
+  },
+  "computation": {
+    "method": {
+      "code": "FDMNES",
+      "core_hole_treatment": "not_reported",
+      "notes": "Simulated Cu K-edge XAS using FDMNES. Multiple-scattering XAS calculation. ISAAC currently has no dedicated multiple-scattering-XAS family; family=semi_empirical is used only as the present schema-compatible bucket.",
+      "family": "semi_empirical"
+    }
+  },
+  "measurement": {
+    "processing": {
+      "type": "simulated_spectrum",
+      "recipe_link": {
+        "rel": "processing_recipe",
+        "target": "repo://CO2RR_XAS_agent/xas_simulation"
+      }
+    },
+    "series": [
+      {
+        "series_id": "Cu_K_layer_2",
+        "independent_variables": [
+          {
+            "name": "energy",
+            "unit": "eV",
+            "values": [
+              8974.0,
+              8974.2,
+              8974.4,
+              8974.6,
+              8974.8,
+              8975.0,
+              8975.2,
+              8975.4,
+              8975.6,
+              8975.8,
+              8976.0,
+              8976.2,
+              8976.4,
+              8976.6,
+              8976.8,
+              8977.0,
+              8977.2,
+              8977.4,
+              8977.6,
+              8977.8,
+              8978.0,
+              8978.2,
+              8978.4,
+              8978.6,
+              8978.8,
+              8979.0,
+              8979.2,
+              8979.4,
+              8979.6,
+              8979.8,
+              8980.0,
+              8980.2,
+              8980.4,
+              8980.6,
+              8980.8,
+              8981.0,
+              8981.2,
+              8981.4,
+              8981.6,
+              8981.8,
+              8982.0,
+              8982.2,
+              8982.4,
+              8982.6,
+              8982.8,
+              8983.0,
+              8983.2,
+              8983.4,
+              8983.6,
+              8983.8,
+              8984.0,
+              8984.2,
+              8984.4,
+              8984.6,
+              8984.8,
+              8985.0,
+              8985.2,
+              8985.4,
+              8985.6,
+              8985.8,
+              8986.0,
+              8986.2,
+              8986.4,
+              8986.6,
+              8986.8,
+              8987.0,
+              8987.2,
+              8987.4,
+              8987.6,
+              8987.8,
+              8988.0,
+              8988.2,
+              8988.4,
+              8988.6,
+              8988.8,
+              8989.0,
+              8989.2,
+              8989.4,
+              8989.6,
+              8989.8,
+              8990.0,
+              8990.2,
+              8990.4,
+              8990.6,
+              8990.8,
+              8991.0,
+              8991.2,
+              8991.4,
+              8991.6,
+              8991.8,
+              8992.0,
+              8992.2,
+              8992.4,
+              8992.6,
+              8992.8,
+              8993.0,
+              8993.2,
+              8993.4,
+              8993.6,
+              8993.8,
+              8994.0,
+              8994.2,
+              8994.4,
+              8994.6,
+              8994.8,
+              8995.0,
+              8995.2,
+              8995.4,
+              8995.6,
+              8995.8,
+              8996.0,
+              8996.2,
+              8996.4,
+              8996.6,
+              8996.8,
+              8997.0,
+              8997.2,
+              8997.4,
+              8997.6,
+              8997.8,
+              8998.0,
+              8998.2,
+              8998.4,
+              8998.6,
+              8998.8,
+              8999.0,
+              8999.2,
+              8999.4,
+              8999.6,
+              8999.8,
+              9000.0,
+              9000.2,
+              9000.4,
+              9000.6,
+              9000.8,
+              9001.0,
+              9001.2,
+              9001.4,
+              9001.6,
+              9001.8,
+              9002.0,
+              9002.2,
+              9002.4,
+              9002.6,
+              9002.8,
+              9003.0,
+              9003.2,
+              9003.4,
+              9003.6,
+              9003.8,
+              9004.0,
+              9004.2,
+              9004.4,
+              9004.6,
+              9004.8,
+              9005.0,
+              9005.2,
+              9005.4,
+              9005.6,
+              9005.8,
+              9006.0,
+              9006.2,
+              9006.4,
+              9006.6,
+              9006.8,
+              9007.0,
+              9007.2,
+              9007.4,
+              9007.6,
+              9007.8,
+              9008.0,
+              9008.2,
+              9008.4,
+              9008.6,
+              9008.8,
+              9009.0,
+              9009.2,
+              9009.4,
+              9009.6,
+              9009.8,
+              9010.0,
+              9010.2,
+              9010.4,
+              9010.6,
+              9010.8,
+              9011.0,
+              9011.2,
+              9011.4,
+              9011.6,
+              9011.8,
+              9012.0,
+              9012.2,
+              9012.4,
+              9012.6,
+              9012.8,
+              9013.0,
+              9013.2,
+              9013.4,
+              9013.6,
+              9013.8,
+              9014.0,
+              9014.2,
+              9014.4,
+              9014.6,
+              9014.8,
+              9015.0,
+              9015.2,
+              9015.4,
+              9015.6,
+              9015.8,
+              9016.0,
+              9016.2,
+              9016.4,
+              9016.6,
+              9016.8,
+              9017.0,
+              9017.2,
+              9017.4,
+              9017.6,
+              9017.8,
+              9018.0,
+              9018.2,
+              9018.4,
+              9018.6,
+              9018.8,
+              9019.0,
+              9019.2,
+              9019.4,
+              9019.6,
+              9019.8,
+              9020.0,
+              9020.2,
+              9020.4,
+              9020.6,
+              9020.8,
+              9021.0,
+              9021.2,
+              9021.4,
+              9021.6,
+              9021.8,
+              9022.0,
+              9022.2,
+              9022.4,
+              9022.6,
+              9022.8,
+              9023.0,
+              9023.2,
+              9023.4,
+              9023.6,
+              9023.8,
+              9024.0,
+              9024.2,
+              9024.4,
+              9024.6,
+              9024.8,
+              9025.0,
+              9025.2,
+              9025.4,
+              9025.6,
+              9025.8,
+              9026.0,
+              9026.2,
+              9026.4,
+              9026.6,
+              9026.8,
+              9027.0,
+              9027.2,
+              9027.4,
+              9027.6,
+              9027.8,
+              9028.0,
+              9028.2,
+              9028.4,
+              9028.6,
+              9028.8,
+              9029.0
+            ]
+          }
+        ],
+        "channels": [
+          {
+            "name": "absorption_cross_section",
+            "unit": "arb",
+            "role": "simulated_observable",
+            "values": [
+              0.031888996,
+              0.032614425,
+              0.033992559,
+              0.035515071,
+              0.037213203,
+              0.0391212,
+              0.041259301,
+              0.043673968,
+              0.046425065,
+              0.049590867,
+              0.053275287,
+              0.057618281,
+              0.062810469,
+              0.069112259,
+              0.076874101,
+              0.086544608,
+              0.098636836,
+              0.11361637,
+              0.13170972,
+              0.15271686,
+              0.17593648,
+              0.20027322,
+              0.22451164,
+              0.24762666,
+              0.26894498,
+              0.28813929,
+              0.30516248,
+              0.32018178,
+              0.3335082,
+              0.34551767,
+              0.35657508,
+              0.36697541,
+              0.37691031,
+              0.38646038,
+              0.39560875,
+              0.40426903,
+              0.4123201,
+              0.41964016,
+              0.42613413,
+              0.43175126,
+              0.43649187,
+              0.44040526,
+              0.44358161,
+              0.44614164,
+              0.44822616,
+              0.44998714,
+              0.45158034,
+              0.45315911,
+              0.45486907,
+              0.45684331,
+              0.45919842,
+              0.46203138,
+              0.46541775,
+              0.46941129,
+              0.47404483,
+              0.47933264,
+              0.4852738,
+              0.49185648,
+              0.49906251,
+              0.50687201,
+              0.51526757,
+              0.52423765,
+              0.53377901,
+              0.5438978,
+              0.55460923,
+              0.56593573,
+              0.57790357,
+              0.59053816,
+              0.6038584,
+              0.61787063,
+              0.63256282,
+              0.64789976,
+              0.66381969,
+              0.68023295,
+              0.69702276,
+              0.71404824,
+              0.73114933,
+              0.74815309,
+              0.76488094,
+              0.78115597,
+              0.79680985,
+              0.81168881,
+              0.82565837,
+              0.83860679,
+              0.85044731,
+              0.86111919,
+              0.87058785,
+              0.87884419,
+              0.88590314,
+              0.89180161,
+              0.89659591,
+              0.90035859,
+              0.90317506,
+              0.90513999,
+              0.90635373,
+              0.90691891,
+              0.90693748,
+              0.90650812,
+              0.90572421,
+              0.90467231,
+              0.90343105,
+              0.90207037,
+              0.90065111,
+              0.89922487,
+              0.89783403,
+              0.89651205,
+              0.89528389,
+              0.8941666,
+              0.89317005,
+              0.89229774,
+              0.89154768,
+              0.89091329,
+              0.89038435,
+              0.88994778,
+              0.88958853,
+              0.88929024,
+              0.88903586,
+              0.88880822,
+              0.88859042,
+              0.88836619,
+              0.88812009,
+              0.88783779,
+              0.88750611,
+              0.88711315,
+              0.88664835,
+              0.88610249,
+              0.88546768,
+              0.8847374,
+              0.88390636,
+              0.88297051,
+              0.88192689,
+              0.88077357,
+              0.87950949,
+              0.87813431,
+              0.87664835,
+              0.87505242,
+              0.87334772,
+              0.87153577,
+              0.86961837,
+              0.86759755,
+              0.86547559,
+              0.86325503,
+              0.86093872,
+              0.85852987,
+              0.85603215,
+              0.85344973,
+              0.85078735,
+              0.84805042,
+              0.845245,
+              0.84237791,
+              0.83945668,
+              0.83648958,
+              0.83348558,
+              0.83045427,
+              0.82740584,
+              0.82435097,
+              0.8213007,
+              0.81826637,
+              0.81525949,
+              0.8122916,
+              0.80937418,
+              0.80651855,
+              0.80373575,
+              0.80103647,
+              0.79843099,
+              0.79592908,
+              0.79353999,
+              0.79127238,
+              0.78913433,
+              0.78713325,
+              0.78527594,
+              0.78356849,
+              0.78201634,
+              0.78062422,
+              0.77939615,
+              0.77833544,
+              0.77744468,
+              0.7767257,
+              0.77617966,
+              0.77580694,
+              0.77560726,
+              0.77557961,
+              0.77572235,
+              0.7760332,
+              0.77650928,
+              0.77714718,
+              0.77794299,
+              0.77889236,
+              0.77999058,
+              0.78123257,
+              0.78261303,
+              0.78412639,
+              0.78576696,
+              0.78752887,
+              0.78940618,
+              0.79139285,
+              0.7934828,
+              0.79566989,
+              0.79794793,
+              0.80031069,
+              0.80275186,
+              0.80526506,
+              0.80784381,
+              0.81048152,
+              0.81317145,
+              0.81590676,
+              0.8186804,
+              0.82148519,
+              0.82431375,
+              0.82715858,
+              0.83001197,
+              0.8328661,
+              0.83571302,
+              0.83854468,
+              0.84135296,
+              0.8441297,
+              0.84686674,
+              0.84955594,
+              0.85218926,
+              0.85475874,
+              0.85725658,
+              0.85967516,
+              0.86200709,
+              0.86424524,
+              0.86638278,
+              0.86841318,
+              0.87033032,
+              0.87212844,
+              0.87380226,
+              0.87534693,
+              0.87675811,
+              0.87803199,
+              0.87916531,
+              0.88015541,
+              0.8810002,
+              0.88169824,
+              0.8822487,
+              0.8826514,
+              0.88290679,
+              0.88301595,
+              0.88298059,
+              0.88280304,
+              0.88248618,
+              0.88203347,
+              0.88144888,
+              0.88073689,
+              0.87990241,
+              0.87895073,
+              0.87788756,
+              0.87671887,
+              0.87545095,
+              0.87409028,
+              0.87264358,
+              0.87111768,
+              0.86951954,
+              0.86785622,
+              0.8661348,
+              0.86436239,
+              0.86254612,
+              0.86069306,
+              0.85881022,
+              0.85690455,
+              0.8549829,
+              0.85305198,
+              0.85111836,
+              0.84918843,
+              0.8472684,
+              0.84536423,
+              0.84348163,
+              0.84162601,
+              0.83980244,
+              0.83801565,
+              0.83626995,
+              0.8345692,
+              0.83291682,
+              0.83131569
+            ]
+          }
+        ]
+      }
+    ],
+    "qc": {
+      "status": "valid"
+    }
+  },
+  "assets": [
+    {
+      "asset_id": "asset_001_layer_2_CONTCAR",
+      "content_role": "input_structure",
+      "uri": "layer_2/CONTCAR",
+      "media_type": "text/plain",
+      "sha256": "01158ac5a0b795d0a1b410f8875d669655adc808e3604064c8befe45eea748af",
+      "notes": "Collected from layer_2/CONTCAR."
+    },
+    {
+      "asset_id": "asset_038_layer_2_Cu_layer2_bav_txt",
+      "content_role": "raw_data_pointer",
+      "uri": "layer_2/Cu_layer2_bav.txt",
+      "media_type": "text/plain",
+      "sha256": "e4ffb4c9b53013e3f8fb0df8ee783c702a1e6f12f196148e769e9df14bc0e1d4",
+      "notes": "Collected from layer_2/Cu_layer2_bav.txt."
+    },
+    {
+      "asset_id": "asset_039_layer_2_Cu_layer2_conv_txt",
+      "content_role": "reduction_product",
+      "uri": "layer_2/Cu_layer2_conv.txt",
+      "media_type": "text/plain",
+      "sha256": "8ee826a0a9963d8e4ca47ac855b3ce2d0d6300854931a2cf22a1787c5e6be522",
+      "notes": "Collected from layer_2/Cu_layer2_conv.txt."
+    },
+    {
+      "asset_id": "asset_040_layer_2_Cu_layer2_convolution_in_txt",
+      "content_role": "workflow_recipe",
+      "uri": "layer_2/Cu_layer2_convolution_in.txt",
+      "media_type": "text/plain",
+      "sha256": "25c5e292a2ce79644dc0242473d83db85fcd85c37eff39acfcaf2d532c2cebb3",
+      "notes": "Collected from layer_2/Cu_layer2_convolution_in.txt."
+    },
+    {
+      "asset_id": "asset_041_layer_2_Cu_layer2_in_txt",
+      "content_role": "workflow_recipe",
+      "uri": "layer_2/Cu_layer2_in.txt",
+      "media_type": "text/plain",
+      "sha256": "d2e57ded6854f62c5cbce36cbc19da0d233e49db7ade3774e40e45552b2c2a71",
+      "notes": "Collected from layer_2/Cu_layer2_in.txt."
+    },
+    {
+      "asset_id": "asset_044_layer_2_fdmfile_txt",
+      "content_role": "workflow_recipe",
+      "uri": "layer_2/fdmfile.txt",
+      "media_type": "text/plain",
+      "sha256": "872ee77098b1d3f20a639301f0f22be4c4347b7b28a2e91eaaeed18b924b8ac9",
+      "notes": "Collected from layer_2/fdmfile.txt."
+    },
+    {
+      "asset_id": "asset_050_layer_2_submit_sh",
+      "content_role": "workflow_recipe",
+      "uri": "layer_2/submit.sh",
+      "media_type": "text/plain",
+      "sha256": "e3c038957e326a933dd8cbcf0c182d1793cc8297c6a49f2d174c5c2b55435926",
+      "notes": "Collected from layer_2/submit.sh."
+    },
+    {
+      "asset_id": "asset_051_layer_3_CONTCAR",
+      "content_role": "input_structure",
+      "uri": "layer_3/CONTCAR",
+      "media_type": "text/plain",
+      "sha256": "01158ac5a0b795d0a1b410f8875d669655adc808e3604064c8befe45eea748af",
+      "notes": "Collected from layer_3/CONTCAR."
+    },
+    {
+      "asset_id": "asset_081_layer_3_Cu_layer3_bav_txt",
+      "content_role": "raw_data_pointer",
+      "uri": "layer_3/Cu_layer3_bav.txt",
+      "media_type": "text/plain",
+      "sha256": "855536837627fc2056fcb084758a439c099a0d26c17575b08553e5ddae28e04d",
+      "notes": "Collected from layer_3/Cu_layer3_bav.txt."
+    },
+    {
+      "asset_id": "asset_082_layer_3_Cu_layer3_convolution_in_txt",
+      "content_role": "workflow_recipe",
+      "uri": "layer_3/Cu_layer3_convolution_in.txt",
+      "media_type": "text/plain",
+      "sha256": "bf1a4248a218616b0f2f957d6df624beb4c4835789fd3ad994d7e5b4e9c923c9",
+      "notes": "Collected from layer_3/Cu_layer3_convolution_in.txt."
+    },
+    {
+      "asset_id": "asset_083_layer_3_Cu_layer3_in_txt",
+      "content_role": "workflow_recipe",
+      "uri": "layer_3/Cu_layer3_in.txt",
+      "media_type": "text/plain",
+      "sha256": "7312f2dde8f2e62f194a810cc94d8c3a9f4a48de02aae6e3dc8442787d854114",
+      "notes": "Collected from layer_3/Cu_layer3_in.txt."
+    },
+    {
+      "asset_id": "asset_085_layer_3_fdmfile_txt",
+      "content_role": "workflow_recipe",
+      "uri": "layer_3/fdmfile.txt",
+      "media_type": "text/plain",
+      "sha256": "55e2afaa81f17e164ec1d621c3cbc2fe5e3e340eada5cf072f118ab0d2c71b3e",
+      "notes": "Collected from layer_3/fdmfile.txt."
+    },
+    {
+      "asset_id": "asset_090_layer_3_submit_sh",
+      "content_role": "workflow_recipe",
+      "uri": "layer_3/submit.sh",
+      "media_type": "text/plain",
+      "sha256": "ed047c6fd8d5ed791c26f2a02fc4bbbd32f6667d911f01ad1551e1a6dda33f4f",
+      "notes": "Collected from layer_3/submit.sh."
+    },
+    {
+      "asset_id": "asset_091_layer_4_CONTCAR",
+      "content_role": "input_structure",
+      "uri": "layer_4/CONTCAR",
+      "media_type": "text/plain",
+      "sha256": "01158ac5a0b795d0a1b410f8875d669655adc808e3604064c8befe45eea748af",
+      "notes": "Collected from layer_4/CONTCAR."
+    },
+    {
+      "asset_id": "asset_125_layer_4_Cu_layer4_bav_txt",
+      "content_role": "raw_data_pointer",
+      "uri": "layer_4/Cu_layer4_bav.txt",
+      "media_type": "text/plain",
+      "sha256": "8b74af736c23cd72675ca15f05aee5c7b92cbc1ff9c82b9a7a07f4e04dab878b",
+      "notes": "Collected from layer_4/Cu_layer4_bav.txt."
+    },
+    {
+      "asset_id": "asset_126_layer_4_Cu_layer4_convolution_in_txt",
+      "content_role": "workflow_recipe",
+      "uri": "layer_4/Cu_layer4_convolution_in.txt",
+      "media_type": "text/plain",
+      "sha256": "2bbfbb2d1b4e0bc8e623804010f51266f81662a7afe27810b6cc8c781c33d361",
+      "notes": "Collected from layer_4/Cu_layer4_convolution_in.txt."
+    },
+    {
+      "asset_id": "asset_127_layer_4_Cu_layer4_in_txt",
+      "content_role": "workflow_recipe",
+      "uri": "layer_4/Cu_layer4_in.txt",
+      "media_type": "text/plain",
+      "sha256": "1bf9dda2691c087a8f027e4898e66b1952f2be71f33ab9770ef536baa9f38d40",
+      "notes": "Collected from layer_4/Cu_layer4_in.txt."
+    },
+    {
+      "asset_id": "asset_130_layer_4_fdmfile_txt",
+      "content_role": "workflow_recipe",
+      "uri": "layer_4/fdmfile.txt",
+      "media_type": "text/plain",
+      "sha256": "499d73b3b98708651f7eccdf11ce624b640374591079d0624f47e86d5c06b0b4",
+      "notes": "Collected from layer_4/fdmfile.txt."
+    },
+    {
+      "asset_id": "asset_135_layer_4_submit_sh",
+      "content_role": "workflow_recipe",
+      "uri": "layer_4/submit.sh",
+      "media_type": "text/plain",
+      "sha256": "e648e0fea5a002d4cd0dcd179d74cb9ec5645220f878dbb84d4fbab526742faf",
+      "notes": "Collected from layer_4/submit.sh."
+    },
+    {
+      "asset_id": "asset_136_layer_5_CONTCAR",
+      "content_role": "input_structure",
+      "uri": "layer_5/CONTCAR",
+      "media_type": "text/plain",
+      "sha256": "01158ac5a0b795d0a1b410f8875d669655adc808e3604064c8befe45eea748af",
+      "notes": "Collected from layer_5/CONTCAR."
+    },
+    {
+      "asset_id": "asset_170_layer_5_Cu_layer5_bav_txt",
+      "content_role": "raw_data_pointer",
+      "uri": "layer_5/Cu_layer5_bav.txt",
+      "media_type": "text/plain",
+      "sha256": "9e4be93697a2fd1bc2fddeb83a5080a4ef243686df9d11860ad7dfbcc95ad0d3",
+      "notes": "Collected from layer_5/Cu_layer5_bav.txt."
+    },
+    {
+      "asset_id": "asset_171_layer_5_Cu_layer5_convolution_in_txt",
+      "content_role": "workflow_recipe",
+      "uri": "layer_5/Cu_layer5_convolution_in.txt",
+      "media_type": "text/plain",
+      "sha256": "47daef821b6792eb6d382c40ad3a88972ae8ea14cbd6c7b80c46bec170924dab",
+      "notes": "Collected from layer_5/Cu_layer5_convolution_in.txt."
+    },
+    {
+      "asset_id": "asset_172_layer_5_Cu_layer5_in_txt",
+      "content_role": "workflow_recipe",
+      "uri": "layer_5/Cu_layer5_in.txt",
+      "media_type": "text/plain",
+      "sha256": "faad851940aea183e4f7b1b2a0b3a448078deb080221baa86dd9abbaf0d201db",
+      "notes": "Collected from layer_5/Cu_layer5_in.txt."
+    },
+    {
+      "asset_id": "asset_175_layer_5_fdmfile_txt",
+      "content_role": "workflow_recipe",
+      "uri": "layer_5/fdmfile.txt",
+      "media_type": "text/plain",
+      "sha256": "b8ccd94db901bfa7e686555fb629cd7c31f0a9b12e66fb911452fd34c28a586e",
+      "notes": "Collected from layer_5/fdmfile.txt."
+    },
+    {
+      "asset_id": "asset_180_layer_5_submit_sh",
+      "content_role": "workflow_recipe",
+      "uri": "layer_5/submit.sh",
+      "media_type": "text/plain",
+      "sha256": "cb675758a3d69ce3d053609041d725f8e8fa540832e94b83c170ce68916036f9",
+      "notes": "Collected from layer_5/submit.sh."
+    }
+  ],
+  "links": [
+    {
+      "rel": "source_export",
+      "target": "OH/OH_0p50_interface_Au/XAS/FDMNES/green"
+    }
+  ],
+  "descriptors": {
+    "outputs": []
+  },
+  "tags": [
+    "CO2RR_XAS_agent",
+    "XAS_simulation",
+    "FDMNES"
+  ],
+  "attribution": {
+    "produced_by": {
+      "group": "Maria K. Y. Chan group",
+      "organization": "Argonne National Laboratory",
+      "people": [
+        "Haili Jia",
+        "Maria K. Y. Chan"
+      ]
+    },
+    "contributors": [
+      {
+        "name": "Haili Jia",
+        "role": "data_owner",
+        "affiliation": "Argonne National Laboratory"
+      },
+      {
+        "name": "Maria K. Y. Chan",
+        "role": "data_owner",
+        "affiliation": "Argonne National Laboratory"
+      }
+    ]
+  },
+  "conversion_provenance": {
+    "version": "coverage-v1-20261026",
+    "route": "generic_converter_explicit_available_layers",
+    "relaxed_structure_status": "requires_independent_audit",
+    "original_record_sha256": null,
+    "native_files": {
+      "2": {
+        "path": "OH/OH_0p50_interface_Au/XAS/FDMNES/green/layer_2/Cu_layer2_conv.txt",
+        "sha256": "8ee826a0a9963d8e4ca47ac855b3ce2d0d6300854931a2cf22a1787c5e6be522"
+      }
+    }
+  },
+  "geometry_provenance": {
+    "basis": "actual_FDMNES_Crystal",
+    "CONTCAR_verified": true,
+    "ASE_lineage": null,
+    "relaxation_status": "saved_CONTCAR_with_explicit_lineage_audit",
+    "geometry_sha256": "415028c685d9b59e05f54d328f4ecfdcf2e5cc8bd9aea59f9a587e3658d264b6"
+  }
+}

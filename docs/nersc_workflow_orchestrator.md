@@ -24,14 +24,14 @@ The web-app integration helper is implemented in:
 tools/web_nersc_workflow_integration.py
 ```
 
-To wire the existing Streamlit app to this helper, run once from the repository root:
+The historical one-off orchestrator patch script named in earlier instructions is absent. The active entry point already installs compatibility handling; start it from the repository root:
 
 ```bash
-python scripts/apply_webapp_nersc_workflow_orchestrator_patch.py
 python -m py_compile web_app/main.py tools/web_nersc_workflow_integration.py
+streamlit run web_app/CO2RR_XAS_Agent.py
 ```
 
-After patching, the chat box should support deterministic commands such as:
+The workflow integration supports deterministic commands such as:
 
 ```text
 prepare full workflow

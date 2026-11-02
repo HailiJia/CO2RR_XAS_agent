@@ -1,0 +1,38 @@
+{
+  "action": "updated_data_v3",
+  "raw_sources_mutated": false,
+  "new_HPC_jobs": false,
+  "portal_writes": false,
+  "source_sha256": "7840149253c2a79703880e9c292e36cca7f15451eb3921af404e0328b248b0cd",
+  "snapshot_manifest_sha256": "d4c398b2d5ea5803489a9147fd759a6385efe72ba0385ea3430527d13c3b2b5d",
+  "metrics": {
+    "all_updated_configurations": {
+      "micro_f1": 0.7821229050279329,
+      "macro_f1": 0.6448314311950676,
+      "exact_set_accuracy": 0.6777777777777778
+    },
+    "matched_old_subset": {
+      "micro_f1": 0.7816091954022989,
+      "macro_f1": 0.6457768459335859,
+      "exact_set_accuracy": 0.6781609195402298
+    },
+    "added_or_recovered_subset_in_updated_CV": {
+      "micro_f1": 0.8,
+      "macro_f1": 0.07272727272727274,
+      "exact_set_accuracy": 0.6666666666666666
+    },
+    "old_subset_count": 87,
+    "added_or_recovered_count": 3,
+    "new_configuration_holdout": {
+      "micro_f1": 0.8,
+      "macro_f1": 0.07272727272727274,
+      "exact_set_accuracy": 0.6666666666666666
+    },
+    "configurations": 90,
+    "layer_spectra": 360,
+    "model_count": 7,
+    "all_saved_model_replays_identical": true,
+    "interpretation": "new versioned fit; old 87-config/348-spectrum archived benchmark unchanged; existing folds examined repeatedly; no prospective validation or catalytic mechanism claim"
+  },
+  "output_dir": "refit"
+}

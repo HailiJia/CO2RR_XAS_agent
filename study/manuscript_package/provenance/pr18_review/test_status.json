@@ -1,0 +1,31 @@
+{
+  "current_focused_suite": {
+    "passed": 123,
+    "failed": 5,
+    "warnings": 3,
+    "failures": [
+      "tests/test_nersc_workflow.py::test_nersc_workflow_can_submit_and_monitor_with_fake_slurm",
+      "tests/test_nersc_workflow.py::test_agent_exposes_nersc_dry_run_workflow",
+      "tests/test_nersc_workflow.py::test_generated_nersc_workflow_carries_ml_metadata_in_dry_run",
+      "tests/test_nersc_workflow.py::test_prompt_generates_lateral_cu_au_interface_occo_and_au_l3_only",
+      "tests/test_nersc_workflow.py::test_agent_recovers_nersc_submit_to_dry_run_when_slurm_missing"
+    ],
+    "log": "/tmp/co2rr_final_tests.log"
+  },
+  "untouched_reviewed_baseline_nersc_workflow_tests": {
+    "passed": 4,
+    "failed": 5,
+    "same_five_failures": true,
+    "log": "/tmp/co2rr_baseline_tests.log"
+  },
+  "syntax_parse": {
+    "changed_python_files": 29,
+    "passed": true
+  },
+  "figure_only_rebuild": {
+    "pdf_svg_png_outputs": 15,
+    "passed": true
+  },
+  "diff_whitespace_check": "passed",
+  "manuscript_compile": "blocked: no TeX engine available; zero passes"
+}

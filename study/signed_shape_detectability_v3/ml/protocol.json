@@ -1,0 +1,27 @@
+{
+  "version": "signed-shape-size-v3",
+  "estimator_recipes": {
+    "trees": "independent balanced64-tree, leaf1,sqrt",
+    "logistic": "independent C1 balanced liblinear; training-only StandardScaler"
+  },
+  "feature": "fixed Combined signed spectrum/integral/d1/d2 after training-floor RMS normalization",
+  "seeds": [
+    20261020,
+    20261021,
+    20261022
+  ],
+  "query": "identical old99 records/96 near groups; inherited outer and retained old inner assignments",
+  "guard": "exclude every query-related family; one canonical old-preferred train view/group; same inside inner validation",
+  "threshold": "fixed.5; old-partition common threshold transferred; enlarged training-only common threshold {.3,.4,.5,.6} with .02(t-.5)^2 penalty",
+  "learning": "label-blind canonical-group subsets before fitting; fixed.5; same old queries",
+  "uncertainty": "geometry-group bootstrap conditional on fixed predictions, separate from seed/refit variability",
+  "source_hashes": {
+    "study/dataset_20261029/training_arrays.npz": "6ed24b3d345271ad6389d26b6258997bce1a4e1aa9c14b4df01f748e2e3af6ff",
+    "study/dataset_20261029/training_manifest.json": "9390fab26348b6c95c0090600421f53703abdf4d1c576e468e747f3d07a9978b",
+    "/private/tmp/co2rr_pr18_repair/tools/signed_shape_size.py": "15b2a579135a39ad7bfd05a01d891f11f7a011140f48a1747349ff54d4a1321c",
+    "/private/tmp/co2rr_pr18_repair/tools/differential_identity.py": "b3eb992e8e52d892c49eebc82648a23514fa209d0e2c07313572fc58b85ccfce",
+    "/private/tmp/co2rr_pr18_repair/tools/identity_comparison.py": "23822596770e8d1fc184d5a6c680e09d13f7b0798b0aa985420cc0fdf53ed6a1"
+  },
+  "python": "3.11.9",
+  "not_independent_confirmation": true
+}

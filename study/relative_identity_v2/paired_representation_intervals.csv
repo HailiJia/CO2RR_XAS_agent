@@ -1,0 +1,17 @@
+cohort,family,baseline,intervention,difference,lower,upper,uncertainty
+expanded118,logistic,native_normalized,corrected_normalized,0.0017342570534060187,-0.008582214839394314,0.012019019174325279,conditional fixed-prediction configuration bootstrap; not refit or new-parent confirmation
+expanded118,logistic,corrected_normalized,common_raw,0.008191076134767106,-0.022963586378426028,0.04268619004997393,conditional fixed-prediction configuration bootstrap; not refit or new-parent confirmation
+expanded118,logistic,common_raw,relative_delta,0.0,0.0,0.0,conditional fixed-prediction configuration bootstrap; not refit or new-parent confirmation
+expanded118,logistic,relative_delta,signed_shape,0.058123848068555306,0.012710466090498246,0.10358960945685267,conditional fixed-prediction configuration bootstrap; not refit or new-parent confirmation
+expanded118,trees,native_normalized,corrected_normalized,-0.03159096339164835,-0.0707027765980039,0.00753723901321148,conditional fixed-prediction configuration bootstrap; not refit or new-parent confirmation
+expanded118,trees,corrected_normalized,common_raw,0.031535623048538186,-0.0020246204605477544,0.06891757976685053,conditional fixed-prediction configuration bootstrap; not refit or new-parent confirmation
+expanded118,trees,common_raw,relative_delta,-0.0047223047223047265,-0.014934054556315132,0.0,conditional fixed-prediction configuration bootstrap; not refit or new-parent confirmation
+expanded118,trees,relative_delta,signed_shape,0.03662275721099251,-0.016538156686439934,0.08947118598743152,conditional fixed-prediction configuration bootstrap; not refit or new-parent confirmation
+joint130,logistic,native_normalized,corrected_normalized,-0.010757513939888441,-0.04668992400765872,0.024512767575623127,conditional fixed-prediction configuration bootstrap; not refit or new-parent confirmation
+joint130,logistic,corrected_normalized,common_raw,0.01549016785584545,-0.026054804007586845,0.05887796539524881,conditional fixed-prediction configuration bootstrap; not refit or new-parent confirmation
+joint130,logistic,common_raw,relative_delta,0.02819007844686494,-0.003638652140158523,0.05809664972708461,conditional fixed-prediction configuration bootstrap; not refit or new-parent confirmation
+joint130,logistic,relative_delta,signed_shape,0.06552224371373316,0.026951828415757408,0.10480571543344398,conditional fixed-prediction configuration bootstrap; not refit or new-parent confirmation
+joint130,trees,native_normalized,corrected_normalized,-0.0004202199975280596,-0.04017813032503398,0.04778927631807851,conditional fixed-prediction configuration bootstrap; not refit or new-parent confirmation
+joint130,trees,corrected_normalized,common_raw,0.031828415689062695,0.0034382274529625506,0.06248058873720143,conditional fixed-prediction configuration bootstrap; not refit or new-parent confirmation
+joint130,trees,common_raw,relative_delta,-0.014792562754602834,-0.04878585979994002,0.025346439575903757,conditional fixed-prediction configuration bootstrap; not refit or new-parent confirmation
+joint130,trees,relative_delta,signed_shape,0.02481650608458652,-0.02839021521510018,0.07731107057527935,conditional fixed-prediction configuration bootstrap; not refit or new-parent confirmation

@@ -1,0 +1,220 @@
+{
+  "repository": "https://github.com/HailiJia/CO2RR_XAS_agent",
+  "commit": "71bb0a20b369faba842b413a09544dd66c127a78",
+  "files": [
+    {
+      "file": "all_unique_structures.csv",
+      "source": "CO2RR_ML/updated_dataset_20261020/all_unique_structures.csv",
+      "sha256": "d259726ad21432e9531359196875585adbec689ec3446b4a51c654518c3e155f"
+    },
+    {
+      "file": "figure1_combination_counts.csv",
+      "source": "CO2RR_ML/updated_dataset_20261020/figure1_combination_counts.csv",
+      "sha256": "389794f256b60791fcf41062b18998de1716a34eddec1e47959db0e63902e9b2"
+    },
+    {
+      "file": "figure1_species_presence.csv",
+      "source": "CO2RR_ML/updated_dataset_20261020/figure1_species_presence.csv",
+      "sha256": "53a2f5e3820a80df814119d2d17069525ba6a0c2ba107a33f57c4d8e54c29633"
+    },
+    {
+      "file": "species_support.csv",
+      "source": "CO2RR_ML/updated_dataset_20261020/species_support.csv",
+      "sha256": "bb915aeb8c8b1df697d78d4fd7a37a9fd2edd68affe087c0c4ab0658186caaf0"
+    },
+    {
+      "file": "nested_performance.csv",
+      "source": "CO2RR_ML/updated_dataset_20261020/nested_performance.csv",
+      "sha256": "d06ad2d4c75c322a89a820d852b152f67a5a0db046200445f69f1f09223d3813"
+    },
+    {
+      "file": "per_species.csv",
+      "source": "CO2RR_ML/updated_dataset_20261020/per_species.csv",
+      "sha256": "b4e8838eeb9208f0fe2f265f3d57442f2d88490801776fdd7a02c1bc15349896"
+    },
+    {
+      "file": "provisional_best_per_species.csv",
+      "source": "CO2RR_ML/updated_dataset_20261020/provisional_best_per_species.csv",
+      "sha256": "7f2a1a262f4e613cd59b2a41890782424b08ebc01f8a8396894cad196fbf6df3"
+    },
+    {
+      "file": "feature_model_depth_performance.csv",
+      "source": "CO2RR_ML/updated_dataset_20261020/feature_model_depth_performance.csv",
+      "sha256": "613ab1ad7a55171dccc49403f27e84d9ce6a98c1f19a0289930d76d1ff66be73"
+    },
+    {
+      "file": "layer_sensitivity.csv",
+      "source": "CO2RR_ML/updated_dataset_20261020/layer_sensitivity.csv",
+      "sha256": "137bcb3e750c010f119a1f60a437b712a83289269317fb58f9768f7d2875fa3b"
+    },
+    {
+      "file": "paired_depth_comparisons.csv",
+      "source": "CO2RR_ML/updated_dataset_20261020/paired_depth_comparisons.csv",
+      "sha256": "a64c26d55e71b64b0ff0906dc8f2071e40188c09ec5f0659681a3cae4980aeae"
+    },
+    {
+      "file": "cv_manifest.csv",
+      "source": "CO2RR_ML/updated_dataset_20261020/cv_manifest.csv",
+      "sha256": "14f57ef4a6e8a62e80a67e0bbcdd6a65dc672740cf8d1bf3bd6463e7b195fa3f"
+    },
+    {
+      "file": "fold_counts.csv",
+      "source": "CO2RR_ML/updated_dataset_20261020/fold_counts.csv",
+      "sha256": "6ff2c3093217f7da77ddde7428a91c06a6bc9f8b8c186796d368ab64d44e313e"
+    },
+    {
+      "file": "layer_population_audit.csv",
+      "source": "CO2RR_ML/updated_dataset_20261020/layer_population_audit.csv",
+      "sha256": "a85168a0363ae667e26066bb47d7351f8ca2ac4027fc46050ff0b0b63741776b"
+    },
+    {
+      "file": "run_summary.json",
+      "source": "CO2RR_ML/updated_dataset_20261020/run_summary.json",
+      "sha256": "d4e0ce44b41f932a50386bff40970ec85960a04039a12471882d096b1fdae498"
+    },
+    {
+      "file": "environment.json",
+      "source": "CO2RR_ML/updated_dataset_20261020/environment.json",
+      "sha256": "7aa967d2b1542a038821aad4220998c919967957b3a86ac78e622bc00c8947a6"
+    },
+    {
+      "file": "spectral_identity_contrasts.csv",
+      "source": "CO2RR_ML/updated_dataset_20261020/spectral_identity_contrasts.csv",
+      "sha256": "53cd5c944d081a03051a6b74654934fb545654314151786fdbe516f9a0036724"
+    },
+    {
+      "file": "spectral_difference_peaks.csv",
+      "source": "CO2RR_ML/updated_dataset_20261020/spectral_difference_peaks.csv",
+      "sha256": "41f8dfe1900c5ff567d03c4a77e4bccc24b974a690120fd55bd99f79295c4d55"
+    },
+    {
+      "file": "provisional_best_model.json",
+      "source": "CO2RR_ML/updated_dataset_20261020/provisional_best_model.json",
+      "sha256": "4aff30fb52ceacae97e9ffaedb913aec18759305511bdfb42e11dd655a6032f4"
+    },
+    {
+      "file": "pure_mixed_recall.csv",
+      "source": "CO2RR_ML/updated_dataset_20261020/pure_mixed_recall.csv",
+      "sha256": "003a806ecaae6cdbb9934ab8dd0d785a7421d8e5060fcf95125ebdb18ab47018"
+    },
+    {
+      "file": "oof_independent_selected_micro.npz",
+      "source": "CO2RR_ML/updated_dataset_20261020/oof_independent_selected_micro.npz",
+      "sha256": "9d06f2934c9b948d043a771d1609bf2d7ec8dd5d61c0f74ebd333197bf7d21d0"
+    },
+    {
+      "file": "oof_provisional_best.npz",
+      "source": "CO2RR_ML/updated_dataset_20261020/oof_provisional_best.npz",
+      "sha256": "7da782517c07fe514f0b29048533eca6979d78d9cd54d643edcec796dd29d47b"
+    },
+    {
+      "file": "representative_layer_spectra.csv",
+      "source": "CO2RR_ML/updated_dataset_20261020/records_before_convolution_correction_20261020T215321Z.tar.gz",
+      "note": "Measurement arrays only, from backed-up records. The population annotations were superseded; current layer_population_audit.csv supplies populations. Spectra were unchanged by the documented correction. Labels are CO in current cv_manifest.csv."
+    },
+    {
+      "file": "structures/2CO_adjacent_interface.vasp",
+      "source": "data/CuAu_dataset/2CO_adjacent/2CO_adjacent_0p056_interface/POSCAR",
+      "sha256": "d4bf91d2dae173fe182e499128ade5d5587a6bae528e787c1fc6e891d1e149c1"
+    },
+    {
+      "file": "structures/2CO_adjacent_interior.vasp",
+      "source": "data/CuAu_dataset/2CO_adjacent/2CO_adjacent_0p056_interior/POSCAR",
+      "sha256": "241be1e65743e866f2d61663a9af53de3f2d673a7c46340789bbd22f15834561"
+    },
+    {
+      "file": "structures/OCCO_interface.vasp",
+      "source": "data/CuAu_dataset/OCCO/OCCO_0p056_interface/POSCAR",
+      "sha256": "53a4806c2aad94a54417aeade5f12e21badf746de9698e4a36c82bd0551d05b7"
+    },
+    {
+      "file": "structures/OCCO_interior.vasp",
+      "source": "data/CuAu_dataset/OCCO/OCCO_0p056_interior/POSCAR",
+      "sha256": "0df8b34642aa49646bb3f38de939c65b54489f6c4fc7e17d0f61b9594de9d39b"
+    },
+    {
+      "file": "CuO_Kedge_benchmark_source.pdf",
+      "source": "CuO_Kedge_benchmark.pdf",
+      "sha256": "7a35eedf8e04ae9fdbb165fca938c8a7cb13965b849a3eae639a72a123de615b"
+    }
+  ],
+  "revision": {
+    "date": "2026-10-21",
+    "plotting_code": "code/make_publication_figures.py",
+    "design_references": [
+      "provenance/design_references/flowchart_reference.png",
+      "provenance/design_references/structure_reference.png"
+    ],
+    "molecular_templates": {
+      "file": "figure_data/adsorbate_templates.json",
+      "source": "tools/utils.py",
+      "note": "Illustrative starting templates with explicitly declared bond connectivity."
+    },
+    "CuO_paths": {
+      "file": "figure_data/CuO_vector_paths.csv",
+      "source": "figure_data/CuO_Kedge_benchmark_source.pdf",
+      "note": "Extracted vector paths for graphical restyling only, not raw experimental traces."
+    },
+    "molecular_illustrations": {
+      "file": "figure_data/adsorbate_illustrations.json",
+      "source": "Explicit schematic graphs for the 12 illustrated species; ideal drawing coordinates, not optimized structures.",
+      "note": "Original construction templates remain separately in adsorbate_templates.json; current gallery uses the schematic file.",
+      "display": "Shared viewport and equal display radii for C/O/H symbols; not physical atomic radii."
+    },
+    "PR_review": "provenance/pr18_review/independent_review.json",
+    "interface_site_illustration": {
+      "file": "figure_data/interface_site_illustration.json",
+      "source": "Ideal triangular (111) schematic with declared metal identities, CO coordinates and metal-contact indices.",
+      "note": "Not a relaxed calculation, not included in training or inventory counts. Explicit Cu-Au bridge crosses the boundary."
+    },
+    "depth_display": "Separate individual-layer and top-n-layer-average plots in Figure 4c; values and intervals unchanged."
+  },
+  "latest_review": {
+    "head": "518c686ccdaf79e24eca7577d72b5b9448987631",
+    "independent_findings": "provenance/pr18_review_latest/independent_review.json",
+    "OOF_primary_predictions": "unchanged and independently replayed",
+    "broader_refit": "reported 140/169 exact, primary and fixed-winner arrays exact; raw refit not rerun here",
+    "reference_benchmark": "new numeric data and Cu_XAS.ipynb unavailable here; current CuO remains qualitative vector rendering data"
+  },
+  "latest_figure_revision": {
+    "Figure2b": "exclusive single-species and coadsorbed bins; 152 adsorbate-bearing inventory structures and 87 ML configurations",
+    "Figure2c": "common 3D oblique projection, seven sites, includes CuCuCu and CuAuAu hollows",
+    "Figure4d": "Normalized energy spectrum replaces Shape label; numerical candidate unchanged",
+    "code": "code/make_publication_figures.py"
+  },
+  "numeric_reference_revision": {
+    "figure": "Figure_3_spectroscopy",
+    "input": "study/reference_benchmark/raw/",
+    "processed": "figure_data/reference_benchmark/plotted_arrays.csv",
+    "code": "study/reference_benchmark/process.py",
+    "legacy_CuO_vector_paths": "historical rendering only; not used by current figures or metrics"
+  },
+  "current_revision": {
+    "PR_head": "390b1b899c4dca43685fda1380a494b1d5019fcd",
+    "numeric_references": "reference_benchmark/",
+    "main_reference_arrays": "figure_data/reference_benchmark/plotted_arrays.csv",
+    "SI_plot_source": "code/plot_reference_grids.py",
+    "numeric_processing_unchanged_from_PR": true,
+    "figure4b_source_fix": "gs[1] -> gs[0,1]",
+    "reference_plot_changes": "shared legend, row/material y scales, dashed incomplete CuO FDM, chemical formula subscripts",
+    "evidence": "provenance/pr18_review_390b1b8/independent_review.json"
+  },
+  "figure_clarity_revision": {
+    "Figure2a": "metal-only representative substrate rendering left; adsorbate illustrations right; shared Cu/Au/C/O/H legend",
+    "Figure3a": "all 12 available calculations plus 3 experiments; unit-maximum display; unchanged metrics",
+    "Figure3c": "species-present minus species-absent mean, common [-1,1] divisor; no clean-surface reference",
+    "relative_contrast_data": "figure_data/relative_spectral_identity_contrasts.csv",
+    "contrast_divisor": "figure_data/spectral_contrast_display.json",
+    "display_reference_arrays": "figure_data/Figure_3a_display.csv",
+    "proposed_chemical_test": "moved from Results subsection 3.6 to Outlook section",
+    "next_work": "CO2RR_Codex_PR18_Followup.md"
+  },
+  "scientific_extensions_v2": {
+    "reference_arrays": "figure_data/reference_benchmark_v2/plotted_arrays.csv",
+    "reference_metrics": "figure_data/reference_benchmark_v2/similarity_metrics.csv",
+    "figure3c": "omitted; clean control unavailable after expanded search",
+    "ML_extension_arrays": "figure_data/extensions_v2",
+    "primary_archive": "unchanged",
+    "input_package_sha256": "20dc81e29084075523a94075253a785bdba3f86cef309f499a98324f19c53eff"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "definition": "mean unit-area spectrum among configurations containing species minus mean among configurations not containing species",
+  "reference": "species-absent configurations, not clean surface",
+  "display_scale": "one common maximum absolute contrast across all species and energies",
+  "common_divisor_per_eV": 0.0005787943610276,
+  "range": [
+    -1,
+    1
+  ],
+  "preserves_relative_amplitudes": true
+}

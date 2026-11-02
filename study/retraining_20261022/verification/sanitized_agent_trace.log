@@ -1,0 +1,77 @@
+{
+  "configurations": 90,
+  "layer_spectra": 360,
+  "prior_configurations": 87,
+  "new_or_recovered_configurations": [
+    "2CO_adjacent/2CO_adjacent_0p056_AuCu_interface",
+    "2CO_adjacent/2CO_adjacent_0p167_uniform",
+    "CO/CO_0p11/uniform"
+  ],
+  "supplied_record_attempts": 90,
+  "raw_without_record_attempts": 1,
+  "statuses": {
+    "eligible": 90,
+    "excluded": 1
+  },
+  "frozen_archive_changed": false,
+  "source_mutated": false,
+  "training_groups_are_independent_geometries": true
+}
+outer_fold_0 candidate 10 / 37
+outer_fold_0 candidate 20 / 37
+outer_fold_0 candidate 30 / 37
+Completed outer_fold_0 depth_channels::contrast
+outer_fold_1 candidate 10 / 37
+outer_fold_1 candidate 20 / 37
+outer_fold_1 candidate 30 / 37
+Completed outer_fold_1 depth_channels::multiscale
+outer_fold_2 candidate 10 / 37
+outer_fold_2 candidate 20 / 37
+outer_fold_2 candidate 30 / 37
+Completed outer_fold_2 depth_channels::contrast
+outer_fold_3 candidate 10 / 37
+outer_fold_3 candidate 20 / 37
+outer_fold_3 candidate 30 / 37
+Completed outer_fold_3 depth_channels::multiscale
+outer_fold_4 candidate 10 / 37
+outer_fold_4 candidate 20 / 37
+outer_fold_4 candidate 30 / 37
+Completed outer_fold_4 depth_channels::multiscale
+new_configuration_holdout candidate 10 / 37
+new_configuration_holdout candidate 20 / 37
+new_configuration_holdout candidate 30 / 37
+Completed new_configuration_holdout depth_channels::multiscale
+deployment_full_cohort candidate 10 / 37
+deployment_full_cohort candidate 20 / 37
+deployment_full_cohort candidate 30 / 37
+Completed deployment_full_cohort depth_channels::contrast
+{
+  "all_updated_configurations": {
+    "micro_f1": 0.7821229050279329,
+    "macro_f1": 0.6448314311950676,
+    "exact_set_accuracy": 0.6777777777777778
+  },
+  "matched_old_subset": {
+    "micro_f1": 0.7816091954022989,
+    "macro_f1": 0.6457768459335859,
+    "exact_set_accuracy": 0.6781609195402298
+  },
+  "added_or_recovered_subset_in_updated_CV": {
+    "micro_f1": 0.8,
+    "macro_f1": 0.07272727272727274,
+    "exact_set_accuracy": 0.6666666666666666
+  },
+  "old_subset_count": 87,
+  "added_or_recovered_count": 3,
+  "new_configuration_holdout": {
+    "micro_f1": 0.8,
+    "macro_f1": 0.07272727272727274,
+    "exact_set_accuracy": 0.6666666666666666
+  },
+  "configurations": 90,
+  "layer_spectra": 360,
+  "model_count": 7,
+  "all_saved_model_replays_identical": true,
+  "interpretation": "new versioned fit; old 87-config/348-spectrum archived benchmark unchanged; existing folds examined repeatedly; no prospective validation or catalytic mechanism claim"
+}
+{'status': 'success', 'recipe': 'updated_data_v3', 'output_dir': '<checkout>/study/retraining_20261022/refit', 'metrics': {'all_updated_configurations': {'micro_f1': 0.7821229050279329, 'macro_f1': 0.6448314311950676, 'exact_set_accuracy': 0.6777777777777778}, 'matched_old_subset': {'micro_f1': 0.7816091954022989, 'macro_f1': 0.6457768459335859, 'exact_set_accuracy': 0.6781609195402298}, 'added_or_recovered_subset_in_updated_CV': {'micro_f1': 0.8, 'macro_f1': 0.07272727272727274, 'exact_set_accuracy': 0.6666666666666666}, 'old_subset_count': 87, 'added_or_recovered_count': 3, 'new_configuration_holdout': {'micro_f1': 0.8, 'macro_f1': 0.07272727272727274, 'exact_set_accuracy': 0.6666666666666666}, 'configurations': 90, 'layer_spectra': 360, 'model_count': 7, 'all_saved_model_replays_identical': True, 'interpretation': 'new versioned fit; old 87-config/348-spectrum archived benchmark unchanged; existing folds examined repeatedly; no prospective validation or catalytic mechanism claim'}, 'trace': '<checkout>/study/retraining_20261022/refit/invocation_trace.json'}

@@ -1,0 +1,44 @@
+[
+  {
+    "seed": 20261020,
+    "recipe": [
+      "Combined",
+      2,
+      64
+    ],
+    "threshold": 0.4,
+    "training_records": 141,
+    "training_groups": 135,
+    "path": "final_full141_seed20261020.joblib",
+    "sha256": "069864e1d4e6c444224f913de604768d16d4079889b5c814263bb4a7840a252e",
+    "exact_reload": true
+  },
+  {
+    "seed": 20261021,
+    "recipe": [
+      "DCT16",
+      1,
+      64
+    ],
+    "threshold": 0.3,
+    "training_records": 141,
+    "training_groups": 135,
+    "path": "final_full141_seed20261021.joblib",
+    "sha256": "3bb375293a9a515c1c15c314d1e9a9d2dd33ce8a3dc26e53ace58981afeabcd8",
+    "exact_reload": true
+  },
+  {
+    "seed": 20261022,
+    "recipe": [
+      "DCT16",
+      1,
+      64
+    ],
+    "threshold": 0.3,
+    "training_records": 141,
+    "training_groups": 135,
+    "path": "final_full141_seed20261022.joblib",
+    "sha256": "a9fb7b4f5d34f8f5adc7b6125e269bdb51011ff52600333e9bcb15f984ced095",
+    "exact_reload": true
+  }
+]

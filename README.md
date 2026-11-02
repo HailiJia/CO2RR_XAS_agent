@@ -17,6 +17,10 @@ The folder contains the executed notebook, source code, PNG/PDF figures, split m
 
 ---
 
+## Reproducible study package (review branch)
+
+See [study/README.md](study/README.md) for figure-only replay, the exact-cohort export command, relocated full audit/fitting, saved-model replay, evidence status, and the remaining manuscript/reference inputs. [study/EVIDENCE.md](study/EVIDENCE.md) separates completed results, implementation tests, planned analyses, blocked work and unavailable artifacts. The archived 87-configuration OOF benchmark remains unchanged. The new **Audited adsorbate presence (multilabel)** application route is separate from general categorical classification/regression and its advisor.
+
 ## Quick start
 
 From the repository root:
@@ -126,11 +130,10 @@ For batch validation/upload:
 ```bash
 python batch_validate_upload_isaac_records.py \
   --input records.zip \
-  --validate \
-  --upload
+  --output local_validation.json
 ```
 
-The web app can also load local ISAAC JSON files or ZIP archives without portal credentials.
+The batch CLI defaults to a local measurement/identity contract check. Supply `--schema /path/to/pinned_schema.json` for local schema validation. `--validate` requests portal validation; deposition additionally requires separately authorized `--upload --allow-external-writes`. No deposition or remote validation was performed for the study reconciliation. The web app can also load local ISAAC JSON files or ZIP archives without portal credentials.
 
 ---
 
@@ -319,10 +322,13 @@ CO2RR_XAS_agent/
 ├── web_app/                  # Streamlit web app
 │   ├── CO2RR_XAS_Agent.py    # recommended Streamlit entry point
 │   ├── main.py               # main app implementation
+│   ├── ml_pages/             # current ML implementation and multilabel route
 │   └── pages/
 │       └── 2_Machine_learning_for_XAS.py
-├── XAS/                      # reusable XAS shell helpers
-├── examples/                 # runnable examples
+├── CO2RR_ML/                 # archived identity/depth benchmark and portable entry points
+├── study/                    # evidence, replay/export CLIs, plotted data and working manuscript
+├── data/CuAu_dataset/        # structure inputs, including the matched 2CO/OCCO quartet
+├── example_ouput/            # existing backend example outputs (historical spelling)
 ├── tests/                    # regression tests
 └── requirements.txt
 ```

@@ -1,0 +1,63 @@
+{
+  "jobs": [
+    {
+      "directory": "study/prepared_jobs/1_2CO_interface",
+      "input": "data/CuAu_dataset/2CO_adjacent/2CO_adjacent_0p056_interface/POSCAR",
+      "input_sha256": "d4bf91d2dae173fe182e499128ade5d5587a6bae528e787c1fc6e891d1e149c1",
+      "initial_geometry_aliases": [
+        "2CO_adjacent/2CO_adjacent_0p056_interface"
+      ],
+      "submitted": false,
+      "relaxation_required": true,
+      "XAS_generation": "blocked until verified relaxed geometry",
+      "requested_edges": [
+        "Cu K",
+        "C K",
+        "O K"
+      ]
+    },
+    {
+      "directory": "study/prepared_jobs/2_2CO_terrace",
+      "input": "data/CuAu_dataset/2CO_adjacent/2CO_adjacent_0p056_interior/POSCAR",
+      "input_sha256": "241be1e65743e866f2d61663a9af53de3f2d673a7c46340789bbd22f15834561",
+      "initial_geometry_aliases": [],
+      "submitted": false,
+      "relaxation_required": true,
+      "XAS_generation": "blocked until verified relaxed geometry",
+      "requested_edges": [
+        "Cu K",
+        "C K",
+        "O K"
+      ]
+    },
+    {
+      "directory": "study/prepared_jobs/3_OCCO_interface",
+      "input": "data/CuAu_dataset/OCCO/OCCO_0p056_interface/POSCAR",
+      "input_sha256": "53a4806c2aad94a54417aeade5f12e21badf746de9698e4a36c82bd0551d05b7",
+      "initial_geometry_aliases": [],
+      "submitted": false,
+      "relaxation_required": true,
+      "XAS_generation": "blocked until verified relaxed geometry",
+      "requested_edges": [
+        "Cu K",
+        "C K",
+        "O K"
+      ]
+    },
+    {
+      "directory": "study/prepared_jobs/4_OCCO_terrace",
+      "input": "data/CuAu_dataset/OCCO/OCCO_0p056_interior/POSCAR",
+      "input_sha256": "0df8b34642aa49646bb3f38de939c65b54489f6c4fc7e17d0f61b9594de9d39b",
+      "initial_geometry_aliases": [],
+      "submitted": false,
+      "relaxation_required": true,
+      "XAS_generation": "blocked until verified relaxed geometry",
+      "requested_edges": [
+        "Cu K",
+        "C K",
+        "O K"
+      ]
+    }
+  ],
+  "expensive_jobs_submitted": false
+}

@@ -1,0 +1,7 @@
+task,contrast,n_configurations,observed_difference,conditional_95_low,conditional_95_high,scope
+identity,delta minus raw_normalized,34,0.05565610859728498,0.0050349367521182,0.12001680295283347,fixed predictions; no refitting or independent-parent uncertainty
+identity,delta minus corrected_normalized,34,0.04784899034240553,-0.019464659381539108,0.12045222587169921,fixed predictions; no refitting or independent-parent uncertainty
+identity,delta minus raw_physical,34,0.0,0.0,0.0,fixed predictions; no refitting or independent-parent uncertainty
+CO_coverage,delta minus raw_normalized,7,-0.0004048403263895812,-0.0019270853321697798,0.0009327293729151936,fixed predictions; no refitting or independent-parent uncertainty
+CO_coverage,delta minus corrected_normalized,7,-0.0010833322564454562,-0.0023239706670649236,-4.4500016278717416e-06,fixed predictions; no refitting or independent-parent uncertainty
+CO_coverage,delta minus raw_physical,7,3.469446951953614e-16,-5.049346357699491e-16,1.3274971399912512e-15,fixed predictions; no refitting or independent-parent uncertainty

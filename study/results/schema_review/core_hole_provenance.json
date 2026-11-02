@@ -1,0 +1,33 @@
+{
+  "scope": "87-configuration archived Cu K-edge cohort; raw inputs/logs audited read-only",
+  "main_decks": {
+    "layer_count": 348,
+    "explicit_keyword_occurrences": {
+      "SCF": 348,
+      "Green": 348,
+      "Perdew": 348
+    },
+    "recorded_controls": "SCF, Green, Perdew; no explicit SCFexc, Screening, nohole, or Gamma_hole keyword"
+  },
+  "logs": {
+    "layers_with_a_FDMNES_revision_banner": 348,
+    "revision_banner_file_count": 890,
+    "unique_revision_banners": {
+      "28th of July 2026": 890
+    },
+    "convolution_outputs_with_logs": 332,
+    "Gamma_hole_values_eV": {
+      "1.55": 11952
+    },
+    "Gamma_max_values_eV": {
+      "10.00": 332
+    },
+    "executable_path_strings": {
+      "/global/homes/h/hjia/software/fdmnes/fdmnes_mpi": 576
+    }
+  },
+  "interpretation": "Version banners identify FDMNES revision 28 July 2026 in the available outputs. The 332 surviving convolution logs report Gamma_hole=1.55 eV and Gamma_max=10 eV. In that revision the guide says K-edge self-consistency is by default done without a core hole, with core-hole plus screening charge added at the XANES step; because these inputs request SCF but omit SCFexc/Screening/nohole, the primary cohort follows that default treatment. The 16 remaining layer spectra lack a separate convolution output log, although every layer directory has a FDMNES revision banner. The ISAAC core_hole_treatment field remains not_reported; inferred settings are supported by final decks/output logs, not that metadata field.",
+  "source_manifest_sha256": "11356d3efe89792d4aef0f52b745164068b99d8536fa1cce31e855e8e79a595e",
+  "manual_source": "https://data-analysis.synchrotron-soleil.fr/tmp/software/fdmnes/fdmnes_Linux/Doc/Manual_Eng.pdf",
+  "manual_accessed": "2026-10-21"
+}

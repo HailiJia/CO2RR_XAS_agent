@@ -1,0 +1,115 @@
+ FDMNES program, Revision 11th of April 2025       
+   Date = 11 03 2026                              
+   Time = 14 h 38 mn 11 s                         
+ 
+   range    
+   radius   
+   energphot
+   memory_sa
+   scf      
+   perdew   
+   crystal  
+   z_absorbe
+   edge     
+
+ Filout: Cu
+ Threshold: Copper K1 edge
+
+ Sequential calculation with MUMPS Solver
+
+ Number of calculated non equivalent absorbing atom =  1
+
+ E_edge     =  8979.00 eV
+
+ Cluster radius = 7.00 A, nb. of atom = 135
+ Fermi energy calculation : cluster radius = 7.00 A, nb. of atom = 135
+ Potential sup calculation: cluster radius = 9.50 A, nb. of atom = 321
+
+ Point group : -3m      (D3d  )
+
+ Point group used : -3       (S6   )
+
+ ipr   Z  mult     ch_val    ch_core   ch_total     ch_out   Atom charge
+   1  29    1      11.026     17.999     29.025      0.000     -0.025
+
+ Cycle   1,  Fermi energy =  -8.488 eV, Occupancy val abs =  9.680
+
+ Cycle   1: Total energy =       -45168.8 eV,
+
+      ipr   Z   Energy_Tot      Charge     Ch-Ch_i  pop_orb_val(L)   L    Radius
+        1  29     -45168.8      -0.025       0.000       9.680       2   1.40723
+
+ Cycle   2,  Fermi energy =  -7.991 eV, Occupancy val abs =  9.670
+
+ Cycle   2: Total energy =       -45142.4 eV, Delta energy =     26.453 >   0.100 eV
+                                            Weight = 0.05000, Mod_p =  0
+
+      ipr   Z   Energy_Tot      Charge     Ch-Ch_i  pop_orb_val(L)   L    Radius
+        1  29     -45142.4      -0.025       0.000       9.670       2   1.40723
+
+ Cycle   3,  Fermi energy =  -7.506 eV, Occupancy val abs =  9.660
+
+ Cycle   3: Total energy =       -45121.5 eV, Delta energy =     20.874 >   0.100 eV
+                                            Weight = 0.05000, Mod_p =  1
+
+      ipr   Z   Energy_Tot      Charge     Ch-Ch_i  pop_orb_val(L)   L    Radius
+        1  29     -45121.5      -0.025       0.000       9.660       2   1.40723
+
+ Cycle   4,  Fermi energy =  -7.055 eV, Occupancy val abs =  9.648
+
+ Cycle   4: Total energy =       -45104.3 eV, Delta energy =     17.251 >   0.100 eV
+                                            Weight = 0.05000, Mod_p =  2
+                                                            Next weight = 0.10000
+
+      ipr   Z   Energy_Tot      Charge     Ch-Ch_i  pop_orb_val(L)   L    Radius
+        1  29     -45104.3      -0.025       0.000       9.648       2   1.40723
+
+ Cycle   5,  Fermi energy =  -6.282 eV, Occupancy val abs =  9.629
+
+ Cycle   5: Total energy =       -45075.9 eV, Delta energy =     28.347 >   0.100 eV
+                                            Weight = 0.10000, Mod_p =  0
+
+      ipr   Z   Energy_Tot      Charge     Ch-Ch_i  pop_orb_val(L)   L    Radius
+        1  29     -45075.9      -0.025       0.000       9.629       2   1.40723
+
+ Cycle   6,  Fermi energy =  -5.742 eV, Occupancy val abs =  9.617
+
+ Cycle   6: Total energy =       -45058.0 eV, Delta energy =     17.883 >   0.100 eV
+                                            Weight = 0.10000, Mod_p =  1
+
+      ipr   Z   Energy_Tot      Charge     Ch-Ch_i  pop_orb_val(L)   L    Radius
+        1  29     -45058.0      -0.025       0.000       9.617       2   1.40723
+
+ Cycle   7,  Fermi energy =  -5.384 eV, Occupancy val abs =  9.615
+
+ Cycle   7: Total energy =       -45047.6 eV, Delta energy =     10.438 >   0.100 eV
+                                            Weight = 0.10000, Mod_p =  2
+                                                            Next weight = 0.20000
+
+      ipr   Z   Energy_Tot      Charge     Ch-Ch_i  pop_orb_val(L)   L    Radius
+        1  29     -45047.6      -0.025      -0.000       9.615       2   1.40723
+
+ Cycle   8,  Fermi energy =  -4.880 eV, Occupancy val abs =  9.619
+
+ Cycle   8: Total energy =       -45034.0 eV, Delta energy =     13.557 >   0.100 eV
+                                            Weight = 0.20000, Mod_p =  0
+
+      ipr   Z   Energy_Tot      Charge     Ch-Ch_i  pop_orb_val(L)   L    Radius
+        1  29     -45034.0      -0.025      -0.000       9.619       2   1.40723
+
+ Cycle   9,  Fermi energy =  -4.397 eV, Occupancy val abs =  9.601
+
+ Cycle   9: Total energy =       -45023.5 eV, Delta energy =     10.578 >   0.100 eV
+                                            Weight = 0.20000, Mod_p =  1
+
+      ipr   Z   Energy_Tot      Charge     Ch-Ch_i  pop_orb_val(L)   L    Radius
+        1  29     -45023.5      -0.025      -0.000       9.601       2   1.40723
+
+ Cycle  10,  Fermi energy =  -4.229 eV, Occupancy val abs =  9.601
+
+ Cycle  10: Total energy =       -45022.0 eV, Delta energy =      1.403 >   0.100 eV
+                                            Weight = 0.20000, Mod_p =  2
+                                                            Next weight = 0.40000
+
+      ipr   Z   Energy_Tot      Charge     Ch-Ch_i  pop_orb_val(L)   L    Radius
+        1  29     -45022.0      -0.025      -0.000       9.601       2   1.40723

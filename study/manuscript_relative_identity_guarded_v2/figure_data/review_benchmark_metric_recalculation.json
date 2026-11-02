@@ -1,0 +1,198 @@
+[
+  {
+    "material": "Cu",
+    "method": "fdmnes_green",
+    "view": "Cu_calibrated_transfer",
+    "n": 176,
+    "max_difference": 3.3306690738754696e-16
+  },
+  {
+    "material": "Cu",
+    "method": "fdmnes_fdm",
+    "view": "Cu_calibrated_transfer",
+    "n": 176,
+    "max_difference": 2.220446049250313e-16
+  },
+  {
+    "material": "Cu",
+    "method": "feff",
+    "view": "Cu_calibrated_transfer",
+    "n": 176,
+    "max_difference": 1.1102230246251565e-16
+  },
+  {
+    "material": "Cu",
+    "method": "vasp_pbe",
+    "view": "Cu_calibrated_transfer",
+    "n": 176,
+    "max_difference": 2.220446049250313e-16
+  },
+  {
+    "material": "Cu",
+    "method": "vasp_gw",
+    "view": "Cu_calibrated_transfer",
+    "n": 176,
+    "max_difference": 3.3306690738754696e-16
+  },
+  {
+    "material": "Cu",
+    "method": "fdmnes_green",
+    "view": "first_feature_shape_diagnostic",
+    "n": 176,
+    "max_difference": 3.3306690738754696e-16
+  },
+  {
+    "material": "Cu",
+    "method": "fdmnes_fdm",
+    "view": "first_feature_shape_diagnostic",
+    "n": 176,
+    "max_difference": 2.220446049250313e-16
+  },
+  {
+    "material": "Cu",
+    "method": "feff",
+    "view": "first_feature_shape_diagnostic",
+    "n": 176,
+    "max_difference": 1.1102230246251565e-16
+  },
+  {
+    "material": "Cu",
+    "method": "vasp_pbe",
+    "view": "first_feature_shape_diagnostic",
+    "n": 176,
+    "max_difference": 2.220446049250313e-16
+  },
+  {
+    "material": "Cu",
+    "method": "vasp_gw",
+    "view": "first_feature_shape_diagnostic",
+    "n": 176,
+    "max_difference": 3.3306690738754696e-16
+  },
+  {
+    "material": "Cu2O",
+    "method": "fdmnes_green",
+    "view": "Cu_calibrated_transfer",
+    "n": 176,
+    "max_difference": 3.3306690738754696e-16
+  },
+  {
+    "material": "Cu2O",
+    "method": "fdmnes_fdm",
+    "view": "Cu_calibrated_transfer",
+    "n": 176,
+    "max_difference": 2.220446049250313e-16
+  },
+  {
+    "material": "Cu2O",
+    "method": "feff",
+    "view": "Cu_calibrated_transfer",
+    "n": 176,
+    "max_difference": 4.440892098500626e-16
+  },
+  {
+    "material": "Cu2O",
+    "method": "vasp_pbe",
+    "view": "Cu_calibrated_transfer",
+    "n": 176,
+    "max_difference": 2.220446049250313e-16
+  },
+  {
+    "material": "Cu2O",
+    "method": "vasp_gw",
+    "view": "Cu_calibrated_transfer",
+    "n": 176,
+    "max_difference": 2.220446049250313e-16
+  },
+  {
+    "material": "Cu2O",
+    "method": "fdmnes_green",
+    "view": "first_feature_shape_diagnostic",
+    "n": 176,
+    "max_difference": 3.3306690738754696e-16
+  },
+  {
+    "material": "Cu2O",
+    "method": "fdmnes_fdm",
+    "view": "first_feature_shape_diagnostic",
+    "n": 176,
+    "max_difference": 4.440892098500626e-16
+  },
+  {
+    "material": "Cu2O",
+    "method": "feff",
+    "view": "first_feature_shape_diagnostic",
+    "n": 176,
+    "max_difference": 4.440892098500626e-16
+  },
+  {
+    "material": "Cu2O",
+    "method": "vasp_pbe",
+    "view": "first_feature_shape_diagnostic",
+    "n": 176,
+    "max_difference": 3.3306690738754696e-16
+  },
+  {
+    "material": "Cu2O",
+    "method": "vasp_gw",
+    "view": "first_feature_shape_diagnostic",
+    "n": 176,
+    "max_difference": 2.220446049250313e-16
+  },
+  {
+    "material": "CuO",
+    "method": "fdmnes_green",
+    "view": "Cu_calibrated_transfer",
+    "n": 176,
+    "max_difference": 5.551115123125783e-16
+  },
+  {
+    "material": "CuO",
+    "method": "fdmnes_fdm",
+    "view": "Cu_calibrated_transfer",
+    "n": 176,
+    "max_difference": 2.220446049250313e-16
+  },
+  {
+    "material": "CuO",
+    "method": "feff",
+    "view": "Cu_calibrated_transfer",
+    "n": 176,
+    "max_difference": 3.3306690738754696e-16
+  },
+  {
+    "material": "CuO",
+    "method": "vasp_gw",
+    "view": "Cu_calibrated_transfer",
+    "n": 176,
+    "max_difference": 1.1102230246251565e-16
+  },
+  {
+    "material": "CuO",
+    "method": "fdmnes_green",
+    "view": "first_feature_shape_diagnostic",
+    "n": 176,
+    "max_difference": 1.1102230246251565e-16
+  },
+  {
+    "material": "CuO",
+    "method": "fdmnes_fdm",
+    "view": "first_feature_shape_diagnostic",
+    "n": 176,
+    "max_difference": 2.220446049250313e-16
+  },
+  {
+    "material": "CuO",
+    "method": "feff",
+    "view": "first_feature_shape_diagnostic",
+    "n": 176,
+    "max_difference": 5.551115123125783e-16
+  },
+  {
+    "material": "CuO",
+    "method": "vasp_gw",
+    "view": "first_feature_shape_diagnostic",
+    "n": 176,
+    "max_difference": 3.3306690738754696e-16
+  }
+]

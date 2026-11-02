@@ -1,0 +1,19 @@
+configuration,domain,representation,unsupported_species,review_required,closed_label_prediction,actual_full_graph_labels,interpretation
+Cu100/Cu100_2x2x4_1CO3_1H2O_hollow_flat-1HB,Cu100,normalized_raw,CO3;H2O,True,OH,CO3;H2O,unsupported chemistry/interference query; no full-set accuracy or probability calibration claim
+Cu100/Cu100_2x2x4_1CO3_1H2O_hollow_flat-1HB,Cu100,physical_raw,CO3;H2O,True,OH,CO3;H2O,unsupported chemistry/interference query; no full-set accuracy or probability calibration claim
+Cu100/Cu100_2x2x4_1CO3_1H2O_hollow_flat-1HB,Cu100,delta,CO3;H2O,True,OH,CO3;H2O,unsupported chemistry/interference query; no full-set accuracy or probability calibration claim
+Cu100/Cu100_2x2x4_1CO3_hollow,Cu100,normalized_raw,CO3,True,OH,CO3,unsupported chemistry/interference query; no full-set accuracy or probability calibration claim
+Cu100/Cu100_2x2x4_1CO3_hollow,Cu100,physical_raw,CO3,True,OH,CO3,unsupported chemistry/interference query; no full-set accuracy or probability calibration claim
+Cu100/Cu100_2x2x4_1CO3_hollow,Cu100,delta,CO3,True,OH,CO3,unsupported chemistry/interference query; no full-set accuracy or probability calibration claim
+Cu100/Cu100_2x2x4_1H2O_1CO_H2Otop_CObridge,Cu100,normalized_raw,H2O,True,,CO;H2O,unsupported chemistry/interference query; no full-set accuracy or probability calibration claim
+Cu100/Cu100_2x2x4_1H2O_1CO_H2Otop_CObridge,Cu100,physical_raw,H2O,True,,CO;H2O,unsupported chemistry/interference query; no full-set accuracy or probability calibration claim
+Cu100/Cu100_2x2x4_1H2O_1CO_H2Otop_CObridge,Cu100,delta,H2O,True,,CO;H2O,unsupported chemistry/interference query; no full-set accuracy or probability calibration claim
+Cu100/Cu100_2x2x4_1H2O_1OH_H2Otop_OHbridge,Cu100,normalized_raw,H2O,True,OH,H2O;OH,unsupported chemistry/interference query; no full-set accuracy or probability calibration claim
+Cu100/Cu100_2x2x4_1H2O_1OH_H2Otop_OHbridge,Cu100,physical_raw,H2O,True,OH,H2O;OH,unsupported chemistry/interference query; no full-set accuracy or probability calibration claim
+Cu100/Cu100_2x2x4_1H2O_1OH_H2Otop_OHbridge,Cu100,delta,H2O,True,,H2O;OH,unsupported chemistry/interference query; no full-set accuracy or probability calibration claim
+Cu100/Cu100_2x2x4_1H2O_2OH_H2Otop_OHbridge-top,Cu100,normalized_raw,H2O,True,OH,H2O;OH,unsupported chemistry/interference query; no full-set accuracy or probability calibration claim
+Cu100/Cu100_2x2x4_1H2O_2OH_H2Otop_OHbridge-top,Cu100,physical_raw,H2O,True,OH,H2O;OH,unsupported chemistry/interference query; no full-set accuracy or probability calibration claim
+Cu100/Cu100_2x2x4_1H2O_2OH_H2Otop_OHbridge-top,Cu100,delta,H2O,True,CO;OH,H2O;OH,unsupported chemistry/interference query; no full-set accuracy or probability calibration claim
+OCCO_H2O/OCCO_2H2O,CuAu,normalized_raw,H2O,True,CO,CO;H2O,unsupported chemistry/interference query; no full-set accuracy or probability calibration claim
+OCCO_H2O/OCCO_2H2O,CuAu,physical_raw,H2O,True,CO,CO;H2O,unsupported chemistry/interference query; no full-set accuracy or probability calibration claim
+OCCO_H2O/OCCO_2H2O,CuAu,delta,H2O,True,CO,CO;H2O,unsupported chemistry/interference query; no full-set accuracy or probability calibration claim

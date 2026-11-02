@@ -1,0 +1,2458 @@
+[
+  {
+    "model": "nearest_neighbor",
+    "outer_fold": 0,
+    "partition": "inner_0",
+    "positive_support": [
+      3,
+      18,
+      2,
+      1,
+      2,
+      3,
+      13,
+      1,
+      3,
+      4,
+      4
+    ],
+    "missing_positive": []
+  },
+  {
+    "model": "nearest_neighbor",
+    "outer_fold": 0,
+    "partition": "inner_1",
+    "positive_support": [
+      2,
+      16,
+      0,
+      1,
+      4,
+      6,
+      9,
+      5,
+      3,
+      4,
+      0
+    ],
+    "missing_positive": [
+      "CO2",
+      "OH"
+    ]
+  },
+  {
+    "model": "nearest_neighbor",
+    "outer_fold": 0,
+    "partition": "inner_2",
+    "positive_support": [
+      3,
+      14,
+      2,
+      0,
+      2,
+      5,
+      12,
+      6,
+      2,
+      4,
+      4
+    ],
+    "missing_positive": [
+      "COCHO"
+    ]
+  },
+  {
+    "model": "nearest_neighbor",
+    "outer_fold": 1,
+    "partition": "inner_0",
+    "positive_support": [
+      2,
+      15,
+      2,
+      1,
+      4,
+      2,
+      13,
+      4,
+      2,
+      2,
+      1
+    ],
+    "missing_positive": []
+  },
+  {
+    "model": "nearest_neighbor",
+    "outer_fold": 1,
+    "partition": "inner_1",
+    "positive_support": [
+      3,
+      16,
+      1,
+      0,
+      5,
+      4,
+      11,
+      3,
+      2,
+      5,
+      4
+    ],
+    "missing_positive": [
+      "COCHO"
+    ]
+  },
+  {
+    "model": "nearest_neighbor",
+    "outer_fold": 1,
+    "partition": "inner_2",
+    "positive_support": [
+      3,
+      19,
+      3,
+      1,
+      1,
+      4,
+      14,
+      3,
+      2,
+      3,
+      3
+    ],
+    "missing_positive": []
+  },
+  {
+    "model": "nearest_neighbor",
+    "outer_fold": 2,
+    "partition": "inner_0",
+    "positive_support": [
+      3,
+      19,
+      2,
+      0,
+      2,
+      3,
+      12,
+      3,
+      3,
+      4,
+      4
+    ],
+    "missing_positive": [
+      "COCHO"
+    ]
+  },
+  {
+    "model": "nearest_neighbor",
+    "outer_fold": 2,
+    "partition": "inner_1",
+    "positive_support": [
+      2,
+      16,
+      0,
+      0,
+      4,
+      6,
+      13,
+      5,
+      0,
+      5,
+      2
+    ],
+    "missing_positive": [
+      "CO2",
+      "COCHO",
+      "OCCOH"
+    ]
+  },
+  {
+    "model": "nearest_neighbor",
+    "outer_fold": 2,
+    "partition": "inner_2",
+    "positive_support": [
+      3,
+      13,
+      2,
+      0,
+      2,
+      5,
+      13,
+      2,
+      3,
+      7,
+      4
+    ],
+    "missing_positive": [
+      "COCHO"
+    ]
+  },
+  {
+    "model": "nearest_neighbor",
+    "outer_fold": 3,
+    "partition": "inner_0",
+    "positive_support": [
+      2,
+      14,
+      1,
+      1,
+      4,
+      4,
+      10,
+      4,
+      2,
+      5,
+      3
+    ],
+    "missing_positive": []
+  },
+  {
+    "model": "nearest_neighbor",
+    "outer_fold": 3,
+    "partition": "inner_1",
+    "positive_support": [
+      3,
+      17,
+      1,
+      0,
+      5,
+      5,
+      13,
+      5,
+      1,
+      5,
+      0
+    ],
+    "missing_positive": [
+      "COCHO",
+      "OH"
+    ]
+  },
+  {
+    "model": "nearest_neighbor",
+    "outer_fold": 3,
+    "partition": "inner_2",
+    "positive_support": [
+      3,
+      15,
+      2,
+      1,
+      3,
+      5,
+      9,
+      3,
+      3,
+      4,
+      3
+    ],
+    "missing_positive": []
+  },
+  {
+    "model": "nearest_neighbor",
+    "outer_fold": 4,
+    "partition": "inner_0",
+    "positive_support": [
+      3,
+      15,
+      2,
+      1,
+      3,
+      4,
+      13,
+      5,
+      3,
+      1,
+      4
+    ],
+    "missing_positive": []
+  },
+  {
+    "model": "nearest_neighbor",
+    "outer_fold": 4,
+    "partition": "inner_1",
+    "positive_support": [
+      1,
+      15,
+      2,
+      1,
+      3,
+      5,
+      9,
+      6,
+      0,
+      6,
+      2
+    ],
+    "missing_positive": [
+      "OCCOH"
+    ]
+  },
+  {
+    "model": "nearest_neighbor",
+    "outer_fold": 4,
+    "partition": "inner_2",
+    "positive_support": [
+      4,
+      18,
+      2,
+      0,
+      4,
+      3,
+      12,
+      1,
+      3,
+      5,
+      2
+    ],
+    "missing_positive": [
+      "COCHO"
+    ]
+  },
+  {
+    "model": "nearest_neighbor_augmented",
+    "outer_fold": 0,
+    "partition": "inner_0",
+    "positive_support": [
+      3,
+      18,
+      2,
+      1,
+      2,
+      3,
+      13,
+      1,
+      3,
+      4,
+      4
+    ],
+    "missing_positive": []
+  },
+  {
+    "model": "nearest_neighbor_augmented",
+    "outer_fold": 0,
+    "partition": "inner_1",
+    "positive_support": [
+      2,
+      16,
+      0,
+      1,
+      4,
+      6,
+      9,
+      5,
+      3,
+      4,
+      0
+    ],
+    "missing_positive": [
+      "CO2",
+      "OH"
+    ]
+  },
+  {
+    "model": "nearest_neighbor_augmented",
+    "outer_fold": 0,
+    "partition": "inner_2",
+    "positive_support": [
+      3,
+      14,
+      2,
+      0,
+      2,
+      5,
+      12,
+      6,
+      2,
+      4,
+      4
+    ],
+    "missing_positive": [
+      "COCHO"
+    ]
+  },
+  {
+    "model": "nearest_neighbor_augmented",
+    "outer_fold": 1,
+    "partition": "inner_0",
+    "positive_support": [
+      2,
+      15,
+      2,
+      1,
+      4,
+      2,
+      13,
+      4,
+      2,
+      2,
+      1
+    ],
+    "missing_positive": []
+  },
+  {
+    "model": "nearest_neighbor_augmented",
+    "outer_fold": 1,
+    "partition": "inner_1",
+    "positive_support": [
+      3,
+      16,
+      1,
+      0,
+      5,
+      4,
+      11,
+      3,
+      2,
+      5,
+      4
+    ],
+    "missing_positive": [
+      "COCHO"
+    ]
+  },
+  {
+    "model": "nearest_neighbor_augmented",
+    "outer_fold": 1,
+    "partition": "inner_2",
+    "positive_support": [
+      3,
+      19,
+      3,
+      1,
+      1,
+      4,
+      14,
+      3,
+      2,
+      3,
+      3
+    ],
+    "missing_positive": []
+  },
+  {
+    "model": "nearest_neighbor_augmented",
+    "outer_fold": 2,
+    "partition": "inner_0",
+    "positive_support": [
+      3,
+      19,
+      2,
+      0,
+      2,
+      3,
+      12,
+      3,
+      3,
+      4,
+      4
+    ],
+    "missing_positive": [
+      "COCHO"
+    ]
+  },
+  {
+    "model": "nearest_neighbor_augmented",
+    "outer_fold": 2,
+    "partition": "inner_1",
+    "positive_support": [
+      2,
+      16,
+      0,
+      0,
+      4,
+      6,
+      13,
+      5,
+      0,
+      5,
+      2
+    ],
+    "missing_positive": [
+      "CO2",
+      "COCHO",
+      "OCCOH"
+    ]
+  },
+  {
+    "model": "nearest_neighbor_augmented",
+    "outer_fold": 2,
+    "partition": "inner_2",
+    "positive_support": [
+      3,
+      13,
+      2,
+      0,
+      2,
+      5,
+      13,
+      2,
+      3,
+      7,
+      4
+    ],
+    "missing_positive": [
+      "COCHO"
+    ]
+  },
+  {
+    "model": "nearest_neighbor_augmented",
+    "outer_fold": 3,
+    "partition": "inner_0",
+    "positive_support": [
+      2,
+      14,
+      1,
+      1,
+      4,
+      4,
+      10,
+      4,
+      2,
+      5,
+      3
+    ],
+    "missing_positive": []
+  },
+  {
+    "model": "nearest_neighbor_augmented",
+    "outer_fold": 3,
+    "partition": "inner_1",
+    "positive_support": [
+      3,
+      17,
+      1,
+      0,
+      5,
+      5,
+      13,
+      5,
+      1,
+      5,
+      0
+    ],
+    "missing_positive": [
+      "COCHO",
+      "OH"
+    ]
+  },
+  {
+    "model": "nearest_neighbor_augmented",
+    "outer_fold": 3,
+    "partition": "inner_2",
+    "positive_support": [
+      3,
+      15,
+      2,
+      1,
+      3,
+      5,
+      9,
+      3,
+      3,
+      4,
+      3
+    ],
+    "missing_positive": []
+  },
+  {
+    "model": "nearest_neighbor_augmented",
+    "outer_fold": 4,
+    "partition": "inner_0",
+    "positive_support": [
+      3,
+      15,
+      2,
+      1,
+      3,
+      4,
+      13,
+      5,
+      3,
+      1,
+      4
+    ],
+    "missing_positive": []
+  },
+  {
+    "model": "nearest_neighbor_augmented",
+    "outer_fold": 4,
+    "partition": "inner_1",
+    "positive_support": [
+      1,
+      15,
+      2,
+      1,
+      3,
+      5,
+      9,
+      6,
+      0,
+      6,
+      2
+    ],
+    "missing_positive": [
+      "OCCOH"
+    ]
+  },
+  {
+    "model": "nearest_neighbor_augmented",
+    "outer_fold": 4,
+    "partition": "inner_2",
+    "positive_support": [
+      4,
+      18,
+      2,
+      0,
+      4,
+      3,
+      12,
+      1,
+      3,
+      5,
+      2
+    ],
+    "missing_positive": [
+      "COCHO"
+    ]
+  },
+  {
+    "model": "independent_trees",
+    "outer_fold": 0,
+    "partition": "inner_0",
+    "positive_support": [
+      3,
+      18,
+      2,
+      1,
+      2,
+      3,
+      13,
+      1,
+      3,
+      4,
+      4
+    ],
+    "missing_positive": []
+  },
+  {
+    "model": "independent_trees",
+    "outer_fold": 0,
+    "partition": "inner_1",
+    "positive_support": [
+      2,
+      16,
+      0,
+      1,
+      4,
+      6,
+      9,
+      5,
+      3,
+      4,
+      0
+    ],
+    "missing_positive": [
+      "CO2",
+      "OH"
+    ]
+  },
+  {
+    "model": "independent_trees",
+    "outer_fold": 0,
+    "partition": "inner_2",
+    "positive_support": [
+      3,
+      14,
+      2,
+      0,
+      2,
+      5,
+      12,
+      6,
+      2,
+      4,
+      4
+    ],
+    "missing_positive": [
+      "COCHO"
+    ]
+  },
+  {
+    "model": "independent_trees",
+    "outer_fold": 1,
+    "partition": "inner_0",
+    "positive_support": [
+      2,
+      15,
+      2,
+      1,
+      4,
+      2,
+      13,
+      4,
+      2,
+      2,
+      1
+    ],
+    "missing_positive": []
+  },
+  {
+    "model": "independent_trees",
+    "outer_fold": 1,
+    "partition": "inner_1",
+    "positive_support": [
+      3,
+      16,
+      1,
+      0,
+      5,
+      4,
+      11,
+      3,
+      2,
+      5,
+      4
+    ],
+    "missing_positive": [
+      "COCHO"
+    ]
+  },
+  {
+    "model": "independent_trees",
+    "outer_fold": 1,
+    "partition": "inner_2",
+    "positive_support": [
+      3,
+      19,
+      3,
+      1,
+      1,
+      4,
+      14,
+      3,
+      2,
+      3,
+      3
+    ],
+    "missing_positive": []
+  },
+  {
+    "model": "independent_trees",
+    "outer_fold": 2,
+    "partition": "inner_0",
+    "positive_support": [
+      3,
+      19,
+      2,
+      0,
+      2,
+      3,
+      12,
+      3,
+      3,
+      4,
+      4
+    ],
+    "missing_positive": [
+      "COCHO"
+    ]
+  },
+  {
+    "model": "independent_trees",
+    "outer_fold": 2,
+    "partition": "inner_1",
+    "positive_support": [
+      2,
+      16,
+      0,
+      0,
+      4,
+      6,
+      13,
+      5,
+      0,
+      5,
+      2
+    ],
+    "missing_positive": [
+      "CO2",
+      "COCHO",
+      "OCCOH"
+    ]
+  },
+  {
+    "model": "independent_trees",
+    "outer_fold": 2,
+    "partition": "inner_2",
+    "positive_support": [
+      3,
+      13,
+      2,
+      0,
+      2,
+      5,
+      13,
+      2,
+      3,
+      7,
+      4
+    ],
+    "missing_positive": [
+      "COCHO"
+    ]
+  },
+  {
+    "model": "independent_trees",
+    "outer_fold": 3,
+    "partition": "inner_0",
+    "positive_support": [
+      2,
+      14,
+      1,
+      1,
+      4,
+      4,
+      10,
+      4,
+      2,
+      5,
+      3
+    ],
+    "missing_positive": []
+  },
+  {
+    "model": "independent_trees",
+    "outer_fold": 3,
+    "partition": "inner_1",
+    "positive_support": [
+      3,
+      17,
+      1,
+      0,
+      5,
+      5,
+      13,
+      5,
+      1,
+      5,
+      0
+    ],
+    "missing_positive": [
+      "COCHO",
+      "OH"
+    ]
+  },
+  {
+    "model": "independent_trees",
+    "outer_fold": 3,
+    "partition": "inner_2",
+    "positive_support": [
+      3,
+      15,
+      2,
+      1,
+      3,
+      5,
+      9,
+      3,
+      3,
+      4,
+      3
+    ],
+    "missing_positive": []
+  },
+  {
+    "model": "independent_trees",
+    "outer_fold": 4,
+    "partition": "inner_0",
+    "positive_support": [
+      3,
+      15,
+      2,
+      1,
+      3,
+      4,
+      13,
+      5,
+      3,
+      1,
+      4
+    ],
+    "missing_positive": []
+  },
+  {
+    "model": "independent_trees",
+    "outer_fold": 4,
+    "partition": "inner_1",
+    "positive_support": [
+      1,
+      15,
+      2,
+      1,
+      3,
+      5,
+      9,
+      6,
+      0,
+      6,
+      2
+    ],
+    "missing_positive": [
+      "OCCOH"
+    ]
+  },
+  {
+    "model": "independent_trees",
+    "outer_fold": 4,
+    "partition": "inner_2",
+    "positive_support": [
+      4,
+      18,
+      2,
+      0,
+      4,
+      3,
+      12,
+      1,
+      3,
+      5,
+      2
+    ],
+    "missing_positive": [
+      "COCHO"
+    ]
+  },
+  {
+    "model": "independent_trees_augmented",
+    "outer_fold": 0,
+    "partition": "inner_0",
+    "positive_support": [
+      3,
+      18,
+      2,
+      1,
+      2,
+      3,
+      13,
+      1,
+      3,
+      4,
+      4
+    ],
+    "missing_positive": []
+  },
+  {
+    "model": "independent_trees_augmented",
+    "outer_fold": 0,
+    "partition": "inner_1",
+    "positive_support": [
+      2,
+      16,
+      0,
+      1,
+      4,
+      6,
+      9,
+      5,
+      3,
+      4,
+      0
+    ],
+    "missing_positive": [
+      "CO2",
+      "OH"
+    ]
+  },
+  {
+    "model": "independent_trees_augmented",
+    "outer_fold": 0,
+    "partition": "inner_2",
+    "positive_support": [
+      3,
+      14,
+      2,
+      0,
+      2,
+      5,
+      12,
+      6,
+      2,
+      4,
+      4
+    ],
+    "missing_positive": [
+      "COCHO"
+    ]
+  },
+  {
+    "model": "independent_trees_augmented",
+    "outer_fold": 1,
+    "partition": "inner_0",
+    "positive_support": [
+      2,
+      15,
+      2,
+      1,
+      4,
+      2,
+      13,
+      4,
+      2,
+      2,
+      1
+    ],
+    "missing_positive": []
+  },
+  {
+    "model": "independent_trees_augmented",
+    "outer_fold": 1,
+    "partition": "inner_1",
+    "positive_support": [
+      3,
+      16,
+      1,
+      0,
+      5,
+      4,
+      11,
+      3,
+      2,
+      5,
+      4
+    ],
+    "missing_positive": [
+      "COCHO"
+    ]
+  },
+  {
+    "model": "independent_trees_augmented",
+    "outer_fold": 1,
+    "partition": "inner_2",
+    "positive_support": [
+      3,
+      19,
+      3,
+      1,
+      1,
+      4,
+      14,
+      3,
+      2,
+      3,
+      3
+    ],
+    "missing_positive": []
+  },
+  {
+    "model": "independent_trees_augmented",
+    "outer_fold": 2,
+    "partition": "inner_0",
+    "positive_support": [
+      3,
+      19,
+      2,
+      0,
+      2,
+      3,
+      12,
+      3,
+      3,
+      4,
+      4
+    ],
+    "missing_positive": [
+      "COCHO"
+    ]
+  },
+  {
+    "model": "independent_trees_augmented",
+    "outer_fold": 2,
+    "partition": "inner_1",
+    "positive_support": [
+      2,
+      16,
+      0,
+      0,
+      4,
+      6,
+      13,
+      5,
+      0,
+      5,
+      2
+    ],
+    "missing_positive": [
+      "CO2",
+      "COCHO",
+      "OCCOH"
+    ]
+  },
+  {
+    "model": "independent_trees_augmented",
+    "outer_fold": 2,
+    "partition": "inner_2",
+    "positive_support": [
+      3,
+      13,
+      2,
+      0,
+      2,
+      5,
+      13,
+      2,
+      3,
+      7,
+      4
+    ],
+    "missing_positive": [
+      "COCHO"
+    ]
+  },
+  {
+    "model": "independent_trees_augmented",
+    "outer_fold": 3,
+    "partition": "inner_0",
+    "positive_support": [
+      2,
+      14,
+      1,
+      1,
+      4,
+      4,
+      10,
+      4,
+      2,
+      5,
+      3
+    ],
+    "missing_positive": []
+  },
+  {
+    "model": "independent_trees_augmented",
+    "outer_fold": 3,
+    "partition": "inner_1",
+    "positive_support": [
+      3,
+      17,
+      1,
+      0,
+      5,
+      5,
+      13,
+      5,
+      1,
+      5,
+      0
+    ],
+    "missing_positive": [
+      "COCHO",
+      "OH"
+    ]
+  },
+  {
+    "model": "independent_trees_augmented",
+    "outer_fold": 3,
+    "partition": "inner_2",
+    "positive_support": [
+      3,
+      15,
+      2,
+      1,
+      3,
+      5,
+      9,
+      3,
+      3,
+      4,
+      3
+    ],
+    "missing_positive": []
+  },
+  {
+    "model": "independent_trees_augmented",
+    "outer_fold": 4,
+    "partition": "inner_0",
+    "positive_support": [
+      3,
+      15,
+      2,
+      1,
+      3,
+      4,
+      13,
+      5,
+      3,
+      1,
+      4
+    ],
+    "missing_positive": []
+  },
+  {
+    "model": "independent_trees_augmented",
+    "outer_fold": 4,
+    "partition": "inner_1",
+    "positive_support": [
+      1,
+      15,
+      2,
+      1,
+      3,
+      5,
+      9,
+      6,
+      0,
+      6,
+      2
+    ],
+    "missing_positive": [
+      "OCCOH"
+    ]
+  },
+  {
+    "model": "independent_trees_augmented",
+    "outer_fold": 4,
+    "partition": "inner_2",
+    "positive_support": [
+      4,
+      18,
+      2,
+      0,
+      4,
+      3,
+      12,
+      1,
+      3,
+      5,
+      2
+    ],
+    "missing_positive": [
+      "COCHO"
+    ]
+  },
+  {
+    "model": "classifier_chain",
+    "outer_fold": 0,
+    "partition": "inner_0",
+    "positive_support": [
+      3,
+      18,
+      2,
+      1,
+      2,
+      3,
+      13,
+      1,
+      3,
+      4,
+      4
+    ],
+    "missing_positive": []
+  },
+  {
+    "model": "classifier_chain",
+    "outer_fold": 0,
+    "partition": "inner_1",
+    "positive_support": [
+      2,
+      16,
+      0,
+      1,
+      4,
+      6,
+      9,
+      5,
+      3,
+      4,
+      0
+    ],
+    "missing_positive": [
+      "CO2",
+      "OH"
+    ]
+  },
+  {
+    "model": "classifier_chain",
+    "outer_fold": 0,
+    "partition": "inner_2",
+    "positive_support": [
+      3,
+      14,
+      2,
+      0,
+      2,
+      5,
+      12,
+      6,
+      2,
+      4,
+      4
+    ],
+    "missing_positive": [
+      "COCHO"
+    ]
+  },
+  {
+    "model": "classifier_chain",
+    "outer_fold": 1,
+    "partition": "inner_0",
+    "positive_support": [
+      2,
+      15,
+      2,
+      1,
+      4,
+      2,
+      13,
+      4,
+      2,
+      2,
+      1
+    ],
+    "missing_positive": []
+  },
+  {
+    "model": "classifier_chain",
+    "outer_fold": 1,
+    "partition": "inner_1",
+    "positive_support": [
+      3,
+      16,
+      1,
+      0,
+      5,
+      4,
+      11,
+      3,
+      2,
+      5,
+      4
+    ],
+    "missing_positive": [
+      "COCHO"
+    ]
+  },
+  {
+    "model": "classifier_chain",
+    "outer_fold": 1,
+    "partition": "inner_2",
+    "positive_support": [
+      3,
+      19,
+      3,
+      1,
+      1,
+      4,
+      14,
+      3,
+      2,
+      3,
+      3
+    ],
+    "missing_positive": []
+  },
+  {
+    "model": "classifier_chain",
+    "outer_fold": 2,
+    "partition": "inner_0",
+    "positive_support": [
+      3,
+      19,
+      2,
+      0,
+      2,
+      3,
+      12,
+      3,
+      3,
+      4,
+      4
+    ],
+    "missing_positive": [
+      "COCHO"
+    ]
+  },
+  {
+    "model": "classifier_chain",
+    "outer_fold": 2,
+    "partition": "inner_1",
+    "positive_support": [
+      2,
+      16,
+      0,
+      0,
+      4,
+      6,
+      13,
+      5,
+      0,
+      5,
+      2
+    ],
+    "missing_positive": [
+      "CO2",
+      "COCHO",
+      "OCCOH"
+    ]
+  },
+  {
+    "model": "classifier_chain",
+    "outer_fold": 2,
+    "partition": "inner_2",
+    "positive_support": [
+      3,
+      13,
+      2,
+      0,
+      2,
+      5,
+      13,
+      2,
+      3,
+      7,
+      4
+    ],
+    "missing_positive": [
+      "COCHO"
+    ]
+  },
+  {
+    "model": "classifier_chain",
+    "outer_fold": 3,
+    "partition": "inner_0",
+    "positive_support": [
+      2,
+      14,
+      1,
+      1,
+      4,
+      4,
+      10,
+      4,
+      2,
+      5,
+      3
+    ],
+    "missing_positive": []
+  },
+  {
+    "model": "classifier_chain",
+    "outer_fold": 3,
+    "partition": "inner_1",
+    "positive_support": [
+      3,
+      17,
+      1,
+      0,
+      5,
+      5,
+      13,
+      5,
+      1,
+      5,
+      0
+    ],
+    "missing_positive": [
+      "COCHO",
+      "OH"
+    ]
+  },
+  {
+    "model": "classifier_chain",
+    "outer_fold": 3,
+    "partition": "inner_2",
+    "positive_support": [
+      3,
+      15,
+      2,
+      1,
+      3,
+      5,
+      9,
+      3,
+      3,
+      4,
+      3
+    ],
+    "missing_positive": []
+  },
+  {
+    "model": "classifier_chain",
+    "outer_fold": 4,
+    "partition": "inner_0",
+    "positive_support": [
+      3,
+      15,
+      2,
+      1,
+      3,
+      4,
+      13,
+      5,
+      3,
+      1,
+      4
+    ],
+    "missing_positive": []
+  },
+  {
+    "model": "classifier_chain",
+    "outer_fold": 4,
+    "partition": "inner_1",
+    "positive_support": [
+      1,
+      15,
+      2,
+      1,
+      3,
+      5,
+      9,
+      6,
+      0,
+      6,
+      2
+    ],
+    "missing_positive": [
+      "OCCOH"
+    ]
+  },
+  {
+    "model": "classifier_chain",
+    "outer_fold": 4,
+    "partition": "inner_2",
+    "positive_support": [
+      4,
+      18,
+      2,
+      0,
+      4,
+      3,
+      12,
+      1,
+      3,
+      5,
+      2
+    ],
+    "missing_positive": [
+      "COCHO"
+    ]
+  },
+  {
+    "model": "classifier_chain_augmented",
+    "outer_fold": 0,
+    "partition": "inner_0",
+    "positive_support": [
+      3,
+      18,
+      2,
+      1,
+      2,
+      3,
+      13,
+      1,
+      3,
+      4,
+      4
+    ],
+    "missing_positive": []
+  },
+  {
+    "model": "classifier_chain_augmented",
+    "outer_fold": 0,
+    "partition": "inner_1",
+    "positive_support": [
+      2,
+      16,
+      0,
+      1,
+      4,
+      6,
+      9,
+      5,
+      3,
+      4,
+      0
+    ],
+    "missing_positive": [
+      "CO2",
+      "OH"
+    ]
+  },
+  {
+    "model": "classifier_chain_augmented",
+    "outer_fold": 0,
+    "partition": "inner_2",
+    "positive_support": [
+      3,
+      14,
+      2,
+      0,
+      2,
+      5,
+      12,
+      6,
+      2,
+      4,
+      4
+    ],
+    "missing_positive": [
+      "COCHO"
+    ]
+  },
+  {
+    "model": "classifier_chain_augmented",
+    "outer_fold": 1,
+    "partition": "inner_0",
+    "positive_support": [
+      2,
+      15,
+      2,
+      1,
+      4,
+      2,
+      13,
+      4,
+      2,
+      2,
+      1
+    ],
+    "missing_positive": []
+  },
+  {
+    "model": "classifier_chain_augmented",
+    "outer_fold": 1,
+    "partition": "inner_1",
+    "positive_support": [
+      3,
+      16,
+      1,
+      0,
+      5,
+      4,
+      11,
+      3,
+      2,
+      5,
+      4
+    ],
+    "missing_positive": [
+      "COCHO"
+    ]
+  },
+  {
+    "model": "classifier_chain_augmented",
+    "outer_fold": 1,
+    "partition": "inner_2",
+    "positive_support": [
+      3,
+      19,
+      3,
+      1,
+      1,
+      4,
+      14,
+      3,
+      2,
+      3,
+      3
+    ],
+    "missing_positive": []
+  },
+  {
+    "model": "classifier_chain_augmented",
+    "outer_fold": 2,
+    "partition": "inner_0",
+    "positive_support": [
+      3,
+      19,
+      2,
+      0,
+      2,
+      3,
+      12,
+      3,
+      3,
+      4,
+      4
+    ],
+    "missing_positive": [
+      "COCHO"
+    ]
+  },
+  {
+    "model": "classifier_chain_augmented",
+    "outer_fold": 2,
+    "partition": "inner_1",
+    "positive_support": [
+      2,
+      16,
+      0,
+      0,
+      4,
+      6,
+      13,
+      5,
+      0,
+      5,
+      2
+    ],
+    "missing_positive": [
+      "CO2",
+      "COCHO",
+      "OCCOH"
+    ]
+  },
+  {
+    "model": "classifier_chain_augmented",
+    "outer_fold": 2,
+    "partition": "inner_2",
+    "positive_support": [
+      3,
+      13,
+      2,
+      0,
+      2,
+      5,
+      13,
+      2,
+      3,
+      7,
+      4
+    ],
+    "missing_positive": [
+      "COCHO"
+    ]
+  },
+  {
+    "model": "classifier_chain_augmented",
+    "outer_fold": 3,
+    "partition": "inner_0",
+    "positive_support": [
+      2,
+      14,
+      1,
+      1,
+      4,
+      4,
+      10,
+      4,
+      2,
+      5,
+      3
+    ],
+    "missing_positive": []
+  },
+  {
+    "model": "classifier_chain_augmented",
+    "outer_fold": 3,
+    "partition": "inner_1",
+    "positive_support": [
+      3,
+      17,
+      1,
+      0,
+      5,
+      5,
+      13,
+      5,
+      1,
+      5,
+      0
+    ],
+    "missing_positive": [
+      "COCHO",
+      "OH"
+    ]
+  },
+  {
+    "model": "classifier_chain_augmented",
+    "outer_fold": 3,
+    "partition": "inner_2",
+    "positive_support": [
+      3,
+      15,
+      2,
+      1,
+      3,
+      5,
+      9,
+      3,
+      3,
+      4,
+      3
+    ],
+    "missing_positive": []
+  },
+  {
+    "model": "classifier_chain_augmented",
+    "outer_fold": 4,
+    "partition": "inner_0",
+    "positive_support": [
+      3,
+      15,
+      2,
+      1,
+      3,
+      4,
+      13,
+      5,
+      3,
+      1,
+      4
+    ],
+    "missing_positive": []
+  },
+  {
+    "model": "classifier_chain_augmented",
+    "outer_fold": 4,
+    "partition": "inner_1",
+    "positive_support": [
+      1,
+      15,
+      2,
+      1,
+      3,
+      5,
+      9,
+      6,
+      0,
+      6,
+      2
+    ],
+    "missing_positive": [
+      "OCCOH"
+    ]
+  },
+  {
+    "model": "classifier_chain_augmented",
+    "outer_fold": 4,
+    "partition": "inner_2",
+    "positive_support": [
+      4,
+      18,
+      2,
+      0,
+      4,
+      3,
+      12,
+      1,
+      3,
+      5,
+      2
+    ],
+    "missing_positive": [
+      "COCHO"
+    ]
+  },
+  {
+    "model": "xgboost",
+    "outer_fold": 0,
+    "partition": "inner_0",
+    "positive_support": [
+      3,
+      18,
+      2,
+      1,
+      2,
+      3,
+      13,
+      1,
+      3,
+      4,
+      4
+    ],
+    "missing_positive": []
+  },
+  {
+    "model": "xgboost",
+    "outer_fold": 0,
+    "partition": "inner_1",
+    "positive_support": [
+      2,
+      16,
+      0,
+      1,
+      4,
+      6,
+      9,
+      5,
+      3,
+      4,
+      0
+    ],
+    "missing_positive": [
+      "CO2",
+      "OH"
+    ]
+  },
+  {
+    "model": "xgboost",
+    "outer_fold": 0,
+    "partition": "inner_2",
+    "positive_support": [
+      3,
+      14,
+      2,
+      0,
+      2,
+      5,
+      12,
+      6,
+      2,
+      4,
+      4
+    ],
+    "missing_positive": [
+      "COCHO"
+    ]
+  },
+  {
+    "model": "xgboost",
+    "outer_fold": 1,
+    "partition": "inner_0",
+    "positive_support": [
+      2,
+      15,
+      2,
+      1,
+      4,
+      2,
+      13,
+      4,
+      2,
+      2,
+      1
+    ],
+    "missing_positive": []
+  },
+  {
+    "model": "xgboost",
+    "outer_fold": 1,
+    "partition": "inner_1",
+    "positive_support": [
+      3,
+      16,
+      1,
+      0,
+      5,
+      4,
+      11,
+      3,
+      2,
+      5,
+      4
+    ],
+    "missing_positive": [
+      "COCHO"
+    ]
+  },
+  {
+    "model": "xgboost",
+    "outer_fold": 1,
+    "partition": "inner_2",
+    "positive_support": [
+      3,
+      19,
+      3,
+      1,
+      1,
+      4,
+      14,
+      3,
+      2,
+      3,
+      3
+    ],
+    "missing_positive": []
+  },
+  {
+    "model": "xgboost",
+    "outer_fold": 2,
+    "partition": "inner_0",
+    "positive_support": [
+      3,
+      19,
+      2,
+      0,
+      2,
+      3,
+      12,
+      3,
+      3,
+      4,
+      4
+    ],
+    "missing_positive": [
+      "COCHO"
+    ]
+  },
+  {
+    "model": "xgboost",
+    "outer_fold": 2,
+    "partition": "inner_1",
+    "positive_support": [
+      2,
+      16,
+      0,
+      0,
+      4,
+      6,
+      13,
+      5,
+      0,
+      5,
+      2
+    ],
+    "missing_positive": [
+      "CO2",
+      "COCHO",
+      "OCCOH"
+    ]
+  },
+  {
+    "model": "xgboost",
+    "outer_fold": 2,
+    "partition": "inner_2",
+    "positive_support": [
+      3,
+      13,
+      2,
+      0,
+      2,
+      5,
+      13,
+      2,
+      3,
+      7,
+      4
+    ],
+    "missing_positive": [
+      "COCHO"
+    ]
+  },
+  {
+    "model": "xgboost",
+    "outer_fold": 3,
+    "partition": "inner_0",
+    "positive_support": [
+      2,
+      14,
+      1,
+      1,
+      4,
+      4,
+      10,
+      4,
+      2,
+      5,
+      3
+    ],
+    "missing_positive": []
+  },
+  {
+    "model": "xgboost",
+    "outer_fold": 3,
+    "partition": "inner_1",
+    "positive_support": [
+      3,
+      17,
+      1,
+      0,
+      5,
+      5,
+      13,
+      5,
+      1,
+      5,
+      0
+    ],
+    "missing_positive": [
+      "COCHO",
+      "OH"
+    ]
+  },
+  {
+    "model": "xgboost",
+    "outer_fold": 3,
+    "partition": "inner_2",
+    "positive_support": [
+      3,
+      15,
+      2,
+      1,
+      3,
+      5,
+      9,
+      3,
+      3,
+      4,
+      3
+    ],
+    "missing_positive": []
+  },
+  {
+    "model": "xgboost",
+    "outer_fold": 4,
+    "partition": "inner_0",
+    "positive_support": [
+      3,
+      15,
+      2,
+      1,
+      3,
+      4,
+      13,
+      5,
+      3,
+      1,
+      4
+    ],
+    "missing_positive": []
+  },
+  {
+    "model": "xgboost",
+    "outer_fold": 4,
+    "partition": "inner_1",
+    "positive_support": [
+      1,
+      15,
+      2,
+      1,
+      3,
+      5,
+      9,
+      6,
+      0,
+      6,
+      2
+    ],
+    "missing_positive": [
+      "OCCOH"
+    ]
+  },
+  {
+    "model": "xgboost",
+    "outer_fold": 4,
+    "partition": "inner_2",
+    "positive_support": [
+      4,
+      18,
+      2,
+      0,
+      4,
+      3,
+      12,
+      1,
+      3,
+      5,
+      2
+    ],
+    "missing_positive": [
+      "COCHO"
+    ]
+  },
+  {
+    "model": "xgboost_augmented",
+    "outer_fold": 0,
+    "partition": "inner_0",
+    "positive_support": [
+      3,
+      18,
+      2,
+      1,
+      2,
+      3,
+      13,
+      1,
+      3,
+      4,
+      4
+    ],
+    "missing_positive": []
+  },
+  {
+    "model": "xgboost_augmented",
+    "outer_fold": 0,
+    "partition": "inner_1",
+    "positive_support": [
+      2,
+      16,
+      0,
+      1,
+      4,
+      6,
+      9,
+      5,
+      3,
+      4,
+      0
+    ],
+    "missing_positive": [
+      "CO2",
+      "OH"
+    ]
+  },
+  {
+    "model": "xgboost_augmented",
+    "outer_fold": 0,
+    "partition": "inner_2",
+    "positive_support": [
+      3,
+      14,
+      2,
+      0,
+      2,
+      5,
+      12,
+      6,
+      2,
+      4,
+      4
+    ],
+    "missing_positive": [
+      "COCHO"
+    ]
+  },
+  {
+    "model": "xgboost_augmented",
+    "outer_fold": 1,
+    "partition": "inner_0",
+    "positive_support": [
+      2,
+      15,
+      2,
+      1,
+      4,
+      2,
+      13,
+      4,
+      2,
+      2,
+      1
+    ],
+    "missing_positive": []
+  },
+  {
+    "model": "xgboost_augmented",
+    "outer_fold": 1,
+    "partition": "inner_1",
+    "positive_support": [
+      3,
+      16,
+      1,
+      0,
+      5,
+      4,
+      11,
+      3,
+      2,
+      5,
+      4
+    ],
+    "missing_positive": [
+      "COCHO"
+    ]
+  },
+  {
+    "model": "xgboost_augmented",
+    "outer_fold": 1,
+    "partition": "inner_2",
+    "positive_support": [
+      3,
+      19,
+      3,
+      1,
+      1,
+      4,
+      14,
+      3,
+      2,
+      3,
+      3
+    ],
+    "missing_positive": []
+  },
+  {
+    "model": "xgboost_augmented",
+    "outer_fold": 2,
+    "partition": "inner_0",
+    "positive_support": [
+      3,
+      19,
+      2,
+      0,
+      2,
+      3,
+      12,
+      3,
+      3,
+      4,
+      4
+    ],
+    "missing_positive": [
+      "COCHO"
+    ]
+  },
+  {
+    "model": "xgboost_augmented",
+    "outer_fold": 2,
+    "partition": "inner_1",
+    "positive_support": [
+      2,
+      16,
+      0,
+      0,
+      4,
+      6,
+      13,
+      5,
+      0,
+      5,
+      2
+    ],
+    "missing_positive": [
+      "CO2",
+      "COCHO",
+      "OCCOH"
+    ]
+  },
+  {
+    "model": "xgboost_augmented",
+    "outer_fold": 2,
+    "partition": "inner_2",
+    "positive_support": [
+      3,
+      13,
+      2,
+      0,
+      2,
+      5,
+      13,
+      2,
+      3,
+      7,
+      4
+    ],
+    "missing_positive": [
+      "COCHO"
+    ]
+  },
+  {
+    "model": "xgboost_augmented",
+    "outer_fold": 3,
+    "partition": "inner_0",
+    "positive_support": [
+      2,
+      14,
+      1,
+      1,
+      4,
+      4,
+      10,
+      4,
+      2,
+      5,
+      3
+    ],
+    "missing_positive": []
+  },
+  {
+    "model": "xgboost_augmented",
+    "outer_fold": 3,
+    "partition": "inner_1",
+    "positive_support": [
+      3,
+      17,
+      1,
+      0,
+      5,
+      5,
+      13,
+      5,
+      1,
+      5,
+      0
+    ],
+    "missing_positive": [
+      "COCHO",
+      "OH"
+    ]
+  },
+  {
+    "model": "xgboost_augmented",
+    "outer_fold": 3,
+    "partition": "inner_2",
+    "positive_support": [
+      3,
+      15,
+      2,
+      1,
+      3,
+      5,
+      9,
+      3,
+      3,
+      4,
+      3
+    ],
+    "missing_positive": []
+  },
+  {
+    "model": "xgboost_augmented",
+    "outer_fold": 4,
+    "partition": "inner_0",
+    "positive_support": [
+      3,
+      15,
+      2,
+      1,
+      3,
+      4,
+      13,
+      5,
+      3,
+      1,
+      4
+    ],
+    "missing_positive": []
+  },
+  {
+    "model": "xgboost_augmented",
+    "outer_fold": 4,
+    "partition": "inner_1",
+    "positive_support": [
+      1,
+      15,
+      2,
+      1,
+      3,
+      5,
+      9,
+      6,
+      0,
+      6,
+      2
+    ],
+    "missing_positive": [
+      "OCCOH"
+    ]
+  },
+  {
+    "model": "xgboost_augmented",
+    "outer_fold": 4,
+    "partition": "inner_2",
+    "positive_support": [
+      4,
+      18,
+      2,
+      0,
+      4,
+      3,
+      12,
+      1,
+      3,
+      5,
+      2
+    ],
+    "missing_positive": [
+      "COCHO"
+    ]
+  }
+]

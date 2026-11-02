@@ -1,0 +1,53 @@
+{
+  "archive": "partial_layer_lineage.tar.gz",
+  "bytes": 136398746,
+  "sha256": "03bcf2b01b34aa3c20d2ba7c0f7ca76ca5fc8667e4dcbd0c01713e0848035359",
+  "note": "additional raw provenance logs needed to verify partial/mixed-run exclusions; not completed training spectra",
+  "parts": [
+    {
+      "path": "partial_layer_lineage.tar.gz.part000",
+      "bytes": 16000000,
+      "sha256": "863712bb598bcbb07a13fe50032b74599c76c0cd338c948d31b0ad1a7b900a0e"
+    },
+    {
+      "path": "partial_layer_lineage.tar.gz.part001",
+      "bytes": 16000000,
+      "sha256": "d3d935aaebf330655354fdf706b25fa86fb1566cddf1939974ee249a6e871f0e"
+    },
+    {
+      "path": "partial_layer_lineage.tar.gz.part002",
+      "bytes": 16000000,
+      "sha256": "dbc052eb5352e856346c9fb7b44948fec6873ac42cdd5fb570173de71b577ac9"
+    },
+    {
+      "path": "partial_layer_lineage.tar.gz.part003",
+      "bytes": 16000000,
+      "sha256": "75ef8c1759033f5e1c7d8b53e69503ef24e16ac4425354ea3b5702c2ffdfa2c4"
+    },
+    {
+      "path": "partial_layer_lineage.tar.gz.part004",
+      "bytes": 16000000,
+      "sha256": "218ee756d2d6b4bea492c5ff00a62b8aa7af07a22412020b33977a9833acd55b"
+    },
+    {
+      "path": "partial_layer_lineage.tar.gz.part005",
+      "bytes": 16000000,
+      "sha256": "288f62d0b6eddd19fb78de592c4d2c0137678d9e6689460cc00f86ca4fb32600"
+    },
+    {
+      "path": "partial_layer_lineage.tar.gz.part006",
+      "bytes": 16000000,
+      "sha256": "fe288669bde585aa2287564bd296134d1ea956342aca7ffbb644e94764227a92"
+    },
+    {
+      "path": "partial_layer_lineage.tar.gz.part007",
+      "bytes": 16000000,
+      "sha256": "04e49a81c46c8a7c6dfa63c5870bbcd8a7c75199525f49054168f3940bcf60c8"
+    },
+    {
+      "path": "partial_layer_lineage.tar.gz.part008",
+      "bytes": 8398746,
+      "sha256": "6cf6646137deac1986955ade4e75b6f14950737f7d1862f4e182116e996ee56b"
+    }
+  ]
+}

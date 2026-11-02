@@ -1,0 +1,15 @@
+{
+  "source_models": "committed guarded paired robustness DCT16/C1 logistic; no refits",
+  "source_script_sha256": "135d83f9a7ae80cfb6c158b1b9cfe87ea067b2c88e816b41029407e8b6c7ac4b",
+  "source_existing_protocol_sha256": "ffbc8c8ea29b7e2d38b2b667088b3e790901e51f5995d273fb04cd3021d00b07",
+  "added_gaussian_sigma_eV": 0.25,
+  "Gaussian_FWHM_eV": 0.588705,
+  "noise": "independent pair noise or one reference error reused across queries per fold; common incident component separately cancels",
+  "detectability": "known synthetic noise in difference units; noiseless synthetic cases explicitly declare audited simulation scale; unknown quality yields review. Noise0 is not automatically infinite SNR.",
+  "window": [
+    8975.0,
+    9028.0
+  ],
+  "shift_sign": "sample mu(E+0.2), features move-0.2eV on fixed grid; common versus sample-only shift separate",
+  "not_experimental_validation": true
+}

@@ -1,0 +1,521 @@
+{
+  "root_role": "author working-folder benchmark, searched again for newly available outputs",
+  "series": [
+    {
+      "material": "Cu",
+      "method": "PBE",
+      "directory": "/Users/hjia/Downloads/CO2RR/benchmark/Cu/PBE/XAS",
+      "artifacts": [
+        {
+          "path": "Cu/PBE/INCAR",
+          "bytes": 514,
+          "sha256": "8b159953afd23eb2dd880eea2d358ceb4da06ec4154320b31d295f457ea29c42",
+          "tags": {
+            "ALGO": "Normal",
+            "ENCUT": "600"
+          }
+        },
+        {
+          "path": "Cu/PBE/OUTCAR",
+          "bytes": 164542,
+          "sha256": "eb1ad5848a79d08bcc239c7befd1d5d9ce6af5a0cb034778c996bfbfcbf2a20e",
+          "imaginary_dielectric_blocks": 0
+        },
+        {
+          "path": "Cu/PBE/XAS/INCAR",
+          "bytes": 441,
+          "sha256": "80d990d72034035bb73b696ce42220a3a3f2f971ad43af421b3bdcf4ff220979",
+          "tags": {
+            "ALGO": "Fast",
+            "NBANDS": "2194",
+            "ICORELEVEL": "2",
+            "CLNT": "1",
+            "CLN": "1",
+            "CLL": "0",
+            "CLZ": "1.0",
+            "CH_LSPEC": ".TRUE.",
+            "CH_SIGMA": "0.1"
+          }
+        },
+        {
+          "path": "Cu/PBE/XAS/OUTCAR",
+          "bytes": 1712930,
+          "sha256": "e640834cd4e0259bed3857a7d73daf1197c47c0fe2e797699dbc3e2850f923d5",
+          "imaginary_dielectric_blocks": 1
+        },
+        {
+          "path": "Cu/PBE/XAS/vaspout.h5",
+          "bytes": 1317111,
+          "sha256": "22ac7e8f57ba48626825b485b850cb3053f1d6bcb818ce06f7939f28cd77036e",
+          "spectrum_named_datasets": []
+        },
+        {
+          "path": "Cu/PBE/XAS/vasprun.xml",
+          "bytes": 1561210,
+          "sha256": "6f2f67790c8f188fbf52c8ed921f4341cdbcf5d8a873e0f57ac585c392478c09",
+          "dielectric_blocks": 1
+        },
+        {
+          "path": "Cu/PBE/vaspout.h5",
+          "bytes": 835610,
+          "sha256": "77e8e46abb36cf91cae70d6f75b4eca5d2a32d2f95561e27f760a7ba157c80c4",
+          "spectrum_named_datasets": []
+        },
+        {
+          "path": "Cu/PBE/vasprun.xml",
+          "bytes": 131144,
+          "sha256": "a5ecd9028a17ec26baf8c1b9be1a40ac0b9f2576748ac5c828134b532d9b28d8",
+          "dielectric_blocks": 0
+        }
+      ],
+      "PAW_lineage": [
+        {
+          "path": "Cu/PBE/POTCAR",
+          "bytes": 378112,
+          "sha256": "c7ec947ce0a546050afae4156505dda36253b3c3f244bb55c549341573760a73",
+          "TITEL": [
+            "PAW_PBE Cu 05Jan2001",
+            "PAW_PBE Cu 05Jan2001"
+          ]
+        },
+        {
+          "path": "Cu/PBE/XAS/POTCAR",
+          "bytes": 378112,
+          "sha256": "c7ec947ce0a546050afae4156505dda36253b3c3f244bb55c549341573760a73",
+          "TITEL": [
+            "PAW_PBE Cu 05Jan2001",
+            "PAW_PBE Cu 05Jan2001"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "Cu",
+      "method": "GW",
+      "directory": "/Users/hjia/Downloads/CO2RR/benchmark/Cu/GW/XAS",
+      "artifacts": [
+        {
+          "path": "Cu/GW/INCAR",
+          "bytes": 514,
+          "sha256": "8b159953afd23eb2dd880eea2d358ceb4da06ec4154320b31d295f457ea29c42",
+          "tags": {
+            "ALGO": "Normal",
+            "ENCUT": "600"
+          }
+        },
+        {
+          "path": "Cu/GW/OUTCAR",
+          "bytes": 165960,
+          "sha256": "4916dc68214f599227fad3c6f0f34aac032051470aa326c64874ce716a3d2836",
+          "imaginary_dielectric_blocks": 0
+        },
+        {
+          "path": "Cu/GW/XAS/INCAR",
+          "bytes": 441,
+          "sha256": "80d990d72034035bb73b696ce42220a3a3f2f971ad43af421b3bdcf4ff220979",
+          "tags": {
+            "ALGO": "Fast",
+            "NBANDS": "2194",
+            "ICORELEVEL": "2",
+            "CLNT": "1",
+            "CLN": "1",
+            "CLL": "0",
+            "CLZ": "1.0",
+            "CH_LSPEC": ".TRUE.",
+            "CH_SIGMA": "0.1"
+          }
+        },
+        {
+          "path": "Cu/GW/XAS/OUTCAR",
+          "bytes": 1742434,
+          "sha256": "b5344c2cf05e4e7a9cfe9ab345f718b9ccb70af076c2ade57057d61137f68cfa",
+          "imaginary_dielectric_blocks": 1
+        },
+        {
+          "path": "Cu/GW/XAS/vaspout.h5",
+          "bytes": 1467787,
+          "sha256": "5d15dcd2cd57d25ac4a8c3d876033f5a47354a3d6b0b78e0b9b245050ea3a396",
+          "spectrum_named_datasets": []
+        },
+        {
+          "path": "Cu/GW/XAS/vasprun.xml",
+          "bytes": 1566040,
+          "sha256": "555e28d7715973577fd3d3fbe965ebb7b37e6530937531613e0fdc22f9ef5109",
+          "dielectric_blocks": 1
+        },
+        {
+          "path": "Cu/GW/vaspout.h5",
+          "bytes": 986286,
+          "sha256": "8a6df31d14dea0428b850b9642ca68d56c330fa94a40ba66e0714d95329ddd79",
+          "spectrum_named_datasets": []
+        },
+        {
+          "path": "Cu/GW/vasprun.xml",
+          "bytes": 130304,
+          "sha256": "40ef07f149b7a1b205d7194e0ff07c08289bdab33a20e6f2ac89fe82b78d4eb6",
+          "dielectric_blocks": 0
+        }
+      ],
+      "PAW_lineage": [
+        {
+          "path": "Cu/GW/POTCAR",
+          "bytes": 528788,
+          "sha256": "bfdcb8b323cff3c311204b70c3e7a44093bd8bf222813554389aa74fa84c2078",
+          "TITEL": [
+            "PAW Cu_GW 19May2006",
+            "PAW Cu_GW 19May2006"
+          ]
+        },
+        {
+          "path": "Cu/GW/XAS/POTCAR",
+          "bytes": 528788,
+          "sha256": "bfdcb8b323cff3c311204b70c3e7a44093bd8bf222813554389aa74fa84c2078",
+          "TITEL": [
+            "PAW Cu_GW 19May2006",
+            "PAW Cu_GW 19May2006"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "Cu2O",
+      "method": "PBE",
+      "directory": "/Users/hjia/Downloads/CO2RR/benchmark/Cu2O/PBE/XAS",
+      "artifacts": [
+        {
+          "path": "Cu2O/PBE/INCAR",
+          "bytes": 504,
+          "sha256": "491799ef61dc8d823cb27b56f8415bc6614e93b43de597b91a05cdd854cf8611",
+          "tags": {
+            "ALGO": "Normal",
+            "ENCUT": "600"
+          }
+        },
+        {
+          "path": "Cu2O/PBE/OUTCAR",
+          "bytes": 447634,
+          "sha256": "983acb3e4d921422703349db220908e8d94d0478192df4add05ac4dbe4bfa337",
+          "imaginary_dielectric_blocks": 0
+        },
+        {
+          "path": "Cu2O/PBE/XAS/INCAR",
+          "bytes": 504,
+          "sha256": "491799ef61dc8d823cb27b56f8415bc6614e93b43de597b91a05cdd854cf8611",
+          "tags": {
+            "ALGO": "Normal",
+            "ENCUT": "600"
+          }
+        },
+        {
+          "path": "Cu2O/PBE/XAS/OUTCAR",
+          "bytes": 413079,
+          "sha256": "bf8b29b4a28f5e0f8437eadd35e0b925d733b321ba81ea5810de1d0bc614ed29",
+          "imaginary_dielectric_blocks": 0
+        },
+        {
+          "path": "Cu2O/PBE/XAS/vaspout.h5",
+          "bytes": 1606620,
+          "sha256": "d6bec9b15cc65335d27d02e85cc3c47dc860510e41a53633894394e0174e53be",
+          "spectrum_named_datasets": []
+        },
+        {
+          "path": "Cu2O/PBE/XAS/vasprun.xml",
+          "bytes": 411638,
+          "sha256": "ff53f86353cf0d9790e323eb80388d3946d7192a92bb84a85dbe9b7080949c74",
+          "dielectric_blocks": 0
+        },
+        {
+          "path": "Cu2O/PBE/vaspout.h5",
+          "bytes": 1606620,
+          "sha256": "d6d8071c6a747d6e2c77b1f20d5a6f2bcdb06dbf496611d2f381ffa97ceb0e39",
+          "spectrum_named_datasets": []
+        },
+        {
+          "path": "Cu2O/PBE/vasprun.xml",
+          "bytes": 416958,
+          "sha256": "80939eaf46e1f88f85e0c802737e22cbd5756843bd87253cd524aef137ec7654",
+          "dielectric_blocks": 0
+        }
+      ],
+      "PAW_lineage": [
+        {
+          "path": "Cu2O/PBE/POTCAR",
+          "bytes": 518084,
+          "sha256": "7c1b0cf0a4f371cb96a7bb2d9155a9ae2d299795c59d4369694b8126b36950fb",
+          "TITEL": [
+            "PAW_PBE Cu 05Jan2001",
+            "PAW_PBE Cu 05Jan2001",
+            "PAW_PBE O 08Apr2002"
+          ]
+        },
+        {
+          "path": "Cu2O/PBE/XAS/POTCAR",
+          "bytes": 518084,
+          "sha256": "7c1b0cf0a4f371cb96a7bb2d9155a9ae2d299795c59d4369694b8126b36950fb",
+          "TITEL": [
+            "PAW_PBE Cu 05Jan2001",
+            "PAW_PBE Cu 05Jan2001",
+            "PAW_PBE O 08Apr2002"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "Cu2O",
+      "method": "GW",
+      "directory": "/Users/hjia/Downloads/CO2RR/benchmark/Cu2O/GW/XAS",
+      "artifacts": [
+        {
+          "path": "Cu2O/GW/INCAR",
+          "bytes": 504,
+          "sha256": "491799ef61dc8d823cb27b56f8415bc6614e93b43de597b91a05cdd854cf8611",
+          "tags": {
+            "ALGO": "Normal",
+            "ENCUT": "600"
+          }
+        },
+        {
+          "path": "Cu2O/GW/OUTCAR",
+          "bytes": 836183,
+          "sha256": "fd728a1cf426b3f36bf88657b0eca035d8ec18ea7f8a9d6e282a4c9e76e52d7b",
+          "imaginary_dielectric_blocks": 0
+        },
+        {
+          "path": "Cu2O/GW/XAS/INCAR",
+          "bytes": 557,
+          "sha256": "aa0f4088f255256dacf5d7a3de4352c19a82143608ca3d1a9ae0387a1d996bc7",
+          "tags": {
+            "ALGO": "Fast",
+            "NBANDS": "5127",
+            "ICORELEVEL": "2",
+            "CLNT": "1",
+            "CLN": "1",
+            "CLL": "0",
+            "CLZ": "1.0",
+            "CH_LSPEC": ".TRUE.",
+            "CH_SIGMA": "0.1"
+          }
+        },
+        {
+          "path": "Cu2O/GW/vaspout.h5",
+          "bytes": 1797418,
+          "sha256": "257bb32336f0500b93e52adaa515a018a620886f64454c1085242a165e14cd5c",
+          "spectrum_named_datasets": []
+        },
+        {
+          "path": "Cu2O/GW/vasprun.xml",
+          "bytes": 467078,
+          "sha256": "ef34492eadf3a967411a95fa4bb5746bf11c0627594631f5dffbeb390cfc777b",
+          "dielectric_blocks": 0
+        }
+      ],
+      "PAW_lineage": [
+        {
+          "path": "Cu2O/GW/POTCAR",
+          "bytes": 708882,
+          "sha256": "b0dbe1cc79c421c9bdcc330db550b2dfe1012e0428269281adb45bb04158ad97",
+          "TITEL": [
+            "PAW Cu_GW 19May2006",
+            "PAW Cu_GW 19May2006",
+            "PAW O_GW 28Sep2005"
+          ]
+        },
+        {
+          "path": "Cu2O/GW/XAS/POTCAR",
+          "bytes": 708882,
+          "sha256": "b0dbe1cc79c421c9bdcc330db550b2dfe1012e0428269281adb45bb04158ad97",
+          "TITEL": [
+            "PAW Cu_GW 19May2006",
+            "PAW Cu_GW 19May2006",
+            "PAW O_GW 28Sep2005"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "CuO",
+      "method": "PBE",
+      "directory": "/Users/hjia/Downloads/CO2RR/benchmark/CuO/PBE/XAS",
+      "artifacts": [
+        {
+          "path": "CuO/PBE/INCAR",
+          "bytes": 508,
+          "sha256": "09ef4c8291824ea92c438591e20de05b26e638e7fa80b733796ffedc81e77a33",
+          "tags": {
+            "ALGO": "Normal",
+            "ENCUT": "600"
+          }
+        },
+        {
+          "path": "CuO/PBE/OUTCAR",
+          "bytes": 879339,
+          "sha256": "bb47688a704aa37077cddfb53855b2d3ac384cc9e1d7dce58dc2386854ecab90",
+          "imaginary_dielectric_blocks": 0
+        },
+        {
+          "path": "CuO/PBE/XAS/INCAR",
+          "bytes": 586,
+          "sha256": "7e0c4753d96d90046bc807b698cbd8918643e4f7aa63bc30f06b151de970f7ee",
+          "tags": {
+            "ALGO": "Exact",
+            "NBANDS": "3312",
+            "ICORELEVEL": "2",
+            "CLNT": "1",
+            "CLN": "1",
+            "CLL": "0",
+            "CLZ": "1.0",
+            "CH_LSPEC": ".TRUE.",
+            "CH_SIGMA": "0.1"
+          }
+        },
+        {
+          "path": "CuO/PBE/XAS/OUTCAR",
+          "bytes": 69074,
+          "sha256": "29cc4ed76e6b96d6c9a5dea7a3bb7517551d58d0a8196a6faf517320c4953754",
+          "imaginary_dielectric_blocks": 0
+        },
+        {
+          "path": "CuO/PBE/XAS/vaspout.h5",
+          "bytes": 558612,
+          "sha256": "8d2a572b33743002c84d944a14a7971a7f0cbc1131bd7e7f8900c047305c0824",
+          "spectrum_named_datasets": []
+        },
+        {
+          "path": "CuO/PBE/XAS/vasprun.xml",
+          "bytes": 46456,
+          "sha256": "2d528245664beb5a29c89022e43657dda52cfa2640ae86c954b1f44eab1ac0d4",
+          "parse_status": "no element found: line 988, column 0"
+        },
+        {
+          "path": "CuO/PBE/vaspout.h5",
+          "bytes": 1634334,
+          "sha256": "2768b646acc67afac17cac38f285e813262b758d369834b50500e05c0a1a78ee",
+          "spectrum_named_datasets": []
+        },
+        {
+          "path": "CuO/PBE/vasprun.xml",
+          "bytes": 883838,
+          "sha256": "f465d2dbeb66f7d742946c67d0effe4e58f538c4432327768f45ebdbfff223b5",
+          "dielectric_blocks": 0
+        }
+      ],
+      "PAW_lineage": [
+        {
+          "path": "CuO/PBE/POTCAR",
+          "bytes": 518084,
+          "sha256": "7c1b0cf0a4f371cb96a7bb2d9155a9ae2d299795c59d4369694b8126b36950fb",
+          "TITEL": [
+            "PAW_PBE Cu 05Jan2001",
+            "PAW_PBE Cu 05Jan2001",
+            "PAW_PBE O 08Apr2002"
+          ]
+        },
+        {
+          "path": "CuO/PBE/XAS/POTCAR",
+          "bytes": 518084,
+          "sha256": "7c1b0cf0a4f371cb96a7bb2d9155a9ae2d299795c59d4369694b8126b36950fb",
+          "TITEL": [
+            "PAW_PBE Cu 05Jan2001",
+            "PAW_PBE Cu 05Jan2001",
+            "PAW_PBE O 08Apr2002"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "CuO",
+      "method": "GW",
+      "directory": "/Users/hjia/Downloads/CO2RR/benchmark/CuO/GW/XAS",
+      "artifacts": [
+        {
+          "path": "CuO/GW/INCAR",
+          "bytes": 508,
+          "sha256": "09ef4c8291824ea92c438591e20de05b26e638e7fa80b733796ffedc81e77a33",
+          "tags": {
+            "ALGO": "Normal",
+            "ENCUT": "600"
+          }
+        },
+        {
+          "path": "CuO/GW/OUTCAR",
+          "bytes": 1167537,
+          "sha256": "e91c45d55a72932bd3026bf00aa912e4aeb33f2feca137ef0de507be5faacf97",
+          "imaginary_dielectric_blocks": 0
+        },
+        {
+          "path": "CuO/GW/XAS/INCAR",
+          "bytes": 560,
+          "sha256": "f8f091f9c43d1ae3ab57bff049216425065171e4523348cdca2f6dbbcc09d1e8",
+          "tags": {
+            "ALGO": "Fast",
+            "NBANDS": "3312",
+            "ICORELEVEL": "2",
+            "CLNT": "1",
+            "CLN": "1",
+            "CLL": "0",
+            "CLZ": "1.0",
+            "CH_LSPEC": ".TRUE.",
+            "CH_SIGMA": "0.1"
+          }
+        },
+        {
+          "path": "CuO/GW/XAS/OUTCAR",
+          "bytes": 3896738,
+          "sha256": "ff80e8443d2524624996472b57865335d6383b9027d15fdaa4a633e65cc93420",
+          "imaginary_dielectric_blocks": 1
+        },
+        {
+          "path": "CuO/GW/XAS/vaspout.h5",
+          "bytes": 2974572,
+          "sha256": "e4c8400337363ffd21e3dcc4b1dc297d09e06b712d8b15669fd10a5c3c25df2b",
+          "spectrum_named_datasets": []
+        },
+        {
+          "path": "CuO/GW/XAS/vasprun.xml",
+          "bytes": 3836121,
+          "sha256": "8797187e10109fb1c39b80e66ac753d85052c2dc825c24b2d91c98cd2c4c61cd",
+          "dielectric_blocks": 1
+        },
+        {
+          "path": "CuO/GW/vaspout.h5",
+          "bytes": 1825132,
+          "sha256": "80863c0102cfb5cd06cd5cef4b6145f988e16ddddd6ee03f5eacaf45c7d566eb",
+          "spectrum_named_datasets": []
+        },
+        {
+          "path": "CuO/GW/vasprun.xml",
+          "bytes": 920518,
+          "sha256": "93f9f15629a158e857b0e7bc22e748164b92a12953219a53b6f1cb11ef7894a9",
+          "dielectric_blocks": 0
+        }
+      ],
+      "PAW_lineage": [
+        {
+          "path": "CuO/GW/POTCAR",
+          "bytes": 708882,
+          "sha256": "b0dbe1cc79c421c9bdcc330db550b2dfe1012e0428269281adb45bb04158ad97",
+          "TITEL": [
+            "PAW Cu_GW 19May2006",
+            "PAW Cu_GW 19May2006",
+            "PAW O_GW 28Sep2005"
+          ]
+        },
+        {
+          "path": "CuO/GW/XAS/POTCAR",
+          "bytes": 708882,
+          "sha256": "b0dbe1cc79c421c9bdcc330db550b2dfe1012e0428269281adb45bb04158ad97",
+          "TITEL": [
+            "PAW Cu_GW 19May2006",
+            "PAW Cu_GW 19May2006",
+            "PAW O_GW 28Sep2005"
+          ]
+        }
+      ]
+    }
+  ],
+  "PAW_policy": "TITEL and SHA only; no proprietary potential contents uploaded",
+  "energy_and_quantity": "native core-excitation energy, trace/3 of final imaginary dielectric tensor block; no absolute photon calibration",
+  "method_assignment": "PBE and GW supplied labels; no verified GW/BSE stage; separate PAW/core-zero calibration",
+  "native_width": "CH_SIGMA 0.1 eV recorded. Official guide calls this Gaussian width; source-specific sigma/FWHM interpretation not independently pinned. Added sigma1 diagnostic is explicitly Gaussian sigma=1 eV (FWHM=2.35482 eV).",
+  "missing": "Cu2O PBE SCF output has no numeric XAS block; Cu2O GW no XAS OUTCAR; CuO PBE incomplete output. No usable replacement recovered from XML/HDF5."
+}

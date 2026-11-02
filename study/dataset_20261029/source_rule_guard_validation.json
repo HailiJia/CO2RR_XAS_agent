@@ -1,0 +1,1646 @@
+[
+  {
+    "configuration": "Cu100/Cu100_2x2x4_clean",
+    "layer": 3,
+    "source_rule": "nonoverlapping_symmetry_representatives",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_clean",
+    "layer": 4,
+    "source_rule": "nonoverlapping_symmetry_representatives",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "2CO_adjacent/2CO_adjacent_0p056_AuCu_interface",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "2CO_adjacent/2CO_adjacent_0p056_AuCu_interface",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "2CO_adjacent/2CO_adjacent_0p056_interface",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "2CO_adjacent/2CO_adjacent_0p056_interface",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "2CO_adjacent/2CO_adjacent_0p056_interior",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "2CO_adjacent/2CO_adjacent_0p056_interior",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "2CO_adjacent/2CO_adjacent_0p056_orientation_alt",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "2CO_adjacent/2CO_adjacent_0p056_orientation_alt",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "2CO_adjacent/2CO_adjacent_0p111_interface",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "2CO_adjacent/2CO_adjacent_0p111_interface",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "2CO_adjacent/2CO_adjacent_0p111_uniform",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "2CO_adjacent/2CO_adjacent_0p111_uniform",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "2CO_adjacent/2CO_adjacent_0p167_uniform",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "2CO_adjacent/2CO_adjacent_0p167_uniform",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CHO/CHO_0p028_Cu_top",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CHO/CHO_0p028_Cu_top",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CHO/CHO_0p056_AuCu_bidentate",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CHO/CHO_0p056_AuCu_bidentate",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CHO/CHO_0p056_CuCu_bidentate",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CHO/CHO_0p056_CuCu_bidentate",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CHO/CHO_0p056_interface_Cu",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CHO/CHO_0p056_interface_Cu",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CHO/CHO_0p056_interior_Cu",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CHO/CHO_0p056_interior_Cu",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CHO/CHO_0p056_uniform",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CHO/CHO_0p056_uniform",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CHO/CHO_0p111_CuCu_bidentate",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CHO/CHO_0p111_CuCu_bidentate",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CHO/CHO_0p111_uniform",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CHO/CHO_0p111_uniform",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CHO/CHO_0p167_uniform",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CHO/CHO_0p167_uniform",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CHO_CO/CO_CHO_0p111_more_CO",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CHO_CO/CO_CHO_0p111_more_CO",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CHO_CO/CO_CHO_0p111_uniform",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CHO_CO/CO_CHO_0p111_uniform",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CO/CO_0p11/interface_biased",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CO/CO_0p11/interface_biased",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CO/CO_0p11/interior_biased",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CO/CO_0p11/interior_biased",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CO/CO_0p11/uniform",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CO/CO_0p11/uniform",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CO/CO_0p14/interface_biased",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CO/CO_0p14/interface_biased",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CO/CO_0p14/interior_biased",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CO/CO_0p14/interior_biased",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CO/CO_0p14/uniform",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CO/CO_0p14/uniform",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CO/CO_0p14/uniform2",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CO/CO_0p14/uniform2",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CO/CO_0p25/interface_biased",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CO/CO_0p25/interface_biased",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CO/CO_0p25/interface_biased2",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CO/CO_0p25/interface_biased2",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CO/CO_0p25/interior_biased",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CO/CO_0p25/interior_biased",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CO/CO_0p25/uniform",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CO/CO_0p25/uniform",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CO/CO_0p5/interface_biased",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CO/CO_0p5/interface_biased",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CO/CO_0p5/interior_biased",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CO/CO_0p5/interior_biased",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CO/CO_0p5/uniform",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CO/CO_0p5/uniform",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CO/CO_0p75/uniform",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CO/CO_0p75/uniform",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CO2/CO2_0p028_interface_biased_activated",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CO2/CO2_0p028_interface_biased_activated",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CO2/CO2_0p028_linear_Cu_top",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CO2/CO2_0p028_linear_Cu_top",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CO2/CO2_0p056_interface_biased_activated",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CO2/CO2_0p056_interface_biased_activated",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CO2/CO2_0p056_mixed",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CO2/CO2_0p056_mixed",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CO2/CO2_0p056_uniform_activated",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CO2/CO2_0p056_uniform_activated",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "COCHO/COCHO_0p056_AuCu_interface",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "COCHO/COCHO_0p056_AuCu_interface",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "COCHO/COCHO_0p056_AuCu_interface2",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "COCHO/COCHO_0p056_AuCu_interface2",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "COCHO/COCHO_0p056_Cu_interface",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "COCHO/COCHO_0p056_Cu_interface",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "COCHO/COCHO_0p056_Cu_interior",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "COCHO/COCHO_0p056_Cu_interior",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "COH/CHO_0p056_AuAuCu",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "COH/CHO_0p056_AuAuCu",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "COH/CHO_0p111_AuCuCu",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "COH/CHO_0p111_AuCuCu",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "COH/CHO_0p111_interface_Cu3",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "COH/CHO_0p111_interface_Cu3",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "COH/CHO_0p111_uniform",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "COH/CHO_0p111_uniform",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "COH/COH_0p028_interface_Cu3",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "COH/COH_0p028_interface_Cu3",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "COH/COH_0p056_AuCuCu",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "COH/COH_0p056_AuCuCu",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "COH/COH_0p056_interface_Cu3",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "COH/COH_0p056_interface_Cu3",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "COH/COH_0p056_interior",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "COH/COH_0p056_interior",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "COH/COH_0p056_uniform",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "COH/COH_0p056_uniform",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "COH/COH_0p167_uniform",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "COH/COH_0p167_uniform",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "COOH/COOH_0p028_AuCu_interface",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "COOH/COOH_0p028_AuCu_interface",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "COOH/COOH_0p056_AuCu_interface",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "COOH/COOH_0p056_AuCu_interface",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "COOH/COOH_0p056_Au_top",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "COOH/COOH_0p056_Au_top",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "COOH/COOH_0p056_Cu_interface",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "COOH/COOH_0p056_Cu_interface",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "COOH/COOH_0p056_Cu_uniform",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "COOH/COOH_0p056_Cu_uniform",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "COOH/COOH_0p056_mixed_Au_Cu",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "COOH/COOH_0p056_mixed_Au_Cu",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "COOH/COOH_0p111_AuCu_interface",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "COOH/COOH_0p111_AuCu_interface",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "COOH/COOH_0p111_Au_top",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "COOH/COOH_0p111_Au_top",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "COOH/COOH_0p111_Cu_interface",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "COOH/COOH_0p111_Cu_interface",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CO_H/CO_H_0p083_2CO_1H",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CO_H/CO_H_0p083_2CO_1H",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CO_H/CO_H_0p083_2CO_1H_AuCu2",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CO_H/CO_H_0p083_2CO_1H_AuCu2",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CO_H/CO_H_0p111_2CO_2H",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CO_H/CO_H_0p111_2CO_2H",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CO_OH/CO_OH_0p111_3CO_1OH",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CO_OH/CO_OH_0p111_3CO_1OH",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CO_OH/CO_OH_0p111_3CO_1OH_AuCu2",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CO_OH/CO_OH_0p111_3CO_1OH_AuCu2",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CO_OH/CO_OH_0p222_5CO_3OH",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "CO_OH/CO_OH_0p222_5CO_3OH",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_1CO3_1H2O_hollow_flat-1HB",
+    "layer": 3,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_1CO3_1H2O_hollow_flat-1HB",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_1CO3_hollow",
+    "layer": 3,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_1CO3_hollow",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_1H2O_1CO_H2Otop_CObridge",
+    "layer": 3,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_1H2O_1CO_H2Otop_CObridge",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_1H2O_1OH_H2Otop_OHbridge",
+    "layer": 3,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_1H2O_1OH_H2Otop_OHbridge",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_1H2O_2OH_H2Otop_OHbridge-top",
+    "layer": 3,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_1H2O_2OH_H2Otop_OHbridge-top",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_CO_1_4_top",
+    "layer": 3,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_CO_1_4_top",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_CO_2_4_2top_v2",
+    "layer": 3,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_CO_2_4_2top_v2",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_CO_3_4_2top_1bridge",
+    "layer": 3,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_CO_3_4_2top_1bridge",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_CO_4_4_2top_2bridge",
+    "layer": 3,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_CO_4_4_2top_2bridge",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_H_1_4_hollow",
+    "layer": 3,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_H_1_4_hollow",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_H_3_4_1bridge_2hollow_config_1",
+    "layer": 3,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_H_3_4_1bridge_2hollow_config_1",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_H_4_4_4bridge_config_4",
+    "layer": 3,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_H_4_4_4bridge_config_4",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_OH_1_4_hollow",
+    "layer": 3,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_OH_1_4_hollow",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_OH_2_4_hollow_config_2",
+    "layer": 3,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_OH_2_4_hollow_config_2",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_OH_3_4_mixed_1bridge_2hollow",
+    "layer": 3,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_OH_3_4_mixed_1bridge_2hollow",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_OH_4_4_mixed_2top_2bridge",
+    "layer": 3,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_OH_4_4_mixed_2top_2bridge",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_O_1_4_hollow",
+    "layer": 3,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_O_1_4_hollow",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "H/H_0p25/Au",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "H/H_0p25/Au",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "H/H_0p25/interface_biased",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "H/H_0p25/interface_biased",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "H/H_0p25/interface_biased2",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "H/H_0p25/interface_biased2",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "H/H_0p25/interior_biased",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "H/H_0p25/interior_biased",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "H/H_0p25/uniform",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "H/H_0p25/uniform",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "H/H_0p5/Au",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "H/H_0p5/Au",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "H/H_0p5/interface_biased",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "H/H_0p5/interface_biased",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "H/H_0p5/interface_biased2",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "H/H_0p5/interface_biased2",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "H/H_0p5/interior_biased",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "H/H_0p5/interior_biased",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "H/H_0p5/uniform",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "H/H_0p5/uniform",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "H/H_0p75/0p88_mixed",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "H/H_0p75/0p88_mixed",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "H/H_0p75/Au",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "H/H_0p75/Au",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "H/H_0p75/interface_biased",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "H/H_0p75/interface_biased",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "H/H_0p75/interface_biased2",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "H/H_0p75/interface_biased2",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "H/H_0p75/interior_biased",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "H/H_0p75/interior_biased",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "H/H_0p75/mixed",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "H/H_0p75/mixed",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "H/H_0p75/uniform",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "H/H_0p75/uniform",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "O/O_0p028_1O_AuCu2",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "O/O_0p028_1O_AuCu2",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "O/O_0p028_1O_Cu3",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "O/O_0p028_1O_Cu3",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "O/O_0p056_2O_AuCu2",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "O/O_0p056_2O_AuCu2",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "O/O_0p056_2O_Cu3_distributed",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "O/O_0p056_2O_Cu3_distributed",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "O/O_0p056_2O_mixed_Cu3_AuCu2",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "O/O_0p056_2O_mixed_Cu3_AuCu2",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "O/O_0p083_3O_Cu3_AuCu2",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "O/O_0p083_3O_Cu3_AuCu2",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "O/O_0p083_3O_interface_weighted_Cu3_AuCu2",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "O/O_0p083_3O_interface_weighted_Cu3_AuCu2",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "OCCOH/OCCOH_0p056_AuCu_interface",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "OCCOH/OCCOH_0p056_AuCu_interface",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "OCCOH/OCCOH_0p056_Cu_interface",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "OCCOH/OCCOH_0p056_Cu_interface",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "OCCOH/OCCOH_0p056_Cu_interior",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "OCCOH/OCCOH_0p056_Cu_interior",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "OCCO_CO/OCCO_CO_0p111_Cu_rich",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "OCCO_CO/OCCO_CO_0p111_Cu_rich",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "OCCO_CO/OCCO_CO_0p167_AuCu_interface",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "OCCO_CO/OCCO_CO_0p167_AuCu_interface",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "OCCO_CO/OCCO_CO_0p167_Cu_rich",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "OCCO_CO/OCCO_CO_0p167_Cu_rich",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "OCCO_CO/OCCO_plus_CO_0p222_AuCu_interface",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "OCCO_CO/OCCO_plus_CO_0p222_AuCu_interface",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "OCCO_CO/OCCO_plus_CO_0p222_Cu_rich",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "OCCO_CO/OCCO_plus_CO_0p222_Cu_rich",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "OCCO_CO/OCCO_plus_CO_0p333_Cu_rich",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "OCCO_CO/OCCO_plus_CO_0p333_Cu_rich",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "OCCO_H2O/OCCO_2H2O",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "OCCO_H2O/OCCO_2H2O",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "OCHO/01_1OCHO_CuCu_interface",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "OCHO/01_1OCHO_CuCu_interface",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "OCHO/02_1OCHO_AuCu_across",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "OCHO/02_1OCHO_AuCu_across",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "OCHO/03_1OCHO_CuCu_interior",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "OCHO/03_1OCHO_CuCu_interior",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "OCHO/04_2OCHO_CuCu_interface_plus_interior",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "OCHO/04_2OCHO_CuCu_interface_plus_interior",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "OCHO/05_2OCHO_CuCu_interface_plus_AuCu",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "OCHO/05_2OCHO_CuCu_interface_plus_AuCu",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "OCHO/06_2OCHO_2CuCu_interface",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "OCHO/06_2OCHO_2CuCu_interface",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "OCHO/07_3OCHO_2CuCu_interface_plus_interior",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "OCHO/07_3OCHO_2CuCu_interface_plus_interior",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "OCHO/08_3OCHO_1CuCu_interface_plus_2interior",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "OCHO/08_3OCHO_1CuCu_interface_plus_2interior",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "OH/OH_0p125_interior_biased",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "OH/OH_0p125_interior_biased",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "OH/OH_0p125_uniform_high5Cu",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "OH/OH_0p125_uniform_high5Cu",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "OH/OH_0p125_uniform_low4Cu",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "OH/OH_0p125_uniform_low4Cu",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "OH/OH_0p25_interface_Au",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "OH/OH_0p25_interface_Au",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "OH/OH_0p25_interior_biased",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "OH/OH_0p25_interior_biased",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "OH/OH_0p25_uniform",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "OH/OH_0p25_uniform",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "OH/OH_0p50_interface_Au",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "OH/OH_0p50_interface_Au",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "OH/OH_0p50_interior_biased",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "OH/OH_0p50_interior_biased",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "plain",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "plain",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "OH/OH_0p125_interface_Au",
+    "layer": 4,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  },
+  {
+    "configuration": "OH/OH_0p125_interface_Au",
+    "layer": 5,
+    "source_rule": "all_physical_sites",
+    "strict_metric_and_multiplicity_guard_passed": true
+  }
+]

@@ -1,0 +1,1787 @@
+[
+  {
+    "configuration": "2CO_adjacent/2CO_adjacent_0p056_AuCu_interface",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "2CO_adjacent/2CO_adjacent_0p056_AuCu_interface/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "a739efdc2f1748e6a253f14b84b7063bb5e9458007aaafe56241bf06d9ae4b5e",
+    "conversion": "converted",
+    "converted_record": "records/2CO_adjacent/2CO_adjacent_0p056_AuCu_interface/isaac_record_layers.json",
+    "converted_record_sha256": "08ca48dc6edabd8563b5a73d470bf3ba4d77a7d150debd0fd81ef125b68dd144"
+  },
+  {
+    "configuration": "2CO_adjacent/2CO_adjacent_0p056_interface",
+    "layers": [],
+    "source_record": null,
+    "source_record_sha256": null,
+    "conversion": "no_usable_spectrum"
+  },
+  {
+    "configuration": "2CO_adjacent/2CO_adjacent_0p056_interior",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "2CO_adjacent/2CO_adjacent_0p056_interior/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "973a8a0ffbf1e28a13a50270e25064e214a9513d19412798a1180e537f7aa8d4",
+    "conversion": "converted",
+    "converted_record": "records/2CO_adjacent/2CO_adjacent_0p056_interior/isaac_record_layers.json",
+    "converted_record_sha256": "21554ac18ff74542ddd992715038f0b4a66cbd07d93723ecdb33800b2d30e1bf"
+  },
+  {
+    "configuration": "2CO_adjacent/2CO_adjacent_0p056_orientation_alt",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "2CO_adjacent/2CO_adjacent_0p056_orientation_alt/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "0a7d78a202405e39102f6a6e4411354a2cff34fcd74ae1f0ac727bccb30c6462",
+    "conversion": "converted",
+    "converted_record": "records/2CO_adjacent/2CO_adjacent_0p056_orientation_alt/isaac_record_layers.json",
+    "converted_record_sha256": "49d072f85b69add1b24607c2350757dbf7348ba62d86ccad33aa1f9d426707bf"
+  },
+  {
+    "configuration": "2CO_adjacent/2CO_adjacent_0p111_interface",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "2CO_adjacent/2CO_adjacent_0p111_interface/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "46d50133b516135fc71918bd2af5914cc148cd91b4a8194159be813f9e62b993",
+    "conversion": "converted",
+    "converted_record": "records/2CO_adjacent/2CO_adjacent_0p111_interface/isaac_record_layers.json",
+    "converted_record_sha256": "7c180a584baf009e45cb434d482d6fba51a118ad413cb971e8aacc714b75029c"
+  },
+  {
+    "configuration": "2CO_adjacent/2CO_adjacent_0p111_uniform",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "2CO_adjacent/2CO_adjacent_0p111_uniform/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "5d698e9d1a1b46bba46028cbfb43101a1cc0964a271f766d782ea5631828c70e",
+    "conversion": "converted",
+    "converted_record": "records/2CO_adjacent/2CO_adjacent_0p111_uniform/isaac_record_layers.json",
+    "converted_record_sha256": "5562be7b7900f705433e392c28f960eb1cb717fcfdfabb7cd1f339f6bc378b80"
+  },
+  {
+    "configuration": "2CO_adjacent/2CO_adjacent_0p167_uniform",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "2CO_adjacent/2CO_adjacent_0p167_uniform/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "5d649f4e0e76e36ff389a60141b9dd201e5d7230948160de8d00bf5f2ba7cbad",
+    "conversion": "converted",
+    "converted_record": "records/2CO_adjacent/2CO_adjacent_0p167_uniform/isaac_record_layers.json",
+    "converted_record_sha256": "815e196c32020c5b82fa160765ba8f4c043d111c12d74136c6e5d2ab3c84476a"
+  },
+  {
+    "configuration": "CHO/CHO_0p028_Cu_top",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "CHO/CHO_0p028_Cu_top/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "3a43a94631282d13d2cac6090157c74b312dcf0d87ecfbe72c140423f9144b23",
+    "conversion": "converted",
+    "converted_record": "records/CHO/CHO_0p028_Cu_top/isaac_record_layers.json",
+    "converted_record_sha256": "21a488665f18c91c29078ecfd0bf5f6cc638d229523f714621e952c47f51f222"
+  },
+  {
+    "configuration": "CHO/CHO_0p056_AuCu_bidentate",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "CHO/CHO_0p056_AuCu_bidentate/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "ba8c0fb0c985d542f9afb503b5d45689823df43b3803620508ce204528bd5f77",
+    "conversion": "converted",
+    "converted_record": "records/CHO/CHO_0p056_AuCu_bidentate/isaac_record_layers.json",
+    "converted_record_sha256": "21f3f486994433b0be4343bad3288a575bb9fd5647efa4964b54d1b78958ffb4"
+  },
+  {
+    "configuration": "CHO/CHO_0p056_CuCu_bidentate",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "CHO/CHO_0p056_CuCu_bidentate/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "4c3f7e103db48777e4dca3d73c88940beeae163bbe378d506ef9e9a55d7b550b",
+    "conversion": "converted",
+    "converted_record": "records/CHO/CHO_0p056_CuCu_bidentate/isaac_record_layers.json",
+    "converted_record_sha256": "aa155ee180ec888551a7642fbd79fd0b3c14f3e91fab72d2ee66bd70891dda32"
+  },
+  {
+    "configuration": "CHO/CHO_0p056_interface_Cu",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "CHO/CHO_0p056_interface_Cu/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "f682d5b8e9fead4cf9b97d9af6ffbbf7994b61cca40453263067b719ecce036b",
+    "conversion": "converted",
+    "converted_record": "records/CHO/CHO_0p056_interface_Cu/isaac_record_layers.json",
+    "converted_record_sha256": "a6c6b50ee01acd9a1f285adf207c1854b372a99027a6561052860c2caffa0529"
+  },
+  {
+    "configuration": "CHO/CHO_0p056_interior_Cu",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "CHO/CHO_0p056_interior_Cu/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "1dd00ffa10496b4862de9226c3f2ceac2ef00e2126d3d1c4743af6f154309f81",
+    "conversion": "converted",
+    "converted_record": "records/CHO/CHO_0p056_interior_Cu/isaac_record_layers.json",
+    "converted_record_sha256": "24ecb0b715307a1203f61c8e4d99b9487546c08a8808c9ef8ea471bc944b7bac"
+  },
+  {
+    "configuration": "CHO/CHO_0p056_uniform",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": null,
+    "source_record_sha256": null,
+    "conversion": "converted",
+    "converted_record": "records/CHO/CHO_0p056_uniform/isaac_record_layers.json",
+    "converted_record_sha256": "6de54337002e1789b77b4a38df6c4d8451a6debf7b9fde644ccfbd5289238332"
+  },
+  {
+    "configuration": "CHO/CHO_0p111_CuCu_bidentate",
+    "layers": [],
+    "source_record": null,
+    "source_record_sha256": null,
+    "conversion": "no_usable_spectrum"
+  },
+  {
+    "configuration": "CHO/CHO_0p111_uniform",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "CHO/CHO_0p111_uniform/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "620548fe2090d2b67619c6d313508c9cd4ba206795f9ffd2aee6c5e04bf893cf",
+    "conversion": "converted",
+    "converted_record": "records/CHO/CHO_0p111_uniform/isaac_record_layers.json",
+    "converted_record_sha256": "cb325cc21f139d2e60fa79ab9b83462a95edcce0fb5430d7f2a5d000b3ea7c76"
+  },
+  {
+    "configuration": "CHO_CO/CO_CHO_0p111_more_CO",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": null,
+    "source_record_sha256": null,
+    "conversion": "converted",
+    "converted_record": "records/CHO_CO/CO_CHO_0p111_more_CO/isaac_record_layers.json",
+    "converted_record_sha256": "64516968ccf477c496bd7b0c2da447473d664d86904d82bbbc34b2b6e101c7e0"
+  },
+  {
+    "configuration": "CHO_CO/CO_CHO_0p111_uniform",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": null,
+    "source_record_sha256": null,
+    "conversion": "converted",
+    "converted_record": "records/CHO_CO/CO_CHO_0p111_uniform/isaac_record_layers.json",
+    "converted_record_sha256": "0a92bfa8a565bdd464390ac1617a5902162e3da5837e74c9a6d6ccd0b9deaebc"
+  },
+  {
+    "configuration": "CO/CO_0p11/interface_biased",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "CO/CO_0p11/interface_biased/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "c6103a29c8d27d941229da54b629d8dbbf026c80d3b07ac429fef4ae330fc185",
+    "conversion": "converted",
+    "converted_record": "records/CO/CO_0p11/interface_biased/isaac_record_layers.json",
+    "converted_record_sha256": "034e7fdb9319d5dea818cde3d88475df717c3d305384170fed78a95cf3275afb"
+  },
+  {
+    "configuration": "CO/CO_0p11/interior_biased",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "CO/CO_0p11/interior_biased/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "bb94c430b23e51b2a9278e207a23d25cda2de2791320d429cd09b406f29d6b92",
+    "conversion": "converted",
+    "converted_record": "records/CO/CO_0p11/interior_biased/isaac_record_layers.json",
+    "converted_record_sha256": "754a212343770994dd68907a22f37724e3207154a73d1ded4a94a939ce5c9f31"
+  },
+  {
+    "configuration": "CO/CO_0p11/uniform",
+    "layers": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": null,
+    "source_record_sha256": null,
+    "conversion": "converted",
+    "converted_record": "records/CO/CO_0p11/uniform/isaac_record_layers.json",
+    "converted_record_sha256": "42f1026f8eba3da54779510c6d4eebf1a870c964164eb439366ce652d1aff0e5"
+  },
+  {
+    "configuration": "CO/CO_0p11/uniform2",
+    "layers": [
+      2,
+      3,
+      5
+    ],
+    "source_record": "CO/CO_0p11/uniform2/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "adb798195d8d5d84c41ae32199665894485368b0abb6267202321015aa957ee1",
+    "conversion": "converted",
+    "converted_record": "records/CO/CO_0p11/uniform2/isaac_record_layers.json",
+    "converted_record_sha256": "73145fb87a892c6cb9c2ed368e4c3cd5ee406a646b901cda4a011ad4408f32dd"
+  },
+  {
+    "configuration": "CO/CO_0p14/interface_biased",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "CO/CO_0p14/interface_biased/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "591dfb6cb764118b64103ec5ed76e4a2b3d3cd0bdf312d2387f4ea963f7d9144",
+    "conversion": "converted",
+    "converted_record": "records/CO/CO_0p14/interface_biased/isaac_record_layers.json",
+    "converted_record_sha256": "201e130444856fab25ffe2a244982f21e53c27d675f8cd49df3bca9949d343e9"
+  },
+  {
+    "configuration": "CO/CO_0p14/interior_biased",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "CO/CO_0p14/interior_biased/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "a93039c6d21749e57c43612cf3458536aa919f53b2c8164bdbfb19f31b2aecea",
+    "conversion": "converted",
+    "converted_record": "records/CO/CO_0p14/interior_biased/isaac_record_layers.json",
+    "converted_record_sha256": "183f794c615290d799142c6b5455e19d477336fa8688bc7c57667dc5538d7b3a"
+  },
+  {
+    "configuration": "CO/CO_0p14/uniform",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "CO/CO_0p14/uniform/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "6b7699f0d7cfb915be0f7db5c8133eab9888c9ccb0a1ccec0e44ab6f269ac3b2",
+    "conversion": "converted",
+    "converted_record": "records/CO/CO_0p14/uniform/isaac_record_layers.json",
+    "converted_record_sha256": "e5b0947bbfb20ef25c0684041d73157d9ea43061afc621333fe74b0313b2ffac"
+  },
+  {
+    "configuration": "CO/CO_0p14/uniform2",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "CO/CO_0p14/uniform2/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "6c50258e38b07b237bcbef909fbda9f67deda8e6cb2927247796b73462859705",
+    "conversion": "converted",
+    "converted_record": "records/CO/CO_0p14/uniform2/isaac_record_layers.json",
+    "converted_record_sha256": "a726f7d5466378b6ed95e5d724670d926f1a080e285b42fda0a9526508afd56c"
+  },
+  {
+    "configuration": "CO/CO_0p25/interface_biased",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "CO/CO_0p25/interface_biased/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "05ec8d7fa3c1a7c255c44c333cd4aaeb5f2d3a5df94ea33b02d4c86f70e753bf",
+    "conversion": "converted",
+    "converted_record": "records/CO/CO_0p25/interface_biased/isaac_record_layers.json",
+    "converted_record_sha256": "733862764d27e0a96b2df456add240b50bfc5bd6bd67d1f7c987894f63b5a3e3"
+  },
+  {
+    "configuration": "CO/CO_0p25/interface_biased2",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "CO/CO_0p25/interface_biased2/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "e45ff9d862d817ccc34165754caae3c1bc0108fddfe917ed6ff3aa7842f42854",
+    "conversion": "converted",
+    "converted_record": "records/CO/CO_0p25/interface_biased2/isaac_record_layers.json",
+    "converted_record_sha256": "afec88c6a768abc82011d113c5ae308fd7f064188a885d3d6bed3bd2bd69c7df"
+  },
+  {
+    "configuration": "CO/CO_0p25/interior_biased",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "CO/CO_0p25/interior_biased/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "ddaa598c7a4143b63f05dedaf1333d0db561989c97d32a52c636d57a64f9a8fb",
+    "conversion": "converted",
+    "converted_record": "records/CO/CO_0p25/interior_biased/isaac_record_layers.json",
+    "converted_record_sha256": "fa659a2133a38a4cd0d41efd42016fb5a1a7f7e697209f077c45e30ad41cb215"
+  },
+  {
+    "configuration": "CO/CO_0p25/uniform",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "CO/CO_0p25/uniform/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "1ae868206e3bad42454428806b6f475ef030fb25a1ec4615db4aac33eb78648e",
+    "conversion": "converted",
+    "converted_record": "records/CO/CO_0p25/uniform/isaac_record_layers.json",
+    "converted_record_sha256": "54bf10e0e84af16edb5bf1fa10d2460a556e84a71725f73e905b0ede72b468c2"
+  },
+  {
+    "configuration": "CO/CO_0p5/interface_biased",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "CO/CO_0p5/interface_biased/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "2c29dfe0fac12a5da1d01656104d2a82e5dac09f03b473ceaa27f00c9899efe6",
+    "conversion": "converted",
+    "converted_record": "records/CO/CO_0p5/interface_biased/isaac_record_layers.json",
+    "converted_record_sha256": "d5cf9779ea5704d677451caf5190631f33d08b8e455c7d787868b6d29073643f"
+  },
+  {
+    "configuration": "CO/CO_0p5/interior_biased",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "CO/CO_0p5/interior_biased/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "eaf78758d0b2ca495b2d97d4a7da6549578ff39970197129ef84c9c79a9dd478",
+    "conversion": "converted",
+    "converted_record": "records/CO/CO_0p5/interior_biased/isaac_record_layers.json",
+    "converted_record_sha256": "c9729c0978036149b7d47d54fcd8b3542d9d6f0583e48b378def73943b6f27ec"
+  },
+  {
+    "configuration": "CO/CO_0p5/uniform",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "CO/CO_0p5/uniform/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "b148085fa8324ac71c6f59a9e84ba6b3335b213fbb0010c2a1888651be7917b5",
+    "conversion": "converted",
+    "converted_record": "records/CO/CO_0p5/uniform/isaac_record_layers.json",
+    "converted_record_sha256": "e2b533d499fb51ad0250bdc2889e3bccbcdff2486ccdd270f354aa7908bec17a"
+  },
+  {
+    "configuration": "CO/CO_0p75/uniform",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "CO/CO_0p75/uniform/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "0c4ab5d86d79bdf4a5247ed644d3255c2225db623c7742d66cb77ee6e9a80592",
+    "conversion": "converted",
+    "converted_record": "records/CO/CO_0p75/uniform/isaac_record_layers.json",
+    "converted_record_sha256": "cc24aaaa854c24a3814475275724d569ca475e22fa5be2470762d9a6821d264e"
+  },
+  {
+    "configuration": "CO2/CO2_0p028_interface_biased_activated",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "CO2/CO2_0p028_interface_biased_activated/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "e1a7bbd0f10fdb8de5ef560a743cb585ef4efc19d5892fef293f41e85f750486",
+    "conversion": "converted",
+    "converted_record": "records/CO2/CO2_0p028_interface_biased_activated/isaac_record_layers.json",
+    "converted_record_sha256": "843210027350ffd0df4419973d3a9cecbf1ce9d1f5983305a19b1b71c58fe056"
+  },
+  {
+    "configuration": "CO2/CO2_0p028_linear_Cu_top",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "CO2/CO2_0p028_linear_Cu_top/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "3049a530e9088955811d0b448ca6a62226a8d154f3b3192f1e7762fda181e24b",
+    "conversion": "converted",
+    "converted_record": "records/CO2/CO2_0p028_linear_Cu_top/isaac_record_layers.json",
+    "converted_record_sha256": "1df8a282483bd0384fbbde76d66c866f48f1bc03f7a22e47983cdaef3ca37bbf"
+  },
+  {
+    "configuration": "CO2/CO2_0p056_interface_biased_activated",
+    "layers": [
+      2
+    ],
+    "source_record": null,
+    "source_record_sha256": null,
+    "conversion": "converted",
+    "converted_record": "records/CO2/CO2_0p056_interface_biased_activated/isaac_record_layers.json",
+    "converted_record_sha256": "26aaf70677f57d09fcbe4195e7d75f521d049926f7a42c50be45619d5badcbb9"
+  },
+  {
+    "configuration": "CO2/CO2_0p056_mixed",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "CO2/CO2_0p056_mixed/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "db464ccaf19324d706550095fdb362c700de8135383a80ad469e641f9a0595eb",
+    "conversion": "converted",
+    "converted_record": "records/CO2/CO2_0p056_mixed/isaac_record_layers.json",
+    "converted_record_sha256": "137f87c45e687e372cc3fd3e22e8383ee3b2e09a1779f5768312f13ff573fb06"
+  },
+  {
+    "configuration": "CO2/CO2_0p056_uniform_activated",
+    "layers": [],
+    "source_record": null,
+    "source_record_sha256": null,
+    "conversion": "no_usable_spectrum"
+  },
+  {
+    "configuration": "COCHO/COCHO_0p056_AuCu_interface",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "COCHO/COCHO_0p056_AuCu_interface/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "08d0590fbed1e4e0b9864496c8341bc8c5116511f9738ba83a664a454bedf633",
+    "conversion": "converted",
+    "converted_record": "records/COCHO/COCHO_0p056_AuCu_interface/isaac_record_layers.json",
+    "converted_record_sha256": "683675af87c9a3176daffef014f2277504d9f3909b0526cdcbb69dae2819efc3"
+  },
+  {
+    "configuration": "COCHO/COCHO_0p056_AuCu_interface2",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "COCHO/COCHO_0p056_AuCu_interface2/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "7ddbc44c662d1cc02e027e64d78401cdb1ab58fc727c74ebaa83eeb261d9911a",
+    "conversion": "converted",
+    "converted_record": "records/COCHO/COCHO_0p056_AuCu_interface2/isaac_record_layers.json",
+    "converted_record_sha256": "6ec5881222a6e3a19f0914b2f2f26c8d4d6b18bf2e3307b2f8f0cd0ae2e7cc39"
+  },
+  {
+    "configuration": "COCHO/COCHO_0p056_Cu_interface",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "COCHO/COCHO_0p056_Cu_interface/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "0cab45e66c2cca939f0ae68b2748c92633fc844c7fc9401d504236303625a2f7",
+    "conversion": "converted",
+    "converted_record": "records/COCHO/COCHO_0p056_Cu_interface/isaac_record_layers.json",
+    "converted_record_sha256": "ba278f655d38855a063a34761155837333b8e7648f1cb971db0cbb4c3706baff"
+  },
+  {
+    "configuration": "COCHO/COCHO_0p056_Cu_interior",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "COCHO/COCHO_0p056_Cu_interior/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "8f2fda9d5a1c4a5abe1586d9c4db07cf4fb6f386cfcc029fd08a52a1a8d00ab8",
+    "conversion": "converted",
+    "converted_record": "records/COCHO/COCHO_0p056_Cu_interior/isaac_record_layers.json",
+    "converted_record_sha256": "4351736e23bc9e9a4ba1f8512c74b76d0628829c95b19684a64839f222c6a6ad"
+  },
+  {
+    "configuration": "COH/CHO_0p056_AuAuCu",
+    "layers": [],
+    "source_record": null,
+    "source_record_sha256": null,
+    "conversion": "no_usable_spectrum"
+  },
+  {
+    "configuration": "COH/CHO_0p111_AuCuCu",
+    "layers": [],
+    "source_record": null,
+    "source_record_sha256": null,
+    "conversion": "no_usable_spectrum"
+  },
+  {
+    "configuration": "COH/CHO_0p111_interface_Cu3",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": null,
+    "source_record_sha256": null,
+    "conversion": "converted",
+    "converted_record": "records/COH/CHO_0p111_interface_Cu3/isaac_record_layers.json",
+    "converted_record_sha256": "0045fff7dd0009be2162af64b3271402ff5210888486229e24b3fba86485fa54"
+  },
+  {
+    "configuration": "COH/COH_0p028_interface_Cu3",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "COH/COH_0p028_interface_Cu3/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "b4e7520d40fd2ec08eafdb8998c70e0a1d97c6f3e3e7056ff9dbccff3d3135a6",
+    "conversion": "converted",
+    "converted_record": "records/COH/COH_0p028_interface_Cu3/isaac_record_layers.json",
+    "converted_record_sha256": "9b1458b81afa6b63030a9bdc4f742a771fc54e6f7dea950747563ceb3742c4fe"
+  },
+  {
+    "configuration": "COH/COH_0p056_AuCuCu",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "COH/COH_0p056_AuCuCu/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "6adee845f766705c72a829ac92c5bbd7c4fe41e52aba762077f697e5f7fa30ef",
+    "conversion": "converted",
+    "converted_record": "records/COH/COH_0p056_AuCuCu/isaac_record_layers.json",
+    "converted_record_sha256": "47056b9266f6c11862bcea98f5eafa61e9302f6a07dabb4b14a7fb148676a4a2"
+  },
+  {
+    "configuration": "COH/COH_0p056_interface_Cu3",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "COH/COH_0p056_interface_Cu3/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "5802e0174ee24aa5f7687b0c283b8266e46c49422f211c3be2cc42e55c576485",
+    "conversion": "converted",
+    "converted_record": "records/COH/COH_0p056_interface_Cu3/isaac_record_layers.json",
+    "converted_record_sha256": "c274dab1224180cdcf928db5577ebcf3a5bbda8d130e1bde85d3e106ab3c97b2"
+  },
+  {
+    "configuration": "COH/COH_0p056_interior",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "COH/COH_0p056_interior/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "e42fc87f4c7fe51d2089e4596452421b2b8a8ccdc82e442300aee662234c69cf",
+    "conversion": "converted",
+    "converted_record": "records/COH/COH_0p056_interior/isaac_record_layers.json",
+    "converted_record_sha256": "dbb5844031bd9c8cfb4870d1c5ab3205574ec37efa4b5fd1ca1c84c957d3c5cb"
+  },
+  {
+    "configuration": "COH/COH_0p056_uniform",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "COH/COH_0p056_uniform/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "b98b2eeb348c74c786f7de712526574967072bb0fd74d55023665b08b60c4a21",
+    "conversion": "converted",
+    "converted_record": "records/COH/COH_0p056_uniform/isaac_record_layers.json",
+    "converted_record_sha256": "f50cb3656f46415a93d5dcfe5e666984f5089ec7f99c46b42bf41358c4791128"
+  },
+  {
+    "configuration": "COH/COH_0p167_uniform",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "COH/COH_0p167_uniform/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "dd744239778749d00b026cf9ead080d4776147de18202cb3cb002c9aa1174872",
+    "conversion": "converted",
+    "converted_record": "records/COH/COH_0p167_uniform/isaac_record_layers.json",
+    "converted_record_sha256": "0b2a8cd611919a1756314637fda3a019aabcecd5c05cac16a631467b3b0d0182"
+  },
+  {
+    "configuration": "COOH/COOH_0p028_AuCu_interface",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "COOH/COOH_0p028_AuCu_interface/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "d55fe534428765def01f74e87d959e2d07f632f1ab3e0906a58faedfed81b903",
+    "conversion": "converted",
+    "converted_record": "records/COOH/COOH_0p028_AuCu_interface/isaac_record_layers.json",
+    "converted_record_sha256": "3e214201e23e2b2d55a55ae982c7f411d5af48d39c49fabbf21b66924cd6823b"
+  },
+  {
+    "configuration": "COOH/COOH_0p056_AuCu_interface",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "COOH/COOH_0p056_AuCu_interface/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "9b7545484e8dee193c4530de80f699b0a2c2bb94a881eb29ab5b53224e389bc2",
+    "conversion": "converted",
+    "converted_record": "records/COOH/COOH_0p056_AuCu_interface/isaac_record_layers.json",
+    "converted_record_sha256": "a5e8324be3b3ea3ca25094c7be310ae13fb81205d04b98406a4664f30ad7a3a1"
+  },
+  {
+    "configuration": "COOH/COOH_0p056_Au_top",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "COOH/COOH_0p056_Au_top/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "73dc2d3e48254794c58f338e1e307d23c1a5c7a876b1868e384796f535bd924d",
+    "conversion": "converted",
+    "converted_record": "records/COOH/COOH_0p056_Au_top/isaac_record_layers.json",
+    "converted_record_sha256": "aec88c76371d3c2d71bc3392d74284d34fa1f3ebfe3bbe0ede0e0c6327f9f402"
+  },
+  {
+    "configuration": "COOH/COOH_0p056_Cu_interface",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "COOH/COOH_0p056_Cu_interface/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "122a5f18d5e6942caf503a2a0ee4c17013b32c969313ac387ad1f91464886246",
+    "conversion": "converted",
+    "converted_record": "records/COOH/COOH_0p056_Cu_interface/isaac_record_layers.json",
+    "converted_record_sha256": "723d117cd4175da3906fa63bca6f1c9eb6db5b3ef2a829c065f4b3e61a17dfe4"
+  },
+  {
+    "configuration": "COOH/COOH_0p056_Cu_uniform",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "COOH/COOH_0p056_Cu_uniform/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "72815167ff9239e9513678600e99514957d11276eacc2513a1753c54d16532ba",
+    "conversion": "converted",
+    "converted_record": "records/COOH/COOH_0p056_Cu_uniform/isaac_record_layers.json",
+    "converted_record_sha256": "e07fdd6c545235fc209f2ede6f7c23c4324a213e9f00d8c762944abc3b70e01b"
+  },
+  {
+    "configuration": "COOH/COOH_0p056_mixed_Au_Cu",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "COOH/COOH_0p056_mixed_Au_Cu/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "595670f65377d798c5e299c0cd7180b7ea9c166c0c331711d35f6bf05bd1a38b",
+    "conversion": "converted",
+    "converted_record": "records/COOH/COOH_0p056_mixed_Au_Cu/isaac_record_layers.json",
+    "converted_record_sha256": "fdf9029924d6f108923c4cb9dcc00d17c8f4fe2791a845b415b80d0b8cdce211"
+  },
+  {
+    "configuration": "COOH/COOH_0p111_AuCu_interface",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "COOH/COOH_0p111_AuCu_interface/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "c498036fd3847f121e8aea4e157dc0e5b845b33bda39f851c7fd3ac2887fea9f",
+    "conversion": "converted",
+    "converted_record": "records/COOH/COOH_0p111_AuCu_interface/isaac_record_layers.json",
+    "converted_record_sha256": "0208c23246a0702809889543e06d61c03f38b8a43539f5e35625c4eac5f6a5ed"
+  },
+  {
+    "configuration": "COOH/COOH_0p111_Au_top",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "COOH/COOH_0p111_Au_top/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "cc8eeed748ba9c204130de1b8241cb6cf7bc13a4affa048b86239b1f499aeb8d",
+    "conversion": "converted",
+    "converted_record": "records/COOH/COOH_0p111_Au_top/isaac_record_layers.json",
+    "converted_record_sha256": "905bcf6d559687eaa9edf44a1823f51f4beb9c8e55b9af1d1f69e5fd2c3c092e"
+  },
+  {
+    "configuration": "COOH/COOH_0p111_Cu_interface",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": null,
+    "source_record_sha256": null,
+    "conversion": "converted",
+    "converted_record": "records/COOH/COOH_0p111_Cu_interface/isaac_record_layers.json",
+    "converted_record_sha256": "e7a4cb39c118526a88a21869ba9b2e4c6f981832ec02990de01b8204b7645e6e"
+  },
+  {
+    "configuration": "CO_H/CO_H_0p083_2CO_1H",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "CO_H/CO_H_0p083_2CO_1H/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "245a3716731a0994fd48e3c41725592e3f1bea4601470a0077fe9a2378cc2d19",
+    "conversion": "converted",
+    "converted_record": "records/CO_H/CO_H_0p083_2CO_1H/isaac_record_layers.json",
+    "converted_record_sha256": "4e9d6e6e814d86150558f7c3597d605ff59efa670cee70d034ac8fd9d95b0373"
+  },
+  {
+    "configuration": "CO_H/CO_H_0p083_2CO_1H_AuCu2",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "CO_H/CO_H_0p083_2CO_1H_AuCu2/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "e560f01e8a475b35537bb1a52d93cc92107267acacbee41362b7965446e15e96",
+    "conversion": "converted",
+    "converted_record": "records/CO_H/CO_H_0p083_2CO_1H_AuCu2/isaac_record_layers.json",
+    "converted_record_sha256": "7391b3a7310eacce2e2186e0f7d16f546532879ad41d662101512d427b5d197a"
+  },
+  {
+    "configuration": "CO_H/CO_H_0p111_2CO_2H",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "CO_H/CO_H_0p111_2CO_2H/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "0e405a43584f8b8aaff470d9070c01bfc21a2efdd562da17ef41e28fbd38f979",
+    "conversion": "converted",
+    "converted_record": "records/CO_H/CO_H_0p111_2CO_2H/isaac_record_layers.json",
+    "converted_record_sha256": "f9a661eb8577a4ef38eb3f657be830d61885ca3b44d1f251c5a997fbaf8f3b40"
+  },
+  {
+    "configuration": "CO_H/CO_H_0p139_3CO_2H_interface_biased",
+    "layers": [],
+    "source_record": null,
+    "source_record_sha256": null,
+    "conversion": "no_usable_spectrum"
+  },
+  {
+    "configuration": "CO_OH/CO_OH_0p111_3CO_1OH",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "CO_OH/CO_OH_0p111_3CO_1OH/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "89f48a6f5cc9bd5c00a2502fe177a05ece6d21e81e8df557c0b8560e8676046d",
+    "conversion": "converted",
+    "converted_record": "records/CO_OH/CO_OH_0p111_3CO_1OH/isaac_record_layers.json",
+    "converted_record_sha256": "e236030391933e480b7f88dd6a152a4ea2f98e43053b1ac036508a92ca03193d"
+  },
+  {
+    "configuration": "CO_OH/CO_OH_0p111_3CO_1OH_AuCu2",
+    "layers": [],
+    "source_record": null,
+    "source_record_sha256": null,
+    "conversion": "no_usable_spectrum"
+  },
+  {
+    "configuration": "CO_OH/CO_OH_0p222_5CO_3OH",
+    "layers": [],
+    "source_record": null,
+    "source_record_sha256": null,
+    "conversion": "no_usable_spectrum"
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_1CO3_1H2O_hollow_flat-1HB",
+    "layers": [
+      2,
+      3,
+      4
+    ],
+    "source_record": null,
+    "source_record_sha256": null,
+    "conversion": "converted",
+    "converted_record": "records/Cu100/Cu100_2x2x4_1CO3_1H2O_hollow_flat-1HB/isaac_record_layers.json",
+    "converted_record_sha256": "0a9b4ea0e139b997fb504f26c0571022931573e9d7c70897a221f1a89c514aca"
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_1CO3_hollow",
+    "layers": [
+      2,
+      3,
+      4
+    ],
+    "source_record": null,
+    "source_record_sha256": null,
+    "conversion": "converted",
+    "converted_record": "records/Cu100/Cu100_2x2x4_1CO3_hollow/isaac_record_layers.json",
+    "converted_record_sha256": "c83fddf4a401ff71f2148f4ed4e4aeb596b2edafba290a0008d8b72c42a84d53"
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_1H2O_1CO_H2Otop_CObridge",
+    "layers": [
+      2,
+      3,
+      4
+    ],
+    "source_record": null,
+    "source_record_sha256": null,
+    "conversion": "converted",
+    "converted_record": "records/Cu100/Cu100_2x2x4_1H2O_1CO_H2Otop_CObridge/isaac_record_layers.json",
+    "converted_record_sha256": "f220ed7a77be61d1f183ff8048cbcd1d27b40bbd3d3d487d523d75b0555973dc"
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_1H2O_1OH_H2Otop_OHbridge",
+    "layers": [
+      2,
+      3,
+      4
+    ],
+    "source_record": null,
+    "source_record_sha256": null,
+    "conversion": "converted",
+    "converted_record": "records/Cu100/Cu100_2x2x4_1H2O_1OH_H2Otop_OHbridge/isaac_record_layers.json",
+    "converted_record_sha256": "fe26c8ace584905b6936a323c14673569952f311ceaaddbbe2ae9ba6a83f263d"
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_1H2O_2OH_H2Otop_OHbridge-top",
+    "layers": [
+      2,
+      3,
+      4
+    ],
+    "source_record": null,
+    "source_record_sha256": null,
+    "conversion": "converted",
+    "converted_record": "records/Cu100/Cu100_2x2x4_1H2O_2OH_H2Otop_OHbridge-top/isaac_record_layers.json",
+    "converted_record_sha256": "bcaefa03f0ed3e4a406b712e3e24e0232b6235ff6b8bc484ae41a39d8f1fd7bb"
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_CO_1_4_top",
+    "layers": [
+      2,
+      3,
+      4
+    ],
+    "source_record": null,
+    "source_record_sha256": null,
+    "conversion": "converted",
+    "converted_record": "records/Cu100/Cu100_2x2x4_CO_1_4_top/isaac_record_layers.json",
+    "converted_record_sha256": "d13927adf8d3475e68d218d76df4fbba56105831e7c0e42eb5bb9baa95908ba6"
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_CO_2_4_2top_v2",
+    "layers": [
+      2,
+      3,
+      4
+    ],
+    "source_record": null,
+    "source_record_sha256": null,
+    "conversion": "converted",
+    "converted_record": "records/Cu100/Cu100_2x2x4_CO_2_4_2top_v2/isaac_record_layers.json",
+    "converted_record_sha256": "b8dc835e998949e66567083f1bf5a50e3c7a767c55515058762a017f47f1ee6c"
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_CO_3_4_2top_1bridge",
+    "layers": [
+      2,
+      3,
+      4
+    ],
+    "source_record": null,
+    "source_record_sha256": null,
+    "conversion": "converted",
+    "converted_record": "records/Cu100/Cu100_2x2x4_CO_3_4_2top_1bridge/isaac_record_layers.json",
+    "converted_record_sha256": "bc1a7e61dde0255f8e1aca10250af505c083e9654189adcb057644b18867f8bb"
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_CO_4_4_2top_2bridge",
+    "layers": [
+      2,
+      3,
+      4
+    ],
+    "source_record": null,
+    "source_record_sha256": null,
+    "conversion": "converted",
+    "converted_record": "records/Cu100/Cu100_2x2x4_CO_4_4_2top_2bridge/isaac_record_layers.json",
+    "converted_record_sha256": "24b2e19cf4780c012b119cce1443afb2e1a2008f877c37b879095e13a6caa351"
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_H_1_4_hollow",
+    "layers": [
+      2,
+      3,
+      4
+    ],
+    "source_record": null,
+    "source_record_sha256": null,
+    "conversion": "converted",
+    "converted_record": "records/Cu100/Cu100_2x2x4_H_1_4_hollow/isaac_record_layers.json",
+    "converted_record_sha256": "9493f46b0ca4b8dcb601737a4b6ceb6dba004487b33067e24c67c5de63b400f6"
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_H_3_4_1bridge_2hollow_config_1",
+    "layers": [
+      2,
+      3,
+      4
+    ],
+    "source_record": null,
+    "source_record_sha256": null,
+    "conversion": "converted",
+    "converted_record": "records/Cu100/Cu100_2x2x4_H_3_4_1bridge_2hollow_config_1/isaac_record_layers.json",
+    "converted_record_sha256": "5a4d60cdc51041998828a669d3dd36062eab29a3ad27969a7b21f0916b00b721"
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_H_4_4_4bridge_config_4",
+    "layers": [
+      2,
+      3,
+      4
+    ],
+    "source_record": null,
+    "source_record_sha256": null,
+    "conversion": "converted",
+    "converted_record": "records/Cu100/Cu100_2x2x4_H_4_4_4bridge_config_4/isaac_record_layers.json",
+    "converted_record_sha256": "a650cc8ca6dbe4e558c68edb687e6203732401342879e2c493a01ca1502ab97f"
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_OH_1_4_hollow",
+    "layers": [
+      2,
+      3,
+      4
+    ],
+    "source_record": null,
+    "source_record_sha256": null,
+    "conversion": "converted",
+    "converted_record": "records/Cu100/Cu100_2x2x4_OH_1_4_hollow/isaac_record_layers.json",
+    "converted_record_sha256": "72754ff145c5464c059edcc3ad038ba646146f85e1d498a5000b713adc2e80e6"
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_OH_2_4_hollow_config_2",
+    "layers": [
+      2,
+      3,
+      4
+    ],
+    "source_record": null,
+    "source_record_sha256": null,
+    "conversion": "converted",
+    "converted_record": "records/Cu100/Cu100_2x2x4_OH_2_4_hollow_config_2/isaac_record_layers.json",
+    "converted_record_sha256": "fdc8edfb747c9a393e4014d9780d09af28b773bc09f6cca89fa823c93c45fb0c"
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_OH_3_4_mixed_1bridge_2hollow",
+    "layers": [
+      2,
+      3,
+      4
+    ],
+    "source_record": null,
+    "source_record_sha256": null,
+    "conversion": "converted",
+    "converted_record": "records/Cu100/Cu100_2x2x4_OH_3_4_mixed_1bridge_2hollow/isaac_record_layers.json",
+    "converted_record_sha256": "29be62f04bfa4ff64563fb76274e1e6ed7086ac132e4a929c94ec8b5f95a7135"
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_OH_4_4_mixed_2top_2bridge",
+    "layers": [
+      2,
+      3,
+      4
+    ],
+    "source_record": null,
+    "source_record_sha256": null,
+    "conversion": "converted",
+    "converted_record": "records/Cu100/Cu100_2x2x4_OH_4_4_mixed_2top_2bridge/isaac_record_layers.json",
+    "converted_record_sha256": "e67fb34fef4b2d1380865e89a54a1325c6ef9a22f44099752e8e1107b531d468"
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_O_1_4_hollow",
+    "layers": [
+      2,
+      3,
+      4
+    ],
+    "source_record": null,
+    "source_record_sha256": null,
+    "conversion": "converted",
+    "converted_record": "records/Cu100/Cu100_2x2x4_O_1_4_hollow/isaac_record_layers.json",
+    "converted_record_sha256": "d3cc75abd341340ad2e220a25b843b68ee3804f63196ceb8ad95a913ce67bc55"
+  },
+  {
+    "configuration": "H/H_0p25/Au",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "H/H_0p25/Au/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "d115bcda51e34573a4ce0449b06d5882412e708fc0aa300ba5f866e85e120f72",
+    "conversion": "converted",
+    "converted_record": "records/H/H_0p25/Au/isaac_record_layers.json",
+    "converted_record_sha256": "08e28e0b3f84e278965d1535b8462622006d78ffc9cb67dc5b95ac7dec3ed193"
+  },
+  {
+    "configuration": "H/H_0p25/interface_biased",
+    "layers": [
+      2
+    ],
+    "source_record": null,
+    "source_record_sha256": null,
+    "conversion": "converted",
+    "converted_record": "records/H/H_0p25/interface_biased/isaac_record_layers.json",
+    "converted_record_sha256": "3718c1cc1c1bd5bd010b728125b1cfb79ad95ce3057e719a1d9c7ba5c910fa5a"
+  },
+  {
+    "configuration": "H/H_0p25/interface_biased2",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "H/H_0p25/interface_biased2/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "689b2e18dd11dfdd16ad8056ab3fb3f85294270e77653e2cf9167cc1c15138f1",
+    "conversion": "converted",
+    "converted_record": "records/H/H_0p25/interface_biased2/isaac_record_layers.json",
+    "converted_record_sha256": "deae8be8af29e9df41a2ea0987f9cd1e9d2074d36f2a9ced7120e20ca7fbb9b5"
+  },
+  {
+    "configuration": "H/H_0p25/interior_biased",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "H/H_0p25/interior_biased/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "eb6998b7bafc98b8320a4956506ea3eb594695c95a7dfa190e03eb32b798e298",
+    "conversion": "converted",
+    "converted_record": "records/H/H_0p25/interior_biased/isaac_record_layers.json",
+    "converted_record_sha256": "6d4689e290d7ad07e6d151ec1831ec05c0464858a155856e6c429168fcdce9e6"
+  },
+  {
+    "configuration": "H/H_0p25/uniform",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "H/H_0p25/uniform/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "d8f9cce384757cc1408853c9475a04befa3e5c9ecdf3571499cd397ef7bdfcc8",
+    "conversion": "converted",
+    "converted_record": "records/H/H_0p25/uniform/isaac_record_layers.json",
+    "converted_record_sha256": "4a05875f51c53150894d5a6c90e5296977ddd3b6c1192c58f1e69c2157d05303"
+  },
+  {
+    "configuration": "H/H_0p5/Au",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "H/H_0p5/Au/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "d2d2956c4a09a82a22240b77d58f388650718bc05e4d7984b120f40d8b5c12f0",
+    "conversion": "converted",
+    "converted_record": "records/H/H_0p5/Au/isaac_record_layers.json",
+    "converted_record_sha256": "176e8cf4c869b20ce63fda1cf2126a69ddce5d2f26840b2f4772a339b8bc86a7"
+  },
+  {
+    "configuration": "H/H_0p5/interface_biased",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "H/H_0p5/interface_biased/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "fdba77d1caa1ac1c3e9afabc312d87ad8af5d877481cd33677d4ef1e8e8e0365",
+    "conversion": "converted",
+    "converted_record": "records/H/H_0p5/interface_biased/isaac_record_layers.json",
+    "converted_record_sha256": "3101992d7e8b707c048ba0698f814d363f627f9bd3bb2e2359e6a17bf9f6acc0"
+  },
+  {
+    "configuration": "H/H_0p5/interface_biased2",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "H/H_0p5/interface_biased2/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "ed1e16319a24c9b56208a56f326850db9d753dc7fe9680f24a5786f589b9e0f3",
+    "conversion": "converted",
+    "converted_record": "records/H/H_0p5/interface_biased2/isaac_record_layers.json",
+    "converted_record_sha256": "9bf77c504c4bfe4c35b92beb3c30a716249ea9bbb6bf93ce91198a05fa81ec54"
+  },
+  {
+    "configuration": "H/H_0p5/interior_biased",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "H/H_0p5/interior_biased/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "0d2ebac6c67e63972554c1856f61efd48660b05306ce7816e71335abfcff72a4",
+    "conversion": "converted",
+    "converted_record": "records/H/H_0p5/interior_biased/isaac_record_layers.json",
+    "converted_record_sha256": "3d9b5a97268917a6fee3d19c5aeeafb7843a3616e3d180b97806e78fda71b163"
+  },
+  {
+    "configuration": "H/H_0p5/uniform",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "H/H_0p5/uniform/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "75c6d0c1f9a50ad81662a25e6a8bb34b52941db2ca2fb8b427e0b88bdcefbb82",
+    "conversion": "converted",
+    "converted_record": "records/H/H_0p5/uniform/isaac_record_layers.json",
+    "converted_record_sha256": "5c1a5197659df8637a77df07bcd584a708c2b6bc61aedf32546fdf53292b25a4"
+  },
+  {
+    "configuration": "H/H_0p75/0p88_mixed",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "H/H_0p75/0p88_mixed/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "2286a51f5ef5431fd688a41cc3ea1ddd62eebb6e2a2998ea02203d7c26b3c23f",
+    "conversion": "converted",
+    "converted_record": "records/H/H_0p75/0p88_mixed/isaac_record_layers.json",
+    "converted_record_sha256": "68acee89cbe6e342f1657c9ebe32071fbb19905c4a0eb8dc9b4503b515bf5109"
+  },
+  {
+    "configuration": "H/H_0p75/Au",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "H/H_0p75/Au/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "d6bddcc5a95d3c08db54d07cd3744f58b3e9f065e1eb9c0236069e95e1c68f23",
+    "conversion": "converted",
+    "converted_record": "records/H/H_0p75/Au/isaac_record_layers.json",
+    "converted_record_sha256": "220bb638bf4a02f4bcf77c84f7377511d09ed10e334a0c8819895e42f09b0684"
+  },
+  {
+    "configuration": "H/H_0p75/interface_biased",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "H/H_0p75/interface_biased/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "55028578ef73b185b3f4d114bbb38a3ee6c64085bb18214c59deb495d8671414",
+    "conversion": "converted",
+    "converted_record": "records/H/H_0p75/interface_biased/isaac_record_layers.json",
+    "converted_record_sha256": "ab4aeb3baa9cf4a72b56e793df06fa96f1f177eb4c0ed073e7bb09d644dadbd2"
+  },
+  {
+    "configuration": "H/H_0p75/interface_biased2",
+    "layers": [
+      2
+    ],
+    "source_record": null,
+    "source_record_sha256": null,
+    "conversion": "converted",
+    "converted_record": "records/H/H_0p75/interface_biased2/isaac_record_layers.json",
+    "converted_record_sha256": "fdf43d670f8034af8af596c881d09b29136aea87332b63d81bf46ae94dce11f4"
+  },
+  {
+    "configuration": "H/H_0p75/interior_biased",
+    "layers": [
+      2
+    ],
+    "source_record": null,
+    "source_record_sha256": null,
+    "conversion": "converted",
+    "converted_record": "records/H/H_0p75/interior_biased/isaac_record_layers.json",
+    "converted_record_sha256": "9009ca8b58e1c9768a34bcd0ca4e755f884cb186080784d25d895098ae16af42"
+  },
+  {
+    "configuration": "H/H_0p75/mixed",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "H/H_0p75/mixed/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "6efefbadba07e4235a3dc0038a867661b7ab3bb172018b2aadf80407b045ce27",
+    "conversion": "converted",
+    "converted_record": "records/H/H_0p75/mixed/isaac_record_layers.json",
+    "converted_record_sha256": "6ab86b46b7b3fe0d3490681b9fbdcd467f298ab7e1fbf5ef208a886c6574eeb6"
+  },
+  {
+    "configuration": "H/H_0p75/uniform",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "H/H_0p75/uniform/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "2f69189fad4ac418c9cc65fe4f5c1c9f2bc810789e81058a6df933bb877b941c",
+    "conversion": "converted",
+    "converted_record": "records/H/H_0p75/uniform/isaac_record_layers.json",
+    "converted_record_sha256": "e09f68d20677cd9b375e5956fa571f7bc80faad7870eccd4be851b4d11025880"
+  },
+  {
+    "configuration": "O/O_0p028_1O_AuCu2",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "O/O_0p028_1O_AuCu2/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "744ac9de94f3d591afc43d496af862c0ee202f6cb2afaecb0d4011745ac0e859",
+    "conversion": "converted",
+    "converted_record": "records/O/O_0p028_1O_AuCu2/isaac_record_layers.json",
+    "converted_record_sha256": "763c2de681e4135705b77c896c6ba98157313406984e97165a0d5765c0cc38bb"
+  },
+  {
+    "configuration": "O/O_0p028_1O_Cu3",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "O/O_0p028_1O_Cu3/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "8e3c4df093b9fb5bce1fc4ca416c6940ccf824ac1b824d1135c42a86e6249aa7",
+    "conversion": "converted",
+    "converted_record": "records/O/O_0p028_1O_Cu3/isaac_record_layers.json",
+    "converted_record_sha256": "642874262a6ee40b305e4c8ef463672b98f1949454f4794c7fd3bb8285db567d"
+  },
+  {
+    "configuration": "O/O_0p056_2O_AuCu2",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "O/O_0p056_2O_AuCu2/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "1dfc218c338cc4a24667c206917b66112b34026526eb6bbe348b3b820bc14eab",
+    "conversion": "converted",
+    "converted_record": "records/O/O_0p056_2O_AuCu2/isaac_record_layers.json",
+    "converted_record_sha256": "e5d1016213060280b53187f08ea03f63531d83e28150731a79b2ea51aa06098e"
+  },
+  {
+    "configuration": "O/O_0p056_2O_Cu3_distributed",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "O/O_0p056_2O_Cu3_distributed/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "c4e772b72495d1f143336375d9bc5bc4287ffd5ecae02bf7f7e5d9791f32af38",
+    "conversion": "converted",
+    "converted_record": "records/O/O_0p056_2O_Cu3_distributed/isaac_record_layers.json",
+    "converted_record_sha256": "1f7386a1309c7e31cbab0c8f75738fd3ffd8e106ce023ed1f0033db71e7eb335"
+  },
+  {
+    "configuration": "O/O_0p056_2O_mixed_Cu3_AuCu2",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "O/O_0p056_2O_mixed_Cu3_AuCu2/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "88466df340d65e20358f31f4f29e25a4ac3c7b3145ea852769c30c8702894aad",
+    "conversion": "converted",
+    "converted_record": "records/O/O_0p056_2O_mixed_Cu3_AuCu2/isaac_record_layers.json",
+    "converted_record_sha256": "a9aaa89bd9fc75ddaef3fabec02e60c31c3114bd8bc4e8dfd8487127ca5d9e87"
+  },
+  {
+    "configuration": "O/O_0p083_3O_Cu3_AuCu2",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "O/O_0p083_3O_Cu3_AuCu2/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "e4a1dd8d1897976c57de9286fbf3a16551d652f53e18741fe93cb94a20827322",
+    "conversion": "converted",
+    "converted_record": "records/O/O_0p083_3O_Cu3_AuCu2/isaac_record_layers.json",
+    "converted_record_sha256": "2b07232b9d39cd7f4addfc159bebc0cd0e7e3d5f1cda59e744a1cdf1165f78bc"
+  },
+  {
+    "configuration": "O/O_0p083_3O_interface_weighted_Cu3_AuCu2",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "O/O_0p083_3O_interface_weighted_Cu3_AuCu2/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "b7e63a821b86114ef469194c2b248f1ba151c31a47819637c6a9fcd9dac4c3c5",
+    "conversion": "converted",
+    "converted_record": "records/O/O_0p083_3O_interface_weighted_Cu3_AuCu2/isaac_record_layers.json",
+    "converted_record_sha256": "312bf2afa1207b9d593044e7d379483f511d52d8f41fe55fc19d4a8934b1ac71"
+  },
+  {
+    "configuration": "OCCOH/OCCOH_0p056_AuCu_interface",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": null,
+    "source_record_sha256": null,
+    "conversion": "converted",
+    "converted_record": "records/OCCOH/OCCOH_0p056_AuCu_interface/isaac_record_layers.json",
+    "converted_record_sha256": "10938798f857a5b01d3cb7c7b464c44b4f4b5c176284d7cd79be96d84c2e0778"
+  },
+  {
+    "configuration": "OCCOH/OCCOH_0p056_Cu_interface",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "OCCOH/OCCOH_0p056_Cu_interface/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "ff512a543747acc93d27f9fddd13e51b827817c890c1e4ad135069f7e4e50570",
+    "conversion": "converted",
+    "converted_record": "records/OCCOH/OCCOH_0p056_Cu_interface/isaac_record_layers.json",
+    "converted_record_sha256": "b57143c4cc4e0b991a9c54a43f91b415e996d4145286b7120b2a93feb0b4f1b2"
+  },
+  {
+    "configuration": "OCCOH/OCCOH_0p056_Cu_interior",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "OCCOH/OCCOH_0p056_Cu_interior/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "6757568a3d3dedc22d1958fd267777b069eecaaa6667ef88e40c68e44efe8ba0",
+    "conversion": "converted",
+    "converted_record": "records/OCCOH/OCCOH_0p056_Cu_interior/isaac_record_layers.json",
+    "converted_record_sha256": "3907b5b68ef73c21264fcecf816ac3e3838a9a32cefb51b389873a26213ceda4"
+  },
+  {
+    "configuration": "OCCO_CO/OCCO_CO_0p111_Cu_rich",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "OCCO_CO/OCCO_CO_0p111_Cu_rich/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "d127101e069075d0ac399a4aa233564009ea2c9e8015944770bca8d35c02ea5b",
+    "conversion": "converted",
+    "converted_record": "records/OCCO_CO/OCCO_CO_0p111_Cu_rich/isaac_record_layers.json",
+    "converted_record_sha256": "9a2fd061bd41f6ae654e169a7095c50ac1f3343f001ad3bf754a51c16849fc55"
+  },
+  {
+    "configuration": "OCCO_CO/OCCO_CO_0p167_AuCu_interface",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": null,
+    "source_record_sha256": null,
+    "conversion": "converted",
+    "converted_record": "records/OCCO_CO/OCCO_CO_0p167_AuCu_interface/isaac_record_layers.json",
+    "converted_record_sha256": "b3d36bd105a3c8a5dcc73724903186d233aec72929535832ffe9e0b9de22a448"
+  },
+  {
+    "configuration": "OCCO_CO/OCCO_plus_CO_0p222_AuCu_interface",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "OCCO_CO/OCCO_plus_CO_0p222_AuCu_interface/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "fc3e34ae18181cf004a9639dd03fc422b8363235abefaef82d5be7b0ab7f8110",
+    "conversion": "converted",
+    "converted_record": "records/OCCO_CO/OCCO_plus_CO_0p222_AuCu_interface/isaac_record_layers.json",
+    "converted_record_sha256": "dfd903a1676d342f0def9d6dd100748e86fd888e27af74d38d0db2ed32343d87"
+  },
+  {
+    "configuration": "OCCO_CO/OCCO_plus_CO_0p222_Cu_rich",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "OCCO_CO/OCCO_plus_CO_0p222_Cu_rich/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "277fcff5106da5d8aa89fb9414f84bb21051cfdcb0572c6dd146fcafe91162d6",
+    "conversion": "converted",
+    "converted_record": "records/OCCO_CO/OCCO_plus_CO_0p222_Cu_rich/isaac_record_layers.json",
+    "converted_record_sha256": "fae40dece18372529eb34345855dc06d8b99094eaf974e29284b3841a92e9abc"
+  },
+  {
+    "configuration": "OCCO_CO/OCCO_plus_CO_0p333_Cu_rich",
+    "layers": [],
+    "source_record": null,
+    "source_record_sha256": null,
+    "conversion": "no_usable_spectrum"
+  },
+  {
+    "configuration": "OCHO/01_1OCHO_CuCu_interface",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "OCHO/01_1OCHO_CuCu_interface/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "9efeb8223f7111d64da30180d07aba9c984b088e7fe85c122bd58ef218f10dac",
+    "conversion": "converted",
+    "converted_record": "records/OCHO/01_1OCHO_CuCu_interface/isaac_record_layers.json",
+    "converted_record_sha256": "ce9b1f811c3d6ce127a2882a37a6c98b7d16f0ee83e10110667f6f3798eead69"
+  },
+  {
+    "configuration": "OCHO/02_1OCHO_AuCu_across",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "OCHO/02_1OCHO_AuCu_across/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "5ed17fd8186f917389142f67b95ba8e7f672a4e055a0af5768a85d7d00647b7d",
+    "conversion": "converted",
+    "converted_record": "records/OCHO/02_1OCHO_AuCu_across/isaac_record_layers.json",
+    "converted_record_sha256": "73614d4cb00d8fa0dc22264991b36eb57adad9f79f7d005749399be657178f72"
+  },
+  {
+    "configuration": "OCHO/03_1OCHO_CuCu_interior",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "OCHO/03_1OCHO_CuCu_interior/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "d051866074a9533788ea349d4ac118ae41226b0e6d7641bd40dfb86a507c6b6e",
+    "conversion": "converted",
+    "converted_record": "records/OCHO/03_1OCHO_CuCu_interior/isaac_record_layers.json",
+    "converted_record_sha256": "a89ad8dde7f7b126e09fc4aa63fa5e5548517a7780df0f498d227434de3a2bf2"
+  },
+  {
+    "configuration": "OCHO/04_2OCHO_CuCu_interface_plus_interior",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "OCHO/04_2OCHO_CuCu_interface_plus_interior/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "94b00271580ef72284843258d85f9775dbe83415a73d0be4321564ca0baa6207",
+    "conversion": "converted",
+    "converted_record": "records/OCHO/04_2OCHO_CuCu_interface_plus_interior/isaac_record_layers.json",
+    "converted_record_sha256": "ea716d98f52e6a4d51c89868bb496e5f93a6f460793a28ceb1a119a70405830a"
+  },
+  {
+    "configuration": "OCHO/05_2OCHO_CuCu_interface_plus_AuCu",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "OCHO/05_2OCHO_CuCu_interface_plus_AuCu/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "776fa23f6f1e926dd1fc28d3046038ce616f3cd0c569c6153bb8e88d0dadd388",
+    "conversion": "converted",
+    "converted_record": "records/OCHO/05_2OCHO_CuCu_interface_plus_AuCu/isaac_record_layers.json",
+    "converted_record_sha256": "3ebe28a102cf0fcdf212d78a25d3818b84adf84c061d682672c3f2c7ca3ca8dc"
+  },
+  {
+    "configuration": "OCHO/06_2OCHO_2CuCu_interface",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "OCHO/06_2OCHO_2CuCu_interface/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "ca2dba74449b2e61c4fca053c934c8fafe1ee6c87e7c3cfdeb91107947b2a3f5",
+    "conversion": "converted",
+    "converted_record": "records/OCHO/06_2OCHO_2CuCu_interface/isaac_record_layers.json",
+    "converted_record_sha256": "c07df9ddb94543c2a7891afafefbadf750800eca6daa9a48469db85ed426bf85"
+  },
+  {
+    "configuration": "OCHO/07_3OCHO_2CuCu_interface_plus_interior",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "OCHO/07_3OCHO_2CuCu_interface_plus_interior/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "9c741efb9636a4661b9afdbb1f06f043db2492d4321f64120662c5a0c0a08e2f",
+    "conversion": "converted",
+    "converted_record": "records/OCHO/07_3OCHO_2CuCu_interface_plus_interior/isaac_record_layers.json",
+    "converted_record_sha256": "035101d184e80e75ac93d6d1e1a2e68e3b4234dbdd9ebcc82ce0deb069f22eb6"
+  },
+  {
+    "configuration": "OCHO/08_3OCHO_1CuCu_interface_plus_2interior",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "OCHO/08_3OCHO_1CuCu_interface_plus_2interior/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "d4112ffb76a24f2d4bb5f0bdde63b2dcab7e423d2dc10d6965686a55468039ea",
+    "conversion": "converted",
+    "converted_record": "records/OCHO/08_3OCHO_1CuCu_interface_plus_2interior/isaac_record_layers.json",
+    "converted_record_sha256": "9a5a2095438031258282802aca1fccf10d0d7fc39d165668f0bcd97ddfee2e33"
+  },
+  {
+    "configuration": "OH/OH_0p125_interface_Au",
+    "layers": [
+      2,
+      3
+    ],
+    "source_record": null,
+    "source_record_sha256": null,
+    "conversion": "converted",
+    "converted_record": "records/OH/OH_0p125_interface_Au/isaac_record_layers.json",
+    "converted_record_sha256": "acb344c3be2b576757d3710da2598bc763e5d8b7de3f3d981c9740f238710df0"
+  },
+  {
+    "configuration": "OH/OH_0p125_interior_biased",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "OH/OH_0p125_interior_biased/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "13df35fdd782b57c43e9f090c00b4e0ab263b6a95940e9d1be00473efc54cbb8",
+    "conversion": "converted",
+    "converted_record": "records/OH/OH_0p125_interior_biased/isaac_record_layers.json",
+    "converted_record_sha256": "71d1c99095f625cee4eba068afa25436d1807eaebaec34b149c2adf846ccac55"
+  },
+  {
+    "configuration": "OH/OH_0p125_uniform_high5Cu",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": null,
+    "source_record_sha256": null,
+    "conversion": "converted",
+    "converted_record": "records/OH/OH_0p125_uniform_high5Cu/isaac_record_layers.json",
+    "converted_record_sha256": "51d28adee1ece1e5b6de3e615d4214cc093f7b8582de24e52607c25cf308a34b"
+  },
+  {
+    "configuration": "OH/OH_0p125_uniform_low4Cu",
+    "layers": [
+      2,
+      3,
+      5
+    ],
+    "source_record": null,
+    "source_record_sha256": null,
+    "conversion": "converted",
+    "converted_record": "records/OH/OH_0p125_uniform_low4Cu/isaac_record_layers.json",
+    "converted_record_sha256": "0eeb7c88c80c446ec3d3e27ff5b62b0ac5b4bc6b9639b93e567af238108829ab"
+  },
+  {
+    "configuration": "OH/OH_0p25_interface_Au",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "OH/OH_0p25_interface_Au/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "3c1433f0eb79e72125578690a337b02565cabcd95bef80a24c1a45a02f0495dd",
+    "conversion": "converted",
+    "converted_record": "records/OH/OH_0p25_interface_Au/isaac_record_layers.json",
+    "converted_record_sha256": "084a312b709b2b2d9f21e27b98cf4e6c9c07579392fc361c0f5586a586e2d6ec"
+  },
+  {
+    "configuration": "OH/OH_0p25_interior_biased",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "OH/OH_0p25_interior_biased/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "e6c6f42ddc1a47beab079aa3fa312a51f04e811219d5c86a5b8009c23b9c752b",
+    "conversion": "converted",
+    "converted_record": "records/OH/OH_0p25_interior_biased/isaac_record_layers.json",
+    "converted_record_sha256": "d8087e23e11e5597bb55a30d5d053b2135d58a8156230c347ccf51967c729f33"
+  },
+  {
+    "configuration": "OH/OH_0p25_uniform",
+    "layers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_record": "OH/OH_0p25_uniform/XAS/FDMNES/green/isaac_record_layers.json",
+    "source_record_sha256": "5b65500dcb6f127cb8c38c4318466da118af33932c7bdd265df75b5bd6abbd09",
+    "conversion": "converted",
+    "converted_record": "records/OH/OH_0p25_uniform/isaac_record_layers.json",
+    "converted_record_sha256": "a2df0bedd4cca38938cb8ea91c5f88acc48649e20ecf3be83d26898f8dae7331"
+  },
+  {
+    "configuration": "OH/OH_0p50_interface_Au",
+    "layers": [
+      2
+    ],
+    "source_record": null,
+    "source_record_sha256": null,
+    "conversion": "converted",
+    "converted_record": "records/OH/OH_0p50_interface_Au/isaac_record_layers.json",
+    "converted_record_sha256": "e99e93e2cfa39e008bbdd9ba40c23879f017ea52d75ba2545619c8e57a504c38"
+  },
+  {
+    "configuration": "OH/OH_0p50_interior_biased",
+    "layers": [
+      2
+    ],
+    "source_record": null,
+    "source_record_sha256": null,
+    "conversion": "converted",
+    "converted_record": "records/OH/OH_0p50_interior_biased/isaac_record_layers.json",
+    "converted_record_sha256": "d57226a5fd98740330c849392e6355f40462a059fe3d7e3c0f5ba08b6330cfbe"
+  },
+  {
+    "configuration": "OH/OH_0p50_uniform",
+    "layers": [
+      2
+    ],
+    "source_record": null,
+    "source_record_sha256": null,
+    "conversion": "converted",
+    "converted_record": "records/OH/OH_0p50_uniform/isaac_record_layers.json",
+    "converted_record_sha256": "f26e6d35815d42f38818ef7bdcf47c947cb3f3a4ee4babc4e3c19251f94e2b32"
+  },
+  {
+    "configuration": "plain",
+    "layers": [
+      2,
+      4,
+      5
+    ],
+    "source_record": null,
+    "source_record_sha256": null,
+    "conversion": "converted",
+    "converted_record": "records/plain/isaac_record_layers.json",
+    "converted_record_sha256": "47f4024615b5e255b75fa52d1d49cb91fe01bb5d05ba9546e6ae490df08cdb0e"
+  }
+]

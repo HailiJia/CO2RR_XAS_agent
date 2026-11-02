@@ -1,0 +1,1367 @@
+{
+  "models_replayed": 272,
+  "stress_fold_scenario_replays": 4160,
+  "not_independent_confirmation": "saved predictions conditional on existing cohorts; no model refitting",
+  "models": [
+    {
+      "path": "study/differential_v1/ml/models/matched_CO_coverage_clean_plus_delta_fold0.joblib",
+      "sha256": "3ebca78aa4ec7f6076402a1acc71575c84e5c3561e109a848d1a8eeb9fb7fbfc",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/matched_CO_coverage_clean_plus_delta_fold1.joblib",
+      "sha256": "92f4cb2cd856d1c1a36d0091c5683c7ca15be77a282b910d62561765cf0eb3f6",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/matched_CO_coverage_clean_plus_delta_fold2.joblib",
+      "sha256": "c313590c2e05cc70dc3fed4ca8ce8b2a55d4032e69d30e9e60a97ae50709d92c",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/matched_CO_coverage_clean_plus_delta_fold3.joblib",
+      "sha256": "5a7aa9118af8a7d323da01d7ffa00d6b0cb9b19bb257adf4d82fa0303c72e99f",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/matched_CO_coverage_clean_plus_delta_fold4.joblib",
+      "sha256": "ba3a59732622829f19b8c4e8c527f95e1b6bfb7e3d50d5eedbee380a4032039a",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/matched_CO_coverage_corrected_normalized_fold0.joblib",
+      "sha256": "68de9b918ceba5a9139192a1239315ccf4fd894d65a765064f0e7db3e12d8cbe",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/matched_CO_coverage_corrected_normalized_fold1.joblib",
+      "sha256": "37145d103fc4db99c54ea50d5082aa9ac8e04d790094e36ccc56f69d5de68371",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/matched_CO_coverage_corrected_normalized_fold2.joblib",
+      "sha256": "64077416f889ddcf9fb7936a7452513f7c425130f6e42446d773ea8a66e3863a",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/matched_CO_coverage_corrected_normalized_fold3.joblib",
+      "sha256": "e6ca2ff2988f3c49182ec66db0858c4deea80931d6d679f81c5f286cc519c33e",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/matched_CO_coverage_corrected_normalized_fold4.joblib",
+      "sha256": "09ed8078fc762ea098f8a90560b9201e9e3530b04e259406f45aa84d61d2e2f8",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/matched_CO_coverage_delta_fold0.joblib",
+      "sha256": "d38e192695c6ba1c996561d9798248dca27fa374120600dcb64e1eb9cb84913e",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/matched_CO_coverage_delta_fold1.joblib",
+      "sha256": "def18f8a8521bd09dc6882252c32c7ae1eb6e2a439c677c220f4f4239c62d2a4",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/matched_CO_coverage_delta_fold2.joblib",
+      "sha256": "9b8792243ea2838e68f32821b840e28d1be46ed6192970a943d72a36f7110c54",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/matched_CO_coverage_delta_fold3.joblib",
+      "sha256": "ccfa8eb417db132a8c9efaa7773bed74bd72848806dd8cdf57a5462176437173",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/matched_CO_coverage_delta_fold4.joblib",
+      "sha256": "1a733a14c9aaa9e9110f56e1d8eff2b526b5f3f8350cc27fb0261e03234bcf1d",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/matched_CO_coverage_raw_normalized_fold0.joblib",
+      "sha256": "613b941f0ef2c212da627e4319015138b7b688593096d3121ea0fa66c3020676",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/matched_CO_coverage_raw_normalized_fold1.joblib",
+      "sha256": "0d6c93187c9bb04d3ba763f6966706a83c26d850a9e9dd37a12e01f787a37588",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/matched_CO_coverage_raw_normalized_fold2.joblib",
+      "sha256": "994c4799763229d935765daa991683f19c38be2aa1d7efcfe5d6bf92430ee832",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/matched_CO_coverage_raw_normalized_fold3.joblib",
+      "sha256": "b2d7fb97839553a0b413eef6e8c9a70a03fc3e1a3e5e9ca7f62b7eff492194f4",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/matched_CO_coverage_raw_normalized_fold4.joblib",
+      "sha256": "797ce257257f380c2b4ef835b1bcca6a4517ea1e16fcbee0b56a7fecf3dcbc97",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/matched_CO_coverage_raw_physical_fold0.joblib",
+      "sha256": "731e61a487bd21daa75bdee40ecba96306450fa678419cbba114f8eacd0d0275",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/matched_CO_coverage_raw_physical_fold1.joblib",
+      "sha256": "595b912a917971826f11c3e5313600edadd1f5c22ee5ea8eb26ba71ee16568c6",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/matched_CO_coverage_raw_physical_fold2.joblib",
+      "sha256": "248f92b02ae6bfbd949b39457da66c785b8937aaf6a13035104e60699170b2b9",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/matched_CO_coverage_raw_physical_fold3.joblib",
+      "sha256": "cf3b8666ed9a68593d855a222c0c8c6dc83655eab7a79f72c73ce19181ecfaaa",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/matched_CO_coverage_raw_physical_fold4.joblib",
+      "sha256": "457db5a3ec07f6e2214cedf055f9df23cf24f3566e6e7e6e804c7f37da8efe8e",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/matched_identity_clean_plus_delta_fold0.joblib",
+      "sha256": "c6c4bd5fd86a49e2e84cbdd83b8241ac8baa728ad0ef77dbcd9cc1452acc32bc",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/matched_identity_clean_plus_delta_fold1.joblib",
+      "sha256": "934571b7bd97587c10cb4f70e43f3cc4752b83db22381de5b45258b62a46ddad",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/matched_identity_clean_plus_delta_fold2.joblib",
+      "sha256": "c91fdbfd81ed17fed5a65373682119d78e9c83eec1c5b8ac6eecbf78eb120e33",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/matched_identity_clean_plus_delta_fold3.joblib",
+      "sha256": "86a702476fd91ee8a1e62abc1964e4490ffa393faadf458897b7ce8d1b1667f9",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/matched_identity_clean_plus_delta_fold4.joblib",
+      "sha256": "2e77184ae7580bee3c8a03844e2adabeaa85c7f9ac9e9bf9168442bfdf80d559",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/matched_identity_corrected_normalized_fold0.joblib",
+      "sha256": "95955ad1d966eb4cd5cc1e03998e3a6434c23f4808dea4a91845ea9b9bcd89db",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/matched_identity_corrected_normalized_fold1.joblib",
+      "sha256": "e7056f6504181515af82a7df04cc908940eaa2b075dffa3bc2e3e61b861112d9",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/matched_identity_corrected_normalized_fold2.joblib",
+      "sha256": "d58aa06f0b164e665ff5f87a0cb4673e4afc27289082b2fd6d5689b1826cb9e3",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/matched_identity_corrected_normalized_fold3.joblib",
+      "sha256": "472da3e912037ffc0c6b535b5fc78389808d2ca2c06a640570ef9849095f4faf",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/matched_identity_corrected_normalized_fold4.joblib",
+      "sha256": "9b84dcaca47ce767948308b963a6f188da1a3d1df635763d2cf3bf045dfda4af",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/matched_identity_delta_fold0.joblib",
+      "sha256": "140ff89b99469467c8af8e8ea45363cfe9f6fcd043bccb1cc8c345b7bb267abc",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/matched_identity_delta_fold1.joblib",
+      "sha256": "387a6f3b6aaabd6516f259899428767da7b24fffbd8c47c9783f93859bc80625",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/matched_identity_delta_fold2.joblib",
+      "sha256": "13978225a30f149d5119cab103223c71cc3b67ae419eb92040ed222dfb789913",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/matched_identity_delta_fold3.joblib",
+      "sha256": "049c0992ce52e12469aaceb61b6ccea442ce30911098045fb772a75bcccc177d",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/matched_identity_delta_fold4.joblib",
+      "sha256": "e9f6940e08264497664be2743a0b1bfcffcefe70391464ab9abd2d7e94f9ae7c",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/matched_identity_raw_normalized_fold0.joblib",
+      "sha256": "ed722721877e756fde624ea1ae6f864bf1e22b5329f89db8ab7e034d865474f1",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/matched_identity_raw_normalized_fold1.joblib",
+      "sha256": "07e3e1bd2400e3a0e5be9e289b9730417ef7e224c5c16640505a9adc37f997d1",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/matched_identity_raw_normalized_fold2.joblib",
+      "sha256": "3328c9f2bd73dd3eb37d7e5ce3f64e025b27a5a9b2d031c58d3b14f104dd3195",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/matched_identity_raw_normalized_fold3.joblib",
+      "sha256": "c72ba68563bc5b953c8933102379f301b6afa9efa937e9694793b118e253ec76",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/matched_identity_raw_normalized_fold4.joblib",
+      "sha256": "972afd085200e89edfc27a582e7c8c4c31731912874a203650749b86d41506df",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/matched_identity_raw_physical_fold0.joblib",
+      "sha256": "8e2e52df1e7eb1ca47413e78e13433d87d37f2c77adfd77551d98afe11eba7f3",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/matched_identity_raw_physical_fold1.joblib",
+      "sha256": "74946373052d6eccc44c76a92584f3e52ac6d720f3d30fda0fa2e4eefdfce54d",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/matched_identity_raw_physical_fold2.joblib",
+      "sha256": "edd2bd57173dbf7a74ea8d580d5662ba58da3340b92abc1e09c88e69cfa0a181",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/matched_identity_raw_physical_fold3.joblib",
+      "sha256": "557e7b4ce487fbe3e3c9a37e14be1eeb6af6877760ea0d8badfa9d78b6461306",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/matched_identity_raw_physical_fold4.joblib",
+      "sha256": "39d6dda88c06300d661786ca1a1aa03d2012e30f616a2118639623661680e3bc",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/same_substrate_sensitivity_CO_coverage_clean_plus_delta_fold0.joblib",
+      "sha256": "960ef6c5a3ee1c908977542052dce8c6f1f5c4fd741bf07dc3df0e46e06d353b",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/same_substrate_sensitivity_CO_coverage_clean_plus_delta_fold1.joblib",
+      "sha256": "54f23ca5e7456b383f55a90e809557ba386e0699ee43cac8382bf273c35621ab",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/same_substrate_sensitivity_CO_coverage_clean_plus_delta_fold2.joblib",
+      "sha256": "49d4c7443769fea25f85b7e820c015c662ae638c82ba1cb473e5dbde5b4b6bf9",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/same_substrate_sensitivity_CO_coverage_clean_plus_delta_fold3.joblib",
+      "sha256": "b28f253028a6473e65d62caaf8ea26e33d9bd276230d1babbaf5fd6de4fc3c3b",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/same_substrate_sensitivity_CO_coverage_clean_plus_delta_fold4.joblib",
+      "sha256": "47a31ce4582d13454402b715cdec39026489770aa440b66c0ede7c7ef490df73",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/same_substrate_sensitivity_CO_coverage_corrected_normalized_fold0.joblib",
+      "sha256": "8e550fbba82f1c448f610b97876fb85d0e61607262037d731d7147b28b027def",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/same_substrate_sensitivity_CO_coverage_corrected_normalized_fold1.joblib",
+      "sha256": "04105ad1d95312aae0e2ef418e4a0b0f5856c216462dcdfe89fe9d3b22451790",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/same_substrate_sensitivity_CO_coverage_corrected_normalized_fold2.joblib",
+      "sha256": "d825bff31f2e141e52837206a42e62e38bf60117b1494ac752eeb6db71c703fb",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/same_substrate_sensitivity_CO_coverage_corrected_normalized_fold3.joblib",
+      "sha256": "ee74e723b50cebba2f6de92f04039562f77883f73d4dbe704e3c25aec98a17fc",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/same_substrate_sensitivity_CO_coverage_corrected_normalized_fold4.joblib",
+      "sha256": "15ec41f59954c25589944ce17e7373ab81a964b4828a4918bbb35d10d2a31472",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/same_substrate_sensitivity_CO_coverage_delta_fold0.joblib",
+      "sha256": "95ef038a20b621efdfd1a8312f3c4e59d166175b70d84e4bc865de48f54b80a1",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/same_substrate_sensitivity_CO_coverage_delta_fold1.joblib",
+      "sha256": "74413f04a8350fe4394e80e4ee3ac43e575cdaa78847b4e3fa3abe74d7711a5a",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/same_substrate_sensitivity_CO_coverage_delta_fold2.joblib",
+      "sha256": "a1487f9efd3e93daa3c002e1d26a344bb197a98bded14c47c7f1d6f1da28ba19",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/same_substrate_sensitivity_CO_coverage_delta_fold3.joblib",
+      "sha256": "71df419035e4819433970f894ab31850cb44c78ca84a59520e3edefbdbcb8d20",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/same_substrate_sensitivity_CO_coverage_delta_fold4.joblib",
+      "sha256": "bb3b4927f2db48d72d27d95862744544ca20b279a846de08317bc2ec932f13d6",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/same_substrate_sensitivity_CO_coverage_raw_normalized_fold0.joblib",
+      "sha256": "3057cdf91ada00f9ba6c13095ba9ff72cfca8e0e576cced7c8c8ff689f4b4073",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/same_substrate_sensitivity_CO_coverage_raw_normalized_fold1.joblib",
+      "sha256": "a0bfdc02e2cad630e5a67a01ae2ff058fc6a90cb5a6155b677ef596024cc5c6d",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/same_substrate_sensitivity_CO_coverage_raw_normalized_fold2.joblib",
+      "sha256": "e951e4b6095a505bb8b98983c50f8270fc9c966980cf1869e790259f3f1f45b7",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/same_substrate_sensitivity_CO_coverage_raw_normalized_fold3.joblib",
+      "sha256": "874f2f6386e1324d1df436a46dd6e2ada4c48f82609386024a37713a5fc24652",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/same_substrate_sensitivity_CO_coverage_raw_normalized_fold4.joblib",
+      "sha256": "9bc601b5d74bf6f4dacd1a63dc482bb4ce184437702f646e3f61cd0083d17f19",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/same_substrate_sensitivity_CO_coverage_raw_physical_fold0.joblib",
+      "sha256": "dd6e439230becd4784f40aa885f694077ede44ec4b6f7bfc0413256d6381481b",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/same_substrate_sensitivity_CO_coverage_raw_physical_fold1.joblib",
+      "sha256": "9ea0f49ab7f2ba212d76f0a63b7743918e7da2a45cbbff7b67bc34bc1f3775fc",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/same_substrate_sensitivity_CO_coverage_raw_physical_fold2.joblib",
+      "sha256": "3880d2bd967a8db6a0a1507adbc6869daa296db64a7b45df32c21c788bb6ea19",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/same_substrate_sensitivity_CO_coverage_raw_physical_fold3.joblib",
+      "sha256": "85ee00f1722b73fcab79b8383221012c6e49c70dfbf6e8b292f48b3a95d5fc0e",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/same_substrate_sensitivity_CO_coverage_raw_physical_fold4.joblib",
+      "sha256": "8e6ab47d6de733385c7232d62dfb308590900ba64162d85421a51d017d3487b3",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/same_substrate_sensitivity_identity_clean_plus_delta_fold0.joblib",
+      "sha256": "64337077c9988252f75d4d2db2ca254975b3c8316706f15e6b3a2c4a44b5ab3e",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/same_substrate_sensitivity_identity_clean_plus_delta_fold1.joblib",
+      "sha256": "871d8c179678d6b29c28c3053f15b6944fed50dfd0929872f484fe8cb8a30d99",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/same_substrate_sensitivity_identity_clean_plus_delta_fold2.joblib",
+      "sha256": "18f19455c1137be5264a4ce340cfac8a74e127ce10f8dd87df80af64ea5e1436",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/same_substrate_sensitivity_identity_clean_plus_delta_fold3.joblib",
+      "sha256": "e7f74c3b8a15a72883ac05293486c8689c0c5d297e7ed6a7714a607fbee5f771",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/same_substrate_sensitivity_identity_clean_plus_delta_fold4.joblib",
+      "sha256": "1f53f40b4a4d71766c959236b68778f884d58ff62b9a0e928343f9c328eca920",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/same_substrate_sensitivity_identity_corrected_normalized_fold0.joblib",
+      "sha256": "d5af386da661f1f5a808709380c407b6482c5abcca585b2c7924b52ca2692850",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/same_substrate_sensitivity_identity_corrected_normalized_fold1.joblib",
+      "sha256": "dd11ac46000b880ef5d4d69786692c2cf246f122a625d0bd6bf4719a2e4f9092",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/same_substrate_sensitivity_identity_corrected_normalized_fold2.joblib",
+      "sha256": "d4acc7148e564dc75107193b7945cbe73a58abe59ddaf67208182786d9c3ed02",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/same_substrate_sensitivity_identity_corrected_normalized_fold3.joblib",
+      "sha256": "ad29f412013e1ef2a9be2707beda8c78052eb5519572d52de585974c837dd70b",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/same_substrate_sensitivity_identity_corrected_normalized_fold4.joblib",
+      "sha256": "61d57aefae346d7ae552d1d36d48863e7052a62b1264be3b4a7def35d7e8f82f",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/same_substrate_sensitivity_identity_delta_fold0.joblib",
+      "sha256": "8868d7b95ea65748473eb8c5144cbb92dc3fc82b58e0ede6b74f230a158cf202",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/same_substrate_sensitivity_identity_delta_fold1.joblib",
+      "sha256": "4a25fcdc47c95084ab4f237881003f5651ed16adfaec5e19c4c8212a93714d96",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/same_substrate_sensitivity_identity_delta_fold2.joblib",
+      "sha256": "18c9e475c14b59adbdb9fed1bb478790c15c92ba35d56f2dec58cbd1e5f19710",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/same_substrate_sensitivity_identity_delta_fold3.joblib",
+      "sha256": "ca090f75078bed96fcf7ad4b2c233b9203295e42442767af7b0a01267d231742",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/same_substrate_sensitivity_identity_delta_fold4.joblib",
+      "sha256": "3fbbfd7e12cbf547dc074cec32d98b41ae2db7ade4e6c50513c4921e1931c49f",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/same_substrate_sensitivity_identity_raw_normalized_fold0.joblib",
+      "sha256": "574f78882f2865569228ddb7bdd641812db928729809dea49ec6614b827fd517",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/same_substrate_sensitivity_identity_raw_normalized_fold1.joblib",
+      "sha256": "f76995a2b4c28211421807ead541e1c1fc48c8eeb0486a46e17e6b02fbad2290",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/same_substrate_sensitivity_identity_raw_normalized_fold2.joblib",
+      "sha256": "33d5bc0f2fb3d11bcf09754dd76fcd61dd001552565442d28c9c5396cb8d91dd",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/same_substrate_sensitivity_identity_raw_normalized_fold3.joblib",
+      "sha256": "2ef255e9969f93326247f083776f6b935685e7dd70510066d50a975b47a5cb26",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/same_substrate_sensitivity_identity_raw_normalized_fold4.joblib",
+      "sha256": "494070ed4813ed88d7fc746fb16d4d6251fd262c323783a9bf25f4c1a0d15cb2",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/same_substrate_sensitivity_identity_raw_physical_fold0.joblib",
+      "sha256": "664a94d8c6726f2e16d96d2c1838a50216831640a7f74481c1dba2c4478bcf91",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/same_substrate_sensitivity_identity_raw_physical_fold1.joblib",
+      "sha256": "e6d6746e37cb12a79e6e398fa6ca31ac316096b8b9a66f188eebe4f91e4d8f71",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/same_substrate_sensitivity_identity_raw_physical_fold2.joblib",
+      "sha256": "be17fc151d830613651a7cc0fa5a342380e8a1f9eabad1f735ecc0002a47bd4c",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/same_substrate_sensitivity_identity_raw_physical_fold3.joblib",
+      "sha256": "7530b9cc7b76759c731650f46124013978497cdf52414a6de30f62e9d80d8dfc",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/ml/models/same_substrate_sensitivity_identity_raw_physical_fold4.joblib",
+      "sha256": "259527fd72f28318882169caaf909410790b6b7cd816cb14b48a0e9a65dc1cef",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/geometry/models/matched_clean_plus_delta_fold0.joblib",
+      "sha256": "fd7628668a214c773c078b2fb7a07c0ce24ddf3a22f232a8e558e043c95b14ec",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/geometry/models/matched_clean_plus_delta_fold1.joblib",
+      "sha256": "638f0715098dbce2546cacf47560681729c8c1f2374c88126916cdfea05b8cb5",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/geometry/models/matched_clean_plus_delta_fold2.joblib",
+      "sha256": "731831f16fbc09144a18b0bf9dcde7ee88e380d45f563cfc8dbdbea2fc0cde9d",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/geometry/models/matched_clean_plus_delta_fold3.joblib",
+      "sha256": "ac80ee6f66a7e32b00bed37f721ec077f0e2f783d4f06287a3d1fc3b0862fa49",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/geometry/models/matched_clean_plus_delta_fold4.joblib",
+      "sha256": "4cc06315d64482c535b0921ccb16047f5c1b25e44d4be0b919c02539633d9daa",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/geometry/models/matched_corrected_normalized_fold0.joblib",
+      "sha256": "c18fc2c988b117a19f5fa827126bc94563fd305b83211408945fa6f090d10c1a",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/geometry/models/matched_corrected_normalized_fold1.joblib",
+      "sha256": "e773d8e6e566090380304d2a2896c211ab80c5f8ffcd565dbefe68a029004f5e",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/geometry/models/matched_corrected_normalized_fold2.joblib",
+      "sha256": "77ed56292e58c4e4e87f2fa54200c27a3b8549cd7fe34498e4deeba91ecdc4c0",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/geometry/models/matched_corrected_normalized_fold3.joblib",
+      "sha256": "802ee345f473d719a956253e25cca624ccc51ea9e0ca3e00f1ed9890ba7eed3b",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/geometry/models/matched_corrected_normalized_fold4.joblib",
+      "sha256": "7104f3032deacf3ad162b6e7e1c1584e967417059f81ca3770026dfbed383552",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/geometry/models/matched_delta_fold0.joblib",
+      "sha256": "7d1b1b04c16c28b10c35281567570e3de6adb4475a4f94bee31c62277e19d20e",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/geometry/models/matched_delta_fold1.joblib",
+      "sha256": "b1f7e5981861a4169d65da5208c61e73046c0516a5be771a4210224b5b3e1ff3",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/geometry/models/matched_delta_fold2.joblib",
+      "sha256": "fc19e53eb3e7200f0d46bd886c1a85e370c51282642ab2701660b3437f03a0fd",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/geometry/models/matched_delta_fold3.joblib",
+      "sha256": "4c47907b4bd392797c5f989a966ae5d1b5db3d8e93b67ff03a0cdd45ad9c0195",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/geometry/models/matched_delta_fold4.joblib",
+      "sha256": "398c4b03e1313a00c41741df1e778836a4132aadcb4d189b2987c9186411cc1c",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/geometry/models/matched_raw_physical_fold0.joblib",
+      "sha256": "12672107c3dfe5089d6539edfa365b3a0a374313b6078da1811902602157ccd9",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/geometry/models/matched_raw_physical_fold1.joblib",
+      "sha256": "b520c065668603961c20e56207be522ea59b1f2d97b3e5deb46391e7045f8dc2",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/geometry/models/matched_raw_physical_fold2.joblib",
+      "sha256": "79fa9d0007b00cd3b7df62fc7f1f2d16a29a3dd7dba10728f98e3a57b85e7281",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/geometry/models/matched_raw_physical_fold3.joblib",
+      "sha256": "565e445a7c1a01770daccbe593bd6460cb385c1bf9d05859076bc4566e2d9cd3",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/geometry/models/matched_raw_physical_fold4.joblib",
+      "sha256": "79f73ff018cf10ffd561cc45288de96f6f94d8fe231ca9d45d9b9dba54e415ad",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/geometry/models/same_substrate_sensitivity_clean_plus_delta_fold0.joblib",
+      "sha256": "f637c297f2c0feb4b2c136e748c6b47098f29d28b1d1b583084ac4cc6b9926ea",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/geometry/models/same_substrate_sensitivity_clean_plus_delta_fold1.joblib",
+      "sha256": "1528e77d53e26fdb5215a55ff5f29678c4e12d5afdb31a957c92b77fc4cb50da",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/geometry/models/same_substrate_sensitivity_clean_plus_delta_fold2.joblib",
+      "sha256": "ae9d4dd997b155ec3035aa72927178bc0479ef7b3cf82fed6509a4d6cf6dc896",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/geometry/models/same_substrate_sensitivity_clean_plus_delta_fold3.joblib",
+      "sha256": "01862fa0b66991fe94c14003b2f7e294c60cc65eea9ac840b2945565f9099f60",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/geometry/models/same_substrate_sensitivity_clean_plus_delta_fold4.joblib",
+      "sha256": "338b45a5760ffaf131302b69b88fd7e29335bbe42797f00c1bf82670b7d67d6d",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/geometry/models/same_substrate_sensitivity_corrected_normalized_fold0.joblib",
+      "sha256": "e6b6284372b43269b32315db0c6f41cbe14176d25c8de0c7163bbb48e0e872a9",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/geometry/models/same_substrate_sensitivity_corrected_normalized_fold1.joblib",
+      "sha256": "6fba45db238c5d29447d1a90e8341b4d7e147a4e47b4fc35be2a43817426a59b",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/geometry/models/same_substrate_sensitivity_corrected_normalized_fold2.joblib",
+      "sha256": "4ce5a6f5204018aae5b488eb4b46a4156de8fd1340b8e089acccb324eae634fc",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/geometry/models/same_substrate_sensitivity_corrected_normalized_fold3.joblib",
+      "sha256": "a12d88dca1ff84aa5ed86551775b1d4a68a529b5e96fb13743b2abe59ac3033e",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/geometry/models/same_substrate_sensitivity_corrected_normalized_fold4.joblib",
+      "sha256": "e2beead9081afcdd2208eb66624e3b029ac073d4c03eb5ae24fc656a4de5196c",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/geometry/models/same_substrate_sensitivity_delta_fold0.joblib",
+      "sha256": "9c3acea1d6822c4025cdcdbf0ac52e9f91ac6e03f6d69f64d4f0dc1979fce141",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/geometry/models/same_substrate_sensitivity_delta_fold1.joblib",
+      "sha256": "6927942d8c1444fff5a536dd1001376435bdcb8e6a1684b693c3ea0d23af5369",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/geometry/models/same_substrate_sensitivity_delta_fold2.joblib",
+      "sha256": "5f927bc9f035bae5544d173049d757ad0113de304c9ba35509deed2bf93f65a8",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/geometry/models/same_substrate_sensitivity_delta_fold3.joblib",
+      "sha256": "919d84740ddeba4867e987e4c944b42b8058643cc236f174a0b4f225af6e0412",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/geometry/models/same_substrate_sensitivity_delta_fold4.joblib",
+      "sha256": "5c91a3f5aa1677a1d42fac47a64e6171ddcfa39fdd0e7bf08466157d2b107415",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/geometry/models/same_substrate_sensitivity_raw_physical_fold0.joblib",
+      "sha256": "dad9ad39fdcf31adf665a657d77c3f1a36f232dc565e98b40fab6499702b4997",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/geometry/models/same_substrate_sensitivity_raw_physical_fold1.joblib",
+      "sha256": "f7137ffcc4b649879214010520d4042872efedb8eb6ebc751a52ef3499acb092",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/geometry/models/same_substrate_sensitivity_raw_physical_fold2.joblib",
+      "sha256": "3cbe63f1a57c2a431084cfd8838955eed4a3bc2a4063057d40172e56a435da2d",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/geometry/models/same_substrate_sensitivity_raw_physical_fold3.joblib",
+      "sha256": "930a0659ff743b7ab19e9d5c3c991216c7c71b9ba092d020fa55412523ca1d34",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/geometry/models/same_substrate_sensitivity_raw_physical_fold4.joblib",
+      "sha256": "2b1d7429767621aeca348b983c5c3f6edd6e73168ef463bc43d1e7222a9ebf0c",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/CO_coverage_training_only_augmented_clean_plus_delta_fold0.joblib",
+      "sha256": "9c847545a85121ecd9523c839ea054371113063cbeaaace33e3f9f6e4b4235ae",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/CO_coverage_training_only_augmented_clean_plus_delta_fold1.joblib",
+      "sha256": "30dba208ff7a2ba674e90f36eb0b74c003624e0633ba08e38f2a127e13e960a9",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/CO_coverage_training_only_augmented_clean_plus_delta_fold2.joblib",
+      "sha256": "ea1b08c028e3ac20aaf0ff96c3a51eea299030943e64a449c074789e017fcbe6",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/CO_coverage_training_only_augmented_clean_plus_delta_fold3.joblib",
+      "sha256": "48a656b13557e693be661689b9464839b87d52d534d9c9a5bad5f1af5e08d577",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/CO_coverage_training_only_augmented_clean_plus_delta_fold4.joblib",
+      "sha256": "d9cf1a9f7dfcf70f34d2880534e9c3923a0080b44b6f43505b9b6168f2fc185d",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/CO_coverage_training_only_augmented_delta_fold0.joblib",
+      "sha256": "cc204a667628b4a9737ef4c7d91cf6843062a12c4bc2ed8af50d80fa41cc9095",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/CO_coverage_training_only_augmented_delta_fold1.joblib",
+      "sha256": "53a0264d20b0d373639f7ef78441103b3f89fd9c78c0440ee084ffee31569b23",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/CO_coverage_training_only_augmented_delta_fold2.joblib",
+      "sha256": "b7a16db022567c6859e3265c45ab6d7abcd748e86e267be888fb02c128474f28",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/CO_coverage_training_only_augmented_delta_fold3.joblib",
+      "sha256": "404b9033a94d71f4339054a7c65aa9d7107ad4c3b4dcfdb5bf30d692fb438252",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/CO_coverage_training_only_augmented_delta_fold4.joblib",
+      "sha256": "1d14afd22ed23499cbcd1b9d75643ffa69e32527352a1257d2536643bd7d8047",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/CO_coverage_training_only_augmented_raw_normalized_fold0.joblib",
+      "sha256": "61b532fee42ba47350ae445e2c9325702c308c444be9954c80d4f9859f757eee",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/CO_coverage_training_only_augmented_raw_normalized_fold1.joblib",
+      "sha256": "31370de238139936b8d9c756753bdd6622bbf8fdfa8ba8d46a762ad17a252732",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/CO_coverage_training_only_augmented_raw_normalized_fold2.joblib",
+      "sha256": "06618ab150a89770cc186ddd99d48be99f19a6a4011aad68c65cbe06478fef4e",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/CO_coverage_training_only_augmented_raw_normalized_fold3.joblib",
+      "sha256": "d356f0ec96110eff5feca1e5c1ddfacf7d8221b6e8f50e58f236abdcbc166a74",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/CO_coverage_training_only_augmented_raw_normalized_fold4.joblib",
+      "sha256": "5dc1a2dd0bafff446c6bd29784e3f29c8fc5fc2f25bc056ecd66ae04019212eb",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/CO_coverage_training_only_augmented_raw_physical_fold0.joblib",
+      "sha256": "ca1f0a40cdc3654f88cf221049baedb9bbbdccc200941d6321bcd0bb6ba019bf",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/CO_coverage_training_only_augmented_raw_physical_fold1.joblib",
+      "sha256": "9bf53c8a90e5176dfab598deef1963b7aab489a10a88b04779e86fd133dd891b",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/CO_coverage_training_only_augmented_raw_physical_fold2.joblib",
+      "sha256": "0597d74d2433020b65d05dc778db512c5bdffca9f8e542e176ab15295169feb6",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/CO_coverage_training_only_augmented_raw_physical_fold3.joblib",
+      "sha256": "29bb20973a138bfb06451ac5f31cce7bdf81f49a5b617822cd6c8f135708ab3b",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/CO_coverage_training_only_augmented_raw_physical_fold4.joblib",
+      "sha256": "7f3ac910dcff96093743875d664bec9c7675da9c3a73e0c487a3830838f3849d",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/CO_coverage_unaugmented_clean_plus_delta_fold0.joblib",
+      "sha256": "26b41d4415b27545ae6236e8aee307899dc67b76e05a61dae2e384115b1db682",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/CO_coverage_unaugmented_clean_plus_delta_fold1.joblib",
+      "sha256": "e06c0d7663c229fb629ec481082cd0e39b625d293c4b56712c66ed2238028f3f",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/CO_coverage_unaugmented_clean_plus_delta_fold2.joblib",
+      "sha256": "76853e7b088f503c976786d3bbd12bb7555ba2a12d8c700de06db51907cad4d6",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/CO_coverage_unaugmented_clean_plus_delta_fold3.joblib",
+      "sha256": "8849ac7aa5b3353a59479f11048fa53f8cbfb83bc69e23bd0f4fb0ffd9f610e4",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/CO_coverage_unaugmented_clean_plus_delta_fold4.joblib",
+      "sha256": "bdea4b74f5b14c9afbc01ef4a7158221c5cdcb2de36833d690fb463df00a0a95",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/CO_coverage_unaugmented_delta_fold0.joblib",
+      "sha256": "469ee49cfbc529505a00184e15ee156b85cbc5c31473ed34b66bdd69e753c460",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/CO_coverage_unaugmented_delta_fold1.joblib",
+      "sha256": "ec6bea1393a1e8468457acfd43818f1509ab6031e80e72f134a8eb680300c3f8",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/CO_coverage_unaugmented_delta_fold2.joblib",
+      "sha256": "e5be216ced79b1f9e1d977844922209cef37be78b7dd46575d4b1eb21b9b1965",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/CO_coverage_unaugmented_delta_fold3.joblib",
+      "sha256": "29ad0a9b3635290f7b47b8c67b65814d3a89068c54d03fee483af57e22b146e9",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/CO_coverage_unaugmented_delta_fold4.joblib",
+      "sha256": "1da841723abe0bc0b7282a379cc6ce34457ac84a93500bc4b22db4835888a782",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/CO_coverage_unaugmented_raw_normalized_fold0.joblib",
+      "sha256": "bd7d92d896d080007d131f565eceaafd80e024708fd01daf740bac40cd17d5ca",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/CO_coverage_unaugmented_raw_normalized_fold1.joblib",
+      "sha256": "aada8e6876164a33cdc6bb091e1f94076ab64c8ba29dab750c8e9291cc707cb2",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/CO_coverage_unaugmented_raw_normalized_fold2.joblib",
+      "sha256": "e4fada0a629463d718b4389c06aba76fbc3b35ea26a03cc3e5cf7f374bd072f9",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/CO_coverage_unaugmented_raw_normalized_fold3.joblib",
+      "sha256": "b6e640f8fc80d35fdea31b4478ead7874fe6c7ff3250b99cc5a2e95155306af5",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/CO_coverage_unaugmented_raw_normalized_fold4.joblib",
+      "sha256": "6e9a5566462afbceda572b112b3f9ae62fa918b11800c0eda90d5afbbcc227d2",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/CO_coverage_unaugmented_raw_physical_fold0.joblib",
+      "sha256": "68a3c2a9d8edbeac3a6b0109aa924a0db0b098dcf71d61fa36842d45be396df3",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/CO_coverage_unaugmented_raw_physical_fold1.joblib",
+      "sha256": "c47980b74fb36985b9c25ada98e698a5cacf7bdfb3ae59240e180847609befe2",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/CO_coverage_unaugmented_raw_physical_fold2.joblib",
+      "sha256": "225f8aac7f858216f3e741f3d2e3b186f0c906a3072ac0101ab81e7ae19c3e99",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/CO_coverage_unaugmented_raw_physical_fold3.joblib",
+      "sha256": "55ad6993cddfc30787ccc91202be64648fce60673bfad80edd636564f0e75259",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/CO_coverage_unaugmented_raw_physical_fold4.joblib",
+      "sha256": "1fde303550878dd7da7f2c04ce54249b432e2b2fd81f7566888a5d18bafb73b2",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/identity_training_only_augmented_clean_plus_delta_fold0.joblib",
+      "sha256": "20447c8b60ffe972a0460a31d89888ca89255fd3ca8fc53a11d95438a34e3a40",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/identity_training_only_augmented_clean_plus_delta_fold1.joblib",
+      "sha256": "e760e23b955c62543a39278a723c686813a3ad78b2228838c9fc14596eb8d44e",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/identity_training_only_augmented_clean_plus_delta_fold2.joblib",
+      "sha256": "849bc80b9d7798e7db1302b1809fc6bb00ce18023569dce335f3f92a2d47d2cc",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/identity_training_only_augmented_clean_plus_delta_fold3.joblib",
+      "sha256": "eb651d986bb3cc14ec673edcbc931ffdcdd54ea43feccfae159cb2b3552af492",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/identity_training_only_augmented_clean_plus_delta_fold4.joblib",
+      "sha256": "e2de229ed48f1253d20244d995e231f967d906cd17c930b5700052616c798e8d",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/identity_training_only_augmented_delta_fold0.joblib",
+      "sha256": "95ac1ea5feb03bf6b8bfe47a8241cc7dcf9c50b51c8f16c76455de4fb6d1c1be",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/identity_training_only_augmented_delta_fold1.joblib",
+      "sha256": "fb3bd64bf8691d5db55f6c4b89e4a8df258aa61a6c9f1d90efa6eb76481353a0",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/identity_training_only_augmented_delta_fold2.joblib",
+      "sha256": "4b0a0ec7be42cb90110ccda8b19bcbe9dc5f32a79f814ae87453d2bf555cb77d",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/identity_training_only_augmented_delta_fold3.joblib",
+      "sha256": "794bc717ee60d70fa1b6bd4d238361ea61c92c33822a1288683091e7a25923b3",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/identity_training_only_augmented_delta_fold4.joblib",
+      "sha256": "9bc5429686a2bb0908468b7c58fca49576291362532470888e4c7692d8830fb1",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/identity_training_only_augmented_raw_normalized_fold0.joblib",
+      "sha256": "44e70934ce0d3b7fa7f886d9c94b4b301a20376b17c5f89b5ef79650d846fe0a",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/identity_training_only_augmented_raw_normalized_fold1.joblib",
+      "sha256": "21d58c434b39cf1c416a7ec2f97c9e5dab30914afbe22f72890d932d1ce51e66",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/identity_training_only_augmented_raw_normalized_fold2.joblib",
+      "sha256": "467370eb48202fb800076c8858db4206d5541879e321ea09db1a42b2f464b0a4",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/identity_training_only_augmented_raw_normalized_fold3.joblib",
+      "sha256": "2c446185fecc5b6aeece24cf2d6f9f02c9c9c2defa95141d29242babbdd3a00b",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/identity_training_only_augmented_raw_normalized_fold4.joblib",
+      "sha256": "ab6048d66c0703ad9cf3d8cc397c1578a08d338f41bebfa1702ffd7ba5672244",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/identity_training_only_augmented_raw_physical_fold0.joblib",
+      "sha256": "491ca8b36477f10880f6539ac9e0dc49b98bbc86bd3f8e5331c113a31ce551f8",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/identity_training_only_augmented_raw_physical_fold1.joblib",
+      "sha256": "86e860f6a8b6781997d3fcb996b26dc6ed3bcc8db79d009223f7ea7476979b75",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/identity_training_only_augmented_raw_physical_fold2.joblib",
+      "sha256": "8649ea08b254fec1c1d595618146d5b5f41c1b7e38ba862e4ea734960e81d8c6",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/identity_training_only_augmented_raw_physical_fold3.joblib",
+      "sha256": "e0b796ed737c187df04082e211026d9b16d12fa0f0bdc6fe160dcb93908140bc",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/identity_training_only_augmented_raw_physical_fold4.joblib",
+      "sha256": "b91eb2b6691b4b01c889969e95fcd601170aaed57f8be289cdf38db4c8b73088",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/identity_unaugmented_clean_plus_delta_fold0.joblib",
+      "sha256": "bf8e778cf1b76b93d37978e550a85a7b0c550276782dc3c6f56ba901beb91ae7",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/identity_unaugmented_clean_plus_delta_fold1.joblib",
+      "sha256": "244d59dd86e3b4b93227dd45dd390c9b50ad80afdfdce36a91d4aae0c1ea3327",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/identity_unaugmented_clean_plus_delta_fold2.joblib",
+      "sha256": "be4aed1552c4d17460347b71da3efdc008d8b18e25754084b09331f5a452b941",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/identity_unaugmented_clean_plus_delta_fold3.joblib",
+      "sha256": "a68020a69267163656623245e51f1ce642875ad94d1038a31ddb4e931a950668",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/identity_unaugmented_clean_plus_delta_fold4.joblib",
+      "sha256": "570f47aeafcf632a970ff7ff5b7902b08d093b306d948f8eac00093aa77103ca",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/identity_unaugmented_delta_fold0.joblib",
+      "sha256": "c61ef6f56737767d7bae277d3a88d155ca904761c10370eabaee8ad9e9badcfc",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/identity_unaugmented_delta_fold1.joblib",
+      "sha256": "8ed6c119e4c8950fca8e7e43fdbb1169bf38e036afa1b2bc8d1c36e870b069d3",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/identity_unaugmented_delta_fold2.joblib",
+      "sha256": "649820d1b3d932761c27067f245f5825a8241f19a985f54f95aa2db1c5327b3a",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/identity_unaugmented_delta_fold3.joblib",
+      "sha256": "b6b5fb8de509d13a5a0c11c635b8687496e6e1af85325119553b96acd49f4015",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/identity_unaugmented_delta_fold4.joblib",
+      "sha256": "5ff63e5b906c8a0a145f04283529610d8db7e06c5d3daca8614af5306d65e881",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/identity_unaugmented_raw_normalized_fold0.joblib",
+      "sha256": "1079372782c0c023d8af2cc28ee6e3df4adf069ce80d669e807e47c63736e9cd",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/identity_unaugmented_raw_normalized_fold1.joblib",
+      "sha256": "0f33b1f0fb7961747a4d94148b09451ebc9a487011eb4b47135ad840b2f33045",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/identity_unaugmented_raw_normalized_fold2.joblib",
+      "sha256": "99bf2f233f0cc8699908140e9c6211449821eb71e42e1b04259ad540b42ba4f6",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/identity_unaugmented_raw_normalized_fold3.joblib",
+      "sha256": "24df12c7f7a295321bd71879ef71b37a631f52d829565528e570d9908a51891f",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/identity_unaugmented_raw_normalized_fold4.joblib",
+      "sha256": "2bb7397764b0f1c062d2636bda9be59d64b704e303ad120a541d92dc12a13d1b",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/identity_unaugmented_raw_physical_fold0.joblib",
+      "sha256": "d530088aeab85a519a01af6ab7974178e173b6b8dd4614b12485d654ec8198e0",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/identity_unaugmented_raw_physical_fold1.joblib",
+      "sha256": "e6c6f6b65eab6fa6b1a98643ade0e19fead3b0610d1b4ffb22ad3d9c1dc413d1",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/identity_unaugmented_raw_physical_fold2.joblib",
+      "sha256": "f4fba58c8db4537195b4e6643d01ab5986b4ddf770bf36c486ef02578e36e6db",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/identity_unaugmented_raw_physical_fold3.joblib",
+      "sha256": "5a5172d50f6ba7153c9e24a09f179399ddbba869cc47ae6bc710617a03b513bc",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/robustness/models/identity_unaugmented_raw_physical_fold4.joblib",
+      "sha256": "dc114b9f6ff0387b6f2a7360b400fd7fdd963ff41c9d90a2c89b84c6e9d5f6e4",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/raw_augmentation/Cu100_CuAu_only_0.joblib",
+      "sha256": "3e2825a153208e24e2b092d223d6b6541b3268604f6042c750c7160a640123f9",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/raw_augmentation/Cu100_CuAu_only_1.joblib",
+      "sha256": "2f574fe4c09a1480820b14f6f9fe8d964e14614d613f753b348ceaf81758d0a9",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/raw_augmentation/Cu100_CuAu_only_2.joblib",
+      "sha256": "e494666ad9b22f11964e39958ff83a04158c2212eecf17a7f05876cf4a87b98a",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/raw_augmentation/Cu100_CuAu_only_3.joblib",
+      "sha256": "c2bc80a7821bff30d3c202636ce050bc25b54ca15df0d5c3ad5a4b8d12eaf11e",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/raw_augmentation/Cu100_CuAu_plus_Cu100_0.joblib",
+      "sha256": "e5c90c66bbfe8f8adbdac4ffab532e9d00ba45ada61b630d3fb8558e21ab2160",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/raw_augmentation/Cu100_CuAu_plus_Cu100_1.joblib",
+      "sha256": "30c066d53795eee1506401ee1674471504ab76fc730d47343519b483394d9b8f",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/raw_augmentation/Cu100_CuAu_plus_Cu100_2.joblib",
+      "sha256": "7ec175ae22f36c5f13b57c644de5ba34ac2d2e086b376e7427a0cdb75c687249",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/raw_augmentation/Cu100_CuAu_plus_Cu100_3.joblib",
+      "sha256": "a18564b14f5efe2c2d4e5904bfce0528027cf35906fc47f526c5daff9c85cdca",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/raw_augmentation/CuAu_CuAu_only_0.joblib",
+      "sha256": "7736b20b3bb3e8e8b71a1accaa3c451e83df9851b72345a5779639eb779cfb73",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/raw_augmentation/CuAu_CuAu_only_1.joblib",
+      "sha256": "4c66629cfa2bebdac5df2fd87fcd0a214a2dfaf0fba618a75b19456593317430",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/raw_augmentation/CuAu_CuAu_only_2.joblib",
+      "sha256": "d1741933cf2c7e7645d131cc37dfa23ad72c5d687e0127811323026095429a6b",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/raw_augmentation/CuAu_CuAu_only_3.joblib",
+      "sha256": "3fc021785b42af568258996433a5180afee2846e5650a53f50b015c528e15601",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/raw_augmentation/CuAu_CuAu_only_4.joblib",
+      "sha256": "83ebb9da97da0bfc442e31a22de1909d5fff1ffe8f8a0ae95b6f328eb7ddb8a3",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/raw_augmentation/CuAu_CuAu_plus_Cu100_0.joblib",
+      "sha256": "dfe5e030fe15297e4c6a8d6afca2a30e10bf61629c48324fb97c6579a7cbd86c",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/raw_augmentation/CuAu_CuAu_plus_Cu100_1.joblib",
+      "sha256": "613532336ce4d70ada0b91d55137832759b593ef225ace16da826e49b7dc5698",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/raw_augmentation/CuAu_CuAu_plus_Cu100_2.joblib",
+      "sha256": "af0079cdbc8e7295dc09bb96cb4a756cdbdd8885e4c8a091b63ecdff30af093f",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/raw_augmentation/CuAu_CuAu_plus_Cu100_3.joblib",
+      "sha256": "4aa95ba7f0da31d18ab0f686f40e22184c3c9b4f1b7a99c0741bd6028e5a08e4",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/raw_augmentation/CuAu_CuAu_plus_Cu100_4.joblib",
+      "sha256": "af18cbf8ab52549cc1dcaf3bd35feddc899d21e8fcf85b1a5fec84e3e340832d",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/raw_identity_augmentation/Cu100_CuAu_only_fold0.joblib",
+      "sha256": "11afb169151925afdd8080f96607b71923d3f1bae17668864a6d7371d30406ee",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/raw_identity_augmentation/Cu100_CuAu_only_fold1.joblib",
+      "sha256": "d2451235e1a6ca52300c96946f656e79e62b3e2643a79b849d4ed87b1bf742eb",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/raw_identity_augmentation/Cu100_CuAu_only_fold10.joblib",
+      "sha256": "47e73ba7162f9c83307aa1368740142b6b941a67dc39b2890e78a1afe99e0a72",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/raw_identity_augmentation/Cu100_CuAu_only_fold11.joblib",
+      "sha256": "29117ad70b9f4ffe9136581593283fc78c53fa680149ad54ad4913a53e1b0b7a",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/raw_identity_augmentation/Cu100_CuAu_only_fold2.joblib",
+      "sha256": "346d00093e600fb45ef963b930d62c5369756d9205e7dfe1bed97caf8e8788ee",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/raw_identity_augmentation/Cu100_CuAu_only_fold3.joblib",
+      "sha256": "6bccbb18854b806ec30856e8b66ffdcbddec5deb92425b50dbdb98afae89e235",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/raw_identity_augmentation/Cu100_CuAu_only_fold4.joblib",
+      "sha256": "e3c41e0752dcd112fda7828f8f47821c4fe6b5c59cadccb31ee959f66422e59d",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/raw_identity_augmentation/Cu100_CuAu_only_fold5.joblib",
+      "sha256": "95e257e71db680385f7b7c02c925eee6633a4c3a3410c277cfc9eb2a4993dee4",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/raw_identity_augmentation/Cu100_CuAu_only_fold6.joblib",
+      "sha256": "7f4176f4fa44d152f6c31dbc4db2cea3bce9c7ff2873933313a95ffda580e019",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/raw_identity_augmentation/Cu100_CuAu_only_fold7.joblib",
+      "sha256": "29e87f894bea94e56639c7848e3804a73c59f8f27afb867e423b89723584b49c",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/raw_identity_augmentation/Cu100_CuAu_only_fold8.joblib",
+      "sha256": "d6fee89307f141263eadd350eaf59167e47e081c7695cf46bdeb41114efe7ce3",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/raw_identity_augmentation/Cu100_CuAu_only_fold9.joblib",
+      "sha256": "4ed3a84a80ef5869bcc5af42c4aacf771cf281b9085acce7e5191207a0a8a5c9",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/raw_identity_augmentation/Cu100_CuAu_plus_Cu100_fold0.joblib",
+      "sha256": "0612c1067ec505130d8d6946ccc76b23e869783b82b91bd84d86b048b7a65670",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/raw_identity_augmentation/Cu100_CuAu_plus_Cu100_fold1.joblib",
+      "sha256": "a021cc54770f9190fce8e0a41fc9e2570a706cd1a793bb8308d98526446487ec",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/raw_identity_augmentation/Cu100_CuAu_plus_Cu100_fold10.joblib",
+      "sha256": "7fd02e2fc935204f7490320ba7edcb97e51fe02b8442d35b0fd21d8de459195c",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/raw_identity_augmentation/Cu100_CuAu_plus_Cu100_fold11.joblib",
+      "sha256": "9ad4e42297a4ed82dda3e2f2e3ad6ef798a725d639f642e29ec6f4d98debe4f8",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/raw_identity_augmentation/Cu100_CuAu_plus_Cu100_fold2.joblib",
+      "sha256": "dd0a72cfbc7f5e59725d88411ac0f926e876eb3c227823a680e9a46fb98643aa",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/raw_identity_augmentation/Cu100_CuAu_plus_Cu100_fold3.joblib",
+      "sha256": "84827a614433279fe92e1540c5ea4ec603a25b076f9cd5d7af0242e7f77b36f7",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/raw_identity_augmentation/Cu100_CuAu_plus_Cu100_fold4.joblib",
+      "sha256": "6e217431d57799ad600eb17a587a0806c41c1bf24c9b0120a9b81a6c0f668dbf",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/raw_identity_augmentation/Cu100_CuAu_plus_Cu100_fold5.joblib",
+      "sha256": "a2c3a02e19721ff19bf89a915aceb174f3d80b0f96256f4a7a61710f546699ec",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/raw_identity_augmentation/Cu100_CuAu_plus_Cu100_fold6.joblib",
+      "sha256": "15587b6753f654cfe5f0a63d28f93b38ba47e7bafe13b23a29451583e5717486",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/raw_identity_augmentation/Cu100_CuAu_plus_Cu100_fold7.joblib",
+      "sha256": "71533dd43bc7f8a85d52c8c523014ff48cba17f6f22ec555a1f9641ad7bdfad1",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/raw_identity_augmentation/Cu100_CuAu_plus_Cu100_fold8.joblib",
+      "sha256": "d6013ebf903b7488c479564a479e735eaca48adef13a72d6b877f5bd971ac703",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/raw_identity_augmentation/Cu100_CuAu_plus_Cu100_fold9.joblib",
+      "sha256": "a1d65c45290d25c62e0efbf0c0917798ea283deb312dc5e2a3374ead630152ff",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/raw_identity_augmentation/CuAu_CuAu_only_fold0.joblib",
+      "sha256": "17b4542d35acb506e774adb55eda772b4b2827a5b7b6c43004278aa21e6d092a",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/raw_identity_augmentation/CuAu_CuAu_only_fold1.joblib",
+      "sha256": "e730c2dce11d97be96277a412d0ba1fd887bd8ddb767d69ddde38510507ef99b",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/raw_identity_augmentation/CuAu_CuAu_only_fold2.joblib",
+      "sha256": "2c255bd9963293f27d9b11db2cda35cb7a5920bdf168ff8235fb3cabaab69235",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/raw_identity_augmentation/CuAu_CuAu_only_fold3.joblib",
+      "sha256": "b6c25dfee66ebda53bcce1ed0ce1250a023b5114a40ad595dbb8bf659590f16d",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/raw_identity_augmentation/CuAu_CuAu_only_fold4.joblib",
+      "sha256": "c5c9c893cfab263d0b076b5cf8fded09cfad6081f3f0d2af0216253f5c44c594",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/raw_identity_augmentation/CuAu_CuAu_plus_Cu100_fold0.joblib",
+      "sha256": "a49c2b9827a804cc6ec57307742fd0ad36744caeddfafa7b7d6543809e39a435",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/raw_identity_augmentation/CuAu_CuAu_plus_Cu100_fold1.joblib",
+      "sha256": "8946d4a4114e69fe8fd3dae2cac8b02bd7b2969bf0ef5b5cf4b69f579eae4e62",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/raw_identity_augmentation/CuAu_CuAu_plus_Cu100_fold2.joblib",
+      "sha256": "422082f78a2bdf52e3bc1eca61843d5d0dc0f3270dbdabb2a60a5699f1a5a27a",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/raw_identity_augmentation/CuAu_CuAu_plus_Cu100_fold3.joblib",
+      "sha256": "081139a48ba80abec1e221bfaf7745fc841ac2fdd188ec477516690acb6917c0",
+      "heldout_reload_match": true
+    },
+    {
+      "path": "study/differential_v1/raw_identity_augmentation/CuAu_CuAu_plus_Cu100_fold4.joblib",
+      "sha256": "cba69b5e26427bd9fd18000c2c65e629d9d17ba4438285d7b73f31e2828ebdd2",
+      "heldout_reload_match": true
+    }
+  ]
+}

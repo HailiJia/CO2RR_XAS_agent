@@ -1,0 +1,32 @@
+[
+  {
+    "rank": 1,
+    "proposal": "Independent pure CHO plus matched CO+H / CHO / COH on the same parent, loading and location",
+    "evidence": "CHO nine positive records/eight groups but two pure; mixture constituent omissions; per-case CO_CHO_COH_confusions.csv",
+    "not_new_results": true
+  },
+  {
+    "rank": 2,
+    "proposal": "Composition-controlled CO+H and CO+OH mixtures at fixed CO loading and motif",
+    "evidence": "CuAu exact mixture recovery1/16 for both delta/shape; omitted labels26 with signed shape",
+    "not_new_results": true
+  },
+  {
+    "rank": 3,
+    "proposal": "Independent COCHO and hydrogenated/oxygenated C1/C2 diversity including OCHO",
+    "evidence": "COCHO one positive/group; no positive training example in its held-out fold",
+    "not_new_results": true
+  },
+  {
+    "rank": 4,
+    "proposal": "Interface CO motif/loading sweeps and independently supported CO/OCHO local contacts",
+    "evidence": "Four Cu100 CO cases confound coverage and motif; CuAu2/Au3 hollow compositions absent; contact/location separate targets",
+    "not_new_results": true
+  },
+  {
+    "rank": 5,
+    "proposal": "Independent clean/covered parent families; repeated experimental null/reference acquisitions",
+    "evidence": "One clean family per domain; relative gain produces severe synthetic errors; shared-reference noise covariance unmeasured",
+    "not_new_results": true
+  }
+]

@@ -1,0 +1,77 @@
+{
+  "head": "518c686ccdaf79e24eca7577d72b5b9448987631",
+  "working_tree_unmodified": true,
+  "tracked_python_files": 102,
+  "source_files": [
+    {
+      "file": "workflow/nersc_workflow.py",
+      "bytes": 18000,
+      "sha256": "789151f1e452728a735a21a9fcb07dfd2cc2e1d7a0f1bf31eba4029d3211df13",
+      "git_blob": "6902fca622fe19cc62bf5ed86bd2e50c335091b6",
+      "syntax_error": {
+        "line": 494,
+        "message": "expected '('"
+      },
+      "tail": "[\"script\"],\n                output_dir=item.get(\"output_dir\", str(Path(item[\"script\"]).resolve().parent)),\n                software=item.get(\"software\") or _software_from_path(Path(item[\"script\"])),\n                stage=\"relax\",\n            ))\n        ctx[\"relax_jobs\"] = submitted\n\n    def monitor_"
+    },
+    {
+      "file": "agent/co2rr_xas_agent.py",
+      "bytes": 36000,
+      "sha256": "3dc1fb23fd8fcb7f2e0d9bb34157abdf3afac92bc76b58624693d5080fafd311",
+      "git_blob": "374696eb17dec0edb627c19c9a20ed430c4a7028",
+      "syntax_error": {
+        "line": 769,
+        "message": "'(' was never closed"
+      },
+      "tail": "s)\n\n    def generate_structure(\n        self,\n        metal1: str,\n        metal2: Optional[str] = None,\n        facet1: str = \"111\",\n        facet2: Optional[str] = None,\n        adsorbate: Optional[Union[str, List[str]]] = None,\n        site: str = \"top\",\n        supercell: tuple = (3, 3),\n       "
+    },
+    {
+      "file": "CO2RR_ML/updated_dataset_20261020/analysis.py",
+      "bytes": 54000,
+      "sha256": "b70d9efc8136e39bbda17f6da08531ca9bfde4068b45b28711db227284295ee6",
+      "git_blob": "03f77baa08111dc37c60b94b874d14228fb44110",
+      "syntax_error": {
+        "line": 616,
+        "message": "'(' was never closed"
+      },
+      "tail": "n_summary.json').write_text(json.dumps(counts|dict(primary_micro_f1=float(primary_result.micro_f1),primary_macro_f1=float(primary_result.macro_f1),provisional_best_micro_f1=float(best_observed.micro_f1),provisional_best_macro_f1=float(best_observed.macro_f1),best_observed_family=str(best_family.sele"
+    },
+    {
+      "file": "tests/test_study_reconciliation.py",
+      "bytes": 18000,
+      "sha256": "12edc183a57e454bbec06e8213f381fa07f236b13edfa45b6d18dda458a1f480",
+      "git_blob": "350135298e8a894dd9abbca4c58f1f8449e14855",
+      "syntax_error": null,
+      "tail": "_path,tmp_path/'report')\n    assert summary['observed_attempts_with_surviving_scheduler_stdout']==1 and summary['observed_scheduler_stdout_files']==2\n    row=json.loads((tmp_path/'report/execution_events.jsonl').read_text().splitlines()[0]);assert len(row['configuration_aliases'])==2\n    assert summ"
+    }
+  ],
+  "full_focused_suite": {
+    "result": "collection error",
+    "cause": "SyntaxError workflow/nersc_workflow.py line 494"
+  },
+  "four_file_subset": {
+    "passed": 76,
+    "failed": 2,
+    "warnings": 3,
+    "suite": [
+      "test_study_reconciliation.py",
+      "test_geometry_labels.py",
+      "test_grouped_xas_ml.py",
+      "test_xas_ml_peak_descriptors.py"
+    ],
+    "failures": [
+      {
+        "test": "test_agent_natural_language_dispatches_to_shared_audited_training",
+        "cause": "SyntaxError importing agent/co2rr_xas_agent.py"
+      },
+      {
+        "test": "test_execution_backfill_deduplicates_copied_scheduler_attempts",
+        "cause": "NameError: name 'summ' is not defined; tests/test_study_reconciliation.py line 254"
+      }
+    ]
+  },
+  "replay_scope": "saved OOF predictions independently verified; full raw-cohort refit and new benchmark unavailable",
+  "environment": {
+    "python": "3.12.14"
+  }
+}

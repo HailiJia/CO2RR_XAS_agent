@@ -1,0 +1,44 @@
+ ----------------------------------------------------
+    OOO  PPPP  EEEEE N   N M   M PPPP
+   O   O P   P E     NN  N MM MM P   P
+   O   O PPPP  EEEEE N N N M M M PPPP   -- VERSION
+   O   O P     E     N  NN M   M P
+    OOO  P     EEEEE N   N M   M P
+ ----------------------------------------------------
+ running   64 mpi-ranks, with    1 threads/rank
+ distrk:  each k-point on   64 cores,    1 groups
+ distr:  one band on    1 cores,   64 groups
+ vasp.6.3.2 27Jun22 (build May 28 2024 15:01:12) complex                        
+  
+ POSCAR found type information on POSCAR CuCu
+ POSCAR found :  2 types and      64 ions
+ Reading from existing POTCAR
+ scaLAPACK will be used
+ Reading from existing POTCAR
+ LDA part: xc-table for Pade appr. of Perdew
+ POSCAR, INCAR and KPOINTS ok, starting setup
+ FFT: planning ... GRIDC
+ FFT: planning ... GRID_SOFT
+ FFT: planning ... GRID
+ WAVECAR not read
+ WARNING: random wavefunctions but no delay for mixing, default for NELMDL
+ entering main loop
+       N       E                     dE             d eps       ncg     rms          rms(c)
+DAV:   1     0.866234228461E+04    0.86623E+04   -0.40343E+05  3840   0.220E+03
+DAV:   2     0.237728250126E+03   -0.84246E+04   -0.81039E+04  3584   0.601E+02
+DAV:   3    -0.263164617054E+03   -0.50089E+03   -0.46087E+03  4160   0.199E+02
+DAV:   4    -0.294279481766E+03   -0.31115E+02   -0.30892E+02  5504   0.571E+01
+DAV:   5    -0.294580617157E+03   -0.30114E+00   -0.30067E+00  4160   0.405E+00    0.624E+01
+DAV:   6    -0.264084863181E+03    0.30496E+02   -0.55316E+02  4096   0.103E+02    0.839E+01
+DAV:   7    -0.242250006115E+03    0.21835E+02   -0.67799E+01  4160   0.398E+01    0.280E+01
+DAV:   8    -0.240068176075E+03    0.21818E+01   -0.15050E+01  4480   0.143E+01    0.718E+00
+DAV:   9    -0.239700393554E+03    0.36778E+00   -0.91308E-01  4672   0.395E+00    0.198E+00
+DAV:  10    -0.239679742713E+03    0.20651E-01   -0.79696E-02  4480   0.142E+00    0.659E-01
+DAV:  11    -0.239677932109E+03    0.18106E-02   -0.15195E-02  5248   0.637E-01    0.106E-01
+DAV:  12    -0.239678148347E+03   -0.21624E-03   -0.16975E-03  4928   0.216E-01    0.964E-02
+DAV:  13    -0.239678050864E+03    0.97483E-04   -0.27044E-04  4096   0.150E-01    0.501E-02
+DAV:  14    -0.239678043256E+03    0.76071E-05   -0.11510E-04  6720   0.609E-02    0.430E-02
+DAV:  15    -0.239678046345E+03   -0.30881E-05   -0.20925E-05  4224   0.369E-02    0.315E-02
+DAV:  16    -0.239678045387E+03    0.95757E-06   -0.57124E-06  4416   0.206E-02
+   1 F= -.23967805E+03 E0= -.23969180E+03  d E =0.412718E-01
+ writing wavefunctions

@@ -1,0 +1,5 @@
+-r requirements-replay.txt
+pytest==9.1.1
+ase==3.28.0
+pymatgen==2025.10.7
+jsonschema==4.26.0

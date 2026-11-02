@@ -1,0 +1,37 @@
+convert_layers_to_isaac.sh version 2026-10-20.2
+Using relaxed structure: /Users/hjia/Downloads/CO2RR/OCCO_CO/OCCO_CO_0p111_Cu_rich/CONTCAR
+Replacing existing record while preserving record_id: 01M5X6SZ98GJRSS5XG0D7RNCK8
+Wrote /var/folders/x6/czb1zz7s48dbh_q7y6q44zvm0000gp/T/isaac_base.XXXXXX.json
+record_id = 01M5X6SZ98GJRSS5XG0D7RNCK8
+absorber = Cu
+edge = K
+absorber_edge_source = metadata_or_environment
+series_count = 1
+asset_count = 30
+Wrote /private/tmp/co2rr_pr18_repair/study/coverage_20261026/records/OCCO_CO/OCCO_CO_0p111_Cu_rich/isaac_record_layers.json
+Structure: /Users/hjia/Downloads/CO2RR/OCCO_CO/OCCO_CO_0p111_Cu_rich/CONTCAR
+Formula: Cu180Au160C4O4 (348 atoms)
+Adsorbates: {'CO': 4} (total=4)
+Adsorption sites: {'atop': 4}
+Distribution: not_labeled; label=Cu_rich
+Path identity cross-check: mismatch:path=['CO', 'OCCO'];CONTCAR=['CO']
+POSCAR count cross-check: match
+Series:
+  Cu_K_layer_2 <- layer_2/Cu_layer2_conv.txt
+  Cu_K_layer_3 <- layer_3/Cu_layer3_conv.txt
+  Cu_K_layer_4 <- layer_4/Cu_layer4_conv.txt
+  Cu_K_layer_5 <- layer_5/Cu_layer5_conv.txt
+FDMNES main inputs parsed: 4/4 layers
+Common FDMNES settings:
+  calculation_mode: green_function_multiple_scattering
+  edge: K
+  energpho: True
+  energy_range: [-5.0, 0.2, 50.0]
+  green: True
+  memory_save: True
+  perdew: True
+  radius_A: 6.0
+  scf: True
+FDMNES convolution inputs parsed: 4/4 layers
+Acquisition timestamps: not recorded; omitted from record
+Local check passed: one CONTCAR structure + 4 valid Cu K-edge series in /private/tmp/co2rr_pr18_repair/study/coverage_20261026/records/OCCO_CO/OCCO_CO_0p111_Cu_rich/isaac_record_layers.json

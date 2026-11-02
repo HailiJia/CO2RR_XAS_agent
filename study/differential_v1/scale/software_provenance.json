@@ -1,0 +1,14 @@
+{
+  "download_page": "https://fdmnes.neel.cnrs.fr/download/",
+  "page_release_label": "2026-07-28",
+  "actual_package_and_executable": "2026-10-22",
+  "official_Mac_archive_url": "https://hub.neel.cnrs.fr/index.php/s/9F57Nao8iNwtFyR/download",
+  "binary_sha256": "47b5a5e1ab3c39eeb752355187667327ddb6a9b2d6fcefe467ece29d60b05231",
+  "binary_not_uploaded": true,
+  "source_zip_url": "https://hub.neel.cnrs.fr/index.php/s/bwjwrY2fprcyjaX/download",
+  "source_zip_sha256": "7d70caa62e13f268d42cefab869cc7bb4bf3c923b783103a6c4576e8b33fe4c3",
+  "convolution_source_sha256": "37007e778df9eff346b8086c7cc94fb3372da58b0925ab38f091f61d1b31db4d",
+  "manual_sha256": "7d9e714a9c60a558d1c9f4977846d2462c5a916dcc5e2b4deeb12ec8e1dea72e",
+  "native_outputs_version": "28 July 2026",
+  "version_caveat": "The current downloaded source/binary is October, not falsely identified as July. Native convolution is checked numerically for each included layer; defaults are not asserted version-specific without matching source. Recorded widths are explicitly stated in corrected decks."
+}

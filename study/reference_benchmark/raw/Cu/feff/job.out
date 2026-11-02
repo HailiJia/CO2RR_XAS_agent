@@ -1,0 +1,305 @@
+ Number of processors =            1
+ FEFF 9.6.4
+ Core hole lifetime is    1.72918818490579       eV.
+ comment: None given
+ Source:
+ Structure Summary:  Cu1
+ Reduced formula:  Cu
+ space group: (Fm-3m), space number:  (225)
+ abc:  2.558581   2.558581   2.558581
+ angles: 60.000000  60.000000  60.000000
+ sites: 1
+ Number of processors =            1
+ Calculating potentials ...
+    free atom potential and density for atom type    1
+    initial state energy
+    overlapped potential and density for unique potential    0
+    overlapped potential and density for unique potential    1
+ total time      0.303345995023847     
+ communicate time  0.000000000000000E+000
+ Number of processors =            1
+ Calculating potentials ...
+muffin tin radii and interstitial parameters
+ iph, rnrm(iph)*bohr, rmt(iph)*bohr, folp(iph)
+    0  1.40180E+00  1.36505E+00  1.06704E+00
+    1  1.40180E+00  1.36505E+00  1.06704E+00
+              Core-valence separation
+ ecv=   -40.000
+ mu_old=    -3.200
+              SCF ITERATION NUMBER  1  OUT OF 100
+ Calculating energy and space dependent l-DOS ....
+     point #   1  energy = -40.000
+     Doing FMS for a cluster of  135 atoms around iph =   0 in fmsie
+    0   FMS matrix (LUD) at point   1, number of state kets =1215
+     Doing FMS for a cluster of  135 atoms around iph =   1 in fmsie
+    0   FMS matrix (LUD) at point   1, number of state kets =1215
+     point #  20  energy = -28.785
+     point #  40  energy =  -8.535
+     point #  60  energy =  -1.775
+     point #  80  energy =  -2.794
+     point # 100  energy =  -3.210
+  Electronic configuration
+   iph    il      N_el
+     0     0    0.782
+     0     1    1.145
+     0     2    9.073
+     0     3    0.000
+     1     0    0.782
+     1     1    1.145
+     1     2    9.073
+     1     3    0.000
+ mu_new=    -3.330
+ Charge transfer:  iph  charge(iph)
+       0   -0.000
+       1    0.000
+              SCF ITERATION NUMBER  1  OUT OF 100
+ Calculating energy and space dependent l-DOS ....
+     point #   1  energy = -40.000
+     Doing FMS for a cluster of  135 atoms around iph =   0 in fmsie
+    0   FMS matrix (LUD) at point   1, number of state kets =1215
+     Doing FMS for a cluster of  135 atoms around iph =   1 in fmsie
+    0   FMS matrix (LUD) at point   1, number of state kets =1215
+     point #  20  energy = -28.795
+     point #  40  energy =  -8.423
+     point #  60  energy =  -3.330
+     point #  80  energy =  -5.164
+     point # 100  energy =  -6.673
+     point # 120  energy =  -6.958
+  Electronic configuration
+   iph    il      N_el
+     0     0    0.714
+     0     1    0.796
+     0     2    9.490
+     0     3    0.000
+     1     0    0.714
+     1     1    0.796
+     1     2    9.490
+     1     3    0.000
+ mu_new=    -7.031
+ Charge transfer:  iph  charge(iph)
+       0    0.000
+       1   -0.000
+              SCF ITERATION NUMBER  1  OUT OF 100
+ Calculating energy and space dependent l-DOS ....
+     point #   1  energy = -40.000
+     Doing FMS for a cluster of  135 atoms around iph =   0 in fmsie
+    0   FMS matrix (LUD) at point   1, number of state kets =1215
+     Doing FMS for a cluster of  135 atoms around iph =   1 in fmsie
+    0   FMS matrix (LUD) at point   1, number of state kets =1215
+     point #  20  energy = -29.010
+     point #  40  energy =  -9.029
+     point #  60  energy =  -7.044
+     point #  80  energy =  -7.344
+  Electronic configuration
+   iph    il      N_el
+     0     0    0.708
+     0     1    0.763
+     0     2    9.530
+     0     3    0.000
+     1     0    0.708
+     1     1    0.763
+     1     2    9.530
+     1     3    0.000
+ mu_new=    -7.423
+ Charge transfer:  iph  charge(iph)
+       0   -0.000
+       1    0.000
+              SCF ITERATION NUMBER  2  OUT OF 100
+ Calculating energy and space dependent l-DOS ....
+     point #   1  energy = -40.000
+     Doing FMS for a cluster of  135 atoms around iph =   0 in fmsie
+    0   FMS matrix (LUD) at point   1, number of state kets =1215
+     Doing FMS for a cluster of  135 atoms around iph =   1 in fmsie
+    0   FMS matrix (LUD) at point   1, number of state kets =1215
+     point #  20  energy = -28.802
+     point #  40  energy =  -8.441
+     point #  60  energy =  -7.460
+  Electronic configuration
+   iph    il      N_el
+     0     0    0.706
+     0     1    0.755
+     0     2    9.539
+     0     3    0.000
+     1     0    0.706
+     1     1    0.755
+     1     2    9.539
+     1     3    0.000
+ mu_new=    -7.553
+ Charge transfer:  iph  charge(iph)
+       0   -0.000
+       1    0.000
+              SCF ITERATION NUMBER  3  OUT OF 100
+ Calculating energy and space dependent l-DOS ....
+     point #   1  energy = -40.000
+     Doing FMS for a cluster of  135 atoms around iph =   0 in fmsie
+    0   FMS matrix (LUD) at point   1, number of state kets =1215
+     Doing FMS for a cluster of  135 atoms around iph =   1 in fmsie
+    0   FMS matrix (LUD) at point   1, number of state kets =1215
+     point #  20  energy = -28.846
+     point #  40  energy =  -8.567
+     point #  60  energy =  -7.594
+     point #  80  energy =  -7.847
+  Electronic configuration
+   iph    il      N_el
+     0     0    0.705
+     0     1    0.739
+     0     2    9.556
+     0     3    0.000
+     1     0    0.705
+     1     1    0.739
+     1     2    9.556
+     1     3    0.000
+ mu_new=    -7.887
+ Charge transfer:  iph  charge(iph)
+       0    0.000
+       1   -0.000
+              SCF ITERATION NUMBER  4  OUT OF 100
+ Calculating energy and space dependent l-DOS ....
+     point #   1  energy = -40.000
+     Doing FMS for a cluster of  135 atoms around iph =   0 in fmsie
+    0   FMS matrix (LUD) at point   1, number of state kets =1215
+     Doing FMS for a cluster of  135 atoms around iph =   1 in fmsie
+    0   FMS matrix (LUD) at point   1, number of state kets =1215
+     point #  20  energy = -28.961
+     point #  40  energy =  -8.890
+  Electronic configuration
+   iph    il      N_el
+     0     0    0.705
+     0     1    0.740
+     0     2    9.555
+     0     3    0.000
+     1     0    0.705
+     1     1    0.740
+     1     2    9.555
+     1     3    0.000
+ mu_new=    -7.888
+ Charge transfer:  iph  charge(iph)
+       0   -0.000
+       1    0.000
+              SCF ITERATION NUMBER  5  OUT OF 100
+ Calculating energy and space dependent l-DOS ....
+     point #   1  energy = -40.000
+     Doing FMS for a cluster of  135 atoms around iph =   0 in fmsie
+    0   FMS matrix (LUD) at point   1, number of state kets =1215
+     Doing FMS for a cluster of  135 atoms around iph =   1 in fmsie
+    0   FMS matrix (LUD) at point   1, number of state kets =1215
+     point #  20  energy = -28.961
+     point #  40  energy =  -8.891
+  Electronic configuration
+   iph    il      N_el
+     0     0    0.705
+     0     1    0.740
+     0     2    9.554
+     0     3    0.000
+     1     0    0.705
+     1     1    0.740
+     1     2    9.554
+     1     3    0.000
+ mu_new=    -7.872
+ Charge transfer:  iph  charge(iph)
+       0   -0.000
+       1    0.000
+              SCF ITERATION NUMBER  6  OUT OF 100
+ Calculating energy and space dependent l-DOS ....
+     point #   1  energy = -40.000
+     Doing FMS for a cluster of  135 atoms around iph =   0 in fmsie
+    0   FMS matrix (LUD) at point   1, number of state kets =1215
+     Doing FMS for a cluster of  135 atoms around iph =   1 in fmsie
+    0   FMS matrix (LUD) at point   1, number of state kets =1215
+     point #  20  energy = -28.956
+     point #  40  energy =  -8.876
+  Electronic configuration
+   iph    il      N_el
+     0     0    0.705
+     0     1    0.740
+     0     2    9.554
+     0     3    0.000
+     1     0    0.705
+     1     1    0.740
+     1     2    9.554
+     1     3    0.000
+ mu_new=    -7.865
+ Charge transfer:  iph  charge(iph)
+       0   -0.000
+       1    0.000
+ Convergence reached.
+ Done with module 1: potentials.
+ total time       415.492403620854     
+ communicate time  0.000000000000000E+000
+ Number of processors =            1
+ Calculating SCREEN ...
+      get phase shift for potential type            0
+      get phase shift for potential type            1
+  Doing FMS for a cluster of           19  atoms around iph =            0
+   0.% of energy integration
+  10.% of energy integration
+  20.% of energy integration
+  30.% of energy integration
+  40.% of energy integration
+  50.% of energy integration
+  60.% of energy integration
+  70.% of energy integration
+  80.% of energy integration
+  90.% of energy integration
+ 100.% -- end of energy integration --
+ Prepare response function
+ Start matrix inversion
+ Compute (1 - K Chi0)^-1 v_ch
+ Done with SCREEN.
+ Number of processors =            1
+ Number of processors =            1
+ Calculating cross-section and phases...
+    absorption cross section
+    phase shifts for unique potential    0
+    phase shifts for unique potential    1
+ Done with module 2: cross-section and phases...
+ Number of processors =            1
+ Number of energy points =   121
+ Doing FMS for a cluster of 249 atoms around iph =  0
+    0   FMS matrix (LUD) at point  10, number of state kets =3984
+    0   FMS matrix (LUD) at point  20, number of state kets =3984
+    0   FMS matrix (LUD) at point  30, number of state kets =3984
+    0   FMS matrix (LUD) at point  40, number of state kets =3984
+    0   FMS matrix (LUD) at point  50, number of state kets =3984
+    0   FMS matrix (LUD) at point  60, number of state kets =3984
+    0   FMS matrix (LUD) at point  70, number of state kets =3984
+    0   FMS matrix (LUD) at point  80, number of state kets =3984
+    0   FMS matrix (LUD) at point  90, number of state kets =3984
+    0   FMS matrix (LUD) at point 100, number of state kets =3984
+    0   FMS matrix (LUD) at point 110, number of state kets =3984
+    0   FMS matrix (LUD) at point 120, number of state kets =3984
+ Done with module 3: FMS.
+ total time        952.194547884166     
+ communicate time  0.000000000000000E+000
+ Number of processors =            1
+ Done with module: MKGTR.
+ total time       0.613477019593120     
+ communicate time  0.000000000000000E+000
+ Number of processors =            1
+ Preparing plane wave scattering amplitudes...
+ Searching for paths...
+    Rmax -1.0000  keep and heap limits   0.0000000   0.0000000
+    Preparing neighbor table
+    Paths found        0   (maxheap, maxscatt       1   0)
+ Eliminating path degeneracies...
+    Plane wave chi amplitude filter   2.50%
+    Unique paths      0,  total paths       0
+ Done with module 4: pathfinder.
+ Number of processors =            1
+ Calculating EXAFS parameters...
+    Curved wave chi amplitude ratio   4.00%
+    Discard feff.dat for paths with cw ratio <   2.67%
+    path  cw ratio     deg    nleg  reff
+    0 paths kept,    0 examined.
+ Done with module 5: F_eff.
+ Number of processors =            1
+ Calculating chi...
+    Use all paths with cw amplitude ratio   4.00%
+    S02  0.950  Global sig2  0.00000
+ Done with module 6: DW + final sum over paths.
+ Number of processors =            1
+ Number of processors =            1
+ Number of processors =            1
+ Number of processors =            1
+ total time      1.293854974210262E-002
+ communicate time  0.000000000000000E+000

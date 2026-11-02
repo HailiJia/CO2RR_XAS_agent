@@ -1,0 +1,2581 @@
+{
+  "changes": [
+    {
+      "path": "2CO_adjacent/2CO_adjacent_0p111_interface/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 75090,
+      "sha256": "46d50133b516135fc71918bd2af5914cc148cd91b4a8194159be813f9e62b993",
+      "status": "changed_hash",
+      "previous_sha256": "80d3b9f6162bcd2ff72691c10f953dbdd6995cc434da35950a200e8d4e3c18bc",
+      "previous_bytes": 74918
+    },
+    {
+      "path": "2CO_adjacent/2CO_adjacent_0p056_AuCu_interface/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 74571,
+      "sha256": "a739efdc2f1748e6a253f14b84b7063bb5e9458007aaafe56241bf06d9ae4b5e",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "2CO_adjacent/2CO_adjacent_0p056_AuCu_interface/XAS/FDMNES/green/layer_4/Cu_layer4_conv.txt",
+      "bytes": 7202,
+      "sha256": "762a5b886a33f1833ce461c7694273864ad1c4e35194d43b31302b09688d1f29",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "2CO_adjacent/2CO_adjacent_0p056_AuCu_interface/XAS/FDMNES/green/layer_4/Cu_layer4_resume_in.txt",
+      "bytes": 15701,
+      "sha256": "457cc8cd4379f08b5ccbd62f22646b9256c5ab418de42bce532fcf236d5ada08",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "2CO_adjacent/2CO_adjacent_0p056_AuCu_interface/XAS/FDMNES/green/layer_5/Cu_layer5_conv.txt",
+      "bytes": 7202,
+      "sha256": "7668968fe97899c9e65f9c25a9846961470ff9c2196743321c3ca225fab1d20b",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "2CO_adjacent/2CO_adjacent_0p056_AuCu_interface/XAS/FDMNES/green/layer_5/Cu_layer5_resume_in.txt",
+      "bytes": 15701,
+      "sha256": "142a5b3fb6031e6a3c857e37eac778a6be8880a6eb9c91603ab6d7c327a72ad8",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "2CO_adjacent/2CO_adjacent_0p111_uniform/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 75169,
+      "sha256": "5d698e9d1a1b46bba46028cbfb43101a1cc0964a271f766d782ea5631828c70e",
+      "status": "changed_hash",
+      "previous_sha256": "e02ac1c7de3cf49e57a0e0037ca2fb438343a2a127ffb3215a1d3faba7aaf2fe",
+      "previous_bytes": 74997
+    },
+    {
+      "path": "2CO_adjacent/2CO_adjacent_0p056_orientation_alt/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 74427,
+      "sha256": "0a7d78a202405e39102f6a6e4411354a2cff34fcd74ae1f0ac727bccb30c6462",
+      "status": "changed_hash",
+      "previous_sha256": "79689619e30e57786ffed51ee0880d02b9cd09547e7b5083d0d7ee56e59b3271",
+      "previous_bytes": 74255
+    },
+    {
+      "path": "2CO_adjacent/2CO_adjacent_0p167_uniform/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 75785,
+      "sha256": "5d649f4e0e76e36ff389a60141b9dd201e5d7230948160de8d00bf5f2ba7cbad",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "2CO_adjacent/2CO_adjacent_0p167_uniform/XAS/FDMNES/green/layer_4/Cu_layer4_conv.txt",
+      "bytes": 7202,
+      "sha256": "261584ccdebff9140fdf14fbfcb5450646b546ce0633d4edfed0b8505d35d5b9",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "2CO_adjacent/2CO_adjacent_0p167_uniform/XAS/FDMNES/green/layer_5/Cu_layer5_conv.txt",
+      "bytes": 7202,
+      "sha256": "2f367fb704565462ef7a953dce7163cad469237c8ce0aef0f73515b7fad27e20",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "2CO_adjacent/2CO_adjacent_0p056_interior/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 74531,
+      "sha256": "973a8a0ffbf1e28a13a50270e25064e214a9513d19412798a1180e537f7aa8d4",
+      "status": "changed_hash",
+      "previous_sha256": "3b5b4f2f60a4b1f3219f1954d6cf0391eeb1051393d3fe603728c48e4424c548",
+      "previous_bytes": 74359
+    },
+    {
+      "path": "CHO/CHO_0p028_Cu_top/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 74587,
+      "sha256": "3a43a94631282d13d2cac6090157c74b312dcf0d87ecfbe72c140423f9144b23",
+      "status": "changed_hash",
+      "previous_sha256": "245a99df0f35f6b0404e12195679cbaf7187bc4f414c33ec54724f22a1f4b023",
+      "previous_bytes": 74753
+    },
+    {
+      "path": "CHO/CHO_0p056_AuCu_bidentate/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 74414,
+      "sha256": "ba8c0fb0c985d542f9afb503b5d45689823df43b3803620508ce204528bd5f77",
+      "status": "changed_hash",
+      "previous_sha256": "3aa96773e955ea4493d2937c2f4619a6d5feb0f55b6bc092a33372eb22c07339",
+      "previous_bytes": 74242
+    },
+    {
+      "path": "CHO/CHO_0p056_uniform/XAS/FDMNES/green/layer_3/Cu_layer3_conv.txt",
+      "bytes": 7202,
+      "sha256": "fbe2ec23145bd02289780c7c7d611d411b2e5a5993a4d243cbcbabbfbfad2ba4",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "CHO/CHO_0p056_uniform/XAS/FDMNES/green/layer_2/Cu_layer2_conv.txt",
+      "bytes": 7202,
+      "sha256": "590cadf0955b28f7b948eae0bbdb2b8e07b3b952ec7d45ee38324dea070db9b8",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "CHO/CHO_0p111_uniform/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 76221,
+      "sha256": "620548fe2090d2b67619c6d313508c9cd4ba206795f9ffd2aee6c5e04bf893cf",
+      "status": "changed_hash",
+      "previous_sha256": "e8698e5f58ba10c47e728cd66d4ee9bc108cf8976075aa2eb374029c95d07689",
+      "previous_bytes": 76380
+    },
+    {
+      "path": "CHO/CHO_0p056_interior_Cu/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 75057,
+      "sha256": "1dd00ffa10496b4862de9226c3f2ceac2ef00e2126d3d1c4743af6f154309f81",
+      "status": "changed_hash",
+      "previous_sha256": "4d3c70eaedc0536a00bba36c275d98d1a7c1f01e58bb55c23ff8f43c72aebe31",
+      "previous_bytes": 75216
+    },
+    {
+      "path": "CHO/CHO_0p056_CuCu_bidentate/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 74457,
+      "sha256": "4c3f7e103db48777e4dca3d73c88940beeae163bbe378d506ef9e9a55d7b550b",
+      "status": "changed_hash",
+      "previous_sha256": "e72eac5cd21b7754eb7bc93fc969b1f40ecf33864777c04e5ba79ebf6c31f965",
+      "previous_bytes": 74285
+    },
+    {
+      "path": "CHO/CHO_0p056_interface_Cu/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 75082,
+      "sha256": "f682d5b8e9fead4cf9b97d9af6ffbbf7994b61cca40453263067b719ecce036b",
+      "status": "changed_hash",
+      "previous_sha256": "9092771cb05d05f5a7b056e674e038d338ff8cd8d022cb083b44e35b2df60f59",
+      "previous_bytes": 75241
+    },
+    {
+      "path": "CHO_CO/CO_CHO_0p111_more_CO/XAS/FDMNES/green/layer_4/Cu_layer4_convolution_in.txt",
+      "bytes": 69,
+      "sha256": "2bbfbb2d1b4e0bc8e623804010f51266f81662a7afe27810b6cc8c781c33d361",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "CHO_CO/CO_CHO_0p111_more_CO/XAS/FDMNES/green/layer_4/CONTCAR",
+      "bytes": 45433,
+      "sha256": "6ccb31faa8d601c0775b1d0bb393333a2feac5fdbc311aeeb3e03eeb0ca2d7dc",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "CHO_CO/CO_CHO_0p111_more_CO/XAS/FDMNES/green/layer_4/Cu_layer4_in.txt",
+      "bytes": 16058,
+      "sha256": "78051db3d54cc102e1dc90fe53b540a70ef99482a86e061dd9ef466c822c2d41",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "CHO_CO/CO_CHO_0p111_more_CO/XAS/FDMNES/green/layer_3/CONTCAR",
+      "bytes": 45433,
+      "sha256": "6ccb31faa8d601c0775b1d0bb393333a2feac5fdbc311aeeb3e03eeb0ca2d7dc",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "CHO_CO/CO_CHO_0p111_more_CO/XAS/FDMNES/green/layer_3/Cu_layer3_in.txt",
+      "bytes": 16031,
+      "sha256": "b7ddd0e540141bd759122220be7fb7fb2ed4a67ba65887965db4f26eec6d2238",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "CHO_CO/CO_CHO_0p111_more_CO/XAS/FDMNES/green/layer_3/Cu_layer3_convolution_in.txt",
+      "bytes": 69,
+      "sha256": "bf1a4248a218616b0f2f957d6df624beb4c4835789fd3ad994d7e5b4e9c923c9",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "CHO_CO/CO_CHO_0p111_more_CO/XAS/FDMNES/green/layer_2/Cu_layer2_in.txt",
+      "bytes": 16022,
+      "sha256": "ce207172a888d94ce8e5ae4e159094a02ce000e4019c93392270c4db93148816",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "CHO_CO/CO_CHO_0p111_more_CO/XAS/FDMNES/green/layer_2/Cu_layer2_convolution_in.txt",
+      "bytes": 69,
+      "sha256": "25c5e292a2ce79644dc0242473d83db85fcd85c37eff39acfcaf2d532c2cebb3",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "CHO_CO/CO_CHO_0p111_more_CO/XAS/FDMNES/green/layer_2/CONTCAR",
+      "bytes": 45433,
+      "sha256": "6ccb31faa8d601c0775b1d0bb393333a2feac5fdbc311aeeb3e03eeb0ca2d7dc",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "CHO_CO/CO_CHO_0p111_more_CO/XAS/FDMNES/green/layer_5/CONTCAR",
+      "bytes": 45433,
+      "sha256": "6ccb31faa8d601c0775b1d0bb393333a2feac5fdbc311aeeb3e03eeb0ca2d7dc",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "CHO_CO/CO_CHO_0p111_more_CO/XAS/FDMNES/green/layer_5/Cu_layer5_convolution_in.txt",
+      "bytes": 69,
+      "sha256": "47daef821b6792eb6d382c40ad3a88972ae8ea14cbd6c7b80c46bec170924dab",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "CHO_CO/CO_CHO_0p111_more_CO/XAS/FDMNES/green/layer_5/Cu_layer5_in.txt",
+      "bytes": 16058,
+      "sha256": "7bab00b49f402bc71f83dcdd4447ba8b6884b484d4bf4ae8de20470acf8f1420",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "CO/CO_0p11/interior_biased/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 74955,
+      "sha256": "bb94c430b23e51b2a9278e207a23d25cda2de2791320d429cd09b406f29d6b92",
+      "status": "changed_hash",
+      "previous_sha256": "76f9a23561a1b3bc18784709fd07755a3c5014864321fd16f0b0165dce3c32f4",
+      "previous_bytes": 75438
+    },
+    {
+      "path": "CO/CO_0p11/uniform2/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 75570,
+      "sha256": "adb798195d8d5d84c41ae32199665894485368b0abb6267202321015aa957ee1",
+      "status": "changed_hash",
+      "previous_sha256": "57f58d131855a6189107a1ebcc8528d644117c29b01a99f5905a4c612eba2292",
+      "previous_bytes": 71644
+    },
+    {
+      "path": "CO/CO_0p11/uniform2/XAS/FDMNES/green/layer_5/Cu_layer5_conv.txt",
+      "bytes": 7202,
+      "sha256": "f81f262051102ca5a6659a759280241b26794c755a0b944bbfc9a08c1de7fa78",
+      "status": "changed_size",
+      "previous_sha256": null,
+      "previous_bytes": 5356
+    },
+    {
+      "path": "CO/CO_0p11/uniform2/XAS/FDMNES/green/layer_5/Cu_layer5_in.txt",
+      "bytes": 15877,
+      "sha256": "4bf680ac879820783063199d7e9eebe87370a8aa420c8c2c91e5ba190668345a",
+      "status": "changed_size",
+      "previous_sha256": null,
+      "previous_bytes": 15881
+    },
+    {
+      "path": "CO/CO_0p11/interface_biased/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 75020,
+      "sha256": "c6103a29c8d27d941229da54b629d8dbbf026c80d3b07ac429fef4ae330fc185",
+      "status": "changed_hash",
+      "previous_sha256": "e14f234c3d610830241c9836f7b456cfc2bcc439b663f78fb63cad6da64517f4",
+      "previous_bytes": 75503
+    },
+    {
+      "path": "CO/CO_0p75/uniform/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 84109,
+      "sha256": "0c4ab5d86d79bdf4a5247ed644d3255c2225db623c7742d66cb77ee6e9a80592",
+      "status": "changed_hash",
+      "previous_sha256": "e0fc523558150f5ab70c1cddbcefe7c3f4a08ac40ca91cf0c81dc2b0ab77fae6",
+      "previous_bytes": 83937
+    },
+    {
+      "path": "CO/CO_0p5/interior_biased/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 80859,
+      "sha256": "eaf78758d0b2ca495b2d97d4a7da6549578ff39970197129ef84c9c79a9dd478",
+      "status": "changed_hash",
+      "previous_sha256": "86744958c783f00bbe0cd08dd71066aec200223ba9fe984378aada99fb1ae90d",
+      "previous_bytes": 80687
+    },
+    {
+      "path": "CO/CO_0p5/uniform/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 80504,
+      "sha256": "b148085fa8324ac71c6f59a9e84ba6b3335b213fbb0010c2a1888651be7917b5",
+      "status": "changed_hash",
+      "previous_sha256": "355ddac813fa64a5e46b1246e858a8f452f96bb5ae13e74318436da2ee7002db",
+      "previous_bytes": 80332
+    },
+    {
+      "path": "CO/CO_0p5/interface_biased/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 80770,
+      "sha256": "2c29dfe0fac12a5da1d01656104d2a82e5dac09f03b473ceaa27f00c9899efe6",
+      "status": "changed_hash",
+      "previous_sha256": "7ecf18e56f3fff84e241aca705be4773d7e349fcbac93ec09af9afe9de36474f",
+      "previous_bytes": 80598
+    },
+    {
+      "path": "CO/CO_0p14/interior_biased/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 76028,
+      "sha256": "a93039c6d21749e57c43612cf3458536aa919f53b2c8164bdbfb19f31b2aecea",
+      "status": "changed_hash",
+      "previous_sha256": "9b81b424c9379e61c53c7bcd944aeed3e75a16e0625b79c36afbf2e132141a63",
+      "previous_bytes": 75856
+    },
+    {
+      "path": "CO/CO_0p14/uniform2/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 75959,
+      "sha256": "6c50258e38b07b237bcbef909fbda9f67deda8e6cb2927247796b73462859705",
+      "status": "changed_hash",
+      "previous_sha256": "b25c3722ab6b64e9c633644003f107174c4bb71cfe4147782ebfff952b42d552",
+      "previous_bytes": 75787
+    },
+    {
+      "path": "CO/CO_0p14/uniform/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 75960,
+      "sha256": "6b7699f0d7cfb915be0f7db5c8133eab9888c9ccb0a1ccec0e44ab6f269ac3b2",
+      "status": "changed_hash",
+      "previous_sha256": "0d295c2e8f1623bfaef7f59b97f245c14ad85f56e2696caf39d4e467deec84ed",
+      "previous_bytes": 75788
+    },
+    {
+      "path": "CO/CO_0p14/interface_biased/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 76041,
+      "sha256": "591dfb6cb764118b64103ec5ed76e4a2b3d3cd0bdf312d2387f4ea963f7d9144",
+      "status": "changed_hash",
+      "previous_sha256": "16ff7641c6c13a3d164f24e0ef90cbf4b7ceea30b7e2247adeec96f07b0b6593",
+      "previous_bytes": 75869
+    },
+    {
+      "path": "CO/CO_0p25/interior_biased/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 76931,
+      "sha256": "ddaa598c7a4143b63f05dedaf1333d0db561989c97d32a52c636d57a64f9a8fb",
+      "status": "changed_hash",
+      "previous_sha256": "cc734aa52929bba587b9335b085ee397d5bbad9ea1cac41a13f030fbb96c5b62",
+      "previous_bytes": 76759
+    },
+    {
+      "path": "CO/CO_0p25/uniform/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 76971,
+      "sha256": "1ae868206e3bad42454428806b6f475ef030fb25a1ec4615db4aac33eb78648e",
+      "status": "changed_hash",
+      "previous_sha256": "18918366bb879f4bec8da0ded87dc85a4d091fcf48eaacb9e445c83f722b4f77",
+      "previous_bytes": 76799
+    },
+    {
+      "path": "CO/CO_0p25/interface_biased/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 77057,
+      "sha256": "05ec8d7fa3c1a7c255c44c333cd4aaeb5f2d3a5df94ea33b02d4c86f70e753bf",
+      "status": "changed_hash",
+      "previous_sha256": "3d07b90f18e4ebba8620c9928d6ff74b967fb657f409b04c34b7e11678e9bd7f",
+      "previous_bytes": 76885
+    },
+    {
+      "path": "CO/CO_0p25/interface_biased2/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 77043,
+      "sha256": "e45ff9d862d817ccc34165754caae3c1bc0108fddfe917ed6ff3aa7842f42854",
+      "status": "changed_hash",
+      "previous_sha256": "8d7e0195be0641f60848403060b768253239c79c3785aa017b47207701161888",
+      "previous_bytes": 76871
+    },
+    {
+      "path": "CO2/CO2_0p028_linear_Cu_top/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 74083,
+      "sha256": "3049a530e9088955811d0b448ca6a62226a8d154f3b3192f1e7762fda181e24b",
+      "status": "changed_hash",
+      "previous_sha256": "c084348b45c8c665c0e2df72e653a8a192a80ce6805a08cb3846bf392406a232",
+      "previous_bytes": 73911
+    },
+    {
+      "path": "CO2/CO2_0p028_interface_biased_activated/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 74185,
+      "sha256": "e1a7bbd0f10fdb8de5ef560a743cb585ef4efc19d5892fef293f41e85f750486",
+      "status": "changed_hash",
+      "previous_sha256": "67e830f41884a9dcda4d5e3a8ae58d6f5f4d5f3499e122f60b73ab94753a8b70",
+      "previous_bytes": 74013
+    },
+    {
+      "path": "CO2/CO2_0p056_mixed/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 74418,
+      "sha256": "db464ccaf19324d706550095fdb362c700de8135383a80ad469e641f9a0595eb",
+      "status": "changed_hash",
+      "previous_sha256": "050d0d4f714c51262f25782bb60d6f5b8b0d0f63e66a29ab1e92fd3451aec011",
+      "previous_bytes": 74246
+    },
+    {
+      "path": "COCHO/COCHO_0p056_Cu_interface/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 75059,
+      "sha256": "0cab45e66c2cca939f0ae68b2748c92633fc844c7fc9401d504236303625a2f7",
+      "status": "changed_hash",
+      "previous_sha256": "1e223a6d104280b789e0707cd2b5b2795d67ae7af113cae28cfbd15f5790cfcc",
+      "previous_bytes": 75223
+    },
+    {
+      "path": "COCHO/COCHO_0p056_AuCu_interface2/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 74218,
+      "sha256": "7ddbc44c662d1cc02e027e64d78401cdb1ab58fc727c74ebaa83eeb261d9911a",
+      "status": "changed_hash",
+      "previous_sha256": "ebfda0c9fb81e93995f8a9b4e8bfebb72fbbd04075fd7dcf3166f97b3e4ad318",
+      "previous_bytes": 74384
+    },
+    {
+      "path": "COCHO/COCHO_0p056_AuCu_interface/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 74203,
+      "sha256": "08d0590fbed1e4e0b9864496c8341bc8c5116511f9738ba83a664a454bedf633",
+      "status": "changed_hash",
+      "previous_sha256": "cb716e6c615a1ad9c9a8f82f4a74d4f8985eb341419bbbaec8942d9d54f7271f",
+      "previous_bytes": 74369
+    },
+    {
+      "path": "COCHO/COCHO_0p056_Cu_interior/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 74087,
+      "sha256": "8f2fda9d5a1c4a5abe1586d9c4db07cf4fb6f386cfcc029fd08a52a1a8d00ab8",
+      "status": "changed_hash",
+      "previous_sha256": "c5936015cf339f01e478e3035756d2ce73dd2441d40eb9a29bd7fac20694c211",
+      "previous_bytes": 73915
+    },
+    {
+      "path": "COH/COH_0p056_uniform/INCAR",
+      "bytes": 394,
+      "sha256": "8d626f169db742e6c3d71a3bdb954a22e87b81ef3a30db8fd8c780318e97a770",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_uniform/CONTCAR",
+      "bytes": 45046,
+      "sha256": "d88a9c48a4e96bb16b472ad538531ace6e93742ec91325ac19adf791f114c691",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_uniform/POSCAR",
+      "bytes": 45046,
+      "sha256": "a9d737ba564ca8b5206cc652491d0355f2fffe7acd43d86a0ef6102abaaa48a1",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_uniform/KPOINTS",
+      "bytes": 35,
+      "sha256": "ca0d3b09f1f98fa91eebd307459cc62767f1482c2ce736d3d916048a99df30f8",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_uniform/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 74532,
+      "sha256": "b98b2eeb348c74c786f7de712526574967072bb0fd74d55023665b08b60c4a21",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_uniform/XAS/FDMNES/green/layer_4/Cu_layer4_convolution_in.txt",
+      "bytes": 69,
+      "sha256": "2bbfbb2d1b4e0bc8e623804010f51266f81662a7afe27810b6cc8c781c33d361",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_uniform/XAS/FDMNES/green/layer_4/CONTCAR",
+      "bytes": 45046,
+      "sha256": "d88a9c48a4e96bb16b472ad538531ace6e93742ec91325ac19adf791f114c691",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_uniform/XAS/FDMNES/green/layer_4/Cu_layer4_conv.txt",
+      "bytes": 7202,
+      "sha256": "5b4d97b1e4346f0ec149965bb9b7ad5652af556c34c6896247cfce06ca2c8f29",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_uniform/XAS/FDMNES/green/layer_4/Cu_layer4_in.txt",
+      "bytes": 15923,
+      "sha256": "3fc22065a7e3b0e75fcab9ed3eb6008ffc73367ebc7a95ea5c126a9997152097",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_uniform/XAS/FDMNES/green/layer_4/Cu_layer4_resume_in.txt",
+      "bytes": 15791,
+      "sha256": "f79def5bc41c63480f08185db05dbd1512c83c69f1beb167b7ef766304560662",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_uniform/XAS/FDMNES/green/layer_3/Cu_layer3_conv.txt",
+      "bytes": 7202,
+      "sha256": "d3e8f41bc51c323cb305ad75c157057ac8d662410657c4170a75cc8dbd759572",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_uniform/XAS/FDMNES/green/layer_3/CONTCAR",
+      "bytes": 45046,
+      "sha256": "d88a9c48a4e96bb16b472ad538531ace6e93742ec91325ac19adf791f114c691",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_uniform/XAS/FDMNES/green/layer_3/Cu_layer3_in.txt",
+      "bytes": 15896,
+      "sha256": "92072cf82b8106e637cb3a9ab9014bbc8d60c3ce1a0abc3b60a973c118fdab49",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_uniform/XAS/FDMNES/green/layer_3/Cu_layer3_convolution_in.txt",
+      "bytes": 69,
+      "sha256": "bf1a4248a218616b0f2f957d6df624beb4c4835789fd3ad994d7e5b4e9c923c9",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_uniform/XAS/FDMNES/green/layer_2/Cu_layer2_conv.txt",
+      "bytes": 7202,
+      "sha256": "07f7145bff9cb2d667830ed439a7037289f0b97fb278d3bd897b5903f6b52a58",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_uniform/XAS/FDMNES/green/layer_2/Cu_layer2_in.txt",
+      "bytes": 15887,
+      "sha256": "ca2e411d72381599fc99b7850b77675a8cab90c7c9f5486eb1d81660e22f63e1",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_uniform/XAS/FDMNES/green/layer_2/Cu_layer2_convolution_in.txt",
+      "bytes": 69,
+      "sha256": "25c5e292a2ce79644dc0242473d83db85fcd85c37eff39acfcaf2d532c2cebb3",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_uniform/XAS/FDMNES/green/layer_2/CONTCAR",
+      "bytes": 45046,
+      "sha256": "d88a9c48a4e96bb16b472ad538531ace6e93742ec91325ac19adf791f114c691",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_uniform/XAS/FDMNES/green/layer_5/CONTCAR",
+      "bytes": 45046,
+      "sha256": "d88a9c48a4e96bb16b472ad538531ace6e93742ec91325ac19adf791f114c691",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_uniform/XAS/FDMNES/green/layer_5/Cu_layer5_conv.txt",
+      "bytes": 7202,
+      "sha256": "f560566b5b118972952794a4fb8e2e5615e69975127e7132c39e99262a644055",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_uniform/XAS/FDMNES/green/layer_5/Cu_layer5_resume_in.txt",
+      "bytes": 15791,
+      "sha256": "24a233647d99c9813a9f229533bab9ef8b84a323d9c98f3c49b5b0994720ceb0",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_uniform/XAS/FDMNES/green/layer_5/Cu_layer5_convolution_in.txt",
+      "bytes": 69,
+      "sha256": "47daef821b6792eb6d382c40ad3a88972ae8ea14cbd6c7b80c46bec170924dab",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_uniform/XAS/FDMNES/green/layer_5/Cu_layer5_in.txt",
+      "bytes": 15923,
+      "sha256": "d9df469e1d33a27d7d6c085028c438fdfee8524e0e2419ac01a57bf4c440febd",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/CHO_0p111_interface_Cu3/INCAR",
+      "bytes": 394,
+      "sha256": "8d626f169db742e6c3d71a3bdb954a22e87b81ef3a30db8fd8c780318e97a770",
+      "status": "changed_size",
+      "previous_sha256": null,
+      "previous_bytes": 374
+    },
+    {
+      "path": "COH/COH_0p028_interface_Cu3/INCAR",
+      "bytes": 394,
+      "sha256": "8d626f169db742e6c3d71a3bdb954a22e87b81ef3a30db8fd8c780318e97a770",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p028_interface_Cu3/CONTCAR",
+      "bytes": 44659,
+      "sha256": "42016788f70d663d6ee95b796933db13d7cdc99fa8e4829c17632699b3381846",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p028_interface_Cu3/POSCAR",
+      "bytes": 44659,
+      "sha256": "232587e9847f3081cdd40a9fb2fad4877e999465fb2f86ed1fbdabb2a1583248",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p028_interface_Cu3/KPOINTS",
+      "bytes": 35,
+      "sha256": "ca0d3b09f1f98fa91eebd307459cc62767f1482c2ce736d3d916048a99df30f8",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p028_interface_Cu3/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 74152,
+      "sha256": "b4e7520d40fd2ec08eafdb8998c70e0a1d97c6f3e3e7056ff9dbccff3d3135a6",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p028_interface_Cu3/XAS/FDMNES/green/layer_4/Cu_layer4_convolution_in.txt",
+      "bytes": 69,
+      "sha256": "2bbfbb2d1b4e0bc8e623804010f51266f81662a7afe27810b6cc8c781c33d361",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p028_interface_Cu3/XAS/FDMNES/green/layer_4/CONTCAR",
+      "bytes": 44659,
+      "sha256": "42016788f70d663d6ee95b796933db13d7cdc99fa8e4829c17632699b3381846",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p028_interface_Cu3/XAS/FDMNES/green/layer_4/Cu_layer4_conv.txt",
+      "bytes": 7202,
+      "sha256": "9375120e2e2442f09fd6ee4fe97bb30acd96bf9cec82db69e118920d3b6f90f5",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p028_interface_Cu3/XAS/FDMNES/green/layer_4/Cu_layer4_in.txt",
+      "bytes": 15788,
+      "sha256": "1cc21aa6a9b10a1c21081ca971b4a478b8a3d15c6781cc0233881d9cd4e7b5de",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p028_interface_Cu3/XAS/FDMNES/green/layer_4/Cu_layer4_resume_in.txt",
+      "bytes": 15656,
+      "sha256": "f82761053b49745fb3e30d8a36a8d37107590c546b28246b5064d2c8c4538bfe",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p028_interface_Cu3/XAS/FDMNES/green/layer_3/Cu_layer3_conv.txt",
+      "bytes": 7202,
+      "sha256": "f84de49edfcb8b12e98bf718d9393490cea426d1c318776b789a13ad042956e0",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p028_interface_Cu3/XAS/FDMNES/green/layer_3/CONTCAR",
+      "bytes": 44659,
+      "sha256": "42016788f70d663d6ee95b796933db13d7cdc99fa8e4829c17632699b3381846",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p028_interface_Cu3/XAS/FDMNES/green/layer_3/Cu_layer3_in.txt",
+      "bytes": 15761,
+      "sha256": "bdb72f4d18f209a15826b1dee169336fda25e24e6421842830d3c8d489cb9df7",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p028_interface_Cu3/XAS/FDMNES/green/layer_3/Cu_layer3_convolution_in.txt",
+      "bytes": 69,
+      "sha256": "bf1a4248a218616b0f2f957d6df624beb4c4835789fd3ad994d7e5b4e9c923c9",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p028_interface_Cu3/XAS/FDMNES/green/layer_2/Cu_layer2_conv.txt",
+      "bytes": 7202,
+      "sha256": "4dca793448606e1e3921a18000d926d3407b60e45b894ca2eef8fb14c008a77a",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p028_interface_Cu3/XAS/FDMNES/green/layer_2/Cu_layer2_in.txt",
+      "bytes": 15752,
+      "sha256": "4379ccee86929fe4170034d0f6f6675b5dd20b6d06e7d574c4197f6521182f5e",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p028_interface_Cu3/XAS/FDMNES/green/layer_2/Cu_layer2_convolution_in.txt",
+      "bytes": 69,
+      "sha256": "25c5e292a2ce79644dc0242473d83db85fcd85c37eff39acfcaf2d532c2cebb3",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p028_interface_Cu3/XAS/FDMNES/green/layer_2/CONTCAR",
+      "bytes": 44659,
+      "sha256": "42016788f70d663d6ee95b796933db13d7cdc99fa8e4829c17632699b3381846",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p028_interface_Cu3/XAS/FDMNES/green/layer_5/CONTCAR",
+      "bytes": 44659,
+      "sha256": "42016788f70d663d6ee95b796933db13d7cdc99fa8e4829c17632699b3381846",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p028_interface_Cu3/XAS/FDMNES/green/layer_5/Cu_layer5_conv.txt",
+      "bytes": 7202,
+      "sha256": "9faea0183bc68f4d8a7d96312ddbebb5ab251702ba6fc61576f5e6a3a2f55ad4",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p028_interface_Cu3/XAS/FDMNES/green/layer_5/Cu_layer5_resume_in.txt",
+      "bytes": 15656,
+      "sha256": "83039c39afca8c59868a8d5f200a24ea3a0111b555d8b2e5c7b173b9a79b2279",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p028_interface_Cu3/XAS/FDMNES/green/layer_5/Cu_layer5_convolution_in.txt",
+      "bytes": 69,
+      "sha256": "47daef821b6792eb6d382c40ad3a88972ae8ea14cbd6c7b80c46bec170924dab",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p028_interface_Cu3/XAS/FDMNES/green/layer_5/Cu_layer5_in.txt",
+      "bytes": 15788,
+      "sha256": "43d88937d00c78d2694e05a08273c8a205659b548dae94dd2b98d4c64c7ae063",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_interior/INCAR",
+      "bytes": 374,
+      "sha256": "7454aa136a1bc45ccbb0a7f042597605110ddf136d8495c1b4c2d2fedc4cc72d",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_interior/CONTCAR",
+      "bytes": 45046,
+      "sha256": "9df93661aa9de05c97ba37b345fa419992881f72f3812e3d7e6c4a03ed5d138d",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_interior/POSCAR",
+      "bytes": 27724,
+      "sha256": "03867e3411953d3485c69cfb6211ec2e3bedf3357dc3f8dbce7b7dcd5ee39d3b",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_interior/KPOINTS",
+      "bytes": 35,
+      "sha256": "ca0d3b09f1f98fa91eebd307459cc62767f1482c2ce736d3d916048a99df30f8",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_interior/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 74550,
+      "sha256": "e42fc87f4c7fe51d2089e4596452421b2b8a8ccdc82e442300aee662234c69cf",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_interior/XAS/FDMNES/green/layer_4/Cu_layer4_convolution_in.txt",
+      "bytes": 69,
+      "sha256": "2bbfbb2d1b4e0bc8e623804010f51266f81662a7afe27810b6cc8c781c33d361",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_interior/XAS/FDMNES/green/layer_4/CONTCAR",
+      "bytes": 45046,
+      "sha256": "9df93661aa9de05c97ba37b345fa419992881f72f3812e3d7e6c4a03ed5d138d",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_interior/XAS/FDMNES/green/layer_4/Cu_layer4_conv.txt",
+      "bytes": 7202,
+      "sha256": "e104a2fe8599a63e777eed0c4fbe48313e258d32e22b62bf7fdfb8f20f34dedd",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_interior/XAS/FDMNES/green/layer_4/Cu_layer4_in.txt",
+      "bytes": 15923,
+      "sha256": "945dd14e1c3f48dba105f1d96c00fa69cbcdc68e2c6c9316c4ce435a9fe34343",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_interior/XAS/FDMNES/green/layer_4/Cu_layer4_resume_in.txt",
+      "bytes": 15791,
+      "sha256": "8ae2e926f542fac3853f42c077037bb55fc154bd84149ac05f27955556a79245",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_interior/XAS/FDMNES/green/layer_3/Cu_layer3_conv.txt",
+      "bytes": 7202,
+      "sha256": "659bc06d371690e16a2feb02686859abc820be77884e3da584c9d337faed34bc",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_interior/XAS/FDMNES/green/layer_3/CONTCAR",
+      "bytes": 45046,
+      "sha256": "9df93661aa9de05c97ba37b345fa419992881f72f3812e3d7e6c4a03ed5d138d",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_interior/XAS/FDMNES/green/layer_3/Cu_layer3_in.txt",
+      "bytes": 15896,
+      "sha256": "e8b0fd0ccf7ad22951a866eb98b4720688fa7f62f91735dd2915872a77ee5df5",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_interior/XAS/FDMNES/green/layer_3/Cu_layer3_convolution_in.txt",
+      "bytes": 69,
+      "sha256": "bf1a4248a218616b0f2f957d6df624beb4c4835789fd3ad994d7e5b4e9c923c9",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_interior/XAS/FDMNES/green/layer_2/Cu_layer2_conv.txt",
+      "bytes": 7202,
+      "sha256": "e8f2b4d5ad317ff7352f1cb9024684c6cef5a42729cc945d7c3072006641e155",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_interior/XAS/FDMNES/green/layer_2/Cu_layer2_in.txt",
+      "bytes": 15887,
+      "sha256": "a9df46a3e448d8f80b44ae597a8bcc06567e5d58af917125fafd91da1965c49c",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_interior/XAS/FDMNES/green/layer_2/Cu_layer2_convolution_in.txt",
+      "bytes": 69,
+      "sha256": "25c5e292a2ce79644dc0242473d83db85fcd85c37eff39acfcaf2d532c2cebb3",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_interior/XAS/FDMNES/green/layer_2/CONTCAR",
+      "bytes": 45046,
+      "sha256": "9df93661aa9de05c97ba37b345fa419992881f72f3812e3d7e6c4a03ed5d138d",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_interior/XAS/FDMNES/green/layer_5/CONTCAR",
+      "bytes": 45046,
+      "sha256": "9df93661aa9de05c97ba37b345fa419992881f72f3812e3d7e6c4a03ed5d138d",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_interior/XAS/FDMNES/green/layer_5/Cu_layer5_conv.txt",
+      "bytes": 7202,
+      "sha256": "867f88b89f1d3042cacf69fcada36a0d7797aa02a318a5564e67ed4755605d07",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_interior/XAS/FDMNES/green/layer_5/Cu_layer5_resume_in.txt",
+      "bytes": 15791,
+      "sha256": "ff696f203ae946eb17060db3e3b0e09962b1423a9c5820df01dde5c6e72c5599",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_interior/XAS/FDMNES/green/layer_5/Cu_layer5_convolution_in.txt",
+      "bytes": 69,
+      "sha256": "47daef821b6792eb6d382c40ad3a88972ae8ea14cbd6c7b80c46bec170924dab",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_interior/XAS/FDMNES/green/layer_5/Cu_layer5_in.txt",
+      "bytes": 15923,
+      "sha256": "6752513c691895fa02c2477fcceb1a95089d69d0b640cb48bbff864de5df5b85",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_AuCuCu/INCAR",
+      "bytes": 374,
+      "sha256": "7454aa136a1bc45ccbb0a7f042597605110ddf136d8495c1b4c2d2fedc4cc72d",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_AuCuCu/CONTCAR",
+      "bytes": 45046,
+      "sha256": "a4143f0dae92a2884af65c504fdf5901390b40c22c13a9902f2e5c2eea5e1a5d",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_AuCuCu/POSCAR",
+      "bytes": 27731,
+      "sha256": "5153fab843d5787790e7edcf6b5750edc059f4f2f486aa10b653273ac0c5058d",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_AuCuCu/KPOINTS",
+      "bytes": 35,
+      "sha256": "ca0d3b09f1f98fa91eebd307459cc62767f1482c2ce736d3d916048a99df30f8",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_AuCuCu/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 74495,
+      "sha256": "6adee845f766705c72a829ac92c5bbd7c4fe41e52aba762077f697e5f7fa30ef",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_AuCuCu/XAS/FDMNES/green/layer_4/Cu_layer4_convolution_in.txt",
+      "bytes": 69,
+      "sha256": "2bbfbb2d1b4e0bc8e623804010f51266f81662a7afe27810b6cc8c781c33d361",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_AuCuCu/XAS/FDMNES/green/layer_4/CONTCAR",
+      "bytes": 45046,
+      "sha256": "a4143f0dae92a2884af65c504fdf5901390b40c22c13a9902f2e5c2eea5e1a5d",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_AuCuCu/XAS/FDMNES/green/layer_4/Cu_layer4_conv.txt",
+      "bytes": 7202,
+      "sha256": "5a479c198bd7d1bc0b77f53a418ddfcca6c133db883503b1dbc564277a9d72d6",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_AuCuCu/XAS/FDMNES/green/layer_4/Cu_layer4_in.txt",
+      "bytes": 15923,
+      "sha256": "c03e7d5c12066f2be8ce419b3bbbc5ae17e7d63a9fa7995a1defb45f47d43f7b",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_AuCuCu/XAS/FDMNES/green/layer_4/Cu_layer4_resume_in.txt",
+      "bytes": 15791,
+      "sha256": "d64daccedc56f2a12ff1ae2091e1f58af99b1eebe1629764bc0f07f159469e8b",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_AuCuCu/XAS/FDMNES/green/layer_3/Cu_layer3_conv.txt",
+      "bytes": 7202,
+      "sha256": "605d189e09ffd8ded2b37f219f17c58b1069dca996bfa38acdb1ada4c81900d6",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_AuCuCu/XAS/FDMNES/green/layer_3/CONTCAR",
+      "bytes": 45046,
+      "sha256": "a4143f0dae92a2884af65c504fdf5901390b40c22c13a9902f2e5c2eea5e1a5d",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_AuCuCu/XAS/FDMNES/green/layer_3/Cu_layer3_in.txt",
+      "bytes": 15896,
+      "sha256": "1a1e18f14fb51438e26a6c6e983f7a92f052ccbfc8ae831f5f0e258e14f8d34c",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_AuCuCu/XAS/FDMNES/green/layer_3/Cu_layer3_convolution_in.txt",
+      "bytes": 69,
+      "sha256": "bf1a4248a218616b0f2f957d6df624beb4c4835789fd3ad994d7e5b4e9c923c9",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_AuCuCu/XAS/FDMNES/green/layer_2/Cu_layer2_conv.txt",
+      "bytes": 7202,
+      "sha256": "ea89142b14dcd1d35d161655f74bb62a2af156bc660ee5251a056a1b1bc3c908",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_AuCuCu/XAS/FDMNES/green/layer_2/Cu_layer2_in.txt",
+      "bytes": 15887,
+      "sha256": "4701b9e8cf1e650d8f66f4b31bfd3eec8501b375925536dfd99d7cfbbaff7a49",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_AuCuCu/XAS/FDMNES/green/layer_2/Cu_layer2_convolution_in.txt",
+      "bytes": 69,
+      "sha256": "25c5e292a2ce79644dc0242473d83db85fcd85c37eff39acfcaf2d532c2cebb3",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_AuCuCu/XAS/FDMNES/green/layer_2/CONTCAR",
+      "bytes": 45046,
+      "sha256": "a4143f0dae92a2884af65c504fdf5901390b40c22c13a9902f2e5c2eea5e1a5d",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_AuCuCu/XAS/FDMNES/green/layer_5/CONTCAR",
+      "bytes": 45046,
+      "sha256": "a4143f0dae92a2884af65c504fdf5901390b40c22c13a9902f2e5c2eea5e1a5d",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_AuCuCu/XAS/FDMNES/green/layer_5/Cu_layer5_conv.txt",
+      "bytes": 7202,
+      "sha256": "982bd01ed1c5934e0b9a052e450bfd8745eba300c7a1e42b728e8b43d4d16d05",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_AuCuCu/XAS/FDMNES/green/layer_5/Cu_layer5_resume_in.txt",
+      "bytes": 15791,
+      "sha256": "3fcd31dc5c24483f0e6632046dc4362809d411c0f9f218d4e7d2a46a1188dff5",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_AuCuCu/XAS/FDMNES/green/layer_5/Cu_layer5_convolution_in.txt",
+      "bytes": 69,
+      "sha256": "47daef821b6792eb6d382c40ad3a88972ae8ea14cbd6c7b80c46bec170924dab",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_AuCuCu/XAS/FDMNES/green/layer_5/Cu_layer5_in.txt",
+      "bytes": 15923,
+      "sha256": "b34454024001217c485216afbd13df5d9a56780dd24587a00a2dd196cb6e6357",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p167_uniform/INCAR",
+      "bytes": 394,
+      "sha256": "8d626f169db742e6c3d71a3bdb954a22e87b81ef3a30db8fd8c780318e97a770",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p167_uniform/CONTCAR",
+      "bytes": 46594,
+      "sha256": "586eaa8fbe7b930a424d46a146147b359c4bfdb7955bb3356912113acbd48fef",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p167_uniform/POSCAR",
+      "bytes": 46594,
+      "sha256": "e362b8c7e018d0580c9002a593bf5da673a7d718902d6f75e9ce8ef484081c82",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p167_uniform/KPOINTS",
+      "bytes": 35,
+      "sha256": "ca0d3b09f1f98fa91eebd307459cc62767f1482c2ce736d3d916048a99df30f8",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p167_uniform/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 76187,
+      "sha256": "dd744239778749d00b026cf9ead080d4776147de18202cb3cb002c9aa1174872",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p167_uniform/XAS/FDMNES/green/layer_4/Cu_layer4_convolution_in.txt",
+      "bytes": 69,
+      "sha256": "2bbfbb2d1b4e0bc8e623804010f51266f81662a7afe27810b6cc8c781c33d361",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p167_uniform/XAS/FDMNES/green/layer_4/CONTCAR",
+      "bytes": 46594,
+      "sha256": "586eaa8fbe7b930a424d46a146147b359c4bfdb7955bb3356912113acbd48fef",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p167_uniform/XAS/FDMNES/green/layer_4/Cu_layer4_conv.txt",
+      "bytes": 7202,
+      "sha256": "c7ad5d95b8e21b7a58c0de799f175fb77831e345d79873a05176fe8d88e26554",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p167_uniform/XAS/FDMNES/green/layer_4/Cu_layer4_in.txt",
+      "bytes": 16463,
+      "sha256": "5c1058d0053a891021cf4297df9201ee2284abdd3eb473e7838ac62f4b908adf",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p167_uniform/XAS/FDMNES/green/layer_4/Cu_layer4_resume_in.txt",
+      "bytes": 16331,
+      "sha256": "5933e336b15bd8eb5727d8b28838a2f2f02d68370ff741b92fb0bcb596804a12",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p167_uniform/XAS/FDMNES/green/layer_3/Cu_layer3_conv.txt",
+      "bytes": 7202,
+      "sha256": "f92711b8a03cded981b5cb5526bb831eabe9464936048c229cdcfc8e4a676901",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p167_uniform/XAS/FDMNES/green/layer_3/CONTCAR",
+      "bytes": 46594,
+      "sha256": "586eaa8fbe7b930a424d46a146147b359c4bfdb7955bb3356912113acbd48fef",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p167_uniform/XAS/FDMNES/green/layer_3/Cu_layer3_in.txt",
+      "bytes": 16436,
+      "sha256": "e981ac1117abda8042c617ae24847cfc17cbafa86ced249509148f45635686f4",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p167_uniform/XAS/FDMNES/green/layer_3/Cu_layer3_convolution_in.txt",
+      "bytes": 69,
+      "sha256": "bf1a4248a218616b0f2f957d6df624beb4c4835789fd3ad994d7e5b4e9c923c9",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p167_uniform/XAS/FDMNES/green/layer_2/Cu_layer2_conv.txt",
+      "bytes": 7202,
+      "sha256": "d17e09bcf3d694b00e525e303928c93d6514e1f200f69ccd8b1a78c269f1f4cf",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p167_uniform/XAS/FDMNES/green/layer_2/Cu_layer2_in.txt",
+      "bytes": 16427,
+      "sha256": "be6592568c2a758144d6c3c6b5875e96613a0c85eedf159a82ed7dcc6b397c6c",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p167_uniform/XAS/FDMNES/green/layer_2/Cu_layer2_convolution_in.txt",
+      "bytes": 69,
+      "sha256": "25c5e292a2ce79644dc0242473d83db85fcd85c37eff39acfcaf2d532c2cebb3",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p167_uniform/XAS/FDMNES/green/layer_2/CONTCAR",
+      "bytes": 46594,
+      "sha256": "586eaa8fbe7b930a424d46a146147b359c4bfdb7955bb3356912113acbd48fef",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p167_uniform/XAS/FDMNES/green/layer_5/CONTCAR",
+      "bytes": 46594,
+      "sha256": "586eaa8fbe7b930a424d46a146147b359c4bfdb7955bb3356912113acbd48fef",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p167_uniform/XAS/FDMNES/green/layer_5/Cu_layer5_conv.txt",
+      "bytes": 7202,
+      "sha256": "f93421d84ade70179a29cd05c8ae979db8b753e531e6e508fd2d7c8f7f284438",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p167_uniform/XAS/FDMNES/green/layer_5/Cu_layer5_resume_in.txt",
+      "bytes": 16331,
+      "sha256": "dfa27f5c63ac269cc1c9dd82e6419905fdafc5c20fe2f3ec102966f9e6c1232c",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p167_uniform/XAS/FDMNES/green/layer_5/Cu_layer5_convolution_in.txt",
+      "bytes": 69,
+      "sha256": "47daef821b6792eb6d382c40ad3a88972ae8ea14cbd6c7b80c46bec170924dab",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p167_uniform/XAS/FDMNES/green/layer_5/Cu_layer5_in.txt",
+      "bytes": 16463,
+      "sha256": "c9d58275566b07c244fbef0518567158c47612665c486a5b1f895c40b71ad3ee",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_interface_Cu3/INCAR",
+      "bytes": 374,
+      "sha256": "7454aa136a1bc45ccbb0a7f042597605110ddf136d8495c1b4c2d2fedc4cc72d",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_interface_Cu3/CONTCAR",
+      "bytes": 45046,
+      "sha256": "a9cf1c8a20ae50b9f0185cdc9227787eed04d7f6203c18e6f09af9f1364bfb98",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_interface_Cu3/POSCAR",
+      "bytes": 27725,
+      "sha256": "30054854daec5ae6e925dfb20e52dee431cf442e8400883be6fd1681780edae1",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_interface_Cu3/KPOINTS",
+      "bytes": 35,
+      "sha256": "ca0d3b09f1f98fa91eebd307459cc62767f1482c2ce736d3d916048a99df30f8",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_interface_Cu3/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 74586,
+      "sha256": "5802e0174ee24aa5f7687b0c283b8266e46c49422f211c3be2cc42e55c576485",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_interface_Cu3/XAS/FDMNES/green/layer_4/Cu_layer4_convolution_in.txt",
+      "bytes": 69,
+      "sha256": "2bbfbb2d1b4e0bc8e623804010f51266f81662a7afe27810b6cc8c781c33d361",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_interface_Cu3/XAS/FDMNES/green/layer_4/CONTCAR",
+      "bytes": 45046,
+      "sha256": "a9cf1c8a20ae50b9f0185cdc9227787eed04d7f6203c18e6f09af9f1364bfb98",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_interface_Cu3/XAS/FDMNES/green/layer_4/Cu_layer4_conv.txt",
+      "bytes": 7202,
+      "sha256": "96807a063a86c52b731faddc785a89d87cef6533482ad297f5e78c2c86e3da56",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_interface_Cu3/XAS/FDMNES/green/layer_4/Cu_layer4_in.txt",
+      "bytes": 15923,
+      "sha256": "be25b321da157492fee9b3165af7bf9fb5a3c00783a952e7d646a45fc46ec76a",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_interface_Cu3/XAS/FDMNES/green/layer_4/Cu_layer4_resume_in.txt",
+      "bytes": 15791,
+      "sha256": "8e4f76606a2a4b46787cbd6d52199a80820e73262f6159eccf4bbad6a885c023",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_interface_Cu3/XAS/FDMNES/green/layer_3/Cu_layer3_conv.txt",
+      "bytes": 7202,
+      "sha256": "7e1d08ae90663054a908ddc653b071e315141752862800169696ae41386e32c1",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_interface_Cu3/XAS/FDMNES/green/layer_3/CONTCAR",
+      "bytes": 45046,
+      "sha256": "a9cf1c8a20ae50b9f0185cdc9227787eed04d7f6203c18e6f09af9f1364bfb98",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_interface_Cu3/XAS/FDMNES/green/layer_3/Cu_layer3_in.txt",
+      "bytes": 15896,
+      "sha256": "49a5a430da69724559485b4e852d610d4b20c2de31b59e7bd27deab807610cf5",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_interface_Cu3/XAS/FDMNES/green/layer_3/Cu_layer3_convolution_in.txt",
+      "bytes": 69,
+      "sha256": "bf1a4248a218616b0f2f957d6df624beb4c4835789fd3ad994d7e5b4e9c923c9",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_interface_Cu3/XAS/FDMNES/green/layer_2/Cu_layer2_conv.txt",
+      "bytes": 7202,
+      "sha256": "0b24a353d7b4983c05166e8edf5b6dd277949cf943dd14888ba913a3c3d43729",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_interface_Cu3/XAS/FDMNES/green/layer_2/Cu_layer2_in.txt",
+      "bytes": 15887,
+      "sha256": "c3466b77de3ad358ef56d05bbe19fc878635a97eb53c737d9a4273d57e7e65a2",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_interface_Cu3/XAS/FDMNES/green/layer_2/Cu_layer2_convolution_in.txt",
+      "bytes": 69,
+      "sha256": "25c5e292a2ce79644dc0242473d83db85fcd85c37eff39acfcaf2d532c2cebb3",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_interface_Cu3/XAS/FDMNES/green/layer_2/CONTCAR",
+      "bytes": 45046,
+      "sha256": "a9cf1c8a20ae50b9f0185cdc9227787eed04d7f6203c18e6f09af9f1364bfb98",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_interface_Cu3/XAS/FDMNES/green/layer_5/CONTCAR",
+      "bytes": 45046,
+      "sha256": "a9cf1c8a20ae50b9f0185cdc9227787eed04d7f6203c18e6f09af9f1364bfb98",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_interface_Cu3/XAS/FDMNES/green/layer_5/Cu_layer5_conv.txt",
+      "bytes": 7202,
+      "sha256": "7f4ec0561ac8b208757a7a4a1e042cd7a0d15100f55e73528885e8861434799f",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_interface_Cu3/XAS/FDMNES/green/layer_5/Cu_layer5_resume_in.txt",
+      "bytes": 15791,
+      "sha256": "0eed1621a85207f8c466875bb3c9923452c13f810d60fea3fdda6442dbbda2f0",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_interface_Cu3/XAS/FDMNES/green/layer_5/Cu_layer5_convolution_in.txt",
+      "bytes": 69,
+      "sha256": "47daef821b6792eb6d382c40ad3a88972ae8ea14cbd6c7b80c46bec170924dab",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COH/COH_0p056_interface_Cu3/XAS/FDMNES/green/layer_5/Cu_layer5_in.txt",
+      "bytes": 15923,
+      "sha256": "2080405fd83a05f042dc5cd12fdb7db9b0f0a8ace2397acaeda24530d7c24249",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "COOH/COOH_0p111_AuCu_interface/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 75665,
+      "sha256": "c498036fd3847f121e8aea4e157dc0e5b845b33bda39f851c7fd3ac2887fea9f",
+      "status": "changed_hash",
+      "previous_sha256": "fee80cc97a0c6befc536c745f6e2a54d0cabd8174315af33c5712beae3e04651",
+      "previous_bytes": 75493
+    },
+    {
+      "path": "COOH/COOH_0p056_mixed_Au_Cu/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 74502,
+      "sha256": "595670f65377d798c5e299c0cd7180b7ea9c166c0c331711d35f6bf05bd1a38b",
+      "status": "changed_hash",
+      "previous_sha256": "ba48bab2561b3af7ce7843ba964b559adebcb3a56baf1bf949ba352977f7f1ea",
+      "previous_bytes": 74330
+    },
+    {
+      "path": "COOH/COOH_0p056_AuCu_interface/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 74537,
+      "sha256": "9b7545484e8dee193c4530de80f699b0a2c2bb94a881eb29ab5b53224e389bc2",
+      "status": "changed_hash",
+      "previous_sha256": "bd6384a02820c56fe2384ff4951ce46a84914ae099d8fd4a92bea1f1f2e17cd7",
+      "previous_bytes": 74365
+    },
+    {
+      "path": "COOH/COOH_0p056_Cu_interface/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 74545,
+      "sha256": "122a5f18d5e6942caf503a2a0ee4c17013b32c969313ac387ad1f91464886246",
+      "status": "changed_hash",
+      "previous_sha256": "0989b739258b88126bc18fbb9c8b69c2612b04df735f4a45c71d3151dd1b62f1",
+      "previous_bytes": 74373
+    },
+    {
+      "path": "COOH/COOH_0p028_AuCu_interface/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 74141,
+      "sha256": "d55fe534428765def01f74e87d959e2d07f632f1ab3e0906a58faedfed81b903",
+      "status": "changed_hash",
+      "previous_sha256": "43f164e4d3af2b38730e0f809c633d762d2eb90325119bddb1d746afadba3d90",
+      "previous_bytes": 73969
+    },
+    {
+      "path": "COOH/COOH_0p111_Cu_interface/INCAR",
+      "bytes": 394,
+      "sha256": "8d626f169db742e6c3d71a3bdb954a22e87b81ef3a30db8fd8c780318e97a770",
+      "status": "changed_size",
+      "previous_sha256": null,
+      "previous_bytes": 374
+    },
+    {
+      "path": "COOH/COOH_0p056_Au_top/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 74429,
+      "sha256": "73dc2d3e48254794c58f338e1e307d23c1a5c7a876b1868e384796f535bd924d",
+      "status": "changed_hash",
+      "previous_sha256": "ee9a1ccbab04b58a1677588a8c0a0a48565bf9b4b439ccc5b5001258ac96c054",
+      "previous_bytes": 74257
+    },
+    {
+      "path": "COOH/COOH_0p111_Au_top/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 75185,
+      "sha256": "cc8eeed748ba9c204130de1b8241cb6cf7bc13a4affa048b86239b1f499aeb8d",
+      "status": "changed_hash",
+      "previous_sha256": "5080a0ff14d6866f8012f59e85227c97e833c875509c3004b88bfa9b3208321d",
+      "previous_bytes": 75013
+    },
+    {
+      "path": "COOH/COOH_0p056_Cu_uniform/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 74546,
+      "sha256": "72815167ff9239e9513678600e99514957d11276eacc2513a1753c54d16532ba",
+      "status": "changed_hash",
+      "previous_sha256": "2c8ec83d4d215de47b92a1cf439e2b83e20bdc7160b2f5759d71b2a9d70a5396",
+      "previous_bytes": 74374
+    },
+    {
+      "path": "CO_H/CO_H_0p111_2CO_2H/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 75288,
+      "sha256": "0e405a43584f8b8aaff470d9070c01bfc21a2efdd562da17ef41e28fbd38f979",
+      "status": "changed_hash",
+      "previous_sha256": "286697dedaf3f44641b6d7c3b9c181f17ec9aa66f97c99ef41c079a9a91fef59",
+      "previous_bytes": 75116
+    },
+    {
+      "path": "CO_H/CO_H_0p083_2CO_1H/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 74865,
+      "sha256": "245a3716731a0994fd48e3c41725592e3f1bea4601470a0077fe9a2378cc2d19",
+      "status": "changed_hash",
+      "previous_sha256": "3b966f97532a4a2b99bec390fb39e071460776e57cbd3e0ebdfb84eb22712620",
+      "previous_bytes": 74693
+    },
+    {
+      "path": "CO_H/CO_H_0p083_2CO_1H_AuCu2/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 74847,
+      "sha256": "e560f01e8a475b35537bb1a52d93cc92107267acacbee41362b7965446e15e96",
+      "status": "changed_hash",
+      "previous_sha256": "ce38d7b74f08b232d921fd4cc32bae16cc4e1a721b4a18efc6c396a03a5ece74",
+      "previous_bytes": 74675
+    },
+    {
+      "path": "CO_OH/CO_OH_0p111_3CO_1OH/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 75236,
+      "sha256": "89f48a6f5cc9bd5c00a2502fe177a05ece6d21e81e8df557c0b8560e8676046d",
+      "status": "changed_hash",
+      "previous_sha256": "f6f9570ba6eb665a00aefe4848ffb672ac51353d851783dd961094c2cb500a80",
+      "previous_bytes": 75064
+    },
+    {
+      "path": "H/H_0p25/interior_biased/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 77397,
+      "sha256": "eb6998b7bafc98b8320a4956506ea3eb594695c95a7dfa190e03eb32b798e298",
+      "status": "changed_hash",
+      "previous_sha256": "5501ba575c1fd95b326c25ed8eeb68b0dcd0d0f11fe763b2578892936303df53",
+      "previous_bytes": 72567
+    },
+    {
+      "path": "H/H_0p25/uniform/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 77331,
+      "sha256": "d8f9cce384757cc1408853c9475a04befa3e5c9ecdf3571499cd397ef7bdfcc8",
+      "status": "changed_hash",
+      "previous_sha256": "44339290c3d52dd565cd140a4e18a3218ec5d230d303680879cb9d33c1175fe9",
+      "previous_bytes": 72546
+    },
+    {
+      "path": "H/H_0p25/interface_biased2/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 77376,
+      "sha256": "689b2e18dd11dfdd16ad8056ab3fb3f85294270e77653e2cf9167cc1c15138f1",
+      "status": "changed_hash",
+      "previous_sha256": "62cae842defa07d450a3fe6f871873f1ebd6e173d158ec8212c46652024186d2",
+      "previous_bytes": 72566
+    },
+    {
+      "path": "H/H_0p25/Au/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 77286,
+      "sha256": "d115bcda51e34573a4ce0449b06d5882412e708fc0aa300ba5f866e85e120f72",
+      "status": "changed_hash",
+      "previous_sha256": "a9e035459072febbe9392e6c2b7bba95810aa8e6082d35f5efbc5a677f7715d1",
+      "previous_bytes": 72505
+    },
+    {
+      "path": "H/H_0p5/interior_biased/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 81049,
+      "sha256": "0d2ebac6c67e63972554c1856f61efd48660b05306ce7816e71335abfcff72a4",
+      "status": "changed_hash",
+      "previous_sha256": "b5031b6e04e02dfeb76154736df5a195692ba315380b471d8893925fb49ffe61",
+      "previous_bytes": 72554
+    },
+    {
+      "path": "H/H_0p5/uniform/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 80987,
+      "sha256": "75c6d0c1f9a50ad81662a25e6a8bb34b52941db2ca2fb8b427e0b88bdcefbb82",
+      "status": "changed_hash",
+      "previous_sha256": "a54c3a1154595fd8539e743601b2d100a7888313c805f8f1f22bf82a4d8735f9",
+      "previous_bytes": 72528
+    },
+    {
+      "path": "H/H_0p5/interface_biased/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 81051,
+      "sha256": "fdba77d1caa1ac1c3e9afabc312d87ad8af5d877481cd33677d4ef1e8e8e0365",
+      "status": "changed_hash",
+      "previous_sha256": "1850174c1fe2ce3caf33a1d85b235818eb9a9f76a6468e7e052087aeb6c4b9f0",
+      "previous_bytes": 72567
+    },
+    {
+      "path": "H/H_0p5/interface_biased2/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 81054,
+      "sha256": "ed1e16319a24c9b56208a56f326850db9d753dc7fe9680f24a5786f589b9e0f3",
+      "status": "changed_hash",
+      "previous_sha256": "318aafd050d203f588045f6ae63ee23014e5fe4a527b9130139b863f044ab7e3",
+      "previous_bytes": 72588
+    },
+    {
+      "path": "H/H_0p5/Au/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 80959,
+      "sha256": "d2d2956c4a09a82a22240b77d58f388650718bc05e4d7984b120f40d8b5c12f0",
+      "status": "changed_hash",
+      "previous_sha256": "0d547e9dd26a3ee2409056ee9be1b9e1e9601505aa49651a7b3fe1e84f4867b3",
+      "previous_bytes": 72511
+    },
+    {
+      "path": "H/H_0p75/uniform/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 84639,
+      "sha256": "2f69189fad4ac418c9cc65fe4f5c1c9f2bc810789e81058a6df933bb877b941c",
+      "status": "changed_hash",
+      "previous_sha256": "1a2851d6c1e94bd7acfba91eebee05e16ab18d00fd21f5d8abd99716822a4c24",
+      "previous_bytes": 72511
+    },
+    {
+      "path": "H/H_0p75/mixed/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 83404,
+      "sha256": "6efefbadba07e4235a3dc0038a867661b7ab3bb172018b2aadf80407b045ce27",
+      "status": "changed_hash",
+      "previous_sha256": "3585711e3784c440377346de9982e2b3a04aa969eef4115f492ee02f4ae555f2",
+      "previous_bytes": 72541
+    },
+    {
+      "path": "H/H_0p75/interface_biased/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 84729,
+      "sha256": "55028578ef73b185b3f4d114bbb38a3ee6c64085bb18214c59deb495d8671414",
+      "status": "changed_hash",
+      "previous_sha256": "09bf2129a46eca1cb6488676212e04a62c014d7f83b390afd36117bab56a2a13",
+      "previous_bytes": 72557
+    },
+    {
+      "path": "H/H_0p75/Au/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 84647,
+      "sha256": "d6bddcc5a95d3c08db54d07cd3744f58b3e9f065e1eb9c0236069e95e1c68f23",
+      "status": "changed_hash",
+      "previous_sha256": "b556fe8b2e4222bd9f2163d7c1ad7b154914f5fb23cc15d36440201f5fc0c3ad",
+      "previous_bytes": 72525
+    },
+    {
+      "path": "H/H_0p75/0p88_mixed/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 85860,
+      "sha256": "2286a51f5ef5431fd688a41cc3ea1ddd62eebb6e2a2998ea02203d7c26b3c23f",
+      "status": "changed_hash",
+      "previous_sha256": "765e90d844875270ab02356420c212cf0aab5a69622b3757a5504b494dd347e5",
+      "previous_bytes": 72549
+    },
+    {
+      "path": "O/O_0p028_1O_Cu3/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 73917,
+      "sha256": "8e3c4df093b9fb5bce1fc4ca416c6940ccf824ac1b824d1135c42a86e6249aa7",
+      "status": "changed_hash",
+      "previous_sha256": "8a5f580f3b9d79cc985668622e28c351a02a02e552b8d4ef314b638cf464fd95",
+      "previous_bytes": 73745
+    },
+    {
+      "path": "O/O_0p056_2O_AuCu2/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 74433,
+      "sha256": "1dfc218c338cc4a24667c206917b66112b34026526eb6bbe348b3b820bc14eab",
+      "status": "changed_hash",
+      "previous_sha256": "92c7ebebebddb5a368511bd3fb55db1fd52acc07cd0313dd46133d693b10e5ae",
+      "previous_bytes": 74261
+    },
+    {
+      "path": "O/O_0p028_1O_AuCu2/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 74032,
+      "sha256": "744ac9de94f3d591afc43d496af862c0ee202f6cb2afaecb0d4011745ac0e859",
+      "status": "changed_hash",
+      "previous_sha256": "3096dbaf3f8bb7a5d1c87ab56dcd6f31a927daecbd6051b02e37f5b4e1f46005",
+      "previous_bytes": 73860
+    },
+    {
+      "path": "O/O_0p056_2O_mixed_Cu3_AuCu2/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 74481,
+      "sha256": "88466df340d65e20358f31f4f29e25a4ac3c7b3145ea852769c30c8702894aad",
+      "status": "changed_hash",
+      "previous_sha256": "46ff9c8bb9412ada5e88b58f770352fba1d4bf8938f3a9bcdabf65d96f4eaaee",
+      "previous_bytes": 74309
+    },
+    {
+      "path": "O/O_0p083_3O_interface_weighted_Cu3_AuCu2/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 74995,
+      "sha256": "b7e63a821b86114ef469194c2b248f1ba151c31a47819637c6a9fcd9dac4c3c5",
+      "status": "changed_hash",
+      "previous_sha256": "098d84f5304998a56ede4cb8789acd13c13559ed57169f92ddf234bc64dda783",
+      "previous_bytes": 74823
+    },
+    {
+      "path": "O/O_0p083_3O_Cu3_AuCu2/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 74870,
+      "sha256": "e4a1dd8d1897976c57de9286fbf3a16551d652f53e18741fe93cb94a20827322",
+      "status": "changed_hash",
+      "previous_sha256": "1911a97eeae98f9b6d7bc45e790bb88ff4f3714d51529f1fe51c0f2c9408ed01",
+      "previous_bytes": 74698
+    },
+    {
+      "path": "O/O_0p056_2O_Cu3_distributed/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 74331,
+      "sha256": "c4e772b72495d1f143336375d9bc5bc4287ffd5ecae02bf7f7e5d9791f32af38",
+      "status": "changed_hash",
+      "previous_sha256": "5eec177b6fec7dcc044a057f3d3b451fe95deb802bd75dfe67155a3c6f48e954",
+      "previous_bytes": 74159
+    },
+    {
+      "path": "OCCOH/OCCOH_0p056_AuCu_interface/INCAR",
+      "bytes": 380,
+      "sha256": "1850b4d900449e3a1d576e5c906cd3f07cecc6f3d8c081ee129fb18fe313502d",
+      "status": "changed_size",
+      "previous_sha256": null,
+      "previous_bytes": 360
+    },
+    {
+      "path": "OCCOH/OCCOH_0p056_AuCu_interface/CONTCAR",
+      "bytes": 44917,
+      "sha256": "5609b51fb262e83319067e8e55452193f8e85118a84684986d70f4757fd32da0",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "OCCOH/OCCOH_0p056_AuCu_interface/POSCAR",
+      "bytes": 44917,
+      "sha256": "b34c6433e599a10ba419e0b2cd7add88fc34bcc0048d8c8805a83439c4fe02f5",
+      "status": "changed_size",
+      "previous_sha256": null,
+      "previous_bytes": 27597
+    },
+    {
+      "path": "OCCOH/OCCOH_0p056_AuCu_interface/XAS/FDMNES/green/layer_4/Cu_layer4_convolution_in.txt",
+      "bytes": 69,
+      "sha256": "2bbfbb2d1b4e0bc8e623804010f51266f81662a7afe27810b6cc8c781c33d361",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "OCCOH/OCCOH_0p056_AuCu_interface/XAS/FDMNES/green/layer_4/CONTCAR",
+      "bytes": 44917,
+      "sha256": "5609b51fb262e83319067e8e55452193f8e85118a84684986d70f4757fd32da0",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "OCCOH/OCCOH_0p056_AuCu_interface/XAS/FDMNES/green/layer_4/Cu_layer4_in.txt",
+      "bytes": 15878,
+      "sha256": "f0d93a4698d5e3273b07dc5d11cc30b2ec0159f80f83fc82953b7bd2d79c63f5",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "OCCOH/OCCOH_0p056_AuCu_interface/XAS/FDMNES/green/layer_3/CONTCAR",
+      "bytes": 44917,
+      "sha256": "5609b51fb262e83319067e8e55452193f8e85118a84684986d70f4757fd32da0",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "OCCOH/OCCOH_0p056_AuCu_interface/XAS/FDMNES/green/layer_3/Cu_layer3_in.txt",
+      "bytes": 15851,
+      "sha256": "586026f4413013f1ec15f429f9bfe3600b46dfd8ade4edb6dcf3f1f4dfa3768c",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "OCCOH/OCCOH_0p056_AuCu_interface/XAS/FDMNES/green/layer_3/Cu_layer3_convolution_in.txt",
+      "bytes": 69,
+      "sha256": "bf1a4248a218616b0f2f957d6df624beb4c4835789fd3ad994d7e5b4e9c923c9",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "OCCOH/OCCOH_0p056_AuCu_interface/XAS/FDMNES/green/layer_2/Cu_layer2_in.txt",
+      "bytes": 15842,
+      "sha256": "23a50c2417732641e379b1c8e9a1cf27ac48b136090a1f5ec194af7d6069a6fe",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "OCCOH/OCCOH_0p056_AuCu_interface/XAS/FDMNES/green/layer_2/Cu_layer2_convolution_in.txt",
+      "bytes": 69,
+      "sha256": "25c5e292a2ce79644dc0242473d83db85fcd85c37eff39acfcaf2d532c2cebb3",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "OCCOH/OCCOH_0p056_AuCu_interface/XAS/FDMNES/green/layer_2/CONTCAR",
+      "bytes": 44917,
+      "sha256": "5609b51fb262e83319067e8e55452193f8e85118a84684986d70f4757fd32da0",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "OCCOH/OCCOH_0p056_AuCu_interface/XAS/FDMNES/green/layer_5/CONTCAR",
+      "bytes": 44917,
+      "sha256": "5609b51fb262e83319067e8e55452193f8e85118a84684986d70f4757fd32da0",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "OCCOH/OCCOH_0p056_AuCu_interface/XAS/FDMNES/green/layer_5/Cu_layer5_convolution_in.txt",
+      "bytes": 69,
+      "sha256": "47daef821b6792eb6d382c40ad3a88972ae8ea14cbd6c7b80c46bec170924dab",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "OCCOH/OCCOH_0p056_AuCu_interface/XAS/FDMNES/green/layer_5/Cu_layer5_in.txt",
+      "bytes": 15878,
+      "sha256": "8aee43a8f4bd0ba0e38ab1bf3a940aee25ee63a2372052a190323e67fa3fcf86",
+      "status": "new_path",
+      "previous_sha256": null,
+      "previous_bytes": null
+    },
+    {
+      "path": "OCCOH/OCCOH_0p056_Cu_interface/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 74174,
+      "sha256": "ff512a543747acc93d27f9fddd13e51b827817c890c1e4ad135069f7e4e50570",
+      "status": "changed_hash",
+      "previous_sha256": "fc0257fd02e9a11a5552dfb17f9c2b8ba79e63e5003014b9a3430aa96c29cc8f",
+      "previous_bytes": 74002
+    },
+    {
+      "path": "OCCOH/OCCOH_0p056_Cu_interior/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 74128,
+      "sha256": "6757568a3d3dedc22d1958fd267777b069eecaaa6667ef88e40c68e44efe8ba0",
+      "status": "changed_hash",
+      "previous_sha256": "68a4ff71b5e20eecb5fc27aa7ea4741330722e32c7f43248000937617f79fb46",
+      "previous_bytes": 73956
+    },
+    {
+      "path": "OCCO_CO/OCCO_plus_CO_0p222_Cu_rich/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 76817,
+      "sha256": "277fcff5106da5d8aa89fb9414f84bb21051cfdcb0572c6dd146fcafe91162d6",
+      "status": "changed_hash",
+      "previous_sha256": "69c7e541a95067895bdfccc51115135c6dd60734cef35d25a7ce6fc67dbd61c4",
+      "previous_bytes": 76607
+    },
+    {
+      "path": "OCCO_CO/OCCO_plus_CO_0p222_AuCu_interface/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 76806,
+      "sha256": "fc3e34ae18181cf004a9639dd03fc422b8363235abefaef82d5be7b0ab7f8110",
+      "status": "changed_hash",
+      "previous_sha256": "a136167ebc825f880e832d525ca6c7edb39f9147698a16cab7851c23b79d289f",
+      "previous_bytes": 76596
+    },
+    {
+      "path": "OCCO_CO/OCCO_CO_0p111_Cu_rich/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 75188,
+      "sha256": "d127101e069075d0ac399a4aa233564009ea2c9e8015944770bca8d35c02ea5b",
+      "status": "changed_hash",
+      "previous_sha256": "8c08ed794b5141d3cd7757e23ece33309969c444e3f5c0ecf90e85cc819f847d",
+      "previous_bytes": 74978
+    },
+    {
+      "path": "OCHO/05_2OCHO_CuCu_interface_plus_AuCu/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 74397,
+      "sha256": "776fa23f6f1e926dd1fc28d3046038ce616f3cd0c569c6153bb8e88d0dadd388",
+      "status": "changed_hash",
+      "previous_sha256": "3bb1416e7122ca37ddf74bafb56ef05018c220e74a808aca3a09fee664dedd67",
+      "previous_bytes": 74225
+    },
+    {
+      "path": "OCHO/08_3OCHO_1CuCu_interface_plus_2interior/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 74754,
+      "sha256": "d4112ffb76a24f2d4bb5f0bdde63b2dcab7e423d2dc10d6965686a55468039ea",
+      "status": "changed_hash",
+      "previous_sha256": "184dccd1600d006ed7573f2f734bedea076a3036c01699fccbdf1397cafa4af6",
+      "previous_bytes": 74582
+    },
+    {
+      "path": "OCHO/07_3OCHO_2CuCu_interface_plus_interior/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 74761,
+      "sha256": "9c741efb9636a4661b9afdbb1f06f043db2492d4321f64120662c5a0c0a08e2f",
+      "status": "changed_hash",
+      "previous_sha256": "6de98275464b809e60161b69c2a00286dba5963eba4561fa89fb6507010becbc",
+      "previous_bytes": 74589
+    },
+    {
+      "path": "OCHO/01_1OCHO_CuCu_interface/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 73884,
+      "sha256": "9efeb8223f7111d64da30180d07aba9c984b088e7fe85c122bd58ef218f10dac",
+      "status": "changed_hash",
+      "previous_sha256": "5b4f0a88ad7c7413f7831e71572e80058faa869302ed842b8fdd322dba1a9d90",
+      "previous_bytes": 73712
+    },
+    {
+      "path": "OCHO/02_1OCHO_AuCu_across/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 73983,
+      "sha256": "5ed17fd8186f917389142f67b95ba8e7f672a4e055a0af5768a85d7d00647b7d",
+      "status": "changed_hash",
+      "previous_sha256": "c88ab3dab483e5d83afab4163ff82a540358e6b291d1d5e838fb8df29474cec6",
+      "previous_bytes": 73811
+    },
+    {
+      "path": "OCHO/06_2OCHO_2CuCu_interface/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 74378,
+      "sha256": "ca2dba74449b2e61c4fca053c934c8fafe1ee6c87e7c3cfdeb91107947b2a3f5",
+      "status": "changed_hash",
+      "previous_sha256": "7a06681ec9c2c72cad9c5a9c55b119abf233c5d2533ffdbe47c6919ce4d14f3f",
+      "previous_bytes": 74206
+    },
+    {
+      "path": "OCHO/03_1OCHO_CuCu_interior/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 73863,
+      "sha256": "d051866074a9533788ea349d4ac118ae41226b0e6d7641bd40dfb86a507c6b6e",
+      "status": "changed_hash",
+      "previous_sha256": "211845cf6215721c400ce3b6f666fcecf27ed937e643083892e450f1c0d24eb0",
+      "previous_bytes": 73691
+    },
+    {
+      "path": "OCHO/04_2OCHO_CuCu_interface_plus_interior/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 74390,
+      "sha256": "94b00271580ef72284843258d85f9775dbe83415a73d0be4321564ca0baa6207",
+      "status": "changed_hash",
+      "previous_sha256": "6d1c9ce02667ca5a010a56b13997c18c3d62489003058e9f917b2e8eb077a8c8",
+      "previous_bytes": 74218
+    },
+    {
+      "path": "OH/OH_0p25_uniform/CONTCAR",
+      "bytes": 46572,
+      "sha256": "a01ce31931bdb6cd62e8e178805bebc19c9267707f7b1491da0ff0fb1e463256",
+      "status": "changed_hash",
+      "previous_sha256": "cb328d898c3380dc9392ac00943b74214ffdd314f0846f4fa13d66e71663bbfc",
+      "previous_bytes": 46572
+    },
+    {
+      "path": "OH/OH_0p25_uniform/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 77718,
+      "sha256": "5b65500dcb6f127cb8c38c4318466da118af33932c7bdd265df75b5bd6abbd09",
+      "status": "changed_hash",
+      "previous_sha256": "78daeba03f381f21bbc955d8b9c1bacdd335a250fa2083f37100495ef9f08a98",
+      "previous_bytes": 77547
+    },
+    {
+      "path": "OH/OH_0p25_interior_biased/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 77382,
+      "sha256": "e6c6f42ddc1a47beab079aa3fa312a51f04e811219d5c86a5b8009c23b9c752b",
+      "status": "changed_hash",
+      "previous_sha256": "fde5d8d363423a83b72ad651885eb73d00951882a5092bca3f853933d88cfdc5",
+      "previous_bytes": 77210
+    },
+    {
+      "path": "OH/OH_0p125_interior_biased/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 75388,
+      "sha256": "13df35fdd782b57c43e9f090c00b4e0ab263b6a95940e9d1be00473efc54cbb8",
+      "status": "changed_hash",
+      "previous_sha256": "fdd2355cd5c309d3a49d38bf275c214dd61ff929b6a0ab6d063ca5a0391c1f6d",
+      "previous_bytes": 75216
+    },
+    {
+      "path": "OH/OH_0p125_uniform_high5Cu/INCAR",
+      "bytes": 398,
+      "sha256": "5d353d294de34957a86af81f1bd2daa53f4c974838fec60b8a68cde92fb1c778",
+      "status": "changed_size",
+      "previous_sha256": null,
+      "previous_bytes": 374
+    },
+    {
+      "path": "OH/OH_0p25_interface_Au/XAS/FDMNES/green/isaac_record_layers.json",
+      "bytes": 78172,
+      "sha256": "3c1433f0eb79e72125578690a337b02565cabcd95bef80a24c1a45a02f0495dd",
+      "status": "changed_hash",
+      "previous_sha256": "6122821fec9f7ca2d67d9e399f19bb8d7826016aaf29fd31df85e5409928e3dd",
+      "previous_bytes": 78000
+    }
+  ],
+  "removed_paths": [
+    "COH/CHO_0p028_interface_Cu3/CONTCAR",
+    "COH/CHO_0p028_interface_Cu3/INCAR",
+    "COH/CHO_0p028_interface_Cu3/KPOINTS",
+    "COH/CHO_0p028_interface_Cu3/POSCAR",
+    "COH/CHO_0p028_interface_Cu3/XAS/FDMNES/green/isaac_record_layers.json",
+    "COH/CHO_0p028_interface_Cu3/XAS/FDMNES/green/layer_2/CONTCAR",
+    "COH/CHO_0p028_interface_Cu3/XAS/FDMNES/green/layer_2/Cu_layer2_conv.txt",
+    "COH/CHO_0p028_interface_Cu3/XAS/FDMNES/green/layer_2/Cu_layer2_convolution_in.txt",
+    "COH/CHO_0p028_interface_Cu3/XAS/FDMNES/green/layer_2/Cu_layer2_in.txt",
+    "COH/CHO_0p028_interface_Cu3/XAS/FDMNES/green/layer_3/CONTCAR",
+    "COH/CHO_0p028_interface_Cu3/XAS/FDMNES/green/layer_3/Cu_layer3_conv.txt",
+    "COH/CHO_0p028_interface_Cu3/XAS/FDMNES/green/layer_3/Cu_layer3_convolution_in.txt",
+    "COH/CHO_0p028_interface_Cu3/XAS/FDMNES/green/layer_3/Cu_layer3_in.txt",
+    "COH/CHO_0p028_interface_Cu3/XAS/FDMNES/green/layer_4/CONTCAR",
+    "COH/CHO_0p028_interface_Cu3/XAS/FDMNES/green/layer_4/Cu_layer4_conv.txt",
+    "COH/CHO_0p028_interface_Cu3/XAS/FDMNES/green/layer_4/Cu_layer4_convolution_in.txt",
+    "COH/CHO_0p028_interface_Cu3/XAS/FDMNES/green/layer_4/Cu_layer4_in.txt",
+    "COH/CHO_0p028_interface_Cu3/XAS/FDMNES/green/layer_4/Cu_layer4_resume_in.txt",
+    "COH/CHO_0p028_interface_Cu3/XAS/FDMNES/green/layer_5/CONTCAR",
+    "COH/CHO_0p028_interface_Cu3/XAS/FDMNES/green/layer_5/Cu_layer5_conv.txt",
+    "COH/CHO_0p028_interface_Cu3/XAS/FDMNES/green/layer_5/Cu_layer5_convolution_in.txt",
+    "COH/CHO_0p028_interface_Cu3/XAS/FDMNES/green/layer_5/Cu_layer5_in.txt",
+    "COH/CHO_0p028_interface_Cu3/XAS/FDMNES/green/layer_5/Cu_layer5_resume_in.txt",
+    "COH/CHO_0p056_AuCuCu/CONTCAR",
+    "COH/CHO_0p056_AuCuCu/INCAR",
+    "COH/CHO_0p056_AuCuCu/KPOINTS",
+    "COH/CHO_0p056_AuCuCu/POSCAR",
+    "COH/CHO_0p056_AuCuCu/XAS/FDMNES/green/isaac_record_layers.json",
+    "COH/CHO_0p056_AuCuCu/XAS/FDMNES/green/layer_2/CONTCAR",
+    "COH/CHO_0p056_AuCuCu/XAS/FDMNES/green/layer_2/Cu_layer2_conv.txt",
+    "COH/CHO_0p056_AuCuCu/XAS/FDMNES/green/layer_2/Cu_layer2_convolution_in.txt",
+    "COH/CHO_0p056_AuCuCu/XAS/FDMNES/green/layer_2/Cu_layer2_in.txt",
+    "COH/CHO_0p056_AuCuCu/XAS/FDMNES/green/layer_3/CONTCAR",
+    "COH/CHO_0p056_AuCuCu/XAS/FDMNES/green/layer_3/Cu_layer3_conv.txt",
+    "COH/CHO_0p056_AuCuCu/XAS/FDMNES/green/layer_3/Cu_layer3_convolution_in.txt",
+    "COH/CHO_0p056_AuCuCu/XAS/FDMNES/green/layer_3/Cu_layer3_in.txt",
+    "COH/CHO_0p056_AuCuCu/XAS/FDMNES/green/layer_4/CONTCAR",
+    "COH/CHO_0p056_AuCuCu/XAS/FDMNES/green/layer_4/Cu_layer4_conv.txt",
+    "COH/CHO_0p056_AuCuCu/XAS/FDMNES/green/layer_4/Cu_layer4_convolution_in.txt",
+    "COH/CHO_0p056_AuCuCu/XAS/FDMNES/green/layer_4/Cu_layer4_in.txt",
+    "COH/CHO_0p056_AuCuCu/XAS/FDMNES/green/layer_4/Cu_layer4_resume_in.txt",
+    "COH/CHO_0p056_AuCuCu/XAS/FDMNES/green/layer_5/CONTCAR",
+    "COH/CHO_0p056_AuCuCu/XAS/FDMNES/green/layer_5/Cu_layer5_conv.txt",
+    "COH/CHO_0p056_AuCuCu/XAS/FDMNES/green/layer_5/Cu_layer5_convolution_in.txt",
+    "COH/CHO_0p056_AuCuCu/XAS/FDMNES/green/layer_5/Cu_layer5_in.txt",
+    "COH/CHO_0p056_AuCuCu/XAS/FDMNES/green/layer_5/Cu_layer5_resume_in.txt",
+    "COH/CHO_0p056_interface_Cu3/CONTCAR",
+    "COH/CHO_0p056_interface_Cu3/INCAR",
+    "COH/CHO_0p056_interface_Cu3/KPOINTS",
+    "COH/CHO_0p056_interface_Cu3/POSCAR",
+    "COH/CHO_0p056_interface_Cu3/XAS/FDMNES/green/isaac_record_layers.json",
+    "COH/CHO_0p056_interface_Cu3/XAS/FDMNES/green/layer_2/CONTCAR",
+    "COH/CHO_0p056_interface_Cu3/XAS/FDMNES/green/layer_2/Cu_layer2_conv.txt",
+    "COH/CHO_0p056_interface_Cu3/XAS/FDMNES/green/layer_2/Cu_layer2_convolution_in.txt",
+    "COH/CHO_0p056_interface_Cu3/XAS/FDMNES/green/layer_2/Cu_layer2_in.txt",
+    "COH/CHO_0p056_interface_Cu3/XAS/FDMNES/green/layer_3/CONTCAR",
+    "COH/CHO_0p056_interface_Cu3/XAS/FDMNES/green/layer_3/Cu_layer3_conv.txt",
+    "COH/CHO_0p056_interface_Cu3/XAS/FDMNES/green/layer_3/Cu_layer3_convolution_in.txt",
+    "COH/CHO_0p056_interface_Cu3/XAS/FDMNES/green/layer_3/Cu_layer3_in.txt",
+    "COH/CHO_0p056_interface_Cu3/XAS/FDMNES/green/layer_4/CONTCAR",
+    "COH/CHO_0p056_interface_Cu3/XAS/FDMNES/green/layer_4/Cu_layer4_conv.txt",
+    "COH/CHO_0p056_interface_Cu3/XAS/FDMNES/green/layer_4/Cu_layer4_convolution_in.txt",
+    "COH/CHO_0p056_interface_Cu3/XAS/FDMNES/green/layer_4/Cu_layer4_in.txt",
+    "COH/CHO_0p056_interface_Cu3/XAS/FDMNES/green/layer_4/Cu_layer4_resume_in.txt",
+    "COH/CHO_0p056_interface_Cu3/XAS/FDMNES/green/layer_5/CONTCAR",
+    "COH/CHO_0p056_interface_Cu3/XAS/FDMNES/green/layer_5/Cu_layer5_conv.txt",
+    "COH/CHO_0p056_interface_Cu3/XAS/FDMNES/green/layer_5/Cu_layer5_convolution_in.txt",
+    "COH/CHO_0p056_interface_Cu3/XAS/FDMNES/green/layer_5/Cu_layer5_in.txt",
+    "COH/CHO_0p056_interface_Cu3/XAS/FDMNES/green/layer_5/Cu_layer5_resume_in.txt",
+    "COH/CHO_0p056_interior/CONTCAR",
+    "COH/CHO_0p056_interior/INCAR",
+    "COH/CHO_0p056_interior/KPOINTS",
+    "COH/CHO_0p056_interior/POSCAR",
+    "COH/CHO_0p056_interior/XAS/FDMNES/green/isaac_record_layers.json",
+    "COH/CHO_0p056_interior/XAS/FDMNES/green/layer_2/CONTCAR",
+    "COH/CHO_0p056_interior/XAS/FDMNES/green/layer_2/Cu_layer2_conv.txt",
+    "COH/CHO_0p056_interior/XAS/FDMNES/green/layer_2/Cu_layer2_convolution_in.txt",
+    "COH/CHO_0p056_interior/XAS/FDMNES/green/layer_2/Cu_layer2_in.txt",
+    "COH/CHO_0p056_interior/XAS/FDMNES/green/layer_3/CONTCAR",
+    "COH/CHO_0p056_interior/XAS/FDMNES/green/layer_3/Cu_layer3_conv.txt",
+    "COH/CHO_0p056_interior/XAS/FDMNES/green/layer_3/Cu_layer3_convolution_in.txt",
+    "COH/CHO_0p056_interior/XAS/FDMNES/green/layer_3/Cu_layer3_in.txt",
+    "COH/CHO_0p056_interior/XAS/FDMNES/green/layer_4/CONTCAR",
+    "COH/CHO_0p056_interior/XAS/FDMNES/green/layer_4/Cu_layer4_conv.txt",
+    "COH/CHO_0p056_interior/XAS/FDMNES/green/layer_4/Cu_layer4_convolution_in.txt",
+    "COH/CHO_0p056_interior/XAS/FDMNES/green/layer_4/Cu_layer4_in.txt",
+    "COH/CHO_0p056_interior/XAS/FDMNES/green/layer_4/Cu_layer4_resume_in.txt",
+    "COH/CHO_0p056_interior/XAS/FDMNES/green/layer_5/CONTCAR",
+    "COH/CHO_0p056_interior/XAS/FDMNES/green/layer_5/Cu_layer5_conv.txt",
+    "COH/CHO_0p056_interior/XAS/FDMNES/green/layer_5/Cu_layer5_convolution_in.txt",
+    "COH/CHO_0p056_interior/XAS/FDMNES/green/layer_5/Cu_layer5_in.txt",
+    "COH/CHO_0p056_interior/XAS/FDMNES/green/layer_5/Cu_layer5_resume_in.txt",
+    "COH/CHO_0p056_uniform/CONTCAR",
+    "COH/CHO_0p056_uniform/INCAR",
+    "COH/CHO_0p056_uniform/KPOINTS",
+    "COH/CHO_0p056_uniform/POSCAR",
+    "COH/CHO_0p056_uniform/XAS/FDMNES/green/isaac_record_layers.json",
+    "COH/CHO_0p056_uniform/XAS/FDMNES/green/layer_2/CONTCAR",
+    "COH/CHO_0p056_uniform/XAS/FDMNES/green/layer_2/Cu_layer2_conv.txt",
+    "COH/CHO_0p056_uniform/XAS/FDMNES/green/layer_2/Cu_layer2_convolution_in.txt",
+    "COH/CHO_0p056_uniform/XAS/FDMNES/green/layer_2/Cu_layer2_in.txt",
+    "COH/CHO_0p056_uniform/XAS/FDMNES/green/layer_3/CONTCAR",
+    "COH/CHO_0p056_uniform/XAS/FDMNES/green/layer_3/Cu_layer3_conv.txt",
+    "COH/CHO_0p056_uniform/XAS/FDMNES/green/layer_3/Cu_layer3_convolution_in.txt",
+    "COH/CHO_0p056_uniform/XAS/FDMNES/green/layer_3/Cu_layer3_in.txt",
+    "COH/CHO_0p056_uniform/XAS/FDMNES/green/layer_4/CONTCAR",
+    "COH/CHO_0p056_uniform/XAS/FDMNES/green/layer_4/Cu_layer4_conv.txt",
+    "COH/CHO_0p056_uniform/XAS/FDMNES/green/layer_4/Cu_layer4_convolution_in.txt",
+    "COH/CHO_0p056_uniform/XAS/FDMNES/green/layer_4/Cu_layer4_in.txt",
+    "COH/CHO_0p056_uniform/XAS/FDMNES/green/layer_4/Cu_layer4_resume_in.txt",
+    "COH/CHO_0p056_uniform/XAS/FDMNES/green/layer_5/CONTCAR",
+    "COH/CHO_0p056_uniform/XAS/FDMNES/green/layer_5/Cu_layer5_conv.txt",
+    "COH/CHO_0p056_uniform/XAS/FDMNES/green/layer_5/Cu_layer5_convolution_in.txt",
+    "COH/CHO_0p056_uniform/XAS/FDMNES/green/layer_5/Cu_layer5_in.txt",
+    "COH/CHO_0p056_uniform/XAS/FDMNES/green/layer_5/Cu_layer5_resume_in.txt",
+    "COH/CHO_0p167_uniform/CONTCAR",
+    "COH/CHO_0p167_uniform/INCAR",
+    "COH/CHO_0p167_uniform/KPOINTS",
+    "COH/CHO_0p167_uniform/POSCAR",
+    "COH/CHO_0p167_uniform/XAS/FDMNES/green/isaac_record_layers.json",
+    "COH/CHO_0p167_uniform/XAS/FDMNES/green/layer_2/CONTCAR",
+    "COH/CHO_0p167_uniform/XAS/FDMNES/green/layer_2/Cu_layer2_conv.txt",
+    "COH/CHO_0p167_uniform/XAS/FDMNES/green/layer_2/Cu_layer2_convolution_in.txt",
+    "COH/CHO_0p167_uniform/XAS/FDMNES/green/layer_2/Cu_layer2_in.txt",
+    "COH/CHO_0p167_uniform/XAS/FDMNES/green/layer_3/CONTCAR",
+    "COH/CHO_0p167_uniform/XAS/FDMNES/green/layer_3/Cu_layer3_conv.txt",
+    "COH/CHO_0p167_uniform/XAS/FDMNES/green/layer_3/Cu_layer3_convolution_in.txt",
+    "COH/CHO_0p167_uniform/XAS/FDMNES/green/layer_3/Cu_layer3_in.txt",
+    "COH/CHO_0p167_uniform/XAS/FDMNES/green/layer_4/CONTCAR",
+    "COH/CHO_0p167_uniform/XAS/FDMNES/green/layer_4/Cu_layer4_conv.txt",
+    "COH/CHO_0p167_uniform/XAS/FDMNES/green/layer_4/Cu_layer4_convolution_in.txt",
+    "COH/CHO_0p167_uniform/XAS/FDMNES/green/layer_4/Cu_layer4_in.txt",
+    "COH/CHO_0p167_uniform/XAS/FDMNES/green/layer_4/Cu_layer4_resume_in.txt",
+    "COH/CHO_0p167_uniform/XAS/FDMNES/green/layer_5/CONTCAR",
+    "COH/CHO_0p167_uniform/XAS/FDMNES/green/layer_5/Cu_layer5_conv.txt",
+    "COH/CHO_0p167_uniform/XAS/FDMNES/green/layer_5/Cu_layer5_convolution_in.txt",
+    "COH/CHO_0p167_uniform/XAS/FDMNES/green/layer_5/Cu_layer5_in.txt",
+    "COH/CHO_0p167_uniform/XAS/FDMNES/green/layer_5/Cu_layer5_resume_in.txt",
+    "H_0p25/Au/CONTCAR",
+    "H_0p25/Au/INCAR",
+    "H_0p25/Au/KPOINTS",
+    "H_0p25/Au/POSCAR",
+    "H_0p25/Au/XAS/FDMNES/green/isaac_record_layers.json",
+    "H_0p25/Au/XAS/FDMNES/green/layer_2/CONTCAR",
+    "H_0p25/Au/XAS/FDMNES/green/layer_2/Cu_layer2_conv.txt",
+    "H_0p25/Au/XAS/FDMNES/green/layer_2/Cu_layer2_convolution_in.txt",
+    "H_0p25/Au/XAS/FDMNES/green/layer_2/Cu_layer2_in.txt",
+    "H_0p25/Au/XAS/FDMNES/green/layer_3/CONTCAR",
+    "H_0p25/Au/XAS/FDMNES/green/layer_3/Cu_layer3_conv.txt",
+    "H_0p25/Au/XAS/FDMNES/green/layer_3/Cu_layer3_convolution_in.txt",
+    "H_0p25/Au/XAS/FDMNES/green/layer_3/Cu_layer3_in.txt",
+    "H_0p25/Au/XAS/FDMNES/green/layer_4/CONTCAR",
+    "H_0p25/Au/XAS/FDMNES/green/layer_4/Cu_layer4_conv.txt",
+    "H_0p25/Au/XAS/FDMNES/green/layer_4/Cu_layer4_convolution_in.txt",
+    "H_0p25/Au/XAS/FDMNES/green/layer_4/Cu_layer4_in.txt",
+    "H_0p25/Au/XAS/FDMNES/green/layer_4/Cu_layer4_resume_in.txt",
+    "H_0p25/Au/XAS/FDMNES/green/layer_5/CONTCAR",
+    "H_0p25/Au/XAS/FDMNES/green/layer_5/Cu_layer5_conv.txt",
+    "H_0p25/Au/XAS/FDMNES/green/layer_5/Cu_layer5_convolution_in.txt",
+    "H_0p25/Au/XAS/FDMNES/green/layer_5/Cu_layer5_in.txt",
+    "H_0p25/Au/XAS/FDMNES/green/layer_5/Cu_layer5_resume_in.txt",
+    "H_0p25/interface_biased/CONTCAR",
+    "H_0p25/interface_biased/INCAR",
+    "H_0p25/interface_biased/KPOINTS",
+    "H_0p25/interface_biased/POSCAR",
+    "H_0p25/interface_biased2/CONTCAR",
+    "H_0p25/interface_biased2/INCAR",
+    "H_0p25/interface_biased2/KPOINTS",
+    "H_0p25/interface_biased2/POSCAR",
+    "H_0p25/interface_biased2/XAS/FDMNES/green/isaac_record_layers.json",
+    "H_0p25/interface_biased2/XAS/FDMNES/green/layer_2/CONTCAR",
+    "H_0p25/interface_biased2/XAS/FDMNES/green/layer_2/Cu_layer2_conv.txt",
+    "H_0p25/interface_biased2/XAS/FDMNES/green/layer_2/Cu_layer2_convolution_in.txt",
+    "H_0p25/interface_biased2/XAS/FDMNES/green/layer_2/Cu_layer2_in.txt",
+    "H_0p25/interface_biased2/XAS/FDMNES/green/layer_3/CONTCAR",
+    "H_0p25/interface_biased2/XAS/FDMNES/green/layer_3/Cu_layer3_conv.txt",
+    "H_0p25/interface_biased2/XAS/FDMNES/green/layer_3/Cu_layer3_convolution_in.txt",
+    "H_0p25/interface_biased2/XAS/FDMNES/green/layer_3/Cu_layer3_in.txt",
+    "H_0p25/interface_biased2/XAS/FDMNES/green/layer_4/CONTCAR",
+    "H_0p25/interface_biased2/XAS/FDMNES/green/layer_4/Cu_layer4_conv.txt",
+    "H_0p25/interface_biased2/XAS/FDMNES/green/layer_4/Cu_layer4_convolution_in.txt",
+    "H_0p25/interface_biased2/XAS/FDMNES/green/layer_4/Cu_layer4_in.txt",
+    "H_0p25/interface_biased2/XAS/FDMNES/green/layer_4/Cu_layer4_resume_in.txt",
+    "H_0p25/interface_biased2/XAS/FDMNES/green/layer_5/CONTCAR",
+    "H_0p25/interface_biased2/XAS/FDMNES/green/layer_5/Cu_layer5_conv.txt",
+    "H_0p25/interface_biased2/XAS/FDMNES/green/layer_5/Cu_layer5_convolution_in.txt",
+    "H_0p25/interface_biased2/XAS/FDMNES/green/layer_5/Cu_layer5_in.txt",
+    "H_0p25/interface_biased2/XAS/FDMNES/green/layer_5/Cu_layer5_resume_in.txt",
+    "H_0p25/interior_biased/CONTCAR",
+    "H_0p25/interior_biased/INCAR",
+    "H_0p25/interior_biased/KPOINTS",
+    "H_0p25/interior_biased/POSCAR",
+    "H_0p25/interior_biased/XAS/FDMNES/green/isaac_record_layers.json",
+    "H_0p25/interior_biased/XAS/FDMNES/green/layer_2/CONTCAR",
+    "H_0p25/interior_biased/XAS/FDMNES/green/layer_2/Cu_layer2_conv.txt",
+    "H_0p25/interior_biased/XAS/FDMNES/green/layer_2/Cu_layer2_convolution_in.txt",
+    "H_0p25/interior_biased/XAS/FDMNES/green/layer_2/Cu_layer2_in.txt",
+    "H_0p25/interior_biased/XAS/FDMNES/green/layer_3/CONTCAR",
+    "H_0p25/interior_biased/XAS/FDMNES/green/layer_3/Cu_layer3_conv.txt",
+    "H_0p25/interior_biased/XAS/FDMNES/green/layer_3/Cu_layer3_convolution_in.txt",
+    "H_0p25/interior_biased/XAS/FDMNES/green/layer_3/Cu_layer3_in.txt",
+    "H_0p25/interior_biased/XAS/FDMNES/green/layer_4/CONTCAR",
+    "H_0p25/interior_biased/XAS/FDMNES/green/layer_4/Cu_layer4_conv.txt",
+    "H_0p25/interior_biased/XAS/FDMNES/green/layer_4/Cu_layer4_convolution_in.txt",
+    "H_0p25/interior_biased/XAS/FDMNES/green/layer_4/Cu_layer4_in.txt",
+    "H_0p25/interior_biased/XAS/FDMNES/green/layer_4/Cu_layer4_resume_in.txt",
+    "H_0p25/interior_biased/XAS/FDMNES/green/layer_5/CONTCAR",
+    "H_0p25/interior_biased/XAS/FDMNES/green/layer_5/Cu_layer5_conv.txt",
+    "H_0p25/interior_biased/XAS/FDMNES/green/layer_5/Cu_layer5_convolution_in.txt",
+    "H_0p25/interior_biased/XAS/FDMNES/green/layer_5/Cu_layer5_in.txt",
+    "H_0p25/interior_biased/XAS/FDMNES/green/layer_5/Cu_layer5_resume_in.txt",
+    "H_0p25/uniform/CONTCAR",
+    "H_0p25/uniform/INCAR",
+    "H_0p25/uniform/KPOINTS",
+    "H_0p25/uniform/POSCAR",
+    "H_0p25/uniform/XAS/FDMNES/green/isaac_record_layers.json",
+    "H_0p25/uniform/XAS/FDMNES/green/layer_2/CONTCAR",
+    "H_0p25/uniform/XAS/FDMNES/green/layer_2/Cu_layer2_conv.txt",
+    "H_0p25/uniform/XAS/FDMNES/green/layer_2/Cu_layer2_convolution_in.txt",
+    "H_0p25/uniform/XAS/FDMNES/green/layer_2/Cu_layer2_in.txt",
+    "H_0p25/uniform/XAS/FDMNES/green/layer_3/CONTCAR",
+    "H_0p25/uniform/XAS/FDMNES/green/layer_3/Cu_layer3_conv.txt",
+    "H_0p25/uniform/XAS/FDMNES/green/layer_3/Cu_layer3_convolution_in.txt",
+    "H_0p25/uniform/XAS/FDMNES/green/layer_3/Cu_layer3_in.txt",
+    "H_0p25/uniform/XAS/FDMNES/green/layer_4/CONTCAR",
+    "H_0p25/uniform/XAS/FDMNES/green/layer_4/Cu_layer4_conv.txt",
+    "H_0p25/uniform/XAS/FDMNES/green/layer_4/Cu_layer4_convolution_in.txt",
+    "H_0p25/uniform/XAS/FDMNES/green/layer_4/Cu_layer4_in.txt",
+    "H_0p25/uniform/XAS/FDMNES/green/layer_4/Cu_layer4_resume_in.txt",
+    "H_0p25/uniform/XAS/FDMNES/green/layer_5/CONTCAR",
+    "H_0p25/uniform/XAS/FDMNES/green/layer_5/Cu_layer5_conv.txt",
+    "H_0p25/uniform/XAS/FDMNES/green/layer_5/Cu_layer5_convolution_in.txt",
+    "H_0p25/uniform/XAS/FDMNES/green/layer_5/Cu_layer5_in.txt",
+    "H_0p25/uniform/XAS/FDMNES/green/layer_5/Cu_layer5_resume_in.txt",
+    "H_0p5/Au/CONTCAR",
+    "H_0p5/Au/INCAR",
+    "H_0p5/Au/KPOINTS",
+    "H_0p5/Au/POSCAR",
+    "H_0p5/Au/XAS/FDMNES/green/isaac_record_layers.json",
+    "H_0p5/Au/XAS/FDMNES/green/layer_2/CONTCAR",
+    "H_0p5/Au/XAS/FDMNES/green/layer_2/Cu_layer2_conv.txt",
+    "H_0p5/Au/XAS/FDMNES/green/layer_2/Cu_layer2_convolution_in.txt",
+    "H_0p5/Au/XAS/FDMNES/green/layer_2/Cu_layer2_in.txt",
+    "H_0p5/Au/XAS/FDMNES/green/layer_3/CONTCAR",
+    "H_0p5/Au/XAS/FDMNES/green/layer_3/Cu_layer3_conv.txt",
+    "H_0p5/Au/XAS/FDMNES/green/layer_3/Cu_layer3_convolution_in.txt",
+    "H_0p5/Au/XAS/FDMNES/green/layer_3/Cu_layer3_in.txt",
+    "H_0p5/Au/XAS/FDMNES/green/layer_4/CONTCAR",
+    "H_0p5/Au/XAS/FDMNES/green/layer_4/Cu_layer4_conv.txt",
+    "H_0p5/Au/XAS/FDMNES/green/layer_4/Cu_layer4_convolution_in.txt",
+    "H_0p5/Au/XAS/FDMNES/green/layer_4/Cu_layer4_in.txt",
+    "H_0p5/Au/XAS/FDMNES/green/layer_4/Cu_layer4_resume_in.txt",
+    "H_0p5/Au/XAS/FDMNES/green/layer_5/CONTCAR",
+    "H_0p5/Au/XAS/FDMNES/green/layer_5/Cu_layer5_conv.txt",
+    "H_0p5/Au/XAS/FDMNES/green/layer_5/Cu_layer5_convolution_in.txt",
+    "H_0p5/Au/XAS/FDMNES/green/layer_5/Cu_layer5_in.txt",
+    "H_0p5/Au/XAS/FDMNES/green/layer_5/Cu_layer5_resume_in.txt",
+    "H_0p5/interface_biased/CONTCAR",
+    "H_0p5/interface_biased/INCAR",
+    "H_0p5/interface_biased/KPOINTS",
+    "H_0p5/interface_biased/POSCAR",
+    "H_0p5/interface_biased/XAS/FDMNES/green/isaac_record_layers.json",
+    "H_0p5/interface_biased/XAS/FDMNES/green/layer_2/CONTCAR",
+    "H_0p5/interface_biased/XAS/FDMNES/green/layer_2/Cu_layer2_conv.txt",
+    "H_0p5/interface_biased/XAS/FDMNES/green/layer_2/Cu_layer2_convolution_in.txt",
+    "H_0p5/interface_biased/XAS/FDMNES/green/layer_2/Cu_layer2_in.txt",
+    "H_0p5/interface_biased/XAS/FDMNES/green/layer_3/CONTCAR",
+    "H_0p5/interface_biased/XAS/FDMNES/green/layer_3/Cu_layer3_conv.txt",
+    "H_0p5/interface_biased/XAS/FDMNES/green/layer_3/Cu_layer3_convolution_in.txt",
+    "H_0p5/interface_biased/XAS/FDMNES/green/layer_3/Cu_layer3_in.txt",
+    "H_0p5/interface_biased/XAS/FDMNES/green/layer_4/CONTCAR",
+    "H_0p5/interface_biased/XAS/FDMNES/green/layer_4/Cu_layer4_conv.txt",
+    "H_0p5/interface_biased/XAS/FDMNES/green/layer_4/Cu_layer4_convolution_in.txt",
+    "H_0p5/interface_biased/XAS/FDMNES/green/layer_4/Cu_layer4_in.txt",
+    "H_0p5/interface_biased/XAS/FDMNES/green/layer_4/Cu_layer4_resume_in.txt",
+    "H_0p5/interface_biased/XAS/FDMNES/green/layer_5/CONTCAR",
+    "H_0p5/interface_biased/XAS/FDMNES/green/layer_5/Cu_layer5_conv.txt",
+    "H_0p5/interface_biased/XAS/FDMNES/green/layer_5/Cu_layer5_convolution_in.txt",
+    "H_0p5/interface_biased/XAS/FDMNES/green/layer_5/Cu_layer5_in.txt",
+    "H_0p5/interface_biased/XAS/FDMNES/green/layer_5/Cu_layer5_resume_in.txt",
+    "H_0p5/interface_biased2/CONTCAR",
+    "H_0p5/interface_biased2/INCAR",
+    "H_0p5/interface_biased2/KPOINTS",
+    "H_0p5/interface_biased2/POSCAR",
+    "H_0p5/interface_biased2/XAS/FDMNES/green/isaac_record_layers.json",
+    "H_0p5/interface_biased2/XAS/FDMNES/green/layer_2/CONTCAR",
+    "H_0p5/interface_biased2/XAS/FDMNES/green/layer_2/Cu_layer2_conv.txt",
+    "H_0p5/interface_biased2/XAS/FDMNES/green/layer_2/Cu_layer2_convolution_in.txt",
+    "H_0p5/interface_biased2/XAS/FDMNES/green/layer_2/Cu_layer2_in.txt",
+    "H_0p5/interface_biased2/XAS/FDMNES/green/layer_3/CONTCAR",
+    "H_0p5/interface_biased2/XAS/FDMNES/green/layer_3/Cu_layer3_conv.txt",
+    "H_0p5/interface_biased2/XAS/FDMNES/green/layer_3/Cu_layer3_convolution_in.txt",
+    "H_0p5/interface_biased2/XAS/FDMNES/green/layer_3/Cu_layer3_in.txt",
+    "H_0p5/interface_biased2/XAS/FDMNES/green/layer_4/CONTCAR",
+    "H_0p5/interface_biased2/XAS/FDMNES/green/layer_4/Cu_layer4_conv.txt",
+    "H_0p5/interface_biased2/XAS/FDMNES/green/layer_4/Cu_layer4_convolution_in.txt",
+    "H_0p5/interface_biased2/XAS/FDMNES/green/layer_4/Cu_layer4_in.txt",
+    "H_0p5/interface_biased2/XAS/FDMNES/green/layer_4/Cu_layer4_resume_in.txt",
+    "H_0p5/interface_biased2/XAS/FDMNES/green/layer_5/CONTCAR",
+    "H_0p5/interface_biased2/XAS/FDMNES/green/layer_5/Cu_layer5_conv.txt",
+    "H_0p5/interface_biased2/XAS/FDMNES/green/layer_5/Cu_layer5_convolution_in.txt",
+    "H_0p5/interface_biased2/XAS/FDMNES/green/layer_5/Cu_layer5_in.txt",
+    "H_0p5/interface_biased2/XAS/FDMNES/green/layer_5/Cu_layer5_resume_in.txt",
+    "H_0p5/interior_biased/CONTCAR",
+    "H_0p5/interior_biased/INCAR",
+    "H_0p5/interior_biased/KPOINTS",
+    "H_0p5/interior_biased/POSCAR",
+    "H_0p5/interior_biased/XAS/FDMNES/green/isaac_record_layers.json",
+    "H_0p5/interior_biased/XAS/FDMNES/green/layer_2/CONTCAR",
+    "H_0p5/interior_biased/XAS/FDMNES/green/layer_2/Cu_layer2_conv.txt",
+    "H_0p5/interior_biased/XAS/FDMNES/green/layer_2/Cu_layer2_convolution_in.txt",
+    "H_0p5/interior_biased/XAS/FDMNES/green/layer_2/Cu_layer2_in.txt",
+    "H_0p5/interior_biased/XAS/FDMNES/green/layer_3/CONTCAR",
+    "H_0p5/interior_biased/XAS/FDMNES/green/layer_3/Cu_layer3_conv.txt",
+    "H_0p5/interior_biased/XAS/FDMNES/green/layer_3/Cu_layer3_convolution_in.txt",
+    "H_0p5/interior_biased/XAS/FDMNES/green/layer_3/Cu_layer3_in.txt",
+    "H_0p5/interior_biased/XAS/FDMNES/green/layer_4/CONTCAR",
+    "H_0p5/interior_biased/XAS/FDMNES/green/layer_4/Cu_layer4_conv.txt",
+    "H_0p5/interior_biased/XAS/FDMNES/green/layer_4/Cu_layer4_convolution_in.txt",
+    "H_0p5/interior_biased/XAS/FDMNES/green/layer_4/Cu_layer4_in.txt",
+    "H_0p5/interior_biased/XAS/FDMNES/green/layer_4/Cu_layer4_resume_in.txt",
+    "H_0p5/interior_biased/XAS/FDMNES/green/layer_5/CONTCAR",
+    "H_0p5/interior_biased/XAS/FDMNES/green/layer_5/Cu_layer5_conv.txt",
+    "H_0p5/interior_biased/XAS/FDMNES/green/layer_5/Cu_layer5_convolution_in.txt",
+    "H_0p5/interior_biased/XAS/FDMNES/green/layer_5/Cu_layer5_in.txt",
+    "H_0p5/interior_biased/XAS/FDMNES/green/layer_5/Cu_layer5_resume_in.txt",
+    "H_0p5/uniform/CONTCAR",
+    "H_0p5/uniform/INCAR",
+    "H_0p5/uniform/KPOINTS",
+    "H_0p5/uniform/POSCAR",
+    "H_0p5/uniform/XAS/FDMNES/green/isaac_record_layers.json",
+    "H_0p5/uniform/XAS/FDMNES/green/layer_2/CONTCAR",
+    "H_0p5/uniform/XAS/FDMNES/green/layer_2/Cu_layer2_conv.txt",
+    "H_0p5/uniform/XAS/FDMNES/green/layer_2/Cu_layer2_convolution_in.txt",
+    "H_0p5/uniform/XAS/FDMNES/green/layer_2/Cu_layer2_in.txt",
+    "H_0p5/uniform/XAS/FDMNES/green/layer_3/CONTCAR",
+    "H_0p5/uniform/XAS/FDMNES/green/layer_3/Cu_layer3_conv.txt",
+    "H_0p5/uniform/XAS/FDMNES/green/layer_3/Cu_layer3_convolution_in.txt",
+    "H_0p5/uniform/XAS/FDMNES/green/layer_3/Cu_layer3_in.txt",
+    "H_0p5/uniform/XAS/FDMNES/green/layer_4/CONTCAR",
+    "H_0p5/uniform/XAS/FDMNES/green/layer_4/Cu_layer4_conv.txt",
+    "H_0p5/uniform/XAS/FDMNES/green/layer_4/Cu_layer4_convolution_in.txt",
+    "H_0p5/uniform/XAS/FDMNES/green/layer_4/Cu_layer4_in.txt",
+    "H_0p5/uniform/XAS/FDMNES/green/layer_4/Cu_layer4_resume_in.txt",
+    "H_0p5/uniform/XAS/FDMNES/green/layer_5/CONTCAR",
+    "H_0p5/uniform/XAS/FDMNES/green/layer_5/Cu_layer5_conv.txt",
+    "H_0p5/uniform/XAS/FDMNES/green/layer_5/Cu_layer5_convolution_in.txt",
+    "H_0p5/uniform/XAS/FDMNES/green/layer_5/Cu_layer5_in.txt",
+    "H_0p5/uniform/XAS/FDMNES/green/layer_5/Cu_layer5_resume_in.txt",
+    "H_0p75/0p88_mixed/CONTCAR",
+    "H_0p75/0p88_mixed/INCAR",
+    "H_0p75/0p88_mixed/KPOINTS",
+    "H_0p75/0p88_mixed/POSCAR",
+    "H_0p75/0p88_mixed/XAS/FDMNES/green/isaac_record_layers.json",
+    "H_0p75/0p88_mixed/XAS/FDMNES/green/layer_2/CONTCAR",
+    "H_0p75/0p88_mixed/XAS/FDMNES/green/layer_2/Cu_layer2_conv.txt",
+    "H_0p75/0p88_mixed/XAS/FDMNES/green/layer_2/Cu_layer2_convolution_in.txt",
+    "H_0p75/0p88_mixed/XAS/FDMNES/green/layer_2/Cu_layer2_in.txt",
+    "H_0p75/0p88_mixed/XAS/FDMNES/green/layer_3/CONTCAR",
+    "H_0p75/0p88_mixed/XAS/FDMNES/green/layer_3/Cu_layer3_conv.txt",
+    "H_0p75/0p88_mixed/XAS/FDMNES/green/layer_3/Cu_layer3_convolution_in.txt",
+    "H_0p75/0p88_mixed/XAS/FDMNES/green/layer_3/Cu_layer3_in.txt",
+    "H_0p75/0p88_mixed/XAS/FDMNES/green/layer_4/CONTCAR",
+    "H_0p75/0p88_mixed/XAS/FDMNES/green/layer_4/Cu_layer4_conv.txt",
+    "H_0p75/0p88_mixed/XAS/FDMNES/green/layer_4/Cu_layer4_convolution_in.txt",
+    "H_0p75/0p88_mixed/XAS/FDMNES/green/layer_4/Cu_layer4_in.txt",
+    "H_0p75/0p88_mixed/XAS/FDMNES/green/layer_4/Cu_layer4_resume_in.txt",
+    "H_0p75/0p88_mixed/XAS/FDMNES/green/layer_5/CONTCAR",
+    "H_0p75/0p88_mixed/XAS/FDMNES/green/layer_5/Cu_layer5_conv.txt",
+    "H_0p75/0p88_mixed/XAS/FDMNES/green/layer_5/Cu_layer5_convolution_in.txt",
+    "H_0p75/0p88_mixed/XAS/FDMNES/green/layer_5/Cu_layer5_in.txt",
+    "H_0p75/0p88_mixed/XAS/FDMNES/green/layer_5/Cu_layer5_resume_in.txt",
+    "H_0p75/Au/CONTCAR",
+    "H_0p75/Au/INCAR",
+    "H_0p75/Au/KPOINTS",
+    "H_0p75/Au/POSCAR",
+    "H_0p75/Au/XAS/FDMNES/green/isaac_record_layers.json",
+    "H_0p75/Au/XAS/FDMNES/green/layer_2/CONTCAR",
+    "H_0p75/Au/XAS/FDMNES/green/layer_2/Cu_layer2_conv.txt",
+    "H_0p75/Au/XAS/FDMNES/green/layer_2/Cu_layer2_convolution_in.txt",
+    "H_0p75/Au/XAS/FDMNES/green/layer_2/Cu_layer2_in.txt",
+    "H_0p75/Au/XAS/FDMNES/green/layer_3/CONTCAR",
+    "H_0p75/Au/XAS/FDMNES/green/layer_3/Cu_layer3_conv.txt",
+    "H_0p75/Au/XAS/FDMNES/green/layer_3/Cu_layer3_convolution_in.txt",
+    "H_0p75/Au/XAS/FDMNES/green/layer_3/Cu_layer3_in.txt",
+    "H_0p75/Au/XAS/FDMNES/green/layer_4/CONTCAR",
+    "H_0p75/Au/XAS/FDMNES/green/layer_4/Cu_layer4_conv.txt",
+    "H_0p75/Au/XAS/FDMNES/green/layer_4/Cu_layer4_convolution_in.txt",
+    "H_0p75/Au/XAS/FDMNES/green/layer_4/Cu_layer4_in.txt",
+    "H_0p75/Au/XAS/FDMNES/green/layer_4/Cu_layer4_resume_in.txt",
+    "H_0p75/Au/XAS/FDMNES/green/layer_5/CONTCAR",
+    "H_0p75/Au/XAS/FDMNES/green/layer_5/Cu_layer5_conv.txt",
+    "H_0p75/Au/XAS/FDMNES/green/layer_5/Cu_layer5_convolution_in.txt",
+    "H_0p75/Au/XAS/FDMNES/green/layer_5/Cu_layer5_in.txt",
+    "H_0p75/Au/XAS/FDMNES/green/layer_5/Cu_layer5_resume_in.txt",
+    "H_0p75/interface_biased/CONTCAR",
+    "H_0p75/interface_biased/INCAR",
+    "H_0p75/interface_biased/KPOINTS",
+    "H_0p75/interface_biased/POSCAR",
+    "H_0p75/interface_biased/XAS/FDMNES/green/isaac_record_layers.json",
+    "H_0p75/interface_biased/XAS/FDMNES/green/layer_2/CONTCAR",
+    "H_0p75/interface_biased/XAS/FDMNES/green/layer_2/Cu_layer2_conv.txt",
+    "H_0p75/interface_biased/XAS/FDMNES/green/layer_2/Cu_layer2_convolution_in.txt",
+    "H_0p75/interface_biased/XAS/FDMNES/green/layer_2/Cu_layer2_in.txt",
+    "H_0p75/interface_biased/XAS/FDMNES/green/layer_3/CONTCAR",
+    "H_0p75/interface_biased/XAS/FDMNES/green/layer_3/Cu_layer3_conv.txt",
+    "H_0p75/interface_biased/XAS/FDMNES/green/layer_3/Cu_layer3_convolution_in.txt",
+    "H_0p75/interface_biased/XAS/FDMNES/green/layer_3/Cu_layer3_in.txt",
+    "H_0p75/interface_biased/XAS/FDMNES/green/layer_4/CONTCAR",
+    "H_0p75/interface_biased/XAS/FDMNES/green/layer_4/Cu_layer4_conv.txt",
+    "H_0p75/interface_biased/XAS/FDMNES/green/layer_4/Cu_layer4_convolution_in.txt",
+    "H_0p75/interface_biased/XAS/FDMNES/green/layer_4/Cu_layer4_in.txt",
+    "H_0p75/interface_biased/XAS/FDMNES/green/layer_4/Cu_layer4_resume_in.txt",
+    "H_0p75/interface_biased/XAS/FDMNES/green/layer_5/CONTCAR",
+    "H_0p75/interface_biased/XAS/FDMNES/green/layer_5/Cu_layer5_conv.txt",
+    "H_0p75/interface_biased/XAS/FDMNES/green/layer_5/Cu_layer5_convolution_in.txt",
+    "H_0p75/interface_biased/XAS/FDMNES/green/layer_5/Cu_layer5_in.txt",
+    "H_0p75/interface_biased/XAS/FDMNES/green/layer_5/Cu_layer5_resume_in.txt",
+    "H_0p75/interface_biased2/INCAR",
+    "H_0p75/interface_biased2/KPOINTS",
+    "H_0p75/interface_biased2/POSCAR",
+    "H_0p75/interior_biased/INCAR",
+    "H_0p75/interior_biased/KPOINTS",
+    "H_0p75/interior_biased/POSCAR",
+    "H_0p75/mixed/CONTCAR",
+    "H_0p75/mixed/INCAR",
+    "H_0p75/mixed/KPOINTS",
+    "H_0p75/mixed/POSCAR",
+    "H_0p75/mixed/XAS/FDMNES/green/isaac_record_layers.json",
+    "H_0p75/mixed/XAS/FDMNES/green/layer_2/CONTCAR",
+    "H_0p75/mixed/XAS/FDMNES/green/layer_2/Cu_layer2_conv.txt",
+    "H_0p75/mixed/XAS/FDMNES/green/layer_2/Cu_layer2_convolution_in.txt",
+    "H_0p75/mixed/XAS/FDMNES/green/layer_2/Cu_layer2_in.txt",
+    "H_0p75/mixed/XAS/FDMNES/green/layer_3/CONTCAR",
+    "H_0p75/mixed/XAS/FDMNES/green/layer_3/Cu_layer3_conv.txt",
+    "H_0p75/mixed/XAS/FDMNES/green/layer_3/Cu_layer3_convolution_in.txt",
+    "H_0p75/mixed/XAS/FDMNES/green/layer_3/Cu_layer3_in.txt",
+    "H_0p75/mixed/XAS/FDMNES/green/layer_4/CONTCAR",
+    "H_0p75/mixed/XAS/FDMNES/green/layer_4/Cu_layer4_conv.txt",
+    "H_0p75/mixed/XAS/FDMNES/green/layer_4/Cu_layer4_convolution_in.txt",
+    "H_0p75/mixed/XAS/FDMNES/green/layer_4/Cu_layer4_in.txt",
+    "H_0p75/mixed/XAS/FDMNES/green/layer_4/Cu_layer4_resume_in.txt",
+    "H_0p75/mixed/XAS/FDMNES/green/layer_5/CONTCAR",
+    "H_0p75/mixed/XAS/FDMNES/green/layer_5/Cu_layer5_conv.txt",
+    "H_0p75/mixed/XAS/FDMNES/green/layer_5/Cu_layer5_convolution_in.txt",
+    "H_0p75/mixed/XAS/FDMNES/green/layer_5/Cu_layer5_in.txt",
+    "H_0p75/mixed/XAS/FDMNES/green/layer_5/Cu_layer5_resume_in.txt",
+    "H_0p75/uniform/CONTCAR",
+    "H_0p75/uniform/INCAR",
+    "H_0p75/uniform/KPOINTS",
+    "H_0p75/uniform/POSCAR",
+    "H_0p75/uniform/XAS/FDMNES/green/isaac_record_layers.json",
+    "H_0p75/uniform/XAS/FDMNES/green/layer_2/CONTCAR",
+    "H_0p75/uniform/XAS/FDMNES/green/layer_2/Cu_layer2_conv.txt",
+    "H_0p75/uniform/XAS/FDMNES/green/layer_2/Cu_layer2_convolution_in.txt",
+    "H_0p75/uniform/XAS/FDMNES/green/layer_2/Cu_layer2_in.txt",
+    "H_0p75/uniform/XAS/FDMNES/green/layer_3/CONTCAR",
+    "H_0p75/uniform/XAS/FDMNES/green/layer_3/Cu_layer3_conv.txt",
+    "H_0p75/uniform/XAS/FDMNES/green/layer_3/Cu_layer3_convolution_in.txt",
+    "H_0p75/uniform/XAS/FDMNES/green/layer_3/Cu_layer3_in.txt",
+    "H_0p75/uniform/XAS/FDMNES/green/layer_4/CONTCAR",
+    "H_0p75/uniform/XAS/FDMNES/green/layer_4/Cu_layer4_conv.txt",
+    "H_0p75/uniform/XAS/FDMNES/green/layer_4/Cu_layer4_convolution_in.txt",
+    "H_0p75/uniform/XAS/FDMNES/green/layer_4/Cu_layer4_in.txt",
+    "H_0p75/uniform/XAS/FDMNES/green/layer_4/Cu_layer4_resume_in.txt",
+    "H_0p75/uniform/XAS/FDMNES/green/layer_5/CONTCAR",
+    "H_0p75/uniform/XAS/FDMNES/green/layer_5/Cu_layer5_conv.txt",
+    "H_0p75/uniform/XAS/FDMNES/green/layer_5/Cu_layer5_convolution_in.txt",
+    "H_0p75/uniform/XAS/FDMNES/green/layer_5/Cu_layer5_in.txt",
+    "H_0p75/uniform/XAS/FDMNES/green/layer_5/Cu_layer5_resume_in.txt"
+  ],
+  "hash_comparison_scope": "full old cohort export and all 102 previously observed record hashes; remaining old discovery paths compared by byte count, not claimed equal by hash"
+}

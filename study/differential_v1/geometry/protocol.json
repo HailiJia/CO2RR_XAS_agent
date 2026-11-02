@@ -1,0 +1,12 @@
+{
+  "recipe": "fixed DCT16/Ridge alpha10, training-only constant removal and scaling; no outer-score selection",
+  "cutoffs_A": [
+    2.15,
+    2.25,
+    2.35
+  ],
+  "location": "mean carbon distance to periodic Cu/Au top-row boundaries; each element top layer identified separately",
+  "pure_Cu_location": "undefined rather than zero; no Cu100 differential model without clean reference",
+  "independent_samples": "one physical configuration, not each CO molecule",
+  "Au_rich_support": "CuAu2/Au3 CO hollow environments absent; zero-target errors do not validate their recovery"
+}

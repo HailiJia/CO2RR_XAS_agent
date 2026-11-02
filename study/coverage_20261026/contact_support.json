@@ -1,0 +1,43 @@
+{
+  "contacts_Cu_Au_molecule_counts": {
+    "(3, 0)": 25,
+    "(0, 1)": 4,
+    "(2, 0)": 11,
+    "(1, 0)": 136,
+    "(1, 1)": 17,
+    "(2, 1)": 2
+  },
+  "hollow_series_molecule_support": {
+    "Cu3Au0": 25,
+    "Cu2Au1": 2,
+    "Cu1Au2": 0,
+    "Cu0Au3": 0
+  },
+  "caution": "molecule counts are not independent configuration support; single fixed Combined/leaf2 contact model, no outer-score selection; cutoff sensitivity is reported, contact count is not electronic bond order",
+  "metrics": {
+    "Cu": {
+      "n": 25,
+      "MAE": 0.1226152584876542,
+      "RMSE": 0.2481848663503806,
+      "R2": 0.6106930575921894
+    },
+    "Au": {
+      "n": 25,
+      "MAE": 0.08425564236111115,
+      "RMSE": 0.1241913824563414,
+      "R2": 0.063326825589335
+    },
+    "Cu_mean_baseline": {
+      "n": 25,
+      "MAE": 0.31855555555555554,
+      "RMSE": 0.4128354727636864,
+      "R2": -0.0771980794440168
+    },
+    "Au_mean_baseline": {
+      "n": 25,
+      "MAE": 0.10153703703703704,
+      "RMSE": 0.1324235939342105,
+      "R2": -0.06496638592457415
+    }
+  }
+}

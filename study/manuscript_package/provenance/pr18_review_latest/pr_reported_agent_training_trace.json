@@ -1,0 +1,69 @@
+{
+  "request_action": "audited_training",
+  "arguments": {
+    "data_root": "verified-export/data",
+    "split_manifest": "splits.csv",
+    "recipe": "archived_primary",
+    "output_dir": "agent_training_archived_primary_20261021_v3"
+  },
+  "data_manifest_sha256": "11356d3efe89792d4aef0f52b745164068b99d8536fa1cce31e855e8e79a595e",
+  "split_manifest_sha256": "14f57ef4a6e8a62e80a67e0bbcdd6a65dc672740cf8d1bf3bd6463e7b195fa3f",
+  "configuration_count": 87,
+  "geometry_group_count": 87,
+  "code_and_dependency_fingerprint": {
+    "code": {
+      "spectral_multilabel.py": "fd3d48d9876defd672a2cb55e4ef890e31155d8d6f67d6152f2a3c078b9ac0e4",
+      "component_audit.py": "791236ef40eac3dfb0c9730ff889e36db274fa8d0fd1292cb150dbc6c96cfcbb",
+      "layer_population.py": "0e61e9008c8a56341a8024fce76c16e6a7429cf8f6cfbf2394415666781d6ed6",
+      "contact_checks.py": "1915784038da5a2f2e7716b71316110702217b36618056ed411a19debafc0735",
+      "study_cohort.py": "4f6bdf62510f30b60145f4ae7733301812fd69f69f77be6e363ed55432f527a7",
+      "ml_splits.py": "22626def229644b4f22e2cdb1010f33d5e1d8e67e171e4005cd35dd447cbf3cd"
+    },
+    "dependencies": {
+      "python": "3.11.9",
+      "pandas": "3.0.3",
+      "numpy": "2.4.6",
+      "scipy": "1.17.1",
+      "sklearn": "1.9.0",
+      "joblib": "1.5.3"
+    }
+  },
+  "credentials_included": false,
+  "recipe": "archived_primary_nested_selector",
+  "archived_score_reproduced": true,
+  "metrics": {
+    "micro_f1": 0.7790697674418605,
+    "macro_f1": 0.6382765882765882,
+    "exact_set_accuracy": 0.6896551724137931
+  },
+  "heldout_model_roundtrip_identical": true,
+  "model_count": 5,
+  "outputs": {
+    "recipe.json": "8838f40a5cc25c5ad30bc8f6593705edcce7f0de41fde9e62fdfa5b67555c893",
+    "heldout_predictions.npz": "14b43d122ccdfc6c2cb0d231e18877afc5d0da3226714a44332a3c07a1de1240",
+    "run_config.json": "d8b1b31cb0c797b08ad53884507a2d3f4963e1a33208d11a41ff172280cb734b",
+    "nested_selections.csv": "4a64c9acc2a5e6b201ef931a62f30652d901e1f805cde65c2b71522c9668bb1f",
+    "oof_independent_selected_micro.npz": "9d06f2934c9b948d043a771d1609bf2d7ec8dd5d61c0f74ebd333197bf7d21d0",
+    "saved_model_replay.json": "a930d159490cd5c221eca6ff235bcbf38f650b2a197a9a5962cd4857ae04d315"
+  },
+  "planner_action": "audited_training",
+  "invocation_source": "natural_language_agent",
+  "tool_arguments": {
+    "data_root": "verified-export/data",
+    "split_manifest": "verified-export/splits.csv",
+    "recipe": "archived_primary",
+    "output_dir": "agent_training_archived_primary_20261021_v3"
+  },
+  "postfit_artifacts": {
+    "recipe.json": "8838f40a5cc25c5ad30bc8f6593705edcce7f0de41fde9e62fdfa5b67555c893",
+    "heldout_predictions.npz": "14b43d122ccdfc6c2cb0d231e18877afc5d0da3226714a44332a3c07a1de1240"
+  },
+  "natural_language_request": "Train the adsorbate multilabel model using the verified export and frozen split manifest.",
+  "fold_model_hashes": {
+    "primary_fold_0.joblib": "b2fa231fc7810b9bfcaf0efb6f028f6d82f3280d6e3862979499ab25e6fbd75a",
+    "primary_fold_1.joblib": "8fc3c4621aa11105bb8d5f4546fff75abd7a09faeee3a2a5f9aa7088b16bfc7b",
+    "primary_fold_2.joblib": "9ca4a8cc3ebcdee5c07b0e0232153227d567cae48a7d69db84e0bf535cfe5cc2",
+    "primary_fold_3.joblib": "3ee623c3143e0cfb0081b50c756e1f38fc497e038007cdd99ffe79187f4d95f6",
+    "primary_fold_4.joblib": "77fd05bb05595d40d049fb5ca5a12a436e66ba0dfd168cd4a8b979b9a23fa5b5"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "primary": "signed-shape Combined, fixed population-weighted top-two, independent balanced64-tree leaf1; logistic C1 balanced baseline",
+  "seeds": [
+    20261020,
+    20261021,
+    20261022
+  ],
+  "thresholds": "fixed.5; previous-training common transferred; common {.3,.4,.5,.6}, penalty .02(t-.5)^2 selected only inner-training",
+  "queries": "previous available configurations with unchanged inputs; updated full cohort is separate, not a paired improvement",
+  "groups": "one canonical train record per near group; outer and inner query-related groups excluded; prior clusters/folds inherited",
+  "features": "spectra only, no names/counts/loading/site metadata",
+  "source_sha256": "a590ecefa9fa742b8639cbfcc1167aa89e2e240d20b4a994e055ff8223987243",
+  "training_arrays_sha256": "84439cdcd899ad4451d11c1176411d8a8407fb92995b4d1b9ecc29ed267d44e3",
+  "no_depth_selector": true
+}

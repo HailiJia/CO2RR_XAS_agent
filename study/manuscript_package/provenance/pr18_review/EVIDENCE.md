@@ -1,0 +1,27 @@
+# Evidence status
+
+| Item | Status | Evidence / limit |
+|---|---|---|
+| Archived identity/depth OOF metrics and CSV reconciliation | completed | [results/replay/](results/replay/) — All supplied primary/fixed-depth/exploratory values retained; 87 configurations, 348 spectra |
+| Exact-cohort local export and byte verification | completed | [results/export_verification.json](results/export_verification.json) — 87 configurations; source files unchanged; lossless logs; no publication |
+| Relocated primary saved-model replay | completed | [results/model_replay/saved_model_replay.json](results/model_replay/saved_model_replay.json) — All five held-out fold predictions identical after save/load |
+| Complete cold-cache 179-recipe reproduction | completed | [results/full_reproduction.json](results/full_reproduction.json) — 895 fresh fit caches; all 169 archived OOF arrays match element for element |
+| Shared component audit and seven corrected examples | implementation-tested | [results/seven_label_regressions.json](results/seven_label_regressions.json) — Skew in-plane minimum images; vacuum nonperiodic; cutoff/mapping review gates |
+| Final population utility and recovered CO eligibility | implementation-tested | [../tools/layer_population.py](../tools/layer_population.py) — 36 final sites retained; partial/duplicate/wrong-element/height/E_cut/grid cases tested |
+| Actual legacy layer-record producer repair | blocked | [provenance/repository_review.json](provenance/repository_review.json) — Source/version absent; root converter is not assumed to own it |
+| Shared multilabel application route and leakage guards | implementation-tested | [../tests/test_study_reconciliation.py](../tests/test_study_reconciliation.py) — Separate from categorical advisor; outer-test ranking invariance and missing positives tested; not independent confirmation |
+| Representative schema/facility metadata proposal | implementation-tested | [provenance/schema_source.json](provenance/schema_source.json) — Zero local pinned-schema errors; arrays unchanged; no original edit or portal request |
+| Actual FDMNES core-hole treatment | unavailable | [provenance/schema_source.json](provenance/schema_source.json) — Actual input/default-version evidence still needed; no invented value |
+| Planned matrix, source reconciliation and priorities | completed | [results/design/](results/design/) — Source ratio audit and missing cells are separate from completion |
+| Matched input quartet and prepared relaxation inputs | completed | [results/design/matched_quartet.json](results/design/matched_quartet.json) — Shared cell/parent, loading/denominator verified; no jobs submitted |
+| Matched relaxed Cu/C/O coupling contrasts/discrimination | blocked | [prepared_jobs/job_manifest.json](prepared_jobs/job_manifest.json) — No verified final matched quartet spectra; dissociation must not become an intact label |
+| Numerical experimental Cu/Cu2O/CuO comparisons | unavailable | [results/reference_trace_inventory.csv](results/reference_trace_inventory.csv) — Raw experimental traces/provenance and named PDF unavailable; no image-derived precision |
+| Geometry/coverage inference performance | planned | [results/design/geometry_coverage_support_audit.csv](results/design/geometry_coverage_support_audit.csv) — Support exported; targets not sufficiently verified for a new performance claim |
+| Confirmation robustness, calibration and OOD | planned | [provenance/perturbation_plan.json](provenance/perturbation_plan.json) — No frozen genuinely new confirmation set or experiment-grounded ranges |
+| Execution event backfill and prospective event code | implementation-tested | [results/execution/](results/execution/) — 735 stdout paths -> 651 distinct scheduler job IDs; denominator incomplete |
+| Execution success/cost/intervention rates | blocked | [results/execution/execution_summary.json](results/execution/execution_summary.json) — Accounting/restart/manual-action history missing; rates null |
+| ISAAC round-trip local fixtures | implementation-tested | [../tools/isaac_roundtrip.py](../tools/isaac_roundtrip.py) — Stable IDs, measurement/identity hashes and predictions tested locally only |
+| ISAAC remote deposition/retrieval/independent reuse | unavailable | [../batch_validate_upload_isaac_records.py](../batch_validate_upload_isaac_records.py) — No external writes/validation performed; no receipts claimed |
+| Five outline-role PDF/SVG/PNG figures and exact data | completed | [figures/](figures/) — Rebuilt and visually inspected; unmeasured panels explicitly pending |
+| Original supplied manuscript/caption reconciliation | blocked | [README.md](README.md) — Named source package absent; separate working draft follows accessible outline |
+| Compile paper twice and inspect all rendered pages | blocked | [results/manuscript_build/compile_status.json](results/manuscript_build/compile_status.json) — TeX engine unavailable; zero completed passes; no page-review claim |

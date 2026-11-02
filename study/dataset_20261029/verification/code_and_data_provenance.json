@@ -1,0 +1,27 @@
+{
+  "scientific_code_sha256": {
+    "convert_layers_to_isaac.sh": "53e1554966ccc6a0e79d4b86b018d7abaa1103bf340068a4ea55bede389e258e",
+    "tools/convert_simulation_xas_run_to_isaac.py": "b1c85d01d803d13866b7410eb653a089ab797394961843505c722c86f7e06739",
+    "tools/coverage_study.py": "2291a21af5fcf7cfaee064c7513e9becea914e740606cb8fee668fb395972bb4",
+    "tools/component_audit.py": "791236ef40eac3dfb0c9730ff889e36db274fa8d0fd1292cb150dbc6c96cfcbb",
+    "tools/chemical_lineage.py": "4de68f137f2585fde547922a525565a1fd1eb062be19446224a1717c610d6a82",
+    "tools/cu100_lineage.py": "539d33e3a458fea5fdd33cb530357b27f7172f9ebdfa41a4220badb93ad4cfcc",
+    "tools/layer_population.py": "0e61e9008c8a56341a8024fce76c16e6a7429cf8f6cfbf2394415666781d6ed6",
+    "tools/dataset_refresh.py": "16432a528ad0b70d1ccaccd59a647fc86e4e6dcaf53740acb67d44743fe2da73",
+    "tools/dataset_refresh_training.py": "1afa5c199c81907528f05c141453876ca0c539f8139db36c9cc922eab38dc324",
+    "tools/differential_xas.py": "c9ca84079cf0ad7fc56e2443d75123ec819fdc9fbd9a865a8844011546cd6d9a",
+    "tools/differential_training.py": "5e48e4584642ee570e3d831ac5978b7a28ed501af12621d2f407718b474ac59d",
+    "tools/audited_training.py": "0b63661c7c7481d02dc89959590cf7b9f60a856c93a0a9ed980418b04d4e9fdc"
+  },
+  "training_data_sha256": {
+    "training_arrays.npz": "6ed24b3d345271ad6389d26b6258997bce1a4e1aa9c14b4df01f748e2e3af6ff",
+    "training_manifest.json": "9390fab26348b6c95c0090600421f53703abdf4d1c576e468e747f3d07a9978b",
+    "ml/protocol.json": "6b19e131743547e594cb10f411854a8837fcd70069ed2ae774cd4eef4f8459a1"
+  },
+  "actual_callable": "tools.audited_training.run_audited_training(recipe=dataset_refresh_v1)",
+  "native_reconstructions_verified": 272,
+  "locally_convolved_clean_layers": 2,
+  "HPC_submissions": false,
+  "portal_writes": false,
+  "article_and_SI_changed": false
+}

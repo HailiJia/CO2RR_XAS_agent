@@ -1,0 +1,9 @@
+\subsection{Separate local-motif-held-out evaluation}
+The inventory contains 60 Cu$_3$, 20 Cu$_2$Au, six Au$_3$, and one CuAu$_2$ configuration. Each entire motif is held out in turn. Groups use the initial top-metal-layer three-row Cu/Au composition around the nearest fractional-y row, with periodic rows and 0.6~\AA{} clustering from the saved structural audit. This is a geometric row-environment motif, not an independently verified relaxed binding-site label. Motifs define groups only and never enter spectral predictors. The predeclared DCT16 independent-tree recipe and 8976--9027~eV crop match the coordinate-group test; three inner configuration-grouped folds select thresholds, without outer-score feature selection. Missing-positive outer/inner labels and exact indices are saved. All four saved models reproduce held-out scores after reload. This is a separate protocol on the same repeatedly examined cohort, not prospective confirmation, independent parent transfer or composition transfer (all 87 substrates contain 180 Cu and 160 Au atoms). The one-case CuAu$_2$ group is explicitly sparse.
+\begin{table}[htbp]\centering\small\begin{tabular}{lrrrrr}\toprule Held-out motif & Train & Test & Micro F1 & Macro F1 & Exact set\\\midrule
+Au3 & 81 & 6 & 0.400 & 0.143 & 0.333\\
+Cu2Au & 67 & 20 & 0.400 & 0.146 & 0.350\\
+Cu3 & 27 & 60 & 0.525 & 0.203 & 0.400\\
+CuAu2 & 86 & 1 & 0.000 & 0.000 & 0.000\\
+pooled & --- & 87 & 0.481 & 0.214 & 0.379\\
+\bottomrule\end{tabular}\caption{Leave-local-motif-out evaluation. Pooled scores weight independent configurations; sparse-group macro F1 includes the declared species set and is not a reliable population estimate.}\end{table}

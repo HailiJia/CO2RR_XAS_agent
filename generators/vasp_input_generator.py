@@ -129,7 +129,7 @@ class VASPXASGenerator(BaseGenerator):
             'incar': Incar(incar_dict).get_str(),
             'incar_dict': incar_dict,
             'poscar': poscar.get_str(),
-            'kpoints': kpoints.get_str(),
+            'kpoints': str(kpoints),
             'structure': structure,
             'absorbing_index': absorbing_index,
         }
@@ -171,7 +171,7 @@ class VASPXASGenerator(BaseGenerator):
             'incar': Incar(incar_dict).get_str(),
             'incar_dict': incar_dict,
             'poscar': poscar.get_str(),
-            'kpoints': kpoints.get_str(),
+            'kpoints': str(kpoints),
             'structure': structure,
             'absorbing_index': absorbing_index,
         }

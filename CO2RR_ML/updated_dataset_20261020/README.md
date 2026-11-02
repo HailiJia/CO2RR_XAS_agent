@@ -30,43 +30,19 @@ The provisional best observed fixed configuration is **extra_trees + derivative 
 
 Use `provisional_best_model.json`, `provisional_best_per_species.csv`, `provisional_best_errors.csv` and `oof_provisional_best.npz` for the provisional fixed winner. `nested_performance.csv`, `per_species.csv`, `confusion_matrices.csv` and `oof_<selector>_<objective>.npz` describe the declared selectors. The distinction is intentional; do not confuse a winner chosen after comparison with an unbiased automatic-selection result.
 
-## Setup and rerun
+## Portable replay and scientific rerun
 
-Use Python 3.11+ and install:
+The reviewed executed notebook and OOF arrays in this directory are immutable benchmark artifacts. The refactored `analysis.py`, builder, validator and two-CO audit use shared repository modules and configurable paths. A reproduced portable notebook is saved separately; historical source cells in the reviewed notebook document the implementation at the time of the benchmark.
 
-```sh
-python -m pip install numpy pandas scipy scikit-learn matplotlib nbformat ipykernel ipython
-```
-
-Exact tested versions are in `environment.json`. This session used `/Users/hjia/miniconda3/envs/EELS/bin/python`.
-
-Open the notebook in Jupyter from this folder and Run All. Set DATA and OUT in its first cell if relocating files. Keep `prior_fold_assignments.csv` and `record_corrections.json` beside it. The former is data (configuration/fold pairs), not an external code dependency. Matching caches save recomputation. **Delete cache/ after modifying feature/model implementations**, so edited code cannot accidentally use old fits. Input record hashes and cohort/parameter settings enter the run tag.
-
-The helper below executes all notebook cells and captures rich figures without Jupyter sockets, which are blocked in this sandbox:
-
-```sh
-MPLCONFIGDIR=/tmp/co2rr_mpl IPYTHONDIR=/tmp/co2rr_ipython \
-OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 \
-/Users/hjia/miniconda3/envs/EELS/bin/python build_and_execute.py
-```
-
-`analysis.py` is the source embedded in the notebook. `build_and_execute.py --build-only` regenerates an unexecuted notebook. `validate_outputs.py` checks inventory totals, record backups/unchanged measurements, frozen folds, cached train/test isolation, reported metrics and figure/notebook completeness.
-
-The new count and geometry fields are used for auditing only. Predictors come exclusively from spectra. Targets are multilabel species presence; neither coverage/count nor geometry prediction is performed.
-
-## GitHub copy and local data requirements
-
-This copy includes the executed notebook, all current result tables, held-out predictions, PNG/PDF figures and reversible record-correction backups. Fit caches, temporary logs, OS metadata and historical analysis snapshots are omitted. The full POSCAR/CONTCAR, ISAAC records, FDMNES decks and site spectra used by the audit remain in the local simulation dataset. The repository structure-input examples alone are insufficient to rerun the completed-spectrum audit.
-
-To rerun elsewhere, set `DATA` in the first notebook cell to the full dataset root and set `OUT` to this analysis directory. The shipped notebook records the original local paths. Source-script execution uses the same settings near the top of `analysis.py`; `audit_two_CO_population_records.py` also has a dataset-root constant. `validate_outputs.py` currently assumes the original dataset/analysis directory relationship and uses fit caches when present. On a relocated copy, update its `DATA` assignment and the backup paths in the provenance JSON files before running it. The recorded metrics and figures can be inspected without any raw data or caches.
-
-For the tested dependency versions, see `environment.json`. This workflow uses NumPy 2 (`numpy.trapezoid`); a suitable starting environment is:
+See [the study reproduction instructions](../../study/README.md) for pinned dependencies, figure-only replay, exact-cohort export, relocated audit/fitting, saved-model inference, and the difference between primary nested results and exploratory winners. No local absolute backup path or old fit cache is needed for archived replay or export validation.
 
 ```bash
-python -m venv .venv
-source .venv/bin/activate
-python -m pip install 'numpy>=2' pandas scipy scikit-learn matplotlib nbformat ipykernel ipython jupyterlab
-jupyter lab adsorbate_identity_depth_updated.ipynb
+python -m tools.study_cli replay --output-dir /tmp/co2rr_replay
+python CO2RR_ML/updated_dataset_20261020/validate_outputs.py \
+  --output-dir /tmp/co2rr_validation
+python CO2RR_ML/updated_dataset_20261020/analysis.py \
+  --data-root /path/to/CO2RR --output-dir /path/to/new_run \
+  --split-manifest CO2RR_ML/updated_dataset_20261020/cv_manifest.csv --audit-only
 ```
 
-Choose **Run All** after setting the paths. Fitting regenerates the omitted caches. Setting up the application from the repository root and running this standalone analysis are separate entry points.
+The builder accepts the same path options, plus `--build-only` or `--audit-only`. Every rerun must use a new output directory. The primary archived result remains micro/macro F1 0.7790697674/0.6382765883. Metadata corrections are opt-in, reversible and hash logged; measurement arrays must not change. The actual legacy layer-record producer was not found and is not conflated with the repository's general converter.

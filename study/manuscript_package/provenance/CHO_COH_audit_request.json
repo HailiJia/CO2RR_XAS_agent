@@ -1,0 +1,220 @@
+{
+  "scope": "Manifest count check only; relaxed coordinates and full simulation export have not been independently audited here.",
+  "source_pr_head": "390b1b899c4dca43685fda1380a494b1d5019fcd",
+  "label_validation_status": "pending connectivity and XAS-geometry provenance audit",
+  "inventories": {
+    "cv_manifest.csv": {
+      "total_configurations": 87,
+      "species": {
+        "CHO": {
+          "configurations": 5,
+          "single_species_configurations": 2,
+          "label_combinations": {
+            "CHO": 2,
+            "CHO;CO;H": 3
+          },
+          "entries": [
+            {
+              "configuration": "CHO/CHO_0p056_AuCu_bidentate",
+              "labels": "CHO"
+            },
+            {
+              "configuration": "CHO/CHO_0p056_CuCu_bidentate",
+              "labels": "CHO"
+            },
+            {
+              "configuration": "CHO/CHO_0p056_interface_Cu",
+              "labels": "CHO;CO;H"
+            },
+            {
+              "configuration": "CHO/CHO_0p056_interior_Cu",
+              "labels": "CHO;CO;H"
+            },
+            {
+              "configuration": "CHO/CHO_0p111_uniform",
+              "labels": "CHO;CO;H"
+            }
+          ]
+        },
+        "COH": {
+          "configurations": 6,
+          "single_species_configurations": 6,
+          "label_combinations": {
+            "COH": 6
+          },
+          "entries": [
+            {
+              "configuration": "COH/CHO_0p028_interface_Cu3",
+              "labels": "COH"
+            },
+            {
+              "configuration": "COH/CHO_0p056_AuCuCu",
+              "labels": "COH"
+            },
+            {
+              "configuration": "COH/CHO_0p056_interface_Cu3",
+              "labels": "COH"
+            },
+            {
+              "configuration": "COH/CHO_0p056_interior",
+              "labels": "COH"
+            },
+            {
+              "configuration": "COH/CHO_0p056_uniform",
+              "labels": "COH"
+            },
+            {
+              "configuration": "COH/CHO_0p167_uniform",
+              "labels": "COH"
+            }
+          ]
+        }
+      }
+    },
+    "all_unique_structures.csv": {
+      "total_configurations": 155,
+      "species": {
+        "CHO": {
+          "configurations": 13,
+          "single_species_configurations": 2,
+          "label_combinations": {
+            "CHO": 2,
+            "CHO;CO;H": 10,
+            "CHO;CO": 1
+          },
+          "entries": [
+            {
+              "configuration": "CHO/CHO_0p056_AuCu_bidentate",
+              "labels": "CHO"
+            },
+            {
+              "configuration": "CHO/CHO_0p056_CuCu_bidentate",
+              "labels": "CHO"
+            },
+            {
+              "configuration": "CHO/CHO_0p056_interface_Cu",
+              "labels": "CHO;CO;H"
+            },
+            {
+              "configuration": "CHO/CHO_0p056_interior_Cu",
+              "labels": "CHO;CO;H"
+            },
+            {
+              "configuration": "CHO/CHO_0p056_uniform",
+              "labels": "CHO;CO;H"
+            },
+            {
+              "configuration": "CHO/CHO_0p111_AuCu_bidentate",
+              "labels": "CHO;CO;H"
+            },
+            {
+              "configuration": "CHO/CHO_0p111_CuCu_bidentate",
+              "labels": "CHO;CO;H"
+            },
+            {
+              "configuration": "CHO/CHO_0p111_interface_Cu",
+              "labels": "CHO;CO;H"
+            },
+            {
+              "configuration": "CHO/CHO_0p111_interior_Cu",
+              "labels": "CHO;CO;H"
+            },
+            {
+              "configuration": "CHO/CHO_0p111_uniform",
+              "labels": "CHO;CO;H"
+            },
+            {
+              "configuration": "CHO/CHO_0p167_uniform",
+              "labels": "CHO;CO;H"
+            },
+            {
+              "configuration": "CHO_CO/CO_CHO_0p111_uniform",
+              "labels": "CHO;CO;H"
+            },
+            {
+              "configuration": "CHO_CO/CO_CHO_0p222",
+              "labels": "CHO;CO"
+            }
+          ]
+        },
+        "COH": {
+          "configurations": 15,
+          "single_species_configurations": 12,
+          "label_combinations": {
+            "COH": 12,
+            "CO;COH": 3
+          },
+          "entries": [
+            {
+              "configuration": "COH/CHO_0p028_interface_Cu3",
+              "labels": "COH"
+            },
+            {
+              "configuration": "COH/CHO_0p056_AuAuCu",
+              "labels": "COH"
+            },
+            {
+              "configuration": "COH/CHO_0p056_AuCuCu",
+              "labels": "COH"
+            },
+            {
+              "configuration": "COH/CHO_0p056_interface_Cu3",
+              "labels": "COH"
+            },
+            {
+              "configuration": "COH/CHO_0p056_interior",
+              "labels": "COH"
+            },
+            {
+              "configuration": "COH/CHO_0p056_uniform",
+              "labels": "COH"
+            },
+            {
+              "configuration": "COH/CHO_0p111_AuAuCu",
+              "labels": "COH"
+            },
+            {
+              "configuration": "COH/CHO_0p111_AuCuCu",
+              "labels": "COH"
+            },
+            {
+              "configuration": "COH/CHO_0p111_interface_Cu3",
+              "labels": "COH"
+            },
+            {
+              "configuration": "COH/CHO_0p111_interior",
+              "labels": "COH"
+            },
+            {
+              "configuration": "COH/CHO_0p111_uniform",
+              "labels": "COH"
+            },
+            {
+              "configuration": "COH/CHO_0p167_uniform",
+              "labels": "COH"
+            },
+            {
+              "configuration": "CO_COH/CO_COH_0p111_more_CO",
+              "labels": "CO;COH"
+            },
+            {
+              "configuration": "CO_COH/CO_COH_0p111_uniform",
+              "labels": "CO;COH"
+            },
+            {
+              "configuration": "CO_COH/CO_COH_0p222",
+              "labels": "CO;COH"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "coupling_reconciliation": {
+    "reported_all_four_relaxed_unavailable": true,
+    "completed_record_candidate": "2CO_adjacent/2CO_adjacent_0p056_interior/XAS/FDMNES/green/isaac_record_layers.json",
+    "candidate_present_in_ml_manifest": true,
+    "exact_matched_input_lineage_verified": false,
+    "required_check": "Reconcile initial-geometry hash lookup, alternate relaxed paths, actual XAS geometry, parent/loading/settings, and duplicate candidates; derive status from verified evidence."
+  }
+}

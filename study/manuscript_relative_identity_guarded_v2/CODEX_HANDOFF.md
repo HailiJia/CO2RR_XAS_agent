@@ -1,0 +1,53 @@
+Update the existing draft PR18 using this reviewed manuscript package, based on commit798e2c81b7a9afa684dc2a5625607ec866430163. Preserve other branch work and every archived study. Upload this revision, editable TeX, bibliography, PNG-only figures, plotted arrays and plotting/verification code. Do not merge, force-push, submit HPC jobs or write to the portal. Figure1 stays unchanged. The manuscript has already been updated for the new results; do not replace it with the old export.
+
+The central correction is experimental input: the intended observable is normalized signed differential XAS. Experimental absolute per-Cu absorption is unavailable and must not be required for adsorbate identity. Simulation-side population reconstruction does not impose absolute experimental calibration. Absolute coverage is a separate calibrated target. The supplied manuscript consistently makes this distinction.
+
+## 1. Correct the shared experimental input route
+
+Inspect tools/differential_xas.py::experimental_pair and trace actual callers through agent, parser/planner, UI and inference. That helper currently requires Cu_basis="same independently calibrated per-Cu basis" and a surface_fraction before returning a pair. Do not assume every route calls it; establish the wiring.
+
+Add a shared identity route accepting either (a) precomputed normalized signed delta plus energy/reference/normalization metadata, or(b) a reaction/reference pair processed with a documented compatible relative convention. Identity must not require absolute per-Cu scale or surface fraction. Record sign, energy axis, normalization convention, reference state, processing/noise information when available, and supported-domain status. Do not make unavailable raw absolute pair spectra mandatory when a valid precomputed difference is supplied. Keep relative gain/background/reference-quality checks meaningful.
+
+Separate identity from calibrated absolute-coverage requirements. With unknown active fraction or gain, do not report validated absolute surface coverage: expose an uncalibrated response or relative change with the appropriate target definition. Do not reject an identity query solely because calibrated coverage is unavailable. Keep physics and experimental metadata out of unnecessary product-flow details.
+
+A common unknown multiplier cancels when pair spectra and shared reference scale use that same factor. However, arbitrary independent normalization of pair members and unit-normalization of tiny noisy delta are not equivalent. Document the actual short-window simulation divisor as a near-edge scale, not a validated full experimental edge jump. Do not claim current models have measured experimental accuracy. Save any preprocessing/input-contract version with models; provide meaningful tests for cancellation, signed values, zero/low signal, invalid axes and separation of identity/coverage requirements.
+
+## 2. Run a controlled representation and learning-size analysis
+
+Use fixed population-weighted top two layers; no automatic depth selection. Keep the current energy grid, labels, source lineage rules and geometry groups. All source files/views/references from one physical configuration remain in its training/test group. Preserve original99 query folds, aliases and inner assignments; additions must never expose test configurations to training or preprocessing/threshold selection.
+
+First add the missing corrected-and-normalized raw control. The current normalized_raw bank uses raw_native, while physical_raw/delta use corrected weights. On identical configurations, folds and estimator/threshold recipes compare: native-normalized raw; corrected-normalized raw; corrected common-scale raw; current signed relative delta. This separates source weighting from normalization and subtraction. Do not attribute the small observed shape differences to score changes without this control.
+
+Then run the same99-versus118 frozen-recipe training-size control for relative delta. Report all predeclared seeds and paired test cases, not a selected seed. Keep both the independent balanced ExtraTrees anchor and a small regularized linear baseline. Add training configurations in repeated grouped subsets to produce a learning curve, with fixed outer queries. Save membership, thresholds, predictions and uncertainty; do not compare full118 scores directly with old99 as a paired improvement. Distinguish conditional prediction bootstrap intervals from refit/seed variability. Never choose an outer-test winner and call it independently validated.
+
+## 3. Test scale-tolerant identity without erasing nulls
+
+For experimental identity, compare the shared relative delta with a limited identity-oriented signed-shape control (for example stable signed scaling with explicit low-signal handling). Keep the calibrated-amplitude representation separate for coverage. If using signed unit-norm delta or derivatives, reject/abstain or flag when the signal is below a training-defined or experimentally estimated noise floor; do not amplify nearly zero spectra. Do not min-subtract negative delta or treat signed cumulative differences as probability CDFs. Save all transformations.
+
+Evaluate amplitude/gain, residual shift, additional broadening and noise sensitivity with perturbations confined to training folds; derive sensible ranges from supplied experimental resolution/noise where possible and label synthetic choices. Augmented views remain grouped with their source and are not independent new data. Include clean/near-clean negatives, clean false-positive diagnostics and detection/abstention coverage alongside identity scores. Unknown reference/morphology changes need explicit out-of-domain handling rather than borrowed cross-facet averages.
+
+## 4. Address thresholds, class support and mixtures
+
+The source shows same99 mean micro F1 .7434→.7519 with retuning, but .7608 with baseline-transferred training thresholds. Investigate calibration instability using training-only rules: compare fixed .5, transferred thresholds and a restrained regularized/common-threshold approach. Sparse classes cannot support unconstrained per-label tuning. Do not pick thresholds using reported outer scores.
+
+A focused nested comparison of regularized logistic/linear-margin models and independent ExtraTrees is sufficient initially. If testing label-dependence/chain or multi-output methods, bound the candidate count and preserve grouped nested selection; report whether mixture recovery improves at a false-positive cost. Report per-label precision/recall/F1/support, exact identity sets, single versus mixed species, CO/CHO/COH confusions, coverage/motif/interface-distance and substrate strata. Explicitly mark folds with no positive training examples. A sole COCHO positive cannot yield learned held-out positive recognition, and2 pureCHO cases cannot establish broad pureCHO inference. Class weighting does not invent missing chemistry.
+
+## 5. Use Cu100 as a conditional training domain, with honest transfer tests
+
+Retain the verified reconstructed cleanCu100 and its symmetry multiplicities. Include the12 supported Cu100 configurations in joint training comparisons, keeping unsupported water/carbonate cases as interference queries. Give domain-resolved common-four-label metrics and full11-label metrics separately, with independent supports. CO loading must use a declared denominator; use CO/all top-surface metal sites as the primary target, saving deterministic Cu/area conversions separately. Do not headline pooledR². FourCu100 CO cases cannot distinguish loading from motif or establish facet transfer.
+
+A leave-domain-out analysis is useful as an explicit stress test, not a claim that subtraction makes domains invariant. One parent/reference family per domain cannot estimate independent-parent transfer; prepare a prioritized data recommendation for multiple independent clean/adsorbed parents at matched coverage/site, without submitting new jobs. Keep CO/OCHO hollow composition and interface proximity separate; do not infer supported CuAu2/Au3 models from absent classes.
+
+## 6. Prioritize new chemistry rather than more common-species duplicates
+
+Use the error analysis to propose (without executing HPC jobs) independent rare-species configurations, pureCHO cases, matched CO+H/CHO/COH and other coadsorbed controls, and coverage/site/interface-distance sweeps that decouple those variables. Count physical configurations, not molecules/layer spectra. Recheck actual relaxed connectivity and retain the exclusion/lineage rules. The available OCCO/water spectral case is2CO+2H2O; no intactOCCO/2CO spectral pair is established. Do not relabel dissociated structures to fill a class.
+
+## 7. Preserve manuscript/figure corrections and deliver reviewable evidence
+
+Preserve readable Figure2 nested gray/blue bars and the corrected substrate top/side rendering. Figure2 inventory is135 adsorbed (118CuAu+17Cu100), whereas Figure4b's118CuAu fitting cases include117 adsorbed plus1clean; explain their distinct memberships. Keep Figure4e actual-clean33 matched singles (CO8,COH3,COOH3,H11,O6,OH2) from37 matched adsorbed cases. Figure4a/c/d remain the archived87-case depth/feature controls.
+
+Preserve Figure3's CuPBE first small peak at8982eV, rigid native offset+113.6765502eV (−11.0452eV from the preceding plot), fixed Gaussian sigma1eV and recalculated metrics. Do not optimize alignment to improve a score. Keep Cu2O PBE/GW; leave incomplete CuOPBE blank. Use the latest XAS CPU counter only in the main table, SCF separately in SI. CuO FDMNES fdm is129600CPU s;91018.9s is Green by its banner. Keep the external layer-difference legend and correct zero-line key. Save plotting code and PNG only, rather than duplicate PDF/SVG figure exports.
+
+Maintain scientific paper language, catalytic motivation, authors/affiliations, NERSC workflow, automatic lattice matching and the fixed-two/fixed-three-layer structural check. Do not insert code-reconciliation notes or unsupported production claims into the paper. Update manuscript numbers only when a clearly defined analysis justifies replacement; preserve historical study scopes.
+
+Return a concise scientific comparison (including unsuccessful controls), commit and exact tested head, saved folds/models/predictions, clean-checkout test/import/compile and model-replay evidence, source/hash manifests, compiled main/SI PDFs, individually downloadable updated PNGs, and a full editable manuscript ZIP. No merge, force-push or new simulations. Explain any remaining limits and do not imply statistical improvement when the paired uncertainty includes zero.
