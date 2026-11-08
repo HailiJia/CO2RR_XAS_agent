@@ -1,0 +1,22 @@
+{
+  "archive": "audit_evidence.tar.xz",
+  "bytes": 264704,
+  "sha256": "92ad7469a262c5653dda9dd240dd69f7da685ba58827fd3952a8ecce5fe5a9a0",
+  "parts": [
+    {
+      "path": "audit_evidence.tar.xz.part000",
+      "bytes": 96000,
+      "sha256": "fb0a1d898c65f0533f1f709f934cfaa4e9d1bcd685d6d01591d5623e6d23e4c7"
+    },
+    {
+      "path": "audit_evidence.tar.xz.part001",
+      "bytes": 96000,
+      "sha256": "973634df4dcf99ad41fb84978794b320880ad3a22011ee565d51f98c16909678"
+    },
+    {
+      "path": "audit_evidence.tar.xz.part002",
+      "bytes": 72704,
+      "sha256": "7b1cfa5bc866ef97e6a3ace83e033e5d32b4d2fc6adbcc8d873210b9e12f9f4e"
+    }
+  ]
+}
