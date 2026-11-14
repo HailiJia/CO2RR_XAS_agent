@@ -1,0 +1,220 @@
+{
+  "seed": 20261027,
+  "scenarios": [
+    {
+      "name": "clean",
+      "kind": "clean",
+      "value": 0.0
+    },
+    {
+      "name": "shared_shift_-0.2",
+      "kind": "shared_shift",
+      "value": -0.2
+    },
+    {
+      "name": "shared_shift_0.2",
+      "kind": "shared_shift",
+      "value": 0.2
+    },
+    {
+      "name": "shared_shift_-0.5",
+      "kind": "shared_shift",
+      "value": -0.5
+    },
+    {
+      "name": "shared_shift_0.5",
+      "kind": "shared_shift",
+      "value": 0.5
+    },
+    {
+      "name": "shared_shift_-1",
+      "kind": "shared_shift",
+      "value": -1.0
+    },
+    {
+      "name": "shared_shift_1",
+      "kind": "shared_shift",
+      "value": 1.0
+    },
+    {
+      "name": "shared_shift_-2",
+      "kind": "shared_shift",
+      "value": -2.0
+    },
+    {
+      "name": "shared_shift_2",
+      "kind": "shared_shift",
+      "value": 2.0
+    },
+    {
+      "name": "relative_reference_shift_-0.2",
+      "kind": "relative_shift",
+      "value": -0.2
+    },
+    {
+      "name": "relative_reference_shift_0.2",
+      "kind": "relative_shift",
+      "value": 0.2
+    },
+    {
+      "name": "relative_reference_shift_-0.5",
+      "kind": "relative_shift",
+      "value": -0.5
+    },
+    {
+      "name": "relative_reference_shift_0.5",
+      "kind": "relative_shift",
+      "value": 0.5
+    },
+    {
+      "name": "relative_reference_shift_-1",
+      "kind": "relative_shift",
+      "value": -1.0
+    },
+    {
+      "name": "relative_reference_shift_1",
+      "kind": "relative_shift",
+      "value": 1.0
+    },
+    {
+      "name": "shared_gain_recalibrated_-0.05",
+      "kind": "shared_gain_recalibrated",
+      "value": -0.05
+    },
+    {
+      "name": "shared_gain_recalibrated_-0.02",
+      "kind": "shared_gain_recalibrated",
+      "value": -0.02
+    },
+    {
+      "name": "shared_gain_recalibrated_0.02",
+      "kind": "shared_gain_recalibrated",
+      "value": 0.02
+    },
+    {
+      "name": "shared_gain_recalibrated_0.05",
+      "kind": "shared_gain_recalibrated",
+      "value": 0.05
+    },
+    {
+      "name": "relative_adsorbate_gain_-0.05",
+      "kind": "relative_adsorbate_gain",
+      "value": -0.05
+    },
+    {
+      "name": "relative_adsorbate_gain_-0.02",
+      "kind": "relative_adsorbate_gain",
+      "value": -0.02
+    },
+    {
+      "name": "relative_adsorbate_gain_0.02",
+      "kind": "relative_adsorbate_gain",
+      "value": 0.02
+    },
+    {
+      "name": "relative_adsorbate_gain_0.05",
+      "kind": "relative_adsorbate_gain",
+      "value": 0.05
+    },
+    {
+      "name": "edge_step_error_-0.05",
+      "kind": "edge_step_error",
+      "value": -0.05
+    },
+    {
+      "name": "edge_step_error_-0.02",
+      "kind": "edge_step_error",
+      "value": -0.02
+    },
+    {
+      "name": "edge_step_error_0.02",
+      "kind": "edge_step_error",
+      "value": 0.02
+    },
+    {
+      "name": "edge_step_error_0.05",
+      "kind": "edge_step_error",
+      "value": 0.05
+    },
+    {
+      "name": "extra_Gaussian_sigma_0.25",
+      "kind": "broadening",
+      "value": 0.25
+    },
+    {
+      "name": "extra_Gaussian_sigma_0.5",
+      "kind": "broadening",
+      "value": 0.5
+    },
+    {
+      "name": "extra_Gaussian_sigma_1",
+      "kind": "broadening",
+      "value": 1.0
+    },
+    {
+      "name": "independent_pair_noise_0.01",
+      "kind": "independent_pair_noise",
+      "value": 0.01
+    },
+    {
+      "name": "independent_pair_noise_0.02",
+      "kind": "independent_pair_noise",
+      "value": 0.02
+    },
+    {
+      "name": "independent_pair_noise_0.05",
+      "kind": "independent_pair_noise",
+      "value": 0.05
+    },
+    {
+      "name": "shared_reference_noise_0.01",
+      "kind": "shared_reference_noise",
+      "value": 0.01
+    },
+    {
+      "name": "shared_reference_noise_0.02",
+      "kind": "shared_reference_noise",
+      "value": 0.02
+    },
+    {
+      "name": "shared_reference_noise_0.05",
+      "kind": "shared_reference_noise",
+      "value": 0.05
+    },
+    {
+      "name": "surface_fraction_0.1",
+      "kind": "surface_fraction",
+      "value": 0.1
+    },
+    {
+      "name": "surface_fraction_0.25",
+      "kind": "surface_fraction",
+      "value": 0.25
+    },
+    {
+      "name": "surface_fraction_0.5",
+      "kind": "surface_fraction",
+      "value": 0.5
+    },
+    {
+      "name": "surface_fraction_1",
+      "kind": "surface_fraction",
+      "value": 1.0
+    }
+  ],
+  "common_crop_eV": [
+    8976.0,
+    9027.0
+  ],
+  "interpolation": "linear, within full 8974\u20139029 source support; no extrapolation",
+  "features": "fixed DCT16; all representations on identical cropped grid",
+  "coverage_model": "training StandardScaler + Ridge alpha10",
+  "identity_model": "independent balanced Logistic C1; constant columns removed in training; inner grouped thresholds",
+  "augmentation": "four deterministic training-only variants per physical pair; shared shifts \u00b10.5 eV, relative shifts \u00b10.2 eV, gain 1%, noise 1%, Gaussian sigma0.25 eV; settings frozen before these stress outputs",
+  "noise_replicates": 3,
+  "noise_model": "additive independent Gaussian per energy point; amplitude fractions of peak intensity; shared-reference scenarios reuse one noise curve across all query pairs; not a measured instrument model",
+  "calibration": "reference-derived common scale fixed independently; shared multiplicative gains cancel when its same measured gain is included; edge-step uncertainty is separate",
+  "surface_fraction": "stable-background assumption a_obs=b+f*(a-b); f*theta is a response proxy, not unique experimental coverage",
+  "native_lifetime_broadening": "preserved; Gaussian is extra instrumental scenario",
+  "no_experimental_accuracy_claim": true
+}

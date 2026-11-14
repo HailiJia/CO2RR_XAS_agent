@@ -1,0 +1,56 @@
+{
+  "request": "align first small Cu PBE peak at 8982 eV",
+  "native_peak_eV": 8868.323449792306,
+  "target_eV": 8982.0,
+  "previous_shift_eV": 124.72175020769464,
+  "corrected_shift_eV": 113.67655020769416,
+  "rigid_change_eV": -11.045200000000477,
+  "changed_rows": [
+    {
+      "material": "Cu",
+      "view": "Cu_calibrated_transfer",
+      "shift_eV": 113.67655020769416,
+      "processing_version": "reference-v3-Cu-PBE-anchor-correction",
+      "alignment_status": "author-specified 8982 eV Cu early-peak calibration; transferred within PBE",
+      "offset_intensity": 2.2856152703110325e-06,
+      "divisor_intensity": 6.389493129355378e-06,
+      "cosine_similarity": 0.8955519260563019,
+      "Pearson_r": 0.603897545994774,
+      "Spearman_rho": 0.7926964560862866,
+      "RMSE": 0.3960247542131826,
+      "experimental_early_feature_eV": 8982.0,
+      "feature_kind": "author-specified small early-feature anchor; not a fitted white-line assignment",
+      "source_sha256": "eb09e17a3d02a7cf34d0642c3f7b5f68fbae0d2eb9efe823396b6ea9eef2a856"
+    },
+    {
+      "material": "Cu",
+      "view": "first_feature_shape_diagnostic",
+      "shift_eV": 113.67655020769416,
+      "processing_version": "reference-v3-Cu-PBE-anchor-correction",
+      "alignment_status": "Cu first small peak assigned to 8982 eV; fixed Gaussian retained",
+      "offset_intensity": 2.2856152703110325e-06,
+      "divisor_intensity": 6.389493129355378e-06,
+      "cosine_similarity": 0.8955519260563019,
+      "Pearson_r": 0.603897545994774,
+      "Spearman_rho": 0.7926964560862866,
+      "RMSE": 0.3960247542131826,
+      "experimental_early_feature_eV": 8982.0,
+      "feature_kind": "author-specified small early-feature anchor; not a fitted white-line assignment",
+      "source_sha256": "eb09e17a3d02a7cf34d0642c3f7b5f68fbae0d2eb9efe823396b6ea9eef2a856"
+    },
+    {
+      "material": "Cu2O",
+      "view": "Cu_calibrated_transfer",
+      "shift_eV": 113.67655020769416,
+      "processing_version": "reference-v3-Cu-PBE-anchor-correction",
+      "alignment_status": "author-specified 8982 eV Cu early-peak calibration; transferred within PBE",
+      "offset_intensity": 9.773685346241465e-07,
+      "divisor_intensity": 2.7441270122933667e-06,
+      "cosine_similarity": 0.8411326252321626,
+      "Pearson_r": 0.3254029235621496,
+      "Spearman_rho": 0.3555734096412063,
+      "RMSE": 0.4454972335188343,
+      "source_sha256": "4a37b69157e9947df8197a436a7f75ae7c19c0b85ae3a9bb07b7714ee4c2aed7"
+    }
+  ]
+}

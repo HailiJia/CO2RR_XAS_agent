@@ -1,0 +1,244 @@
+{
+  "best_individual_exploratory": {
+    "protocol": "baseline",
+    "seed": 20261020,
+    "micro_f1": 0.810126582278481,
+    "macro_f1": 0.6884120237061413,
+    "exact_set_accuracy": 0.7163120567375887
+  },
+  "mean_metrics": [
+    {
+      "protocol": "ExtraTrees",
+      "micro_f1": 0.783801528467215,
+      "macro_f1": 0.6581469252840896,
+      "exact_set_accuracy": 0.6855791962174941
+    },
+    {
+      "protocol": "Logistic",
+      "micro_f1": 0.6819338422391857,
+      "macro_f1": 0.5752721919657403,
+      "exact_set_accuracy": 0.4751773049645391
+    },
+    {
+      "protocol": "RandomForest",
+      "micro_f1": 0.7411575696933089,
+      "macro_f1": 0.6051973182961418,
+      "exact_set_accuracy": 0.6193853427895981
+    },
+    {
+      "protocol": "SVM",
+      "micro_f1": 0.7089337175792507,
+      "macro_f1": 0.622413481179715,
+      "exact_set_accuracy": 0.5602836879432624
+    },
+    {
+      "protocol": "baseline",
+      "micro_f1": 0.7964131481765303,
+      "macro_f1": 0.6764106351550726,
+      "exact_set_accuracy": 0.7021276595744682
+    },
+    {
+      "protocol": "nested",
+      "micro_f1": 0.7803696109667726,
+      "macro_f1": 0.654828839054206,
+      "exact_set_accuracy": 0.6784869976359338
+    }
+  ],
+  "seed_results": [
+    {
+      "protocol": "baseline",
+      "seed": 20261020,
+      "micro_f1": 0.810126582278481,
+      "macro_f1": 0.6884120237061413,
+      "exact_set_accuracy": 0.7163120567375887
+    },
+    {
+      "protocol": "nested",
+      "seed": 20261020,
+      "micro_f1": 0.7760252365930599,
+      "macro_f1": 0.6455278427245117,
+      "exact_set_accuracy": 0.6666666666666666
+    },
+    {
+      "protocol": "ExtraTrees",
+      "seed": 20261020,
+      "micro_f1": 0.7760252365930599,
+      "macro_f1": 0.6455278427245117,
+      "exact_set_accuracy": 0.6666666666666666
+    },
+    {
+      "protocol": "RandomForest",
+      "seed": 20261020,
+      "micro_f1": 0.7531645569620253,
+      "macro_f1": 0.6501030997883518,
+      "exact_set_accuracy": 0.6382978723404256
+    },
+    {
+      "protocol": "SVM",
+      "seed": 20261020,
+      "micro_f1": 0.7089337175792507,
+      "macro_f1": 0.622413481179715,
+      "exact_set_accuracy": 0.5602836879432624
+    },
+    {
+      "protocol": "Logistic",
+      "seed": 20261020,
+      "micro_f1": 0.6819338422391857,
+      "macro_f1": 0.5752721919657403,
+      "exact_set_accuracy": 0.475177304964539
+    },
+    {
+      "protocol": "baseline",
+      "seed": 20261021,
+      "micro_f1": 0.7828746177370031,
+      "macro_f1": 0.6713602948897066,
+      "exact_set_accuracy": 0.6737588652482269
+    },
+    {
+      "protocol": "nested",
+      "seed": 20261021,
+      "micro_f1": 0.7791411042944786,
+      "macro_f1": 0.6594533462583869,
+      "exact_set_accuracy": 0.6737588652482269
+    },
+    {
+      "protocol": "ExtraTrees",
+      "seed": 20261021,
+      "micro_f1": 0.7791411042944786,
+      "macro_f1": 0.6594533462583869,
+      "exact_set_accuracy": 0.6737588652482269
+    },
+    {
+      "protocol": "RandomForest",
+      "seed": 20261021,
+      "micro_f1": 0.7348242811501597,
+      "macro_f1": 0.5998199923199924,
+      "exact_set_accuracy": 0.6099290780141844
+    },
+    {
+      "protocol": "SVM",
+      "seed": 20261021,
+      "micro_f1": 0.7089337175792507,
+      "macro_f1": 0.622413481179715,
+      "exact_set_accuracy": 0.5602836879432624
+    },
+    {
+      "protocol": "Logistic",
+      "seed": 20261021,
+      "micro_f1": 0.6819338422391857,
+      "macro_f1": 0.5752721919657403,
+      "exact_set_accuracy": 0.475177304964539
+    },
+    {
+      "protocol": "baseline",
+      "seed": 20261022,
+      "micro_f1": 0.7962382445141066,
+      "macro_f1": 0.6694595868693699,
+      "exact_set_accuracy": 0.7163120567375887
+    },
+    {
+      "protocol": "nested",
+      "seed": 20261022,
+      "micro_f1": 0.7859424920127795,
+      "macro_f1": 0.6595053281797193,
+      "exact_set_accuracy": 0.6950354609929078
+    },
+    {
+      "protocol": "ExtraTrees",
+      "seed": 20261022,
+      "micro_f1": 0.7962382445141066,
+      "macro_f1": 0.6694595868693699,
+      "exact_set_accuracy": 0.7163120567375887
+    },
+    {
+      "protocol": "RandomForest",
+      "seed": 20261022,
+      "micro_f1": 0.7354838709677419,
+      "macro_f1": 0.5656688627800809,
+      "exact_set_accuracy": 0.6099290780141844
+    },
+    {
+      "protocol": "SVM",
+      "seed": 20261022,
+      "micro_f1": 0.7089337175792507,
+      "macro_f1": 0.622413481179715,
+      "exact_set_accuracy": 0.5602836879432624
+    },
+    {
+      "protocol": "Logistic",
+      "seed": 20261022,
+      "micro_f1": 0.6819338422391857,
+      "macro_f1": 0.5752721919657403,
+      "exact_set_accuracy": 0.475177304964539
+    }
+  ],
+  "voting": {
+    "baseline": {
+      "micro_f1": 0.807570977917981,
+      "macro_f1": 0.6834864301267463,
+      "exact_set_accuracy": 0.723404255319149
+    },
+    "nested": {
+      "micro_f1": 0.7935483870967742,
+      "macro_f1": 0.6625139777792781,
+      "exact_set_accuracy": 0.7021276595744681
+    },
+    "ExtraTrees": {
+      "micro_f1": 0.8063492063492064,
+      "macro_f1": 0.6763666148499142,
+      "exact_set_accuracy": 0.723404255319149
+    },
+    "RandomForest": {
+      "micro_f1": 0.7677419354838709,
+      "macro_f1": 0.6467750442420297,
+      "exact_set_accuracy": 0.6524822695035462
+    },
+    "SVM": {
+      "micro_f1": 0.7089337175792507,
+      "macro_f1": 0.622413481179715,
+      "exact_set_accuracy": 0.5602836879432624
+    },
+    "Logistic": {
+      "micro_f1": 0.6819338422391857,
+      "macro_f1": 0.5752721919657403,
+      "exact_set_accuracy": 0.475177304964539
+    }
+  },
+  "baseline_reconciliation": [
+    {
+      "seed": 20261020,
+      "exact_scores": true,
+      "exact_predictions": true,
+      "micro_f1": 0.810126582278481,
+      "macro_f1": 0.6884120237061413,
+      "exact_set_accuracy": 0.7163120567375887
+    },
+    {
+      "seed": 20261021,
+      "exact_scores": true,
+      "exact_predictions": true,
+      "micro_f1": 0.7828746177370031,
+      "macro_f1": 0.6713602948897066,
+      "exact_set_accuracy": 0.6737588652482269
+    },
+    {
+      "seed": 20261022,
+      "exact_scores": true,
+      "exact_predictions": true,
+      "micro_f1": 0.7962382445141066,
+      "macro_f1": 0.6694595868693699,
+      "exact_set_accuracy": 0.7163120567375887
+    }
+  ],
+  "threshold_discrepancy": "First rerun reconstructed inner memberships differently; restored saved source_splits.json memberships for all comparisons",
+  "paired_nested_minus_baseline": {
+    "mean_difference": -0.016043537209757708,
+    "lower": -0.03212207360788571,
+    "upper": -0.0012566872225570887,
+    "resamples": 2000,
+    "scope": "conditional on saved OOF predictions, group bootstrap; not independent experimental validation"
+  },
+  "saved_models": 64,
+  "manuscript_unchanged": true,
+  "scope": "Fresh fits on verified November 3 audited inputs; 141 configurations /135 groups; no expanded cohort"
+}

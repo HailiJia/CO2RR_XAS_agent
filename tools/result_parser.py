@@ -876,36 +876,14 @@ class ISAACRecordGenerator:
                 "notes": parameters.get("method_notes", "Specific functional settings."),
             }
         
-        if s.startswith("FEFF"):
-            return {
-                "family": "real_space_multiple_scattering",
-                "functional_class": "not_applicable",
-                "functional_name": "FEFF",
-                "core_hole_treatment": parameters.get("core_hole_treatment", "corehole_rpa"),
-                "pseudopotential": {
-                    "applicability": "not_applicable",
-                    "set": "not_applicable",
-                    "notes": "FEFF does not use VASP-style pseudopotentials/POTCAR files."
-                },
-                "notes": parameters.get("method_notes", "FEFF real-space multiple-scattering XAS simulation."),
-            }
-        
-        if s.startswith("FDMNES"):
-            return {
-                "family": "xas_simulation",
-                "solver": inferred.get("solver") or parameters.get("solver", "finite_difference_or_green_function"),
-                "functional_class": "not_applicable",
-                "functional_name": "FDMNES",
-                "absorber_state": inferred.get("absorber_state") or parameters.get("absorber_state", "not_specified"),
-                "core_hole_treatment": inferred.get("core_hole_treatment") or parameters.get("core_hole_treatment", "not_specified"),
-                "pseudopotential": {
-                    "applicability": "not_applicable",
-                    "set": "not_applicable",
-                    "notes": "FDMNES does not use VASP-style pseudopotentials/POTCAR files."
-                },
-                "notes": parameters.get("method_notes", "FDMNES XAS simulation."),
-            }
-        
+        if s.startswith("FEFF") or s.startswith("FDMNES"):
+            method = {"notes": parameters.get("method_notes", f"{software} XAS simulation. Method family omitted: pinned ISAAC enum lacks multiple scattering. Core-hole model requires explicit input/version evidence.")}
+            core = inferred.get("core_hole_treatment") or parameters.get("core_hole_treatment")
+            if core and core not in {"not_specified", "not_reported"}: method["core_hole_treatment"] = core
+            solver = inferred.get("solver") or parameters.get("solver")
+            if solver: method["solver"] = solver
+            return method
+
         return {
             "family": "xas_simulation",
             "functional_class": "not_specified",
@@ -1128,6 +1106,9 @@ class ISAACRecordGenerator:
         catalyst_meta = parameters.get("catalyst") or structure_metadata.get("catalyst", {})
         adsorbate_meta = parameters.get("adsorbate") or structure_metadata.get("adsorbate_metadata", {})
         
+        from tools.component_audit import audit_components
+        structure_metadata = dict(structure_metadata)
+        structure_metadata['component_audit'] = audit_components(structure, structure_metadata.get('molecules', []))
         # Extract atoms and infer sample metadata from input files.
         atoms = structure.get("atoms", []) or []
         input_sample = _infer_sample_from_inputs(
@@ -1190,7 +1171,7 @@ class ISAACRecordGenerator:
                 "parent_structure_id": structure_metadata.get("parent_structure_id"),
                 "ml_labels": structure_metadata.get("ml_targets", {}),
                 "structure_descriptors": {key: structure_metadata.get(key) for key in (
-                    "label_schema_version", "label_status", "label_stage", "geometry_hash",
+                    "component_audit", "label_schema_version", "label_status", "label_stage", "geometry_hash",
                     "species_requested", "species_observed", "geometry_requested", "geometry_observed",
                     "distribution_requested", "distribution_observed", "coverage_labels", "observed_geometry", "geometry_qc", "atom_ids", "atom_layers", "surface_atom_ids")},
                 "structure_id": parameters.get("structure_id") or structure_metadata.get("structure_id") or catalyst_meta.get("structure_id"),

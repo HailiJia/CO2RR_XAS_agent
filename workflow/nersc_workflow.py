@@ -494,8 +494,16 @@ def execute_nersc_full_workflow(
     def monitor_relax_jobs(ctx: Dict[str, Any]) -> None:
         if ctx.get("submit") and ctx.get("monitor"):
             ctx["manager"].wait(ctx.get("relax_jobs", []), poll_interval=poll_interval, timeout=timeout)
+            failed = [job for job in ctx.get("relax_jobs", []) if job.state not in SUCCESS_STATES]
+            if failed:
+                ctx["relax_failed"] = True
+                ctx.setdefault("warnings", []).append(
+                    "Relaxation ended in terminal state(s): " + ", ".join(sorted({job.state for job in failed})) + "; XAS generation/submission skipped."
+                )
 
     def regenerate_xas_inputs(ctx: Dict[str, Any]) -> None:
+        if ctx.get("relax_failed"):
+            return
         # The relaxed structure may have already existed before submission.
         if not ctx.get("relaxed_structure_file"):
             relax_jobs = ctx.get("relax_jobs", [])
@@ -503,12 +511,15 @@ def execute_nersc_full_workflow(
                 contcar = require_relaxed_contcar(output_dir)
                 ctx["relaxed_structure_file"] = str(contcar)
             elif not ctx.get("submit"):
-                ctx.setdefault("warnings", []).append(
-                    "submit=False: generated relaxation input only. XAS inputs must be regenerated after relax/CONTCAR exists."
-                )
+                # A requested dry run is successful when it safely prepares
+                # relaxation inputs and stops before creating stale XAS jobs.
+                # The result message explains the required post-relax step.
                 return
             else:
-                ctx["custodian_recovery_required"] = "relax_not_completed"
+                ctx["relax_failed"] = True
+                ctx.setdefault("warnings", []).append(
+                    "Relaxation did not complete successfully; XAS generation/submission skipped."
+                )
                 return
 
         ctx["inputs"] = regenerate_xas_from_relaxed(output_dir=output_dir, **regen_kwargs)

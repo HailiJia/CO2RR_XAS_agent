@@ -19,21 +19,27 @@ from workflow.nersc_workflow import (
 
 
 class FakeSLURMRunner:
-    def __init__(self):
+    def __init__(self, terminal_state="COMPLETED", on_relax_complete=None):
         self.commands = []
         self.next_job_id = 1000
+        self.terminal_state = terminal_state
+        self.on_relax_complete = on_relax_complete
+        self.last_script = None
 
     def __call__(self, cmd, **kwargs):
         self.commands.append(list(cmd))
         exe = Path(cmd[0]).name
         if exe == "sbatch":
+            self.last_script = cmd[-1]
             self.next_job_id += 1
             return subprocess.CompletedProcess(cmd, 0, stdout=f"{self.next_job_id}\n", stderr="")
         if exe == "squeue":
             # Empty squeue means the job has left the active queue; manager then checks sacct.
             return subprocess.CompletedProcess(cmd, 0, stdout="", stderr="")
         if exe == "sacct":
-            return subprocess.CompletedProcess(cmd, 0, stdout="COMPLETED\n", stderr="")
+            if self.terminal_state == "COMPLETED" and self.last_script and "/relax/" in self.last_script and self.on_relax_complete:
+                self.on_relax_complete(Path(self.last_script).parent)
+            return subprocess.CompletedProcess(cmd, 0, stdout=f"{self.terminal_state}\n", stderr="")
         return subprocess.CompletedProcess(cmd, 1, stdout="", stderr="unexpected command")
 
 
@@ -64,7 +70,7 @@ def test_feff_generator_writes_lightshow_style_sections():
     from tools.utils import read_poscar
     from tools.xas_input_generator import FEFFInputGenerator
 
-    structure_file = REPO_ROOT / "example_ouput" / "VASP" / "XAS" / "POSCAR"
+    structure_file = REPO_ROOT / "data/CuAu_dataset/2CO_adjacent/2CO_adjacent_0p056_interface/POSCAR"
     structure = read_poscar(str(structure_file))
 
     with tempfile.TemporaryDirectory() as tmp:
@@ -92,9 +98,22 @@ def test_feff_generator_writes_lightshow_style_sections():
 
 
 def test_nersc_workflow_can_submit_and_monitor_with_fake_slurm():
-    runner = FakeSLURMRunner()
+    structure_file = REPO_ROOT / "data/CuAu_dataset/2CO_adjacent/2CO_adjacent_0p056_interface/POSCAR"
+    relaxed = {}
+
+    def finish_relax(relax_dir):
+        from tools.utils import read_poscar, write_poscar
+        source = read_poscar(str(structure_file))
+        positions = [list(map(float, point)) for point in source["positions"]]
+        # Simulate a converged relaxed geometry with a small adsorbate motion.
+        adsorbate = [i for i, atom in enumerate(source["atoms"]) if atom not in {"Cu", "Au"}]
+        positions[adsorbate[0]][2] += 0.035
+        contcar = relax_dir / "CONTCAR"
+        write_poscar(source["atoms"], positions, source["cell"], str(contcar))
+        relaxed["path"] = contcar
+
+    runner = FakeSLURMRunner(on_relax_complete=finish_relax)
     manager = NERSCJobManager(runner=runner)
-    structure_file = REPO_ROOT / "example_ouput" / "VASP" / "XAS" / "POSCAR"
 
     with tempfile.TemporaryDirectory() as tmp:
         result = execute_nersc_full_workflow(
@@ -112,11 +131,16 @@ def test_nersc_workflow_can_submit_and_monitor_with_fake_slurm():
             nersc_walltime="00:30:00",
             edge_override="K",
         )
+        signature_content = Path(result["inputs"]["xas_structure_signature"]).read_text()
+        relaxed_sha256 = __import__('hashlib').sha256(relaxed['path'].read_bytes()).hexdigest()
 
     assert result["status"] == "success"
-    assert len(result["submitted_jobs"]) == 1
-    assert result["submitted_jobs"][0]["software"] == "FEFF"
+    assert len(result["submitted_jobs"]) == 4  # one relaxation plus Cu/Au/C/O FEFF jobs
+    assert result["submitted_jobs"][0]["stage"] == "relax"
     assert result["submitted_jobs"][0]["state"] == "COMPLETED"
+    assert all(job["stage"] == "xas" for job in result["submitted_jobs"][1:])
+    assert result["relaxed_structure_file"] == str(relaxed["path"])
+    assert f"source_sha256={relaxed_sha256}" in signature_content
     assert any(Path(cmd[0]).name == "sbatch" for cmd in runner.commands)
     assert any(Path(cmd[0]).name == "squeue" for cmd in runner.commands)
     assert any(Path(cmd[0]).name == "sacct" for cmd in runner.commands)
@@ -166,7 +190,9 @@ def test_generated_nersc_workflow_carries_ml_metadata_in_dry_run():
     assert metadata["catalyst"]["composition"] == "CuAu"
     assert metadata["catalyst"]["structure_id"] == "CuAu_111_OCCO_bridge_001"
     assert metadata["adsorbate_metadata"]["identity"] == "OCCO"
-    assert metadata["adsorbate_metadata"]["binding_mode"] == "bridge"
+    # The interface OCCO request is concretized as a two-carbon bridge by the
+    # structure generator; keep the generated geometry label in the record.
+    assert metadata["adsorbate_metadata"]["binding_mode"] == "dual_C_bridge"
 
 
 
@@ -212,7 +238,7 @@ def test_prompt_generates_lateral_cu_au_interface_occo_and_au_l3_only():
     import json
 
     request = (
-        "Generate XAS inputs for OCCO adsorbate on Cu(111)-Au(111) interface, "
+        "Generate XAS inputs for OCCO adsorbate across the Cu(111)-Au(111) interface, "
         "K edge, radius 7 Angstrom, energy range -5 0.2 50, "
         "NERSC account m5268, do not submit"
     )
@@ -233,9 +259,26 @@ def test_prompt_generates_lateral_cu_au_interface_occo_and_au_l3_only():
     assert "Selective dynamics" in relax_poscar
     assert "F  F  F" in relax_poscar
     split = metadata["interface"]["split_coordinate"]
-    carbon_x = [pos[0] for atom, pos in zip(structure["atoms"], structure["positions"]) if atom == "C"]
-    assert len(carbon_x) == 2
-    assert min(carbon_x) < split <= max(carbon_x)
+    # Molecular coordinates need not lie on opposite sides of a geometric
+    # split after the OCCO core is compressed. Verify the intended chemistry
+    # through its nearest top-layer metal associations instead.
+    atoms = structure["atoms"]
+    positions = __import__("numpy").asarray(structure["positions"], float)
+    cell = __import__("numpy").asarray(structure["cell"], float)
+    inv = __import__("numpy").linalg.inv(cell)
+    metal_ids = [i for i, atom in enumerate(atoms) if atom in {"Cu", "Au"} and positions[i, 2] > max(positions[j, 2] for j, a in enumerate(atoms) if a in {"Cu", "Au"}) - 1.0]
+    nearest_elements = []
+    for i, atom in enumerate(atoms):
+        if atom != "C":
+            continue
+        distances = []
+        for j in metal_ids:
+            delta = positions[j] - positions[i]
+            frac = delta @ inv
+            frac[:2] -= __import__("numpy").round(frac[:2])
+            distances.append((__import__("numpy").linalg.norm(frac @ cell), atoms[j]))
+        nearest_elements.append(min(distances)[1])
+    assert sorted(nearest_elements) == ["Au", "Cu"]
 
 
 def test_agent_returns_needs_input_for_missing_generation_context():
@@ -266,12 +309,30 @@ def test_agent_recovers_nersc_submit_to_dry_run_when_slurm_missing():
     finally:
         workflow_module.NERSCJobManager.is_nersc_environment = original
 
-    assert result["status"] == "success"
+    # The request was recovered safely, but the requested submission did not occur.
+    assert result["status"] == "warning"
     assert result["submitted_jobs"]
     assert all(job["state"] == "DRY_RUN" for job in result["submitted_jobs"])
     assert "agent" in result
     assert result["agent"]["warnings"]
     assert result["agent"]["recovery_actions"]
+
+
+def test_failed_relaxation_never_generates_or_submits_xas(tmp_path):
+    structure_file = REPO_ROOT / "data/CuAu_dataset/2CO_adjacent/2CO_adjacent_0p056_interface/POSCAR"
+    runner = FakeSLURMRunner(terminal_state="FAILED")
+    result = execute_nersc_full_workflow(
+        structure_file=str(structure_file), output_dir=str(tmp_path / "failed"),
+        software="FEFF", submit=True, monitor=True, parse_when_complete=False,
+        poll_interval=1, job_manager=NERSCJobManager(runner=runner),
+        nersc_account="m1234", nersc_queue="regular", nersc_nodes=1,
+        nersc_walltime="00:30:00", edge_override="K",
+    )
+    assert result["status"] == "warning"
+    assert result["submitted_jobs"] and result["submitted_jobs"][0]["stage"] == "relax"
+    assert all(job["stage"] == "relax" for job in result["submitted_jobs"])
+    assert not (tmp_path / "failed" / "relax" / "CONTCAR").exists()
+    assert result["job_manager"]["warnings"]
 
 
 if __name__ == "__main__":

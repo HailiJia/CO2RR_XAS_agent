@@ -1,0 +1,69 @@
+{
+  "version": "full-cohort-model-tuning-v1",
+  "candidates": [
+    [
+      "Combined",
+      1,
+      64
+    ],
+    [
+      "Combined",
+      2,
+      64
+    ],
+    [
+      "Combined",
+      4,
+      64
+    ],
+    [
+      "DCT16",
+      1,
+      64
+    ],
+    [
+      "DCT16",
+      2,
+      64
+    ],
+    [
+      "DCT16",
+      4,
+      64
+    ],
+    [
+      "Combined",
+      1,
+      256
+    ]
+  ],
+  "seeds": [
+    20261020,
+    20261021,
+    20261022
+  ],
+  "primary": "seven-candidate nested selection; no outer-score winner",
+  "controls": [
+    "all-views Combined/leaf1/64",
+    "all-views Combined/leaf1/256",
+    "previous canonical-view Combined/leaf1/64, read-only"
+  ],
+  "data": "ALL141 supported records queried exactly once per seed; no abstention or difficulty filter",
+  "training": "ALL records outside held-out near groups; no canonical-view pruning",
+  "grouping": "135 conservative near groups, inherited outer folds and inner group assignments",
+  "weights": "each training geometry group has total base weight1; binary class masses balanced within training",
+  "leaf": "minimum leaf size counts record views; weighted impurity/class balance uses group weights",
+  "threshold": "common .3/.4/.5/.6, inner group micro F1 minus .02(t-.5)^2; fixed.5 separately",
+  "representations": "fixed population-weighted top-two signed shape; Combined or DCT16; no new depth/energy selection",
+  "normalization": "training-only simulation floor; every query retained; no amplitude/quality selection",
+  "uncertainty": "paired group bootstrap conditional on saved predictions; seed/refit variability separate",
+  "experimental_validation": false,
+  "manuscript_changes": false,
+  "source_sha256": "29cae463e90fe158d456e1f46506d76b74abeac9d4c99dd68f083c9035b3a3ed",
+  "input_hashes": {
+    "training_arrays.npz": "84439cdcd899ad4451d11c1176411d8a8407fb92995b4d1b9ecc29ed267d44e3",
+    "training_manifest.json": "62d064e3a020b0c70dfa37f10ca81389e6722e3fde80aac54d4e6c88af987d1f",
+    "family_map.json": "953bd12b8898df90f94760312094c1b2002466ceb0ae39257e8b4c25c543595e",
+    "ml/splits.json": "fb2930205c0d451c680bff5b70c619cc1aa3674dc8be35c1e643a5422183f708"
+  }
+}

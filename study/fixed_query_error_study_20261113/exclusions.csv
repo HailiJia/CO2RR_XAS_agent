@@ -1,0 +1,17 @@
+configuration,status,reason
+CO/CO_0p11/uniform2,excluded new candidate,Missing physical top-two convolved spectra
+CO2/CO2_0p084_interface_biased_activated,excluded new candidate,Missing physical top-two convolved spectra
+COOH/COOH_0p111_mixed_Au_Cu,excluded new candidate,Missing physical top-two convolved spectra
+CO_H/CO_H_0p139_3CO_2H_interface_biased,excluded new candidate,No exact relaxed root CONTCAR/XAS lineage for a new case
+CO_OH/CO_OH_0p139_3CO_2OH_AuCu2,excluded new candidate,Missing physical top-two convolved spectra
+Cu100/Cu100_2x2x4_1CO3_1H2O_hollow_flat-1HB,excluded new candidate,"Unsupported identity outside frozen eleven-label task: CO3,H2O"
+Cu100/Cu100_2x2x4_1CO3_hollow,excluded new candidate,Unsupported identity outside frozen eleven-label task: CO3
+Cu100/Cu100_2x2x4_1H2O_1CO_H2Otop_CObridge,excluded new candidate,"Unsupported identity outside frozen eleven-label task: CO,H2O"
+Cu100/Cu100_2x2x4_1H2O_1OH_H2Otop_OHbridge,excluded new candidate,"Unsupported identity outside frozen eleven-label task: H2O,OH"
+Cu100/Cu100_2x2x4_1H2O_2OH_H2Otop_OHbridge-top,excluded new candidate,"Unsupported identity outside frozen eleven-label task: H2O,OH"
+Cu100/Cu100_2x2x4_clean,pinned reference; not a new query,No exact relaxed root CONTCAR/XAS lineage for a new case
+OCCO_CO/OCCO_plus_CO_0p333_AuCu_interface,excluded new candidate,Missing physical top-two convolved spectra
+OCCO_H2O/OCCO_2H2O,excluded new candidate,"Unsupported identity outside frozen eleven-label task: CO,H2O"
+OCCO_H2O/OCCO_2H2O_atoo_bridge_interior,excluded new candidate,"Unsupported identity outside frozen eleven-label task: CO,H2O"
+OCCO_H2O/OCCO_2H2O_atop_bridge,excluded new candidate,"Unsupported identity outside frozen eleven-label task: CO,H2O"
+OH/OH_0p50_uniform,excluded new candidate,Layer table does not cover the full physical Cu layer

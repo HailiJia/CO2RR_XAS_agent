@@ -1,0 +1,114 @@
+[
+  {
+    "a": "CHO/CHO_0p111_interface_Cu",
+    "b": "CHO/CHO_0p111_uniform",
+    "RMS_A": 0.6350197366391227,
+    "max_A": 5.227526071305303,
+    "near": false
+  },
+  {
+    "a": "CHO/CHO_0p111_interior_Cu",
+    "b": "CHO/CHO_0p111_uniform",
+    "RMS_A": 0.34972892612777706,
+    "max_A": 5.2048182646524594,
+    "near": false
+  },
+  {
+    "a": "CHO/CHO_0p111_interior_Cu",
+    "b": "CHO/CHO_0p111_interface_Cu",
+    "RMS_A": 0.7436004469059826,
+    "max_A": 7.927864387380998,
+    "near": false
+  },
+  {
+    "a": "COOH/COOH_0p111_Cu_uniform",
+    "b": "COOH/COOH_0p111_AuCu_interface",
+    "RMS_A": 1.0125459974440514,
+    "max_A": 6.811776644108603,
+    "near": false
+  },
+  {
+    "a": "COOH/COOH_0p111_Cu_uniform",
+    "b": "COOH/COOH_0p111_Au_top",
+    "RMS_A": 0.920959372990605,
+    "max_A": 6.459388966364309,
+    "near": false
+  },
+  {
+    "a": "COOH/COOH_0p111_Cu_uniform",
+    "b": "COOH/COOH_0p111_Cu_interface",
+    "RMS_A": 0.013984857821139639,
+    "max_A": 0.09377388520707806,
+    "near": true
+  },
+  {
+    "a": "CO_OH/CO_OH_0p194_4CO_3OH_AuCu2",
+    "b": "CO_OH/CO_OH_0p194_4CO_3OH",
+    "RMS_A": 0.035748593904832385,
+    "max_A": 0.48917593953285043,
+    "near": false
+  },
+  {
+    "a": "CO_OH/CO_OH_0p222_5CO_3OH_AuCu2",
+    "b": "CO_OH/CO_OH_0p222_5CO_3OH",
+    "RMS_A": 0.681104038825678,
+    "max_A": 7.8913131092558375,
+    "near": false
+  },
+  {
+    "a": "OCCO_CO/OCCO_CO_0p111_AuCu_interface",
+    "b": "2CO_adjacent/2CO_adjacent_0p111_interface",
+    "RMS_A": 0.872621979397167,
+    "max_A": 8.523716167799417,
+    "near": false
+  },
+  {
+    "a": "OCCO_CO/OCCO_CO_0p111_AuCu_interface",
+    "b": "2CO_adjacent/2CO_adjacent_0p111_uniform",
+    "RMS_A": 0.6481771591664418,
+    "max_A": 6.197041716078975,
+    "near": false
+  },
+  {
+    "a": "OCCO_CO/OCCO_CO_0p111_AuCu_interface",
+    "b": "CO/CO_0p11/interface_biased",
+    "RMS_A": 0.6886674632610335,
+    "max_A": 5.969465648205421,
+    "near": false
+  },
+  {
+    "a": "OCCO_CO/OCCO_CO_0p111_AuCu_interface",
+    "b": "CO/CO_0p11/interior_biased",
+    "RMS_A": 0.6704089342016407,
+    "max_A": 4.973996800420869,
+    "near": false
+  },
+  {
+    "a": "OCCO_CO/OCCO_CO_0p111_AuCu_interface",
+    "b": "CO/CO_0p11/uniform",
+    "RMS_A": 0.9170576758749027,
+    "max_A": 8.395111958035525,
+    "near": false
+  },
+  {
+    "a": "OCCO_CO/OCCO_CO_0p111_AuCu_interface",
+    "b": "OCCO_CO/OCCO_CO_0p111_Cu_rich",
+    "RMS_A": 0.788616547139482,
+    "max_A": 8.81383474940186,
+    "near": false
+  },
+  {
+    "a": "OH/OH_0p25_interface_biased",
+    "b": "OH/OH_0p25_interior_biased",
+    "RMS_A": 0.5866751496398181,
+    "max_A": 4.172937830471413,
+    "near": false
+  },
+  {
+    "a": "OH/OH_0p25_interface_biased",
+    "b": "OH/OH_0p25_uniform",
+    "RMS_A": 0.4366385034982622,
+    "max_A": 2.575240028754545,
+    "near": false
+  }
+]

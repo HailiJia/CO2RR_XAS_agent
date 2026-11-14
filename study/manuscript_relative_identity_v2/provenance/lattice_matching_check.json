@@ -1,0 +1,43 @@
+{
+  "source_repository": "https://github.com/HailiJia/CO2RR_XAS_agent",
+  "source_commit": "390b1b899c4dca43685fda1380a494b1d5019fcd",
+  "source_sha256": {
+    "slab_generator.py": "2ab56230d4b3343481c88bcc68a156b1d7c3542934a1d96873c26e4a34a4015b",
+    "structure_generator.py": "d135104d53273d8139e506472f571eb88ec1f42db98382b4e13bba1179a2e9ca"
+  },
+  "lattice_constants_A": {
+    "Cu": 3.615,
+    "Au": 4.078
+  },
+  "strain_definition": "common_length / unstrained_length - 1",
+  "automatic_minimum_strain_within_10_repeats": {
+    "match_mode": "auto",
+    "element1_repeats": 9,
+    "element2_repeats": 8,
+    "element1_natural_length": 23.005719125904324,
+    "element2_natural_length": 23.068651629429926,
+    "matched_block_length": 23.037185377667125,
+    "element1_strain": 0.0013677577992930454,
+    "element2_strain": -0.0013640264835703543,
+    "max_abs_strain": 0.0013677577992930454
+  },
+  "minimum_total_repeats_within_5_percent_bound": {
+    "left_repeats": 6,
+    "right_repeats": 5,
+    "left_period": 2.5561910139893693,
+    "right_period": 2.8835814536787407,
+    "left_unstrained_length": 15.337146083936215,
+    "right_unstrained_length": 14.417907268393703,
+    "common_length": 14.877526676164958,
+    "left_strain": -0.029967727063162752,
+    "right_strain": 0.03187837175085817,
+    "max_abs_strain": 0.03187837175085817,
+    "matched_to": "balanced"
+  },
+  "balanced_one_to_one_strain": {
+    "Cu": 0.0640387275242047,
+    "Au": -0.05676802354095145
+  },
+  "scope": "Initial imposed interface-parallel matching strain, not a measurement of local relaxed strain or every cohort parent.",
+  "documentation_discrepancy": "The bounded matcher docstring/test_local expects 7:6; evaluating its implemented balanced 5% objective selects 6:5. Requires source-documentation reconciliation."
+}

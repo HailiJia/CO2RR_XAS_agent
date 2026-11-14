@@ -1,0 +1,6 @@
+fold,old_depth,old_feature,v3_depth,v3_feature,representation_changed
+0,depth_channels,multiscale,depth_channels,contrast,True
+1,depth_channels,contrast,depth_channels,multiscale,True
+2,layer_5,shape_CDF_derivatives,depth_channels,contrast,True
+3,layer_5,shape_CDF_derivatives,depth_channels,multiscale,True
+4,depth_channels,contrast,depth_channels,multiscale,True

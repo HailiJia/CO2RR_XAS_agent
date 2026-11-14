@@ -1,0 +1,77 @@
+{
+  "action": "audited_training",
+  "recipe": "scientific_extensions_v2",
+  "data": "available local export; sanitized paths",
+  "label_audit": {
+    "candidate_aliases": 45,
+    "geometry_files_parsed": 740,
+    "artifact_paths_searched": 2675,
+    "retained_candidates": 26,
+    "demonstrated_retained_label_mismatches": [],
+    "ambiguous_retained": [],
+    "retained_CH0_vs_COH_note": "CHO-only bins count configurations, not molecules or all CHO-containing mixtures; basename CHO is not chemical evidence for COH folders"
+  },
+  "configuration_count": 87,
+  "model_count": 40,
+  "all_saved_models_reloaded_identically": true,
+  "spectral_predictors_only": true,
+  "no_HPC_or_portal_calls": true,
+  "source_sha256": "4a01bd50ed9a1d9dfd3c3e8eb3f5ffa7076566813ada94e9739beef0ca5a22d9",
+  "protocol_sha256": "b7dffaaa3760c25174df2eaaa9abafdd116e39b02304f319f7b83c1a76864c2e",
+  "results": [
+    {
+      "model": "frozen_primary",
+      "micro_f1": 0.7790697674418605,
+      "macro_f1": 0.6382765882765882,
+      "exact_set_accuracy": 0.6896551724137931
+    },
+    {
+      "model": "nearest_neighbor",
+      "micro_f1": 0.7329842931937173,
+      "macro_f1": 0.6065366522022869,
+      "exact_set_accuracy": 0.6896551724137931
+    },
+    {
+      "model": "nearest_neighbor_augmented",
+      "micro_f1": 0.7142857142857143,
+      "macro_f1": 0.5674746869934035,
+      "exact_set_accuracy": 0.7011494252873564
+    },
+    {
+      "model": "independent_trees",
+      "micro_f1": 0.65,
+      "macro_f1": 0.476151121605667,
+      "exact_set_accuracy": 0.5172413793103449
+    },
+    {
+      "model": "independent_trees_augmented",
+      "micro_f1": 0.6744186046511628,
+      "macro_f1": 0.5015063883484937,
+      "exact_set_accuracy": 0.5517241379310345
+    },
+    {
+      "model": "classifier_chain",
+      "micro_f1": 0.6707317073170732,
+      "macro_f1": 0.5048991412627776,
+      "exact_set_accuracy": 0.5632183908045977
+    },
+    {
+      "model": "classifier_chain_augmented",
+      "micro_f1": 0.6627218934911243,
+      "macro_f1": 0.4761420397784033,
+      "exact_set_accuracy": 0.5517241379310345
+    },
+    {
+      "model": "xgboost",
+      "micro_f1": 0.6137566137566137,
+      "macro_f1": 0.4396212497553779,
+      "exact_set_accuracy": 0.42528735632183906
+    },
+    {
+      "model": "xgboost_augmented",
+      "micro_f1": 0.5964912280701754,
+      "macro_f1": 0.3713906950749056,
+      "exact_set_accuracy": 0.4942528735632184
+    }
+  ]
+}

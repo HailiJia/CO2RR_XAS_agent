@@ -1,0 +1,4525 @@
+[
+  {
+    "configuration": "2CO_adjacent/2CO_adjacent_0p056_AuCu_interface",
+    "supplied_record_sha256": "435d22bf0438750c1dd6cee850a9ab371144a1b5d235e6018dfc60fb8cdfd342",
+    "versioned_record_sha256": "5db872b858bd4227bf91c9f480b9a5165366767575cf048289176dea36983e46",
+    "labels_before": {
+      "CO": 2
+    },
+    "labels_after": {
+      "CO": 2
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "2CO_adjacent/2CO_adjacent_0p056_interface",
+    "supplied_record_sha256": "3df4ffedb4bc5347e41c4cf59ba246a7fae74705fc5a549a1e882ac6ee8dd7e6",
+    "versioned_record_sha256": "ef20bf2f713ae4d1cb6106dac6848e3057167dcb137dda4efb9b2aad6f0148be",
+    "labels_before": {
+      "CO": 2
+    },
+    "labels_after": {
+      "CO": 2
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "2CO_adjacent/2CO_adjacent_0p056_interior",
+    "supplied_record_sha256": "c6bf640071b2574def99a2c7d2a26fae03d3492651978dc59bc7dffc5e7070dd",
+    "versioned_record_sha256": "b36ef0424df410945c7fffa19f05d564f406921639b93a8aa300088c2d91bbba",
+    "labels_before": {
+      "CO": 2
+    },
+    "labels_after": {
+      "CO": 2
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "2CO_adjacent/2CO_adjacent_0p056_orientation_alt",
+    "supplied_record_sha256": "7578b947ed107cca703e2a94bc9408bd447d478c32514ead92c1abdd91e9a378",
+    "versioned_record_sha256": "09bd64fe2948cfebb82db9eb6991b3235b8a4ba146f7ec76133a15faedf484bd",
+    "labels_before": {
+      "CO": 2
+    },
+    "labels_after": {
+      "CO": 2
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "2CO_adjacent/2CO_adjacent_0p111_interface",
+    "supplied_record_sha256": "60b61b5e7cc5ba5819e651e5be339f342920dee417b82f937db394956cd01898",
+    "versioned_record_sha256": "d9fd6996927313230d0ef1d055d96e88e6f67aae6cca5b4b574468e33fbe7b90",
+    "labels_before": {
+      "CO": 4
+    },
+    "labels_after": {
+      "CO": 4
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "2CO_adjacent/2CO_adjacent_0p111_uniform",
+    "supplied_record_sha256": "7d7160f9249026e28f018052681889b4aef8f5de4ca21f193599eafbe4a06d11",
+    "versioned_record_sha256": "d6800f7472382cb6fd35a58664ba41f64f62755f49f6b7cbb969cfcfaa0fe7ec",
+    "labels_before": {
+      "CO": 4
+    },
+    "labels_after": {
+      "CO": 4
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "2CO_adjacent/2CO_adjacent_0p167_uniform",
+    "supplied_record_sha256": "c8397d3ec26b94e9804999f34e9db3722f68ce23acd8498fca7e0e0f7b14cf6d",
+    "versioned_record_sha256": "d82b851f4af52048d696233e3b3731231da4684c187954ab62d208db6c49b67e",
+    "labels_before": {
+      "CO": 6
+    },
+    "labels_after": {
+      "CO": 6
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "CHO/CHO_0p028_Cu_top",
+    "supplied_record_sha256": "3bc4fe0ea92ff1b37e7cd6d26d6a8f6ea8fdc245646606976e147b66cbc8d6cb",
+    "versioned_record_sha256": "93ebc8597fea41e2c5e2536e94b50450fb6bced6df4393e0c14ca4f88866243d",
+    "labels_before": {
+      "CO": 1,
+      "H": 1
+    },
+    "labels_after": {
+      "CO": 1,
+      "H": 1
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "CHO/CHO_0p056_AuCu_bidentate",
+    "supplied_record_sha256": "19e06f530fa4b433e797e64464dd45e873b2b08c1e49a748798d0e114b209533",
+    "versioned_record_sha256": "700846780a610dd6c021527a14c82bef914f7116b1a6a53d31cdff7c03ded2dc",
+    "labels_before": {
+      "CHO": 2
+    },
+    "labels_after": {
+      "CHO": 2
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "CHO/CHO_0p056_CuCu_bidentate",
+    "supplied_record_sha256": "2239cbf4e0cb629c551d136d059a99ecd4c63c65001056b5b74dcbd64676243b",
+    "versioned_record_sha256": "b6ad2847f393f1b6010b7bc1055149728e726105171e3548e9b34445e7a2d47c",
+    "labels_before": {
+      "CHO": 2
+    },
+    "labels_after": {
+      "CHO": 2
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "CHO/CHO_0p056_interface_Cu",
+    "supplied_record_sha256": "e9070e4282bc3df5a2c4336e3f1f92a1097bfabc31ae8c3efb2eba51ad5356c6",
+    "versioned_record_sha256": "862dc2c226a6756682e0f0f6a67fd6b71521d5f67f249d0e8a49eb41de4cb818",
+    "labels_before": {
+      "CO": 1,
+      "CHO": 1,
+      "H": 1
+    },
+    "labels_after": {
+      "CO": 1,
+      "CHO": 1,
+      "H": 1
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "CHO/CHO_0p056_interior_Cu",
+    "supplied_record_sha256": "b5c9af9fd0b6d483f19142499571e631b93a7742cfa0dbdf92b08cace0bf1a1e",
+    "versioned_record_sha256": "500ef84cf750a9f76a8ff3f2c0e2bb79f3d86bb82b7982afd8df877899db2664",
+    "labels_before": {
+      "CO": 1,
+      "CHO": 1,
+      "H": 1
+    },
+    "labels_after": {
+      "CO": 1,
+      "CHO": 1,
+      "H": 1
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "CHO/CHO_0p056_uniform",
+    "supplied_record_sha256": "a7d415e10726cd573ffe4b7a37b2d690ed8f0d42632a31132ba882aca597e751",
+    "versioned_record_sha256": "eb335969cc7e86833bbfe78195bdef65d1389ae989d84d9e8e1418f9531ac771",
+    "labels_before": {
+      "CO": 1,
+      "CHO": 1,
+      "H": 1
+    },
+    "labels_after": {
+      "CO": 1,
+      "CHO": 1,
+      "H": 1
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "CHO/CHO_0p111_CuCu_bidentate",
+    "supplied_record_sha256": "dcee53c349f52967c71e74167b71cdf7b237ef93c1e29d8a15caf405da93e31b",
+    "versioned_record_sha256": "4521d96a57673c9fdaf6e784792a9a66b80a177187e8d1d8eea02e7338eeac24",
+    "labels_before": {
+      "CHO": 3,
+      "CO": 1,
+      "H": 1
+    },
+    "labels_after": {
+      "CHO": 3,
+      "CO": 1,
+      "H": 1
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "CHO/CHO_0p111_uniform",
+    "supplied_record_sha256": "411c5ba870d689375c4d7fdcb6400f845edd26d923e1bc4a5b9c9e2c6c167a92",
+    "versioned_record_sha256": "a1244b58ecec857ec6f00c2cd4ac4dd74c3b8ef6ba29948099c44c8d065f7071",
+    "labels_before": {
+      "CO": 2,
+      "CHO": 2,
+      "H": 2
+    },
+    "labels_after": {
+      "CO": 2,
+      "CHO": 2,
+      "H": 2
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "CHO/CHO_0p167_uniform",
+    "supplied_record_sha256": "371f807c5be800b565114b6668e6f6f8af4f8f5f598a4d9ab2246223ddda67ef",
+    "versioned_record_sha256": "4b0bab08be5c2083ddd9a7c0165383179404d4b210f54b399927e253ebb0f14a",
+    "labels_before": {
+      "CO": 2,
+      "CHO": 4,
+      "H": 2
+    },
+    "labels_after": {
+      "CO": 2,
+      "CHO": 4,
+      "H": 2
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "CHO_CO/CO_CHO_0p111_more_CO",
+    "supplied_record_sha256": "f6208d3bb87c164c3615dcbcf284d942fe1ce9bcd43b2de7ebcc8e3d430e89b7",
+    "versioned_record_sha256": "aed9dfdd26ab1cae44f2d022029ea096adbd537ec2b872df8bd95e3f0156db74",
+    "labels_before": {
+      "CO": 4,
+      "H": 1
+    },
+    "labels_after": {
+      "CO": 4,
+      "H": 1
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "CHO_CO/CO_CHO_0p111_uniform",
+    "supplied_record_sha256": "0aa7cd488cf7e2eb1da8925ed3fce48ca81a803571dad4906e692c09d1a2dfe5",
+    "versioned_record_sha256": "da965db06505923ca40e7adea02c3366e89359f22caa217aa160387617990e3f",
+    "labels_before": {
+      "CO": 3,
+      "CHO": 1,
+      "H": 1
+    },
+    "labels_after": {
+      "CO": 3,
+      "CHO": 1,
+      "H": 1
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "CO/CO_0p11/interface_biased",
+    "supplied_record_sha256": "d7d29a906a35c1a08be080716e5faee083e4280a4092701ea79a03b920b46321",
+    "versioned_record_sha256": "f14675d505ddef316b386824b145efb6e613713aeecd4f85d903e76b5b30313e",
+    "labels_before": {
+      "CO": 4
+    },
+    "labels_after": {
+      "CO": 4
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "CO/CO_0p11/interior_biased",
+    "supplied_record_sha256": "ae1a78cd07c58163b94ca2e13773c39987f4707411679110cbce474fc01e8b9b",
+    "versioned_record_sha256": "7aad5dacee8c91ac444b7bc7ec12f859214077184fb75c97084c38d3af203ee0",
+    "labels_before": {
+      "CO": 4
+    },
+    "labels_after": {
+      "CO": 4
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "CO/CO_0p11/uniform",
+    "supplied_record_sha256": null,
+    "versioned_record_sha256": "456d0eb6362718412ea4d5b30367c16193dbe2558ef0ba4dd1e6505234573fd7",
+    "labels_before": null,
+    "labels_after": {
+      "CO": 4
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "CO/CO_0p11/uniform2",
+    "supplied_record_sha256": "dcd32267ee9a6bf9d21f7972ece562b39079da4e67500ba69601e08af5abd5df",
+    "versioned_record_sha256": "8ef01508c270eefd499a603d253e282c456f06454465f30332d4bc559cc3c4ab",
+    "labels_before": {
+      "CO": 4
+    },
+    "labels_after": {
+      "CO": 4
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": false,
+    "exclusion": "Missing top-two physical layers"
+  },
+  {
+    "configuration": "CO/CO_0p14/interface_biased",
+    "supplied_record_sha256": "1f5dc3639275b2174dd8817229a4ebbbe240e60ad39fc43b1b1172ca488c9a7b",
+    "versioned_record_sha256": "b9067963c042e60ae9fb1a55f672b471e48ecf3e8eedbdd62774d46587d09535",
+    "labels_before": {
+      "CO": 5
+    },
+    "labels_after": {
+      "CO": 5
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "CO/CO_0p14/interior_biased",
+    "supplied_record_sha256": "e99f6ca81231016a3535a4783fe63e33aa32b6a0beba5b357cf1a58175753720",
+    "versioned_record_sha256": "e6d6acfad5db3cf37f0df882c8b2691294eb5e9d2f46d56ac4db919b14070122",
+    "labels_before": {
+      "CO": 5
+    },
+    "labels_after": {
+      "CO": 5
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "CO/CO_0p14/uniform",
+    "supplied_record_sha256": "435733797f676f74a20e3976b8305acd85c717887a9de49e21efa3003c7967d2",
+    "versioned_record_sha256": "2692417d2fedf4e84b648584490b4c4ed2f7c7320e61988e7e27b99dec11df80",
+    "labels_before": {
+      "CO": 5
+    },
+    "labels_after": {
+      "CO": 5
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "CO/CO_0p14/uniform2",
+    "supplied_record_sha256": "61e73557de66e7422f135fb900831b35c4bc40fa986924681090237ff833465a",
+    "versioned_record_sha256": "58a1f096ed8dc06b2687aeb3fcef3baaeab3f36edcd756b1239b767b9c987624",
+    "labels_before": {
+      "CO": 5
+    },
+    "labels_after": {
+      "CO": 5
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "CO/CO_0p25/interface_biased",
+    "supplied_record_sha256": "a64031892311ebceaebb475231febf8195ad801372d795e04c7e0aff049cc4ce",
+    "versioned_record_sha256": "5055f9001f901c357653c0ee471ddf7414073fec4856bd1a48a9f7e18337565d",
+    "labels_before": {
+      "CO": 9
+    },
+    "labels_after": {
+      "CO": 9
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "CO/CO_0p25/interface_biased2",
+    "supplied_record_sha256": "df1e192d6425a72556b768b4da1e3d8bfa8b3ac73e33141ce473621081cc2452",
+    "versioned_record_sha256": "8f4a151269b714eb1af32b61181d556a0cb041570bbd04b0970ceca7f46a8384",
+    "labels_before": {
+      "CO": 9
+    },
+    "labels_after": {
+      "CO": 9
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "CO/CO_0p25/interior_biased",
+    "supplied_record_sha256": "5302dd84491939d00d32be8090857971180e4e57fe7df521204c72109aca6838",
+    "versioned_record_sha256": "50864e3f12974d042c176366f81c1360272fcbc766b4dc15f66e0af93010369d",
+    "labels_before": {
+      "CO": 9
+    },
+    "labels_after": {
+      "CO": 9
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "CO/CO_0p25/uniform",
+    "supplied_record_sha256": "6faab4317ddccf475504a62ec350b42c539385837c9138ef3873e662752dba57",
+    "versioned_record_sha256": "f3e09c023d3a897334bcac0506065ef268829c1cc18c92760f6a52cb511d4a27",
+    "labels_before": {
+      "CO": 9
+    },
+    "labels_after": {
+      "CO": 9
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "CO/CO_0p5/interface_biased",
+    "supplied_record_sha256": "3877b08b49a196cc8a807a4df7ab8ae0a988768b945fa7ef250ce15311c317ef",
+    "versioned_record_sha256": "2a29f685b1653540ec2634f6f43cd8b5e21d915fb16b107dab9a52432b9f28f2",
+    "labels_before": {
+      "CO": 18
+    },
+    "labels_after": {
+      "CO": 18
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "CO/CO_0p5/interior_biased",
+    "supplied_record_sha256": "3057e8338bcbeee519cfa16f6eb11de26685dc7a6b876fd375e623fb9b597f0c",
+    "versioned_record_sha256": "53b10f8773a1df48e94ada2b7b239076619614c16c7af0ce4cc614b6980373c2",
+    "labels_before": {
+      "CO": 18
+    },
+    "labels_after": {
+      "CO": 18
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "CO/CO_0p5/uniform",
+    "supplied_record_sha256": "0b68d6cb6ea75b21b10ac2d3a65f60e7b896049a5de3836c4e4ed103a5de67b9",
+    "versioned_record_sha256": "6d78d0552b826df78cf960c629c0174295546044051fb77c90093a22b8129d73",
+    "labels_before": {
+      "CO": 18
+    },
+    "labels_after": {
+      "CO": 18
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "CO/CO_0p75/uniform",
+    "supplied_record_sha256": "7041261f8992b4f154c450c47c2ba475a76aead951fb60cdc1a346accba7e3ff",
+    "versioned_record_sha256": "1fe28777e985dc4ac854b756ef0233802a15ef4973903610003bc62fd91d29a8",
+    "labels_before": {
+      "CO": 27
+    },
+    "labels_after": {
+      "CO": 27
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "CO2/CO2_0p028_interface_biased_activated",
+    "supplied_record_sha256": "b18887a673f81d94fd3cacbee9ae346d75e91411eb4fb5808b76da4fe7b63ab3",
+    "versioned_record_sha256": "2d092a3948c78049a910567687372a47db495f358120039c780d3272370e0d45",
+    "labels_before": {
+      "CO2": 1
+    },
+    "labels_after": {
+      "CO2": 1
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "CO2/CO2_0p028_linear_Cu_top",
+    "supplied_record_sha256": "a9a447bc0ecefec5a01abd2daf51cacdbaa108ed28e194754772d007f325df8c",
+    "versioned_record_sha256": "c436f0c7b52906ce65a135801b3dd70ae5f4399c4f9dc238f8b2df55609541d5",
+    "labels_before": {
+      "CO2": 1
+    },
+    "labels_after": {
+      "CO2": 1
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "CO2/CO2_0p056_interface_biased_activated",
+    "supplied_record_sha256": "d67f22f14865598b57e5db70b772040ac6090874b13c54f4e5f1a395e47ba659",
+    "versioned_record_sha256": "22141bcf46b1463aabad6f4edb648285274ab9449008b62ad51534dbcf99e950",
+    "labels_before": {
+      "CO2": 2
+    },
+    "labels_after": {
+      "CO2": 2
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "CO2/CO2_0p056_mixed",
+    "supplied_record_sha256": "a09c6f998bf1461e5d509f06697db1da7ad0ca23b93ae211374c8fd218619208",
+    "versioned_record_sha256": "de2aecbafc55903290dbf891f53927585f82a823c2145e6719495e00f363fa48",
+    "labels_before": {
+      "CO2": 2
+    },
+    "labels_after": {
+      "CO2": 2
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "CO2/CO2_0p056_uniform_activated",
+    "supplied_record_sha256": "61ed2c14232c52e60b87075e875fe8d021637fd77a74cc5d87475eff91b5ea89",
+    "versioned_record_sha256": "de669d3e09a680aa5a911fe2524245c47641e8bb4e26d47469197769953a7ed3",
+    "labels_before": {
+      "CO2": 2
+    },
+    "labels_after": {
+      "CO2": 2
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "COCHO/COCHO_0p056_AuCu_interface",
+    "supplied_record_sha256": "1e3e7858523517ec98556b599e87a7489411db941f6226d601a4d1380222bc4f",
+    "versioned_record_sha256": "02f52bf669b259b2b20489c261797e83003fe80b8fcd43ae156aa29d76d60528",
+    "labels_before": {
+      "OCCOH": 1
+    },
+    "labels_after": {
+      "OCCOH": 1
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "COCHO/COCHO_0p056_AuCu_interface2",
+    "supplied_record_sha256": "306b75ad275f37b98068212ba6cc38afc9f06c5f4fe1efd0633c9e2e63d0e3dd",
+    "versioned_record_sha256": "46ca0d045a6fa30b55b009281b1ed3371243d33156da041091e391d896b06f9b",
+    "labels_before": {
+      "OCCOH": 1
+    },
+    "labels_after": {
+      "OCCOH": 1
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "COCHO/COCHO_0p056_Cu_interface",
+    "supplied_record_sha256": "e738e0d9b2c247f2798123f96ffd861718868d94fd1c19223704042e9f688728",
+    "versioned_record_sha256": "8a68c84c1eba07c6afde20fa8041de50c7c7b977855625d9f24b3dde1b8021a0",
+    "labels_before": {
+      "CO": 2,
+      "H": 1
+    },
+    "labels_after": {
+      "CO": 2,
+      "H": 1
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "COCHO/COCHO_0p056_Cu_interior",
+    "supplied_record_sha256": "92d0c468e76ff421b061152e543d1ff7527e78bbaef90c88e23fd4a59524ad13",
+    "versioned_record_sha256": "309be57cb790306b97b7ced6a461ccb7a3f144b0121bc29d02f57082d28937fd",
+    "labels_before": {
+      "COCHO": 1
+    },
+    "labels_after": {
+      "COCHO": 1
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "COH/CHO_0p056_AuAuCu",
+    "supplied_record_sha256": "b7750c3fcd7d22ab115388fde034ecf301eb09d1f34d4934c55748c7e1ef84b5",
+    "versioned_record_sha256": "4bc0516ab15567eaac7903c83fa640a5b0d1f4969feb09a524ccc24fda70925b",
+    "labels_before": {
+      "COH": 2
+    },
+    "labels_after": {
+      "COH": 2
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "COH/CHO_0p111_AuCuCu",
+    "supplied_record_sha256": "edb3b2ba6e043f331632e75e8b144baed03f97514531f30383546840008c7d90",
+    "versioned_record_sha256": "54d1890222336a6829c6ed40084da35f63a99ba7c72e90eb407199ee408c8335",
+    "labels_before": {
+      "COH": 4
+    },
+    "labels_after": {
+      "COH": 4
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "COH/CHO_0p111_interface_Cu3",
+    "supplied_record_sha256": "e38c0d782b5638bfb416ce28ecb0c6d25fa04e8b45975c6bde3314d9a363924b",
+    "versioned_record_sha256": "0742e8c060e6e96ec7c2e15cec5ca98dc3c4c460006601c44a31a563610c1f24",
+    "labels_before": {
+      "COH": 4
+    },
+    "labels_after": {
+      "COH": 4
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "COH/CHO_0p111_interior",
+    "supplied_record_sha256": null,
+    "versioned_record_sha256": "df544af651f53872f19068adb506ce1f098c1262dbb9f63f8aa7fd9541d6aff0",
+    "labels_before": null,
+    "labels_after": {
+      "COH": 4
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": false,
+    "exclusion": "Missing top-two physical layers"
+  },
+  {
+    "configuration": "COH/CHO_0p111_uniform",
+    "supplied_record_sha256": "823d5e3a995b13fbb251f58b540c0d544700085333ecb6bf75a4681204161b99",
+    "versioned_record_sha256": "8febe47569482c8436f374e4461488e849433498b666e2e3f3af403f25822dc4",
+    "labels_before": {
+      "COH": 4
+    },
+    "labels_after": {
+      "COH": 4
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "COH/COH_0p028_interface_Cu3",
+    "supplied_record_sha256": "eaceb90beffc461cba968ab7c183345fa2b6c51f043f23b14171d14f661ac336",
+    "versioned_record_sha256": "4883f0aa3854f4c1c69c07160f8d3d8b0570ddeab5db6c6c01211e69716d249c",
+    "labels_before": {
+      "COH": 1
+    },
+    "labels_after": {
+      "COH": 1
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "COH/COH_0p056_AuCuCu",
+    "supplied_record_sha256": "5416dcf286e96e1a9aa3bcb9091ded6ca727ae08d3b78f17a1a331bfc80cc861",
+    "versioned_record_sha256": "99b779bbf7d90e41262b892e8e35b9033a34034348d29dd92b1c4a3b4d918996",
+    "labels_before": {
+      "COH": 2
+    },
+    "labels_after": {
+      "COH": 2
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "COH/COH_0p056_interface_Cu3",
+    "supplied_record_sha256": "ea28290416a875df6888de03a12680a7eb47fc7ff18ef803a900cafebc473eaf",
+    "versioned_record_sha256": "c0630c9ede2125b80fa9e540b6176fd80f8123988389e9afaef0c4b90807abed",
+    "labels_before": {
+      "COH": 2
+    },
+    "labels_after": {
+      "COH": 2
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "COH/COH_0p056_interior",
+    "supplied_record_sha256": "091fa16938d954fab86641d169b231fe866d5f602013cb3736d06c6d180e84ba",
+    "versioned_record_sha256": "84ea527b018d799426a1548ddb4f38adb1a214e143e54b1b30262ea102ce5d43",
+    "labels_before": {
+      "COH": 2
+    },
+    "labels_after": {
+      "COH": 2
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "COH/COH_0p056_uniform",
+    "supplied_record_sha256": "79159c9a8150da0b8cc04dfcf2b61e146fe750af4a0bfe69bca28fc7c34a1f19",
+    "versioned_record_sha256": "71ef5c36bc4f82f7616bfec8634099e2f5c94e1b2babadefde8b3747d35d8ab5",
+    "labels_before": {
+      "COH": 2
+    },
+    "labels_after": {
+      "COH": 2
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "COH/COH_0p167_uniform",
+    "supplied_record_sha256": "37f924fd842ab38fa881b2295526b84aa763d100a8ac3c6f7f26777a284ae18e",
+    "versioned_record_sha256": "f9a195f0deee3ccc9781d9ad532b44af5d17a4e809af30c01f1282f97dc95d10",
+    "labels_before": {
+      "COH": 6
+    },
+    "labels_after": {
+      "COH": 6
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "COOH/COOH_0p028_AuCu_interface",
+    "supplied_record_sha256": "d8be9fd6c2e80b376b67a0b4b6342678fa19a214e182e28ff80700e36442230e",
+    "versioned_record_sha256": "376a23b2be1be482b44375a5bad11184c40e700b14b04dd28d97974d700f6454",
+    "labels_before": {
+      "COOH": 1
+    },
+    "labels_after": {
+      "COOH": 1
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "COOH/COOH_0p056_AuCu_interface",
+    "supplied_record_sha256": "f4e7962d31e58ef96aa5ecb2df62cdfd9d20ddbfea5a6f57ef138526965cc9a9",
+    "versioned_record_sha256": "67299799cd2eb96eee68ec44bf71db4c103b7a72d72c53c9c5cbe5bdf4bd9192",
+    "labels_before": {
+      "COOH": 2
+    },
+    "labels_after": {
+      "COOH": 2
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "COOH/COOH_0p056_Au_top",
+    "supplied_record_sha256": "c2ee4dc738340074471f512d52a0ab50bca7f71a620eb35c5f3a4b3e0d4917e4",
+    "versioned_record_sha256": "0fe1580d4fa5289ab97b28a27d06d86e6a6bb613977ee64e79d66fc9d41ecdbe",
+    "labels_before": {
+      "COOH": 2
+    },
+    "labels_after": {
+      "COOH": 2
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "COOH/COOH_0p056_Cu_interface",
+    "supplied_record_sha256": "3a3a0e421f8aa4a190687aee5e38cee3944f232bf0c6ba9ed7ea3bcc90b40e84",
+    "versioned_record_sha256": "6f1a03a37c3824639cfb2fd16369f596748f3ecf4267da9d218065cc31752947",
+    "labels_before": {
+      "COOH": 2
+    },
+    "labels_after": {
+      "COOH": 2
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "COOH/COOH_0p056_Cu_uniform",
+    "supplied_record_sha256": "37c8bcd8834e0870728ac9536314c882e06faddb4a0145439c557d55fc4d2ae4",
+    "versioned_record_sha256": "fdcaddfef55810cdd38026ca1892553bcb45f1e3e348fc0f810afcc89467855c",
+    "labels_before": {
+      "COOH": 2
+    },
+    "labels_after": {
+      "COOH": 2
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "COOH/COOH_0p056_mixed_Au_Cu",
+    "supplied_record_sha256": "6818de3758fd8c50d164b28ed66ef9b2565a4e2e4d3e08334da8d3e64accdb83",
+    "versioned_record_sha256": "63c1c1c001dc2ac4682057c57f7729e9bda51bceb840163b293a61bfd097b3dd",
+    "labels_before": {
+      "COOH": 2
+    },
+    "labels_after": {
+      "COOH": 2
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "COOH/COOH_0p111_AuCu_interface",
+    "supplied_record_sha256": "281cbc3284d3cf95962b3970d89daabe52dd9b822dfaa21a9c2f2402df6eac57",
+    "versioned_record_sha256": "5a59f101caa8e4ec918e56f5bf3ddee6c4f4758644434a60f1713e14c051926d",
+    "labels_before": {
+      "COOH": 4
+    },
+    "labels_after": {
+      "COOH": 4
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "COOH/COOH_0p111_Au_top",
+    "supplied_record_sha256": "47829f18f0e334350e1c2686c479c8569a8e2c551581714bf31ac01b6c274f5d",
+    "versioned_record_sha256": "023a6f37a984de6789953ec23833bd2ef720055932e3e0efd6bff2b4992fdef1",
+    "labels_before": {
+      "COOH": 4
+    },
+    "labels_after": {
+      "COOH": 4
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "COOH/COOH_0p111_Cu_interface",
+    "supplied_record_sha256": "8b22db28644006bc5d6b8a31d5fc9c61c84addd99907e4c303636215c6fd1adf",
+    "versioned_record_sha256": "361d409e3cf52f31f35867ece4c3aa311cb300016528f81254d7849509914035",
+    "labels_before": {
+      "COOH": 4
+    },
+    "labels_after": {
+      "COOH": 4
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "CO_H/CO_H_0p083_2CO_1H",
+    "supplied_record_sha256": "8b9d61fbda37b0811d17680b1289aca49dce8840ea7ecd2b332ee90faed7a7b2",
+    "versioned_record_sha256": "ed214721db479115495eb649b7c579b8dad61c4d3a279c4cd17b26599cd9ca61",
+    "labels_before": {
+      "CO": 2,
+      "H": 1
+    },
+    "labels_after": {
+      "CO": 2,
+      "H": 1
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "CO_H/CO_H_0p083_2CO_1H_AuCu2",
+    "supplied_record_sha256": "5e575cb430cf22c4a9daaca78026b2a284c52385a66859982db8a25d41ce8dba",
+    "versioned_record_sha256": "df79672e39469d42dabe9ac01211bb8c128b5a5d57e9a0baa4d44f05d78af0d5",
+    "labels_before": {
+      "CO": 2,
+      "H": 1
+    },
+    "labels_after": {
+      "CO": 2,
+      "H": 1
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "CO_H/CO_H_0p111_2CO_2H",
+    "supplied_record_sha256": "46d4196f4f2808c84a1d120b79fd1d64380e2a17f1a64852ad0f9346b2d74e3b",
+    "versioned_record_sha256": "64a1505a37ad507403a7ce2daa5e0a33c1b8183ecba2d7dd5a3cfb05ec68d159",
+    "labels_before": {
+      "CO": 2,
+      "H": 2
+    },
+    "labels_after": {
+      "CO": 2,
+      "H": 2
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "CO_H/CO_H_0p139_3CO_2H_interface_biased",
+    "supplied_record_sha256": "16a10bd2de1214e3d0b512188bd624e3c319625a71e2f0db9a4f6995fe956bbb",
+    "versioned_record_sha256": "c545145e3ce8b32fd545253220af6c4607d6f740c9c8527beb5bccf913b6279d",
+    "labels_before": {
+      "CO": 3,
+      "H": 2
+    },
+    "labels_after": {
+      "CO": 3,
+      "H": 2
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "geometry_changed",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": false,
+    "exclusion": "Unresolved root CONTCAR / calculation-input mismatch"
+  },
+  {
+    "configuration": "CO_H/CO_H_0p222_4CO_4H",
+    "supplied_record_sha256": null,
+    "versioned_record_sha256": "c0f7b647489939cf85ef54fdc4107a7a3ffffc110f6da91586c203ff2721e289",
+    "labels_before": null,
+    "labels_after": {
+      "CO": 4,
+      "H": 4
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": false,
+    "exclusion": "Missing top-two physical layers"
+  },
+  {
+    "configuration": "CO_H/CO_H_0p222_4CO_4H_AuCu2",
+    "supplied_record_sha256": null,
+    "versioned_record_sha256": "d0a306c41903cf6cefed380446d4cdfebb14c00702494514fc54552beb8f5b09",
+    "labels_before": null,
+    "labels_after": {
+      "CO": 4,
+      "H": 4
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": false,
+    "exclusion": "Missing top-two physical layers"
+  },
+  {
+    "configuration": "CO_OH/CO_OH_0p111_3CO_1OH",
+    "supplied_record_sha256": "3c6e49ac01e0546bac40035e24dafa758a9e10e808d6487c2f2dc50f46f8b7bb",
+    "versioned_record_sha256": "b313d9b175e4f045308767fe644e2c20284c84bc907d40f21fa4a8b383d211d9",
+    "labels_before": {
+      "CO": 3,
+      "OH": 1
+    },
+    "labels_after": {
+      "CO": 3,
+      "OH": 1
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "CO_OH/CO_OH_0p111_3CO_1OH_AuCu2",
+    "supplied_record_sha256": "31a864404b0b6ab6a6009476072312b733b41de8e1fe5e5baa71321ee2de15e5",
+    "versioned_record_sha256": "3b50c7af4063bb945616193c65a87d1b63bcafd4887d35cd3962bfee5591e03f",
+    "labels_before": {
+      "CO": 3,
+      "OH": 1
+    },
+    "labels_after": {
+      "CO": 3,
+      "OH": 1
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "CO_OH/CO_OH_0p167_4CO_2OH",
+    "supplied_record_sha256": null,
+    "versioned_record_sha256": "8fdfdb50d0e0c878332b7c4f5b16efc7d59a1586dc398200d592c42321a1bb8e",
+    "labels_before": null,
+    "labels_after": {
+      "CO": 4,
+      "OH": 2
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": false,
+    "exclusion": "Missing top-two physical layers"
+  },
+  {
+    "configuration": "CO_OH/CO_OH_0p222_5CO_3OH",
+    "supplied_record_sha256": "026f556aac3231e2b6ec00056dddc7b4eec16bd2b47dd45b451d74ae49f57dc4",
+    "versioned_record_sha256": "47198d6cbe21e0880782458bc147c5d15f2c905442e6da98f77506c62846244c",
+    "labels_before": {
+      "CO": 5,
+      "OH": 3
+    },
+    "labels_after": {
+      "CO": 5,
+      "OH": 3
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_1CO3_1H2O_hollow_flat-1HB",
+    "supplied_record_sha256": null,
+    "versioned_record_sha256": "f873d71dcaaadf438b513687c0244598386b495c42947a384e1c7655be791e55",
+    "labels_before": null,
+    "labels_after": {
+      "CO3": 1,
+      "H2O": 1
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_1CO3_hollow",
+    "supplied_record_sha256": null,
+    "versioned_record_sha256": "0391efcec1913c2868ba4bdc4709179f7f953f325b6fa38617757fb9809feca9",
+    "labels_before": null,
+    "labels_after": {
+      "CO3": 1
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_1H2O_1CO_H2Otop_CObridge",
+    "supplied_record_sha256": null,
+    "versioned_record_sha256": "ea24945094b956cd9b15558a4f8a8f14eb37a025546c9685fa23d7fbd7010f30",
+    "labels_before": null,
+    "labels_after": {
+      "H2O": 1,
+      "CO": 1
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_1H2O_1OH_H2Otop_OHbridge",
+    "supplied_record_sha256": null,
+    "versioned_record_sha256": "3201c106d7163e4fcc4fbea95c4a9eec718d181bd5986097426da71150627629",
+    "labels_before": null,
+    "labels_after": {
+      "OH": 1,
+      "H2O": 1
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_1H2O_2OH_H2Otop_OHbridge-top",
+    "supplied_record_sha256": null,
+    "versioned_record_sha256": "43bec0606e913a3cdfdd0e2a7dfc90c3e7fc4b8b1cfa3c1324747423d29a8c98",
+    "labels_before": null,
+    "labels_after": {
+      "OH": 2,
+      "H2O": 1
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_CO_1_4_top",
+    "supplied_record_sha256": null,
+    "versioned_record_sha256": "3604497dc01a614a2f20b499a3888a3a5e47e9783c335ff55c66c243861068c1",
+    "labels_before": null,
+    "labels_after": {
+      "CO": 1
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_CO_2_4_2top_v2",
+    "supplied_record_sha256": null,
+    "versioned_record_sha256": "55a4fab98de5c0e91a3e71396d6d5a3c71ef885de07b55c8bd522e1308cd38c4",
+    "labels_before": null,
+    "labels_after": {
+      "CO": 2
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_CO_3_4_2top_1bridge",
+    "supplied_record_sha256": null,
+    "versioned_record_sha256": "9f1fff3e76cf98eb1951d608e1f85cec0f11268de2398d761d2634e908084ed4",
+    "labels_before": null,
+    "labels_after": {
+      "CO": 3
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_CO_4_4_2top_2bridge",
+    "supplied_record_sha256": null,
+    "versioned_record_sha256": "bf74fbbb2b15afc1b173b69152210311e717dc9f790981b0dd004baaa0657fdb",
+    "labels_before": null,
+    "labels_after": {
+      "CO": 4
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_H_1_4_hollow",
+    "supplied_record_sha256": null,
+    "versioned_record_sha256": "e07b7dd0347de0263c0de1c37921bc61a58e22c38a31cc7b25aa6c1a74331ead",
+    "labels_before": null,
+    "labels_after": {
+      "H": 1
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_H_3_4_1bridge_2hollow_config_1",
+    "supplied_record_sha256": null,
+    "versioned_record_sha256": "14c0993a3776caabfd176471cdc1a5991928b62da400d98b8fcd01650fdc0ea8",
+    "labels_before": null,
+    "labels_after": {
+      "H": 3
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_H_4_4_4bridge_config_4",
+    "supplied_record_sha256": null,
+    "versioned_record_sha256": "b61735d359f41864ec83fa3bc84a70ed83db5c2d2f75dce05eb868b0ca4d8344",
+    "labels_before": null,
+    "labels_after": {
+      "H": 4
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_OH_1_4_hollow",
+    "supplied_record_sha256": null,
+    "versioned_record_sha256": "63cf3b25be81fa9e18c00e55c99153b824a42abf7d7c916105dd03a8d8fd528a",
+    "labels_before": null,
+    "labels_after": {
+      "OH": 1
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_OH_2_4_hollow_config_2",
+    "supplied_record_sha256": null,
+    "versioned_record_sha256": "c096dd15744c6965c81e01dd67313dedc2af018554f4b7fce45cf18311235866",
+    "labels_before": null,
+    "labels_after": {
+      "OH": 2
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_OH_3_4_mixed_1bridge_2hollow",
+    "supplied_record_sha256": null,
+    "versioned_record_sha256": "50f0d21a245ec5920aab719eefc2735910155561c972a0f8dce792e8cbaa9862",
+    "labels_before": null,
+    "labels_after": {
+      "OH": 3
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_OH_4_4_mixed_2top_2bridge",
+    "supplied_record_sha256": null,
+    "versioned_record_sha256": "7b0599b6828b2c48a71e2988362a36f8d463630b1fe54019dba0708080982269",
+    "labels_before": null,
+    "labels_after": {
+      "OH": 4
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_O_1_4_hollow",
+    "supplied_record_sha256": null,
+    "versioned_record_sha256": "66ef7983c51989773bbf4775ffdb76b91a4fd44568e15b35a35004b64e4d43f7",
+    "labels_before": null,
+    "labels_after": {
+      "O": 1
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "H/H_0p25/Au",
+    "supplied_record_sha256": "429f90966e2cc84f2868138308470fcffa56b8355f422e71d1d5f43e9a59ce55",
+    "versioned_record_sha256": "d2ffb6bd0a00029c2f65d372bd5d70ec0b62de5bd2daeb9cc4afe0ca977ecf07",
+    "labels_before": {
+      "H": 9
+    },
+    "labels_after": {
+      "H": 9
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "H/H_0p25/interface_biased",
+    "supplied_record_sha256": "f9f2d22ec02e2f6c7358c63848d6bbede3703ceddb779a050753ee7ffae038fa",
+    "versioned_record_sha256": "fbafcff65de46badfe200a37d7eaa3be8741a974bd12ea1d9189625cccb73ce5",
+    "labels_before": {
+      "H": 9
+    },
+    "labels_after": {
+      "H": 9
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "H/H_0p25/interface_biased2",
+    "supplied_record_sha256": "35cf3aacbeab2eb06105f2468a59519df1def99f856400771c45ba5d1bac8f71",
+    "versioned_record_sha256": "1499d4390438da5f7d69f7adf38afb99d95e1185415b0305e665d179edaf5307",
+    "labels_before": {
+      "H": 9
+    },
+    "labels_after": {
+      "H": 9
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "geometry_changed",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "H/H_0p25/interior_biased",
+    "supplied_record_sha256": "4fc968a1547f6417e95acb815848eb2d529e36bc829f1d68f92d60e6185295ce",
+    "versioned_record_sha256": "9a5a54544b9758d5256d7e44598842cac8f6c9fcd0681eae1624b1f0b9550dcd",
+    "labels_before": {
+      "H": 9
+    },
+    "labels_after": {
+      "H": 9
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "H/H_0p25/uniform",
+    "supplied_record_sha256": "1b3f2bca0d5632e659231762662815cc0744034ec0de73f49d122e8ed6dd7634",
+    "versioned_record_sha256": "ca0de96a72915c91e96fdcf8ffba8e492f85bff0f7769609a6dae0682519e93d",
+    "labels_before": {
+      "H": 9
+    },
+    "labels_after": {
+      "H": 9
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "H/H_0p5/Au",
+    "supplied_record_sha256": "a36effd45124171b1f70f4380eca7996dce8e5dba44d6542bb69297953d95802",
+    "versioned_record_sha256": "2bb6a15e62f084180f03f478868e087f974efda3a5814abda478a14bb074c923",
+    "labels_before": {
+      "H": 18
+    },
+    "labels_after": {
+      "H": 18
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "H/H_0p5/interface_biased",
+    "supplied_record_sha256": "a01ae15728bcd92fb6b639be4e307c31c8bbc082339bf22fdaea482caf8428e1",
+    "versioned_record_sha256": "8af3426643c124dd22ae725c9b30894b243198e0d3369f2ba7cd447aa0769cd2",
+    "labels_before": {
+      "H": 18
+    },
+    "labels_after": {
+      "H": 18
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "H/H_0p5/interface_biased2",
+    "supplied_record_sha256": "d5623f28da609f21006449d337046345678610b597eb84b39b443bb1e7d6ce81",
+    "versioned_record_sha256": "9692fcf50cdcf0efbf36e5ed1d82b80c0d873c4658dcb2056fc13d81108fc517",
+    "labels_before": {
+      "H": 18
+    },
+    "labels_after": {
+      "H": 18
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "H/H_0p5/interior_biased",
+    "supplied_record_sha256": "d6bbb237ed44160a608d3b9863f4ad22e276993c600088d7fa56dd7e36a2bfff",
+    "versioned_record_sha256": "6f0616fcf168bbb3d3a2c7915e129aecfd5d931c9e1d923150c1c78210bfe201",
+    "labels_before": {
+      "H": 18
+    },
+    "labels_after": {
+      "H": 18
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "H/H_0p5/uniform",
+    "supplied_record_sha256": "f4732bb6310db61e0e719ea0cb11c352f0e9b4ee6cc9ec796062ca196ae0586a",
+    "versioned_record_sha256": "d35538a4ba8e72745113935fa65a3f5aa4f1d3030a754c465c9a642688fa2fce",
+    "labels_before": {
+      "H": 18
+    },
+    "labels_after": {
+      "H": 18
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "H/H_0p75/0p88_mixed",
+    "supplied_record_sha256": "3a724067437419de4b3c981c38d538c7f17a50e4676150d9669ef159af8eb633",
+    "versioned_record_sha256": "6bc0a9386abf45ffe114c891f87811722590c94f574fe08bcb965a183ee01c46",
+    "labels_before": {
+      "H": 30
+    },
+    "labels_after": {
+      "H": 30
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "H/H_0p75/Au",
+    "supplied_record_sha256": "b0f7d94767b8a11424d793269372a7d46241fddc85a91439111e0b5def89f603",
+    "versioned_record_sha256": "85b91f9a589dabdb4f41ad45f94384f84e187a3d04fca4d0e25640bda70df881",
+    "labels_before": {
+      "H": 27
+    },
+    "labels_after": {
+      "H": 27
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "H/H_0p75/interface_biased",
+    "supplied_record_sha256": "69b99ba9ba85ea19ae1cb2007eeb5026c9984b6a60f089e3e93d9b1aa2193762",
+    "versioned_record_sha256": "8d4471be183d15a834d0dbfa3b9adec0f07fbaded30f69540229c31e04e8a428",
+    "labels_before": {
+      "H": 27
+    },
+    "labels_after": {
+      "H": 27
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "H/H_0p75/interface_biased2",
+    "supplied_record_sha256": "1b51a7539e062a598514fbda09cf64eacff788999b88a3821d64ba4cba58e28d",
+    "versioned_record_sha256": "29cd3c337e458492964e826d75e0773e7cade60a54286a437e66c367da7d9e28",
+    "labels_before": {
+      "H": 18
+    },
+    "labels_after": {
+      "H": 18
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "H/H_0p75/interior_biased",
+    "supplied_record_sha256": "cbf8dbe971e509ed64c519d0495011332aedb76b2e7a19ff74b092c95c37d31d",
+    "versioned_record_sha256": "289e66baac28f89d9b94dc564e69f4fb323480301d2fc981f23f09c76e4130c4",
+    "labels_before": {
+      "H": 18
+    },
+    "labels_after": {
+      "H": 18
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "H/H_0p75/mixed",
+    "supplied_record_sha256": "171a70c77082a0faa5bdd6e7eedbecdc8bac3e380a2a020efb5378756f587676",
+    "versioned_record_sha256": "902181d1f93bdf3c53e41968286b1ab9e3680a2328f463a525d8247e2d82ce9e",
+    "labels_before": {
+      "H": 24
+    },
+    "labels_after": {
+      "H": 24
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "H/H_0p75/uniform",
+    "supplied_record_sha256": "635f6f1335ee1f0ffa97ad45e55d6feda19bf322cc1d34cd3b03bc7833adc630",
+    "versioned_record_sha256": "92f28d5612e250daa9ea05f5fc66c80fdc7e6ff9b2e550b41809573c7f8d32fb",
+    "labels_before": {
+      "H": 27
+    },
+    "labels_after": {
+      "H": 27
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "O/O_0p028_1O_AuCu2",
+    "supplied_record_sha256": "f326dd05cd0e748ad85ecd96a161a2d9d4c4bfc4e610e67e6a5091512a7866c1",
+    "versioned_record_sha256": "7a070100bca66f9cf11b6f488dde7f068adb83526d2c64535328ab062da3a54e",
+    "labels_before": {
+      "O": 1
+    },
+    "labels_after": {
+      "O": 1
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "O/O_0p028_1O_Cu3",
+    "supplied_record_sha256": "2115b91f77fd80354513caeff6bcc7da8f3f7d6982d23827698cd2eb81d9b5f3",
+    "versioned_record_sha256": "2302b022af35e74cba2daf948d0d07d52fba3b0520a54c4854b7484d0b8b105a",
+    "labels_before": {
+      "O": 1
+    },
+    "labels_after": {
+      "O": 1
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "O/O_0p056_2O_AuCu2",
+    "supplied_record_sha256": "0a0276181bd60bbc672a75eaf40df83a9d1fb27352463d5a0ecf8142c5c4b231",
+    "versioned_record_sha256": "672389e8d7cf216e575fe6a50864138bbe0fd0e5f2331de2a953ddecd9bdf1ff",
+    "labels_before": {
+      "O": 2
+    },
+    "labels_after": {
+      "O": 2
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "O/O_0p056_2O_Cu3_distributed",
+    "supplied_record_sha256": "288ec9191bcf899d53d0e51c1454568881bd0b2c28aaa37be50b8da93907b69c",
+    "versioned_record_sha256": "1aa5bc6747b168abfc869200bf5c6dfcdf185685e04f507b696bf1e1a8c070ef",
+    "labels_before": {
+      "O": 2
+    },
+    "labels_after": {
+      "O": 2
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "O/O_0p056_2O_mixed_Cu3_AuCu2",
+    "supplied_record_sha256": "61e416bc67db1b161cb31915579afb615e8f413c0ba506aa0012b17c1c2b15a3",
+    "versioned_record_sha256": "c8c551d01b8490af326ce0265ab6367a57fdc6dcdfedf9e74f344ad86b2f839a",
+    "labels_before": {
+      "O": 2
+    },
+    "labels_after": {
+      "O": 2
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "O/O_0p083_3O_Cu3_AuCu2",
+    "supplied_record_sha256": "535dbd4750d5cf8f58d4a74cc0db924c67c7e0d190536b93cadb1222efd61533",
+    "versioned_record_sha256": "1e54004c7be64a60ea45d2ef94593f1cf26305ccf78eb0fa9e938251188530b3",
+    "labels_before": {
+      "O": 3
+    },
+    "labels_after": {
+      "O": 3
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "O/O_0p083_3O_interface_weighted_Cu3_AuCu2",
+    "supplied_record_sha256": "6f675432bf792fe9860ac3e84c9c4baa9536b77007d3e24c05a06ea987748d9e",
+    "versioned_record_sha256": "6470b493ac241d4d37515c0d985d8631587affcc3f443b6a608c738b23c50253",
+    "labels_before": {
+      "O": 3
+    },
+    "labels_after": {
+      "O": 3
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "O/O_0p111_4O_Cu3_AuCu2",
+    "supplied_record_sha256": null,
+    "versioned_record_sha256": "1db6a3b417a34be2a2f4863226f51ba8d31d14e181c3cea303234ed859cfec48",
+    "labels_before": null,
+    "labels_after": {
+      "O": 4
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": false,
+    "exclusion": "Missing top-two physical layers"
+  },
+  {
+    "configuration": "O/O_0p167_6O",
+    "supplied_record_sha256": null,
+    "versioned_record_sha256": "bc77d25662ed0b3dfc10644a344ff448628a3f15eb3eab460228b608ed247c51",
+    "labels_before": null,
+    "labels_after": {
+      "O": 6
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": false,
+    "exclusion": "Missing top-two physical layers"
+  },
+  {
+    "configuration": "OCCOH/OCCOH_0p056_AuCu_interface",
+    "supplied_record_sha256": "3aceb0fa4f2db6bf61bc5b88ddfa38be6629f14db7664ede637878c3b7ed867e",
+    "versioned_record_sha256": "8511565308781f0fcca01437f65ae1c80391bd6ca61d9407cc6f0cc427707157",
+    "labels_before": {
+      "OCCOH": 1
+    },
+    "labels_after": {
+      "OCCOH": 1
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "OCCOH/OCCOH_0p056_Cu_interface",
+    "supplied_record_sha256": "6c45d91c97d65070a2e9ba33ac977ddf1e3f79f296a0ded43302fe5670331248",
+    "versioned_record_sha256": "0b04ba319828c872fedeaaec2a003187dd44618590b54be1cb299e95abe08d09",
+    "labels_before": {
+      "OCCOH": 1
+    },
+    "labels_after": {
+      "OCCOH": 1
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "OCCOH/OCCOH_0p056_Cu_interior",
+    "supplied_record_sha256": "12ff35f736d65db66630378e89b4e324876c3d07dcb27f3da9f0047ff6dcf40e",
+    "versioned_record_sha256": "f287eaeb63717ed74bda93e1894a4e5e31d0a2c4048e3ce86a1f106fd569650c",
+    "labels_before": {
+      "OCCOH": 1
+    },
+    "labels_after": {
+      "OCCOH": 1
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "OCCO_CO/OCCO_CO_0p111_Cu_rich",
+    "supplied_record_sha256": "8b8cfad202d33aeac49f26e332d4ce345a50bb303205d3030da8cd170f58bde7",
+    "versioned_record_sha256": "88e50ffba264a6a97bd982abcd65dfae7ddb6a176b1de410807551685366b614",
+    "labels_before": {
+      "CO": 4
+    },
+    "labels_after": {
+      "CO": 4
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "OCCO_CO/OCCO_CO_0p167_AuCu_interface",
+    "supplied_record_sha256": "9525d1128cfa019c8f006b5a716021c5e227c579e87c394111114d73465e79f1",
+    "versioned_record_sha256": "cd6bcb6567db32fb76e86f498dca24bc9701efa25db3e4962bd6f39e8451574b",
+    "labels_before": {
+      "CO": 6
+    },
+    "labels_after": {
+      "CO": 6
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "OCCO_CO/OCCO_CO_0p167_Cu_rich",
+    "supplied_record_sha256": "417b9a0ad28694ef6f95824aacb98efdf7a76bd2fa3a07dca5bdddc4ad87def0",
+    "versioned_record_sha256": "2709102ba74d262fdb0aa78bb0810e0aee38b78a8f17df138306397f927dd278",
+    "labels_before": {
+      "CO": 6
+    },
+    "labels_after": {
+      "CO": 6
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "OCCO_CO/OCCO_plus_CO_0p222_AuCu_interface",
+    "supplied_record_sha256": "d54b75b46f2729995b6da885ef511239cdfd73bc1e65ecb75c1d1101721bf5eb",
+    "versioned_record_sha256": "2f0fdb9b7f20c05b323b19f02e136f63487e16b0375bbadff0f99a33b800bbb3",
+    "labels_before": {
+      "CO": 8
+    },
+    "labels_after": {
+      "CO": 8
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "OCCO_CO/OCCO_plus_CO_0p222_Cu_rich",
+    "supplied_record_sha256": "a9ee0d261ee70435764f1515a1d8844d660e8a2441b7216b050921a4f4568af7",
+    "versioned_record_sha256": "0c5502197a1e8a273cd4efc1bbfa8d7e846e3d3bd5a14fc1e5c42a642b64d71a",
+    "labels_before": {
+      "CO": 8
+    },
+    "labels_after": {
+      "CO": 8
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "OCCO_CO/OCCO_plus_CO_0p333_Cu_rich",
+    "supplied_record_sha256": "90cb9b86d54f39b1d2374e1665c2f72cd369a2ba3a0a568b99fa229cd1d9ada1",
+    "versioned_record_sha256": "7d6b32bda8fd1ea8669b445e4281578a28c0f068af5ef1febd8399499001876a",
+    "labels_before": {
+      "CO": 12
+    },
+    "labels_after": {
+      "CO": 12
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "OCCO_H2O/OCCO_2H2O",
+    "supplied_record_sha256": "af99f10e92216f247981d476b362c1539f0816173246c7638ac7c27333db4f78",
+    "versioned_record_sha256": "253ead0038f4570207656e6fb722aa26cea0e05725bba43ac9fd58cc84cdadfe",
+    "labels_before": {
+      "CO": 2,
+      "H2O": 2
+    },
+    "labels_after": {
+      "CO": 2,
+      "H2O": 2
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "OCHO/01_1OCHO_CuCu_interface",
+    "supplied_record_sha256": "afc72cabc732fe94c0633dbf429592e21213f8f15ab5c4306888c57e80c12b05",
+    "versioned_record_sha256": "4e794b4b41a88f9e173c34c149120e97496a44b8f89599f6638ae822aa6ac4fd",
+    "labels_before": {
+      "OCHO": 1
+    },
+    "labels_after": {
+      "OCHO": 1
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "OCHO/02_1OCHO_AuCu_across",
+    "supplied_record_sha256": "689ce30a347ecbf9d9866b2c21fd6cf8fff7308feec99b6022b7e522c9feb1d1",
+    "versioned_record_sha256": "9ec0b20c571ee00be8a8146f5bd8a87873ccc0137e31afb100bc855045de1405",
+    "labels_before": {
+      "OCHO": 1
+    },
+    "labels_after": {
+      "OCHO": 1
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "OCHO/03_1OCHO_CuCu_interior",
+    "supplied_record_sha256": "de5eb11a3ff41960f6fff77ce842293d7f6af78cd94f7d8fdb9840c8e17e9170",
+    "versioned_record_sha256": "00fa659f0cd0acc1fdb9a402461129d9bfbda007bb6348ddc3e1ac1e10fb8126",
+    "labels_before": {
+      "OCHO": 1
+    },
+    "labels_after": {
+      "OCHO": 1
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "OCHO/04_2OCHO_CuCu_interface_plus_interior",
+    "supplied_record_sha256": "001c32fac1d89612044ee267acc97532a9a60fc9dd01ad70c130e0c803638c0b",
+    "versioned_record_sha256": "4935b09065a8569907fcd78087e134d9c3265d0da2eb3645cdf8f5069ff29835",
+    "labels_before": {
+      "OCHO": 2
+    },
+    "labels_after": {
+      "OCHO": 2
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "OCHO/05_2OCHO_CuCu_interface_plus_AuCu",
+    "supplied_record_sha256": "d560d38369809d3060e34983147b51a4a34483a1dc7b3fcdc2e1e1841ed1a00a",
+    "versioned_record_sha256": "95270c244141d7357e23aeb2ce1ead3b1714ab641ad420e6664c0706e6f42a84",
+    "labels_before": {
+      "OCHO": 2
+    },
+    "labels_after": {
+      "OCHO": 2
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "OCHO/06_2OCHO_2CuCu_interface",
+    "supplied_record_sha256": "3aaf7315f9bdc2a442e5c4d33704c9e9b92c229248b61951476893e83f38faeb",
+    "versioned_record_sha256": "1f1cb102802fdbf7dc131491f147611c305526e64119eebc9a84f8e3759640e4",
+    "labels_before": {
+      "OCHO": 2
+    },
+    "labels_after": {
+      "OCHO": 2
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "OCHO/07_3OCHO_2CuCu_interface_plus_interior",
+    "supplied_record_sha256": "6c38f24393199b4f57bd21046d53dd124fcbc71601577da15499eb469576d07f",
+    "versioned_record_sha256": "906463e3c8c9bc3f7bb18e2d061068b874a982bd565a057e25ce394cf57fc49d",
+    "labels_before": {
+      "OCHO": 3
+    },
+    "labels_after": {
+      "OCHO": 3
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "OCHO/08_3OCHO_1CuCu_interface_plus_2interior",
+    "supplied_record_sha256": "1a89eb14b66aff846abaa6bc4bc7014ffad84ce2a63287389805238932a6df1a",
+    "versioned_record_sha256": "74b77021bd205379c515190d7f820be686261fa87b312abc898da83f90dec259",
+    "labels_before": {
+      "OCHO": 3
+    },
+    "labels_after": {
+      "OCHO": 3
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "OH/OH_0p125_interface_Au",
+    "supplied_record_sha256": "44a969ce02c95847b28186f9bd1e669f90a42771b66a2bfd50cc6db83da85a14",
+    "versioned_record_sha256": "f177dec5e77d29d136d4e173bdc28ca5204c43fc2d1e96e9061897845078200f",
+    "labels_before": {
+      "OH": 5
+    },
+    "labels_after": {
+      "OH": 5
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "OH/OH_0p125_interior_biased",
+    "supplied_record_sha256": "6a6dd81a34d8c81bbd3a506737e0c6a16f5dfeb0b76eabdfe59efd691f703907",
+    "versioned_record_sha256": "93a24507187eebf172e60906742b6465acfba411c76b6a38ce0469d611e23771",
+    "labels_before": {
+      "OH": 4
+    },
+    "labels_after": {
+      "OH": 4
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "OH/OH_0p125_uniform_high5Cu",
+    "supplied_record_sha256": "fa1971d238cbfcb3ef3bcad8f420e44ba256ed58dca3af6b35df60c6c32cff45",
+    "versioned_record_sha256": "5b5dd712cd2d369b388db17d8b9427eb70e340e77c76626f7f20bf285c74df5b",
+    "labels_before": {
+      "OH": 5
+    },
+    "labels_after": {
+      "OH": 5
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "OH/OH_0p125_uniform_low4Cu",
+    "supplied_record_sha256": "52019defc9e77a62ceba8b0bdf16ee84eb501ee69f702ab14e6ce2a6d30d8816",
+    "versioned_record_sha256": "75c7dcb5b9615be42c59d8360ad777bf2de7252b22b4853ae86d60ca820f0714",
+    "labels_before": {
+      "OH": 4
+    },
+    "labels_after": {
+      "OH": 4
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "OH/OH_0p25_interface_Au",
+    "supplied_record_sha256": "e5c899e36f322b0ca75378237d4ddf6c7ff726f781ada7ab80dfde8bd241d751",
+    "versioned_record_sha256": "c0fdf4c6409d87c291655951e329c5b26d6301475419566bb2b4f187a4f9d750",
+    "labels_before": {
+      "OH": 10
+    },
+    "labels_after": {
+      "OH": 10
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "OH/OH_0p25_interior_biased",
+    "supplied_record_sha256": "dfb0a209a453c497e3ec852b8c68ae7854e4bb9f27132cb60f99f02ad1c843ec",
+    "versioned_record_sha256": "65b856b4a96e63886c08bf4b8a92d4643bdae41e3ad1c8e031120effd409420b",
+    "labels_before": {
+      "OH": 9
+    },
+    "labels_after": {
+      "OH": 9
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "OH/OH_0p25_uniform",
+    "supplied_record_sha256": "dd6dcc6d9c026566e42e81ac76d85b48b8559fd9b92880ae1aea3c1fb2c549fd",
+    "versioned_record_sha256": "120b1f984e0713308cb1f3983ae42511c8a2c9b391bc3db484219f299d1f215a",
+    "labels_before": {
+      "OH": 9
+    },
+    "labels_after": {
+      "OH": 9
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "OH/OH_0p50_interface_Au",
+    "supplied_record_sha256": "aad44830111c65e5a141207143d73a2aa1e259980229ce7cb87aa33a8504e59c",
+    "versioned_record_sha256": "5b756240bf15931272f1162bca5e50f8acd2fadf286ae674e4949b9e66be0a3a",
+    "labels_before": {
+      "OH": 20
+    },
+    "labels_after": {
+      "OH": 20
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "OH/OH_0p50_interior_biased",
+    "supplied_record_sha256": "99d7ef1d30052c10dcdc0054546ddfad5f57b23a872a90d0a18f0c9101b0398b",
+    "versioned_record_sha256": "7848288b039635ff13a0a7f3dd64e941319a12f08b1e5db143482d57e5df0e9b",
+    "labels_before": {
+      "OH": 18
+    },
+    "labels_after": {
+      "OH": 18
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  },
+  {
+    "configuration": "OH/OH_0p50_uniform",
+    "supplied_record_sha256": "d91d33ce02b319dbd3fb76ab199d2fa8d1ba18111676594d80f556ce18d18b5c",
+    "versioned_record_sha256": "3c634d51fa63816d04837755032f98eae002b4d0449dcbbb7b85e17031e10269",
+    "labels_before": {
+      "OH": 18
+    },
+    "labels_after": {
+      "OH": 18
+    },
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": false,
+    "exclusion": "Layer table does not cover the full physical Cu layer"
+  },
+  {
+    "configuration": "plain",
+    "supplied_record_sha256": "6c5ce1b7cd277504d7ae8d51f4124d562ad34a4b32a0e49c847a1d4c085c8e8b",
+    "versioned_record_sha256": "a9edcb851b6db65f19e314befb9a2ea9b535b54dcc4684f8cde255d34a15a19d",
+    "labels_before": null,
+    "labels_after": {},
+    "label_graph_status": "verified",
+    "source_geometry_match": "matched",
+    "supplied_arrays": [
+      {
+        "layer": 2,
+        "exact_array_match": true
+      },
+      {
+        "layer": 3,
+        "exact_array_match": true
+      },
+      {
+        "layer": 4,
+        "exact_array_match": true
+      },
+      {
+        "layer": 5,
+        "exact_array_match": true
+      }
+    ],
+    "metadata_action": "replaced site/distribution-derived geometric claims with exact XAS-used graph/cell/contacts; preserved source bytes",
+    "training_eligible": true,
+    "exclusion": null
+  }
+]

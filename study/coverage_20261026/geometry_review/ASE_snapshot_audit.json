@@ -1,0 +1,210 @@
+[
+  {
+    "configuration": "Cu100/Cu100_2x2x4_1CO3_1H2O_hollow_flat-1HB",
+    "ASE_path": "Cu-Ox_updated_structures/100/CO3_H2O/1CO3_1H2O/011_1CO3-hollow_1H2O-flat-hollow-1HB/Cu100_2x2x4_1CO3_1H2O_hollow_flat-1HB.json",
+    "ASE_sha256": "731f90732da8beceda4d5c694121510f05d37bb89a2cfad3030f6f0c8d1c9ee2",
+    "max_free_force_eV_per_A": 0.04232369102524022,
+    "XAS_match_max_A": 1.0246280811285322e-09,
+    "graph_status": "verified",
+    "identities": {
+      "CO3": 1,
+      "H2O": 1
+    },
+    "force_and_energy_snapshot_is_not_run_termination": true
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_1CO3_hollow",
+    "ASE_path": "Cu-Ox_updated_structures/100/CO3_H2O/1CO3/003_1CO3-hollow/Cu100_2x2x4_1CO3_hollow.json",
+    "ASE_sha256": "a450b9805e983a6a05fa5c2cbfb1c3573a07d5e0ef3d3b44cc76dee19ed240b7",
+    "max_free_force_eV_per_A": 0.027308950858647058,
+    "XAS_match_max_A": 1.001409901205082e-09,
+    "graph_status": "verified",
+    "identities": {
+      "CO3": 1
+    },
+    "force_and_energy_snapshot_is_not_run_termination": true
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_1H2O_1CO_H2Otop_CObridge",
+    "ASE_path": "Cu-Ox_updated_structures/100/CO_H2O/1H2O_1CO/002_1H2Otop_1CO-bridge/Cu100_2x2x4_1H2O_1CO_H2Otop_CObridge.json",
+    "ASE_sha256": "c0c2bca7069ac2c6346df382d4b1f3f4a0341af5e83788809cde8fe8c21faa06",
+    "max_free_force_eV_per_A": 0.04912201328325214,
+    "XAS_match_max_A": 9.351966377386983e-10,
+    "graph_status": "verified",
+    "identities": {
+      "H2O": 1,
+      "CO": 1
+    },
+    "force_and_energy_snapshot_is_not_run_termination": true
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_1H2O_1OH_H2Otop_OHbridge",
+    "ASE_path": "Cu-Ox_updated_structures/100/OH_H2O/1H2O_1OH/005_1H2Otop_1OH-bridge_from-1H2O_2OH-002/Cu100_2x2x4_1H2O_1OH_H2Otop_OHbridge.json",
+    "ASE_sha256": "fffd3e117601ae34ce8d295523f7e64a86f2fe7c9851204d18ba9252bef3bf39",
+    "max_free_force_eV_per_A": 0.03954296714967151,
+    "XAS_match_max_A": 6.237191848215729e-10,
+    "graph_status": "verified",
+    "identities": {
+      "OH": 1,
+      "H2O": 1
+    },
+    "force_and_energy_snapshot_is_not_run_termination": true
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_1H2O_2OH_H2Otop_OHbridge-top",
+    "ASE_path": "Cu-Ox_updated_structures/100/OH_H2O/1H2O_2OH/002_1H2Otop_2OH-bridge-top/Cu100_2x2x4_1H2O_2OH_H2Otop_OHbridge-top.json",
+    "ASE_sha256": "da9a73fce4bf6b042e0e042426b14bd74f9b2916683ff4447ae71c8cb80f2b20",
+    "max_free_force_eV_per_A": 0.04752482190392722,
+    "XAS_match_max_A": 9.139420883902192e-10,
+    "graph_status": "verified",
+    "identities": {
+      "OH": 2,
+      "H2O": 1
+    },
+    "force_and_energy_snapshot_is_not_run_termination": true
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_CO_1_4_top",
+    "ASE_path": "Cu-Ox_updated_structures/100/CO/1_4/top/Cu100_2x2x4_CO_1_4_top.json",
+    "ASE_sha256": "acaa10b5f744b332f0bf7bc75f6c8b5815a37cbab0ce3adb499af7b98e02e26b",
+    "max_free_force_eV_per_A": 0.04336,
+    "XAS_match_max_A": 9.78035430421187e-10,
+    "graph_status": "verified",
+    "identities": {
+      "CO": 1
+    },
+    "force_and_energy_snapshot_is_not_run_termination": true
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_CO_2_4_2top_v2",
+    "ASE_path": "Cu-Ox_updated_structures/100/CO/2_4/2top_v2/Cu100_2x2x4_CO_2_4_2top_v2.json",
+    "ASE_sha256": "d7fa7fed4c50447edeffc5243e26adf707f5c11b22c4484687ff52efa5577b49",
+    "max_free_force_eV_per_A": 0.02262,
+    "XAS_match_max_A": 8.329069744692705e-10,
+    "graph_status": "verified",
+    "identities": {
+      "CO": 2
+    },
+    "force_and_energy_snapshot_is_not_run_termination": true
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_CO_3_4_2top_1bridge",
+    "ASE_path": "Cu-Ox_updated_structures/100/CO/3_4/2top_1bridge/Cu100_2x2x4_CO_3_4_2top_1bridge.json",
+    "ASE_sha256": "a8a1081f5a6d46f643d67fe0d6118f30a1c4b99287b5363dd0bffa9d27ec2bb0",
+    "max_free_force_eV_per_A": 0.024882382221162024,
+    "XAS_match_max_A": 1.0382920505341854e-09,
+    "graph_status": "verified",
+    "identities": {
+      "CO": 3
+    },
+    "force_and_energy_snapshot_is_not_run_termination": true
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_CO_4_4_2top_2bridge",
+    "ASE_path": "Cu-Ox_updated_structures/100/CO/4_4/2top_2bridge/Cu100_2x2x4_CO_4_4_2top_2bridge.json",
+    "ASE_sha256": "6a0070bb52ef6e0e875cc196f0e520fd5b52bb22665f1e8ee9c93a7d86d1cba0",
+    "max_free_force_eV_per_A": 0.042029,
+    "XAS_match_max_A": 1.0601421940602666e-09,
+    "graph_status": "verified",
+    "identities": {
+      "CO": 4
+    },
+    "force_and_energy_snapshot_is_not_run_termination": true
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_H_1_4_hollow",
+    "ASE_path": "Cu-Ox_updated_structures/100/H/1_4/hollow/Cu100_2x2x4_H_1_4_hollow.json",
+    "ASE_sha256": "364101b9333d637054e76e38586072082cd953e5721804a81833e99ad46d5354",
+    "max_free_force_eV_per_A": 0.046206,
+    "XAS_match_max_A": 4.926008385713704e-10,
+    "graph_status": "verified",
+    "identities": {
+      "H": 1
+    },
+    "force_and_energy_snapshot_is_not_run_termination": true
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_H_3_4_1bridge_2hollow_config_1",
+    "ASE_path": "Cu-Ox_updated_structures/100/H/3_4/1bridge_2hollow/config_1/Cu100_2x2x4_H_3_4_1bridge_2hollow_config_1.json",
+    "ASE_sha256": "2a5ef95ce93a1d502a2f6c5578390dd82d389fdce3adafa16c96e67e60d4053a",
+    "max_free_force_eV_per_A": 0.04069742774426905,
+    "XAS_match_max_A": 8.34794568773253e-10,
+    "graph_status": "verified",
+    "identities": {
+      "H": 3
+    },
+    "force_and_energy_snapshot_is_not_run_termination": true
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_H_4_4_4bridge_config_4",
+    "ASE_path": "Cu-Ox_updated_structures/100/H/4_4/4bridge/config_4/Cu100_2x2x4_H_4_4_4bridge_config_4.json",
+    "ASE_sha256": "353cb58a542c6aeb7a09b92e1f8d1312e6fcc14e837db04b5e561375ee10c6e3",
+    "max_free_force_eV_per_A": 0.039126293077673485,
+    "XAS_match_max_A": 9.827959011892701e-10,
+    "graph_status": "verified",
+    "identities": {
+      "H": 4
+    },
+    "force_and_energy_snapshot_is_not_run_termination": true
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_OH_1_4_hollow",
+    "ASE_path": "Cu-Ox_updated_structures/100/OH/1_4/hollow/Cu100_2x2x4_OH_1_4_hollow.json",
+    "ASE_sha256": "a705a6bd39e8872e3677a72a6e6e2552d1ffa4011b1b1ca826f886cc1a242c3a",
+    "max_free_force_eV_per_A": 0.035945,
+    "XAS_match_max_A": 9.803841056357488e-10,
+    "graph_status": "verified",
+    "identities": {
+      "OH": 1
+    },
+    "force_and_energy_snapshot_is_not_run_termination": true
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_OH_2_4_hollow_config_2",
+    "ASE_path": "Cu-Ox_updated_structures/100/OH/2_4/hollow/config_2/Cu100_2x2x4_OH_2_4_hollow_config_2.json",
+    "ASE_sha256": "9f40c4d1a193df5b26f69031e65f84d462109b1fc276f098e7351d724ca23b5e",
+    "max_free_force_eV_per_A": 0.046448,
+    "XAS_match_max_A": 9.708888042898058e-10,
+    "graph_status": "verified",
+    "identities": {
+      "OH": 2
+    },
+    "force_and_energy_snapshot_is_not_run_termination": true
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_OH_3_4_mixed_1bridge_2hollow",
+    "ASE_path": "Cu-Ox_updated_structures/100/OH/3_4/mixed/1bridge_2hollow/config_1/Cu100_2x2x4_OH_3_4_mixed_1bridge_2hollow.json",
+    "ASE_sha256": "a9821d0fd757392188e4c3130d17b91b24a8cf93a9ad769a25b458bd29bbcfff",
+    "max_free_force_eV_per_A": 0.034206825532340765,
+    "XAS_match_max_A": 7.018111745931656e-10,
+    "graph_status": "verified",
+    "identities": {
+      "OH": 3
+    },
+    "force_and_energy_snapshot_is_not_run_termination": true
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_OH_4_4_mixed_2top_2bridge",
+    "ASE_path": "Cu-Ox_updated_structures/100/OH/4_4/mixed/2top_2bridge/config_1/Cu100_2x2x4_OH_4_4_mixed_2top_2bridge.json",
+    "ASE_sha256": "cb13eec78adf557d5412c3757a7013c0a7f7209a460e0ae69b2fd54b23696cd3",
+    "max_free_force_eV_per_A": 0.04364614627890989,
+    "XAS_match_max_A": 9.411855786192756e-10,
+    "graph_status": "verified",
+    "identities": {
+      "OH": 4
+    },
+    "force_and_energy_snapshot_is_not_run_termination": true
+  },
+  {
+    "configuration": "Cu100/Cu100_2x2x4_O_1_4_hollow",
+    "ASE_path": "Cu-Ox_updated_structures/100/O/1_4/hollow/Cu100_2x2x4_O_1_4_hollow.json",
+    "ASE_sha256": "26486796f6a90ecb0391b598328e84e43eabf7ccf94ec158300d07615c81a784",
+    "max_free_force_eV_per_A": 0.024456,
+    "XAS_match_max_A": 9.106196798477055e-10,
+    "graph_status": "verified",
+    "identities": {
+      "O": 1
+    },
+    "force_and_energy_snapshot_is_not_run_termination": true
+  }
+]

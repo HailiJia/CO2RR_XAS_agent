@@ -357,6 +357,13 @@ class NERSCSFAPIClient:
             match = re.search(r'(?:Submitted batch job|jobid[\'"=: ]+)\s*([0-9]+)', raw_text, flags=re.IGNORECASE)
             if match:
                 job_id = match.group(1)
+        from tools.execution_evidence import record_event_from_env
+        # Optional local observation only; no credentials or command text.
+        workflow = str(Path(remote_submit_script).parent)
+        record_event_from_env(dict(workflow_id=workflow, configuration_id=workflow,
+            attempt_id=str(job_id or task_id or "unknown"), event_type="submission_result",
+            stage=str(remote_submit_script), scheduler_job_id=job_id,
+            submission_time=None, submission_time_basis="scheduler Submit not returned by this API receipt"))
         return {
             "status": "submitted",
             "remote_submit_script": remote_submit_script,

@@ -1,0 +1,53 @@
+{
+  "scope": "final full-data training AFTER evaluation; not held-out evidence",
+  "inputs": 141,
+  "near_groups": 135,
+  "all_training_views": true,
+  "candidates": [
+    [
+      "Combined",
+      1,
+      64
+    ],
+    [
+      "Combined",
+      2,
+      64
+    ],
+    [
+      "Combined",
+      4,
+      64
+    ],
+    [
+      "DCT16",
+      1,
+      64
+    ],
+    [
+      "DCT16",
+      2,
+      64
+    ],
+    [
+      "DCT16",
+      4,
+      64
+    ],
+    [
+      "Combined",
+      1,
+      256
+    ]
+  ],
+  "seeds": [
+    20261020,
+    20261021,
+    20261022
+  ],
+  "selection": "same locked candidates and training-only group-weighted common threshold",
+  "performance": "no independent score is computed from these final models",
+  "source_sha256": "1f34086f8f9a09af252167cc34aacba08ade1388c83860d370ac7cf4456270b0",
+  "fitting_dependency_sha256": "29cae463e90fe158d456e1f46506d76b74abeac9d4c99dd68f083c9035b3a3ed",
+  "input_sha256": "84439cdcd899ad4451d11c1176411d8a8407fb92995b4d1b9ecc29ed267d44e3"
+}

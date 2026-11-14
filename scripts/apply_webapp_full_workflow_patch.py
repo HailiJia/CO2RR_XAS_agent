@@ -5,9 +5,9 @@ Run from the repository root:
 
     python scripts/apply_webapp_full_workflow_patch.py
     python -m py_compile web_app/main.py tools/xas_input_generator.py
-    streamlit run web_app/main.py
+    streamlit run web_app/CO2RR_XAS_Agent.py
 
-Then test and commit the modified files.
+Historical maintenance utility, not an installation step. The active wrapper already applies compatibility handling. Review the diff and run focused regressions before using any source-rewriting patch.
 """
 
 from __future__ import annotations
@@ -280,7 +280,7 @@ def patch_main() -> None:
 
     # Resolve stale comments after rename.
     text = text.replace("# web_app/app.py", "# web_app/main.py", 1)
-    text = text.replace("streamlit run web_app/app.py", "streamlit run web_app/main.py")
+    text = text.replace("streamlit run web_app/app.py", "streamlit run web_app/CO2RR_XAS_Agent.py")
 
     # Add helper functions after the tested chat/NERSC runtime patch helpers.
     helper_marker = "\ndef _execute_chat_intent(intent, text, params, uploaded_file=None, plan=None):\n"

@@ -1,0 +1,10 @@
+{
+  "original_notebook_sha256": "f0d052403fcec32b8c97e1577d8d8c3f53cd114e24f3a3b00419679251e8d514",
+  "cell1_reproduced_on_actual_Cu_GW_dat": true,
+  "Cu_GW_dat_lineage_to_parsed_OUTCAR": "unverified; not substituted or included in method metrics",
+  "Cu_PBE_dat_bytes": 0,
+  "cell2_status": "unavailable empty original input; separate verified OUTCAR PBE series is explicitly different input",
+  "cell3_plus125_and_cell5_reused_intensity": "cannot reproduce a coherent multi-method route after empty PBE input; exploratory offsets are not calibrations",
+  "v1_universal_extra_Lorentzian": "removed in v2: no independently established remaining width for these VASP outputs; native CH_SIGMA alone does not resolve instrumental width",
+  "sigma1": "exact notebook route saved for actual source; extra Gaussian diagnostic also supplied for parsed spectra without claiming equivalent lineage"
+}

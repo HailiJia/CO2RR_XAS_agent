@@ -1,0 +1,148 @@
+[
+  {
+    "configuration": "CHO/CHO_0p111_interface_Cu",
+    "domain": "CuAu",
+    "species_set": "CHO+CO+H",
+    "exact_stoichiometry": "2CHO+2CO+2H",
+    "near_group": "CHO/CHO_0p111_interface_Cu",
+    "added_layers": [
+      3,
+      4,
+      5
+    ],
+    "source_status": "top-two completed November13",
+    "new_near_group": true
+  },
+  {
+    "configuration": "CHO/CHO_0p111_interior_Cu",
+    "domain": "CuAu",
+    "species_set": "CHO+CO+H",
+    "exact_stoichiometry": "2CHO+2CO+2H",
+    "near_group": "CHO/CHO_0p111_interior_Cu",
+    "added_layers": [],
+    "source_status": "top-two already available November3; absent from frozen November1 cohort",
+    "new_near_group": true
+  },
+  {
+    "configuration": "CO2/CO2_0p111_activated",
+    "domain": "CuAu",
+    "species_set": "CO2",
+    "exact_stoichiometry": "4CO2",
+    "near_group": "CO2/CO2_0p111_activated",
+    "added_layers": [],
+    "source_status": "top-two already available November3; absent from frozen November1 cohort",
+    "new_near_group": true
+  },
+  {
+    "configuration": "COOH/COOH_0p111_Cu_uniform",
+    "domain": "CuAu",
+    "species_set": "COOH",
+    "exact_stoichiometry": "4COOH",
+    "near_group": "COOH/COOH_0p111_Cu_interface",
+    "added_layers": [],
+    "source_status": "top-two already available November3; absent from frozen November1 cohort",
+    "new_near_group": false
+  },
+  {
+    "configuration": "CO_H/CO_H_0p139_3CO_2H_interior_biased",
+    "domain": "CuAu",
+    "species_set": "CO+H",
+    "exact_stoichiometry": "3CO+2H",
+    "near_group": "CO_H/CO_H_0p139_3CO_2H_interior_biased",
+    "added_layers": [],
+    "source_status": "top-two already available November3; absent from frozen November1 cohort",
+    "new_near_group": true
+  },
+  {
+    "configuration": "CO_H/CO_H_0p167_3CO_3H_AuCu2",
+    "domain": "CuAu",
+    "species_set": "CO+H",
+    "exact_stoichiometry": "3CO+3H",
+    "near_group": "CO_H/CO_H_0p167_3CO_3H_AuCu2",
+    "added_layers": [],
+    "source_status": "top-two already available November3; absent from frozen November1 cohort",
+    "new_near_group": true
+  },
+  {
+    "configuration": "CO_H/CO_H_0p194_4CO_3H",
+    "domain": "CuAu",
+    "species_set": "CO+H",
+    "exact_stoichiometry": "4CO+3H",
+    "near_group": "CO_H/CO_H_0p194_4CO_3H",
+    "added_layers": [],
+    "source_status": "top-two already available November3; absent from frozen November1 cohort",
+    "new_near_group": true
+  },
+  {
+    "configuration": "CO_OH/CO_OH_0p139_3CO_2OH",
+    "domain": "CuAu",
+    "species_set": "CO+OH",
+    "exact_stoichiometry": "3CO+2OH",
+    "near_group": "CO_OH/CO_OH_0p139_3CO_2OH",
+    "added_layers": [],
+    "source_status": "top-two already available November3; absent from frozen November1 cohort",
+    "new_near_group": true
+  },
+  {
+    "configuration": "CO_OH/CO_OH_0p194_4CO_3OH_AuCu2",
+    "domain": "CuAu",
+    "species_set": "CO+OH",
+    "exact_stoichiometry": "4CO+3OH",
+    "near_group": "CO_OH/CO_OH_0p194_4CO_3OH_AuCu2",
+    "added_layers": [
+      3,
+      4,
+      5
+    ],
+    "source_status": "top-two completed November13",
+    "new_near_group": true
+  },
+  {
+    "configuration": "CO_OH/CO_OH_0p194_5CO_2OH",
+    "domain": "CuAu",
+    "species_set": "CO+OH",
+    "exact_stoichiometry": "5CO+2OH",
+    "near_group": "CO_OH/CO_OH_0p194_5CO_2OH",
+    "added_layers": [],
+    "source_status": "top-two already available November3; absent from frozen November1 cohort",
+    "new_near_group": true
+  },
+  {
+    "configuration": "CO_OH/CO_OH_0p222_5CO_3OH_AuCu2",
+    "domain": "CuAu",
+    "species_set": "CO+OH",
+    "exact_stoichiometry": "5CO+3OH",
+    "near_group": "CO_OH/CO_OH_0p222_5CO_3OH_AuCu2",
+    "added_layers": [],
+    "source_status": "top-two already available November3; absent from frozen November1 cohort",
+    "new_near_group": true
+  },
+  {
+    "configuration": "OCCO_CO/OCCO_CO_0p111_AuCu_interface",
+    "domain": "CuAu",
+    "species_set": "CO",
+    "exact_stoichiometry": "4CO",
+    "near_group": "OCCO_CO/OCCO_CO_0p111_AuCu_interface",
+    "added_layers": [
+      3,
+      4,
+      5
+    ],
+    "source_status": "top-two completed November13",
+    "new_near_group": true
+  },
+  {
+    "configuration": "OH/OH_0p25_interface_biased",
+    "domain": "CuAu",
+    "species_set": "OH",
+    "exact_stoichiometry": "9OH",
+    "near_group": "OH/OH_0p25_interface_biased",
+    "added_layers": [
+      3,
+      4,
+      5
+    ],
+    "source_status": "top-two completed November13",
+    "new_near_group": true
+  }
+]

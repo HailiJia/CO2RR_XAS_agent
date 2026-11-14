@@ -1,0 +1,353 @@
+{
+  "h5py_version": "3.15.1",
+  "sources": [
+    {
+      "material": "Cu2O",
+      "folder_label": "PBE",
+      "display_label": "VASP PBE",
+      "source_folder": "benchmark/Cu2O/PBE/XAS",
+      "tags": {
+        "ICHARG": "1",
+        "ISTART": "1",
+        "EDIFF": "1E-5",
+        "ISMEAR": "0",
+        "SIGMA": "0.1",
+        "LREAL": "A",
+        "NSW": "0",
+        "IBRION": "-1",
+        "ISYM": "0",
+        "ISPIN": "2",
+        "LDAU": ".TRUE.",
+        "LDAUTYPE": "2",
+        "LDAUL": "2 2 -1",
+        "LDAUU": "6 6 0.0",
+        "LDAUJ": "0.0 0.0 0.0",
+        "LMAXMIX": "4",
+        "NBANDS": "3312",
+        "ICORELEVEL": "2",
+        "CLNT": "1",
+        "CLN": "1",
+        "CLL": "0",
+        "CLZ": "1.0",
+        "CH_AMPLIFICATION": "64",
+        "CH_LSPEC": ".TRUE.",
+        "CH_NEDOS": "2000",
+        "CH_SIGMA": "0.1",
+        "LWAVE": ".TRUE.",
+        "LCHARG": ".TRUE."
+      },
+      "OUTCAR_sha256": "d088ec23a24a68663f6ea12f439bde1444d2478a1928b8e1e9de84b270f2be79",
+      "PAW_dataset_labels": [
+        "PAW_PBE Cu 05Jan2001                                                                    ",
+        "PAW_PBE O 08Apr2002                                                                     "
+      ],
+      "electronic_termination_footer": true,
+      "logged_independent_particle_response": true,
+      "GW_quasiparticle_or_BSE_established": false,
+      "available": true,
+      "stage": "XAS",
+      "electronic_EDIFF_reached": true,
+      "logged_IALGO": [
+        38
+      ],
+      "convergence_caveat": "complete response table and electronic EDIFF checked separately from run footer; current input file may be newer than the recorded numerical table",
+      "licensed_POTCAR_sha256_only": "7c1b0cf0a4f371cb96a7bb2d9155a9ae2d299795c59d4369694b8126b36950fb",
+      "files": [
+        {
+          "path": "benchmark/Cu2O/PBE/XAS/OUTCAR",
+          "bytes": 2607166,
+          "sha256": "d088ec23a24a68663f6ea12f439bde1444d2478a1928b8e1e9de84b270f2be79"
+        },
+        {
+          "path": "benchmark/Cu2O/PBE/XAS/vasprun.xml",
+          "bytes": 2408254,
+          "sha256": "eca9108e5e879f739baab630ecf28867b0e398df9dede677b38e144e7dddf651"
+        },
+        {
+          "path": "benchmark/Cu2O/PBE/XAS/vaspout.h5",
+          "bytes": 1957644,
+          "sha256": "75c7eb771401defd7d9aa987c5c99a96ee8ab179b4654bd034e873764f3e7bbf"
+        },
+        {
+          "path": "benchmark/Cu2O/PBE/XAS/INCAR",
+          "bytes": 565,
+          "sha256": "38598e292b91ddd62a1a5723d39dc08433f44c64ea3a77eb90828d4408b5ce3d"
+        },
+        {
+          "path": "benchmark/Cu2O/PBE/XAS/KPOINTS",
+          "bytes": 28,
+          "sha256": "b176eff8a22860d83f57d814b9c4b78f44619d005d4a18a2f2a926b824715aad"
+        },
+        {
+          "path": "benchmark/Cu2O/PBE/XAS/OSZICAR",
+          "bytes": 1459,
+          "sha256": "8663bc1825f29ff744b4528d6221f8144a778e8683cb04e613cb9034805e23ad"
+        }
+      ],
+      "numeric_quantity": "imaginary independent-particle dielectric response; arithmetic mean xx/yy/zz; relative intensity, not absolute absorption cross section",
+      "tensor_shape": [
+        3,
+        3,
+        2000,
+        2
+      ],
+      "native_energy_range_eV": [
+        7974.946072798616,
+        8957.230311589532
+      ],
+      "OUTCAR_HDF5_max_diagonal_error": 4.984499514255458e-13,
+      "OUTCAR_HDF5_energy_error_eV": 9.094947017729282e-13,
+      "numeric_complete": true,
+      "timing_by_stage": [
+        {
+          "stage": "SCF",
+          "reported_CPU_time_s": 2400.813,
+          "elapsed_s": 2406.817,
+          "logged_total_cores": 128,
+          "allocated_core_time_estimate_s": 308072.576,
+          "estimate_not_measured_CPU": true,
+          "source": "benchmark/Cu2O/PBE/OUTCAR",
+          "sha256": "e01519612aaad6ee0c1a97bbaa2d8583d6275977f0e8ddb4d9fcbe2c64ab5095"
+        },
+        {
+          "stage": "XAS",
+          "reported_CPU_time_s": 7149.952,
+          "elapsed_s": 7157.76,
+          "logged_total_cores": 128,
+          "allocated_core_time_estimate_s": 916193.28,
+          "estimate_not_measured_CPU": true,
+          "source": "benchmark/Cu2O/PBE/XAS/OUTCAR",
+          "sha256": "d088ec23a24a68663f6ea12f439bde1444d2478a1928b8e1e9de84b270f2be79"
+        }
+      ]
+    },
+    {
+      "material": "Cu2O",
+      "folder_label": "GW",
+      "display_label": "VASP (GW-PAW)",
+      "source_folder": "benchmark/Cu2O/GW/XAS",
+      "tags": {
+        "ISTART": "1",
+        "ICHARG": "1",
+        "ALGO": "Fast",
+        "EDIFF": "1E-5",
+        "ISMEAR": "0",
+        "SIGMA": "0.1",
+        "LREAL": "A",
+        "NSW": "0",
+        "IBRION": "-1",
+        "ISYM": "0",
+        "ISPIN": "2",
+        "LDAU": ".TRUE.",
+        "LDAUTYPE": "2",
+        "LDAUL": "2 2 -1",
+        "LDAUU": "6 6 0.0",
+        "LDAUJ": "0.0 0.0 0.0",
+        "LMAXMIX": "4",
+        "NBANDS": "5127",
+        "ICORELEVEL": "2",
+        "CLNT": "1",
+        "CLN": "1",
+        "CLL": "0",
+        "CLZ": "1.0",
+        "CH_AMPLIFICATION": "108",
+        "CH_LSPEC": ".TRUE.",
+        "CH_NEDOS": "2000",
+        "CH_SIGMA": "0.1",
+        "LWAVE": ".TRUE.",
+        "LCHARG": ".TRUE."
+      },
+      "OUTCAR_sha256": "80ffe52d9df1efcce7d76d2b008e21df69350d3569157408df5719652836a2d1",
+      "PAW_dataset_labels": [
+        "PAW Cu_GW 19May2006                                                                     ",
+        "PAW O_GW 28Sep2005                                                                      "
+      ],
+      "electronic_termination_footer": true,
+      "logged_independent_particle_response": true,
+      "GW_quasiparticle_or_BSE_established": false,
+      "available": true,
+      "stage": "XAS",
+      "electronic_EDIFF_reached": true,
+      "logged_IALGO": [
+        68
+      ],
+      "convergence_caveat": "complete response table and electronic EDIFF checked separately from run footer; current input file may be newer than the recorded numerical table",
+      "licensed_POTCAR_sha256_only": "b0dbe1cc79c421c9bdcc330db550b2dfe1012e0428269281adb45bb04158ad97",
+      "files": [
+        {
+          "path": "benchmark/Cu2O/GW/XAS/OUTCAR",
+          "bytes": 3656590,
+          "sha256": "80ffe52d9df1efcce7d76d2b008e21df69350d3569157408df5719652836a2d1"
+        },
+        {
+          "path": "benchmark/Cu2O/GW/XAS/vasprun.xml",
+          "bytes": 3515397,
+          "sha256": "607c07130c6031dce2593440a8eca68520d29bd20ee0826f892ba13dc2702e3b"
+        },
+        {
+          "path": "benchmark/Cu2O/GW/XAS/vaspout.h5",
+          "bytes": 2651288,
+          "sha256": "ffafcc4c482f12b2df1ad8f9c06a090e07ece1399c7cbd202f22972e63ed6000"
+        },
+        {
+          "path": "benchmark/Cu2O/GW/XAS/INCAR",
+          "bytes": 579,
+          "sha256": "0912366ac05eff8a5e1882eed79588ed239d6a9561959e84fdc7a09e5178309a"
+        },
+        {
+          "path": "benchmark/Cu2O/GW/XAS/KPOINTS",
+          "bytes": 28,
+          "sha256": "b176eff8a22860d83f57d814b9c4b78f44619d005d4a18a2f2a926b824715aad"
+        },
+        {
+          "path": "benchmark/Cu2O/GW/XAS/OSZICAR",
+          "bytes": 1459,
+          "sha256": "461381a0eec634abcfee11aa004a8e53fdecb107ad7fbd650e9ee2a386b1283d"
+        }
+      ],
+      "numeric_quantity": "imaginary independent-particle dielectric response; arithmetic mean xx/yy/zz; relative intensity, not absolute absorption cross section",
+      "tensor_shape": [
+        3,
+        3,
+        2000,
+        2
+      ],
+      "native_energy_range_eV": [
+        7965.397753251791,
+        8987.643937503324
+      ],
+      "OUTCAR_HDF5_max_diagonal_error": 4.997726361478472e-13,
+      "OUTCAR_HDF5_energy_error_eV": 9.094947017729282e-13,
+      "numeric_complete": true,
+      "timing_by_stage": [
+        {
+          "stage": "SCF",
+          "reported_CPU_time_s": 21585.344,
+          "elapsed_s": 21608.648,
+          "logged_total_cores": 128,
+          "allocated_core_time_estimate_s": 2765906.944,
+          "estimate_not_measured_CPU": true,
+          "source": "benchmark/Cu2O/GW/OUTCAR",
+          "sha256": "fdef2c4defcb8f605d8e615739fd54ed5158cd30826620c6a85883df12aea82e"
+        },
+        {
+          "stage": "XAS",
+          "reported_CPU_time_s": 8539.898,
+          "elapsed_s": 8550.043,
+          "logged_total_cores": 128,
+          "allocated_core_time_estimate_s": 1094405.504,
+          "estimate_not_measured_CPU": true,
+          "source": "benchmark/Cu2O/GW/XAS/OUTCAR",
+          "sha256": "80ffe52d9df1efcce7d76d2b008e21df69350d3569157408df5719652836a2d1"
+        }
+      ]
+    },
+    {
+      "material": "CuO",
+      "folder_label": "PBE",
+      "display_label": "VASP PBE",
+      "source_folder": "benchmark/CuO/PBE/XAS",
+      "tags": {
+        "ICHARG": "1",
+        "ISTART": "1",
+        "EDIFF": "1E-5",
+        "ISMEAR": "0",
+        "SIGMA": "0.1",
+        "LREAL": "A",
+        "NSW": "0",
+        "IBRION": "-1",
+        "ISYM": "0",
+        "ISPIN": "2",
+        "LDAU": ".TRUE.",
+        "LDAUTYPE": "2",
+        "LDAUL": "2 2 -1",
+        "LDAUU": "4.5 4.5 0.0",
+        "LDAUJ": "0.0 0.0 0.0",
+        "LMAXMIX": "4",
+        "NBANDS": "3312",
+        "ICORELEVEL": "2",
+        "CLNT": "1",
+        "CLN": "1",
+        "CLL": "0",
+        "CLZ": "1.0",
+        "CH_AMPLIFICATION": "64",
+        "CH_LSPEC": ".TRUE.",
+        "CH_NEDOS": "2000",
+        "CH_SIGMA": "0.1",
+        "LWAVE": ".TRUE.",
+        "LCHARG": ".TRUE."
+      },
+      "OUTCAR_sha256": "594f32578dcd16260af3ae1ca121d80e197f6a6b0f483ac40022ebf3438c335e",
+      "PAW_dataset_labels": [
+        "PAW_PBE Cu 05Jan2001                                                                    ",
+        "PAW_PBE O 08Apr2002                                                                     "
+      ],
+      "electronic_termination_footer": false,
+      "logged_independent_particle_response": false,
+      "GW_quasiparticle_or_BSE_established": false,
+      "available": false,
+      "stage": "XAS",
+      "electronic_EDIFF_reached": false,
+      "logged_IALGO": [
+        38
+      ],
+      "convergence_caveat": "complete response table and electronic EDIFF checked separately from run footer; current input file may be newer than the recorded numerical table",
+      "licensed_POTCAR_sha256_only": "7c1b0cf0a4f371cb96a7bb2d9155a9ae2d299795c59d4369694b8126b36950fb",
+      "files": [
+        {
+          "path": "benchmark/CuO/PBE/XAS/OUTCAR",
+          "bytes": 90112,
+          "sha256": "594f32578dcd16260af3ae1ca121d80e197f6a6b0f483ac40022ebf3438c335e"
+        },
+        {
+          "path": "benchmark/CuO/PBE/XAS/vasprun.xml",
+          "bytes": 49152,
+          "sha256": "987a6b6f1778316353c5e20d3665b6b31c5c96633dee2e646627698bf7427cb6"
+        },
+        {
+          "path": "benchmark/CuO/PBE/XAS/vaspout.h5",
+          "bytes": 613356,
+          "sha256": "f8bdc857cf4f10b18f1b900571e3f279dcc26b76d35f8c298be242386a0be9f9"
+        },
+        {
+          "path": "benchmark/CuO/PBE/XAS/INCAR",
+          "bytes": 570,
+          "sha256": "59cd0ef70fbd2ffa9379c0a37b0e0f5d7f5466baed28872708fa0c2a14a6dcab"
+        },
+        {
+          "path": "benchmark/CuO/PBE/XAS/KPOINTS",
+          "bytes": 28,
+          "sha256": "9f69ddd8c0a5c53c3cf2688051d9da98486d75255ee90fbe24d082c9a16ed0cc"
+        },
+        {
+          "path": "benchmark/CuO/PBE/XAS/OSZICAR",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "unavailable_reason": "Unable to synchronously open file (bad object header version number)",
+      "timing_by_stage": [
+        {
+          "stage": "SCF",
+          "reported_CPU_time_s": 5241.338,
+          "elapsed_s": 5247.787,
+          "logged_total_cores": 128,
+          "allocated_core_time_estimate_s": 671716.736,
+          "estimate_not_measured_CPU": true,
+          "source": "benchmark/CuO/PBE/OUTCAR",
+          "sha256": "510d9a2fff335514c6cd9cdeb67f1190a67fd8d58d5c3aee74258f9a5c349945"
+        },
+        {
+          "stage": "XAS",
+          "reported_CPU_time_s": null,
+          "elapsed_s": null,
+          "logged_total_cores": 128,
+          "allocated_core_time_estimate_s": null,
+          "estimate_not_measured_CPU": true,
+          "source": "benchmark/CuO/PBE/XAS/OUTCAR",
+          "sha256": "594f32578dcd16260af3ae1ca121d80e197f6a6b0f483ac40022ebf3438c335e"
+        }
+      ]
+    }
+  ]
+}

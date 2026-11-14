@@ -1,0 +1,144 @@
+{
+  "version": "fixed-top-two-v4",
+  "depth": "population-weighted raw layer 5 + layer 4 ONLY, before minimum-subtracted unit-area normalization",
+  "cohorts": [
+    87,
+    90
+  ],
+  "old_order": "original frozen cv_manifest order; three additions appended; exact geometry mapping retained",
+  "outer_folds": "identical old configuration assignments; same recorded assignments for the three additions",
+  "inner_folds": "old 87 inner partitions fixed across cohorts/seeds; deterministic hash assignment for added outer-training configurations; no held-out labels used",
+  "seed_replicates": [
+    20261020,
+    20261021,
+    20261022
+  ],
+  "seed_role": "tree randomness only; outer/inner partitions fixed; no best seed chosen",
+  "fixed_anchor": "d1, leaf1. Fixed 0.5 threshold and old-87 training-only thresholds transferred unchanged to 90 isolate training-data effects; retuned thresholds reported separately",
+  "existing_selection": [
+    "normalized",
+    "CDF",
+    "derivative",
+    "shape_CDF_derivatives",
+    "DCT24"
+  ],
+  "regularized_search_features": [
+    "derivative",
+    "shape_CDF_derivatives",
+    "DCT8",
+    "DCT16",
+    "DCT24",
+    "DCT32"
+  ],
+  "minimum_leaf_sizes": [
+    1,
+    2,
+    4
+  ],
+  "candidates": [
+    [
+      "normalized",
+      1
+    ],
+    [
+      "CDF",
+      1
+    ],
+    [
+      "derivative",
+      1
+    ],
+    [
+      "shape_CDF_derivatives",
+      1
+    ],
+    [
+      "DCT24",
+      1
+    ],
+    [
+      "derivative",
+      2
+    ],
+    [
+      "derivative",
+      4
+    ],
+    [
+      "shape_CDF_derivatives",
+      2
+    ],
+    [
+      "shape_CDF_derivatives",
+      4
+    ],
+    [
+      "DCT8",
+      1
+    ],
+    [
+      "DCT8",
+      2
+    ],
+    [
+      "DCT8",
+      4
+    ],
+    [
+      "DCT16",
+      1
+    ],
+    [
+      "DCT16",
+      2
+    ],
+    [
+      "DCT16",
+      4
+    ],
+    [
+      "DCT24",
+      2
+    ],
+    [
+      "DCT24",
+      4
+    ],
+    [
+      "DCT32",
+      1
+    ],
+    [
+      "DCT32",
+      2
+    ],
+    [
+      "DCT32",
+      4
+    ]
+  ],
+  "estimator": "11 independent ExtraTrees binary targets,64 trees,balanced,sqrt; constant predictors for single-class training",
+  "thresholds": "existing micro global+shrunk training-only decoder; no calibration or outer-test threshold fitting",
+  "stages": [
+    "fixed_d1_threshold0p5",
+    "fixed_d1_transferred87_threshold",
+    "fixed_d1_retuned_threshold",
+    "original_feature_selection",
+    "regularized_selection"
+  ],
+  "new_only_reporting": "CO precision, recall, F1 and exact identity sets. Ten absent labels untested; eleven-label macro F1 is provenance only, not a useful headline",
+  "comparison": "fixed prediction paired intervals condition on fit; across-seed variation is refitting variability, not independent confirmation",
+  "source_sha256": "67f32e27cc557d7b6e990fefd953d3c0be304640882ebb60fc25668e33f40758",
+  "scientific_source_hashes": {
+    "tools/fixed_top_two.py": "67f32e27cc557d7b6e990fefd953d3c0be304640882ebb60fc25668e33f40758",
+    "tools/updated_data_training.py": "7840149253c2a79703880e9c292e36cca7f15451eb3921af404e0328b248b0cd",
+    "tools/spectral_multilabel.py": "0458539a2ad23e942ea0af655b2ca79e0f5638227ec63cdcc47a11535517578d"
+  },
+  "snapshot_sha256": "0ec6a9a450fffa0f29991f2ac15753ab5a042f4db5992368ab93c56110cad15a",
+  "dependencies": {
+    "python": "3.11.9 (main, Apr 19 2024, 11:43:47) [Clang 14.0.6 ]",
+    "numpy": "2.4.6",
+    "sklearn": "1.9.0",
+    "scipy": "1.17.1"
+  }
+}

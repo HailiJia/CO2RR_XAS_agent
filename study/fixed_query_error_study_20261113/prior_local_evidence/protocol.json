@@ -1,0 +1,126 @@
+{
+  "seeds": [
+    20261020,
+    20261021,
+    20261022
+  ],
+  "candidates": [
+    {
+      "family": "ExtraTrees",
+      "feature": "Combined",
+      "param": 1
+    },
+    {
+      "family": "ExtraTrees",
+      "feature": "Combined",
+      "param": 2
+    },
+    {
+      "family": "ExtraTrees",
+      "feature": "DCT16",
+      "param": 1
+    },
+    {
+      "family": "ExtraTrees",
+      "feature": "DCT16",
+      "param": 2
+    },
+    {
+      "family": "RandomForest",
+      "feature": "Combined",
+      "param": 1
+    },
+    {
+      "family": "RandomForest",
+      "feature": "Combined",
+      "param": 2
+    },
+    {
+      "family": "RandomForest",
+      "feature": "DCT16",
+      "param": 1
+    },
+    {
+      "family": "RandomForest",
+      "feature": "DCT16",
+      "param": 2
+    },
+    {
+      "family": "SVM",
+      "feature": "Combined",
+      "param": 0.1
+    },
+    {
+      "family": "SVM",
+      "feature": "Combined",
+      "param": 1.0
+    },
+    {
+      "family": "SVM",
+      "feature": "DCT16",
+      "param": 0.1
+    },
+    {
+      "family": "SVM",
+      "feature": "DCT16",
+      "param": 1.0
+    },
+    {
+      "family": "Logistic",
+      "feature": "Combined",
+      "param": 0.1
+    },
+    {
+      "family": "Logistic",
+      "feature": "Combined",
+      "param": 1.0
+    },
+    {
+      "family": "Logistic",
+      "feature": "DCT16",
+      "param": 0.1
+    },
+    {
+      "family": "Logistic",
+      "feature": "DCT16",
+      "param": 1.0
+    }
+  ],
+  "primary": "nested selection across all 16 candidates using only saved inner folds; 5 grouped outer folds, all 141 queries",
+  "thresholds": [
+    0.3,
+    0.4,
+    0.5,
+    0.6
+  ],
+  "selection": "inner micro F1 minus .02(t-.5)^2; ties follow declared candidate order",
+  "groups": 135,
+  "records": 141,
+  "trees": 64,
+  "svm": "RBF,gamma=scale; sigmoid(decision_function) is an uncalibrated score",
+  "scaling": "StandardScaler fitted on training only for SVM/logistic; signed RMS floor fitted on training only",
+  "baseline": "ExtraTrees Combined leaf1 64 trees, saved exact inner/outer membership",
+  "interpretation": "Best outer-scoring family is exploratory; nested selector is primary. No outer-based threshold or query selection",
+  "source_checks": [
+    {
+      "manifest": "source_manifest.json",
+      "files": 5727,
+      "mismatches": []
+    },
+    {
+      "manifest": "previous_sources_manifest.json",
+      "files": 2164,
+      "mismatches": []
+    }
+  ],
+  "arrays_sha256": "84439cdcd899ad4451d11c1176411d8a8407fb92995b4d1b9ecc29ed267d44e3",
+  "splits_sha256": "fb2930205c0d451c680bff5b70c619cc1aa3674dc8be35c1e643a5422183f708",
+  "runner_sha256": "a8db6a740c33715a8c27618153322a97a001362d0711d5d80b05d512283300a7",
+  "versions": {
+    "python": "3.13.18",
+    "numpy": "2.3.5",
+    "sklearn": "1.8.0",
+    "scipy": "1.17.0"
+  },
+  "manuscript_changes": false
+}

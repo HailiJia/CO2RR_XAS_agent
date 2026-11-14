@@ -1,0 +1,20 @@
+{
+  "configurations": 3,
+  "CO_support": 3,
+  "CO_TP": 2,
+  "CO_FP": 0,
+  "CO_FN": 1,
+  "CO_precision": 1.0,
+  "CO_recall": 0.6666666666666666,
+  "CO_f1": 0.8,
+  "exact_set_accuracy": 0.6666666666666666,
+  "other_positive_species_tested": false,
+  "other_species_false_positives": 0,
+  "macro_F1_display": "not reported: ten labels have no positives",
+  "scope": "historical v3 old-only/new-three holdout; not the fixed-top-two result",
+  "became_correct": 4,
+  "became_wrong": 5,
+  "CO_only_cases_acquiring_false_H_OH": 2,
+  "legacy_eleven_label_macro_F1": 0.07272727272727274,
+  "macro_explanation": "CO F1=0.8 divided by all 11 labels gives 0.0727 because the ten unrepresented labels receive zero; this does not test their recovery"
+}

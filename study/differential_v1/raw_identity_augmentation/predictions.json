@@ -1,0 +1,5108 @@
+[
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "2CO_adjacent/2CO_adjacent_0p056_AuCu_interface",
+    "truth": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "scores": [
+      0.11885016265477574,
+      0.4096441661135605,
+      0.582407127683931,
+      0.026365576864678948
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "2CO_adjacent/2CO_adjacent_0p056_interior",
+    "truth": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.4471402933139452,
+      0.17386970105219682,
+      0.1772007021299131,
+      0.03923174321674923
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "2CO_adjacent/2CO_adjacent_0p056_orientation_alt",
+    "truth": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.5708622041189297,
+      0.27776548202213136,
+      0.2302300769045377,
+      0.13495235818027826
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "2CO_adjacent/2CO_adjacent_0p111_interface",
+    "truth": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.5641560177750766,
+      0.21986219783353012,
+      0.011039046097785162,
+      0.009389417143775343
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "2CO_adjacent/2CO_adjacent_0p111_uniform",
+    "truth": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.888870486555053,
+      0.15166605721633777,
+      0.028646441103078586,
+      0.043364556927957904
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "2CO_adjacent/2CO_adjacent_0p167_uniform",
+    "truth": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.9858892856227137,
+      0.13662423328325085,
+      0.021755743227671105,
+      0.12860360876255558
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "CHO/CHO_0p028_Cu_top",
+    "truth": [
+      1,
+      1,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.34129298148708814,
+      0.3672178661564981,
+      0.27249537542692726,
+      0.06546172869155963
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "CHO/CHO_0p056_AuCu_bidentate",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.6591114544076033,
+      0.1880554288055745,
+      0.08768071734801935,
+      0.05380155002810725
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "CHO/CHO_0p056_CuCu_bidentate",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.46211773216742896,
+      0.27431022051903536,
+      0.10945773141567865,
+      0.1558328175596852
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "CHO/CHO_0p056_interface_Cu",
+    "truth": [
+      1,
+      1,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.22131678218544104,
+      0.3896964743667556,
+      0.14481863576652976,
+      0.1381142021734253
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "CHO/CHO_0p056_interior_Cu",
+    "truth": [
+      1,
+      1,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.30149845492858196,
+      0.34085270017685715,
+      0.0704106290838813,
+      0.25639327553929475
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "CHO/CHO_0p056_uniform",
+    "truth": [
+      1,
+      1,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.27566556879045034,
+      0.3767092269718549,
+      0.08588403548391398,
+      0.4517872771579113
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "CHO/CHO_0p111_uniform",
+    "truth": [
+      1,
+      1,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.8181837139003787,
+      0.15549497566928033,
+      0.03335004656504876,
+      0.3799203721240544
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "CHO_CO/CO_CHO_0p111_more_CO",
+    "truth": [
+      1,
+      1,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.8156851644804591,
+      0.41952230644497107,
+      0.07201590645016716,
+      0.04696748377272722
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "CHO_CO/CO_CHO_0p111_uniform",
+    "truth": [
+      1,
+      1,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.5554663381922877,
+      0.29194073663718484,
+      0.0710374858765541,
+      0.19135014206744763
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "CO/CO_0p11/interface_biased",
+    "truth": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.909104794914292,
+      0.3318741175995166,
+      0.03485742421281619,
+      0.16296128366187107
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "CO/CO_0p11/interior_biased",
+    "truth": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.9486102370421361,
+      0.11322126204289623,
+      0.21296224900922658,
+      0.2174324447090452
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "CO/CO_0p11/uniform",
+    "truth": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.96287003767228,
+      0.17764144112002916,
+      0.07038843390016367,
+      0.2103834048019413
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "CO/CO_0p14/interface_biased",
+    "truth": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.9157926629339317,
+      0.41205217339490874,
+      0.05496216818453804,
+      0.02351505764957585
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "CO/CO_0p14/interior_biased",
+    "truth": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.9781290253521157,
+      0.039067042393609044,
+      0.13606026824391382,
+      0.3208586331562147
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "CO/CO_0p14/uniform",
+    "truth": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.9914674816773974,
+      0.19982557558927913,
+      0.09521396597292066,
+      0.21482716013115727
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "CO/CO_0p14/uniform2",
+    "truth": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.9841149490262429,
+      0.1871925543171279,
+      0.03680511171654639,
+      0.09070050210202582
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "CO/CO_0p25/interface_biased",
+    "truth": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.9982363201059635,
+      0.3141979411204791,
+      0.02367811687079324,
+      0.008861963512329256
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "CO/CO_0p25/interface_biased2",
+    "truth": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      1,
+      0,
+      0
+    ],
+    "scores": [
+      0.9996873185070526,
+      0.737514418513972,
+      0.0026804965847423627,
+      0.0023880895896321577
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "CO/CO_0p25/interior_biased",
+    "truth": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.9992782144445325,
+      0.004202127752991704,
+      0.4152523801629433,
+      0.16028095989792673
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "CO/CO_0p25/uniform",
+    "truth": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.9998937232987364,
+      0.0334097725306419,
+      0.004349256963579244,
+      0.1492774737916957
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "CO/CO_0p5/interface_biased",
+    "truth": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      1,
+      0,
+      0
+    ],
+    "scores": [
+      0.9998423950595033,
+      0.8193017840578787,
+      3.78584864085393e-06,
+      0.005734371605710731
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "CO/CO_0p5/interior_biased",
+    "truth": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.9954876896271502,
+      0.5083182735081881,
+      7.160181853235113e-05,
+      0.048627276765141045
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "CO/CO_0p5/uniform",
+    "truth": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      1,
+      0,
+      0
+    ],
+    "scores": [
+      0.9999202945694484,
+      0.8621117993502876,
+      8.592479874238159e-06,
+      0.0004373064176297325
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "CO/CO_0p75/uniform",
+    "truth": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.9989060539756529,
+      0.4939447686000204,
+      2.809734406106125e-05,
+      0.0013944167965316957
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "CO2/CO2_0p028_interface_biased_activated",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.1975323486919929,
+      0.36403869543581113,
+      0.31952438437212816,
+      0.15534336882506747
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "CO2/CO2_0p028_linear_Cu_top",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.15457632699210697,
+      0.4185832528242496,
+      0.4587456144451043,
+      0.1387951492914657
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "CO2/CO2_0p056_mixed",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.12616066355441846,
+      0.3786216683183999,
+      0.11413193345806544,
+      0.13722045537989752
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "COCHO/COCHO_0p056_AuCu_interface",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.345895007255257,
+      0.5194064813036887,
+      0.41615032803623164,
+      0.023158181951177213
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "COCHO/COCHO_0p056_AuCu_interface2",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.3460842313925886,
+      0.5348190162961293,
+      0.3900255614586475,
+      0.02834046346149163
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "COCHO/COCHO_0p056_Cu_interface",
+    "truth": [
+      1,
+      1,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.20445032821539644,
+      0.38189658852609915,
+      0.218518072577956,
+      0.0356394173591798
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "COCHO/COCHO_0p056_Cu_interior",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "scores": [
+      0.26771463447646865,
+      0.8128746588743063,
+      0.2997685404752672,
+      0.05742702562326637
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "COH/CHO_0p111_interface_Cu3",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.37356652883216723,
+      0.20945675507643463,
+      0.45351446144239643,
+      0.01164183678252844
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "COH/COH_0p028_interface_Cu3",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "scores": [
+      0.2199262740470805,
+      0.36085201616356877,
+      0.5728818788711248,
+      0.048333384553653554
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "COH/COH_0p056_AuCuCu",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.20189045848704174,
+      0.16721004209780985,
+      0.38982546817305574,
+      0.00786383618791609
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "COH/COH_0p056_interface_Cu3",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.23037642005198125,
+      0.18438146550232815,
+      0.2656419300109491,
+      0.05218125870977465
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "COH/COH_0p056_interior",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.22251704443676362,
+      0.22822308377443165,
+      0.1923829352574186,
+      0.028485648524485582
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "COH/COH_0p056_uniform",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.5850548077947543,
+      0.19060059109142796,
+      0.14781233728174434,
+      0.06126257704060115
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "COH/COH_0p167_uniform",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.8837028446789089,
+      0.1805804265309401,
+      0.025863399577454996,
+      0.005929236196730849
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "COOH/COOH_0p028_AuCu_interface",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.10719714262915774,
+      0.5110747987384235,
+      0.3714924668380644,
+      0.08214957536256186
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "COOH/COOH_0p056_AuCu_interface",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.11391080031038894,
+      0.45129885750056986,
+      0.19153976686869517,
+      0.07221893246435915
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "COOH/COOH_0p056_Au_top",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.3504245743109301,
+      0.18404312002066797,
+      0.46070662011270175,
+      0.018466829204978014
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "COOH/COOH_0p056_Cu_interface",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.380335714407169,
+      0.1955323106944333,
+      0.2005506085353192,
+      0.17519931319461185
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "COOH/COOH_0p056_Cu_uniform",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.27396527408539306,
+      0.30847323558330453,
+      0.2094882577155338,
+      0.20093009616188903
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "COOH/COOH_0p056_mixed_Au_Cu",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.5760931269830835,
+      0.19834518625438227,
+      0.20819816488297702,
+      0.07586204083720093
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "COOH/COOH_0p111_AuCu_interface",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.09151936639797188,
+      0.3585111909162545,
+      0.21976628218363173,
+      0.13682925092784515
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "COOH/COOH_0p111_Au_top",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "scores": [
+      0.13916675355861644,
+      0.3043672267847331,
+      0.5754195663020387,
+      0.061794175041854235
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "COOH/COOH_0p111_Cu_interface",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.4695435382407966,
+      0.11753965402037135,
+      0.0689515926882004,
+      0.3047066933494226
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "CO_H/CO_H_0p083_2CO_1H",
+    "truth": [
+      1,
+      1,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.717745777390376,
+      0.4459402606921346,
+      0.20108951570159353,
+      0.11098424650241355
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "CO_H/CO_H_0p083_2CO_1H_AuCu2",
+    "truth": [
+      1,
+      1,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.7437713624845245,
+      0.23983138682087354,
+      0.130128467475032,
+      0.028344783864250052
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "CO_H/CO_H_0p111_2CO_2H",
+    "truth": [
+      1,
+      1,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.7544833871667231,
+      0.31523340594117455,
+      0.1821938648823788,
+      0.10858898111472914
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "CO_OH/CO_OH_0p111_3CO_1OH",
+    "truth": [
+      1,
+      0,
+      0,
+      1
+    ],
+    "prediction": [
+      1,
+      1,
+      0,
+      0
+    ],
+    "scores": [
+      0.8284257496811654,
+      0.6428176643511125,
+      0.0618750910273264,
+      0.08033976217311556
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "H/H_0p25/Au",
+    "truth": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      1,
+      1,
+      0
+    ],
+    "scores": [
+      0.043404607187863445,
+      0.927535017905595,
+      0.897483481819225,
+      0.21621502962516398
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "H/H_0p25/interface_biased2",
+    "truth": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "scores": [
+      0.0744222576620063,
+      0.8470282315668441,
+      0.5231770789643361,
+      0.05432539032059947
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "H/H_0p25/interior_biased",
+    "truth": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "scores": [
+      0.05798929230306018,
+      0.8694336376250913,
+      0.49006336528483685,
+      0.2216076991493571
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "H/H_0p25/uniform",
+    "truth": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      1,
+      1,
+      0
+    ],
+    "scores": [
+      0.05065587173185311,
+      0.879410712753823,
+      0.6224645408963451,
+      0.07288566309157016
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "H/H_0p5/Au",
+    "truth": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "scores": [
+      0.020031879743186178,
+      0.9801918072621911,
+      0.19413472692276887,
+      0.0731063449541954
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "H/H_0p5/interface_biased",
+    "truth": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "scores": [
+      0.14437625563965778,
+      0.9956775488814453,
+      0.19009642796618456,
+      0.17857727231704504
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "H/H_0p5/interface_biased2",
+    "truth": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "scores": [
+      0.0642641523039062,
+      0.982243304741621,
+      0.06604838548035526,
+      0.05254189604500579
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "H/H_0p5/interior_biased",
+    "truth": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "scores": [
+      0.03969674475774871,
+      0.9903005458562874,
+      0.4304963904321196,
+      0.030639720760296783
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "H/H_0p5/uniform",
+    "truth": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "scores": [
+      0.06124188725532077,
+      0.9857525978724969,
+      0.10564747438756483,
+      0.1685053092636534
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "H/H_0p75/0p88_mixed",
+    "truth": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "scores": [
+      0.07692549195398,
+      0.9918549575889564,
+      0.0009303960913386289,
+      0.20147469304997928
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "H/H_0p75/Au",
+    "truth": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "scores": [
+      0.016766068459191198,
+      0.992082702204578,
+      0.008100418975960902,
+      0.04838502947792796
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "H/H_0p75/interface_biased",
+    "truth": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "scores": [
+      0.03673692215671319,
+      0.9507524702842141,
+      0.0003069643335124599,
+      0.01812156030553759
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "H/H_0p75/mixed",
+    "truth": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "scores": [
+      0.023406279495568557,
+      0.9888916718170222,
+      0.018788512066184287,
+      0.1152269645336234
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "H/H_0p75/uniform",
+    "truth": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "scores": [
+      0.027920500483574615,
+      0.9523718488897381,
+      0.0038866739519327737,
+      0.024489242752343664
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "O/O_0p028_1O_AuCu2",
+    "truth": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.06395085384192344,
+      0.22841387668758764,
+      0.5177834227670525,
+      0.020471414623044724
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "O/O_0p028_1O_Cu3",
+    "truth": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "scores": [
+      0.21713547745916334,
+      0.36482051097649554,
+      0.5719748973764556,
+      0.08708936382405345
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "O/O_0p056_2O_AuCu2",
+    "truth": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "scores": [
+      0.0542339525726843,
+      0.5594322702528682,
+      0.881881765932723,
+      0.08638392865683257
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "O/O_0p056_2O_Cu3_distributed",
+    "truth": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "prediction": [
+      0,
+      1,
+      1,
+      0
+    ],
+    "scores": [
+      0.022228240616623637,
+      0.7348009215764565,
+      0.9860572472711789,
+      0.16403137626906875
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "O/O_0p056_2O_mixed_Cu3_AuCu2",
+    "truth": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "prediction": [
+      0,
+      1,
+      1,
+      0
+    ],
+    "scores": [
+      0.1191370828970501,
+      0.6507102530140922,
+      0.8265197719576713,
+      0.11944658860227157
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "O/O_0p083_3O_Cu3_AuCu2",
+    "truth": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "prediction": [
+      0,
+      1,
+      1,
+      0
+    ],
+    "scores": [
+      0.10958654433271993,
+      0.7805091496018438,
+      0.8400023727086942,
+      0.3308689267662793
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "O/O_0p083_3O_interface_weighted_Cu3_AuCu2",
+    "truth": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "scores": [
+      0.05419781716535637,
+      0.6257839602266613,
+      0.9810356419556011,
+      0.2063613569035638
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "OCCOH/OCCOH_0p056_AuCu_interface",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.6346536543003563,
+      0.3108349209658146,
+      0.26551913383557274,
+      0.06993030915622911
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "OCCOH/OCCOH_0p056_Cu_interface",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.19583052486103616,
+      0.40854566530976705,
+      0.33686055280294613,
+      0.04489644342552914
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "OCCOH/OCCOH_0p056_Cu_interior",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.3354422666466239,
+      0.3083709278498816,
+      0.28817007202300426,
+      0.03335657333271603
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "OCCO_CO/OCCO_CO_0p111_Cu_rich",
+    "truth": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.9227773705807383,
+      0.20779950146393159,
+      0.13741574872496068,
+      0.030156033711194113
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "OCCO_CO/OCCO_CO_0p167_AuCu_interface",
+    "truth": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      1,
+      0,
+      0
+    ],
+    "scores": [
+      0.986088737538589,
+      0.6102956317291478,
+      0.037789857730363245,
+      0.01318916493932438
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "OCCO_CO/OCCO_plus_CO_0p222_AuCu_interface",
+    "truth": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.9916151083019097,
+      0.12454046654416229,
+      0.05729826332412806,
+      0.08899748917420691
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "OCCO_CO/OCCO_plus_CO_0p222_Cu_rich",
+    "truth": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.9377671551285501,
+      0.09112563218788848,
+      0.05473428414195825,
+      0.013998557436676561
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "OCHO/01_1OCHO_CuCu_interface",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.40951604249596385,
+      0.24876250269706252,
+      0.09121142569220042,
+      0.032026663347398496
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "OCHO/02_1OCHO_AuCu_across",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.24318822068822132,
+      0.3944878010984832,
+      0.4584733272108645,
+      0.08802427266220887
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "OCHO/03_1OCHO_CuCu_interior",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.34200575292367735,
+      0.10692818769627013,
+      0.06515030263674623,
+      0.0790677245193825
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "OCHO/04_2OCHO_CuCu_interface_plus_interior",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.23545812409675987,
+      0.39717714199573784,
+      0.08375725962661211,
+      0.11349236998895605
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "OCHO/05_2OCHO_CuCu_interface_plus_AuCu",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.36076840611053335,
+      0.5036334720298836,
+      0.06460973884020266,
+      0.14208089611469576
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "OCHO/06_2OCHO_2CuCu_interface",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.36212375785644424,
+      0.5652321010596765,
+      0.03055791960784083,
+      0.20357886342075002
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "OCHO/07_3OCHO_2CuCu_interface_plus_interior",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "scores": [
+      0.23267214696084956,
+      0.5327151742036453,
+      0.03372593560154455,
+      0.7738920724442073
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "OCHO/08_3OCHO_1CuCu_interface_plus_2interior",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "scores": [
+      0.58454989818433,
+      0.43543539392580954,
+      0.015795848017510977,
+      0.9094377286486692
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "OH/OH_0p125_interior_biased",
+    "truth": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "scores": [
+      0.009871292113666746,
+      0.2427313389252324,
+      0.5909073966669058,
+      0.960412590796808
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "OH/OH_0p125_uniform_high5Cu",
+    "truth": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "scores": [
+      0.06633196496459666,
+      0.34480564454650714,
+      0.0581476911619059,
+      0.8828231644821175
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "OH/OH_0p25_interface_Au",
+    "truth": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "scores": [
+      0.003594054313001996,
+      0.745505921153407,
+      0.023396043642889167,
+      0.999839211870789
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "OH/OH_0p25_interior_biased",
+    "truth": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "scores": [
+      0.001000967025763652,
+      0.27388896224061743,
+      0.34071103985596957,
+      0.9971047117298759
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "OH/OH_0p25_uniform",
+    "truth": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "scores": [
+      0.003057740185199045,
+      0.07944200428906144,
+      0.06137404743488976,
+      0.9988665125474091
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_only",
+    "configuration": "plain",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.46704187577487816,
+      0.1345307523599753,
+      0.46931788667820673,
+      0.009424419389258636
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "2CO_adjacent/2CO_adjacent_0p056_AuCu_interface",
+    "truth": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.30683953173822215,
+      0.44982250098716786,
+      0.4592378857537941,
+      0.06778982665746697
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "2CO_adjacent/2CO_adjacent_0p056_interior",
+    "truth": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.6314154386526395,
+      0.24164056865383818,
+      0.11408442605722059,
+      0.10115419752954916
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "2CO_adjacent/2CO_adjacent_0p056_orientation_alt",
+    "truth": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.5308562015218165,
+      0.359527871426342,
+      0.30860189243342595,
+      0.1267273784668224
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "2CO_adjacent/2CO_adjacent_0p111_interface",
+    "truth": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.7592204886998877,
+      0.3070325503732937,
+      0.030001174409933565,
+      0.038564912529009066
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "2CO_adjacent/2CO_adjacent_0p111_uniform",
+    "truth": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.8495936762149557,
+      0.3161284210729037,
+      0.03865110581579067,
+      0.07661303024603945
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "2CO_adjacent/2CO_adjacent_0p167_uniform",
+    "truth": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.9199844961620456,
+      0.34096473804086525,
+      0.026080228264432705,
+      0.10226898267201284
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "CHO/CHO_0p028_Cu_top",
+    "truth": [
+      1,
+      1,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.46330112278103824,
+      0.36407245550272777,
+      0.2773220852324895,
+      0.10544793873220502
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "CHO/CHO_0p056_AuCu_bidentate",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.6936822432649867,
+      0.23478386700936812,
+      0.1861100054871572,
+      0.08489101614821098
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "CHO/CHO_0p056_CuCu_bidentate",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.4737239100497108,
+      0.24950584554077432,
+      0.23663126811860366,
+      0.19709969697655022
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "CHO/CHO_0p056_interface_Cu",
+    "truth": [
+      1,
+      1,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.31671410714481535,
+      0.3227312012804824,
+      0.3234596019337543,
+      0.17199709687763107
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "CHO/CHO_0p056_interior_Cu",
+    "truth": [
+      1,
+      1,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.29848850439057956,
+      0.3074341641455089,
+      0.16530598394807175,
+      0.27930975927712776
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "CHO/CHO_0p056_uniform",
+    "truth": [
+      1,
+      1,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.19730263508912854,
+      0.34605136276763565,
+      0.26551457858757055,
+      0.3679004281181697
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "CHO/CHO_0p111_uniform",
+    "truth": [
+      1,
+      1,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.5509327594823084,
+      0.19604744949624034,
+      0.091106698046223,
+      0.3330997457170514
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "CHO_CO/CO_CHO_0p111_more_CO",
+    "truth": [
+      1,
+      1,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.6942221801498895,
+      0.3518435043166079,
+      0.13857598099389437,
+      0.0717790657036917
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "CHO_CO/CO_CHO_0p111_uniform",
+    "truth": [
+      1,
+      1,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.4315650314831746,
+      0.2999817129002307,
+      0.20714888823498037,
+      0.19373786255091618
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "CO/CO_0p11/interface_biased",
+    "truth": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.8044529759408521,
+      0.3063973350853688,
+      0.08129078771716329,
+      0.13586486932026168
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "CO/CO_0p11/interior_biased",
+    "truth": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.8407191964616682,
+      0.20368756980509864,
+      0.13787374947243142,
+      0.15687242777842508
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "CO/CO_0p11/uniform",
+    "truth": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.8434870656159279,
+      0.26852215950778685,
+      0.09431502797606521,
+      0.15066449713918711
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "CO/CO_0p14/interface_biased",
+    "truth": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.8141098691128226,
+      0.3209230718588839,
+      0.09911699288987146,
+      0.04574949089223712
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "CO/CO_0p14/interior_biased",
+    "truth": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.8990024261749494,
+      0.1940410479330489,
+      0.0653016597023708,
+      0.1762424346280056
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "CO/CO_0p14/uniform",
+    "truth": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.9155347348719693,
+      0.24751048602628128,
+      0.062089743521813234,
+      0.15406081751005007
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "CO/CO_0p14/uniform2",
+    "truth": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.9419708548683678,
+      0.20729502475630737,
+      0.03696175420443966,
+      0.09402642594269385
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "CO/CO_0p25/interface_biased",
+    "truth": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.9670310358224796,
+      0.2918498674323635,
+      0.01919704781368706,
+      0.038753059137802824
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "CO/CO_0p25/interface_biased2",
+    "truth": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.9842446922741803,
+      0.43234588498553084,
+      0.006690839692872872,
+      0.025405839850242282
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "CO/CO_0p25/interior_biased",
+    "truth": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.9931541022557517,
+      0.07244093196694923,
+      0.008479152469623386,
+      0.09382306887086253
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "CO/CO_0p25/uniform",
+    "truth": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.995516635860692,
+      0.13520967504092354,
+      0.0018229879532954687,
+      0.0950672380121619
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "CO/CO_0p5/interface_biased",
+    "truth": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.9913208116906336,
+      0.385270116429436,
+      9.2473178396859e-06,
+      0.06698371589830227
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "CO/CO_0p5/interior_biased",
+    "truth": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.9169440318615546,
+      0.3966840445895522,
+      4.535173590144314e-05,
+      0.18394725106507462
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "CO/CO_0p5/uniform",
+    "truth": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      1,
+      0,
+      0
+    ],
+    "scores": [
+      0.9904647841082181,
+      0.7554287907297393,
+      6.379589429989845e-05,
+      0.013328344866136014
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "CO/CO_0p75/uniform",
+    "truth": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      1,
+      0,
+      0
+    ],
+    "scores": [
+      0.9847974599881484,
+      0.6971360946970946,
+      1.7260077438184192e-05,
+      0.009197626500144308
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "CO2/CO2_0p028_interface_biased_activated",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.3253222453281589,
+      0.3576471818510722,
+      0.5724010700138858,
+      0.17871242411152688
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "CO2/CO2_0p028_linear_Cu_top",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.27776817625387173,
+      0.38304892187120676,
+      0.5557319451626578,
+      0.14592472293353292
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "CO2/CO2_0p056_mixed",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.35368863315942667,
+      0.31455901286571664,
+      0.3912027971643291,
+      0.18434024459947598
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "COCHO/COCHO_0p056_AuCu_interface",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.5759034848734829,
+      0.41500544647168774,
+      0.3869533623570853,
+      0.05035924736607648
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "COCHO/COCHO_0p056_AuCu_interface2",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.5646339853198382,
+      0.41368398091080827,
+      0.3931178225262008,
+      0.056462684279965515
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "COCHO/COCHO_0p056_Cu_interface",
+    "truth": [
+      1,
+      1,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.34165899392506677,
+      0.39698969472356505,
+      0.29495883364679504,
+      0.08032774654114977
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "COCHO/COCHO_0p056_Cu_interior",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.5524346555027936,
+      0.5427988129668683,
+      0.46456456661110934,
+      0.0682304988247264
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "COH/CHO_0p111_interface_Cu3",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.2714875507612026,
+      0.4325898029579765,
+      0.3021732332998329,
+      0.08416401966170825
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "COH/COH_0p028_interface_Cu3",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.3418709122103088,
+      0.41067391870464726,
+      0.5018754449052705,
+      0.08604663827526142
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "COH/COH_0p056_AuCuCu",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.5028518231782851,
+      0.26555000561697195,
+      0.22163139408452437,
+      0.044241318367714305
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "COH/COH_0p056_interface_Cu3",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.39325810307895004,
+      0.33779114522742565,
+      0.27211311277401357,
+      0.06751366474464048
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "COH/COH_0p056_interior",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.3397927093929278,
+      0.3508804424743196,
+      0.23495347349784687,
+      0.0868663153971693
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "COH/COH_0p056_uniform",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.5103989365317397,
+      0.24731158154402125,
+      0.1967348181069583,
+      0.11517144886938706
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "COH/COH_0p167_uniform",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.5537374278174485,
+      0.2719627445212274,
+      0.02743278970314269,
+      0.04999520577474555
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "COOH/COOH_0p028_AuCu_interface",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.2361315975054884,
+      0.4586839919426116,
+      0.6000708008470427,
+      0.11410490538979458
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "COOH/COOH_0p056_AuCu_interface",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.29459202457183037,
+      0.3694552682046315,
+      0.4298853500202065,
+      0.1122983027010418
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "COOH/COOH_0p056_Au_top",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.5713586801718206,
+      0.29137576314761643,
+      0.3256167924057372,
+      0.05715472078651174
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "COOH/COOH_0p056_Cu_interface",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.48220684687508825,
+      0.2163775826646835,
+      0.29733390646809127,
+      0.15083483163064806
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "COOH/COOH_0p056_Cu_uniform",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.39043921273180987,
+      0.2639777383515316,
+      0.36871705286054834,
+      0.24644529264189738
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "COOH/COOH_0p056_mixed_Au_Cu",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.6272444973911651,
+      0.24170978102640414,
+      0.2695511664502584,
+      0.08392696142529572
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "COOH/COOH_0p111_AuCu_interface",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.2998117146908546,
+      0.28207631746875006,
+      0.5734037989325077,
+      0.10037308443646534
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "COOH/COOH_0p111_Au_top",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "scores": [
+      0.32603617115086037,
+      0.3661259913098131,
+      0.7220186277164946,
+      0.04973649042522023
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "COOH/COOH_0p111_Cu_interface",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.4702175287838959,
+      0.14049932333514556,
+      0.17008746787563478,
+      0.2897119325303966
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "CO_H/CO_H_0p083_2CO_1H",
+    "truth": [
+      1,
+      1,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.6011133231909401,
+      0.43624125354503057,
+      0.26271795848992835,
+      0.10963061893221519
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "CO_H/CO_H_0p083_2CO_1H_AuCu2",
+    "truth": [
+      1,
+      1,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.7506069461404007,
+      0.31898379878895883,
+      0.11401151317220115,
+      0.0608726952756177
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "CO_H/CO_H_0p111_2CO_2H",
+    "truth": [
+      1,
+      1,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.6206468073556103,
+      0.3911262111522382,
+      0.2106989481747359,
+      0.10695756308988884
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "CO_OH/CO_OH_0p111_3CO_1OH",
+    "truth": [
+      1,
+      0,
+      0,
+      1
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.4948081434091232,
+      0.4795112816529903,
+      0.27592347587277205,
+      0.13819138884572252
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "H/H_0p25/Au",
+    "truth": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      1,
+      1,
+      0
+    ],
+    "scores": [
+      0.04366252253905116,
+      0.8601612693345593,
+      0.9166887360478441,
+      0.11491039490348418
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "H/H_0p25/interface_biased2",
+    "truth": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "scores": [
+      0.1105625919475524,
+      0.8391299243097953,
+      0.4656701286929468,
+      0.023979643542600224
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "H/H_0p25/interior_biased",
+    "truth": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "scores": [
+      0.06163002432079204,
+      0.8695372076604335,
+      0.6349578397044455,
+      0.14995754309024856
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "H/H_0p25/uniform",
+    "truth": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "scores": [
+      0.0837149242425584,
+      0.8644907554036784,
+      0.584510420752443,
+      0.07753009524870999
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "H/H_0p5/Au",
+    "truth": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "scores": [
+      0.03270566366035944,
+      0.9295417531677966,
+      0.4821378299646384,
+      0.0713328697400518
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "H/H_0p5/interface_biased",
+    "truth": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "scores": [
+      0.06410019591353858,
+      0.969413599232264,
+      0.5305499514109944,
+      0.06474877902120696
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "H/H_0p5/interface_biased2",
+    "truth": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "scores": [
+      0.08119264855023962,
+      0.948207709718522,
+      0.23260797916751202,
+      0.04144064817266304
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "H/H_0p5/interior_biased",
+    "truth": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "scores": [
+      0.034511895823920856,
+      0.9948721725811998,
+      0.3090710713880661,
+      0.02149173538692801
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "H/H_0p5/uniform",
+    "truth": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "scores": [
+      0.030774822013235094,
+      0.9660627242847707,
+      0.35146366306437293,
+      0.10360543346928323
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "H/H_0p75/0p88_mixed",
+    "truth": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "scores": [
+      0.03123261853811526,
+      0.980423696449453,
+      0.00924245156422629,
+      0.08602959035274012
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "H/H_0p75/Au",
+    "truth": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "scores": [
+      0.03398257193914212,
+      0.974714663766747,
+      0.08311083423413622,
+      0.047508686520034926
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "H/H_0p75/interface_biased",
+    "truth": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "scores": [
+      0.1293914010501443,
+      0.9469419422086803,
+      0.0021623296860476884,
+      0.03150828047735427
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "H/H_0p75/mixed",
+    "truth": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "scores": [
+      0.03482242439656944,
+      0.9687808170101794,
+      0.16392006978882212,
+      0.0849108746542764
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "H/H_0p75/uniform",
+    "truth": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "scores": [
+      0.05896231592829789,
+      0.9741933518211731,
+      0.0032335404322813813,
+      0.046982210741749846
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "O/O_0p028_1O_AuCu2",
+    "truth": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.2575047122059544,
+      0.36038682285872947,
+      0.44582498594534703,
+      0.061538032839476745
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "O/O_0p028_1O_Cu3",
+    "truth": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.2990512388528246,
+      0.4345318650338646,
+      0.465157005279431,
+      0.10771408872434327
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "O/O_0p056_2O_AuCu2",
+    "truth": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "scores": [
+      0.10946680155744533,
+      0.6121750520531841,
+      0.7579449296013446,
+      0.1087484263698611
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "O/O_0p056_2O_Cu3_distributed",
+    "truth": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "prediction": [
+      0,
+      1,
+      1,
+      0
+    ],
+    "scores": [
+      0.022369364573048944,
+      0.7780698750777275,
+      0.9822391726581908,
+      0.07687608501753192
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "O/O_0p056_2O_mixed_Cu3_AuCu2",
+    "truth": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "scores": [
+      0.18692955719329948,
+      0.5491609806891335,
+      0.7460584819441942,
+      0.10450256213046187
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "O/O_0p083_3O_Cu3_AuCu2",
+    "truth": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "scores": [
+      0.10430021291564703,
+      0.6650022738778929,
+      0.7646809650024772,
+      0.18703680497401326
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "O/O_0p083_3O_interface_weighted_Cu3_AuCu2",
+    "truth": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "prediction": [
+      0,
+      1,
+      1,
+      0
+    ],
+    "scores": [
+      0.05030275229669232,
+      0.7231396106865058,
+      0.9410093801149138,
+      0.18394608815039956
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "OCCOH/OCCOH_0p056_AuCu_interface",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.6218027101407755,
+      0.3064693400647017,
+      0.3028776333760424,
+      0.08746586803673924
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "OCCOH/OCCOH_0p056_Cu_interface",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.37590304144261805,
+      0.37312458951315214,
+      0.37900223130957306,
+      0.07916466963081303
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "OCCOH/OCCOH_0p056_Cu_interior",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.4551097240033149,
+      0.35412067925390356,
+      0.44591300839765063,
+      0.08296476593638694
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "OCCO_CO/OCCO_CO_0p111_Cu_rich",
+    "truth": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.7862778157412205,
+      0.33833530492108416,
+      0.14187857064426276,
+      0.0598819913983305
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "OCCO_CO/OCCO_CO_0p167_AuCu_interface",
+    "truth": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.8972434875268397,
+      0.3425806410072682,
+      0.07530108250081798,
+      0.04306892666802758
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "OCCO_CO/OCCO_plus_CO_0p222_AuCu_interface",
+    "truth": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.9486157963638375,
+      0.20273136019779556,
+      0.036820367310401635,
+      0.09635674107114997
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "OCCO_CO/OCCO_plus_CO_0p222_Cu_rich",
+    "truth": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.8453056391603951,
+      0.33996717992768927,
+      0.014395286402552634,
+      0.06442491379591378
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "OCHO/01_1OCHO_CuCu_interface",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.6520940800625419,
+      0.27062542245205096,
+      0.11230936730655224,
+      0.09057540792285507
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "OCHO/02_1OCHO_AuCu_across",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.3496139500691936,
+      0.38744228073172543,
+      0.5791214754903414,
+      0.11640607939723152
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "OCHO/03_1OCHO_CuCu_interior",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.548174292814786,
+      0.20047117669216422,
+      0.11105854102608217,
+      0.1508049094707758
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "OCHO/04_2OCHO_CuCu_interface_plus_interior",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.25220204227467463,
+      0.42315740230885623,
+      0.4161739878527135,
+      0.1615905299413899
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "OCHO/05_2OCHO_CuCu_interface_plus_AuCu",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.44395026121064507,
+      0.3527135692103222,
+      0.2734438021189022,
+      0.1997005784989537
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "OCHO/06_2OCHO_2CuCu_interface",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.4198169219950733,
+      0.372284437791692,
+      0.21943475164350082,
+      0.25044911444596385
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "OCHO/07_3OCHO_2CuCu_interface_plus_interior",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.20208925299727995,
+      0.3730812345827536,
+      0.33066524855552093,
+      0.6354682588887806
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "OCHO/08_3OCHO_1CuCu_interface_plus_2interior",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "scores": [
+      0.27688545198891285,
+      0.43839401146565016,
+      0.2877494887736793,
+      0.7665925018320009
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "OH/OH_0p125_interior_biased",
+    "truth": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "scores": [
+      0.01928949274238852,
+      0.43866866662605764,
+      0.6645360769419977,
+      0.842624369826109
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "OH/OH_0p125_uniform_high5Cu",
+    "truth": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "scores": [
+      0.1160309069880663,
+      0.27965347957484904,
+      0.1299003986247908,
+      0.7517872622928522
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "OH/OH_0p25_interface_Au",
+    "truth": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "scores": [
+      0.006991380964284243,
+      0.4753774698354713,
+      0.1807298709362976,
+      0.993921259649179
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "OH/OH_0p25_interior_biased",
+    "truth": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "scores": [
+      0.005570785317407471,
+      0.4471630794539785,
+      0.27283279181503484,
+      0.97702049894092
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "OH/OH_0p25_uniform",
+    "truth": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "scores": [
+      0.006269778392298357,
+      0.2527062054831091,
+      0.08092676594373377,
+      0.9898101580944914
+    ]
+  },
+  {
+    "domain": "CuAu",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "plain",
+    "truth": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.7047714401984172,
+      0.25389130600861765,
+      0.20888686742320098,
+      0.04073778603422712
+    ]
+  },
+  {
+    "domain": "Cu100",
+    "training": "CuAu_only",
+    "configuration": "Cu100/Cu100_2x2x4_CO_1_4_top",
+    "truth": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "scores": [
+      0.003182385161281726,
+      6.715000985824474e-09,
+      0.9999999999845797,
+      0.00024161135784843342
+    ]
+  },
+  {
+    "domain": "Cu100",
+    "training": "CuAu_only",
+    "configuration": "Cu100/Cu100_2x2x4_CO_2_4_2top_v2",
+    "truth": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      1,
+      1
+    ],
+    "scores": [
+      0.999931005590162,
+      4.536221770609284e-10,
+      0.999999999995852,
+      0.999845924908383
+    ]
+  },
+  {
+    "domain": "Cu100",
+    "training": "CuAu_only",
+    "configuration": "Cu100/Cu100_2x2x4_CO_3_4_2top_1bridge",
+    "truth": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "scores": [
+      0.07557217649434311,
+      6.0626471176198624e-12,
+      0.9999999999944735,
+      5.184358409132713e-05
+    ]
+  },
+  {
+    "domain": "Cu100",
+    "training": "CuAu_only",
+    "configuration": "Cu100/Cu100_2x2x4_CO_4_4_2top_2bridge",
+    "truth": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      1,
+      0
+    ],
+    "scores": [
+      0.7335636836236785,
+      2.19097130788793e-12,
+      0.9999999999999993,
+      2.2068128187620873e-06
+    ]
+  },
+  {
+    "domain": "Cu100",
+    "training": "CuAu_only",
+    "configuration": "Cu100/Cu100_2x2x4_H_1_4_hollow",
+    "truth": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "scores": [
+      1.0271794658989694e-05,
+      1.9617037015850287e-05,
+      0.9999928492910449,
+      0.03786337218065698
+    ]
+  },
+  {
+    "domain": "Cu100",
+    "training": "CuAu_only",
+    "configuration": "Cu100/Cu100_2x2x4_H_3_4_1bridge_2hollow_config_1",
+    "truth": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "scores": [
+      0.0035165786514187074,
+      5.627352059809011e-05,
+      0.9999943638173271,
+      0.020028879396916065
+    ]
+  },
+  {
+    "domain": "Cu100",
+    "training": "CuAu_only",
+    "configuration": "Cu100/Cu100_2x2x4_H_4_4_4bridge_config_4",
+    "truth": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.680894162009684,
+      0.20031475562006845,
+      0.13270258963183432,
+      0.014073088390072036
+    ]
+  },
+  {
+    "domain": "Cu100",
+    "training": "CuAu_only",
+    "configuration": "Cu100/Cu100_2x2x4_OH_1_4_hollow",
+    "truth": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "prediction": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "scores": [
+      4.710734502965619e-08,
+      8.811474494696652e-08,
+      0.9999998077515427,
+      0.9830831759333901
+    ]
+  },
+  {
+    "domain": "Cu100",
+    "training": "CuAu_only",
+    "configuration": "Cu100/Cu100_2x2x4_OH_2_4_hollow_config_2",
+    "truth": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "prediction": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "scores": [
+      1.4844760864467538e-08,
+      1.860253914536952e-08,
+      0.999973084281038,
+      0.9999999936355843
+    ]
+  },
+  {
+    "domain": "Cu100",
+    "training": "CuAu_only",
+    "configuration": "Cu100/Cu100_2x2x4_OH_3_4_mixed_1bridge_2hollow",
+    "truth": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "prediction": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "scores": [
+      1.5724883725078516e-16,
+      5.4103723617007874e-05,
+      0.9997913545872865,
+      0.9999964725079727
+    ]
+  },
+  {
+    "domain": "Cu100",
+    "training": "CuAu_only",
+    "configuration": "Cu100/Cu100_2x2x4_OH_4_4_mixed_2top_2bridge",
+    "truth": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "prediction": [
+      1,
+      0,
+      1,
+      1
+    ],
+    "scores": [
+      0.997547341234242,
+      3.0396098254702745e-09,
+      0.9999994243651168,
+      0.9577422874825929
+    ]
+  },
+  {
+    "domain": "Cu100",
+    "training": "CuAu_only",
+    "configuration": "Cu100/Cu100_2x2x4_O_1_4_hollow",
+    "truth": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "scores": [
+      3.2682671737385796e-11,
+      7.6639294119823e-05,
+      0.9999999922776709,
+      0.13601910569054673
+    ]
+  },
+  {
+    "domain": "Cu100",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "Cu100/Cu100_2x2x4_CO_1_4_top",
+    "truth": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "scores": [
+      0.011891991205558648,
+      0.07074515971908188,
+      0.8684587309007679,
+      0.008531081024145178
+    ]
+  },
+  {
+    "domain": "Cu100",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "Cu100/Cu100_2x2x4_CO_2_4_2top_v2",
+    "truth": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      1,
+      1
+    ],
+    "scores": [
+      0.9973665264634435,
+      0.005071894059560578,
+      0.9219504948607181,
+      0.999989344256837
+    ]
+  },
+  {
+    "domain": "Cu100",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "Cu100/Cu100_2x2x4_CO_3_4_2top_1bridge",
+    "truth": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.9131884576822781,
+      0.00371944635408957,
+      7.922683935880753e-05,
+      0.0011450761388043626
+    ]
+  },
+  {
+    "domain": "Cu100",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "Cu100/Cu100_2x2x4_CO_4_4_2top_2bridge",
+    "truth": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "prediction": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.9566323820236183,
+      0.013857289198749609,
+      0.000830264906977341,
+      6.591032163802371e-05
+    ]
+  },
+  {
+    "domain": "Cu100",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "Cu100/Cu100_2x2x4_H_1_4_hollow",
+    "truth": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.006382053502191941,
+      0.18350627515635173,
+      0.5790514642147562,
+      0.3456260393592968
+    ]
+  },
+  {
+    "domain": "Cu100",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "Cu100/Cu100_2x2x4_H_3_4_1bridge_2hollow_config_1",
+    "truth": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "scores": [
+      0.10552501289688247,
+      0.8514340264910677,
+      0.012303145181736993,
+      0.07127663369626488
+    ]
+  },
+  {
+    "domain": "Cu100",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "Cu100/Cu100_2x2x4_H_4_4_4bridge_config_4",
+    "truth": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "prediction": [
+      0,
+      1,
+      0,
+      1
+    ],
+    "scores": [
+      0.002130463251529664,
+      0.7782698176254106,
+      1.2082801095007344e-08,
+      0.998788081235058
+    ]
+  },
+  {
+    "domain": "Cu100",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "Cu100/Cu100_2x2x4_OH_1_4_hollow",
+    "truth": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "scores": [
+      0.0015489318132512636,
+      0.045676938511202636,
+      0.16599428415900958,
+      0.6930041571895538
+    ]
+  },
+  {
+    "domain": "Cu100",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "Cu100/Cu100_2x2x4_OH_2_4_hollow_config_2",
+    "truth": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "scores": [
+      0.00024349432748087529,
+      0.03780990348705526,
+      5.4769101082680485e-05,
+      0.9999976201244348
+    ]
+  },
+  {
+    "domain": "Cu100",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "Cu100/Cu100_2x2x4_OH_3_4_mixed_1bridge_2hollow",
+    "truth": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "prediction": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "scores": [
+      4.504025012601252e-10,
+      0.20665397887805767,
+      0.03164679258915167,
+      0.9999864301162875
+    ]
+  },
+  {
+    "domain": "Cu100",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "Cu100/Cu100_2x2x4_OH_4_4_mixed_2top_2bridge",
+    "truth": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "prediction": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.9999502644853463,
+      0.05048799036912608,
+      3.0215747195796773e-05,
+      0.05931740610685236
+    ]
+  },
+  {
+    "domain": "Cu100",
+    "training": "CuAu_plus_Cu100",
+    "configuration": "Cu100/Cu100_2x2x4_O_1_4_hollow",
+    "truth": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "prediction": [
+      0,
+      1,
+      1,
+      1
+    ],
+    "scores": [
+      1.4437315485737322e-06,
+      0.9268600947846973,
+      0.9824778412737811,
+      0.866325877348158
+    ]
+  }
+]

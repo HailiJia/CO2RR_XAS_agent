@@ -1,0 +1,68 @@
+{
+  "version": "refresh-20261029",
+  "fixed_anchor": "Combined spectrum/CDF/d1/d2, physical top2 only;64 independent balanced ExtraTrees, leaf1,sqrt; three fixed seeds, never choose best seed",
+  "old_outer": "exact old99 GroupKFold assignment; deterministic geometry-hash folds for additions; no depth selection",
+  "fixed_inner": "old training-group assignment preserved, additions hash-assigned; thresholds0.5, old-baseline transferred, and training-only retuned reported separately",
+  "compact_search": [
+    [
+      "Combined",
+      "logistic",
+      0.1
+    ],
+    [
+      "Combined",
+      "logistic",
+      1.0
+    ],
+    [
+      "DCT16",
+      "logistic",
+      0.1
+    ],
+    [
+      "DCT16",
+      "logistic",
+      1.0
+    ],
+    [
+      "Combined",
+      "trees",
+      2
+    ],
+    [
+      "DCT16",
+      "trees",
+      2
+    ]
+  ],
+  "compact_inner": "3 GroupKFold within each outer training fold; training-only feature, model, thresholds and StandardScaler",
+  "paired_reference": "CuAu->clean CuAu; Cu100->actual supplied clean Cu100 raw electronic spectra locally convolved; same-model conditional inference, no independently proved parent/experimental transfer",
+  "coverage": "CO-only; N(CO)/all surface metal sites, different from Cu-normalized loading; no counts/metadata in predictors",
+  "supported_labels": [
+    "CHO",
+    "CO",
+    "CO2",
+    "COCHO",
+    "COH",
+    "COOH",
+    "H",
+    "O",
+    "OCCOH",
+    "OCHO",
+    "OH"
+  ],
+  "unsupported_chemistry": "retained audited records but excluded from closed11-label fitting; see training_exclusions",
+  "one_clean_CuAu_negative": "kept to preserve historical99 comparison; new clean Cu100 is reference input, not an added adsorbate sample",
+  "dependencies": {
+    "python": "3.11.9",
+    "numpy": "2.4.6",
+    "sklearn": "1.9.0"
+  },
+  "source_hashes": {
+    "dataset_refresh_training.py": "1afa5c199c81907528f05c141453876ca0c539f8139db36c9cc922eab38dc324",
+    "dataset_refresh.py": "16432a528ad0b70d1ccaccd59a647fc86e4e6dcaf53740acb67d44743fe2da73",
+    "differential_training.py": "5e48e4584642ee570e3d831ac5978b7a28ed501af12621d2f407718b474ac59d"
+  },
+  "not_independent_confirmation": "reused configurations and folds, not a locked prospective experiment"
+}
+

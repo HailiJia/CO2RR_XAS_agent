@@ -1,0 +1,965 @@
+{
+  "source_commit": "798e2c81b7a9afa684dc2a5625607ec866430163",
+  "reference": "actual separately relaxed clean Cu-Au, common layers4+5",
+  "normalization": "signed difference / shared clean near-edge-window scale; not an experimentally validated full edge jump",
+  "independent_single_species_configurations": 33,
+  "members": [
+    {
+      "array_index": 1,
+      "configuration": "2CO_adjacent/2CO_adjacent_0p056_interface",
+      "domain": "CuAu",
+      "group": "583bf4edd08680fc09ff9395abdff981a179633440c3b723d1924b03a0675834",
+      "identity_labels": [
+        "CO"
+      ],
+      "observed_counts": {
+        "CO": 2
+      },
+      "CO_only": true,
+      "n_CO": 2,
+      "surface_sites": 68,
+      "surface_Cu": 36,
+      "surface_Au": 32,
+      "coverage_ML": 0.029411764705882353,
+      "coverage_per_surface_Cu": 0.05555555555555555,
+      "coverage_CO_per_nm2": 0.46071167821298475,
+      "cell_area_A2": 434.1109840665705,
+      "old99": false,
+      "fold": 1,
+      "reference_id": "co2rr-20261029-5a37c9c9750f1494cf408477",
+      "clean_scale": 0.022518758719618052,
+      "paired_reference_match": "composition/cell/facet/physical layers verified; initial ancestry and relaxation constraints require separate evidence, not automatically assumed",
+      "initial_parent_available": true,
+      "sample_record_sha256": "af56e7b2926dc0f32c35804a759c06e587d791ce4be1cd257018948f4353f8e5",
+      "reference_record_sha256": "ee9cb93df8c2cfd9f20bbadd21cf1b46a0e4622963454dc72b30d2e23a4afbe1"
+    },
+    {
+      "array_index": 3,
+      "configuration": "2CO_adjacent/2CO_adjacent_0p056_orientation_alt",
+      "domain": "CuAu",
+      "group": "80b05509d6a0846e268fd32dbd9e150d95985a9044630aed33fa59e21068e14b",
+      "identity_labels": [
+        "CO"
+      ],
+      "observed_counts": {
+        "CO": 2
+      },
+      "CO_only": true,
+      "n_CO": 2,
+      "surface_sites": 68,
+      "surface_Cu": 36,
+      "surface_Au": 32,
+      "coverage_ML": 0.029411764705882353,
+      "coverage_per_surface_Cu": 0.05555555555555555,
+      "coverage_CO_per_nm2": 0.46071167821298475,
+      "cell_area_A2": 434.1109840665705,
+      "old99": true,
+      "fold": 4,
+      "reference_id": "co2rr-20261029-5a37c9c9750f1494cf408477",
+      "clean_scale": 0.022518758719618052,
+      "paired_reference_match": "composition/cell/facet/physical layers verified; initial ancestry and relaxation constraints require separate evidence, not automatically assumed",
+      "initial_parent_available": true,
+      "sample_record_sha256": "3ef2bea61ebd4e7b69e3f7cda3dba6ad8a4d526e3414b4096ad01563244a68e3",
+      "reference_record_sha256": "ee9cb93df8c2cfd9f20bbadd21cf1b46a0e4622963454dc72b30d2e23a4afbe1"
+    },
+    {
+      "array_index": 4,
+      "configuration": "2CO_adjacent/2CO_adjacent_0p111_interface",
+      "domain": "CuAu",
+      "group": "3253cc48cb10de89658d3e162626e51a68d1ff675a2db4ffc0231934c59f47a3",
+      "identity_labels": [
+        "CO"
+      ],
+      "observed_counts": {
+        "CO": 4
+      },
+      "CO_only": true,
+      "n_CO": 4,
+      "surface_sites": 68,
+      "surface_Cu": 36,
+      "surface_Au": 32,
+      "coverage_ML": 0.058823529411764705,
+      "coverage_per_surface_Cu": 0.1111111111111111,
+      "coverage_CO_per_nm2": 0.9214233564259695,
+      "cell_area_A2": 434.1109840665705,
+      "old99": true,
+      "fold": 3,
+      "reference_id": "co2rr-20261029-5a37c9c9750f1494cf408477",
+      "clean_scale": 0.022518758719618052,
+      "paired_reference_match": "composition/cell/facet/physical layers verified; initial ancestry and relaxation constraints require separate evidence, not automatically assumed",
+      "initial_parent_available": true,
+      "sample_record_sha256": "d38a0add6e119956271d5237daf725b2e5d08dcd4688cf4c219342b1bbffcbc2",
+      "reference_record_sha256": "ee9cb93df8c2cfd9f20bbadd21cf1b46a0e4622963454dc72b30d2e23a4afbe1"
+    },
+    {
+      "array_index": 6,
+      "configuration": "2CO_adjacent/2CO_adjacent_0p167_uniform",
+      "domain": "CuAu",
+      "group": "fbf89a2f124ec511c3a8fb4c60be7394e9eb4b748b19164208c722a4b292418a",
+      "identity_labels": [
+        "CO"
+      ],
+      "observed_counts": {
+        "CO": 6
+      },
+      "CO_only": true,
+      "n_CO": 6,
+      "surface_sites": 68,
+      "surface_Cu": 36,
+      "surface_Au": 32,
+      "coverage_ML": 0.08823529411764706,
+      "coverage_per_surface_Cu": 0.16666666666666666,
+      "coverage_CO_per_nm2": 1.3821350346389543,
+      "cell_area_A2": 434.1109840665705,
+      "old99": true,
+      "fold": 1,
+      "reference_id": "co2rr-20261029-5a37c9c9750f1494cf408477",
+      "clean_scale": 0.022518758719618052,
+      "paired_reference_match": "composition/cell/facet/physical layers verified; initial ancestry and relaxation constraints require separate evidence, not automatically assumed",
+      "initial_parent_available": true,
+      "sample_record_sha256": "961c860eb563c9a475b141fc84d15bd5da07c80481659c439048ef5bfb12fffa",
+      "reference_record_sha256": "ee9cb93df8c2cfd9f20bbadd21cf1b46a0e4622963454dc72b30d2e23a4afbe1"
+    },
+    {
+      "array_index": 19,
+      "configuration": "CO/CO_0p11/interior_biased",
+      "domain": "CuAu",
+      "group": "6e18b28ff174b6d920bf9987c281695e16594be4aff76f83458edde57b90a05b",
+      "identity_labels": [
+        "CO"
+      ],
+      "observed_counts": {
+        "CO": 4
+      },
+      "CO_only": true,
+      "n_CO": 4,
+      "surface_sites": 68,
+      "surface_Cu": 36,
+      "surface_Au": 32,
+      "coverage_ML": 0.058823529411764705,
+      "coverage_per_surface_Cu": 0.1111111111111111,
+      "coverage_CO_per_nm2": 0.9214233564259695,
+      "cell_area_A2": 434.1109840665705,
+      "old99": true,
+      "fold": 4,
+      "reference_id": "co2rr-20261029-5a37c9c9750f1494cf408477",
+      "clean_scale": 0.022518758719618052,
+      "paired_reference_match": "composition/cell/facet/physical layers verified; initial ancestry and relaxation constraints require separate evidence, not automatically assumed",
+      "initial_parent_available": true,
+      "sample_record_sha256": "2ca77ee67c8750a707c4ec240537560fe4eec67a7ad36a99480885fa1959d11f",
+      "reference_record_sha256": "ee9cb93df8c2cfd9f20bbadd21cf1b46a0e4622963454dc72b30d2e23a4afbe1"
+    },
+    {
+      "array_index": 20,
+      "configuration": "CO/CO_0p11/uniform",
+      "domain": "CuAu",
+      "group": "ebe77cd2f9228df384be99b6cfebaea2b4b14412dea4e9411ebdd9a25115de2f",
+      "identity_labels": [
+        "CO"
+      ],
+      "observed_counts": {
+        "CO": 4
+      },
+      "CO_only": true,
+      "n_CO": 4,
+      "surface_sites": 68,
+      "surface_Cu": 36,
+      "surface_Au": 32,
+      "coverage_ML": 0.058823529411764705,
+      "coverage_per_surface_Cu": 0.1111111111111111,
+      "coverage_CO_per_nm2": 0.9214233564259695,
+      "cell_area_A2": 434.1109840665705,
+      "old99": true,
+      "fold": 1,
+      "reference_id": "co2rr-20261029-5a37c9c9750f1494cf408477",
+      "clean_scale": 0.022518758719618052,
+      "paired_reference_match": "composition/cell/facet/physical layers verified; initial ancestry and relaxation constraints require separate evidence, not automatically assumed",
+      "initial_parent_available": true,
+      "sample_record_sha256": "9c8854f408a595db8a65d9ad50e8f679fa38e62581b669497808e17149a0488f",
+      "reference_record_sha256": "ee9cb93df8c2cfd9f20bbadd21cf1b46a0e4622963454dc72b30d2e23a4afbe1"
+    },
+    {
+      "array_index": 22,
+      "configuration": "CO/CO_0p14/interior_biased",
+      "domain": "CuAu",
+      "group": "550f28ea70c36b430d3a922d639339edba96e2165e658870c60565233408c742",
+      "identity_labels": [
+        "CO"
+      ],
+      "observed_counts": {
+        "CO": 5
+      },
+      "CO_only": true,
+      "n_CO": 5,
+      "surface_sites": 68,
+      "surface_Cu": 36,
+      "surface_Au": 32,
+      "coverage_ML": 0.07352941176470588,
+      "coverage_per_surface_Cu": 0.1388888888888889,
+      "coverage_CO_per_nm2": 1.1517791955324619,
+      "cell_area_A2": 434.1109840665705,
+      "old99": true,
+      "fold": 1,
+      "reference_id": "co2rr-20261029-5a37c9c9750f1494cf408477",
+      "clean_scale": 0.022518758719618052,
+      "paired_reference_match": "composition/cell/facet/physical layers verified; initial ancestry and relaxation constraints require separate evidence, not automatically assumed",
+      "initial_parent_available": true,
+      "sample_record_sha256": "de356993a5c16cbde1da7df561d232b02ceaae3ab67c4fe75725af8f1c72bee7",
+      "reference_record_sha256": "ee9cb93df8c2cfd9f20bbadd21cf1b46a0e4622963454dc72b30d2e23a4afbe1"
+    },
+    {
+      "array_index": 23,
+      "configuration": "CO/CO_0p14/uniform",
+      "domain": "CuAu",
+      "group": "8323c3431eb4d026f20f0242138259015844f8d0b3f6fb64d4e035ac27f372e8",
+      "identity_labels": [
+        "CO"
+      ],
+      "observed_counts": {
+        "CO": 5
+      },
+      "CO_only": true,
+      "n_CO": 5,
+      "surface_sites": 68,
+      "surface_Cu": 36,
+      "surface_Au": 32,
+      "coverage_ML": 0.07352941176470588,
+      "coverage_per_surface_Cu": 0.1388888888888889,
+      "coverage_CO_per_nm2": 1.1517791955324619,
+      "cell_area_A2": 434.1109840665705,
+      "old99": true,
+      "fold": 3,
+      "reference_id": "co2rr-20261029-5a37c9c9750f1494cf408477",
+      "clean_scale": 0.022518758719618052,
+      "paired_reference_match": "composition/cell/facet/physical layers verified; initial ancestry and relaxation constraints require separate evidence, not automatically assumed",
+      "initial_parent_available": true,
+      "sample_record_sha256": "6643e05a488f4f6a17cea912e65210d9f7a2554ff89ce8f5269444d42e585ecc",
+      "reference_record_sha256": "ee9cb93df8c2cfd9f20bbadd21cf1b46a0e4622963454dc72b30d2e23a4afbe1"
+    },
+    {
+      "array_index": 47,
+      "configuration": "COH/COH_0p056_AuCuCu",
+      "domain": "CuAu",
+      "group": "59fd8616dbe4e4d31f2cc072c6e6f40a3820e03a85ecc669adfdeb9f6e91949b",
+      "identity_labels": [
+        "COH"
+      ],
+      "observed_counts": {
+        "COH": 2
+      },
+      "CO_only": false,
+      "n_CO": 0,
+      "surface_sites": 68,
+      "surface_Cu": 36,
+      "surface_Au": 32,
+      "coverage_ML": 0,
+      "coverage_per_surface_Cu": 0,
+      "coverage_CO_per_nm2": 0,
+      "cell_area_A2": 434.1109840665705,
+      "old99": true,
+      "fold": 2,
+      "reference_id": "co2rr-20261029-5a37c9c9750f1494cf408477",
+      "clean_scale": 0.022518758719618052,
+      "paired_reference_match": "composition/cell/facet/physical layers verified; initial ancestry and relaxation constraints require separate evidence, not automatically assumed",
+      "initial_parent_available": true,
+      "sample_record_sha256": "68267fb9bc39268314a2c44ec19ee7a80b83ff765aa7531b3c12e852f9615ffa",
+      "reference_record_sha256": "ee9cb93df8c2cfd9f20bbadd21cf1b46a0e4622963454dc72b30d2e23a4afbe1"
+    },
+    {
+      "array_index": 48,
+      "configuration": "COH/COH_0p056_interface_Cu3",
+      "domain": "CuAu",
+      "group": "fd8fb22ed6752760b909d85fcb873b4354761d38aa139b924c2328da38836cae",
+      "identity_labels": [
+        "COH"
+      ],
+      "observed_counts": {
+        "COH": 2
+      },
+      "CO_only": false,
+      "n_CO": 0,
+      "surface_sites": 68,
+      "surface_Cu": 36,
+      "surface_Au": 32,
+      "coverage_ML": 0,
+      "coverage_per_surface_Cu": 0,
+      "coverage_CO_per_nm2": 0,
+      "cell_area_A2": 434.1109840665705,
+      "old99": true,
+      "fold": 0,
+      "reference_id": "co2rr-20261029-5a37c9c9750f1494cf408477",
+      "clean_scale": 0.022518758719618052,
+      "paired_reference_match": "composition/cell/facet/physical layers verified; initial ancestry and relaxation constraints require separate evidence, not automatically assumed",
+      "initial_parent_available": true,
+      "sample_record_sha256": "eee6baf3bb8d6cf1729dc241fe44aee72c8983bcfb496564c311a70ea13d842a",
+      "reference_record_sha256": "ee9cb93df8c2cfd9f20bbadd21cf1b46a0e4622963454dc72b30d2e23a4afbe1"
+    },
+    {
+      "array_index": 49,
+      "configuration": "COH/COH_0p056_interior",
+      "domain": "CuAu",
+      "group": "b520f7fc6406a250d58db598cf4dffa4c3632188113c2a9fa511c27a76165bd4",
+      "identity_labels": [
+        "COH"
+      ],
+      "observed_counts": {
+        "COH": 2
+      },
+      "CO_only": false,
+      "n_CO": 0,
+      "surface_sites": 68,
+      "surface_Cu": 36,
+      "surface_Au": 32,
+      "coverage_ML": 0,
+      "coverage_per_surface_Cu": 0,
+      "coverage_CO_per_nm2": 0,
+      "cell_area_A2": 434.1109840665705,
+      "old99": true,
+      "fold": 3,
+      "reference_id": "co2rr-20261029-5a37c9c9750f1494cf408477",
+      "clean_scale": 0.022518758719618052,
+      "paired_reference_match": "composition/cell/facet/physical layers verified; initial ancestry and relaxation constraints require separate evidence, not automatically assumed",
+      "initial_parent_available": true,
+      "sample_record_sha256": "03f18cda7598d376ac8d6ea7ee479ebaaee71bdbef8fec2e5ad42a49c7d708eb",
+      "reference_record_sha256": "ee9cb93df8c2cfd9f20bbadd21cf1b46a0e4622963454dc72b30d2e23a4afbe1"
+    },
+    {
+      "array_index": 52,
+      "configuration": "COOH/COOH_0p028_AuCu_interface",
+      "domain": "CuAu",
+      "group": "eaa11d6463fd4dfbe2b012b1ef4904731f145ce1ee536cdb87178887b9c9f505",
+      "identity_labels": [
+        "COOH"
+      ],
+      "observed_counts": {
+        "COOH": 1
+      },
+      "CO_only": false,
+      "n_CO": 0,
+      "surface_sites": 68,
+      "surface_Cu": 36,
+      "surface_Au": 32,
+      "coverage_ML": 0,
+      "coverage_per_surface_Cu": 0,
+      "coverage_CO_per_nm2": 0,
+      "cell_area_A2": 434.1109840665705,
+      "old99": true,
+      "fold": 3,
+      "reference_id": "co2rr-20261029-5a37c9c9750f1494cf408477",
+      "clean_scale": 0.022518758719618052,
+      "paired_reference_match": "composition/cell/facet/physical layers verified; initial ancestry and relaxation constraints require separate evidence, not automatically assumed",
+      "initial_parent_available": true,
+      "sample_record_sha256": "efdc5a1d92232dbea0b7a13b58d66e5f656d89517937032c4901621ec2a63e87",
+      "reference_record_sha256": "ee9cb93df8c2cfd9f20bbadd21cf1b46a0e4622963454dc72b30d2e23a4afbe1"
+    },
+    {
+      "array_index": 53,
+      "configuration": "COOH/COOH_0p056_AuCu_interface",
+      "domain": "CuAu",
+      "group": "05f77126ef6edc95a4f3f80eefaf9571cb11837b34614d25dee0f63fecb07e2f",
+      "identity_labels": [
+        "COOH"
+      ],
+      "observed_counts": {
+        "COOH": 2
+      },
+      "CO_only": false,
+      "n_CO": 0,
+      "surface_sites": 68,
+      "surface_Cu": 36,
+      "surface_Au": 32,
+      "coverage_ML": 0,
+      "coverage_per_surface_Cu": 0,
+      "coverage_CO_per_nm2": 0,
+      "cell_area_A2": 434.1109840665705,
+      "old99": true,
+      "fold": 3,
+      "reference_id": "co2rr-20261029-5a37c9c9750f1494cf408477",
+      "clean_scale": 0.022518758719618052,
+      "paired_reference_match": "composition/cell/facet/physical layers verified; initial ancestry and relaxation constraints require separate evidence, not automatically assumed",
+      "initial_parent_available": true,
+      "sample_record_sha256": "ef96d85ec11f854d57cc27c013df72d81e0203b197d9cd01888e3a263598e801",
+      "reference_record_sha256": "ee9cb93df8c2cfd9f20bbadd21cf1b46a0e4622963454dc72b30d2e23a4afbe1"
+    },
+    {
+      "array_index": 59,
+      "configuration": "COOH/COOH_0p111_Au_top",
+      "domain": "CuAu",
+      "group": "48983c95699d7869db8acd871de5dc2bedd49a55770e6fc3ff70decd24d9c8e7",
+      "identity_labels": [
+        "COOH"
+      ],
+      "observed_counts": {
+        "COOH": 4
+      },
+      "CO_only": false,
+      "n_CO": 0,
+      "surface_sites": 68,
+      "surface_Cu": 36,
+      "surface_Au": 32,
+      "coverage_ML": 0,
+      "coverage_per_surface_Cu": 0,
+      "coverage_CO_per_nm2": 0,
+      "cell_area_A2": 434.1109840665705,
+      "old99": true,
+      "fold": 0,
+      "reference_id": "co2rr-20261029-5a37c9c9750f1494cf408477",
+      "clean_scale": 0.022518758719618052,
+      "paired_reference_match": "composition/cell/facet/physical layers verified; initial ancestry and relaxation constraints require separate evidence, not automatically assumed",
+      "initial_parent_available": true,
+      "sample_record_sha256": "489d972123ff755b4cedd2b7f1eee5ac206e01ae04010d888f8b1c53086eb240",
+      "reference_record_sha256": "ee9cb93df8c2cfd9f20bbadd21cf1b46a0e4622963454dc72b30d2e23a4afbe1"
+    },
+    {
+      "array_index": 79,
+      "configuration": "H/H_0p25/Au",
+      "domain": "CuAu",
+      "group": "3a0940d9e11c19e68611938262b6e546e96f38d0163f33c89588c23e2a6a499e",
+      "identity_labels": [
+        "H"
+      ],
+      "observed_counts": {
+        "H": 9
+      },
+      "CO_only": false,
+      "n_CO": 0,
+      "surface_sites": 68,
+      "surface_Cu": 36,
+      "surface_Au": 32,
+      "coverage_ML": 0,
+      "coverage_per_surface_Cu": 0,
+      "coverage_CO_per_nm2": 0,
+      "cell_area_A2": 434.1109840665705,
+      "old99": true,
+      "fold": 1,
+      "reference_id": "co2rr-20261029-5a37c9c9750f1494cf408477",
+      "clean_scale": 0.022518758719618052,
+      "paired_reference_match": "composition/cell/facet/physical layers verified; initial ancestry and relaxation constraints require separate evidence, not automatically assumed",
+      "initial_parent_available": true,
+      "sample_record_sha256": "316d421f555cd44f6c35328375caf70b46a6157fe52896ff8ee1d74511ae44ba",
+      "reference_record_sha256": "ee9cb93df8c2cfd9f20bbadd21cf1b46a0e4622963454dc72b30d2e23a4afbe1"
+    },
+    {
+      "array_index": 81,
+      "configuration": "H/H_0p25/interface_biased2",
+      "domain": "CuAu",
+      "group": "ecc3dafa313fb83eda968f0baae1c3b741acfa563a8b3f8cffb531f98f69cde2",
+      "identity_labels": [
+        "H"
+      ],
+      "observed_counts": {
+        "H": 9
+      },
+      "CO_only": false,
+      "n_CO": 0,
+      "surface_sites": 68,
+      "surface_Cu": 36,
+      "surface_Au": 32,
+      "coverage_ML": 0,
+      "coverage_per_surface_Cu": 0,
+      "coverage_CO_per_nm2": 0,
+      "cell_area_A2": 434.1109840665705,
+      "old99": true,
+      "fold": 0,
+      "reference_id": "co2rr-20261029-5a37c9c9750f1494cf408477",
+      "clean_scale": 0.022518758719618052,
+      "paired_reference_match": "composition/cell/facet/physical layers verified; initial ancestry and relaxation constraints require separate evidence, not automatically assumed",
+      "initial_parent_available": true,
+      "sample_record_sha256": "75729fe4407f3aa26eafaa712beee424b3c044e8a77d9164f7c28b51c316cc12",
+      "reference_record_sha256": "ee9cb93df8c2cfd9f20bbadd21cf1b46a0e4622963454dc72b30d2e23a4afbe1"
+    },
+    {
+      "array_index": 83,
+      "configuration": "H/H_0p25/uniform",
+      "domain": "CuAu",
+      "group": "3edd53ceb9c561c73545fdc7f1fc6ffaf14f460d0f3219fd63436eec4c7647fe",
+      "identity_labels": [
+        "H"
+      ],
+      "observed_counts": {
+        "H": 9
+      },
+      "CO_only": false,
+      "n_CO": 0,
+      "surface_sites": 68,
+      "surface_Cu": 36,
+      "surface_Au": 32,
+      "coverage_ML": 0,
+      "coverage_per_surface_Cu": 0,
+      "coverage_CO_per_nm2": 0,
+      "cell_area_A2": 434.1109840665705,
+      "old99": true,
+      "fold": 4,
+      "reference_id": "co2rr-20261029-5a37c9c9750f1494cf408477",
+      "clean_scale": 0.022518758719618052,
+      "paired_reference_match": "composition/cell/facet/physical layers verified; initial ancestry and relaxation constraints require separate evidence, not automatically assumed",
+      "initial_parent_available": true,
+      "sample_record_sha256": "103d4d29782d76aca2833fba6cca35f81bc52274de8bed26570ff395b93e3a76",
+      "reference_record_sha256": "ee9cb93df8c2cfd9f20bbadd21cf1b46a0e4622963454dc72b30d2e23a4afbe1"
+    },
+    {
+      "array_index": 84,
+      "configuration": "H/H_0p5/Au",
+      "domain": "CuAu",
+      "group": "e011a6034728a357e1d38e285a6098b8e47859dd319e4cca3f49ace1baba1522",
+      "identity_labels": [
+        "H"
+      ],
+      "observed_counts": {
+        "H": 18
+      },
+      "CO_only": false,
+      "n_CO": 0,
+      "surface_sites": 68,
+      "surface_Cu": 36,
+      "surface_Au": 32,
+      "coverage_ML": 0,
+      "coverage_per_surface_Cu": 0,
+      "coverage_CO_per_nm2": 0,
+      "cell_area_A2": 434.1109840665705,
+      "old99": true,
+      "fold": 2,
+      "reference_id": "co2rr-20261029-5a37c9c9750f1494cf408477",
+      "clean_scale": 0.022518758719618052,
+      "paired_reference_match": "composition/cell/facet/physical layers verified; initial ancestry and relaxation constraints require separate evidence, not automatically assumed",
+      "initial_parent_available": true,
+      "sample_record_sha256": "6ccc245459ba098a221dede6ce22a2e48988148be0159e2c2e0296fbeaa3bd1a",
+      "reference_record_sha256": "ee9cb93df8c2cfd9f20bbadd21cf1b46a0e4622963454dc72b30d2e23a4afbe1"
+    },
+    {
+      "array_index": 86,
+      "configuration": "H/H_0p5/interface_biased2",
+      "domain": "CuAu",
+      "group": "41e93fa806cfb3878bdfa4ae71d40a80097f033c81bd884860cbc2e44df69500",
+      "identity_labels": [
+        "H"
+      ],
+      "observed_counts": {
+        "H": 18
+      },
+      "CO_only": false,
+      "n_CO": 0,
+      "surface_sites": 68,
+      "surface_Cu": 36,
+      "surface_Au": 32,
+      "coverage_ML": 0,
+      "coverage_per_surface_Cu": 0,
+      "coverage_CO_per_nm2": 0,
+      "cell_area_A2": 434.1109840665705,
+      "old99": true,
+      "fold": 3,
+      "reference_id": "co2rr-20261029-5a37c9c9750f1494cf408477",
+      "clean_scale": 0.022518758719618052,
+      "paired_reference_match": "composition/cell/facet/physical layers verified; initial ancestry and relaxation constraints require separate evidence, not automatically assumed",
+      "initial_parent_available": true,
+      "sample_record_sha256": "e04fa45d5191aeb5412a814fe9066ca6a581ad1facfbf9999de45826e05bc512",
+      "reference_record_sha256": "ee9cb93df8c2cfd9f20bbadd21cf1b46a0e4622963454dc72b30d2e23a4afbe1"
+    },
+    {
+      "array_index": 88,
+      "configuration": "H/H_0p5/uniform",
+      "domain": "CuAu",
+      "group": "1a725446ffaac839323406990d58c7d7e2c668b6311f2d30f0409f1a89236753",
+      "identity_labels": [
+        "H"
+      ],
+      "observed_counts": {
+        "H": 18
+      },
+      "CO_only": false,
+      "n_CO": 0,
+      "surface_sites": 68,
+      "surface_Cu": 36,
+      "surface_Au": 32,
+      "coverage_ML": 0,
+      "coverage_per_surface_Cu": 0,
+      "coverage_CO_per_nm2": 0,
+      "cell_area_A2": 434.1109840665705,
+      "old99": true,
+      "fold": 2,
+      "reference_id": "co2rr-20261029-5a37c9c9750f1494cf408477",
+      "clean_scale": 0.022518758719618052,
+      "paired_reference_match": "composition/cell/facet/physical layers verified; initial ancestry and relaxation constraints require separate evidence, not automatically assumed",
+      "initial_parent_available": true,
+      "sample_record_sha256": "04c01bd78e8ccfc3454ed1d452bc0eda4766fb97ffcc5097551c1d9aa6a0135a",
+      "reference_record_sha256": "ee9cb93df8c2cfd9f20bbadd21cf1b46a0e4622963454dc72b30d2e23a4afbe1"
+    },
+    {
+      "array_index": 89,
+      "configuration": "H/H_0p75/0p88_mixed",
+      "domain": "CuAu",
+      "group": "a2e30778a7effdbd8c429a28723fc51b13c3ff102470c2391a0ffd39a8ea20c7",
+      "identity_labels": [
+        "H"
+      ],
+      "observed_counts": {
+        "H": 30
+      },
+      "CO_only": false,
+      "n_CO": 0,
+      "surface_sites": 68,
+      "surface_Cu": 36,
+      "surface_Au": 32,
+      "coverage_ML": 0,
+      "coverage_per_surface_Cu": 0,
+      "coverage_CO_per_nm2": 0,
+      "cell_area_A2": 434.1109840665705,
+      "old99": true,
+      "fold": 0,
+      "reference_id": "co2rr-20261029-5a37c9c9750f1494cf408477",
+      "clean_scale": 0.022518758719618052,
+      "paired_reference_match": "composition/cell/facet/physical layers verified; initial ancestry and relaxation constraints require separate evidence, not automatically assumed",
+      "initial_parent_available": true,
+      "sample_record_sha256": "f0adad046b73a4ced3b8e9edd4bf1e7204547ecd15ca500aa50888eba5c3597f",
+      "reference_record_sha256": "ee9cb93df8c2cfd9f20bbadd21cf1b46a0e4622963454dc72b30d2e23a4afbe1"
+    },
+    {
+      "array_index": 90,
+      "configuration": "H/H_0p75/Au",
+      "domain": "CuAu",
+      "group": "7beb633e91a85fd3a70016140e0ff730e786d9f73536964e7343522a3081db07",
+      "identity_labels": [
+        "H"
+      ],
+      "observed_counts": {
+        "H": 27
+      },
+      "CO_only": false,
+      "n_CO": 0,
+      "surface_sites": 68,
+      "surface_Cu": 36,
+      "surface_Au": 32,
+      "coverage_ML": 0,
+      "coverage_per_surface_Cu": 0,
+      "coverage_CO_per_nm2": 0,
+      "cell_area_A2": 434.1109840665705,
+      "old99": true,
+      "fold": 3,
+      "reference_id": "co2rr-20261029-5a37c9c9750f1494cf408477",
+      "clean_scale": 0.022518758719618052,
+      "paired_reference_match": "composition/cell/facet/physical layers verified; initial ancestry and relaxation constraints require separate evidence, not automatically assumed",
+      "initial_parent_available": true,
+      "sample_record_sha256": "8695cfb76f67ffaf5ff559831177915ad7c0b1d668e3ffabb7a80f9a74d9210d",
+      "reference_record_sha256": "ee9cb93df8c2cfd9f20bbadd21cf1b46a0e4622963454dc72b30d2e23a4afbe1"
+    },
+    {
+      "array_index": 92,
+      "configuration": "H/H_0p75/interface_biased2",
+      "domain": "CuAu",
+      "group": "0b13cbaa558e8dd1df7bf2c4ede9b95e9266e756c0fec2d9e960fa15d38d44b2",
+      "identity_labels": [
+        "H"
+      ],
+      "observed_counts": {
+        "H": 18
+      },
+      "CO_only": false,
+      "n_CO": 0,
+      "surface_sites": 68,
+      "surface_Cu": 36,
+      "surface_Au": 32,
+      "coverage_ML": 0,
+      "coverage_per_surface_Cu": 0,
+      "coverage_CO_per_nm2": 0,
+      "cell_area_A2": 434.1109840665705,
+      "old99": false,
+      "fold": 4,
+      "reference_id": "co2rr-20261029-5a37c9c9750f1494cf408477",
+      "clean_scale": 0.022518758719618052,
+      "paired_reference_match": "composition/cell/facet/physical layers verified; initial ancestry and relaxation constraints require separate evidence, not automatically assumed",
+      "initial_parent_available": true,
+      "sample_record_sha256": "b2e8035eefb7bb4b439c98a2e8f86320bb4dd5b31fd3b738b4e68210c73c81e2",
+      "reference_record_sha256": "ee9cb93df8c2cfd9f20bbadd21cf1b46a0e4622963454dc72b30d2e23a4afbe1"
+    },
+    {
+      "array_index": 93,
+      "configuration": "H/H_0p75/interior_biased",
+      "domain": "CuAu",
+      "group": "2c9f3cf4d7dc5528528fa880c1cabf8738dd87f03357d99d02c98f4accd75e76",
+      "identity_labels": [
+        "H"
+      ],
+      "observed_counts": {
+        "H": 18
+      },
+      "CO_only": false,
+      "n_CO": 0,
+      "surface_sites": 68,
+      "surface_Cu": 36,
+      "surface_Au": 32,
+      "coverage_ML": 0,
+      "coverage_per_surface_Cu": 0,
+      "coverage_CO_per_nm2": 0,
+      "cell_area_A2": 434.1109840665705,
+      "old99": false,
+      "fold": 4,
+      "reference_id": "co2rr-20261029-5a37c9c9750f1494cf408477",
+      "clean_scale": 0.022518758719618052,
+      "paired_reference_match": "composition/cell/facet/physical layers verified; initial ancestry and relaxation constraints require separate evidence, not automatically assumed",
+      "initial_parent_available": true,
+      "sample_record_sha256": "2e81a88633246e54dfda7f8a2932fb96b2fe3a64aee350f12c0340c3a40a8ffa",
+      "reference_record_sha256": "ee9cb93df8c2cfd9f20bbadd21cf1b46a0e4622963454dc72b30d2e23a4afbe1"
+    },
+    {
+      "array_index": 94,
+      "configuration": "H/H_0p75/mixed",
+      "domain": "CuAu",
+      "group": "4f8c79a066c1236290d6b9e652703806d48b09f1c32598355eb39ac754c503a5",
+      "identity_labels": [
+        "H"
+      ],
+      "observed_counts": {
+        "H": 24
+      },
+      "CO_only": false,
+      "n_CO": 0,
+      "surface_sites": 68,
+      "surface_Cu": 36,
+      "surface_Au": 32,
+      "coverage_ML": 0,
+      "coverage_per_surface_Cu": 0,
+      "coverage_CO_per_nm2": 0,
+      "cell_area_A2": 434.1109840665705,
+      "old99": true,
+      "fold": 3,
+      "reference_id": "co2rr-20261029-5a37c9c9750f1494cf408477",
+      "clean_scale": 0.022518758719618052,
+      "paired_reference_match": "composition/cell/facet/physical layers verified; initial ancestry and relaxation constraints require separate evidence, not automatically assumed",
+      "initial_parent_available": true,
+      "sample_record_sha256": "be0c768ff45b1f954d276a959912bf593f7023a0f16529e53c9c20f649cbfbe4",
+      "reference_record_sha256": "ee9cb93df8c2cfd9f20bbadd21cf1b46a0e4622963454dc72b30d2e23a4afbe1"
+    },
+    {
+      "array_index": 96,
+      "configuration": "O/O_0p028_1O_AuCu2",
+      "domain": "CuAu",
+      "group": "6e5b574b0be1daecf96616f88df21a8aa85edc30098ea91ad112153046773c51",
+      "identity_labels": [
+        "O"
+      ],
+      "observed_counts": {
+        "O": 1
+      },
+      "CO_only": false,
+      "n_CO": 0,
+      "surface_sites": 68,
+      "surface_Cu": 36,
+      "surface_Au": 32,
+      "coverage_ML": 0,
+      "coverage_per_surface_Cu": 0,
+      "coverage_CO_per_nm2": 0,
+      "cell_area_A2": 434.1109840665705,
+      "old99": true,
+      "fold": 3,
+      "reference_id": "co2rr-20261029-5a37c9c9750f1494cf408477",
+      "clean_scale": 0.022518758719618052,
+      "paired_reference_match": "composition/cell/facet/physical layers verified; initial ancestry and relaxation constraints require separate evidence, not automatically assumed",
+      "initial_parent_available": true,
+      "sample_record_sha256": "11584905190c2768412d88feec1246833539569dda35ae67b88abc0457d54d8e",
+      "reference_record_sha256": "ee9cb93df8c2cfd9f20bbadd21cf1b46a0e4622963454dc72b30d2e23a4afbe1"
+    },
+    {
+      "array_index": 98,
+      "configuration": "O/O_0p056_2O_AuCu2",
+      "domain": "CuAu",
+      "group": "5a651189f70a91c117cc03a27a99c499830cc67321c3322b1ef216d8e651e8ff",
+      "identity_labels": [
+        "O"
+      ],
+      "observed_counts": {
+        "O": 2
+      },
+      "CO_only": false,
+      "n_CO": 0,
+      "surface_sites": 68,
+      "surface_Cu": 36,
+      "surface_Au": 32,
+      "coverage_ML": 0,
+      "coverage_per_surface_Cu": 0,
+      "coverage_CO_per_nm2": 0,
+      "cell_area_A2": 434.1109840665705,
+      "old99": true,
+      "fold": 4,
+      "reference_id": "co2rr-20261029-5a37c9c9750f1494cf408477",
+      "clean_scale": 0.022518758719618052,
+      "paired_reference_match": "composition/cell/facet/physical layers verified; initial ancestry and relaxation constraints require separate evidence, not automatically assumed",
+      "initial_parent_available": true,
+      "sample_record_sha256": "3dd2f8af9fc7d2c1e0a6550a13c1aff4f06fe28c736582a69a023749c90e049b",
+      "reference_record_sha256": "ee9cb93df8c2cfd9f20bbadd21cf1b46a0e4622963454dc72b30d2e23a4afbe1"
+    },
+    {
+      "array_index": 99,
+      "configuration": "O/O_0p056_2O_Cu3_distributed",
+      "domain": "CuAu",
+      "group": "c83e1eb779bcb52ab7aaf31768a033de9d433da1e45e24142c6e707fa1f4dbbc",
+      "identity_labels": [
+        "O"
+      ],
+      "observed_counts": {
+        "O": 2
+      },
+      "CO_only": false,
+      "n_CO": 0,
+      "surface_sites": 68,
+      "surface_Cu": 36,
+      "surface_Au": 32,
+      "coverage_ML": 0,
+      "coverage_per_surface_Cu": 0,
+      "coverage_CO_per_nm2": 0,
+      "cell_area_A2": 434.1109840665705,
+      "old99": true,
+      "fold": 0,
+      "reference_id": "co2rr-20261029-5a37c9c9750f1494cf408477",
+      "clean_scale": 0.022518758719618052,
+      "paired_reference_match": "composition/cell/facet/physical layers verified; initial ancestry and relaxation constraints require separate evidence, not automatically assumed",
+      "initial_parent_available": true,
+      "sample_record_sha256": "c28116a79567bfb18abc6b8d3db7e999d8e116287d87ffaa0bd6e13d8520b697",
+      "reference_record_sha256": "ee9cb93df8c2cfd9f20bbadd21cf1b46a0e4622963454dc72b30d2e23a4afbe1"
+    },
+    {
+      "array_index": 100,
+      "configuration": "O/O_0p056_2O_mixed_Cu3_AuCu2",
+      "domain": "CuAu",
+      "group": "2b44264d06a117512a493412332cc19f0b157e8b5e82c31a7dcfe6cffa50edee",
+      "identity_labels": [
+        "O"
+      ],
+      "observed_counts": {
+        "O": 2
+      },
+      "CO_only": false,
+      "n_CO": 0,
+      "surface_sites": 68,
+      "surface_Cu": 36,
+      "surface_Au": 32,
+      "coverage_ML": 0,
+      "coverage_per_surface_Cu": 0,
+      "coverage_CO_per_nm2": 0,
+      "cell_area_A2": 434.1109840665705,
+      "old99": true,
+      "fold": 4,
+      "reference_id": "co2rr-20261029-5a37c9c9750f1494cf408477",
+      "clean_scale": 0.022518758719618052,
+      "paired_reference_match": "composition/cell/facet/physical layers verified; initial ancestry and relaxation constraints require separate evidence, not automatically assumed",
+      "initial_parent_available": true,
+      "sample_record_sha256": "9df7b407c35f7c9c5005114f4c7af24bcb7efc8e1fa6460a4f04c2ec96a63825",
+      "reference_record_sha256": "ee9cb93df8c2cfd9f20bbadd21cf1b46a0e4622963454dc72b30d2e23a4afbe1"
+    },
+    {
+      "array_index": 101,
+      "configuration": "O/O_0p083_3O_Cu3_AuCu2",
+      "domain": "CuAu",
+      "group": "fa160a0056f17f2918a3a463468df440e7bef3ba986e801530cdadd96256e404",
+      "identity_labels": [
+        "O"
+      ],
+      "observed_counts": {
+        "O": 3
+      },
+      "CO_only": false,
+      "n_CO": 0,
+      "surface_sites": 68,
+      "surface_Cu": 36,
+      "surface_Au": 32,
+      "coverage_ML": 0,
+      "coverage_per_surface_Cu": 0,
+      "coverage_CO_per_nm2": 0,
+      "cell_area_A2": 434.1109840665705,
+      "old99": true,
+      "fold": 4,
+      "reference_id": "co2rr-20261029-5a37c9c9750f1494cf408477",
+      "clean_scale": 0.022518758719618052,
+      "paired_reference_match": "composition/cell/facet/physical layers verified; initial ancestry and relaxation constraints require separate evidence, not automatically assumed",
+      "initial_parent_available": true,
+      "sample_record_sha256": "268832365267b6d0a4801dbba091dfe795e280b612662aad4eb74dba632a3e02",
+      "reference_record_sha256": "ee9cb93df8c2cfd9f20bbadd21cf1b46a0e4622963454dc72b30d2e23a4afbe1"
+    },
+    {
+      "array_index": 102,
+      "configuration": "O/O_0p083_3O_interface_weighted_Cu3_AuCu2",
+      "domain": "CuAu",
+      "group": "59e24a2a2810c6761c4a0cd66a4b812ca3934b31b7f8ab831aeb3d85f6bb8425",
+      "identity_labels": [
+        "O"
+      ],
+      "observed_counts": {
+        "O": 3
+      },
+      "CO_only": false,
+      "n_CO": 0,
+      "surface_sites": 68,
+      "surface_Cu": 36,
+      "surface_Au": 32,
+      "coverage_ML": 0,
+      "coverage_per_surface_Cu": 0,
+      "coverage_CO_per_nm2": 0,
+      "cell_area_A2": 434.1109840665705,
+      "old99": true,
+      "fold": 3,
+      "reference_id": "co2rr-20261029-5a37c9c9750f1494cf408477",
+      "clean_scale": 0.022518758719618052,
+      "paired_reference_match": "composition/cell/facet/physical layers verified; initial ancestry and relaxation constraints require separate evidence, not automatically assumed",
+      "initial_parent_available": true,
+      "sample_record_sha256": "146f86914d32c5ab53a14684652adb8a636993668b39f9c52a2e1d12a5717d62",
+      "reference_record_sha256": "ee9cb93df8c2cfd9f20bbadd21cf1b46a0e4622963454dc72b30d2e23a4afbe1"
+    },
+    {
+      "array_index": 120,
+      "configuration": "OH/OH_0p125_interior_biased",
+      "domain": "CuAu",
+      "group": "12e4aee92834cee5b3ef6b08b00fb3cfb71ca35fc2f2c4ba8a01aa3a8396839c",
+      "identity_labels": [
+        "OH"
+      ],
+      "observed_counts": {
+        "OH": 4
+      },
+      "CO_only": false,
+      "n_CO": 0,
+      "surface_sites": 68,
+      "surface_Cu": 36,
+      "surface_Au": 32,
+      "coverage_ML": 0,
+      "coverage_per_surface_Cu": 0,
+      "coverage_CO_per_nm2": 0,
+      "cell_area_A2": 434.1109840665705,
+      "old99": true,
+      "fold": 1,
+      "reference_id": "co2rr-20261029-5a37c9c9750f1494cf408477",
+      "clean_scale": 0.022518758719618052,
+      "paired_reference_match": "composition/cell/facet/physical layers verified; initial ancestry and relaxation constraints require separate evidence, not automatically assumed",
+      "initial_parent_available": true,
+      "sample_record_sha256": "f5097770b50d0f41ea5658ba8bbd09ca118579d4381045b7dea72f7d8d5910c4",
+      "reference_record_sha256": "ee9cb93df8c2cfd9f20bbadd21cf1b46a0e4622963454dc72b30d2e23a4afbe1"
+    },
+    {
+      "array_index": 124,
+      "configuration": "OH/OH_0p25_interior_biased",
+      "domain": "CuAu",
+      "group": "fbe6006a35c08282baa6a78f3037b584fa80e41d3cd3c78d3289b7ea7e8d8fb7",
+      "identity_labels": [
+        "OH"
+      ],
+      "observed_counts": {
+        "OH": 9
+      },
+      "CO_only": false,
+      "n_CO": 0,
+      "surface_sites": 68,
+      "surface_Cu": 36,
+      "surface_Au": 32,
+      "coverage_ML": 0,
+      "coverage_per_surface_Cu": 0,
+      "coverage_CO_per_nm2": 0,
+      "cell_area_A2": 434.1109840665705,
+      "old99": true,
+      "fold": 2,
+      "reference_id": "co2rr-20261029-5a37c9c9750f1494cf408477",
+      "clean_scale": 0.022518758719618052,
+      "paired_reference_match": "composition/cell/facet/physical layers verified; initial ancestry and relaxation constraints require separate evidence, not automatically assumed",
+      "initial_parent_available": true,
+      "sample_record_sha256": "ce08e9f0b08c497dd8c084b1ab3e3829729ea82671a2b85411199d73a1f89950",
+      "reference_record_sha256": "ee9cb93df8c2cfd9f20bbadd21cf1b46a0e4622963454dc72b30d2e23a4afbe1"
+    }
+  ]
+}

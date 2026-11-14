@@ -1,0 +1,209 @@
+{
+  "weighting": "Each of 135 geometry groups has total weight one across 141 records",
+  "best_individual_exploratory": {
+    "protocol": "baseline",
+    "seed": 20261020,
+    "micro_f1": 0.8126036484245439,
+    "macro_f1": 0.6765892128400487,
+    "exact_set_accuracy": 0.7148148148148148
+  },
+  "mean_metrics": [
+    {
+      "protocol": "ExtraTrees",
+      "micro_f1": 0.7844924394430491,
+      "macro_f1": 0.6426495791485528,
+      "exact_set_accuracy": 0.6851851851851851
+    },
+    {
+      "protocol": "Logistic",
+      "micro_f1": 0.6836461126005361,
+      "macro_f1": 0.565538724464688,
+      "exact_set_accuracy": 0.48148148148148145
+    },
+    {
+      "protocol": "RandomForest",
+      "micro_f1": 0.7492630447706591,
+      "macro_f1": 0.5987295603269444,
+      "exact_set_accuracy": 0.6296296296296297
+    },
+    {
+      "protocol": "SVM",
+      "micro_f1": 0.7119155354449472,
+      "macro_f1": 0.6148353847037392,
+      "exact_set_accuracy": 0.5666666666666667
+    },
+    {
+      "protocol": "baseline",
+      "micro_f1": 0.7992353998293978,
+      "macro_f1": 0.6629769147154368,
+      "exact_set_accuracy": 0.7037037037037037
+    },
+    {
+      "protocol": "nested",
+      "micro_f1": 0.7804480949133832,
+      "macro_f1": 0.6380782107313959,
+      "exact_set_accuracy": 0.6777777777777777
+    }
+  ],
+  "seed_results": [
+    {
+      "protocol": "baseline",
+      "seed": 20261020,
+      "micro_f1": 0.8126036484245439,
+      "macro_f1": 0.6765892128400487,
+      "exact_set_accuracy": 0.7148148148148148
+    },
+    {
+      "protocol": "baseline",
+      "seed": 20261021,
+      "micro_f1": 0.789049919484702,
+      "macro_f1": 0.6614500077145845,
+      "exact_set_accuracy": 0.6851851851851852
+    },
+    {
+      "protocol": "baseline",
+      "seed": 20261022,
+      "micro_f1": 0.7960526315789473,
+      "macro_f1": 0.6508915235916773,
+      "exact_set_accuracy": 0.7111111111111111
+    },
+    {
+      "protocol": "ExtraTrees",
+      "seed": 20261020,
+      "micro_f1": 0.7735537190082644,
+      "macro_f1": 0.6278752174962401,
+      "exact_set_accuracy": 0.662962962962963
+    },
+    {
+      "protocol": "ExtraTrees",
+      "seed": 20261021,
+      "micro_f1": 0.7838709677419354,
+      "macro_f1": 0.6491819963577409,
+      "exact_set_accuracy": 0.6814814814814815
+    },
+    {
+      "protocol": "ExtraTrees",
+      "seed": 20261022,
+      "micro_f1": 0.7960526315789473,
+      "macro_f1": 0.6508915235916773,
+      "exact_set_accuracy": 0.7111111111111111
+    },
+    {
+      "protocol": "RandomForest",
+      "seed": 20261020,
+      "micro_f1": 0.7566666666666667,
+      "macro_f1": 0.6356562804784149,
+      "exact_set_accuracy": 0.6481481481481481
+    },
+    {
+      "protocol": "RandomForest",
+      "seed": 20261021,
+      "micro_f1": 0.7466216216216216,
+      "macro_f1": 0.5933233196725418,
+      "exact_set_accuracy": 0.6222222222222222
+    },
+    {
+      "protocol": "RandomForest",
+      "seed": 20261022,
+      "micro_f1": 0.7445008460236887,
+      "macro_f1": 0.5672090808298763,
+      "exact_set_accuracy": 0.6185185185185185
+    },
+    {
+      "protocol": "SVM",
+      "seed": 20261020,
+      "micro_f1": 0.7119155354449472,
+      "macro_f1": 0.6148353847037392,
+      "exact_set_accuracy": 0.5666666666666667
+    },
+    {
+      "protocol": "SVM",
+      "seed": 20261021,
+      "micro_f1": 0.7119155354449472,
+      "macro_f1": 0.6148353847037392,
+      "exact_set_accuracy": 0.5666666666666667
+    },
+    {
+      "protocol": "SVM",
+      "seed": 20261022,
+      "micro_f1": 0.7119155354449472,
+      "macro_f1": 0.6148353847037392,
+      "exact_set_accuracy": 0.5666666666666667
+    },
+    {
+      "protocol": "Logistic",
+      "seed": 20261020,
+      "micro_f1": 0.6836461126005362,
+      "macro_f1": 0.565538724464688,
+      "exact_set_accuracy": 0.48148148148148145
+    },
+    {
+      "protocol": "Logistic",
+      "seed": 20261021,
+      "micro_f1": 0.6836461126005362,
+      "macro_f1": 0.565538724464688,
+      "exact_set_accuracy": 0.48148148148148145
+    },
+    {
+      "protocol": "Logistic",
+      "seed": 20261022,
+      "micro_f1": 0.6836461126005362,
+      "macro_f1": 0.565538724464688,
+      "exact_set_accuracy": 0.48148148148148145
+    },
+    {
+      "protocol": "nested",
+      "seed": 20261020,
+      "micro_f1": 0.7735537190082644,
+      "macro_f1": 0.6278752174962401,
+      "exact_set_accuracy": 0.662962962962963
+    },
+    {
+      "protocol": "nested",
+      "seed": 20261021,
+      "micro_f1": 0.7838709677419354,
+      "macro_f1": 0.6491819963577409,
+      "exact_set_accuracy": 0.6814814814814815
+    },
+    {
+      "protocol": "nested",
+      "seed": 20261022,
+      "micro_f1": 0.7839195979899497,
+      "macro_f1": 0.6371774183402066,
+      "exact_set_accuracy": 0.6888888888888889
+    }
+  ],
+  "voting_micro_f1": {
+    "baseline": 0.8099173553719008,
+    "ExtraTrees": 0.8073089700996677,
+    "RandomForest": 0.7741935483870968,
+    "SVM": 0.7119155354449472,
+    "Logistic": 0.6836461126005362,
+    "nested": 0.793918918918919
+  },
+  "baseline_exact_headline_reproduction": [
+    {
+      "seed": 20261020,
+      "archived": 0.8126036484245439,
+      "retrained": 0.8126036484245439
+    },
+    {
+      "seed": 20261021,
+      "archived": 0.789049919484702,
+      "retrained": 0.789049919484702
+    },
+    {
+      "seed": 20261022,
+      "archived": 0.7960526315789473,
+      "retrained": 0.7960526315789473
+    }
+  ],
+  "paired_nested_minus_baseline": {
+    "lower": -0.03408833937614771,
+    "upper": -0.005364490481497659,
+    "resamples": 5000,
+    "scope": "paired geometry-group bootstrap conditional on fixed OOF predictions"
+  },
+  "conclusion": "No improvement from this predeclared 16-candidate search",
+  "limitations": "Two features and two hyperparameters per family; SVM scores are sigmoid decision margins, uncalibrated. No claim of exhaustive architecture optimization or experimental accuracy."
+}

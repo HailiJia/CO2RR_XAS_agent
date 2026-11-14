@@ -1,0 +1,265 @@
+{
+  "previous_records": 141,
+  "previous_groups": 135,
+  "usable_new_records": 13,
+  "usable_new_groups": 12,
+  "new_views_existing_groups": 1,
+  "total_records": 154,
+  "total_groups": 147,
+  "additional_layer_spectra": 18,
+  "new_top_two_layer_spectra": 8,
+  "excluded_nonold": 16,
+  "counts": [
+    {
+      "category": "exact_mixture",
+      "value": "CHO+CO+H",
+      "configurations": 2,
+      "groups": 2
+    },
+    {
+      "category": "exact_mixture",
+      "value": "CO",
+      "configurations": 1,
+      "groups": 1
+    },
+    {
+      "category": "exact_mixture",
+      "value": "CO+H",
+      "configurations": 3,
+      "groups": 3
+    },
+    {
+      "category": "exact_mixture",
+      "value": "CO+OH",
+      "configurations": 4,
+      "groups": 4
+    },
+    {
+      "category": "exact_mixture",
+      "value": "CO2",
+      "configurations": 1,
+      "groups": 1
+    },
+    {
+      "category": "exact_mixture",
+      "value": "COOH",
+      "configurations": 1,
+      "groups": 1
+    },
+    {
+      "category": "exact_mixture",
+      "value": "OH",
+      "configurations": 1,
+      "groups": 1
+    },
+    {
+      "category": "species",
+      "value": "CHO",
+      "configurations": 2,
+      "groups": 2
+    },
+    {
+      "category": "species",
+      "value": "CO",
+      "configurations": 10,
+      "groups": 10
+    },
+    {
+      "category": "species",
+      "value": "CO2",
+      "configurations": 1,
+      "groups": 1
+    },
+    {
+      "category": "species",
+      "value": "COOH",
+      "configurations": 1,
+      "groups": 1
+    },
+    {
+      "category": "species",
+      "value": "H",
+      "configurations": 5,
+      "groups": 5
+    },
+    {
+      "category": "species",
+      "value": "OH",
+      "configurations": 5,
+      "groups": 5
+    },
+    {
+      "category": "substrate",
+      "value": "CuAu",
+      "configurations": 13,
+      "groups": 13
+    }
+  ],
+  "new_cases": [
+    {
+      "configuration": "CHO/CHO_0p111_interface_Cu",
+      "labels": [
+        "CHO",
+        "CO",
+        "H"
+      ],
+      "counts": {
+        "CO": 2,
+        "CHO": 2,
+        "H": 2
+      },
+      "near_group": "CHO/CHO_0p111_interface_Cu",
+      "fold": 4
+    },
+    {
+      "configuration": "CHO/CHO_0p111_interior_Cu",
+      "labels": [
+        "CHO",
+        "CO",
+        "H"
+      ],
+      "counts": {
+        "CO": 2,
+        "CHO": 2,
+        "H": 2
+      },
+      "near_group": "CHO/CHO_0p111_interior_Cu",
+      "fold": 1
+    },
+    {
+      "configuration": "CO2/CO2_0p111_activated",
+      "labels": [
+        "CO2"
+      ],
+      "counts": {
+        "CO2": 4
+      },
+      "near_group": "CO2/CO2_0p111_activated",
+      "fold": 3
+    },
+    {
+      "configuration": "COOH/COOH_0p111_Cu_uniform",
+      "labels": [
+        "COOH"
+      ],
+      "counts": {
+        "COOH": 4
+      },
+      "near_group": "COOH/COOH_0p111_Cu_interface",
+      "fold": 1
+    },
+    {
+      "configuration": "CO_H/CO_H_0p139_3CO_2H_interior_biased",
+      "labels": [
+        "CO",
+        "H"
+      ],
+      "counts": {
+        "CO": 3,
+        "H": 2
+      },
+      "near_group": "CO_H/CO_H_0p139_3CO_2H_interior_biased",
+      "fold": 4
+    },
+    {
+      "configuration": "CO_H/CO_H_0p167_3CO_3H_AuCu2",
+      "labels": [
+        "CO",
+        "H"
+      ],
+      "counts": {
+        "CO": 3,
+        "H": 3
+      },
+      "near_group": "CO_H/CO_H_0p167_3CO_3H_AuCu2",
+      "fold": 1
+    },
+    {
+      "configuration": "CO_H/CO_H_0p194_4CO_3H",
+      "labels": [
+        "CO",
+        "H"
+      ],
+      "counts": {
+        "CO": 4,
+        "H": 3
+      },
+      "near_group": "CO_H/CO_H_0p194_4CO_3H",
+      "fold": 4
+    },
+    {
+      "configuration": "CO_OH/CO_OH_0p139_3CO_2OH",
+      "labels": [
+        "CO",
+        "OH"
+      ],
+      "counts": {
+        "CO": 3,
+        "OH": 2
+      },
+      "near_group": "CO_OH/CO_OH_0p139_3CO_2OH",
+      "fold": 4
+    },
+    {
+      "configuration": "CO_OH/CO_OH_0p194_4CO_3OH_AuCu2",
+      "labels": [
+        "CO",
+        "OH"
+      ],
+      "counts": {
+        "CO": 4,
+        "OH": 3
+      },
+      "near_group": "CO_OH/CO_OH_0p194_4CO_3OH_AuCu2",
+      "fold": 0
+    },
+    {
+      "configuration": "CO_OH/CO_OH_0p194_5CO_2OH",
+      "labels": [
+        "CO",
+        "OH"
+      ],
+      "counts": {
+        "CO": 5,
+        "OH": 2
+      },
+      "near_group": "CO_OH/CO_OH_0p194_5CO_2OH",
+      "fold": 1
+    },
+    {
+      "configuration": "CO_OH/CO_OH_0p222_5CO_3OH_AuCu2",
+      "labels": [
+        "CO",
+        "OH"
+      ],
+      "counts": {
+        "CO": 5,
+        "OH": 3
+      },
+      "near_group": "CO_OH/CO_OH_0p222_5CO_3OH_AuCu2",
+      "fold": 3
+    },
+    {
+      "configuration": "OCCO_CO/OCCO_CO_0p111_AuCu_interface",
+      "labels": [
+        "CO"
+      ],
+      "counts": {
+        "CO": 4
+      },
+      "near_group": "OCCO_CO/OCCO_CO_0p111_AuCu_interface",
+      "fold": 4
+    },
+    {
+      "configuration": "OH/OH_0p25_interface_biased",
+      "labels": [
+        "OH"
+      ],
+      "counts": {
+        "OH": 9
+      },
+      "near_group": "OH/OH_0p25_interface_biased",
+      "fold": 4
+    }
+  ]
+}

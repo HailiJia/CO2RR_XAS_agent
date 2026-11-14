@@ -12,11 +12,12 @@ training=(BASE/'analysis.py').read_text().split('# %% TRAINING\n',1)[1].split('a
 exec(compile(training,'training functions','exec'),globals())
 def compute(task):
     fold,candidate=task;spec=CANDIDATES[candidate];tr,te=FOLDS[fold];path=CACHE/f'{TAG}_{fold}_{candidate}.npz'
-    if path.exists():return False
+    if path.exists():
+        validate_fit_cache(path,tr,te,TAG);return False
     inside=np.zeros((len(tr),Y.shape[1]))
     for a,b in inner_folds(Y[tr],fold):inside[b]=fit_scores(spec,tr[a],tr[b])
     outside=fit_scores(spec,tr,te)
-    np.savez_compressed(path,inner_score=inside,test_score=outside,train_indices=tr,test_indices=te)
+    np.savez_compressed(path,inner_score=inside,test_score=outside,train_indices=tr,test_indices=te,fingerprint=TAG)
     return True
 if __name__=='__main__':
     start=time.time();tasks=[(fold,spec['id']) for fold in range(5) for spec in CANDIDATES]

@@ -1,0 +1,29 @@
+{
+  "estimator": "canonical independent ExtraTrees 64 trees leaf1 sqrt balanced; one canonical view/group",
+  "seeds": [
+    20261020,
+    20261021,
+    20261022
+  ],
+  "primary": "old-only versus old-plus-new on fixed original 141 spectra/labels/query folds; original per-seed/fold thresholds transferred to BOTH arms",
+  "features": "population-weighted physical top-two clean-subtracted spectra; training-floor signed RMS; Combined",
+  "query_guard": "purge every held-out near group from training; five inherited cross-fold query groups retained explicitly; no train/test family overlap",
+  "new_outer_fold": "inherit related old fold, else sha256(near_group) first8 modulo5",
+  "inner": "saved old membership exactly; new unrelated groups assigned by sha256(near_group) modulo3; all validation-related groups purged",
+  "recalibration": "separate arm only; common .3/.4/.5/.6, inner micro F1-.02(t-.5)^2",
+  "target1": "H-only cutoff from common + [-.10,-.05,0,.05,.10], clipped[.05,.95]; inner group-weighted H F1, ties prefer unchanged; require inner all-H AUC>=.75 and >=3 positive/negative groups; cap extra CO-only false-H mass at one geometry group",
+  "target2": "If inner H AUC among CO-containing cases <.80, compare training-only CO-template signed residual for H/OH; pure-CO mean template by substrate before RMS, nonnegative least-squares scalar; training features leave their entire group out of templates; original cutoff retained; unsupported template domains keep original score",
+  "residual_selection": "H/OH individually activated only if grouped inner label F1 improves >=.02; H extra CO-only false-call mass <=1; no outer-score gating",
+  "templates": "mean one canonical pure-CO spectrum per training group, shared relative intensity scale, no true query loading or site metadata",
+  "all_queries_retained": true,
+  "source_sha256": "b87bb2573dd48db2f999e95e50c4acffba8ea468b34d7a964e6175518b520865",
+  "dataset_sha256": "c518cb351a4965ce829a61552f91ba87a59e0194ea1417faedc5c1de8fd1e3ac",
+  "splits_sha256": "fb2930205c0d451c680bff5b70c619cc1aa3674dc8be35c1e643a5422183f708",
+  "versions": {
+    "python": "3.13.18",
+    "sklearn": "1.8.0",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0"
+  },
+  "experimental_validation": false
+}

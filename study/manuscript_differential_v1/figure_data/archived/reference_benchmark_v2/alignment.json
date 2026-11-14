@@ -1,0 +1,291 @@
+[
+  {
+    "material": "Cu",
+    "method": "fdmnes_green",
+    "comparison": "transferable_Cu_calibration",
+    "shift_eV": -0.3636910087921803,
+    "bounds_eV": [
+      -4.0,
+      4.0
+    ],
+    "boundary_hit": false,
+    "RMSE_plus_0p01_shift_sensitivity_eV": [
+      -1.0500000000000105,
+      0.2999999999999847
+    ],
+    "sensitivity_not_confidence_interval": true,
+    "objective_RMSE": 0.055479587990717644
+  },
+  {
+    "material": "Cu",
+    "method": "fdmnes_fdm",
+    "comparison": "transferable_Cu_calibration",
+    "shift_eV": 1.7999999999999794,
+    "bounds_eV": [
+      -4.0,
+      4.0
+    ],
+    "boundary_hit": false,
+    "RMSE_plus_0p01_shift_sensitivity_eV": [
+      1.349999999999981,
+      2.2999999999999776
+    ],
+    "sensitivity_not_confidence_interval": true,
+    "objective_RMSE": 0.08387623671981059
+  },
+  {
+    "material": "Cu",
+    "method": "feff",
+    "comparison": "transferable_Cu_calibration",
+    "shift_eV": -8.523168388999759,
+    "bounds_eV": [
+      -15.0,
+      -6.0
+    ],
+    "boundary_hit": false,
+    "RMSE_plus_0p01_shift_sensitivity_eV": [
+      -9.049999999999915,
+      -5.999999999999872
+    ],
+    "sensitivity_not_confidence_interval": true,
+    "objective_RMSE": 0.11004658121009582
+  },
+  {
+    "material": "Cu",
+    "method": "vasp_pbe",
+    "comparison": "transferable_Cu_calibration",
+    "shift_eV": 115.7448265466201,
+    "bounds_eV": [
+      105.0,
+      135.0
+    ],
+    "boundary_hit": false,
+    "RMSE_plus_0p01_shift_sensitivity_eV": [
+      115.69999999999939,
+      121.14999999999908
+    ],
+    "sensitivity_not_confidence_interval": true,
+    "objective_RMSE": 0.45709781196755905
+  },
+  {
+    "material": "Cu",
+    "method": "vasp_gw",
+    "comparison": "transferable_Cu_calibration",
+    "shift_eV": 124.78240064762257,
+    "bounds_eV": [
+      110.0,
+      145.0
+    ],
+    "boundary_hit": false,
+    "RMSE_plus_0p01_shift_sensitivity_eV": [
+      124.79999999999916,
+      125.19999999999914
+    ],
+    "sensitivity_not_confidence_interval": true,
+    "objective_RMSE": 0.4923277514305899
+  },
+  {
+    "material": "Cu",
+    "method": "fdmnes_green",
+    "comparison": "separate_shape_alignment",
+    "shift_eV": -0.3636910087921983,
+    "bounds_eV": [
+      -5.3636910087921805,
+      4.6363089912078195
+    ],
+    "boundary_hit": false,
+    "RMSE_plus_0p01_shift_sensitivity_eV": [
+      -1.013691008792196,
+      0.2863089912077994
+    ],
+    "sensitivity_not_confidence_interval": true,
+    "objective_RMSE": 0.055479587990717644
+  },
+  {
+    "material": "Cu",
+    "method": "fdmnes_fdm",
+    "comparison": "separate_shape_alignment",
+    "shift_eV": 1.7999999999999616,
+    "bounds_eV": [
+      -3.2000000000000206,
+      6.799999999999979
+    ],
+    "boundary_hit": false,
+    "RMSE_plus_0p01_shift_sensitivity_eV": [
+      1.3499999999999632,
+      2.29999999999996
+    ],
+    "sensitivity_not_confidence_interval": true,
+    "objective_RMSE": 0.08387623671981059
+  },
+  {
+    "material": "Cu",
+    "method": "feff",
+    "comparison": "separate_shape_alignment",
+    "shift_eV": -8.523168388999688,
+    "bounds_eV": [
+      -13.523168388999759,
+      -3.5231683889997587
+    ],
+    "boundary_hit": false,
+    "RMSE_plus_0p01_shift_sensitivity_eV": [
+      -9.023168388999695,
+      -6.023168388999652
+    ],
+    "sensitivity_not_confidence_interval": true,
+    "objective_RMSE": 0.11004658121009582
+  },
+  {
+    "material": "Cu",
+    "method": "vasp_pbe",
+    "comparison": "separate_shape_alignment",
+    "shift_eV": 115.74482394789419,
+    "bounds_eV": [
+      110.7448265466201,
+      120.7448265466201
+    ],
+    "boundary_hit": false,
+    "RMSE_plus_0p01_shift_sensitivity_eV": [
+      115.69482654661982,
+      120.74482654661954
+    ],
+    "sensitivity_not_confidence_interval": true,
+    "objective_RMSE": 0.45709777816717884
+  },
+  {
+    "material": "Cu",
+    "method": "vasp_gw",
+    "comparison": "separate_shape_alignment",
+    "shift_eV": 124.78240064762228,
+    "bounds_eV": [
+      119.78240064762257,
+      129.78240064762258
+    ],
+    "boundary_hit": false,
+    "RMSE_plus_0p01_shift_sensitivity_eV": [
+      120.58240064762252,
+      125.78240064762223
+    ],
+    "sensitivity_not_confidence_interval": true,
+    "objective_RMSE": 0.4923277514305899
+  },
+  {
+    "material": "Cu2O",
+    "method": "fdmnes_green",
+    "comparison": "separate_shape_alignment",
+    "shift_eV": 0.3156595977688109,
+    "bounds_eV": [
+      -5.3636910087921805,
+      4.6363089912078195
+    ],
+    "boundary_hit": false,
+    "RMSE_plus_0p01_shift_sensitivity_eV": [
+      -0.013691008792199533,
+      0.7363089912077978
+    ],
+    "sensitivity_not_confidence_interval": true,
+    "objective_RMSE": 0.0602266339444089
+  },
+  {
+    "material": "Cu2O",
+    "method": "fdmnes_fdm",
+    "comparison": "separate_shape_alignment",
+    "shift_eV": -0.2897522914423803,
+    "bounds_eV": [
+      -3.2000000000000206,
+      6.799999999999979
+    ],
+    "boundary_hit": false,
+    "RMSE_plus_0p01_shift_sensitivity_eV": [
+      -0.6000000000000298,
+      0.29999999999996696
+    ],
+    "sensitivity_not_confidence_interval": true,
+    "objective_RMSE": 0.06762656556965292
+  },
+  {
+    "material": "Cu2O",
+    "method": "feff",
+    "comparison": "separate_shape_alignment",
+    "shift_eV": -5.997905115904242,
+    "bounds_eV": [
+      -13.523168388999759,
+      -3.5231683889997587
+    ],
+    "boundary_hit": false,
+    "RMSE_plus_0p01_shift_sensitivity_eV": [
+      -6.723168388999662,
+      -5.023168388999638
+    ],
+    "sensitivity_not_confidence_interval": true,
+    "objective_RMSE": 0.08897783255856502
+  },
+  {
+    "material": "CuO",
+    "method": "fdmnes_green",
+    "comparison": "separate_shape_alignment",
+    "shift_eV": 0.2611038321499585,
+    "bounds_eV": [
+      -5.3636910087921805,
+      4.6363089912078195
+    ],
+    "boundary_hit": false,
+    "RMSE_plus_0p01_shift_sensitivity_eV": [
+      -0.5636910087921976,
+      1.3363089912077957
+    ],
+    "sensitivity_not_confidence_interval": true,
+    "objective_RMSE": 0.08554570054636913
+  },
+  {
+    "material": "CuO",
+    "method": "fdmnes_fdm",
+    "comparison": "separate_shape_alignment",
+    "shift_eV": 0.5455004679152338,
+    "bounds_eV": [
+      -3.2000000000000206,
+      6.799999999999979
+    ],
+    "boundary_hit": false,
+    "RMSE_plus_0p01_shift_sensitivity_eV": [
+      -0.5000000000000302,
+      1.7499999999999618
+    ],
+    "sensitivity_not_confidence_interval": true,
+    "objective_RMSE": 0.2580259507494176
+  },
+  {
+    "material": "CuO",
+    "method": "feff",
+    "comparison": "separate_shape_alignment",
+    "shift_eV": -6.183640568126379,
+    "bounds_eV": [
+      -13.523168388999759,
+      -3.5231683889997587
+    ],
+    "boundary_hit": false,
+    "RMSE_plus_0p01_shift_sensitivity_eV": [
+      -7.223168388999669,
+      -5.123168388999639
+    ],
+    "sensitivity_not_confidence_interval": true,
+    "objective_RMSE": 0.17124359678557657
+  },
+  {
+    "material": "CuO",
+    "method": "vasp_gw",
+    "comparison": "separate_shape_alignment",
+    "shift_eV": 125.51961635430949,
+    "bounds_eV": [
+      119.78240064762257,
+      129.78240064762258
+    ],
+    "boundary_hit": false,
+    "RMSE_plus_0p01_shift_sensitivity_eV": [
+      124.13240064762232,
+      127.73240064762211
+    ],
+    "sensitivity_not_confidence_interval": true,
+    "objective_RMSE": 0.38247642816834915
+  }
+]

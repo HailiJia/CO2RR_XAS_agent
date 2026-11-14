@@ -1,0 +1,27 @@
+{
+  "row_order": "dataset_manifest.json; original141 first, 13 added records last",
+  "energy": "eV; 276 points,8974 through9029 in0.2eV steps",
+  "inputs": {
+    "raw_physical": "physical per-Cu top-two population mean divided by the pinned substrate clean near-edge scale; despite the legacy key name, stored in shared relative scale units",
+    "clean": "matched pinned clean per-Cu spectrum divided by its own fixed clean near-edge scale",
+    "delta": "raw_physical minus clean, retaining signs and relative amplitude before signed RMS"
+  },
+  "prediction_order": [
+    "CHO",
+    "CO",
+    "CO2",
+    "COCHO",
+    "COH",
+    "COOH",
+    "H",
+    "O",
+    "OCCOH",
+    "OCHO",
+    "OH"
+  ],
+  "folds": "Original query fold retained; related groups are purged from every fit even when inherited query folds differ",
+  "metrics": "Near-group evaluation weights sum to one per group within each evaluation stratum; all eleven labels retained for macro F1",
+  "template_memberships": "Some NumPy integer template indices serialized as numeric strings; cast to int, as verify.py does. Membership is index-based, not configuration name based.",
+  "new_queries": "13 new configurations,13 near groups within new subset;12 near groups new to original135",
+  "source_evidence": "Full raw export remains external. Hash manifest covers1144 selected files; new numerical input arrays, geometries, fold manifests and old-source evidence are saved here."
+}

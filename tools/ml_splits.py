@@ -37,25 +37,25 @@ def groups_for_rows(rows, group_field=None):
     # Identical relaxed geometries reached from different initial structures
     # must also stay together. Configuration IDs keep preprocessing variants
     # together even when their geometry hashes are absent or differ.
-    if group_field is None:
-        parent = {group: group for group in groups}
-        def find(group):
-            while parent[group] != group:
-                parent[group] = parent[parent[group]]
-                group = parent[group]
-            return group
-        hashes = {}
-        for row, group in zip(rows, groups):
-            geometry = get_path(row.get("record", {}), "sample.structure_descriptors.geometry_hash")
-            geometry = geometry or row.get("metadata", {}).get("sample.structure_descriptors.geometry_hash")
-            if geometry:
-                if geometry in hashes:
-                    a, b = find(group), find(hashes[geometry])
-                    if a != b:
-                        parent[max(a, b)] = min(a, b)
-                        sources.add("geometry_hash_deduplication")
-                hashes[geometry] = group
-        groups = [find(group) for group in groups]
+    # Current geometry aliases remain linked with explicit group fields too.
+    parent = {group: group for group in groups}
+    def find(group):
+        while parent[group] != group:
+            parent[group] = parent[parent[group]]
+            group = parent[group]
+        return group
+    hashes = {}
+    for row, group in zip(rows, groups):
+        geometry = get_path(row.get("record", {}), "sample.structure_descriptors.geometry_hash")
+        geometry = geometry or row.get("metadata", {}).get("sample.structure_descriptors.geometry_hash")
+        if geometry:
+            if geometry in hashes:
+                a, b = find(group), find(hashes[geometry])
+                if a != b:
+                    parent[max(a, b)] = min(a, b)
+                    sources.add("geometry_hash_deduplication")
+            hashes[geometry] = group
+    groups = [find(group) for group in groups]
     return np.asarray(groups, dtype=str), sorted(sources)
 
 

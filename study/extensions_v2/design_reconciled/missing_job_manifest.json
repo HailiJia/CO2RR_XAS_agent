@@ -1,0 +1,61 @@
+{
+  "jobs": [
+    {
+      "input": "data/CuAu_dataset/2CO_adjacent/2CO_adjacent_0p056_interface/POSCAR",
+      "state_requested": "2CO",
+      "region": "interface",
+      "action": "prepare relaxation or review dissociation; do not force coupled labels",
+      "submission_authorized": false,
+      "requested_edges": [
+        "Cu K",
+        "C K",
+        "O K"
+      ],
+      "spectral_contrasts_status": "unmeasured",
+      "backend_support": "verify generated inputs and parsers before submitting"
+    },
+    {
+      "input": "data/CuAu_dataset/2CO_adjacent/2CO_adjacent_0p056_interior/POSCAR",
+      "state_requested": "2CO",
+      "region": "terrace",
+      "action": "prepare relaxation or review dissociation; do not force coupled labels",
+      "submission_authorized": false,
+      "requested_edges": [
+        "Cu K",
+        "C K",
+        "O K"
+      ],
+      "spectral_contrasts_status": "unmeasured",
+      "backend_support": "verify generated inputs and parsers before submitting"
+    },
+    {
+      "input": "data/CuAu_dataset/OCCO/OCCO_0p056_interface/POSCAR",
+      "state_requested": "OCCO",
+      "region": "interface",
+      "action": "prepare relaxation or review dissociation; do not force coupled labels",
+      "submission_authorized": false,
+      "requested_edges": [
+        "Cu K",
+        "C K",
+        "O K"
+      ],
+      "spectral_contrasts_status": "unmeasured",
+      "backend_support": "verify generated inputs and parsers before submitting"
+    },
+    {
+      "input": "data/CuAu_dataset/OCCO/OCCO_0p056_interior/POSCAR",
+      "state_requested": "OCCO",
+      "region": "terrace",
+      "action": "prepare relaxation or review dissociation; do not force coupled labels",
+      "submission_authorized": false,
+      "requested_edges": [
+        "Cu K",
+        "C K",
+        "O K"
+      ],
+      "spectral_contrasts_status": "unmeasured",
+      "backend_support": "verify generated inputs and parsers before submitting"
+    }
+  ],
+  "submitted": false
+}

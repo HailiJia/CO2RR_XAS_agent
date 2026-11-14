@@ -1,0 +1,62 @@
+{
+  "definition": "100*(single-species mean - equal-species reference)/maximum reference intensity",
+  "reference": "unweighted mean of the eight displayed single-species means; not a clean surface",
+  "species": [
+    "CO",
+    "COH",
+    "COOH",
+    "OCHO",
+    "OCCOH",
+    "H",
+    "O",
+    "OH"
+  ],
+  "counts": {
+    "CHO": 2,
+    "CO": 21,
+    "CO2": 3,
+    "COCHO": 1,
+    "COH": 6,
+    "COOH": 8,
+    "H": 14,
+    "O": 7,
+    "OCCOH": 4,
+    "OCHO": 8,
+    "OH": 4
+  },
+  "configurations": 72,
+  "excluded_species": {
+    "CHO": 2,
+    "CO2": 3,
+    "COCHO": 1
+  },
+  "minimum_single_species_support": 4,
+  "representation": "population-weighted mean of layers 4 and 5; minimum-subtracted unit-area normalization",
+  "energy_range_eV": [
+    8974.0,
+    9029.0
+  ],
+  "extra_alignment": false,
+  "extra_broadening": false,
+  "common_reference_max_per_eV": 0.023115059647003063,
+  "color_limit_percent": 3.5,
+  "bootstrap_resamples": 2000,
+  "seed": 20261023,
+  "interval": "pointwise conditional 95%; not simultaneous",
+  "highlighted_windows_eV": [
+    [
+      8977,
+      8984
+    ],
+    [
+      8988,
+      8994
+    ],
+    [
+      8996,
+      9004
+    ]
+  ],
+  "window_selection": "descriptive summaries of local maxima across the full cohort, not preregistered or independently validated",
+  "interpretation": "cohort-level association; geometry and coverage remain confounded; not model importance, adsorption-minus-clean, or a unique experimental assignment"
+}

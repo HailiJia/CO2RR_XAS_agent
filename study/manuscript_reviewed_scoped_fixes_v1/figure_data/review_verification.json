@@ -1,0 +1,32 @@
+{
+  "benchmark": {
+    "comparisons": 28,
+    "max_metric_error": 5.551115123125783e-16
+  },
+  "matched_identity_raw_physical": {
+    "n": 34,
+    "micro_F1": 0.7941176470588235,
+    "macro_F1_11": 0.36351829988193624,
+    "exact_set_accuracy": 0.6764705882352942
+  },
+  "matched_identity_delta": {
+    "n": 34,
+    "micro_F1": 0.7941176470588235,
+    "macro_F1_11": 0.36351829988193624,
+    "exact_set_accuracy": 0.6764705882352942
+  },
+  "same_substrate_sensitivity_identity_raw_physical": {
+    "n": 98,
+    "micro_F1": 0.7425742574257426,
+    "macro_F1_11": 0.6072065367107382,
+    "exact_set_accuracy": 0.6224489795918368
+  },
+  "matched_raw_delta_predictions_identical": true,
+  "signed_difference_verified": true,
+  "cohort_counts": {
+    "Cu(100), available": 17,
+    "Cu\u2013Au, available": 98,
+    "Cu\u2013Au, matched": 34
+  },
+  "Figure4b_support_matches_Figure2b_manifest": true
+}

@@ -1,0 +1,117 @@
+{
+  "version": "CO-coverage-v1",
+  "seed": 20261026,
+  "features": [
+    "Combined",
+    "DCT8",
+    "DCT16",
+    "DCT24"
+  ],
+  "candidates": [
+    [
+      "Combined",
+      "trees",
+      2
+    ],
+    [
+      "Combined",
+      "trees",
+      4
+    ],
+    [
+      "Combined",
+      "ridge",
+      10
+    ],
+    [
+      "Combined",
+      "ridge",
+      100
+    ],
+    [
+      "DCT8",
+      "trees",
+      2
+    ],
+    [
+      "DCT8",
+      "trees",
+      4
+    ],
+    [
+      "DCT8",
+      "ridge",
+      10
+    ],
+    [
+      "DCT8",
+      "ridge",
+      100
+    ],
+    [
+      "DCT16",
+      "trees",
+      2
+    ],
+    [
+      "DCT16",
+      "trees",
+      4
+    ],
+    [
+      "DCT16",
+      "ridge",
+      10
+    ],
+    [
+      "DCT16",
+      "ridge",
+      100
+    ],
+    [
+      "DCT24",
+      "trees",
+      2
+    ],
+    [
+      "DCT24",
+      "trees",
+      4
+    ],
+    [
+      "DCT24",
+      "ridge",
+      10
+    ],
+    [
+      "DCT24",
+      "ridge",
+      100
+    ]
+  ],
+  "n_estimators": 128,
+  "outer": "5-fold GroupKFold by geometry; separate leave-coverage-level-out and contact-motif-held-out tests",
+  "inner": "3-fold GroupKFold by geometry; minimum coverage MAE; same folds across all recipes",
+  "target": "intact CO molecules / all top-surface metal sites",
+  "additional_denominators": "per surface Cu and molecules/nm2 saved separately; names never define loading",
+  "predictors": "spectra only; population-weighted native top-two average; archived minimum-subtracted unit area; Combined or DCT compression",
+  "Cu100_use": "no Cu100 in fitting/selection; external input-geometry diagnostic only with matched original ASE snapshots; production relaxation termination not supplied",
+  "source_hashes": {
+    "coverage_inference.py": "0df6dd478d2cce7ec04955f38573bf73815394fa1facea05f54db2afa11c6e30",
+    "coverage_study.py": "098a220b0f5aa5636ee73a8376507b5207a708bac66b7abd9d700a8aec3459fb",
+    "cu100_lineage.py": "539d33e3a458fea5fdd33cb530357b27f7172f9ebdfa41a4220badb93ad4cfcc"
+  },
+  "dependencies": {
+    "python": "3.11.9",
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "sklearn": "1.9.0"
+  },
+  "energy_window_eV": [
+    8974.0,
+    9029.0000000002
+  ],
+  "energy_points": 276,
+  "duplicate_aliases_excluded": [],
+  "confirmation": "exploratory reused configurations; not locked prospective validation"
+}

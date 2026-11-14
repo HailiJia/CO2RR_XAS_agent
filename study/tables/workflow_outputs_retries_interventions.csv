@@ -1,0 +1,11 @@
+quantity,value,status
+deduplication,scheduler job ID across copied folder aliases; all source paths retained,observed
+observed_scheduler_stdout_files,735,observed
+observed_attempts_with_surviving_scheduler_stdout,651,observed
+observed_workflows,93,observed
+attempted_run_denominator_reconciled,False,observed
+first_pass_success_rate,,unmeasured
+recovery_success_rate,,unmeasured
+retry_cost,,unmeasured
+intervention_rate,,unmeasured
+reason,"Surviving stdout does not establish complete submissions/accounting, restart intent, resource-hours or manual actions. Obtain sacct/exported workflow-state history before computing rates.",observed

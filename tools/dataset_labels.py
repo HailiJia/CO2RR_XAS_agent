@@ -101,6 +101,8 @@ def annotate_structure(structure, stage="generated"):
     pos, cell = np.asarray(structure["positions"], float), np.asarray(structure["cell"], float)
     molecules = meta.get("molecules", [])
     qc = validate_geometry(atoms, pos, cell, meta.get("pbc", [True, True, False]), molecules)
+    from .component_audit import audit_components
+    meta['component_audit'] = audit_components(structure, molecules)
     measured_hash = geometry_hash(structure)
     meta.setdefault("configuration_id", "cfg_" + measured_hash[:24])
     meta.setdefault("geometry_hash_initial", measured_hash)

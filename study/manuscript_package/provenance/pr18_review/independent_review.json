@@ -1,0 +1,79 @@
+{
+  "pr_url": "https://github.com/HailiJia/CO2RR_XAS_agent/pull/18",
+  "head_sha": "68953df0128b730e1b357b8698da3075590b0e07",
+  "review_date": "2026-10-21",
+  "independent_archive_replay": "passed; all replayed aggregate/per-species/confusion/mixture results consistent",
+  "full_cold_cache_refit": "reported in PR evidence; not repeated here because complete raw export is unavailable",
+  "topology_counterexample": {
+    "atoms": [
+      "C",
+      "O",
+      "C",
+      "O"
+    ],
+    "positions_A": [
+      [
+        0,
+        0,
+        5
+      ],
+      [
+        1.2,
+        0,
+        5
+      ],
+      [
+        2.4,
+        0,
+        5
+      ],
+      [
+        3.6,
+        0,
+        5
+      ]
+    ],
+    "cell_A": [
+      [
+        20,
+        0,
+        0
+      ],
+      [
+        0,
+        20,
+        0
+      ],
+      [
+        0,
+        0,
+        25
+      ]
+    ],
+    "observed_status": "verified",
+    "observed_label": "OCCO",
+    "problem": "No C-C bond; formula plus connected component is insufficient to identify OCCO."
+  },
+  "cell_counterexample": {
+    "fixture": "tests/test_study_reconciliation.py::layer_fixture",
+    "mutation": "Change Crystal cell lengths from 10 10 25 to 20 10 25, leaving fractional coordinates unchanged.",
+    "observed_result": "verify_layer_population returns population=2 rather than rejecting the changed calculation cell."
+  },
+  "agent_integration": "New Streamlit training route is callable manually; no training action or dispatch located in agent planner/core. New UI recipe is explicitly distinct from archived primary selector.",
+  "independent_tests": {
+    "focused_suite": {
+      "passed": 84,
+      "failed": 5
+    },
+    "additional_regressions": {
+      "passed": 19,
+      "failed": 0
+    },
+    "baseline_nersc_suite": {
+      "passed": 4,
+      "failed": 5
+    },
+    "same_five_failures": true,
+    "environment_note": "Python 3.12; pinned ASE 3.28.0, pymatgen 2025.10.7, pytest 9.1.1, jsonschema 4.26.0; scientific runtime differs from PR fit environment. No refit."
+  }
+}

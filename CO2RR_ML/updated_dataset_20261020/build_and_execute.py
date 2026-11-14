@@ -3,14 +3,20 @@ import os,sys
 import nbformat
 from IPython.core.interactiveshell import InteractiveShell
 from IPython.utils.capture import capture_output
-BASE=Path(__file__).resolve().parent;os.chdir(BASE)
+import argparse
+BASE=Path(__file__).resolve().parent
+parser=argparse.ArgumentParser();parser.add_argument('--data-root',required=True);parser.add_argument('--output-dir',required=True);parser.add_argument('--split-manifest',default=str(BASE/'cv_manifest.csv'));parser.add_argument('--audit-only',action='store_true');parser.add_argument('--build-only',action='store_true');opts=parser.parse_args()
+DEST=Path(opts.output_dir).resolve();DEST.mkdir(parents=True,exist_ok=True)
+if DEST==BASE:raise ValueError('Archived notebook cannot be overwritten; choose a new output directory')
+os.environ.update(CO2RR_DATA_ROOT=str(Path(opts.data_root).resolve()),CO2RR_OUTPUT_DIR=str(DEST),CO2RR_SPLIT_MANIFEST=str(Path(opts.split_manifest).resolve()))
+os.chdir(BASE)
 source=(BASE/'analysis.py').read_text()
 parts=source.split('# %% ')
 nb=nbformat.v4.new_notebook();cells=[]
 cells.append(nbformat.v4.new_markdown_cell('''# Updated Cu K-edge benchmark: audited adsorbate identities and depth sensitivity
 This notebook contains the complete current audit, optional record-correction procedure, inventory, spectral preparation, model fitting, nested cross-validation, five requested figure sets, and a short bullet-point interpretation. **Targets are adsorbate identities only.** Molecular counts and geometry descriptors are audited but never used as predictors or prediction targets.
 
-**Setup:** Python 3.11+ with `numpy pandas scipy scikit-learn matplotlib nbformat ipykernel ipython`. Install using `python -m pip install numpy pandas scipy scikit-learn matplotlib nbformat ipykernel ipython`. Exact tested versions are saved in `environment.json`. Run from this notebook folder; update `DATA` and `OUT` below if relocating files. Matching caches avoid refitting. Delete `cache/` after changing feature or model implementations to force fresh fits.
+**Setup:** Python 3.11+ with `numpy pandas scipy scikit-learn matplotlib nbformat ipykernel ipython`. Install using `python -m pip install numpy pandas scipy scikit-learn matplotlib nbformat ipykernel ipython`. Exact tested versions are saved in `environment.json`. Set CO2RR_DATA_ROOT, CO2RR_OUTPUT_DIR and optionally CO2RR_SPLIT_MANIFEST, or pass CLI flags to the builder. Use a new output directory; archived results remain immutable. Matching caches avoid refitting. Delete `cache/` after changing feature or model implementations to force fresh fits.
 
 **Outputs:** `figures/01_…` through `05_…` are saved as PNG and PDF. CSV audits, per-species metrics, all feature/model/depth comparisons, fold assignments and held-out predictions are saved alongside the notebook. `ANALYSIS.md` provides the requested simple bullets. New figures use the current cohort only; prior scores are not treated as directly comparable independent tests.'''))
 heads={
@@ -50,12 +56,12 @@ The interpretation below is generated from the executed results, including what 
 cells.append(nbformat.v4.new_code_cell(parts[0]+"\nprint('Environment:',sys.version.split()[0], 'numpy',np.__version__,'sklearn',sklearn.__version__)"))
 for part in parts[1:]:
     title,code=part.split('\n',1)
-    code=code.replace("if '--audit-only' in sys.argv:raise SystemExit(0)\n",'')
+    code=code
     cells.append(nbformat.v4.new_markdown_cell(heads[title.strip()]))
     cells.append(nbformat.v4.new_code_cell(code))
 nb.cells=cells;nb.metadata={'kernelspec':{'display_name':'Python 3','language':'python','name':'python3'},'language_info':{'name':'python'}}
-p=BASE/'adsorbate_identity_depth_updated.ipynb';nbformat.write(nb,p)
-if '--build-only' in sys.argv:raise SystemExit(0)
+p=DEST/'adsorbate_identity_depth_updated.ipynb';nbformat.write(nb,p)
+if opts.build_only:raise SystemExit(0)
 shell=InteractiveShell.instance()
 import matplotlib
 matplotlib.use('module://matplotlib_inline.backend_inline')
@@ -71,8 +77,9 @@ for cell in nb.cells:
     if cap.stderr:cell.outputs.append(nbformat.v4.new_output('stream',name='stderr',text=cap.stderr))
     for o in cap.outputs:cell.outputs.append(nbformat.v4.new_output('display_data',data=o.data,metadata=o.metadata))
     err=result.error_before_exec or result.error_in_exec
-    if err:cell.outputs.append(nbformat.v4.new_output('error',ename=type(err).__name__,evalue=str(err),traceback=[]))
+    if err and not (isinstance(err,SystemExit) and err.code==0 and opts.audit_only):cell.outputs.append(nbformat.v4.new_output('error',ename=type(err).__name__,evalue=str(err),traceback=[]))
     nbformat.write(nb,p)
+    if isinstance(err,SystemExit) and err.code==0 and opts.audit_only:break
     if err:raise err
 nbformat.validate(nb)
 print('Saved executed notebook:',p)

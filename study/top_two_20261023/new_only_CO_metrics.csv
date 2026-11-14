@@ -1,0 +1,16 @@
+seed,stage,configurations,CO_support,CO_TP,CO_FP,CO_FN,CO_precision,CO_recall,CO_f1,exact_set_accuracy,other_positive_species_tested,other_species_false_positives,macro_F1_display
+20261020,fixed_Combined_threshold0p5,3,3,2,0,1,1.0,0.6666666666666666,0.8,0.6666666666666666,False,0,not reported: ten labels have no positives
+20261020,fixed_Combined_transferred87_threshold,3,3,2,0,1,1.0,0.6666666666666666,0.8,0.6666666666666666,False,0,not reported: ten labels have no positives
+20261020,fixed_Combined_retuned_threshold,3,3,2,0,1,1.0,0.6666666666666666,0.8,0.6666666666666666,False,0,not reported: ten labels have no positives
+20261020,original_feature_selection,3,3,2,0,1,1.0,0.6666666666666666,0.8,0.6666666666666666,False,0,not reported: ten labels have no positives
+20261020,regularized_selection,3,3,2,0,1,1.0,0.6666666666666666,0.8,0.6666666666666666,False,0,not reported: ten labels have no positives
+20261021,fixed_Combined_threshold0p5,3,3,2,0,1,1.0,0.6666666666666666,0.8,0.6666666666666666,False,0,not reported: ten labels have no positives
+20261021,fixed_Combined_transferred87_threshold,3,3,2,0,1,1.0,0.6666666666666666,0.8,0.6666666666666666,False,0,not reported: ten labels have no positives
+20261021,fixed_Combined_retuned_threshold,3,3,2,0,1,1.0,0.6666666666666666,0.8,0.6666666666666666,False,0,not reported: ten labels have no positives
+20261021,original_feature_selection,3,3,2,0,1,1.0,0.6666666666666666,0.8,0.6666666666666666,False,0,not reported: ten labels have no positives
+20261021,regularized_selection,3,3,2,0,1,1.0,0.6666666666666666,0.8,0.6666666666666666,False,0,not reported: ten labels have no positives
+20261022,fixed_Combined_threshold0p5,3,3,2,0,1,1.0,0.6666666666666666,0.8,0.6666666666666666,False,0,not reported: ten labels have no positives
+20261022,fixed_Combined_transferred87_threshold,3,3,2,0,1,1.0,0.6666666666666666,0.8,0.6666666666666666,False,0,not reported: ten labels have no positives
+20261022,fixed_Combined_retuned_threshold,3,3,2,0,1,1.0,0.6666666666666666,0.8,0.6666666666666666,False,0,not reported: ten labels have no positives
+20261022,original_feature_selection,3,3,2,0,1,1.0,0.6666666666666666,0.8,0.6666666666666666,False,0,not reported: ten labels have no positives
+20261022,regularized_selection,3,3,2,0,1,1.0,0.6666666666666666,0.8,0.6666666666666666,False,0,not reported: ten labels have no positives
