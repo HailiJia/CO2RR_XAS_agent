@@ -1,0 +1,4706 @@
+[
+  {
+    "index": 0,
+    "configuration": "2CO_adjacent/2CO_adjacent_0p056_AuCu_interface",
+    "domain": "CuAu",
+    "n_CO": 2,
+    "n_H": 0,
+    "environment": "interface/Au-associated",
+    "CO_carbon_indices": [
+      340,
+      341
+    ],
+    "CO_contact_indices": [
+      [
+        165,
+        166,
+        174
+      ],
+      [
+        311
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        3,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "initial_parent_hash": "08042e3f67c7b5af820e1aada834d2fccc2c8c0f8a144bac787a3387003b87e1"
+  },
+  {
+    "index": 1,
+    "configuration": "2CO_adjacent/2CO_adjacent_0p056_interface",
+    "domain": "CuAu",
+    "n_CO": 2,
+    "n_H": 0,
+    "environment": "interface/Au-associated",
+    "CO_carbon_indices": [
+      340,
+      341
+    ],
+    "CO_contact_indices": [
+      [
+        173
+      ],
+      [
+        172
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "initial_parent_hash": "5a37c9c9750f1494cf408477c8dcc1ea3394922de19a49490cc53ede2b25309d"
+  },
+  {
+    "index": 2,
+    "configuration": "2CO_adjacent/2CO_adjacent_0p056_interior",
+    "domain": "CuAu",
+    "n_CO": 2,
+    "n_H": 0,
+    "environment": "interface/Au-associated",
+    "CO_carbon_indices": [
+      340,
+      341
+    ],
+    "CO_contact_indices": [
+      [
+        165,
+        173
+      ],
+      [
+        147,
+        148,
+        156
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        0
+      ]
+    ],
+    "initial_parent_hash": "96ef878d431f41b1da2946f6da92a7056369a9a366c5fbd0bb81a1732a386908"
+  },
+  {
+    "index": 3,
+    "configuration": "2CO_adjacent/2CO_adjacent_0p056_orientation_alt",
+    "domain": "CuAu",
+    "n_CO": 2,
+    "n_H": 0,
+    "environment": "Cu-rich",
+    "CO_carbon_indices": [
+      340,
+      341
+    ],
+    "CO_contact_indices": [
+      [
+        165
+      ],
+      [
+        155
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "initial_parent_hash": "5a37c9c9750f1494cf408477c8dcc1ea3394922de19a49490cc53ede2b25309d"
+  },
+  {
+    "index": 4,
+    "configuration": "2CO_adjacent/2CO_adjacent_0p111_interface",
+    "domain": "CuAu",
+    "n_CO": 4,
+    "n_H": 0,
+    "environment": "interface/Au-associated",
+    "CO_carbon_indices": [
+      340,
+      341,
+      342,
+      343
+    ],
+    "CO_contact_indices": [
+      [
+        176
+      ],
+      [
+        177
+      ],
+      [
+        173
+      ],
+      [
+        172
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "initial_parent_hash": "5a37c9c9750f1494cf408477c8dcc1ea3394922de19a49490cc53ede2b25309d"
+  },
+  {
+    "index": 5,
+    "configuration": "2CO_adjacent/2CO_adjacent_0p111_uniform",
+    "domain": "CuAu",
+    "n_CO": 4,
+    "n_H": 0,
+    "environment": "mixed_environments",
+    "CO_carbon_indices": [
+      340,
+      341,
+      342,
+      343
+    ],
+    "CO_contact_indices": [
+      [
+        168
+      ],
+      [
+        149,
+        158
+      ],
+      [
+        163
+      ],
+      [
+        172
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "initial_parent_hash": "b5b3228901dc49af710009c8f3a514d1b7fa0eea801c887875fe1ab207f2a1b1"
+  },
+  {
+    "index": 6,
+    "configuration": "2CO_adjacent/2CO_adjacent_0p167_uniform",
+    "domain": "CuAu",
+    "n_CO": 6,
+    "n_H": 0,
+    "environment": "mixed_environments",
+    "CO_carbon_indices": [
+      340,
+      341,
+      342,
+      343,
+      344,
+      345
+    ],
+    "CO_contact_indices": [
+      [
+        169
+      ],
+      [
+        177
+      ],
+      [
+        163
+      ],
+      [
+        172
+      ],
+      [
+        156
+      ],
+      [
+        157
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "initial_parent_hash": "5a37c9c9750f1494cf408477c8dcc1ea3394922de19a49490cc53ede2b25309d"
+  },
+  {
+    "index": 7,
+    "configuration": "CHO/CHO_0p028_Cu_top",
+    "domain": "CuAu",
+    "n_CO": 1,
+    "n_H": 1,
+    "environment": "interface/Au-associated",
+    "CO_carbon_indices": [
+      340
+    ],
+    "CO_contact_indices": [
+      [
+        174,
+        311
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        1,
+        1
+      ]
+    ],
+    "initial_parent_hash": "be915545ef300f72d54863a93625bc18987bb5db54e052ae3c92274f3257d1f2"
+  },
+  {
+    "index": 8,
+    "configuration": "CHO/CHO_0p056_AuCu_bidentate",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "6b12b0efa3afbc23eae9629d02c2c4d42695de0e4edd05cb61f480310f7b7644"
+  },
+  {
+    "index": 9,
+    "configuration": "CHO/CHO_0p056_CuCu_bidentate",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "96613b5116f1e2355447a1b70c49295c77bda02bda9316039936cb437f076c47"
+  },
+  {
+    "index": 10,
+    "configuration": "CHO/CHO_0p056_interface_Cu",
+    "domain": "CuAu",
+    "n_CO": 1,
+    "n_H": 1,
+    "environment": "interface/Au-associated",
+    "CO_carbon_indices": [
+      340
+    ],
+    "CO_contact_indices": [
+      [
+        174,
+        311
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        1,
+        1
+      ]
+    ],
+    "initial_parent_hash": "45f1d8c9803380ecf1265cb4fef154d08f696577d234432b551910d31910bfae"
+  },
+  {
+    "index": 11,
+    "configuration": "CHO/CHO_0p056_interior_Cu",
+    "domain": "CuAu",
+    "n_CO": 1,
+    "n_H": 1,
+    "environment": "interface/Au-associated",
+    "CO_carbon_indices": [
+      340
+    ],
+    "CO_contact_indices": [
+      [
+        165,
+        173,
+        174
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        3,
+        0
+      ]
+    ],
+    "initial_parent_hash": "054d840bb6142ae12379e45a398a0dccad26ffa8982348d6548c0a9371483183"
+  },
+  {
+    "index": 12,
+    "configuration": "CHO/CHO_0p056_uniform",
+    "domain": "CuAu",
+    "n_CO": 1,
+    "n_H": 1,
+    "environment": "interface/Au-associated",
+    "CO_carbon_indices": [
+      340
+    ],
+    "CO_contact_indices": [
+      [
+        165,
+        173,
+        174
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        3,
+        0
+      ]
+    ],
+    "initial_parent_hash": "1ad7322361a30478cdcfad13e4dae8b709b8b7812247ee84f0dd0e88f08d5430"
+  },
+  {
+    "index": 13,
+    "configuration": "CHO/CHO_0p111_AuCu_bidentate",
+    "domain": "CuAu",
+    "n_CO": 1,
+    "n_H": 1,
+    "environment": "interface/Au-associated",
+    "CO_carbon_indices": [
+      342
+    ],
+    "CO_contact_indices": [
+      [
+        144,
+        161
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        2,
+        0
+      ]
+    ],
+    "initial_parent_hash": "c5ad7b5ff906f66dd91457accc2251048d43b0a81f438857b5a750165dd6376c"
+  },
+  {
+    "index": 14,
+    "configuration": "CHO/CHO_0p111_CuCu_bidentate",
+    "domain": "CuAu",
+    "n_CO": 1,
+    "n_H": 1,
+    "environment": "interface/Au-associated",
+    "CO_carbon_indices": [
+      343
+    ],
+    "CO_contact_indices": [
+      [
+        167,
+        176
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        2,
+        0
+      ]
+    ],
+    "initial_parent_hash": "71ccf987cca760fb16a4e451078f51d33b4aa94cd859f42de2b31ab9a3c33a9a"
+  },
+  {
+    "index": 15,
+    "configuration": "CHO/CHO_0p111_uniform",
+    "domain": "CuAu",
+    "n_CO": 2,
+    "n_H": 2,
+    "environment": "mixed_environments",
+    "CO_carbon_indices": [
+      340,
+      342
+    ],
+    "CO_contact_indices": [
+      [
+        156,
+        165,
+        166
+      ],
+      [
+        162,
+        163,
+        171
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        0
+      ]
+    ],
+    "initial_parent_hash": "f3d24263e07ad71fe4555f27e95e25fa95e8317dd3bec615757c9bb6b64fa0f8"
+  },
+  {
+    "index": 16,
+    "configuration": "CHO/CHO_0p167_uniform",
+    "domain": "CuAu",
+    "n_CO": 2,
+    "n_H": 2,
+    "environment": "interface/Au-associated",
+    "CO_carbon_indices": [
+      340,
+      342
+    ],
+    "CO_contact_indices": [
+      [
+        173,
+        174,
+        311
+      ],
+      [
+        162,
+        163,
+        171
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        2,
+        1
+      ],
+      [
+        3,
+        0
+      ]
+    ],
+    "initial_parent_hash": "25b56ba1a780c54ccd111c9c1734304ff79267f4fbc3e621f2e9592e0171d495"
+  },
+  {
+    "index": 17,
+    "configuration": "CHO_CO/CO_CHO_0p111_more_CO",
+    "domain": "CuAu",
+    "n_CO": 4,
+    "n_H": 1,
+    "environment": "interface/Au-associated",
+    "CO_carbon_indices": [
+      340,
+      341,
+      342,
+      343
+    ],
+    "CO_contact_indices": [
+      [
+        166,
+        174
+      ],
+      [
+        178
+      ],
+      [
+        145
+      ],
+      [
+        149
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        2,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "initial_parent_hash": "2f00e190d0743e475a6c63290fe38ff4f4396b89485ab88bc25a57c42481238b"
+  },
+  {
+    "index": 18,
+    "configuration": "CHO_CO/CO_CHO_0p111_uniform",
+    "domain": "CuAu",
+    "n_CO": 3,
+    "n_H": 1,
+    "environment": "interface/Au-associated",
+    "CO_carbon_indices": [
+      340,
+      341,
+      342
+    ],
+    "CO_contact_indices": [
+      [
+        166,
+        174
+      ],
+      [
+        178
+      ],
+      [
+        145
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        2,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "initial_parent_hash": "7c00c1937f7cc77ded2e85006e2ddf50e5ce8404126da47f02e1fc1690798f63"
+  },
+  {
+    "index": 19,
+    "configuration": "CO/CO_0p11/interface_biased",
+    "domain": "CuAu",
+    "n_CO": 4,
+    "n_H": 0,
+    "environment": "interface/Au-associated",
+    "CO_carbon_indices": [
+      340,
+      341,
+      342,
+      343
+    ],
+    "CO_contact_indices": [
+      [
+        144
+      ],
+      [
+        148
+      ],
+      [
+        173
+      ],
+      [
+        177
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "initial_parent_hash": "8106a47ebb1f75c378e186f8d731abd73f7315a923b2fa3a59d0edc4476c4cf4"
+  },
+  {
+    "index": 20,
+    "configuration": "CO/CO_0p11/interior_biased",
+    "domain": "CuAu",
+    "n_CO": 4,
+    "n_H": 0,
+    "environment": "Cu-rich",
+    "CO_carbon_indices": [
+      340,
+      341,
+      342,
+      343
+    ],
+    "CO_contact_indices": [
+      [
+        153
+      ],
+      [
+        157
+      ],
+      [
+        164
+      ],
+      [
+        168
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "initial_parent_hash": "5a37c9c9750f1494cf408477c8dcc1ea3394922de19a49490cc53ede2b25309d"
+  },
+  {
+    "index": 21,
+    "configuration": "CO/CO_0p11/uniform",
+    "domain": "CuAu",
+    "n_CO": 4,
+    "n_H": 0,
+    "environment": "mixed_environments",
+    "CO_carbon_indices": [
+      340,
+      341,
+      342,
+      343
+    ],
+    "CO_contact_indices": [
+      [
+        144
+      ],
+      [
+        155
+      ],
+      [
+        166
+      ],
+      [
+        177
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "initial_parent_hash": "5a37c9c9750f1494cf408477c8dcc1ea3394922de19a49490cc53ede2b25309d"
+  },
+  {
+    "index": 22,
+    "configuration": "CO/CO_0p14/interface_biased",
+    "domain": "CuAu",
+    "n_CO": 5,
+    "n_H": 0,
+    "environment": "interface/Au-associated",
+    "CO_carbon_indices": [
+      340,
+      341,
+      342,
+      343,
+      344
+    ],
+    "CO_contact_indices": [
+      [
+        144
+      ],
+      [
+        147
+      ],
+      [
+        150
+      ],
+      [
+        173
+      ],
+      [
+        178
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "initial_parent_hash": "526c51feefe81e4041cf483350533daed9be40111a769d717aeda8da87d329c3"
+  },
+  {
+    "index": 23,
+    "configuration": "CO/CO_0p14/interior_biased",
+    "domain": "CuAu",
+    "n_CO": 5,
+    "n_H": 0,
+    "environment": "Cu-rich",
+    "CO_carbon_indices": [
+      340,
+      341,
+      342,
+      343,
+      344
+    ],
+    "CO_contact_indices": [
+      [
+        153
+      ],
+      [
+        156
+      ],
+      [
+        159
+      ],
+      [
+        164
+      ],
+      [
+        169
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "initial_parent_hash": "5a37c9c9750f1494cf408477c8dcc1ea3394922de19a49490cc53ede2b25309d"
+  },
+  {
+    "index": 24,
+    "configuration": "CO/CO_0p14/uniform",
+    "domain": "CuAu",
+    "n_CO": 5,
+    "n_H": 0,
+    "environment": "mixed_environments",
+    "CO_carbon_indices": [
+      340,
+      341,
+      342,
+      343,
+      344
+    ],
+    "CO_contact_indices": [
+      [
+        144
+      ],
+      [
+        155
+      ],
+      [
+        166
+      ],
+      [
+        177
+      ],
+      [
+        160
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "initial_parent_hash": "5a37c9c9750f1494cf408477c8dcc1ea3394922de19a49490cc53ede2b25309d"
+  },
+  {
+    "index": 25,
+    "configuration": "CO/CO_0p14/uniform2",
+    "domain": "CuAu",
+    "n_CO": 5,
+    "n_H": 0,
+    "environment": "mixed_environments",
+    "CO_carbon_indices": [
+      340,
+      341,
+      342,
+      343,
+      344
+    ],
+    "CO_contact_indices": [
+      [
+        144
+      ],
+      [
+        154
+      ],
+      [
+        159
+      ],
+      [
+        166
+      ],
+      [
+        179
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "initial_parent_hash": "db8d9f3bcdad6431a00a588997efd0dfff7ce45eb4764a8b408d5c2d73670db8"
+  },
+  {
+    "index": 26,
+    "configuration": "CO/CO_0p25/interface_biased",
+    "domain": "CuAu",
+    "n_CO": 9,
+    "n_H": 0,
+    "environment": "mixed_environments",
+    "CO_carbon_indices": [
+      340,
+      341,
+      342,
+      343,
+      344,
+      345,
+      346,
+      347,
+      348
+    ],
+    "CO_contact_indices": [
+      [
+        171
+      ],
+      [
+        175,
+        312
+      ],
+      [
+        149
+      ],
+      [
+        147
+      ],
+      [
+        151
+      ],
+      [
+        178
+      ],
+      [
+        153
+      ],
+      [
+        168
+      ],
+      [
+        164
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "initial_parent_hash": "cd540c0822f34de37658b9851959ebed8f5c94aa31b6c6f8743bd91cd43a2de4"
+  },
+  {
+    "index": 27,
+    "configuration": "CO/CO_0p25/interface_biased2",
+    "domain": "CuAu",
+    "n_CO": 9,
+    "n_H": 0,
+    "environment": "mixed_environments",
+    "CO_carbon_indices": [
+      340,
+      341,
+      342,
+      343,
+      344,
+      345,
+      346,
+      347,
+      348
+    ],
+    "CO_contact_indices": [
+      [
+        156
+      ],
+      [
+        152
+      ],
+      [
+        171
+      ],
+      [
+        177
+      ],
+      [
+        145
+      ],
+      [
+        150
+      ],
+      [
+        175
+      ],
+      [
+        173
+      ],
+      [
+        170
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "initial_parent_hash": "156147d4542e4690228c9bfbf0fa1e450ccf6f72c135befe8e767bd0d1d0d444"
+  },
+  {
+    "index": 28,
+    "configuration": "CO/CO_0p25/interior_biased",
+    "domain": "CuAu",
+    "n_CO": 9,
+    "n_H": 0,
+    "environment": "mixed_environments",
+    "CO_carbon_indices": [
+      340,
+      341,
+      342,
+      343,
+      344,
+      345,
+      346,
+      347,
+      348
+    ],
+    "CO_contact_indices": [
+      [
+        155
+      ],
+      [
+        158
+      ],
+      [
+        161
+      ],
+      [
+        163
+      ],
+      [
+        166
+      ],
+      [
+        169
+      ],
+      [
+        145
+      ],
+      [
+        151
+      ],
+      [
+        179
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "initial_parent_hash": "ebd8511f5acfc1b437704b0b2ad122b0b916bb69991301f66f7ec7c08ff8cfd8"
+  },
+  {
+    "index": 29,
+    "configuration": "CO/CO_0p25/uniform",
+    "domain": "CuAu",
+    "n_CO": 9,
+    "n_H": 0,
+    "environment": "mixed_environments",
+    "CO_carbon_indices": [
+      340,
+      341,
+      342,
+      343,
+      344,
+      345,
+      346,
+      347,
+      348
+    ],
+    "CO_contact_indices": [
+      [
+        147
+      ],
+      [
+        152
+      ],
+      [
+        154
+      ],
+      [
+        159
+      ],
+      [
+        162
+      ],
+      [
+        166
+      ],
+      [
+        173
+      ],
+      [
+        176
+      ],
+      [
+        178
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "initial_parent_hash": "b4bf7cd569c56ac2c7b359a18f92248949f4f66fd7f2d4145d118ef479402c40"
+  },
+  {
+    "index": 30,
+    "configuration": "CO/CO_0p5/interface_biased",
+    "domain": "CuAu",
+    "n_CO": 18,
+    "n_H": 0,
+    "environment": "mixed_environments",
+    "CO_carbon_indices": [
+      340,
+      341,
+      342,
+      343,
+      344,
+      345,
+      346,
+      347,
+      348,
+      349,
+      350,
+      351,
+      352,
+      353,
+      354,
+      355,
+      356,
+      357
+    ],
+    "CO_contact_indices": [
+      [
+        144,
+        153,
+        161
+      ],
+      [
+        145,
+        146,
+        154
+      ],
+      [
+        147,
+        334
+      ],
+      [
+        148
+      ],
+      [
+        149,
+        150,
+        158
+      ],
+      [
+        151
+      ],
+      [
+        152
+      ],
+      [
+        155,
+        164
+      ],
+      [
+        159,
+        168,
+        169
+      ],
+      [
+        166
+      ],
+      [
+        170
+      ],
+      [
+        162,
+        171,
+        179
+      ],
+      [
+        172
+      ],
+      [
+        165,
+        173,
+        174
+      ],
+      [
+        175,
+        312
+      ],
+      [
+        176
+      ],
+      [
+        177,
+        314
+      ],
+      [
+        178,
+        179,
+        315
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        1
+      ]
+    ],
+    "initial_parent_hash": "df4cca0bf348ef53cfe169706c5065ff4614fc2ad3469bffd433489c1484bb2d"
+  },
+  {
+    "index": 31,
+    "configuration": "CO/CO_0p5/interior_biased",
+    "domain": "CuAu",
+    "n_CO": 18,
+    "n_H": 0,
+    "environment": "mixed_environments",
+    "CO_carbon_indices": [
+      340,
+      341,
+      342,
+      343,
+      344,
+      345,
+      346,
+      347,
+      348,
+      349,
+      350,
+      351,
+      352,
+      353,
+      354,
+      355,
+      356,
+      357
+    ],
+    "CO_contact_indices": [
+      [
+        144,
+        339
+      ],
+      [
+        148,
+        335
+      ],
+      [
+        153,
+        161,
+        162
+      ],
+      [
+        145,
+        146,
+        154
+      ],
+      [
+        146,
+        147,
+        155
+      ],
+      [
+        156
+      ],
+      [
+        149,
+        157,
+        158
+      ],
+      [
+        150,
+        151,
+        159
+      ],
+      [
+        152,
+        160,
+        161
+      ],
+      [
+        162,
+        163,
+        171
+      ],
+      [
+        164
+      ],
+      [
+        165,
+        173,
+        174
+      ],
+      [
+        166,
+        174,
+        175
+      ],
+      [
+        167,
+        168,
+        176
+      ],
+      [
+        169
+      ],
+      [
+        170,
+        178,
+        179
+      ],
+      [
+        172,
+        309
+      ],
+      [
+        177,
+        314
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "initial_parent_hash": "5abaa960a66e9080f59be1783b9418edc62426016656578597475221d750c3e9"
+  },
+  {
+    "index": 32,
+    "configuration": "CO/CO_0p5/uniform",
+    "domain": "CuAu",
+    "n_CO": 18,
+    "n_H": 0,
+    "environment": "mixed_environments",
+    "CO_carbon_indices": [
+      340,
+      341,
+      342,
+      343,
+      344,
+      345,
+      346,
+      347,
+      348,
+      349,
+      350,
+      351,
+      352,
+      353,
+      354,
+      355,
+      356,
+      357
+    ],
+    "CO_contact_indices": [
+      [
+        144
+      ],
+      [
+        146
+      ],
+      [
+        148
+      ],
+      [
+        150
+      ],
+      [
+        152
+      ],
+      [
+        154
+      ],
+      [
+        147,
+        155,
+        156
+      ],
+      [
+        149,
+        157,
+        158
+      ],
+      [
+        159,
+        160
+      ],
+      [
+        162,
+        163,
+        171
+      ],
+      [
+        164
+      ],
+      [
+        166
+      ],
+      [
+        168
+      ],
+      [
+        170
+      ],
+      [
+        172,
+        309
+      ],
+      [
+        174,
+        311
+      ],
+      [
+        176,
+        313
+      ],
+      [
+        178
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "initial_parent_hash": "1b486cdbe03b3c9d6d6bad53d71177c7743227d694f15d402e7bd31cc4b6b883"
+  },
+  {
+    "index": 33,
+    "configuration": "CO/CO_0p75/uniform",
+    "domain": "CuAu",
+    "n_CO": 27,
+    "n_H": 0,
+    "environment": "mixed_environments",
+    "CO_carbon_indices": [
+      340,
+      341,
+      342,
+      343,
+      344,
+      345,
+      346,
+      347,
+      348,
+      349,
+      350,
+      351,
+      352,
+      353,
+      354,
+      355,
+      356,
+      357,
+      358,
+      359,
+      360,
+      361,
+      362,
+      363,
+      364,
+      365,
+      366
+    ],
+    "CO_contact_indices": [
+      [
+        144,
+        339
+      ],
+      [
+        145
+      ],
+      [
+        146,
+        333
+      ],
+      [
+        148,
+        335
+      ],
+      [
+        149,
+        336
+      ],
+      [
+        150,
+        337
+      ],
+      [
+        151,
+        152,
+        338
+      ],
+      [
+        153
+      ],
+      [
+        146,
+        154,
+        155
+      ],
+      [
+        147,
+        156
+      ],
+      [
+        148,
+        157
+      ],
+      [
+        158
+      ],
+      [
+        159
+      ],
+      [
+        160,
+        161
+      ],
+      [
+        163
+      ],
+      [
+        164,
+        165,
+        173
+      ],
+      [
+        156,
+        165,
+        166
+      ],
+      [
+        167
+      ],
+      [
+        168
+      ],
+      [
+        169,
+        178
+      ],
+      [
+        162,
+        170,
+        179
+      ],
+      [
+        171,
+        308
+      ],
+      [
+        172,
+        309
+      ],
+      [
+        174,
+        311
+      ],
+      [
+        175,
+        312
+      ],
+      [
+        177,
+        314
+      ],
+      [
+        178,
+        179,
+        315
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        1
+      ]
+    ],
+    "initial_parent_hash": "402ecc1f39a331138d376133918ee04eba65f5510b6003258b92eae03e2ad093"
+  },
+  {
+    "index": 34,
+    "configuration": "CO2/CO2_0p028_interface_biased_activated",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "c3305237ada6b76b26958c2b208000a1e1f8137c0910f315dc37561249d38dc7"
+  },
+  {
+    "index": 35,
+    "configuration": "CO2/CO2_0p028_linear_Cu_top",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "b4ef30c9f823cc43f604156738da38a02791b91c48c7dea91737303b5732fee9"
+  },
+  {
+    "index": 36,
+    "configuration": "CO2/CO2_0p056_interface_biased_activated",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "9a52ef3bc436556d3e2c6c1ca3de70961583354023b3d25209abaaa940a03679"
+  },
+  {
+    "index": 37,
+    "configuration": "CO2/CO2_0p056_mixed",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "1fe88f192d251629949fa70b76f88b66a3ab7646c6767f104511d427d5e175ac"
+  },
+  {
+    "index": 38,
+    "configuration": "CO2/CO2_0p056_uniform_activated",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "c07a4bc3275e146cd07e7859d9ffa2f84c7fb24e214fc284b840885fd95e0c3c"
+  },
+  {
+    "index": 39,
+    "configuration": "COCHO/COCHO_0p056_AuCu_interface",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "dc7ee079a2d0c1534cb46eb00f2e0e1fb55149ffd8f3391b31a131993b94b014"
+  },
+  {
+    "index": 40,
+    "configuration": "COCHO/COCHO_0p056_AuCu_interface2",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "97ac6f2ced449bccb66a0a8cd061dc252df1a773f2f52fe70bbd956c114b245a"
+  },
+  {
+    "index": 41,
+    "configuration": "COCHO/COCHO_0p056_Cu_interface",
+    "domain": "CuAu",
+    "n_CO": 2,
+    "n_H": 1,
+    "environment": "interface/Au-associated",
+    "CO_carbon_indices": [
+      340,
+      341
+    ],
+    "CO_contact_indices": [
+      [
+        174
+      ],
+      [
+        166,
+        167,
+        175
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        1,
+        0
+      ],
+      [
+        3,
+        0
+      ]
+    ],
+    "initial_parent_hash": "9113421550f8642c97c001fe446a6a2cc2f3fb9d8d119c8040e6457e98cd2dfb"
+  },
+  {
+    "index": 42,
+    "configuration": "COCHO/COCHO_0p056_Cu_interior",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "88758c38ce6e7864bd92c4c4d8bc77630e94683ab820bf4dc972fdeb3f2f66c2"
+  },
+  {
+    "index": 43,
+    "configuration": "COH/CHO_0p056_AuAuCu",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "6fbbc37348939f4e254d783b4165aee1ba3521d81e21e352612ba6237c41282e"
+  },
+  {
+    "index": 44,
+    "configuration": "COH/CHO_0p111_AuAuCu",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "c794ed1a226a129751ada20230b9b3fa341d57d23d50427bc695cd037c94b1a4"
+  },
+  {
+    "index": 45,
+    "configuration": "COH/CHO_0p111_AuCuCu",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "766cb2af33a3dceee78d010c33ba5f9e47ade9296c98c70d884296d7c53c08e2"
+  },
+  {
+    "index": 46,
+    "configuration": "COH/CHO_0p111_interface_Cu3",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "cd09e2484d60c97a55e21484d2c5ee6c32fe070fa8037667d819c719b60500fd"
+  },
+  {
+    "index": 47,
+    "configuration": "COH/CHO_0p111_interior",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "d4bb06ab33f06e1e40e51b29d3a4e863dc1968d1c6dccc4b923f3c61871818f7"
+  },
+  {
+    "index": 48,
+    "configuration": "COH/CHO_0p111_uniform",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "0f2ccf7518e12c65866a6c6ad5ade884ff551bf183327b10e2c2612537fd081e"
+  },
+  {
+    "index": 49,
+    "configuration": "COH/COH_0p028_interface_Cu3",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "d0f5089988ef939e2fe7faa5c8868dbc76bef3be50ac0e54fbb4ce0e71838273"
+  },
+  {
+    "index": 50,
+    "configuration": "COH/COH_0p056_AuCuCu",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "5a37c9c9750f1494cf408477c8dcc1ea3394922de19a49490cc53ede2b25309d"
+  },
+  {
+    "index": 51,
+    "configuration": "COH/COH_0p056_interface_Cu3",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "5a37c9c9750f1494cf408477c8dcc1ea3394922de19a49490cc53ede2b25309d"
+  },
+  {
+    "index": 52,
+    "configuration": "COH/COH_0p056_interior",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "5a37c9c9750f1494cf408477c8dcc1ea3394922de19a49490cc53ede2b25309d"
+  },
+  {
+    "index": 53,
+    "configuration": "COH/COH_0p056_uniform",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "cd6a86d0bbe693e356c408ec22199d310c1db4f6b165e55dc033719326d35771"
+  },
+  {
+    "index": 54,
+    "configuration": "COH/COH_0p167_uniform",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "3e5eb55b90e1726b9c4a45c47bef8ceb81007f3fd33828ac53f1061f29229180"
+  },
+  {
+    "index": 55,
+    "configuration": "COOH/COOH_0p028_AuCu_interface",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "5a37c9c9750f1494cf408477c8dcc1ea3394922de19a49490cc53ede2b25309d"
+  },
+  {
+    "index": 56,
+    "configuration": "COOH/COOH_0p056_AuCu_interface",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "5a37c9c9750f1494cf408477c8dcc1ea3394922de19a49490cc53ede2b25309d"
+  },
+  {
+    "index": 57,
+    "configuration": "COOH/COOH_0p056_Au_top",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "8b5ab8fee0c8cacaed102c6322910540bf313dfc1f5b2b5e6d44b4faa8a17684"
+  },
+  {
+    "index": 58,
+    "configuration": "COOH/COOH_0p056_Cu_interface",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "e5b45f8cfa49364154cf22da991c3c1b2643a9be514bb04241fb295604827268"
+  },
+  {
+    "index": 59,
+    "configuration": "COOH/COOH_0p056_Cu_uniform",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "b6bc246ca171b4b00a530809156e3a00ed4a15aa9a89c513bf240305d13c4dca"
+  },
+  {
+    "index": 60,
+    "configuration": "COOH/COOH_0p056_mixed_Au_Cu",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "17f741dac664bb0dcafdcc05e027dfb2c6254c0d3e4fea7727cda55cc0ff195c"
+  },
+  {
+    "index": 61,
+    "configuration": "COOH/COOH_0p111_AuCu_interface",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "daadaac60bdc64a4d64a9a7e74f13a24a6536047c9f8f4c906c81dec9e48fb7a"
+  },
+  {
+    "index": 62,
+    "configuration": "COOH/COOH_0p111_Au_top",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "5a37c9c9750f1494cf408477c8dcc1ea3394922de19a49490cc53ede2b25309d"
+  },
+  {
+    "index": 63,
+    "configuration": "COOH/COOH_0p111_Cu_interface",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "f4569ef97f9b274dfd766de4ec31b064aa34cf395dd8233f4058aadb412a0123"
+  },
+  {
+    "index": 64,
+    "configuration": "CO_COH/CO_COH_0p111_uniform",
+    "domain": "CuAu",
+    "n_CO": 2,
+    "n_H": 0,
+    "environment": "interface/Au-associated",
+    "CO_carbon_indices": [
+      341,
+      342
+    ],
+    "CO_contact_indices": [
+      [
+        178
+      ],
+      [
+        145
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "initial_parent_hash": "45b44ff26610d37911f11c17c82e9054762019b0aa2bfc379001f67c06b07bc4"
+  },
+  {
+    "index": 65,
+    "configuration": "CO_H/CO_H_0p083_2CO_1H",
+    "domain": "CuAu",
+    "n_CO": 2,
+    "n_H": 1,
+    "environment": "interface/Au-associated",
+    "CO_carbon_indices": [
+      340,
+      341
+    ],
+    "CO_contact_indices": [
+      [
+        172
+      ],
+      [
+        150
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "initial_parent_hash": "5a37c9c9750f1494cf408477c8dcc1ea3394922de19a49490cc53ede2b25309d"
+  },
+  {
+    "index": 66,
+    "configuration": "CO_H/CO_H_0p083_2CO_1H_AuCu2",
+    "domain": "CuAu",
+    "n_CO": 2,
+    "n_H": 1,
+    "environment": "interface/Au-associated",
+    "CO_carbon_indices": [
+      340,
+      341
+    ],
+    "CO_contact_indices": [
+      [
+        172
+      ],
+      [
+        150
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "initial_parent_hash": "5a37c9c9750f1494cf408477c8dcc1ea3394922de19a49490cc53ede2b25309d"
+  },
+  {
+    "index": 67,
+    "configuration": "CO_H/CO_H_0p111_2CO_2H",
+    "domain": "CuAu",
+    "n_CO": 2,
+    "n_H": 2,
+    "environment": "mixed_environments",
+    "CO_carbon_indices": [
+      340,
+      341
+    ],
+    "CO_contact_indices": [
+      [
+        171
+      ],
+      [
+        167
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "initial_parent_hash": "f1cac704aff27b51fdf8d5936c7b2de438bc95916f3d4d1110ad93f9e2dd7453"
+  },
+  {
+    "index": 68,
+    "configuration": "CO_H/CO_H_0p222_4CO_4H",
+    "domain": "CuAu",
+    "n_CO": 4,
+    "n_H": 4,
+    "environment": "mixed_environments",
+    "CO_carbon_indices": [
+      340,
+      341,
+      342,
+      343
+    ],
+    "CO_contact_indices": [
+      [
+        176
+      ],
+      [
+        145
+      ],
+      [
+        170
+      ],
+      [
+        165
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "initial_parent_hash": "d73592ee76c0d802995e5045ea7a0cef19f2e87846f377e1eaa8326b3e0d0938"
+  },
+  {
+    "index": 69,
+    "configuration": "CO_H/CO_H_0p222_4CO_4H_AuCu2",
+    "domain": "CuAu",
+    "n_CO": 4,
+    "n_H": 4,
+    "environment": "mixed_environments",
+    "CO_carbon_indices": [
+      340,
+      341,
+      342,
+      343
+    ],
+    "CO_contact_indices": [
+      [
+        176
+      ],
+      [
+        145
+      ],
+      [
+        170
+      ],
+      [
+        165
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "initial_parent_hash": "61ea889f0819ace5c90f832bbf0f0d584f21b9763ae11223a9012f889c140137"
+  },
+  {
+    "index": 70,
+    "configuration": "CO_OH/CO_OH_0p111_3CO_1OH",
+    "domain": "CuAu",
+    "n_CO": 3,
+    "n_H": 0,
+    "environment": "mixed_environments",
+    "CO_carbon_indices": [
+      340,
+      341,
+      342
+    ],
+    "CO_contact_indices": [
+      [
+        172
+      ],
+      [
+        150
+      ],
+      [
+        170
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "initial_parent_hash": "5a37c9c9750f1494cf408477c8dcc1ea3394922de19a49490cc53ede2b25309d"
+  },
+  {
+    "index": 71,
+    "configuration": "CO_OH/CO_OH_0p111_3CO_1OH_AuCu2",
+    "domain": "CuAu",
+    "n_CO": 3,
+    "n_H": 0,
+    "environment": "mixed_environments",
+    "CO_carbon_indices": [
+      340,
+      341,
+      342
+    ],
+    "CO_contact_indices": [
+      [
+        172
+      ],
+      [
+        150
+      ],
+      [
+        170
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "initial_parent_hash": "b740fba6d7570bc1fe0c1be3ee3e59c6f31222a3378060cf56e272a19429aaf5"
+  },
+  {
+    "index": 72,
+    "configuration": "CO_OH/CO_OH_0p167_4CO_2OH",
+    "domain": "CuAu",
+    "n_CO": 4,
+    "n_H": 0,
+    "environment": "mixed_environments",
+    "CO_carbon_indices": [
+      340,
+      341,
+      342,
+      343
+    ],
+    "CO_contact_indices": [
+      [
+        177
+      ],
+      [
+        146
+      ],
+      [
+        162
+      ],
+      [
+        166
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "initial_parent_hash": "5a37c9c9750f1494cf408477c8dcc1ea3394922de19a49490cc53ede2b25309d"
+  },
+  {
+    "index": 73,
+    "configuration": "CO_OH/CO_OH_0p194_4CO_3OH",
+    "domain": "CuAu",
+    "n_CO": 4,
+    "n_H": 0,
+    "environment": "mixed_environments",
+    "CO_carbon_indices": [
+      340,
+      341,
+      342,
+      343
+    ],
+    "CO_contact_indices": [
+      [
+        173
+      ],
+      [
+        151
+      ],
+      [
+        162
+      ],
+      [
+        167
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "initial_parent_hash": "819fb24ae3c18e681353d2ea78cb2541a952634c8c055c94b50a0c2e69086c3d"
+  },
+  {
+    "index": 74,
+    "configuration": "CO_OH/CO_OH_0p222_5CO_3OH",
+    "domain": "CuAu",
+    "n_CO": 5,
+    "n_H": 0,
+    "environment": "mixed_environments",
+    "CO_carbon_indices": [
+      340,
+      341,
+      342,
+      343,
+      344
+    ],
+    "CO_contact_indices": [
+      [
+        171
+      ],
+      [
+        149
+      ],
+      [
+        160
+      ],
+      [
+        155
+      ],
+      [
+        175,
+        312
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "initial_parent_hash": "5a37c9c9750f1494cf408477c8dcc1ea3394922de19a49490cc53ede2b25309d"
+  },
+  {
+    "index": 75,
+    "configuration": "Cu100/Cu100_2x2x4_CO_1_4_top",
+    "domain": "Cu100",
+    "n_CO": 1,
+    "n_H": 0,
+    "environment": "Cu-rich",
+    "CO_carbon_indices": [
+      16
+    ],
+    "CO_contact_indices": [
+      [
+        12
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        1,
+        0
+      ]
+    ],
+    "initial_parent_hash": null
+  },
+  {
+    "index": 76,
+    "configuration": "Cu100/Cu100_2x2x4_CO_2_4_2top_v2",
+    "domain": "Cu100",
+    "n_CO": 2,
+    "n_H": 0,
+    "environment": "Cu-rich",
+    "CO_carbon_indices": [
+      16,
+      17
+    ],
+    "CO_contact_indices": [
+      [
+        12
+      ],
+      [
+        15
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "initial_parent_hash": null
+  },
+  {
+    "index": 77,
+    "configuration": "Cu100/Cu100_2x2x4_CO_3_4_2top_1bridge",
+    "domain": "Cu100",
+    "n_CO": 3,
+    "n_H": 0,
+    "environment": "Cu-rich",
+    "CO_carbon_indices": [
+      16,
+      17,
+      18
+    ],
+    "CO_contact_indices": [
+      [
+        12
+      ],
+      [
+        14
+      ],
+      [
+        13,
+        15
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ]
+    ],
+    "initial_parent_hash": null
+  },
+  {
+    "index": 78,
+    "configuration": "Cu100/Cu100_2x2x4_CO_4_4_2top_2bridge",
+    "domain": "Cu100",
+    "n_CO": 4,
+    "n_H": 0,
+    "environment": "Cu-rich",
+    "CO_carbon_indices": [
+      16,
+      17,
+      18,
+      19
+    ],
+    "CO_contact_indices": [
+      [
+        12
+      ],
+      [
+        14
+      ],
+      [
+        13,
+        15
+      ],
+      [
+        13,
+        15
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        2,
+        0
+      ]
+    ],
+    "initial_parent_hash": null
+  },
+  {
+    "index": 79,
+    "configuration": "Cu100/Cu100_2x2x4_H_1_4_hollow",
+    "domain": "Cu100",
+    "n_CO": 0,
+    "n_H": 1,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": null
+  },
+  {
+    "index": 80,
+    "configuration": "Cu100/Cu100_2x2x4_H_3_4_1bridge_2hollow_config_1",
+    "domain": "Cu100",
+    "n_CO": 0,
+    "n_H": 3,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": null
+  },
+  {
+    "index": 81,
+    "configuration": "Cu100/Cu100_2x2x4_H_4_4_4bridge_config_4",
+    "domain": "Cu100",
+    "n_CO": 0,
+    "n_H": 4,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": null
+  },
+  {
+    "index": 82,
+    "configuration": "Cu100/Cu100_2x2x4_OH_1_4_hollow",
+    "domain": "Cu100",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": null
+  },
+  {
+    "index": 83,
+    "configuration": "Cu100/Cu100_2x2x4_OH_2_4_hollow_config_2",
+    "domain": "Cu100",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": null
+  },
+  {
+    "index": 84,
+    "configuration": "Cu100/Cu100_2x2x4_OH_3_4_mixed_1bridge_2hollow",
+    "domain": "Cu100",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": null
+  },
+  {
+    "index": 85,
+    "configuration": "Cu100/Cu100_2x2x4_OH_4_4_mixed_2top_2bridge",
+    "domain": "Cu100",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": null
+  },
+  {
+    "index": 86,
+    "configuration": "Cu100/Cu100_2x2x4_O_1_4_hollow",
+    "domain": "Cu100",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": null
+  },
+  {
+    "index": 87,
+    "configuration": "H_0p25/Au",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 9,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "5a37c9c9750f1494cf408477c8dcc1ea3394922de19a49490cc53ede2b25309d"
+  },
+  {
+    "index": 88,
+    "configuration": "H_0p25/interface_biased",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 9,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "dec69d1e46a7250192aa8bf9ce696fe39efefb1ae95380926b75e5d51c311a68"
+  },
+  {
+    "index": 89,
+    "configuration": "H_0p25/interface_biased2",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 9,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "5a37c9c9750f1494cf408477c8dcc1ea3394922de19a49490cc53ede2b25309d"
+  },
+  {
+    "index": 90,
+    "configuration": "H_0p25/interior_biased",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 9,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "6797c7cf8ff2a97ad48a628fab951a0c809b00ed2f6d0edcc91da58b5c3ea592"
+  },
+  {
+    "index": 91,
+    "configuration": "H_0p25/uniform",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 9,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "5a37c9c9750f1494cf408477c8dcc1ea3394922de19a49490cc53ede2b25309d"
+  },
+  {
+    "index": 92,
+    "configuration": "H_0p5/Au",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 18,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "5a37c9c9750f1494cf408477c8dcc1ea3394922de19a49490cc53ede2b25309d"
+  },
+  {
+    "index": 93,
+    "configuration": "H_0p5/interface_biased",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 18,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "ba0b951cdc793507a6522598f5b8efecb6c681f81d6d98d265c2cc7c9b7adf95"
+  },
+  {
+    "index": 94,
+    "configuration": "H_0p5/interface_biased2",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 18,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "5a37c9c9750f1494cf408477c8dcc1ea3394922de19a49490cc53ede2b25309d"
+  },
+  {
+    "index": 95,
+    "configuration": "H_0p5/interior_biased",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 18,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "3ab9c65b3be18adf2dc39b48924e993ad5d0cc1d9a6a5ddf014ea10f221b1e6e"
+  },
+  {
+    "index": 96,
+    "configuration": "H_0p5/uniform",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 18,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "5a37c9c9750f1494cf408477c8dcc1ea3394922de19a49490cc53ede2b25309d"
+  },
+  {
+    "index": 97,
+    "configuration": "H_0p75/0p88_mixed",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 30,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "5a37c9c9750f1494cf408477c8dcc1ea3394922de19a49490cc53ede2b25309d"
+  },
+  {
+    "index": 98,
+    "configuration": "H_0p75/Au",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 27,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "5a37c9c9750f1494cf408477c8dcc1ea3394922de19a49490cc53ede2b25309d"
+  },
+  {
+    "index": 99,
+    "configuration": "H_0p75/interface_biased",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 27,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "98812768644353628bbcf4c1a97a513d837719f6077bf8a05db26ddbe083d24d"
+  },
+  {
+    "index": 100,
+    "configuration": "H_0p75/interface_biased2",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 18,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "5a37c9c9750f1494cf408477c8dcc1ea3394922de19a49490cc53ede2b25309d"
+  },
+  {
+    "index": 101,
+    "configuration": "H_0p75/interior_biased",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 18,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "5a37c9c9750f1494cf408477c8dcc1ea3394922de19a49490cc53ede2b25309d"
+  },
+  {
+    "index": 102,
+    "configuration": "H_0p75/mixed",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 24,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "5a37c9c9750f1494cf408477c8dcc1ea3394922de19a49490cc53ede2b25309d"
+  },
+  {
+    "index": 103,
+    "configuration": "H_0p75/uniform",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 27,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "aeac9b44f11bc0459422b8a99a62775eeaba143154bc8fbee6ec44cd5d978d6c"
+  },
+  {
+    "index": 104,
+    "configuration": "O/O_0p028_1O_AuCu2",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "5a37c9c9750f1494cf408477c8dcc1ea3394922de19a49490cc53ede2b25309d"
+  },
+  {
+    "index": 105,
+    "configuration": "O/O_0p028_1O_Cu3",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "393e3198cb2cf980cc07eb1e116e8a627fa78e92c5a6c725328e64051512b296"
+  },
+  {
+    "index": 106,
+    "configuration": "O/O_0p056_2O_AuCu2",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "5a37c9c9750f1494cf408477c8dcc1ea3394922de19a49490cc53ede2b25309d"
+  },
+  {
+    "index": 107,
+    "configuration": "O/O_0p056_2O_Cu3_distributed",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "5a37c9c9750f1494cf408477c8dcc1ea3394922de19a49490cc53ede2b25309d"
+  },
+  {
+    "index": 108,
+    "configuration": "O/O_0p056_2O_mixed_Cu3_AuCu2",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "5a37c9c9750f1494cf408477c8dcc1ea3394922de19a49490cc53ede2b25309d"
+  },
+  {
+    "index": 109,
+    "configuration": "O/O_0p083_3O_Cu3_AuCu2",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "5a37c9c9750f1494cf408477c8dcc1ea3394922de19a49490cc53ede2b25309d"
+  },
+  {
+    "index": 110,
+    "configuration": "O/O_0p083_3O_interface_weighted_Cu3_AuCu2",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "5a37c9c9750f1494cf408477c8dcc1ea3394922de19a49490cc53ede2b25309d"
+  },
+  {
+    "index": 111,
+    "configuration": "O/O_0p111_4O_Cu3_AuCu2",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "5a37c9c9750f1494cf408477c8dcc1ea3394922de19a49490cc53ede2b25309d"
+  },
+  {
+    "index": 112,
+    "configuration": "O/O_0p167_6O",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "5a37c9c9750f1494cf408477c8dcc1ea3394922de19a49490cc53ede2b25309d"
+  },
+  {
+    "index": 113,
+    "configuration": "O/O_0p250_9O",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "f823d9f5d73d7ddbbaf3a02b10f67333406496ee2fd85798e14f424e141765e5"
+  },
+  {
+    "index": 114,
+    "configuration": "OCCOH/OCCOH_0p056_AuCu_interface",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "05787ac8a5f7cf7d1b28700ff7fafe4c31a73a4ff520e82782591d3741aaa653"
+  },
+  {
+    "index": 115,
+    "configuration": "OCCOH/OCCOH_0p056_Cu_interface",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "4fc355a7a6b235c185a18468be347d259c12792ed74735a074c6924af6b446f2"
+  },
+  {
+    "index": 116,
+    "configuration": "OCCOH/OCCOH_0p056_Cu_interior",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "7ad09acbae5df8601d07465123f89edde15d4cce38c2bcbabf86b18ce4c75d5d"
+  },
+  {
+    "index": 117,
+    "configuration": "OCCO_CO/OCCO_CO_0p111_Cu_rich",
+    "domain": "CuAu",
+    "n_CO": 4,
+    "n_H": 0,
+    "environment": "mixed_environments",
+    "CO_carbon_indices": [
+      340,
+      341,
+      342,
+      343
+    ],
+    "CO_contact_indices": [
+      [
+        153
+      ],
+      [
+        154
+      ],
+      [
+        151
+      ],
+      [
+        175,
+        312
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "initial_parent_hash": "abebabe6d3cbcd17a51f1f13b33578f10b27a96537c423470e17e9f7ddc904f2"
+  },
+  {
+    "index": 118,
+    "configuration": "OCCO_CO/OCCO_CO_0p167_AuCu_interface",
+    "domain": "CuAu",
+    "n_CO": 6,
+    "n_H": 0,
+    "environment": "interface/Au-associated",
+    "CO_carbon_indices": [
+      340,
+      341,
+      342,
+      343,
+      344,
+      345
+    ],
+    "CO_contact_indices": [
+      [
+        171
+      ],
+      [
+        309
+      ],
+      [
+        149
+      ],
+      [
+        144
+      ],
+      [
+        177
+      ],
+      [
+        174,
+        311
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "initial_parent_hash": "dec49f77a2130ab0e32efa8a8274321d9bf134bbda0091c86b83fb4b8757272a"
+  },
+  {
+    "index": 119,
+    "configuration": "OCCO_CO/OCCO_CO_0p167_Cu_rich",
+    "domain": "CuAu",
+    "n_CO": 6,
+    "n_H": 0,
+    "environment": "mixed_environments",
+    "CO_carbon_indices": [
+      340,
+      341,
+      342,
+      343,
+      344,
+      345
+    ],
+    "CO_contact_indices": [
+      [
+        153
+      ],
+      [
+        154
+      ],
+      [
+        148
+      ],
+      [
+        177
+      ],
+      [
+        151
+      ],
+      [
+        174,
+        311
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "initial_parent_hash": "382673cdf68c128bf41387e2e9c0171ea1d5e6218ef19d41da44f8fbe769b439"
+  },
+  {
+    "index": 120,
+    "configuration": "OCCO_CO/OCCO_plus_CO_0p222_AuCu_interface",
+    "domain": "CuAu",
+    "n_CO": 8,
+    "n_H": 0,
+    "environment": "mixed_environments",
+    "CO_carbon_indices": [
+      340,
+      341,
+      342,
+      343,
+      344,
+      345,
+      346,
+      347
+    ],
+    "CO_contact_indices": [
+      [
+        165,
+        166,
+        174
+      ],
+      [
+        311
+      ],
+      [
+        177
+      ],
+      [
+        163
+      ],
+      [
+        157
+      ],
+      [
+        155
+      ],
+      [
+        159
+      ],
+      [
+        330
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        3,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "initial_parent_hash": "04ea44fefc64206810b7eae9ef3f94aaed1331fadfb5e1151da8eee37b0359b0"
+  },
+  {
+    "index": 121,
+    "configuration": "OCCO_CO/OCCO_plus_CO_0p222_Cu_rich",
+    "domain": "CuAu",
+    "n_CO": 8,
+    "n_H": 0,
+    "environment": "mixed_environments",
+    "CO_carbon_indices": [
+      340,
+      341,
+      342,
+      343,
+      344,
+      345,
+      346,
+      347
+    ],
+    "CO_contact_indices": [
+      [
+        165,
+        166,
+        174
+      ],
+      [
+        147,
+        148,
+        156
+      ],
+      [
+        162,
+        163,
+        171
+      ],
+      [
+        177
+      ],
+      [
+        158
+      ],
+      [
+        175,
+        312
+      ],
+      [
+        164
+      ],
+      [
+        159
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "initial_parent_hash": "ee6ce8170b16ff1f05383da9c7709c1c13c0b145d70fb2a01017cc031eda48d5"
+  },
+  {
+    "index": 122,
+    "configuration": "OCCO_CO/OCCO_plus_CO_0p333_Cu_rich",
+    "domain": "CuAu",
+    "n_CO": 12,
+    "n_H": 0,
+    "environment": "mixed_environments",
+    "CO_carbon_indices": [
+      340,
+      341,
+      342,
+      343,
+      344,
+      345,
+      346,
+      347,
+      348,
+      349,
+      350,
+      351
+    ],
+    "CO_contact_indices": [
+      [
+        165,
+        173,
+        174
+      ],
+      [
+        147,
+        148,
+        156
+      ],
+      [
+        146,
+        154,
+        155
+      ],
+      [
+        169,
+        177,
+        178
+      ],
+      [
+        175,
+        312
+      ],
+      [
+        162,
+        163,
+        171
+      ],
+      [
+        158,
+        159,
+        168
+      ],
+      [
+        176,
+        177
+      ],
+      [
+        157,
+        167
+      ],
+      [
+        144,
+        145,
+        153
+      ],
+      [
+        151,
+        152,
+        160
+      ],
+      [
+        172
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "initial_parent_hash": "4de4cd57a5b2118be27f4497f6bc21df691714a084541ba42668c8e3f2b6abac"
+  },
+  {
+    "index": 123,
+    "configuration": "OCHO/01_1OCHO_CuCu_interface",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "9e22cd3804da9dab6cc0766ecb3146e7860d9692e4ffc86761eb2288437b041e"
+  },
+  {
+    "index": 124,
+    "configuration": "OCHO/02_1OCHO_AuCu_across",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "7ca52c6cab2c5cb24e20554e74cd45aa2072b6169093d463d0433a35071feeae"
+  },
+  {
+    "index": 125,
+    "configuration": "OCHO/03_1OCHO_CuCu_interior",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "30d22d93520bd117b80410fd6ca10f4bed4490ce08fd66be47720f4808026d84"
+  },
+  {
+    "index": 126,
+    "configuration": "OCHO/04_2OCHO_CuCu_interface_plus_interior",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "6777e0d25e328d7e399be40ae46f9f83a1643065039489b76e676588faa44f77"
+  },
+  {
+    "index": 127,
+    "configuration": "OCHO/05_2OCHO_CuCu_interface_plus_AuCu",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "732c1821ea637c951004e7c41dcc18b46bb7e4fddd6eef61e7cde3a92fab3297"
+  },
+  {
+    "index": 128,
+    "configuration": "OCHO/06_2OCHO_2CuCu_interface",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "542f804f73d35890d8eb67ca5550d6ae671a3b2bce0b1b27a6563752ebba12e0"
+  },
+  {
+    "index": 129,
+    "configuration": "OCHO/07_3OCHO_2CuCu_interface_plus_interior",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "ad3a6d6daebfd4ee5bf0f8721c10370483b2244ede44705338287471a13d0316"
+  },
+  {
+    "index": 130,
+    "configuration": "OCHO/08_3OCHO_1CuCu_interface_plus_2interior",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "a12d13e7e5b0073e61404d02556554320bbe6058aaea7763547a08492600c751"
+  },
+  {
+    "index": 131,
+    "configuration": "OH/OH_0p125_interior_biased",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "5a37c9c9750f1494cf408477c8dcc1ea3394922de19a49490cc53ede2b25309d"
+  },
+  {
+    "index": 132,
+    "configuration": "OH/OH_0p125_uniform_high5Cu",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "a38da92f3581d957687b523c904ee4f340e4d9d701cb1f8eb8b9102ccbf61f83"
+  },
+  {
+    "index": 133,
+    "configuration": "OH/OH_0p125_uniform_low4Cu",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "e1206f7a4e487d18b77190f1ed74bc36c27d42f6d7f72fbfa84ca986e279925b"
+  },
+  {
+    "index": 134,
+    "configuration": "OH/OH_0p25_interface_Au",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "665ea8cb2ff16202f3fe37503c27d531fe6644eb2900cbde91c67981e2032c17"
+  },
+  {
+    "index": 135,
+    "configuration": "OH/OH_0p25_interior_biased",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "5a37c9c9750f1494cf408477c8dcc1ea3394922de19a49490cc53ede2b25309d"
+  },
+  {
+    "index": 136,
+    "configuration": "OH/OH_0p25_uniform",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "7138487e398365470860d04f4afdc786e4f1cc8841bcf54e20c091af1d6d83a9"
+  },
+  {
+    "index": 137,
+    "configuration": "OH/OH_0p50_interface_Au",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "add054c2f49c48a21ebd047f1feb9906f1790ef97ca83013687865fd59872902"
+  },
+  {
+    "index": 138,
+    "configuration": "OH/OH_0p50_interior_biased",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "4aeb52f603f6c77466a807ffc776e96b01349fa67e0069968ec107f98b8090a5"
+  },
+  {
+    "index": 139,
+    "configuration": "plain",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "4c15f00204fabbfe0871c82983c394d3ac7462d409a5e559b69aaf6ebb7f26a4"
+  },
+  {
+    "index": 140,
+    "configuration": "OH/OH_0p125_interface_Au",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "3327308a468f3dab7f6c3ce04dcab9a74b50c7ef7dde1896bd15396a97989c6b"
+  },
+  {
+    "index": 141,
+    "configuration": "CHO/CHO_0p111_interface_Cu",
+    "domain": "CuAu",
+    "n_CO": 2,
+    "n_H": 2,
+    "environment": "mixed_environments",
+    "CO_carbon_indices": [
+      340,
+      342
+    ],
+    "CO_contact_indices": [
+      [
+        156,
+        165,
+        166
+      ],
+      [
+        144,
+        145,
+        153
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        0
+      ]
+    ],
+    "initial_parent_hash": "2d54b825ad318caa1f02a022c779d54e966f085da564e9c47545854069f9f76d"
+  },
+  {
+    "index": 142,
+    "configuration": "CHO/CHO_0p111_interior_Cu",
+    "domain": "CuAu",
+    "n_CO": 2,
+    "n_H": 2,
+    "environment": "interface/Au-associated",
+    "CO_carbon_indices": [
+      340,
+      342
+    ],
+    "CO_contact_indices": [
+      [
+        165,
+        173,
+        174
+      ],
+      [
+        162,
+        163,
+        171
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        0
+      ]
+    ],
+    "initial_parent_hash": "7c9768f3fc2d5e2c2df688e166d15eb2473c62111e91ff924577b803bf918fc4"
+  },
+  {
+    "index": 143,
+    "configuration": "CO2/CO2_0p111_activated",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "239b64920c038f01ea1918a379c7e8d403cc1a5b79e26c902486b3b32b0dda67"
+  },
+  {
+    "index": 144,
+    "configuration": "COOH/COOH_0p111_Cu_uniform",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "12bf00d4484ef9472a7ae1841ccd4ab1507b6f2ebd6c922e55fb40897ebb37b2"
+  },
+  {
+    "index": 145,
+    "configuration": "CO_H/CO_H_0p139_3CO_2H_interior_biased",
+    "domain": "CuAu",
+    "n_CO": 3,
+    "n_H": 2,
+    "environment": "mixed_environments",
+    "CO_carbon_indices": [
+      340,
+      341,
+      342
+    ],
+    "CO_contact_indices": [
+      [
+        156
+      ],
+      [
+        170
+      ],
+      [
+        176
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "initial_parent_hash": "085608ac4c769d66fa5920af561a5da8cbde9066fdc6517254a05c5ccddecd3c"
+  },
+  {
+    "index": 146,
+    "configuration": "CO_H/CO_H_0p167_3CO_3H_AuCu2",
+    "domain": "CuAu",
+    "n_CO": 3,
+    "n_H": 3,
+    "environment": "mixed_environments",
+    "CO_carbon_indices": [
+      340,
+      341,
+      342
+    ],
+    "CO_contact_indices": [
+      [
+        179
+      ],
+      [
+        148
+      ],
+      [
+        154
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "initial_parent_hash": "862b199727b2cbfdcc0ffeedded047a642e9519ad247c56756b26c629c2e6484"
+  },
+  {
+    "index": 147,
+    "configuration": "CO_H/CO_H_0p194_4CO_3H",
+    "domain": "CuAu",
+    "n_CO": 4,
+    "n_H": 3,
+    "environment": "mixed_environments",
+    "CO_carbon_indices": [
+      340,
+      341,
+      342,
+      343
+    ],
+    "CO_contact_indices": [
+      [
+        178
+      ],
+      [
+        147
+      ],
+      [
+        153
+      ],
+      [
+        158
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "initial_parent_hash": "9a3c3d319060c3422a20da8d4481195c10ec158e7f31d7d6d08fd77246d2ee12"
+  },
+  {
+    "index": 148,
+    "configuration": "CO_OH/CO_OH_0p139_3CO_2OH",
+    "domain": "CuAu",
+    "n_CO": 3,
+    "n_H": 0,
+    "environment": "mixed_environments",
+    "CO_carbon_indices": [
+      340,
+      341,
+      342
+    ],
+    "CO_contact_indices": [
+      [
+        171
+      ],
+      [
+        149
+      ],
+      [
+        160
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "initial_parent_hash": "44b3484f37e7ac0aedfe7bd5a5bf758983856e8e771b9dcda5ad4781fb59085c"
+  },
+  {
+    "index": 149,
+    "configuration": "CO_OH/CO_OH_0p194_4CO_3OH_AuCu2",
+    "domain": "CuAu",
+    "n_CO": 4,
+    "n_H": 0,
+    "environment": "mixed_environments",
+    "CO_carbon_indices": [
+      340,
+      341,
+      342,
+      343
+    ],
+    "CO_contact_indices": [
+      [
+        173
+      ],
+      [
+        151
+      ],
+      [
+        162
+      ],
+      [
+        167
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "initial_parent_hash": "3243065c92051a464c9a1a3b32120e740c894be1531b19a20060306e13af6357"
+  },
+  {
+    "index": 150,
+    "configuration": "CO_OH/CO_OH_0p194_5CO_2OH",
+    "domain": "CuAu",
+    "n_CO": 5,
+    "n_H": 0,
+    "environment": "mixed_environments",
+    "CO_carbon_indices": [
+      340,
+      341,
+      342,
+      343,
+      344
+    ],
+    "CO_contact_indices": [
+      [
+        174,
+        311
+      ],
+      [
+        152
+      ],
+      [
+        163
+      ],
+      [
+        168
+      ],
+      [
+        179
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "initial_parent_hash": "95f8b5ec1ff523611bdc3f9c7f84f8bccd64bfe0b101b00805b42bae4503abb5"
+  },
+  {
+    "index": 151,
+    "configuration": "CO_OH/CO_OH_0p222_5CO_3OH_AuCu2",
+    "domain": "CuAu",
+    "n_CO": 5,
+    "n_H": 0,
+    "environment": "mixed_environments",
+    "CO_carbon_indices": [
+      340,
+      341,
+      342,
+      343,
+      344
+    ],
+    "CO_contact_indices": [
+      [
+        171
+      ],
+      [
+        149
+      ],
+      [
+        160
+      ],
+      [
+        155
+      ],
+      [
+        175,
+        312
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "initial_parent_hash": "cdb9ff518391d04e98bb4be44af9f943acedb1aa91c02f0b228a14084a881a2e"
+  },
+  {
+    "index": 152,
+    "configuration": "OCCO_CO/OCCO_CO_0p111_AuCu_interface",
+    "domain": "CuAu",
+    "n_CO": 4,
+    "n_H": 0,
+    "environment": "interface/Au-associated",
+    "CO_carbon_indices": [
+      340,
+      341,
+      342,
+      343
+    ],
+    "CO_contact_indices": [
+      [
+        171
+      ],
+      [
+        309
+      ],
+      [
+        147
+      ],
+      [
+        151
+      ]
+    ],
+    "CO_contact_counts": [
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "initial_parent_hash": "db38bfb5efba4f3aadd978a261fae95f69da1161de22de89a041886e491b7bf2"
+  },
+  {
+    "index": 153,
+    "configuration": "OH/OH_0p25_interface_biased",
+    "domain": "CuAu",
+    "n_CO": 0,
+    "n_H": 0,
+    "environment": "no_CO",
+    "CO_carbon_indices": [],
+    "CO_contact_indices": [],
+    "CO_contact_counts": [],
+    "initial_parent_hash": "f8f54745e245ee2eaf2a14b0917aea5c714e6c1215d7419269313df2c029a931"
+  }
+]

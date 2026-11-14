@@ -1,0 +1,33 @@
+{
+  "configuration": "Cu100/Cu100_2x2x4_clean",
+  "reference_id": "co2rr-20261029-clean-Cu100",
+  "pinned_clean_scale": 0.0228901976891493,
+  "checked_sources": [
+    {
+      "path": "Cu100/Cu100_2x2x4_clean/XAS/FDMNES/green/layer_3/Cu_layer3_9.txt",
+      "sha256": "109cc13f51342634c2d0ff35fc906462bfbde6c2b4068d80ca090aa4689e7349"
+    },
+    {
+      "path": "Cu100/Cu100_2x2x4_clean/XAS/FDMNES/green/layer_3/Cu_layer3_10.txt",
+      "sha256": "e7c8cef90d13bc76847bb34a14494e3447588d710985e8f662dc757b9adf1393"
+    },
+    {
+      "path": "Cu100/Cu100_2x2x4_clean/XAS/FDMNES/green/layer_3/Cu_layer3_12.txt",
+      "sha256": "0bf1a7df02b5d237a423d39801bf39919c8678e8416a9c4875987455367c7708"
+    },
+    {
+      "path": "Cu100/Cu100_2x2x4_clean/XAS/FDMNES/green/layer_4/Cu_layer4_13.txt",
+      "sha256": "cf6428afa59589575e5b3e0097860baa96025d4591ca011f9ba19840b4c46a39"
+    },
+    {
+      "path": "Cu100/Cu100_2x2x4_clean/XAS/FDMNES/green/layer_4/Cu_layer4_14.txt",
+      "sha256": "9e2311f7fcde2687da67ce685038c1922791cb1c229106719ff8a12f3daf9eff"
+    },
+    {
+      "path": "Cu100/Cu100_2x2x4_clean/XAS/FDMNES/green/layer_4/Cu_layer4_16.txt",
+      "sha256": "075a55a5e41277761469ea8b2fac823dbc16d4fb675ac1f3389ba5e419264f9a"
+    }
+  ],
+  "clean_labels": [],
+  "note": "Pinned audited clean physical spectrum, not current incomplete redundant native Cu100 aggregate"
+}

@@ -1,0 +1,1172 @@
+[
+  {
+    "seed": 20261020,
+    "fold": 0,
+    "protocol": "baseline",
+    "candidate": 0,
+    "recipe": {
+      "family": "ExtraTrees",
+      "feature": "Combined",
+      "param": 1
+    },
+    "threshold": 0.4,
+    "inner_quality": 0.7353371900826446
+  },
+  {
+    "seed": 20261020,
+    "fold": 0,
+    "protocol": "nested",
+    "candidate": 0,
+    "recipe": {
+      "family": "ExtraTrees",
+      "feature": "Combined",
+      "param": 1
+    },
+    "threshold": 0.4,
+    "inner_quality": 0.7353371900826446
+  },
+  {
+    "seed": 20261020,
+    "fold": 0,
+    "protocol": "ExtraTrees",
+    "candidate": 0,
+    "recipe": {
+      "family": "ExtraTrees",
+      "feature": "Combined",
+      "param": 1
+    },
+    "threshold": 0.4,
+    "inner_quality": 0.7353371900826446
+  },
+  {
+    "seed": 20261020,
+    "fold": 0,
+    "protocol": "RandomForest",
+    "candidate": 4,
+    "recipe": {
+      "family": "RandomForest",
+      "feature": "Combined",
+      "param": 1
+    },
+    "threshold": 0.3,
+    "inner_quality": 0.6709557251908397
+  },
+  {
+    "seed": 20261020,
+    "fold": 0,
+    "protocol": "SVM",
+    "candidate": 11,
+    "recipe": {
+      "family": "SVM",
+      "feature": "DCT16",
+      "param": 1.0
+    },
+    "threshold": 0.6,
+    "inner_quality": 0.6938639269406393
+  },
+  {
+    "seed": 20261020,
+    "fold": 0,
+    "protocol": "Logistic",
+    "candidate": 15,
+    "recipe": {
+      "family": "Logistic",
+      "feature": "DCT16",
+      "param": 1.0
+    },
+    "threshold": 0.6,
+    "inner_quality": 0.6499766784452297
+  },
+  {
+    "seed": 20261020,
+    "fold": 1,
+    "protocol": "baseline",
+    "candidate": 0,
+    "recipe": {
+      "family": "ExtraTrees",
+      "feature": "Combined",
+      "param": 1
+    },
+    "threshold": 0.4,
+    "inner_quality": 0.7508548523206752
+  },
+  {
+    "seed": 20261020,
+    "fold": 1,
+    "protocol": "nested",
+    "candidate": 1,
+    "recipe": {
+      "family": "ExtraTrees",
+      "feature": "Combined",
+      "param": 2
+    },
+    "threshold": 0.5,
+    "inner_quality": 0.7644444444444445
+  },
+  {
+    "seed": 20261020,
+    "fold": 1,
+    "protocol": "ExtraTrees",
+    "candidate": 1,
+    "recipe": {
+      "family": "ExtraTrees",
+      "feature": "Combined",
+      "param": 2
+    },
+    "threshold": 0.5,
+    "inner_quality": 0.7644444444444445
+  },
+  {
+    "seed": 20261020,
+    "fold": 1,
+    "protocol": "RandomForest",
+    "candidate": 4,
+    "recipe": {
+      "family": "RandomForest",
+      "feature": "Combined",
+      "param": 1
+    },
+    "threshold": 0.4,
+    "inner_quality": 0.723204255319149
+  },
+  {
+    "seed": 20261020,
+    "fold": 1,
+    "protocol": "SVM",
+    "candidate": 11,
+    "recipe": {
+      "family": "SVM",
+      "feature": "DCT16",
+      "param": 1.0
+    },
+    "threshold": 0.5,
+    "inner_quality": 0.6956521739130435
+  },
+  {
+    "seed": 20261020,
+    "fold": 1,
+    "protocol": "Logistic",
+    "candidate": 15,
+    "recipe": {
+      "family": "Logistic",
+      "feature": "DCT16",
+      "param": 1.0
+    },
+    "threshold": 0.6,
+    "inner_quality": 0.657239446366782
+  },
+  {
+    "seed": 20261020,
+    "fold": 2,
+    "protocol": "baseline",
+    "candidate": 0,
+    "recipe": {
+      "family": "ExtraTrees",
+      "feature": "Combined",
+      "param": 1
+    },
+    "threshold": 0.4,
+    "inner_quality": 0.6885966804979253
+  },
+  {
+    "seed": 20261020,
+    "fold": 2,
+    "protocol": "nested",
+    "candidate": 0,
+    "recipe": {
+      "family": "ExtraTrees",
+      "feature": "Combined",
+      "param": 1
+    },
+    "threshold": 0.4,
+    "inner_quality": 0.6885966804979253
+  },
+  {
+    "seed": 20261020,
+    "fold": 2,
+    "protocol": "ExtraTrees",
+    "candidate": 0,
+    "recipe": {
+      "family": "ExtraTrees",
+      "feature": "Combined",
+      "param": 1
+    },
+    "threshold": 0.4,
+    "inner_quality": 0.6885966804979253
+  },
+  {
+    "seed": 20261020,
+    "fold": 2,
+    "protocol": "RandomForest",
+    "candidate": 4,
+    "recipe": {
+      "family": "RandomForest",
+      "feature": "Combined",
+      "param": 1
+    },
+    "threshold": 0.4,
+    "inner_quality": 0.6269186440677966
+  },
+  {
+    "seed": 20261020,
+    "fold": 2,
+    "protocol": "SVM",
+    "candidate": 11,
+    "recipe": {
+      "family": "SVM",
+      "feature": "DCT16",
+      "param": 1.0
+    },
+    "threshold": 0.5,
+    "inner_quality": 0.657243816254417
+  },
+  {
+    "seed": 20261020,
+    "fold": 2,
+    "protocol": "Logistic",
+    "candidate": 15,
+    "recipe": {
+      "family": "Logistic",
+      "feature": "DCT16",
+      "param": 1.0
+    },
+    "threshold": 0.6,
+    "inner_quality": 0.6342827586206897
+  },
+  {
+    "seed": 20261020,
+    "fold": 3,
+    "protocol": "baseline",
+    "candidate": 0,
+    "recipe": {
+      "family": "ExtraTrees",
+      "feature": "Combined",
+      "param": 1
+    },
+    "threshold": 0.3,
+    "inner_quality": 0.758093280632411
+  },
+  {
+    "seed": 20261020,
+    "fold": 3,
+    "protocol": "nested",
+    "candidate": 2,
+    "recipe": {
+      "family": "ExtraTrees",
+      "feature": "DCT16",
+      "param": 1
+    },
+    "threshold": 0.3,
+    "inner_quality": 0.778727559055118
+  },
+  {
+    "seed": 20261020,
+    "fold": 3,
+    "protocol": "ExtraTrees",
+    "candidate": 2,
+    "recipe": {
+      "family": "ExtraTrees",
+      "feature": "DCT16",
+      "param": 1
+    },
+    "threshold": 0.3,
+    "inner_quality": 0.778727559055118
+  },
+  {
+    "seed": 20261020,
+    "fold": 3,
+    "protocol": "RandomForest",
+    "candidate": 5,
+    "recipe": {
+      "family": "RandomForest",
+      "feature": "Combined",
+      "param": 2
+    },
+    "threshold": 0.4,
+    "inner_quality": 0.759625327510917
+  },
+  {
+    "seed": 20261020,
+    "fold": 3,
+    "protocol": "SVM",
+    "candidate": 11,
+    "recipe": {
+      "family": "SVM",
+      "feature": "DCT16",
+      "param": 1.0
+    },
+    "threshold": 0.6,
+    "inner_quality": 0.7212611872146119
+  },
+  {
+    "seed": 20261020,
+    "fold": 3,
+    "protocol": "Logistic",
+    "candidate": 15,
+    "recipe": {
+      "family": "Logistic",
+      "feature": "DCT16",
+      "param": 1.0
+    },
+    "threshold": 0.6,
+    "inner_quality": 0.6875192982456141
+  },
+  {
+    "seed": 20261020,
+    "fold": 4,
+    "protocol": "baseline",
+    "candidate": 0,
+    "recipe": {
+      "family": "ExtraTrees",
+      "feature": "Combined",
+      "param": 1
+    },
+    "threshold": 0.3,
+    "inner_quality": 0.7701923664122137
+  },
+  {
+    "seed": 20261020,
+    "fold": 4,
+    "protocol": "nested",
+    "candidate": 0,
+    "recipe": {
+      "family": "ExtraTrees",
+      "feature": "Combined",
+      "param": 1
+    },
+    "threshold": 0.3,
+    "inner_quality": 0.7701923664122137
+  },
+  {
+    "seed": 20261020,
+    "fold": 4,
+    "protocol": "ExtraTrees",
+    "candidate": 0,
+    "recipe": {
+      "family": "ExtraTrees",
+      "feature": "Combined",
+      "param": 1
+    },
+    "threshold": 0.3,
+    "inner_quality": 0.7701923664122137
+  },
+  {
+    "seed": 20261020,
+    "fold": 4,
+    "protocol": "RandomForest",
+    "candidate": 4,
+    "recipe": {
+      "family": "RandomForest",
+      "feature": "Combined",
+      "param": 1
+    },
+    "threshold": 0.3,
+    "inner_quality": 0.7010867924528301
+  },
+  {
+    "seed": 20261020,
+    "fold": 4,
+    "protocol": "SVM",
+    "candidate": 9,
+    "recipe": {
+      "family": "SVM",
+      "feature": "Combined",
+      "param": 1.0
+    },
+    "threshold": 0.5,
+    "inner_quality": 0.7265917602996255
+  },
+  {
+    "seed": 20261020,
+    "fold": 4,
+    "protocol": "Logistic",
+    "candidate": 15,
+    "recipe": {
+      "family": "Logistic",
+      "feature": "DCT16",
+      "param": 1.0
+    },
+    "threshold": 0.6,
+    "inner_quality": 0.6781216783216784
+  },
+  {
+    "seed": 20261021,
+    "fold": 0,
+    "protocol": "baseline",
+    "candidate": 0,
+    "recipe": {
+      "family": "ExtraTrees",
+      "feature": "Combined",
+      "param": 1
+    },
+    "threshold": 0.4,
+    "inner_quality": 0.737504918032787
+  },
+  {
+    "seed": 20261021,
+    "fold": 0,
+    "protocol": "nested",
+    "candidate": 1,
+    "recipe": {
+      "family": "ExtraTrees",
+      "feature": "Combined",
+      "param": 2
+    },
+    "threshold": 0.4,
+    "inner_quality": 0.7378952380952382
+  },
+  {
+    "seed": 20261021,
+    "fold": 0,
+    "protocol": "ExtraTrees",
+    "candidate": 1,
+    "recipe": {
+      "family": "ExtraTrees",
+      "feature": "Combined",
+      "param": 2
+    },
+    "threshold": 0.4,
+    "inner_quality": 0.7378952380952382
+  },
+  {
+    "seed": 20261021,
+    "fold": 0,
+    "protocol": "RandomForest",
+    "candidate": 4,
+    "recipe": {
+      "family": "RandomForest",
+      "feature": "Combined",
+      "param": 1
+    },
+    "threshold": 0.4,
+    "inner_quality": 0.6664666666666667
+  },
+  {
+    "seed": 20261021,
+    "fold": 0,
+    "protocol": "SVM",
+    "candidate": 11,
+    "recipe": {
+      "family": "SVM",
+      "feature": "DCT16",
+      "param": 1.0
+    },
+    "threshold": 0.6,
+    "inner_quality": 0.6938639269406393
+  },
+  {
+    "seed": 20261021,
+    "fold": 0,
+    "protocol": "Logistic",
+    "candidate": 15,
+    "recipe": {
+      "family": "Logistic",
+      "feature": "DCT16",
+      "param": 1.0
+    },
+    "threshold": 0.6,
+    "inner_quality": 0.6499766784452297
+  },
+  {
+    "seed": 20261021,
+    "fold": 1,
+    "protocol": "baseline",
+    "candidate": 0,
+    "recipe": {
+      "family": "ExtraTrees",
+      "feature": "Combined",
+      "param": 1
+    },
+    "threshold": 0.3,
+    "inner_quality": 0.7463698113207546
+  },
+  {
+    "seed": 20261021,
+    "fold": 1,
+    "protocol": "nested",
+    "candidate": 0,
+    "recipe": {
+      "family": "ExtraTrees",
+      "feature": "Combined",
+      "param": 1
+    },
+    "threshold": 0.3,
+    "inner_quality": 0.7463698113207546
+  },
+  {
+    "seed": 20261021,
+    "fold": 1,
+    "protocol": "ExtraTrees",
+    "candidate": 0,
+    "recipe": {
+      "family": "ExtraTrees",
+      "feature": "Combined",
+      "param": 1
+    },
+    "threshold": 0.3,
+    "inner_quality": 0.7463698113207546
+  },
+  {
+    "seed": 20261021,
+    "fold": 1,
+    "protocol": "RandomForest",
+    "candidate": 4,
+    "recipe": {
+      "family": "RandomForest",
+      "feature": "Combined",
+      "param": 1
+    },
+    "threshold": 0.4,
+    "inner_quality": 0.7134563876651983
+  },
+  {
+    "seed": 20261021,
+    "fold": 1,
+    "protocol": "SVM",
+    "candidate": 11,
+    "recipe": {
+      "family": "SVM",
+      "feature": "DCT16",
+      "param": 1.0
+    },
+    "threshold": 0.5,
+    "inner_quality": 0.6956521739130435
+  },
+  {
+    "seed": 20261021,
+    "fold": 1,
+    "protocol": "Logistic",
+    "candidate": 15,
+    "recipe": {
+      "family": "Logistic",
+      "feature": "DCT16",
+      "param": 1.0
+    },
+    "threshold": 0.6,
+    "inner_quality": 0.657239446366782
+  },
+  {
+    "seed": 20261021,
+    "fold": 2,
+    "protocol": "baseline",
+    "candidate": 0,
+    "recipe": {
+      "family": "ExtraTrees",
+      "feature": "Combined",
+      "param": 1
+    },
+    "threshold": 0.3,
+    "inner_quality": 0.6705780918727915
+  },
+  {
+    "seed": 20261021,
+    "fold": 2,
+    "protocol": "nested",
+    "candidate": 2,
+    "recipe": {
+      "family": "ExtraTrees",
+      "feature": "DCT16",
+      "param": 1
+    },
+    "threshold": 0.4,
+    "inner_quality": 0.6829275720164609
+  },
+  {
+    "seed": 20261021,
+    "fold": 2,
+    "protocol": "ExtraTrees",
+    "candidate": 2,
+    "recipe": {
+      "family": "ExtraTrees",
+      "feature": "DCT16",
+      "param": 1
+    },
+    "threshold": 0.4,
+    "inner_quality": 0.6829275720164609
+  },
+  {
+    "seed": 20261021,
+    "fold": 2,
+    "protocol": "RandomForest",
+    "candidate": 4,
+    "recipe": {
+      "family": "RandomForest",
+      "feature": "Combined",
+      "param": 1
+    },
+    "threshold": 0.4,
+    "inner_quality": 0.6555377049180328
+  },
+  {
+    "seed": 20261021,
+    "fold": 2,
+    "protocol": "SVM",
+    "candidate": 11,
+    "recipe": {
+      "family": "SVM",
+      "feature": "DCT16",
+      "param": 1.0
+    },
+    "threshold": 0.5,
+    "inner_quality": 0.657243816254417
+  },
+  {
+    "seed": 20261021,
+    "fold": 2,
+    "protocol": "Logistic",
+    "candidate": 15,
+    "recipe": {
+      "family": "Logistic",
+      "feature": "DCT16",
+      "param": 1.0
+    },
+    "threshold": 0.6,
+    "inner_quality": 0.6342827586206897
+  },
+  {
+    "seed": 20261021,
+    "fold": 3,
+    "protocol": "baseline",
+    "candidate": 0,
+    "recipe": {
+      "family": "ExtraTrees",
+      "feature": "Combined",
+      "param": 1
+    },
+    "threshold": 0.4,
+    "inner_quality": 0.7717298245614035
+  },
+  {
+    "seed": 20261021,
+    "fold": 3,
+    "protocol": "nested",
+    "candidate": 0,
+    "recipe": {
+      "family": "ExtraTrees",
+      "feature": "Combined",
+      "param": 1
+    },
+    "threshold": 0.4,
+    "inner_quality": 0.7717298245614035
+  },
+  {
+    "seed": 20261021,
+    "fold": 3,
+    "protocol": "ExtraTrees",
+    "candidate": 0,
+    "recipe": {
+      "family": "ExtraTrees",
+      "feature": "Combined",
+      "param": 1
+    },
+    "threshold": 0.4,
+    "inner_quality": 0.7717298245614035
+  },
+  {
+    "seed": 20261021,
+    "fold": 3,
+    "protocol": "RandomForest",
+    "candidate": 5,
+    "recipe": {
+      "family": "RandomForest",
+      "feature": "Combined",
+      "param": 2
+    },
+    "threshold": 0.4,
+    "inner_quality": 0.7295297297297297
+  },
+  {
+    "seed": 20261021,
+    "fold": 3,
+    "protocol": "SVM",
+    "candidate": 11,
+    "recipe": {
+      "family": "SVM",
+      "feature": "DCT16",
+      "param": 1.0
+    },
+    "threshold": 0.6,
+    "inner_quality": 0.7212611872146119
+  },
+  {
+    "seed": 20261021,
+    "fold": 3,
+    "protocol": "Logistic",
+    "candidate": 15,
+    "recipe": {
+      "family": "Logistic",
+      "feature": "DCT16",
+      "param": 1.0
+    },
+    "threshold": 0.6,
+    "inner_quality": 0.6875192982456141
+  },
+  {
+    "seed": 20261021,
+    "fold": 4,
+    "protocol": "baseline",
+    "candidate": 0,
+    "recipe": {
+      "family": "ExtraTrees",
+      "feature": "Combined",
+      "param": 1
+    },
+    "threshold": 0.3,
+    "inner_quality": 0.7578206896551724
+  },
+  {
+    "seed": 20261021,
+    "fold": 4,
+    "protocol": "nested",
+    "candidate": 0,
+    "recipe": {
+      "family": "ExtraTrees",
+      "feature": "Combined",
+      "param": 1
+    },
+    "threshold": 0.3,
+    "inner_quality": 0.7578206896551724
+  },
+  {
+    "seed": 20261021,
+    "fold": 4,
+    "protocol": "ExtraTrees",
+    "candidate": 0,
+    "recipe": {
+      "family": "ExtraTrees",
+      "feature": "Combined",
+      "param": 1
+    },
+    "threshold": 0.3,
+    "inner_quality": 0.7578206896551724
+  },
+  {
+    "seed": 20261021,
+    "fold": 4,
+    "protocol": "RandomForest",
+    "candidate": 4,
+    "recipe": {
+      "family": "RandomForest",
+      "feature": "Combined",
+      "param": 1
+    },
+    "threshold": 0.3,
+    "inner_quality": 0.7024967032967033
+  },
+  {
+    "seed": 20261021,
+    "fold": 4,
+    "protocol": "SVM",
+    "candidate": 9,
+    "recipe": {
+      "family": "SVM",
+      "feature": "Combined",
+      "param": 1.0
+    },
+    "threshold": 0.5,
+    "inner_quality": 0.7265917602996255
+  },
+  {
+    "seed": 20261021,
+    "fold": 4,
+    "protocol": "Logistic",
+    "candidate": 15,
+    "recipe": {
+      "family": "Logistic",
+      "feature": "DCT16",
+      "param": 1.0
+    },
+    "threshold": 0.6,
+    "inner_quality": 0.6781216783216784
+  },
+  {
+    "seed": 20261022,
+    "fold": 0,
+    "protocol": "baseline",
+    "candidate": 0,
+    "recipe": {
+      "family": "ExtraTrees",
+      "feature": "Combined",
+      "param": 1
+    },
+    "threshold": 0.4,
+    "inner_quality": 0.7402255319148936
+  },
+  {
+    "seed": 20261022,
+    "fold": 0,
+    "protocol": "nested",
+    "candidate": 0,
+    "recipe": {
+      "family": "ExtraTrees",
+      "feature": "Combined",
+      "param": 1
+    },
+    "threshold": 0.4,
+    "inner_quality": 0.7402255319148936
+  },
+  {
+    "seed": 20261022,
+    "fold": 0,
+    "protocol": "ExtraTrees",
+    "candidate": 0,
+    "recipe": {
+      "family": "ExtraTrees",
+      "feature": "Combined",
+      "param": 1
+    },
+    "threshold": 0.4,
+    "inner_quality": 0.7402255319148936
+  },
+  {
+    "seed": 20261022,
+    "fold": 0,
+    "protocol": "RandomForest",
+    "candidate": 4,
+    "recipe": {
+      "family": "RandomForest",
+      "feature": "Combined",
+      "param": 1
+    },
+    "threshold": 0.3,
+    "inner_quality": 0.6781667896678967
+  },
+  {
+    "seed": 20261022,
+    "fold": 0,
+    "protocol": "SVM",
+    "candidate": 11,
+    "recipe": {
+      "family": "SVM",
+      "feature": "DCT16",
+      "param": 1.0
+    },
+    "threshold": 0.6,
+    "inner_quality": 0.6938639269406393
+  },
+  {
+    "seed": 20261022,
+    "fold": 0,
+    "protocol": "Logistic",
+    "candidate": 15,
+    "recipe": {
+      "family": "Logistic",
+      "feature": "DCT16",
+      "param": 1.0
+    },
+    "threshold": 0.6,
+    "inner_quality": 0.6499766784452297
+  },
+  {
+    "seed": 20261022,
+    "fold": 1,
+    "protocol": "baseline",
+    "candidate": 0,
+    "recipe": {
+      "family": "ExtraTrees",
+      "feature": "Combined",
+      "param": 1
+    },
+    "threshold": 0.4,
+    "inner_quality": 0.7549867219917012
+  },
+  {
+    "seed": 20261022,
+    "fold": 1,
+    "protocol": "nested",
+    "candidate": 0,
+    "recipe": {
+      "family": "ExtraTrees",
+      "feature": "Combined",
+      "param": 1
+    },
+    "threshold": 0.4,
+    "inner_quality": 0.7549867219917012
+  },
+  {
+    "seed": 20261022,
+    "fold": 1,
+    "protocol": "ExtraTrees",
+    "candidate": 0,
+    "recipe": {
+      "family": "ExtraTrees",
+      "feature": "Combined",
+      "param": 1
+    },
+    "threshold": 0.4,
+    "inner_quality": 0.7549867219917012
+  },
+  {
+    "seed": 20261022,
+    "fold": 1,
+    "protocol": "RandomForest",
+    "candidate": 5,
+    "recipe": {
+      "family": "RandomForest",
+      "feature": "Combined",
+      "param": 2
+    },
+    "threshold": 0.4,
+    "inner_quality": 0.7051941908713694
+  },
+  {
+    "seed": 20261022,
+    "fold": 1,
+    "protocol": "SVM",
+    "candidate": 11,
+    "recipe": {
+      "family": "SVM",
+      "feature": "DCT16",
+      "param": 1.0
+    },
+    "threshold": 0.5,
+    "inner_quality": 0.6956521739130435
+  },
+  {
+    "seed": 20261022,
+    "fold": 1,
+    "protocol": "Logistic",
+    "candidate": 15,
+    "recipe": {
+      "family": "Logistic",
+      "feature": "DCT16",
+      "param": 1.0
+    },
+    "threshold": 0.6,
+    "inner_quality": 0.657239446366782
+  },
+  {
+    "seed": 20261022,
+    "fold": 2,
+    "protocol": "baseline",
+    "candidate": 0,
+    "recipe": {
+      "family": "ExtraTrees",
+      "feature": "Combined",
+      "param": 1
+    },
+    "threshold": 0.4,
+    "inner_quality": 0.6885966804979253
+  },
+  {
+    "seed": 20261022,
+    "fold": 2,
+    "protocol": "nested",
+    "candidate": 0,
+    "recipe": {
+      "family": "ExtraTrees",
+      "feature": "Combined",
+      "param": 1
+    },
+    "threshold": 0.4,
+    "inner_quality": 0.6885966804979253
+  },
+  {
+    "seed": 20261022,
+    "fold": 2,
+    "protocol": "ExtraTrees",
+    "candidate": 0,
+    "recipe": {
+      "family": "ExtraTrees",
+      "feature": "Combined",
+      "param": 1
+    },
+    "threshold": 0.4,
+    "inner_quality": 0.6885966804979253
+  },
+  {
+    "seed": 20261022,
+    "fold": 2,
+    "protocol": "RandomForest",
+    "candidate": 5,
+    "recipe": {
+      "family": "RandomForest",
+      "feature": "Combined",
+      "param": 2
+    },
+    "threshold": 0.5,
+    "inner_quality": 0.6118721461187214
+  },
+  {
+    "seed": 20261022,
+    "fold": 2,
+    "protocol": "SVM",
+    "candidate": 11,
+    "recipe": {
+      "family": "SVM",
+      "feature": "DCT16",
+      "param": 1.0
+    },
+    "threshold": 0.5,
+    "inner_quality": 0.657243816254417
+  },
+  {
+    "seed": 20261022,
+    "fold": 2,
+    "protocol": "Logistic",
+    "candidate": 15,
+    "recipe": {
+      "family": "Logistic",
+      "feature": "DCT16",
+      "param": 1.0
+    },
+    "threshold": 0.6,
+    "inner_quality": 0.6342827586206897
+  },
+  {
+    "seed": 20261022,
+    "fold": 3,
+    "protocol": "baseline",
+    "candidate": 0,
+    "recipe": {
+      "family": "ExtraTrees",
+      "feature": "Combined",
+      "param": 1
+    },
+    "threshold": 0.3,
+    "inner_quality": 0.7611047619047618
+  },
+  {
+    "seed": 20261022,
+    "fold": 3,
+    "protocol": "nested",
+    "candidate": 5,
+    "recipe": {
+      "family": "RandomForest",
+      "feature": "Combined",
+      "param": 2
+    },
+    "threshold": 0.4,
+    "inner_quality": 0.7663198237885462
+  },
+  {
+    "seed": 20261022,
+    "fold": 3,
+    "protocol": "ExtraTrees",
+    "candidate": 0,
+    "recipe": {
+      "family": "ExtraTrees",
+      "feature": "Combined",
+      "param": 1
+    },
+    "threshold": 0.3,
+    "inner_quality": 0.7611047619047618
+  },
+  {
+    "seed": 20261022,
+    "fold": 3,
+    "protocol": "RandomForest",
+    "candidate": 5,
+    "recipe": {
+      "family": "RandomForest",
+      "feature": "Combined",
+      "param": 2
+    },
+    "threshold": 0.4,
+    "inner_quality": 0.7663198237885462
+  },
+  {
+    "seed": 20261022,
+    "fold": 3,
+    "protocol": "SVM",
+    "candidate": 11,
+    "recipe": {
+      "family": "SVM",
+      "feature": "DCT16",
+      "param": 1.0
+    },
+    "threshold": 0.6,
+    "inner_quality": 0.7212611872146119
+  },
+  {
+    "seed": 20261022,
+    "fold": 3,
+    "protocol": "Logistic",
+    "candidate": 15,
+    "recipe": {
+      "family": "Logistic",
+      "feature": "DCT16",
+      "param": 1.0
+    },
+    "threshold": 0.6,
+    "inner_quality": 0.6875192982456141
+  },
+  {
+    "seed": 20261022,
+    "fold": 4,
+    "protocol": "baseline",
+    "candidate": 0,
+    "recipe": {
+      "family": "ExtraTrees",
+      "feature": "Combined",
+      "param": 1
+    },
+    "threshold": 0.4,
+    "inner_quality": 0.7761713080168776
+  },
+  {
+    "seed": 20261022,
+    "fold": 4,
+    "protocol": "nested",
+    "candidate": 0,
+    "recipe": {
+      "family": "ExtraTrees",
+      "feature": "Combined",
+      "param": 1
+    },
+    "threshold": 0.4,
+    "inner_quality": 0.7761713080168776
+  },
+  {
+    "seed": 20261022,
+    "fold": 4,
+    "protocol": "ExtraTrees",
+    "candidate": 0,
+    "recipe": {
+      "family": "ExtraTrees",
+      "feature": "Combined",
+      "param": 1
+    },
+    "threshold": 0.4,
+    "inner_quality": 0.7761713080168776
+  },
+  {
+    "seed": 20261022,
+    "fold": 4,
+    "protocol": "RandomForest",
+    "candidate": 4,
+    "recipe": {
+      "family": "RandomForest",
+      "feature": "Combined",
+      "param": 1
+    },
+    "threshold": 0.4,
+    "inner_quality": 0.6927824561403509
+  },
+  {
+    "seed": 20261022,
+    "fold": 4,
+    "protocol": "SVM",
+    "candidate": 9,
+    "recipe": {
+      "family": "SVM",
+      "feature": "Combined",
+      "param": 1.0
+    },
+    "threshold": 0.5,
+    "inner_quality": 0.7265917602996255
+  },
+  {
+    "seed": 20261022,
+    "fold": 4,
+    "protocol": "Logistic",
+    "candidate": 15,
+    "recipe": {
+      "family": "Logistic",
+      "feature": "DCT16",
+      "param": 1.0
+    },
+    "threshold": 0.6,
+    "inner_quality": 0.6781216783216784
+  }
+]

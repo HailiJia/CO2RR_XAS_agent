@@ -1,0 +1,109 @@
+{
+  "configuration": "plain",
+  "reference_id": "co2rr-20261101-5a37c9c9750f1494cf408477",
+  "pinned_clean_scale": 0.022518758719618052,
+  "checked_sources": [
+    {
+      "path": "plain/XAS/FDMNES/green/layer_2/Cu_layer2_conv.txt",
+      "bytes": 7202,
+      "sha256": "6b973c847f9b9c2f4d416f19a3898600969fe33c29f36ddbdc4c06e313cff17b"
+    },
+    {
+      "path": "plain/XAS/FDMNES/green/layer_2/Cu_layer2_convolution_in.txt",
+      "bytes": 69,
+      "sha256": "25c5e292a2ce79644dc0242473d83db85fcd85c37eff39acfcaf2d532c2cebb3"
+    },
+    {
+      "path": "plain/XAS/FDMNES/green/layer_2/Cu_layer2_in.txt",
+      "bytes": 15617,
+      "sha256": "59535f4642ceeb38b2cf24c3a8a1199c96dd5d2d5fced71e5b229e15a050e543"
+    },
+    {
+      "path": "plain/XAS/FDMNES/green/layer_2/Cu_layer2_resume_in.txt",
+      "bytes": 15557,
+      "sha256": "0867b714d160528d0ab696d05f90b0ed2741edc188a7d7afa9243e544a82253e"
+    },
+    {
+      "path": "plain/XAS/FDMNES/green/layer_2/absorbers.tsv",
+      "bytes": 524,
+      "sha256": "3dca9e94b92ddc9cfec03a3676f633273440e3e74b27e60143e1c41093a5a75e"
+    },
+    {
+      "path": "plain/XAS/FDMNES/green/layer_3/Cu_layer3_conv.txt",
+      "bytes": 7202,
+      "sha256": "75dbd68570c2a173e1cce3045ca7bea5bab4a7ab60fb17f6045a00794c25707a"
+    },
+    {
+      "path": "plain/XAS/FDMNES/green/layer_3/Cu_layer3_convolution_in.txt",
+      "bytes": 69,
+      "sha256": "bf1a4248a218616b0f2f957d6df624beb4c4835789fd3ad994d7e5b4e9c923c9"
+    },
+    {
+      "path": "plain/XAS/FDMNES/green/layer_3/Cu_layer3_in.txt",
+      "bytes": 15626,
+      "sha256": "32cf95c77efbb4f59384e331fef9c60eecaa5578923defed05877ca9552dadac"
+    },
+    {
+      "path": "plain/XAS/FDMNES/green/layer_3/Cu_layer3_resume_in.txt",
+      "bytes": 15561,
+      "sha256": "9a0be75949a547fc3f944ab7d090c649e99610bc3325f1531dd23d569f006e47"
+    },
+    {
+      "path": "plain/XAS/FDMNES/green/layer_3/absorbers.tsv",
+      "bytes": 533,
+      "sha256": "2ee6f09e1175f414c754b1134babb20cc31f38c80a0d053585748b73e9e8c771"
+    },
+    {
+      "path": "plain/XAS/FDMNES/green/layer_4/Cu_layer4_conv.txt",
+      "bytes": 7202,
+      "sha256": "ad9bbb02a4d54c169f977a5c24fd7f7c6e783d564df5715d8db5aea6e956ec52"
+    },
+    {
+      "path": "plain/XAS/FDMNES/green/layer_4/Cu_layer4_convolution_in.txt",
+      "bytes": 69,
+      "sha256": "2bbfbb2d1b4e0bc8e623804010f51266f81662a7afe27810b6cc8c781c33d361"
+    },
+    {
+      "path": "plain/XAS/FDMNES/green/layer_4/Cu_layer4_in.txt",
+      "bytes": 15653,
+      "sha256": "4aa3b5dc4e7fde246e7c51ae4ecd4752ddf2a66f6e474049134efe6850436acc"
+    },
+    {
+      "path": "plain/XAS/FDMNES/green/layer_4/Cu_layer4_resume_in.txt",
+      "bytes": 15513,
+      "sha256": "223b78ca91ad606f5fc386c60ec4b05ed728af5f14fd1c452048b5343fafd29e"
+    },
+    {
+      "path": "plain/XAS/FDMNES/green/layer_4/absorbers.tsv",
+      "bytes": 560,
+      "sha256": "a102626e66f04c64b86fb1e638b5f4f4a71fd438f5cbdc7f8df28b6604b9ef69"
+    },
+    {
+      "path": "plain/XAS/FDMNES/green/layer_5/Cu_layer5_conv.txt",
+      "bytes": 7202,
+      "sha256": "c8dc3bf63443bd83f65fc5c6d143b7d47d99a51fc4bed12f29aa8002c399a776"
+    },
+    {
+      "path": "plain/XAS/FDMNES/green/layer_5/Cu_layer5_convolution_in.txt",
+      "bytes": 69,
+      "sha256": "47daef821b6792eb6d382c40ad3a88972ae8ea14cbd6c7b80c46bec170924dab"
+    },
+    {
+      "path": "plain/XAS/FDMNES/green/layer_5/Cu_layer5_in.txt",
+      "bytes": 15653,
+      "sha256": "29f4352dafe2a802b138c0bb8f8dc472875e6feae2de2bdfebf830bc6887a820"
+    },
+    {
+      "path": "plain/XAS/FDMNES/green/layer_5/Cu_layer5_resume_in.txt",
+      "bytes": 15513,
+      "sha256": "98ce021a27336c53daa393e0b628f53d10c47953c027467b974d264bfa0c4abc"
+    },
+    {
+      "path": "plain/XAS/FDMNES/green/layer_5/absorbers.tsv",
+      "bytes": 560,
+      "sha256": "ab548596ebeb96a36126b987008c1751b15f92225d624b0caffbfaedc8424f5c"
+    }
+  ],
+  "clean_labels": [],
+  "note": "Pinned audited clean physical spectrum, not current incomplete redundant native Cu100 aggregate"
+}

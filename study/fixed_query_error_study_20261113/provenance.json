@@ -1,0 +1,54 @@
+{
+  "repository": "HailiJia/CO2RR_XAS_agent",
+  "draft_pr": 18,
+  "base_commit": "12d9409c6be60492d925356e7deaa7431806330a",
+  "previous_dataset": "study/dataset_20261101: 141 configurations/135 near groups",
+  "previous_inputs_sha256": "84439cdcd899ad4451d11c1176411d8a8407fb92995b4d1b9ecc29ed267d44e3",
+  "previous_manifest_sha256": "62d064e3a020b0c70dfa37f10ca81389e6722e3fde80aac54d4e6c88af987d1f",
+  "new_dataset": "/Users/hailijia/Downloads/CO2RR_1113",
+  "old_raw": "/Users/hailijia/Downloads/CO2RR_11103",
+  "new_dataset_label": "local November 13 source export CO2RR_1113; not uploaded at base commit",
+  "prior_report": "local November 13 report found outside checkout; prior scores are verified unchanged-cohort model comparisons, not added-data effects",
+  "prior_local_files": [
+    {
+      "path": "/Users/hailijia/Downloads/CO2RR_11103/model_comparison_20261113/REPORT.md",
+      "sha256": "1bcb518f981299f29d9df3e38309b76a3654aa7dddf112dff114cac35920ec4e"
+    },
+    {
+      "path": "/Users/hailijia/Downloads/CO2RR_11103/model_comparison_20261113/protocol.json",
+      "sha256": "5070ae65ae855b0d76bc4dbebb2513d62cf7a354d344a1175a558c9bc75b996c"
+    },
+    {
+      "path": "/Users/hailijia/Downloads/CO2RR_11103/model_comparison_20261113/summary.json",
+      "sha256": "e8c5ec8eabbf15183f905b00945a561fc1e79990fb4ffc13eb900eea67daf08c"
+    },
+    {
+      "path": "/Users/hailijia/Downloads/CO2RR_11103/model_comparison_20261113/group_weighted_summary.json",
+      "sha256": "589396294aa78a09abc8a1a7810588353892ffa2a65537f4cfc55bad2fd1362a"
+    },
+    {
+      "path": "/Users/hailijia/Downloads/CO2RR_11103/model_comparison_20261113/selection.json",
+      "sha256": "4eb79c764f88682f67e8fb902ade05175c2385a5c75371e005dd18813ab50992"
+    },
+    {
+      "path": "/Users/hailijia/Downloads/CO2RR_11103/model_comparison_20261113/report_group_scores.py",
+      "sha256": "a49dfa72e3d58e9addc6f1f60491f9e9597fc99dc5adf5f11a00f59ca78052f0"
+    },
+    {
+      "path": "/Users/hailijia/Downloads/CO2RR_11103/run_model_comparison.py",
+      "sha256": "a8db6a740c33715a8c27618153322a97a001362d0711d5d80b05d512283300a7"
+    },
+    {
+      "path": "/Users/hailijia/Downloads/CO2RR_11103/model_comparison_20261113/baseline_20261020.npz",
+      "sha256": "0d2798d2a5943f289885c408f5d3d98b644fe3597946c55b4941c8dc805c22e9"
+    },
+    {
+      "path": "/Users/hailijia/Downloads/CO2RR_11103/model_comparison_20261113/baseline_20261021.npz",
+      "sha256": "d616fd241cb69b936e44795495d86b04693d7f916b9c9c1674efb051a3eb7e21"
+    },
+    {
+      "path": "/Users/hailijia/Downloads/CO2RR_11103/model_comparison_20261113/baseline_20261022.npz",
+      "sha256": "f0f72e3547202b76618a73cc893fd5c88032c3bcb62afd96eb8e9f2dfcc474e1"
+    }
+  ]
+}

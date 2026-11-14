@@ -1,0 +1,27 @@
+{
+  "actual_CO_H_cases": 11,
+  "CO_only_cases": 33,
+  "same_loading_candidate_pairs": 44,
+  "strict_matched_pairs": 0,
+  "strict_criterion": "same initial metal-parent hash, substrate, CO count, environment and CO contact compositions; carbon RMS<=.5A/max<=1A; descriptive relaxed-site comparability, not proof of a controlled H-only perturbation",
+  "strict_pairs": [],
+  "first_recommendation": {
+    "rank": 1,
+    "calculation": "CO-only counterpart of an existing repeatedly missed relaxed CO+H configuration",
+    "hold_fixed": "Same clean parent, cell, Cu/Au ordering, electronic/broadening settings, top-two absorber populations and CO count/contact motif as CO_H/CO_H_0p083_2CO_1H",
+    "vary": "Remove only isolated H from the XAS-used CO+H snapshot for an initial vertical diagnostic; then separately relax the CO-only counterpart under the same slab constraints. Label vertical and relaxed comparisons separately.",
+    "decision_changing_result": "If adding H gives a reproducible signed contribution above matched CO-only site variation and independently estimated measurement/registration uncertainty, pursue residual/contrast features; if not, collect complementary H-sensitive observables rather than lower the cutoff.",
+    "reservation": "Reserve the entire new clean/CO-only/CO+H family and all its layer/site views for prospective checks; never split a family between training and evaluation",
+    "submit_jobs": false,
+    "anchor_configuration": "CO_H/CO_H_0p083_2CO_1H",
+    "n_CO": 2,
+    "environment": "interface/Au-associated",
+    "missed_H_seeds": 3,
+    "existing_strict_counterpart": false
+  },
+  "measured_noise_or_registration_estimates": "None supplied. 0.2eV grid spacing is sampling, not an uncertainty estimate. Synthetic perturbations above are sensitivity scenarios only.",
+  "additivity": "CO-only template fit is a hypothesis, not a decomposition of actual relaxed mixture physics; actual shared-scale pair differences include slab/CO relaxation and site effects.",
+  "missing_pairs": "No unmatched pair is promoted to an H-only contrast; nearest candidates are explicitly labeled.",
+  "pure_CHO_support": 2,
+  "COCHO_positive_groups": 1
+}

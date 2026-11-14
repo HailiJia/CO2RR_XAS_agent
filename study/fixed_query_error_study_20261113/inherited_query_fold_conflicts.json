@@ -1,0 +1,67 @@
+[
+  {
+    "near_group": "CHO/CHO_0p056_interior_Cu",
+    "records": [
+      {
+        "configuration": "CHO/CHO_0p056_interior_Cu",
+        "fold": 3
+      },
+      {
+        "configuration": "CHO/CHO_0p056_uniform",
+        "fold": 4
+      }
+    ]
+  },
+  {
+    "near_group": "CO2/CO2_0p056_mixed",
+    "records": [
+      {
+        "configuration": "CO2/CO2_0p056_mixed",
+        "fold": 2
+      },
+      {
+        "configuration": "CO2/CO2_0p056_uniform_activated",
+        "fold": 1
+      }
+    ]
+  },
+  {
+    "near_group": "COOH/COOH_0p056_Cu_interface",
+    "records": [
+      {
+        "configuration": "COOH/COOH_0p056_Cu_interface",
+        "fold": 0
+      },
+      {
+        "configuration": "COOH/COOH_0p056_Cu_uniform",
+        "fold": 2
+      }
+    ]
+  },
+  {
+    "near_group": "H/H_0p5/interface_biased2",
+    "records": [
+      {
+        "configuration": "H_0p5/interface_biased2",
+        "fold": 3
+      },
+      {
+        "configuration": "H_0p75/interface_biased2",
+        "fold": 4
+      }
+    ]
+  },
+  {
+    "near_group": "H/H_0p5/interior_biased",
+    "records": [
+      {
+        "configuration": "H_0p5/interior_biased",
+        "fold": 1
+      },
+      {
+        "configuration": "H_0p75/interior_biased",
+        "fold": 4
+      }
+    ]
+  }
+]
